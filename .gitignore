@@ -1,2 +1,6 @@
 .worktrees/
+.venv/
+__pycache__/
+.pytest_cache/
+career_runs/
 
