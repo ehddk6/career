@@ -1,7 +1,7 @@
 import argparse
 from pathlib import Path
 
-from .orchestrator import prepare_run
+from .orchestrator import finalize_run, prepare_run
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -34,8 +34,9 @@ def main() -> int:
         )
         print(state["run_dir"])
         return 2 if state["status"] == "blocked" else 0
-    build_parser().error("최종 산출물을 먼저 생성해야 합니다.")
-    return 1
+    state = finalize_run(Path(args.run))
+    print(state["status"])
+    return 0 if state["status"] == "complete" else 3
 
 
 if __name__ == "__main__":
