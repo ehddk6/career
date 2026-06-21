@@ -1,0 +1,4 @@
+interface:
+  display_name: "Career Pipeline"
+  short_description: "자소서 분석·공식 조사·작성·면접팩을 한 번에 실행"
+  default_prompt: "Use $career-pipeline to analyze my career files, research the target, draft the application, and build an interview pack."
