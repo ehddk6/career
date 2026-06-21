@@ -1,6 +1,7 @@
 from pathlib import Path
 
 from docx import Document
+import pytest
 import yaml
 
 from career_pipeline.conflicts import override_key
@@ -77,3 +78,41 @@ def test_prepare_writes_artifacts_blocks_on_conflict_and_resumes(tmp_path: Path)
             "character_limit": 600,
         }
     ]
+
+
+def test_prepare_excludes_company_research_from_personal_fact_conflicts(tmp_path: Path):
+    write_docx(tmp_path / "career.docx", "서울시청 근무 기간은 1개월입니다.")
+    research = tmp_path / "자료조사"
+    research.mkdir()
+    write_docx(research / "posting.docx", "채용 근무 기간은 3개월입니다.")
+    draft = tmp_path / "draft.docx"
+    write_docx(
+        draft,
+        "지원동기를 작성해 주십시오.",
+        "0/600 (글자 수, 공백 포함)",
+    )
+
+    state = prepare_run(tmp_path, "HUG 금융·기금", draft, None, "research-filter")
+
+    assert state["status"] == "ready_for_research"
+
+
+def test_prepare_fails_fast_with_clear_message_when_draft_is_locked(
+    tmp_path: Path, monkeypatch
+):
+    draft = tmp_path / "draft.docx"
+    write_docx(draft, "지원동기를 작성해 주십시오.")
+
+    from career_pipeline import inventory
+
+    original_digest = inventory._digest
+
+    def deny_draft(path: Path) -> str:
+        if path == draft:
+            raise PermissionError("file is in use")
+        return original_digest(path)
+
+    monkeypatch.setattr(inventory, "_digest", deny_draft)
+
+    with pytest.raises(PermissionError, match="초안 파일을 닫고"):
+        prepare_run(tmp_path, "HUG", draft, None, "locked-draft")

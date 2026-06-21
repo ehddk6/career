@@ -43,31 +43,75 @@ def _normalize(number: str, unit: str) -> tuple[str, str]:
     )
 
 
-def _field(context: str, unit_kind: str) -> str:
-    if any(word in context for word in ("절감", "예산", "누수", "낭비", "지켜", "줄였")) and unit_kind in {
+def _field(context: str, number: str, unit_kind: str) -> str:
+    escaped_number = re.escape(number)
+    if unit_kind == "percentage" and (
+        re.search(
+            rf"(?:속도|시간|업무량|처리량).{{0,30}}{escaped_number}\s*%",
+            context,
+        )
+        or re.search(
+            rf"{escaped_number}\s*%.{{0,20}}(?:단축|감소|향상)",
+            context,
+        )
+    ):
+        return "metric:percentage"
+    if any(word in context for word in ("절감", "예산", "누수", "낭비", "지켜")) and unit_kind in {
         "money",
         "percentage",
     }:
         return "budget_savings"
+    if unit_kind == "건" and re.search(
+        rf"{escaped_number}\s*건(?:의\s*(?:영수증|청구|자료)|[을를]\s*처리)",
+        context,
+    ):
+        return "processed_case_count"
     if unit_kind == "건" and any(
         word in context for word in ("적발", "발견", "확인", "처리")
     ):
         return "case_count"
-    if unit_kind in {"일", "주", "개월", "년"}:
-        return "duration"
+    if unit_kind == "년" and len(number.replace(",", "")) == 4:
+        return "metric:년"
+    if unit_kind == "년" and re.search(r"\d[\d,]*(?:\.\d+)?\s*년\s*차", context):
+        return "metric:년"
+    if unit_kind in {"일", "주", "개월", "년"} and (
+        "근무" in context
+        or "재직" in context
+        or "인턴 기간" in context
+        or "아르바이트 기간" in context
+    ):
+        return "employment_period"
     return f"metric:{unit_kind}"
+
+
+def _sentence_window(context: str, start: int, end: int) -> tuple[str, int, int]:
+    left = max(context.rfind(mark, 0, start) for mark in (".", "!", "?", "\n"))
+    boundaries = [context.find(mark, end) for mark in (".", "!", "?", "\n")]
+    right_candidates = [position for position in boundaries if position >= 0]
+    right = min(right_candidates) + 1 if right_candidates else len(context)
+    segment_start = left + 1
+    return context[segment_start:right].strip(), start - segment_start, end - segment_start
 
 
 def extract_fact_claims(documents: list[ExtractedDocument]) -> list[FactClaim]:
     claims = []
     for document in documents:
         for paragraph_index, context in enumerate(document.paragraphs):
-            tokens = frozenset(
-                normalized
-                for raw in TOKEN.findall(context)
-                if (normalized := _normalize_token(raw)) not in STOPWORDS
-            )
             for match in METRIC.finditer(context):
+                sentence, local_start, local_end = _sentence_window(
+                    context, match.start(), match.end()
+                )
+                nearby = sentence[
+                    max(0, local_start - 120) : min(len(sentence), local_end + 120)
+                ]
+                classification = sentence[
+                    max(0, local_start - 50) : min(len(sentence), local_end + 50)
+                ]
+                tokens = frozenset(
+                    normalized
+                    for raw in TOKEN.findall(nearby)
+                    if (normalized := _normalize_token(raw)) not in STOPWORDS
+                )
                 normalized, unit_kind = _normalize(
                     match.group("number"), match.group("unit")
                 )
@@ -76,7 +120,7 @@ def extract_fact_claims(documents: list[ExtractedDocument]) -> list[FactClaim]:
                         document.source.relative_path,
                         paragraph_index,
                         context,
-                        _field(context, unit_kind),
+                        _field(classification, match.group("number"), unit_kind),
                         match.group(0),
                         normalized,
                         unit_kind,

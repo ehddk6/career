@@ -4,7 +4,11 @@ from pathlib import Path
 
 import yaml
 
-from .conflicts import apply_overrides, detect_conflicts, override_key
+from .conflicts import (
+    apply_overrides,
+    conflict_override_key,
+    detect_conflicts,
+)
 from .extractors import extract_path
 from .facts import extract_fact_claims
 from .inventory import build_inventory
@@ -39,7 +43,7 @@ def _conflict_markdown(conflicts, claims) -> str:
             claim = claims[index]
             lines.append(f"- `{claim.source_path}`: {claim.context}")
         lines.append(
-            f"- override key: `{override_key(claims[conflict.claim_indexes[0]])}`"
+            f"- override key: `{conflict_override_key(conflict, claims)}`"
         )
         lines.append(
             "- 확인 질문: 실제 제출에 사용할 값과 근거 파일을 지정해 주세요."
@@ -71,6 +75,14 @@ def prepare_run(
     draft = draft.resolve()
     run_dir = resolve_run_dir(root, target, run_name, resume)
     inventory = build_inventory(root)
+    draft_record = next(
+        item for item in inventory if item.path.resolve() == draft
+    )
+    if draft_record.status == "failed":
+        raise PermissionError(
+            "대상 초안을 읽을 수 없습니다. 초안 파일을 닫고 다시 실행해 주세요. "
+            f"원인: {draft_record.reason}"
+        )
     documents = []
     for index, source in enumerate(inventory):
         if source.status != "use":
@@ -82,14 +94,18 @@ def prepare_run(
                 source, status="failed", reason=f"{type(error).__name__}: {error}"
             )
 
-    claims = extract_fact_claims(documents)
+    fact_documents = [
+        document
+        for document in documents
+        if "자료조사" not in Path(document.source.relative_path).parts
+        and "직무기술서" not in Path(document.source.relative_path).name
+        and "채용공고" not in Path(document.source.relative_path).name
+    ]
+    claims = extract_fact_claims(fact_documents)
     overrides = _load_overrides(run_dir / "fact_overrides.yaml")
     accepted = apply_overrides(claims, overrides)
     conflicts = detect_conflicts(accepted)
 
-    draft_record = next(
-        item for item in inventory if item.path.resolve() == draft
-    )
     questions = extract_questions(extract_path(draft_record).paragraphs)
 
     (run_dir / "01_자료목록.md").write_text(

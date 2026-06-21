@@ -1,4 +1,5 @@
 from pathlib import Path
+import re
 
 from docx import Document
 from openpyxl import load_workbook
@@ -7,20 +8,32 @@ from pypdf import PdfReader
 from .models import ExtractedDocument, SourceRecord
 
 
+def split_text_blocks(text: str) -> list[str]:
+    blocks = []
+    for line in re.split(r"[\r\n]+", text):
+        clean = line.strip()
+        if not clean:
+            continue
+        blocks.extend(
+            sentence.strip()
+            for sentence in re.split(r"(?<=[.!?])\s+", clean)
+            if sentence.strip()
+        )
+    return blocks
+
+
 def _extract_docx(path: Path) -> list[str]:
     document = Document(path)
-    paragraphs = [
-        paragraph.text.strip()
-        for paragraph in document.paragraphs
-        if paragraph.text.strip()
-    ]
-    for table in document.tables:
-        for row in table.rows:
-            text = " | ".join(
-                cell.text.strip() for cell in row.cells if cell.text.strip()
-            )
-            if text:
-                paragraphs.append(text)
+    paragraphs = []
+    for paragraph in document.paragraphs:
+        paragraphs.extend(split_text_blocks(paragraph.text))
+    for table_index, table in enumerate(document.tables, 1):
+        for row_index, row in enumerate(table.rows, 1):
+            for cell_index, cell in enumerate(row.cells, 1):
+                for block in split_text_blocks(cell.text):
+                    paragraphs.append(
+                        f"[표 {table_index} R{row_index}C{cell_index}] {block}"
+                    )
     return paragraphs
 
 
@@ -29,7 +42,7 @@ def _extract_pdf(path: Path) -> list[str]:
     for page in PdfReader(path).pages:
         text = (page.extract_text() or "").strip()
         if text:
-            paragraphs.append(text)
+            paragraphs.extend(split_text_blocks(text))
     return paragraphs
 
 
@@ -39,13 +52,12 @@ def _extract_xlsx(path: Path) -> list[str]:
     for sheet in workbook.worksheets:
         paragraphs.append(f"[시트] {sheet.title}")
         for row in sheet.iter_rows():
-            values = [
-                str(cell.value).strip()
-                for cell in row
-                if cell.value not in (None, "")
-            ]
-            if values:
-                paragraphs.append(" | ".join(values))
+            for cell in row:
+                if cell.value not in (None, ""):
+                    for block in split_text_blocks(str(cell.value)):
+                        paragraphs.append(
+                            f"[{sheet.title}!{cell.coordinate}] {block}"
+                        )
     return paragraphs
 
 
@@ -57,7 +69,9 @@ def extract_path(source: SourceRecord) -> ExtractedDocument:
     elif source.extension == ".xlsx":
         paragraphs = _extract_xlsx(source.path)
     elif source.extension in {".txt", ".md"}:
-        paragraphs = [source.path.read_text(encoding="utf-8-sig").strip()]
+        paragraphs = split_text_blocks(
+            source.path.read_text(encoding="utf-8-sig")
+        )
     else:
         raise ValueError(f"unsupported extension: {source.extension}")
 

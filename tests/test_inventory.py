@@ -13,6 +13,8 @@ def test_inventory_excludes_sensitive_paths_without_reading_them_and_marks_dupli
     (tmp_path / "학교성적" / "grade.txt").write_text("private", encoding="utf-8")
     (tmp_path / ".worktrees").mkdir()
     (tmp_path / ".worktrees" / "nested.txt").write_text("internal", encoding="utf-8")
+    (tmp_path / "docs").mkdir()
+    (tmp_path / "docs" / "implementation.md").write_text("internal", encoding="utf-8")
     (tmp_path / "Chrome 비밀번호.csv").write_text("secret", encoding="utf-8")
 
     from career_pipeline import inventory
@@ -30,9 +32,28 @@ def test_inventory_excludes_sensitive_paths_without_reading_them_and_marks_dupli
 
     assert statuses["학교성적/"] == "excluded"
     assert ".worktrees/" in statuses
+    assert "docs/" in statuses
     assert "학교성적/grade.txt" not in statuses
     assert ".worktrees/nested.txt" not in statuses
+    assert "docs/implementation.md" not in statuses
     assert statuses["Chrome 비밀번호.csv"] == "excluded"
     assert sorted(
         statuses[path] for path in ["경험정리/a.txt", "경험정리/b.txt"]
     ) == ["duplicate", "use"]
+
+
+def test_inventory_marks_unreadable_supported_file_as_failed(tmp_path: Path, monkeypatch):
+    locked = tmp_path / "locked.docx"
+    locked.write_bytes(b"locked")
+
+    from career_pipeline import inventory
+
+    def deny_read(path: Path) -> str:
+        raise PermissionError("file is in use")
+
+    monkeypatch.setattr(inventory, "_digest", deny_read)
+
+    [record] = build_inventory(tmp_path)
+
+    assert record.status == "failed"
+    assert "PermissionError" in record.reason

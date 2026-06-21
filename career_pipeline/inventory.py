@@ -15,7 +15,9 @@ EXCLUDED_DIRS = {
     ".git",
     ".venv",
     ".worktrees",
+    ".agents",
     "career_runs",
+    "docs",
 }
 EXCLUDED_NAMES = {"Chrome 비밀번호.csv"}
 
@@ -64,13 +66,20 @@ def build_inventory(root: Path) -> list[SourceRecord]:
                 if excluded
                 else ("unsupported extension" if not supported else "")
             )
+            digest = ""
+            if status == "use":
+                try:
+                    digest = _digest(path)
+                except OSError as error:
+                    status = "failed"
+                    reason = f"{type(error).__name__}: {error}"
             records.append(
                 SourceRecord(
                     path=path,
                     relative_path=relative_path.as_posix(),
                     extension=path.suffix.lower(),
                     size=path.stat().st_size,
-                    sha256="" if status == "excluded" else _digest(path),
+                    sha256=digest,
                     status=status,
                     reason=reason,
                 )
