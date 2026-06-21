@@ -46,3 +46,17 @@ class Conflict:
     claim_indexes: tuple[int, ...]
     values: tuple[str, ...]
     reason: str
+
+
+@dataclass(frozen=True)
+class DraftResponse:
+    question_index: int
+    answer: str
+    evidence_paths: tuple[str, ...]
+
+
+@dataclass(frozen=True)
+class ValidationIssue:
+    code: str
+    question_index: int
+    message: str
