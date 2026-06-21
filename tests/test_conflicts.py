@@ -4,7 +4,7 @@ from career_pipeline.conflicts import (
     detect_conflicts,
     override_key,
 )
-from career_pipeline.models import FactClaim
+from career_pipeline.models import Conflict, FactClaim
 
 
 TOKENS = frozenset({"서울시청", "숙박비", "의료인력", "검증", "예산"})
@@ -145,3 +145,49 @@ def test_group_override_resolves_claims_with_different_extra_tokens():
     resolved = apply_overrides(claims, {key: "40000000원"})
 
     assert [item.normalized_value for item in resolved] == ["40000000원"]
+
+
+def test_overrides_repeat_until_newly_exposed_conflicts_are_resolved(monkeypatch):
+    claims = [
+        FactClaim(
+            "a.docx", 0, "서울시청 숙박비 1천만원", "budget_savings",
+            "1천만원", "10000000원", "money",
+            frozenset({"서울시청", "숙박비", "의료인력"}),
+        ),
+        FactClaim(
+            "b.docx", 0, "서울시청 숙박비 3천만원", "budget_savings",
+            "3천만원", "30000000원", "money",
+            frozenset({"가상", "서울시청", "숙박비"}),
+        ),
+        FactClaim(
+            "c.docx", 0, "서울시청 숙박비 2천만원", "budget_savings",
+            "2천만원", "20000000원", "money",
+            frozenset({"다른", "서울시청", "숙박비"}),
+        ),
+    ]
+    calls = 0
+
+    def staged_conflicts(current):
+        nonlocal calls
+        calls += 1
+        if len(current) == 3:
+            return [
+                Conflict(
+                    "budget_savings", (0, 1), ("10000000원", "30000000원"), "test"
+                )
+            ]
+        if len(current) == 2:
+            return [
+                Conflict(
+                    "budget_savings", (0, 1), ("10000000원", "20000000원"), "test"
+                )
+            ]
+        return []
+
+    monkeypatch.setattr("career_pipeline.conflicts.detect_conflicts", staged_conflicts)
+    key = override_key(claims[0])
+
+    resolved = apply_overrides(claims, {key: "10000000원"})
+
+    assert [item.normalized_value for item in resolved] == ["10000000원"]
+    assert calls >= 3

@@ -86,16 +86,26 @@ def conflict_override_key(conflict: Conflict, claims: list[FactClaim]) -> str:
 def apply_overrides(
     claims: list[FactClaim], overrides: dict[str, str]
 ) -> list[FactClaim]:
-    group_overrides: dict[int, str] = {}
-    for conflict in detect_conflicts(claims):
-        expected = overrides.get(conflict_override_key(conflict, claims))
-        if expected is not None:
-            for index in conflict.claim_indexes:
-                group_overrides[index] = expected
-
     accepted = []
-    for index, claim in enumerate(claims):
-        expected = group_overrides.get(index, overrides.get(override_key(claim)))
+    for claim in claims:
+        expected = overrides.get(override_key(claim))
         if expected is None or claim.normalized_value == expected:
             accepted.append(claim)
+
+    while True:
+        rejected: set[int] = set()
+        for conflict in detect_conflicts(accepted):
+            expected = overrides.get(conflict_override_key(conflict, accepted))
+            if expected is None:
+                continue
+            rejected.update(
+                index
+                for index in conflict.claim_indexes
+                if accepted[index].normalized_value != expected
+            )
+        if not rejected:
+            break
+        accepted = [
+            claim for index, claim in enumerate(accepted) if index not in rejected
+        ]
     return accepted
