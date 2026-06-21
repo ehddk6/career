@@ -1,6 +1,7 @@
 from collections import defaultdict
 from dataclasses import replace
 from hashlib import sha256
+import os
 from pathlib import Path
 
 from .models import SourceRecord
@@ -30,29 +31,52 @@ def _digest(path: Path) -> str:
 def build_inventory(root: Path) -> list[SourceRecord]:
     root = root.resolve()
     records: list[SourceRecord] = []
-    for path in sorted(candidate for candidate in root.rglob("*") if candidate.is_file()):
-        relative_path = path.relative_to(root)
-        excluded = path.name in EXCLUDED_NAMES or any(
-            part in EXCLUDED_DIRS for part in relative_path.parts
-        )
-        supported = path.suffix.lower() in SUPPORTED
-        status = "excluded" if excluded or not supported else "use"
-        reason = (
-            "sensitive/default exclusion"
-            if excluded
-            else ("unsupported extension" if not supported else "")
-        )
-        records.append(
-            SourceRecord(
-                path=path,
-                relative_path=relative_path.as_posix(),
-                extension=path.suffix.lower(),
-                size=path.stat().st_size,
-                sha256="" if status == "excluded" else _digest(path),
-                status=status,
-                reason=reason,
+    for current, directory_names, file_names in os.walk(root):
+        current_path = Path(current)
+        retained_directories = []
+        for directory_name in sorted(directory_names):
+            directory = current_path / directory_name
+            relative = directory.relative_to(root)
+            if directory_name in EXCLUDED_DIRS:
+                records.append(
+                    SourceRecord(
+                        path=directory,
+                        relative_path=relative.as_posix() + "/",
+                        extension="",
+                        size=0,
+                        sha256="",
+                        status="excluded",
+                        reason="sensitive/default exclusion",
+                    )
+                )
+            else:
+                retained_directories.append(directory_name)
+        directory_names[:] = retained_directories
+
+        for file_name in sorted(file_names):
+            path = current_path / file_name
+            relative_path = path.relative_to(root)
+            excluded = path.name in EXCLUDED_NAMES
+            supported = path.suffix.lower() in SUPPORTED
+            status = "excluded" if excluded or not supported else "use"
+            reason = (
+                "sensitive/default exclusion"
+                if excluded
+                else ("unsupported extension" if not supported else "")
             )
-        )
+            records.append(
+                SourceRecord(
+                    path=path,
+                    relative_path=relative_path.as_posix(),
+                    extension=path.suffix.lower(),
+                    size=path.stat().st_size,
+                    sha256="" if status == "excluded" else _digest(path),
+                    status=status,
+                    reason=reason,
+                )
+            )
+
+    records.sort(key=lambda record: record.relative_path)
 
     by_hash: dict[str, list[int]] = defaultdict(list)
     for index, record in enumerate(records):
