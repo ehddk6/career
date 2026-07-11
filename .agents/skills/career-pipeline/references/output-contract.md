@@ -41,9 +41,13 @@ UTF-8 JSON 배열로 작성한다.
 
 `1분 자기소개`, 문항별 30·60·90초 답변, `꼬리질문`, `압박질문`, 로컬 `근거`를 포함한다. 자기소개서와 승인 원장에 없는 새로운 수치를 추가하지 않는다.
 
+## `12_최종산출물.json`
+
+최종 답변 JSON·Markdown·DOCX의 상대 경로와 SHA-256, 선택된 원본 종류, 생성 시각, 후처리 모델 호출 여부, 논리 tier, 실제 모델 ID, 검증 결과를 기록한다. `run.json.final_artifact`에도 같은 내용을 저장한다. 감사는 이 manifest에 기록된 파일만 읽는다.
+
 ## `11_최종품질감사.json`
 
-자기소개서 40점, 기업조사 25점, 면접팩 20점, 문체·안전성 15점의 총 100점 감사표를 기록한다. 95점 이상은 `제출권장`, 90점 미만은 `보완 필요`로 표시한다. 검증하지 못한 Patina/copyeditor 적용, 누락된 공식 근거 메타데이터, 미승인 경험·수치·직책, 외부 문서 지시문은 감점 또는 차단 사유로 남긴다.
+자기소개서 40점, 기업조사 25점, 면접팩 20점, 문체·안전성 15점의 총 100점 내부 규칙 점수를 기록한다. 기존 `score`와 `recommendation`을 유지하면서 `internal_validation_score`, `quality_gate`, `human_review_recommended`를 함께 기록한다. Patina의 존재 여부 자체는 점수가 아니며 기본 실행에서 Patina 보고서가 없어도 실패하지 않는다.
 
 ## 상태 계약
 
@@ -53,3 +57,18 @@ UTF-8 JSON 배열로 작성한다.
 - `ready_for_research`: 조사·합성 가능
 - `blocked_validation`: 최종 답변 또는 면접팩 근거 검증 실패
 - `complete`: Markdown·DOCX·검토보고서 생성 완료
+
+## Phase 2 자격 판정 계약
+
+`ApplicantProfile`은 개인정보 본문을 저장하지 않고 승인 원장 경로와 구조화된 학력·경력·자격증·근무 가능 지역만 보유한다. `ApplicantExperience.status`가 `confirmed`인 경험만 자동 판정의 근거로 사용한다.
+
+`PostingRecord`는 `posting_id`, 공고 URL, 공식 출처 상태, 게시·마감 시각, 본문 `body_sha256`, 필수 `required_rules`, 우대 `preferred_rules`를 기록한다. 같은 `posting_id`의 본문 SHA-256 변경은 `changed`로 기록하고 기존 지원 흐름을 자동 재사용하지 않는다.
+
+`EligibilityDecision.status`는 다음 네 값만 허용한다.
+
+- `eligible`: 구조화된 필수·우대 조건을 모두 충족
+- `eligible_with_gaps`: 필수 조건은 충족하지만 우대 조건 일부 미충족
+- `manual_review`: 정보 부족, 자연어 해석, 졸업예정·유효기간·지역 제한 등 불확실성
+- `ineligible`: 명시적으로 확인된 필수 조건 미충족
+
+판정은 합격 확률이나 채용 보증이 아니다. `manual_review`와 `eligible_with_gaps`에는 `human_review_required: true`를 기록한다. `reasons`는 문자열 배열이 아니라 `{code, field, message}` 객체 배열이며, `RuleEvaluation`에는 동일한 의미의 `reason_code`와 사용자용 `reason`을 함께 기록한다. 동일 입력은 공고 마감일 또는 검색 시각에서 유도한 평가 기준일을 사용해 결정론적으로 판정한다.

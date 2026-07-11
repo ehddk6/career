@@ -13,6 +13,7 @@ from .quality import (
     validate_answer_quality,
     validate_interview_pack,
 )
+from .artifacts import load_and_verify_final_artifact
 from .research_evidence import (
     contains_prompt_injection,
     load_research_claims,
@@ -71,12 +72,73 @@ def _responses_from_payload(payload: Any) -> list[DraftResponse]:
     return responses
 
 
-def _final_responses(run_dir: Path) -> list[DraftResponse]:
-    for name in ("draft_humanized.json", "draft_copyedited.json", "draft.json"):
-        path = run_dir / name
-        if path.exists():
-            return _responses_from_payload(_read_json(path, []))
-    return []
+def _final_responses(
+    run_dir: Path, state: dict[str, Any]
+) -> tuple[list[DraftResponse], list[AuditIssue]]:
+    artifact, errors = load_and_verify_final_artifact(run_dir, state)
+    issues = [
+        AuditIssue("final_artifact", "invalid_final_artifact", "high", error)
+        for error in errors
+    ]
+    if artifact is None or errors:
+        return [], issues
+    path = Path(str(artifact["answer_json_path"]))
+    if not path.is_absolute():
+        path = run_dir / path
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as error:
+        issues.append(
+            AuditIssue(
+                "final_artifact",
+                "invalid_final_answer_json",
+                "high",
+                f"최종 답변 JSON을 읽을 수 없습니다: {error}",
+            )
+        )
+        return [], issues
+    if not isinstance(payload, list) or any(not isinstance(item, dict) for item in payload):
+        issues.append(
+            AuditIssue(
+                "final_artifact",
+                "invalid_final_answer_json",
+                "high",
+                "최종 답변 JSON은 객체 배열이어야 합니다.",
+            )
+        )
+        return [], issues
+    for item in payload:
+        if (
+            isinstance(item.get("question_index"), bool)
+            or not isinstance(item.get("question_index"), int)
+            or not isinstance(item.get("answer"), str)
+            or not isinstance(item.get("evidence_paths", []), list)
+            or not all(isinstance(path, str) for path in item.get("evidence_paths", []))
+            or not isinstance(item.get("experience_refs", []), list)
+            or not isinstance(item.get("research_refs", []), list)
+        ):
+            issues.append(
+                AuditIssue(
+                    "final_artifact",
+                    "invalid_final_answer_json",
+                    "high",
+                    "최종 답변 JSON의 필드 형식이 올바르지 않습니다.",
+                )
+            )
+            return [], issues
+    try:
+        responses = _responses_from_payload(payload)
+    except (TypeError, ValueError, KeyError) as error:
+        issues.append(
+            AuditIssue(
+                "final_artifact",
+                "invalid_final_answer_json",
+                "high",
+                f"최종 답변 JSON 구조가 올바르지 않습니다: {error}",
+            )
+        )
+        return [], issues
+    return responses, issues
 
 
 def _issue_from_validation(category: str, issue: ValidationIssue) -> AuditIssue:
@@ -343,7 +405,7 @@ def _style_score(run_dir: Path, state: dict[str, Any]) -> tuple[int, list[AuditI
     issues: list[AuditIssue] = []
     score = 0
     copy_report = _read_json(run_dir / "09_copyeditor_report.json", None)
-    patina_report = _read_json(run_dir / "09_patina_report.json", None)
+    style_report = _read_json(run_dir / "09_style_diagnostics.json", None)
     if isinstance(copy_report, list):
         if any(str(item.get("status", "")).startswith("fallback") for item in copy_report if isinstance(item, dict)):
             issues.append(AuditIssue("style", "copyeditor_fallback", "medium", "copyeditor가 fallback 되었습니다."))
@@ -351,27 +413,34 @@ def _style_score(run_dir: Path, state: dict[str, Any]) -> tuple[int, list[AuditI
         else:
             score += 5
     else:
-        issues.append(AuditIssue("style", "copyeditor_not_verified", "medium", "copyeditor 보고서가 없습니다."))
-        score += 2
-    if isinstance(patina_report, list):
-        gates = {
-            str(item.get("ai_score_gate", "not_requested"))
-            for item in patina_report
+        score += 5
+    if isinstance(style_report, list):
+        risk_count = sum(
+            int(item.get("style_risk_score", 0))
+            for item in style_report
             if isinstance(item, dict)
-        }
-        if "failed" in gates or "unavailable" in gates:
-            issues.append(AuditIssue("style", "patina_score_not_verified", "medium", "Patina 점수 게이트가 통과되지 않았습니다."))
+        )
+        if risk_count:
+            issues.append(AuditIssue("style", "style_risk_detected", "medium", "문체 위험 진단이 기록되었습니다."))
             score += 2
         else:
             score += 5
     else:
-        issues.append(AuditIssue("style", "patina_not_verified", "medium", "Patina 보고서가 없습니다."))
-        score += 2
+        score += 4
+    if state.get("legacy_patina"):
+        patina_report = _read_json(run_dir / "09_patina_report.json", None)
+        if isinstance(patina_report, list):
+            score += 2
+        else:
+            issues.append(AuditIssue("style", "legacy_patina_report_missing", "medium", "legacy Patina 보고서가 없습니다."))
+    else:
+        # Patina is optional and its absence is not an audit failure.
+        score += 0
     voice_status, voice_issue = _voice_sample_status(run_dir, state)
     if voice_issue is not None:
         issues.append(voice_issue)
     score += 3 if voice_status == "valid" else 2 if voice_status == "missing" else 0
-    if state.get("status") == "complete" and not str(state.get("patina_status", "")).startswith("fallback"):
+    if state.get("status") == "complete" and state.get("final_artifact"):
         score += 2
     return min(15, score), issues, {"voice_sample_status": voice_status}
 
@@ -380,7 +449,7 @@ def run_quality_audit(run_dir: Path) -> dict[str, Any]:
     run_dir = run_dir.resolve()
     state = _read_json(run_dir / "run.json", {})
     questions = _questions(state)
-    responses = _final_responses(run_dir)
+    responses, artifact_issues = _final_responses(run_dir, state)
     cover_score, cover_issues, score_rows = _cover_letter_score(
         run_dir, state, questions, responses
     )
@@ -395,12 +464,16 @@ def run_quality_audit(run_dir: Path) -> dict[str, Any]:
         if total >= 95
         else "보완 후 제출권장" if total >= 90 else "보완 필요"
     )
-    issues = cover_issues + research_issues + interview_issues + style_issues
+    issues = artifact_issues + cover_issues + research_issues + interview_issues + style_issues
+    quality_gate = "pass" if not any(item.severity == "high" for item in issues) else "fail"
     payload = {
         "schema_version": 1,
         "generated_at": datetime.now().isoformat(),
         "run_dir": str(run_dir),
         "score": total,
+        "internal_validation_score": total,
+        "quality_gate": quality_gate,
+        "human_review_recommended": bool(issues),
         "recommendation": recommendation,
         "sections": {
             "cover_letter": {"score": cover_score, "max": 40},
@@ -423,6 +496,9 @@ def render_quality_audit(payload: dict[str, Any]) -> str:
         "# 최종품질감사",
         "",
         f"- 총점: {payload['score']}/100",
+        f"- 내부 검증 점수: {payload.get('internal_validation_score', payload['score'])}/100",
+        f"- quality_gate: {payload.get('quality_gate', 'unknown')}",
+        f"- human_review_recommended: {payload.get('human_review_recommended', True)}",
         f"- 판정: {payload['recommendation']}",
         "",
         "## 영역별 점수",

@@ -20,6 +20,12 @@ ALLOWED_CONTENT_TYPES = {
     "application/pdf": ".pdf",
     "application/vnd.openxmlformats-officedocument.wordprocessingml.document": ".docx",
     "text/plain": ".txt",
+    "application/rss+xml": ".xml",
+    "application/atom+xml": ".xml",
+    "application/xml": ".xml",
+    "text/xml": ".xml",
+    "application/json": ".json",
+    "text/json": ".json",
 }
 LOCAL_CONTENT_TYPES = {
     ".pdf": "application/pdf",
@@ -98,7 +104,7 @@ def _default_transport(url: str) -> TransportResponse:
     request = Request(
         url,
         headers={
-            "Accept": "text/html,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain",
+            "Accept": "text/html,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document,text/plain,application/rss+xml,application/atom+xml,application/xml,text/xml,application/json",
             "User-Agent": "career-pipeline/0.1",
         },
         method="GET",

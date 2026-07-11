@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 
 from career_pipeline.__main__ import main
+from career_pipeline.artifacts import write_final_artifact_manifest
 from career_pipeline.audit import run_quality_audit
 
 
@@ -170,6 +171,23 @@ def write_submission_ready_run(run_dir: Path) -> None:
         ),
         encoding="utf-8",
     )
+    (run_dir / "draft_final.json").write_text(
+        json.dumps(draft, ensure_ascii=False), encoding="utf-8"
+    )
+    (run_dir / "06_자기소개서.md").write_text("# 자기소개서\n", encoding="utf-8")
+    (run_dir / "06_자기소개서.docx").write_bytes(b"test docx artifact")
+    state["final_artifact"] = write_final_artifact_manifest(
+        run_dir,
+        selected_source="draft",
+        postprocess_attempted=False,
+        postprocess_applied=False,
+        model_tier=None,
+        model_id=None,
+        validation={"status": "passed", "issues": []},
+    )
+    (run_dir / "run.json").write_text(
+        json.dumps(state, ensure_ascii=False), encoding="utf-8"
+    )
 
 
 def test_quality_audit_scores_submission_ready_run(tmp_path: Path):
@@ -204,3 +222,38 @@ def test_legacy_audit_uses_its_fact_ledger_for_evidence_paths(tmp_path: Path):
     audit = run_quality_audit(tmp_path)
 
     assert "unknown_evidence" not in {item["code"] for item in audit["issues"]}
+
+
+def test_audit_ignores_stale_humanized_file_when_manifest_points_to_final(tmp_path: Path):
+    write_submission_ready_run(tmp_path)
+    (tmp_path / "draft_humanized.json").write_text(
+        json.dumps([{"question_index": 1, "answer": "오래된 중간 산출물"}], ensure_ascii=False),
+        encoding="utf-8",
+    )
+
+    audit = run_quality_audit(tmp_path)
+
+    assert "invalid_final_artifact" not in {item["code"] for item in audit["issues"]}
+    assert audit["score"] >= 95
+
+
+def test_audit_fails_when_final_manifest_sha_changes(tmp_path: Path):
+    write_submission_ready_run(tmp_path)
+    (tmp_path / "draft_final.json").write_text("[]", encoding="utf-8")
+
+    audit = run_quality_audit(tmp_path)
+
+    assert "invalid_final_artifact" in {item["code"] for item in audit["issues"]}
+    assert audit["quality_gate"] == "fail"
+
+
+def test_audit_rejects_manifest_path_outside_run_directory(tmp_path: Path):
+    write_submission_ready_run(tmp_path)
+    state_path = tmp_path / "run.json"
+    state = json.loads(state_path.read_text(encoding="utf-8"))
+    state["final_artifact"]["markdown_path"] = str(tmp_path.parent / "outside.md")
+    state_path.write_text(json.dumps(state, ensure_ascii=False), encoding="utf-8")
+
+    audit = run_quality_audit(tmp_path)
+
+    assert "invalid_final_artifact" in {item["code"] for item in audit["issues"]}

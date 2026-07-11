@@ -48,3 +48,29 @@ def test_usage_documents_candidates_quality_scores_and_research_links():
         "career_pipeline audit",
     ):
         assert required in text
+
+
+def test_usage_documents_phase2_eligibility_flow():
+    text = Path("docs/career-pipeline-usage.md").read_text(encoding="utf-8")
+    for required in (
+        "profile applicant",
+        "posting record",
+        "eligibility evaluate",
+        "eligible_with_gaps",
+        "manual_review",
+        "브라우저 자동화와 실제 지원서 제출이 없습니다",
+    ):
+        assert required in text
+
+
+def test_usage_documents_phase3_discovery_registry_queue_flow():
+    text = Path("docs/career-pipeline-usage.md").read_text(encoding="utf-8")
+    for required in (
+        "discovery source-add",
+        "discovery run",
+        "registry list",
+        "queue list",
+        "manual_review",
+        "queue 승인은 실제 원서 제출 승인이 아닙니다",
+    ):
+        assert required in text

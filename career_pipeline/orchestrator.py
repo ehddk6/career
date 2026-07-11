@@ -16,6 +16,7 @@ from .extractors import extract_path
 from .facts import METRIC, _normalize, extract_fact_claims
 from .inventory import build_inventory
 from .candidate_selection import generate_and_select_candidates
+from .artifacts import write_final_artifact_manifest
 from .character_count import count_characters
 from .matching import match_questions, render_matches_markdown
 from .posting_loader import (
@@ -24,6 +25,8 @@ from .posting_loader import (
     write_posting_snapshot,
 )
 from .copyeditor_adapter import copyedit_responses
+from .cost_limit import CostLimitExceeded, CostTracker
+from .model_policy import ModelTier, choose_tier
 from .posting_parser import parse_posting, reconcile_questions, render_posting_analysis
 from .profile_refresh import refresh_profile
 from .profile_schema import (
@@ -45,7 +48,12 @@ from .quality import (
 )
 from .questions import extract_questions
 from .models import DraftResponse, ExperienceClaimRef, Question, ValidationIssue
-from .patina_adapter import score_text
+from .patina_adapter import (
+    HumanizationResult,
+    PatinaScoreResult,
+    humanize_text,
+    score_text,
+)
 from .research_evidence import (
     REQUIRED_RESEARCH_POLICY,
     REQUIRED_RESEARCH_SKILL,
@@ -57,6 +65,7 @@ from .research_evidence import (
 )
 from .rendering import render_draft_docx, render_draft_markdown
 from .state import resolve_run_dir, write_json, write_state
+from .style_diagnostics import diagnose_responses
 from .source_policy import is_evidence_path
 from .validation import referenced_claim_values, validate_draft
 from .writing_guidance import attach_writing_guidance
@@ -622,9 +631,26 @@ def finalize_run(
     patina_voice_sample: Path | None = None,
     patina_ai_threshold: int = 30,
     patina_score: bool = True,
+    postprocess: str | None = None,
+    postprocess_tier: ModelTier | None = None,
+    postprocess_timeout_ms: int | None = None,
+    postprocess_runner=None,
+    max_model_calls: int | None = None,
+    max_postprocess_calls: int = 1,
+    max_stage_seconds: float | None = None,
 ) -> dict:
     run_dir = run_dir.resolve()
     state = json.loads((run_dir / "run.json").read_text(encoding="utf-8"))
+    legacy_copyedit = postprocess is None and copyedit
+    effective_postprocess = postprocess
+    if effective_postprocess is None:
+        effective_postprocess = "always" if copyedit else "never"
+    if effective_postprocess not in {"auto", "always", "never"}:
+        raise ValueError("postprocess must be auto, always, or never")
+    state["postprocess_policy"] = effective_postprocess
+    state["max_model_calls"] = max_model_calls
+    state["max_postprocess_calls"] = max_postprocess_calls
+    state["max_stage_seconds"] = max_stage_seconds
     if state.get("status") in {
         "blocked",
         "blocked_profile",
@@ -632,6 +658,11 @@ def finalize_run(
         "blocked_conflict",
     }:
         raise ValueError("준비 단계의 차단 이슈를 먼저 해결해야 합니다.")
+    # Prevent a previous successful run from remaining falsely complete if a
+    # rerun fails before its new final manifest is committed.
+    state["status"] = "finalizing"
+    state["final_artifact"] = None
+    write_state(run_dir, state)
 
     v2 = state.get("quality_mode") == "v2"
     required = [
@@ -833,7 +864,7 @@ def finalize_run(
         write_state(run_dir, state)
         return state
 
-    if copyedit:
+    if legacy_copyedit:
         copyedited, copyeditor_report = copyedit_responses(
             responses,
             target_org=state["target"],
@@ -922,7 +953,300 @@ def finalize_run(
         state["copyeditor_applied"] = False
         state["copyeditor_status"] = "disabled"
 
+    postprocess_attempted = False
+    postprocess_applied = False
+    postprocess_tier: str | None = None
+    postprocess_model_id: str | None = None
+    postprocess_budget_blocked = False
+    model_unconfigured = False
+    selected_source = "draft"
+    postprocess_report: list[dict[str, object]] = []
+    call_tracker = CostTracker(
+        max_model_calls
+        if max_model_calls is not None
+        else 1_000_000 if humanize else max_postprocess_calls,
+        max_postprocess_calls=max_postprocess_calls,
+        max_stage_seconds=max_stage_seconds,
+    )
+    if not legacy_copyedit and not humanize:
+        diagnostics = diagnose_responses(responses)
+        write_json(
+            run_dir / "09_style_diagnostics.json",
+            [item.to_dict() for item in diagnostics],
+        )
+        target_responses = (
+            responses
+            if effective_postprocess == "always"
+            else [
+                response
+                for response, diagnostic in zip(responses, diagnostics)
+                if effective_postprocess == "auto" and diagnostic.should_rewrite
+            ]
+        )
+        should_call = bool(target_responses)
+        if effective_postprocess == "never":
+            postprocess_report = [
+                {
+                    "question_index": item.question_index,
+                    "status": "disabled",
+                    "style_risk_score": diagnostic.style_risk_score,
+                    "style_reasons": list(diagnostic.style_reasons),
+                }
+                for item, diagnostic in zip(responses, diagnostics)
+            ]
+        elif not should_call:
+            postprocess_report = [
+                {
+                    "question_index": item.question_index,
+                    "status": "skipped_style_pass",
+                    "style_risk_score": diagnostic.style_risk_score,
+                    "style_reasons": list(diagnostic.style_reasons),
+                }
+                for item, diagnostic in zip(responses, diagnostics)
+            ]
+        else:
+            selected_diagnostics = [
+                diagnostic
+                for diagnostic in diagnostics
+                if effective_postprocess == "always" or diagnostic.should_rewrite
+            ]
+            model = choose_tier(selected_diagnostics, postprocess_tier)
+            postprocess_tier = model.tier
+            postprocess_model_id = model.model_id
+            model_unconfigured = postprocess_runner is None and model.model_id is None
+            if model_unconfigured:
+                # Never let the CLI silently select an unspecified external model.
+                call_tracker.budget = 0
+            try:
+                call_tracker.record_call(
+                    "copyeditor",
+                    stage="postprocess",
+                    model_tier=model.tier,
+                    model_id=model.model_id,
+                )
+            except CostLimitExceeded as error:
+                postprocess_budget_blocked = not model_unconfigured
+                postprocess_report = [
+                    {
+                        "question_index": item.question_index,
+                        "status": "skipped_model_unconfigured" if model_unconfigured else "fallback_budget_exceeded",
+                        "message": "실제 모델 ID가 설정되지 않아 외부 호출을 건너뛰었습니다." if model_unconfigured else str(error),
+                    }
+                    for item in target_responses
+                ]
+            else:
+                postprocess_attempted = True
+                effective_timeout_ms = postprocess_timeout_ms or copyeditor_timeout_ms
+                if max_stage_seconds is not None:
+                    effective_timeout_ms = min(
+                        effective_timeout_ms,
+                        max(1, int(max_stage_seconds * 1000)),
+                    )
+                kwargs = {
+                    "target_org": state["target"],
+                    "job_terms": job_terms,
+                    "timeout_ms": effective_timeout_ms,
+                    "model_tier": model.tier,
+                    "model_id": model.model_id,
+                }
+                if postprocess_runner is not None:
+                    kwargs["runner"] = postprocess_runner
+                within_stage_limit = True
+                try:
+                    edited, postprocess_report = copyedit_responses(
+                        target_responses,
+                        **kwargs,
+                    )
+                    call_status = "complete"
+                except Exception as error:  # external runner failures are safe fallbacks
+                    edited = target_responses
+                    postprocess_report = [
+                        {
+                            "question_index": item.question_index,
+                            "status": "fallback_backend_error",
+                            "message": str(error),
+                        }
+                        for item in target_responses
+                    ]
+                    call_status = "failed"
+                finally:
+                    within_stage_limit = call_tracker.finish_call(status=call_status)
+                if not within_stage_limit:
+                    edited = target_responses
+                    postprocess_report.append(
+                        {
+                            "question_index": 0,
+                            "status": "fallback_stage_timeout",
+                            "message": f"max_stage_seconds={max_stage_seconds}",
+                        }
+                    )
+                elif any(
+                    str(item.get("status", "")).startswith("fallback")
+                    for item in postprocess_report
+                    if isinstance(item, dict)
+                ):
+                    call_tracker.set_last_status("fallback")
+                edited_by_index = {item.question_index: item for item in edited}
+                target_indexes = {response.question_index for response in target_responses}
+                original_responses = responses
+                candidate = [
+                    edited_by_index.get(item.question_index, item)
+                    if item.question_index in target_indexes else item
+                    for item in responses
+                ]
+                changed = any(
+                    candidate_item.answer != original_item.answer
+                    for candidate_item, original_item in zip(candidate, original_responses)
+                )
+                candidate_issues = []
+                if changed:
+                    candidate_issues.extend(
+                        validate_draft(
+                            questions,
+                            candidate,
+                            state["target"],
+                            known_sources,
+                            profile_ledger=ledger,
+                            require_experience_refs=v2,
+                        )
+                    )
+                    if v2 and state.get("strict_quality", False):
+                        candidate_issues.extend(
+                            validate_answer_quality(
+                                questions,
+                                candidate,
+                                state["target"],
+                                job_terms=job_terms,
+                                minimum_score=STRICT_MIN_ANSWER_SCORE,
+                                average_minimum_score=STRICT_MIN_AVERAGE_SCORE,
+                            )
+                        )
+                        candidate_issues.extend(
+                            validate_research_evidence(
+                                questions,
+                                candidate,
+                                research_claims,
+                                allowed_domains=tuple(state.get("official_research_domains", [])),
+                            )
+                        )
+                bad_indexes = {
+                    issue.question_index
+                    for issue in candidate_issues
+                    if issue.question_index in target_indexes
+                }
+                if any(issue.question_index == 0 for issue in candidate_issues):
+                    bad_indexes = set(target_indexes)
+                if bad_indexes:
+                    messages: dict[int, list[str]] = {
+                        question_index: [] for question_index in bad_indexes
+                    }
+                    for issue in candidate_issues:
+                        for question_index in bad_indexes:
+                            if issue.question_index in {0, question_index}:
+                                messages[question_index].append(issue.code)
+                    candidate = [
+                        original if item.question_index in bad_indexes else item
+                        for item, original in zip(candidate, original_responses)
+                    ]
+                    for question_index, codes in messages.items():
+                        postprocess_report.append(
+                            {
+                                "question_index": question_index,
+                                "status": "fallback_validation",
+                                "message": "; ".join(codes),
+                            }
+                        )
+                    call_tracker.set_last_status("fallback_validation")
+                responses = candidate
+                postprocess_applied = any(
+                    item.answer != original.answer
+                    for item, original in zip(responses, original_responses)
+                )
+                selected_source = "copyedited" if postprocess_applied else "draft"
+                if postprocess_applied:
+                    write_json(
+                        run_dir / "draft_copyedited.json",
+                        [asdict(response) for response in responses],
+                    )
+            state["postprocess_attempted"] = postprocess_attempted
+            state["postprocess_applied"] = postprocess_applied
+            state["postprocess_status"] = (
+                "copyedited" if postprocess_applied
+                else "fallback" if postprocess_attempted
+                else "model_unconfigured" if model_unconfigured
+                else "budget_exceeded" if postprocess_budget_blocked else "not_needed"
+            )
+            state["copyeditor_attempted"] = postprocess_attempted
+            state["copyeditor_applied"] = postprocess_applied
+            state["copyeditor_status"] = state["postprocess_status"]
+            write_json(run_dir / "09_copyeditor_report.json", postprocess_report)
+            state["postprocess_tier"] = postprocess_tier
+            state["postprocess_model_id"] = postprocess_model_id
+        if not should_call:
+            state["postprocess_attempted"] = False
+            state["postprocess_applied"] = False
+            state["postprocess_status"] = (
+                "model_unconfigured" if model_unconfigured
+                else "budget_exceeded" if postprocess_budget_blocked
+                else "not_needed" if effective_postprocess == "auto" else "disabled"
+            )
+            state["copyeditor_attempted"] = False
+            state["copyeditor_applied"] = False
+            state["copyeditor_status"] = state["postprocess_status"]
+            write_json(run_dir / "09_copyeditor_report.json", postprocess_report)
+        if model_unconfigured:
+            call_tracker.budget = (
+                max_model_calls
+                if max_model_calls is not None
+                else max_postprocess_calls
+            )
+        state["model_calls"] = call_tracker.to_dict()
+
     if humanize:
+        state["legacy_patina"] = True
+        legacy_timeout_ms = patina_timeout_ms
+        if max_stage_seconds is not None:
+            legacy_timeout_ms = min(
+                legacy_timeout_ms,
+                max(1, int(max_stage_seconds * 1000)),
+            )
+
+        def tracked_humanize(text: str, **kwargs) -> HumanizationResult:
+            try:
+                call_tracker.record_call("patina", stage="legacy_patina")
+            except CostLimitExceeded:
+                return HumanizationResult(text, "fallback_budget_exceeded", "model call budget exceeded")
+            kwargs["timeout_ms"] = legacy_timeout_ms
+            if postprocess_runner is not None:
+                kwargs["runner"] = postprocess_runner
+            try:
+                result = humanize_text(text, **kwargs)
+                call_tracker.finish_call(
+                    status="fallback" if result.status.startswith("fallback") else "complete"
+                )
+                return result
+            except Exception:
+                call_tracker.finish_call(status="failed")
+                raise
+
+        def tracked_score(text: str, **kwargs) -> PatinaScoreResult:
+            try:
+                call_tracker.record_call("patina", stage="legacy_patina")
+            except CostLimitExceeded:
+                return PatinaScoreResult(None, "score_unavailable", "model call budget exceeded")
+            kwargs["timeout_ms"] = legacy_timeout_ms
+            if postprocess_runner is not None:
+                kwargs["runner"] = postprocess_runner
+            try:
+                result = score_text(text, **kwargs)
+                call_tracker.finish_call(
+                    status="fallback" if result.score is None else "complete"
+                )
+                return result
+            except Exception:
+                call_tracker.finish_call(status="failed")
+                raise
+
         voice_sample = _resolve_voice_sample(patina_voice_sample, state, run_dir)
         state["patina_backend"] = patina_backend
         state["patina_max_retries"] = patina_max_retries
@@ -935,12 +1259,13 @@ def finalize_run(
             state["target"],
             job_terms=job_terms,
             backend=patina_backend,
-            timeout_ms=patina_timeout_ms,
+            timeout_ms=legacy_timeout_ms,
             voice_sample=voice_sample,
             max_retries=patina_max_retries,
-            scorer=score_text if patina_score else None,
+            scorer=tracked_score if patina_score else None,
             ai_score_threshold=patina_ai_threshold,
             conditional_rewrite=patina_score,
+            rewriter=tracked_humanize,
         )
         state["patina_attempted"] = any(
             bool(item.get("patina_attempted")) for item in patina_report
@@ -1080,10 +1405,22 @@ def finalize_run(
         )
         _write_review_report(run_dir, questions, responses, v2=v2, issues=[])
 
+    state["model_calls"] = call_tracker.to_dict()
+    output_paths = (
+        run_dir / "06_자기소개서.md",
+        run_dir / "06_자기소개서.docx",
+        run_dir / "draft_final.json",
+    )
+    if any(path.is_symlink() for path in output_paths):
+        raise ValueError("최종 산출물 경로에 심볼릭 링크가 있어 안전하게 저장할 수 없습니다.")
     markdown = render_draft_markdown(questions, responses)
     (run_dir / "06_자기소개서.md").write_text(markdown, encoding="utf-8")
     render_draft_docx(
         questions, responses, run_dir / "06_자기소개서.docx"
+    )
+    write_json(
+        run_dir / "draft_final.json",
+        [asdict(response) for response in responses],
     )
     state["status"] = "complete"
     state["finished_at"] = datetime.now().isoformat()
@@ -1095,5 +1432,17 @@ def finalize_run(
     state.pop("validation_issues", None)
     state.pop("issues", None)
     state.pop("blocked_stage", None)
+    state["final_artifact"] = write_final_artifact_manifest(
+        run_dir,
+        selected_source=(
+            "legacy_patina" if humanize and state.get("patina_applied")
+            else "copyedited" if state.get("copyeditor_applied") else selected_source
+        ),
+        postprocess_attempted=bool(state.get("postprocess_attempted", False)),
+        postprocess_applied=bool(state.get("postprocess_applied", False)),
+        model_tier=state.get("postprocess_tier"),
+        model_id=state.get("postprocess_model_id"),
+        validation={"status": "passed", "issues": []},
+    )
     write_state(run_dir, state)
     return state

@@ -13,6 +13,7 @@ from subprocess import CompletedProcess
 from .character_count import CharacterCountMode, count_characters
 from .facts import METRIC, _normalize
 from .models import DraftResponse, Question
+from .rewrite_validation import meaning_preservation_issue as _shared_meaning_preservation_issue
 
 
 Runner = Callable[..., CompletedProcess[str]]
@@ -198,11 +199,7 @@ def meaning_preservation_issue(
     rewritten: str,
     protected_terms: tuple[str, ...] = (),
 ) -> str | None:
-    if _metric_values(rewritten) != _metric_values(original):
-        return "숫자 증명 변경"
-    if _semantic_change(original, rewritten, protected_terms):
-        return "보호되는 의미 어캴더 변경"
-    return None
+    return _shared_meaning_preservation_issue(original, rewritten, protected_terms)
 
 
 _SAFE_COMPACTIONS = (
@@ -295,7 +292,7 @@ def humanize_text(
         rewritten = shortened
         compacted = True
     meaning_issue = meaning_preservation_issue(text, rewritten, protected_terms)
-    if meaning_issue == "숫자 증명 변경":
+    if meaning_issue in {"숫자 증명 변경", "숫자·단위 변경"}:
         return HumanizationResult(
             text,
             "fallback_fact_change",

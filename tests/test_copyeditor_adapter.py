@@ -14,22 +14,23 @@ def completed(text: str, *, returncode: int = 0) -> CompletedProcess[str]:
     )
 
 
-def test_copyeditor_invokes_named_skill_and_accepts_conservative_edit():
+def test_copyeditor_uses_integrated_prompt_and_accepts_conservative_edit():
     captured = {}
 
     def runner(command, **kwargs):
         captured["command"] = command
         captured["input"] = kwargs["input"]
-        return completed("자료를 확인하여 오류를 줄였습니다.")
+        return completed("자료를 확인하고 오류를 줄였습니다.")
 
     result = copyedit_text(
-        "자료를 확인해 오류를 줄일 수 있었습니다.",
+        "자료를 확인해 오류를 줄였습니다.",
         protected_terms=("자료",),
         runner=runner,
     )
 
     assert result.status == "copyedited"
-    assert "im-ai-copyeditor" in captured["input"]
+    assert "Correct spelling and grammar" in captured["input"]
+    assert "Use the installed im-ai-copyeditor skill" not in captured["input"]
     assert "--output-schema" in captured["command"]
 
 
@@ -81,15 +82,15 @@ def test_copyeditor_batches_multiple_responses_in_one_backend_call():
         calls += 1
         payload = {
             "items": [
-                {"question_index": 1, "text": "자료를 확인했습니다.", "applied_rules": ["S-1"]},
-                {"question_index": 2, "text": "기준을 기록했습니다.", "applied_rules": ["ST-1"]},
+                {"question_index": 1, "text": "자료를 확인하고 오류를 줄였습니다.", "applied_rules": ["S-1"]},
+                {"question_index": 2, "text": "기준을 기록하고 공유했습니다.", "applied_rules": ["ST-1"]},
             ]
         }
         return CompletedProcess(args=["codex"], returncode=0, stdout=json.dumps(payload, ensure_ascii=False), stderr="")
 
     responses = [
-        DraftResponse(1, "자료를 확인할 수 있었습니다.", ("a.txt",)),
-        DraftResponse(2, "기준을 기록할 수 있었습니다.", ("b.txt",)),
+        DraftResponse(1, "자료를 확인해 오류를 줄였습니다.", ("a.txt",)),
+        DraftResponse(2, "기준을 기록해 공유했습니다.", ("b.txt",)),
     ]
 
     edited, report = copyedit_responses(
@@ -99,7 +100,7 @@ def test_copyeditor_batches_multiple_responses_in_one_backend_call():
     )
 
     assert calls == 1
-    assert [item.answer for item in edited] == ["자료를 확인했습니다.", "기준을 기록했습니다."]
+    assert [item.answer for item in edited] == ["자료를 확인하고 오류를 줄였습니다.", "기준을 기록하고 공유했습니다."]
     assert [item["status"] for item in report] == ["copyedited", "copyedited"]
 
 
