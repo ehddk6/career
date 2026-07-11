@@ -121,3 +121,30 @@ def test_parser_exposes_phase3_commands():
     assert discovery_run.discovery_command == "run"
     assert registry.registry_command == "list"
     assert queue.queue_command == "list"
+
+
+def test_parser_exposes_phase4_review_required_commands():
+    parser = build_parser()
+    package = parser.parse_args(
+        [
+            "application", "package", "--run", "career_runs/sample",
+            "--profile", "profile.json", "--posting", "posting.json",
+            "--decision", "decision.json", "--private-data", ".career_profile/private.json",
+            "--attachment", "resume=.career_profile/resume.pdf", "--output", ".career_profile/package.json",
+        ]
+    )
+    validate = parser.parse_args(
+        ["application", "validate", "--package", ".career_profile/package.json", "--private-data", ".career_profile/private.json"]
+    )
+    dry_run = parser.parse_args(
+        [
+            "application", "dry-run", "--package", ".career_profile/package.json", "--private-data", ".career_profile/private.json",
+            "--html", "tests/fixtures/application_form.html", "--output", ".career_profile/form-result.json",
+            "--evaluation-time", "2026-07-12T09:00:00+09:00",
+        ]
+    )
+
+    assert package.application_command == "package"
+    assert package.attachment == ["resume=.career_profile/resume.pdf"]
+    assert validate.application_command == "validate"
+    assert dry_run.application_command == "dry-run"

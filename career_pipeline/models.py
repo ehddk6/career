@@ -320,3 +320,106 @@ class RegistryEvent:
     posting_id: str | None
     run_id: str | None
     metadata: dict[str, Any] = field(default_factory=dict)
+
+
+@dataclass(frozen=True)
+class ApplicationAnswer:
+    field_key: str
+    question_index: int
+    prompt: str
+    answer: str
+    answer_sha256: str
+    character_limit: int | None = None
+
+
+@dataclass(frozen=True)
+class ApplicationAttachment:
+    field_key: str
+    resource_ref: str
+    sha256: str
+    size: int
+    media_type: str
+    suffix: str
+
+
+@dataclass(frozen=True)
+class ApplicationPackage:
+    schema_version: int
+    package_id: str
+    created_at: str
+    mode: Literal["review_required"]
+    posting_id: str
+    posting_sha256: str
+    posting_url: str
+    organization: str
+    role: str
+    locations: tuple[str, ...]
+    profile_id: str
+    eligibility_decision_id: str
+    eligibility_status: str
+    profile_sha256: str
+    question_schema_sha256: str
+    final_manifest_sha256: str
+    final_artifact_sha256: str
+    output_contract_version: str
+    private_data_ref: str
+    private_data_sha256: str
+    private_field_keys: tuple[str, ...]
+    applicant_identity_fingerprint: str
+    answers: tuple[ApplicationAnswer, ...]
+    attachments: tuple[ApplicationAttachment, ...]
+    validation_status: Literal["ready_for_review", "manual_review", "blocked"]
+    validation_reasons: tuple[str, ...] = ()
+
+
+@dataclass(frozen=True)
+class FormFieldDescriptor:
+    field_id: str
+    label: str
+    name: str | None
+    role: str | None
+    input_type: str
+    required: bool
+    options: tuple[str, ...] = ()
+    max_length: int | None = None
+    accept: tuple[str, ...] = ()
+    disabled: bool = False
+    readonly: bool = False
+
+
+@dataclass(frozen=True)
+class FormFieldMapping:
+    field_id: str
+    package_field_key: str | None
+    status: Literal["matched", "unmapped", "ambiguous", "ignored"]
+    reason: str
+
+
+@dataclass(frozen=True)
+class FormFillAction:
+    field_id: str
+    package_field_key: str
+    action: Literal["text", "select", "check", "file"]
+    value_sha256: str
+    status: Literal["planned", "validated", "failed"]
+
+
+@dataclass(frozen=True)
+class FormAutomationResult:
+    schema_version: int
+    run_id: str
+    package_id: str
+    mode: Literal["review_required"]
+    started_at: str
+    completed_at: str
+    status: Literal["review_required", "manual_review", "blocked"]
+    stop_reason: str | None
+    page_url: str | None
+    captcha_detected: bool
+    mfa_detected: bool
+    submit_control_detected: bool
+    form_schema_sha256: str
+    dom_unchanged: bool
+    mappings: tuple[FormFieldMapping, ...]
+    actions: tuple[FormFillAction, ...]
+    verification_issues: tuple[str, ...] = ()

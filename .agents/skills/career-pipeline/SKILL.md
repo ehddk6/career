@@ -43,6 +43,12 @@ DiscoverySource
 
 registry 인덱스는 `.career_profile/posting_registry/`에 저장하고 원문은 별도 snapshot으로 분리한다. `new`, `exact_duplicate`, `content_duplicate`, `changed`, `unchanged`, `expired`, `closed`, `manual_review`를 구분한다. timezone이 없는 마감일과 파싱되지 않은 필수 조건은 합격으로 추정하지 않는다. `expired`, `closed`, `content_duplicate`는 제출 대상 queue에 넣지 않고 상태·이벤트로만 남긴다. 상세 계약은 `docs/posting-discovery-and-registry.md`에 기록한다.
 
+## Phase 4 `review_required` 폼 입력
+
+Phase 4는 `application package`, `application validate`, `application dry-run`으로 지원 패키지와 폼 매핑을 검증한다. 개인정보 값과 로컬 경로는 패키지나 로그에 복사하지 않고 불투명한 resource reference, SHA-256, 필드 키만 기록한다. 실행 시 private JSON과 첨부파일을 다시 명시해 해시를 재검증한다.
+
+폼 어댑터는 읽기 전용 `discover → map → validate`만 수행하고 label/name/role 기반 매핑을 사용한다. CAPTCHA, MFA, 비밀번호, 새 문항, 알 수 없는 필드, 값 길이·첨부 형식 불일치는 계획 생성 전에 중단한다. DOM 변경·파일 업로드·제출 메서드는 제공하지 않으며 `review_required`, queue 승인, dry-run 성공은 실제 입력·제출 승인이나 자동지원 허용을 뜻하지 않는다.
+
 ## 최종화 정책
 
 기본 흐름은 다음과 같다.

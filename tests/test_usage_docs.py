@@ -74,3 +74,18 @@ def test_usage_documents_phase3_discovery_registry_queue_flow():
         "queue 승인은 실제 원서 제출 승인이 아닙니다",
     ):
         assert required in text
+
+
+def test_usage_documents_phase4_review_required_flow():
+    text = Path("docs/career-pipeline-usage.md").read_text(encoding="utf-8")
+    contract = Path("docs/phase4-output-contract.md").read_text(encoding="utf-8")
+    for required in (
+        "application package",
+        "application validate",
+        "application dry-run",
+        "review_required",
+        "CAPTCHA",
+        "MFA",
+    ):
+        assert required in text
+    assert "제출 버튼 감지는 기록하되 클릭하지 않는다" in contract

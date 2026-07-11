@@ -4,17 +4,25 @@ from dataclasses import asdict
 from datetime import datetime
 from hashlib import sha256
 import json
-from pathlib import Path
+from pathlib import Path, PureWindowsPath
 import sys
 from typing import Sequence
 
 from .audit import run_quality_audit
+from .application_package import (
+    ApplicationPackageError,
+    build_application_package,
+    load_application_package,
+    materialize_package_values,
+    persist_application_package,
+)
 from .eligibility import (
     EligibilityValidationError,
     applicant_profile_from_ledger,
     applicant_profile_to_dict,
     evaluate_eligibility,
     compare_postings,
+    decision_from_dict,
     load_applicant_profile,
     load_posting_record,
     normalized_posting_content_sha256,
@@ -54,6 +62,12 @@ from .profile_schema import (
     load_ledger,
 )
 from .models import DiscoverySource
+from .form_adapter import (
+    FixtureFormDriver,
+    FormAdapterError,
+    ReviewRequiredFormAdapter,
+    write_form_result,
+)
 from .registry import PostingRegistry, RegistryError, queue_item_to_dict
 from .state import write_json
 
@@ -238,6 +252,33 @@ def build_parser() -> argparse.ArgumentParser:
     queue_decide.add_argument("--queue-id", required=True)
     queue_decide.add_argument("--decision", choices=("approved", "rejected", "deferred"), required=True)
     queue_decide.add_argument("--at")
+
+    application = subparsers.add_parser("application")
+    application_commands = application.add_subparsers(dest="application_command", required=True)
+    application_package = application_commands.add_parser("package")
+    application_package.add_argument("--root", default=".")
+    application_package.add_argument("--run", required=True)
+    application_package.add_argument("--profile", required=True)
+    application_package.add_argument("--posting", required=True)
+    application_package.add_argument("--decision", required=True)
+    application_package.add_argument("--private-data", required=True)
+    application_package.add_argument("--attachment", action="append", default=[])
+    application_package.add_argument("--output", required=True)
+    application_package.add_argument("--created-at")
+    application_validate = application_commands.add_parser("validate")
+    application_validate.add_argument("--root", default=".")
+    application_validate.add_argument("--package", required=True)
+    application_validate.add_argument("--private-data", required=True)
+    application_validate.add_argument("--attachment", action="append", default=[])
+    application_dry_run = application_commands.add_parser("dry-run")
+    application_dry_run.add_argument("--root", default=".")
+    application_dry_run.add_argument("--package", required=True)
+    application_dry_run.add_argument("--private-data", required=True)
+    application_dry_run.add_argument("--attachment", action="append", default=[])
+    application_dry_run.add_argument("--html", required=True)
+    application_dry_run.add_argument("--output", required=True)
+    application_dry_run.add_argument("--evaluation-time", required=True)
+    application_dry_run.add_argument("--page-url", default="https://fixture.invalid/application")
 
     audit = subparsers.add_parser("audit")
     audit.add_argument("--run", required=True)
@@ -569,8 +610,115 @@ def run_queue_command(args: argparse.Namespace) -> int:
     return 0
 
 
+def _phase4_path(root: Path, value: str, *, must_exist: bool = False) -> Path:
+    root = root.resolve()
+    windows = PureWindowsPath(value)
+    if windows.is_absolute() or windows.drive or value.startswith(("\\\\", "//")):
+        candidate = Path(value)
+        if not candidate.is_absolute():
+            raise ApplicationPackageError("Phase 4 paths must not be UNC or drive-relative")
+    path = Path(value)
+    if not path.is_absolute():
+        path = root / path
+    resolved = path.resolve(strict=must_exist)
+    try:
+        resolved.relative_to(root)
+    except ValueError as error:
+        raise ApplicationPackageError("Phase 4 paths must remain inside the workspace") from error
+    current = root
+    for part in resolved.relative_to(root).parts:
+        current /= part
+        if current.exists() and current.is_symlink():
+            raise ApplicationPackageError("Phase 4 paths must not traverse symlinks")
+    if path.is_symlink():
+        raise ApplicationPackageError("Phase 4 paths must not be symlinks")
+    return resolved
+
+
+def _application_attachments(root: Path, values: list[str]) -> dict[str, Path]:
+    attachments: dict[str, Path] = {}
+    for item in values:
+        if "=" not in item:
+            raise ApplicationPackageError("--attachment must use field_key=path")
+        key, raw_path = item.split("=", 1)
+        if not key or not raw_path or key in attachments:
+            raise ApplicationPackageError("attachment field keys and paths must be unique and non-empty")
+        attachments[key] = _phase4_path(root, raw_path, must_exist=True)
+    return attachments
+
+
+def run_application_command(args: argparse.Namespace) -> int:
+    root = Path(args.root).resolve()
+    if args.application_command == "package":
+        run_dir = _phase4_path(root, args.run, must_exist=True)
+        state_path = run_dir / "run.json"
+        if not state_path.is_file() or state_path.is_symlink():
+            raise ApplicationPackageError("run.json is missing or unsafe")
+        state = json.loads(state_path.read_text(encoding="utf-8"))
+        profile_path = _phase4_path(root, args.profile, must_exist=True)
+        profile = load_applicant_profile(profile_path)
+        posting = load_posting_record(_phase4_path(root, args.posting, must_exist=True))
+        decision = decision_from_dict(
+            json.loads(_phase4_path(root, args.decision, must_exist=True).read_text(encoding="utf-8"))
+        )
+        output = _phase4_path(root, args.output)
+        package = build_application_package(
+            root=root,
+            run_dir=run_dir,
+            run_state=state,
+            profile=profile,
+            posting=posting,
+            decision=decision,
+            private_data_path=_phase4_path(root, args.private_data, must_exist=True),
+            profile_sha256=sha256(profile_path.read_bytes()).hexdigest(),
+            attachments=_application_attachments(root, args.attachment),
+            created_at=args.created_at,
+        )
+        persist_application_package(
+            root, output, package,
+            private_data_path=_phase4_path(root, args.private_data, must_exist=True),
+            attachments=_application_attachments(root, args.attachment),
+        )
+        print(package.package_id)
+        return 0 if package.validation_status == "ready_for_review" else 2
+    package = load_application_package(_phase4_path(root, args.package, must_exist=True))
+    private_path = _phase4_path(root, args.private_data, must_exist=True)
+    attachments = _application_attachments(root, args.attachment)
+    if args.application_command == "validate":
+        materialize_package_values(root, package, private_data_path=private_path, attachments=attachments)
+        print(f"{package.package_id} {package.validation_status}")
+        return 0 if package.validation_status == "ready_for_review" else 2
+    html_path = _phase4_path(root, args.html, must_exist=True)
+    output = _phase4_path(root, args.output)
+    driver = FixtureFormDriver.from_path(html_path, url=args.page_url)
+    result = ReviewRequiredFormAdapter().run(
+        driver,
+        root=root,
+        package=package,
+        private_data_path=private_path,
+        attachments=attachments,
+        evaluation_time=args.evaluation_time,
+    )
+    write_form_result(output, result)
+    print(f"{result.run_id} {result.status}")
+    return 0 if result.status == "review_required" else 2
+
+
 def main(argv: Sequence[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
+    if args.command == "application":
+        try:
+            return run_application_command(args)
+        except (
+            OSError,
+            json.JSONDecodeError,
+            ApplicationPackageError,
+            FormAdapterError,
+            EligibilityValidationError,
+            ValueError,
+        ) as error:
+            print(error)
+            return 4
     if args.command == "discovery":
         try:
             if args.discovery_command == "source-add":

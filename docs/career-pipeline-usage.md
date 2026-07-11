@@ -105,6 +105,50 @@ python -m career_pipeline queue decide --root . --queue-id "queue-..." --decisio
 
 registry는 `.career_profile/posting_registry/registry.json`에 인덱스를, `snapshots/`에 원문을, `events.jsonl`에 최소 상태 이벤트를 저장합니다. 공식 출처가 아닌 링크, 다른 도메인 redirect, 로그인·개인정보 페이지, 마감일 또는 timezone이 불명확한 공고는 자동 확정하지 않고 `manual_review` queue로 보냅니다. queue 승인은 실제 원서 제출 승인이 아닙니다.
 
+## Phase 4 `review_required` 지원 패키지와 폼 dry-run
+
+Phase 4 기본 모드는 항상 `review_required`입니다. 개인정보 값은 지원 패키지에 복사하지 않고 `.career_profile`의 별도 private JSON에 보관합니다. 패키지에는 로컬 경로 대신 불투명한 resource reference, SHA-256, 필드 키만 기록합니다. validate와 dry-run 실행 시 private JSON과 첨부파일 경로를 다시 명시해 원본 해시를 검증합니다.
+
+```json
+{
+  "schema_version": 1,
+  "fields": {
+    "full_name": "사용자 확인 값",
+    "email": "사용자 확인 값",
+    "phone": "사용자 확인 값"
+  }
+}
+```
+
+```powershell
+python -m career_pipeline application package `
+  --root . `
+  --run "career_runs/<run-dir>" `
+  --profile ".career_profile/applicant_profile.json" `
+  --posting "career_runs/posting-record.json" `
+  --decision "career_runs/eligibility-decision.json" `
+  --private-data ".career_profile/private.json" `
+  --attachment "resume=.career_profile/resume.pdf" `
+  --output ".career_profile/application_packages/package.json"
+
+python -m career_pipeline application validate `
+  --root . `
+  --package ".career_profile/application_packages/package.json" `
+  --private-data ".career_profile/private.json" `
+  --attachment "resume=.career_profile/resume.pdf"
+
+python -m career_pipeline application dry-run `
+  --root . `
+  --package ".career_profile/application_packages/package.json" `
+  --private-data ".career_profile/private.json" `
+  --attachment "resume=.career_profile/resume.pdf" `
+  --html "tests/fixtures/application_form.html" `
+  --output ".career_profile/form-result.json" `
+  --evaluation-time "2026-07-12T09:00:00+09:00"
+```
+
+`dry-run`은 label/name/role 기반으로 필드를 읽기 전용 매핑하고 로컬 입력 자료와의 호환성만 검증합니다. DOM 입력·클릭·파일 업로드·제출은 수행하지 않습니다. CAPTCHA, MFA, 비밀번호, 새 문항, 알 수 없는 필드, 글자 수 제한, 첨부파일 형식 불일치가 발견되면 계획 생성을 중단합니다. `queue approved`나 `review_required`는 실제 제출 승인 또는 자동지원 허용을 뜻하지 않습니다.
+
 ## 2. 공식 공고 분석
 
 공식 PDF/DOCX를 사용자가 확인한 경우:
