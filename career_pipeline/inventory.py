@@ -1,3 +1,4 @@
+"""파일 인벤토리. 민감 정보 디렉토리(경력증명서, 자격증, 학교성적 등)를 제외하고 SHA-256으로 중복을 검출합니다."""
 from collections import defaultdict
 from dataclasses import replace
 from hashlib import sha256
@@ -15,19 +16,26 @@ EXCLUDED_DIRS = {
     ".git",
     ".venv",
     ".worktrees",
+    ".career_profile",
     ".agents",
     "career_runs",
     "docs",
+    "_workspace",
+    ".rendered_nonghyup",
+    "tmp",
 }
 EXCLUDED_NAMES = {"Chrome 비밀번호.csv"}
 
 
-def _digest(path: Path) -> str:
+def digest_path(path: Path) -> str:
     digest = sha256()
     with path.open("rb") as stream:
         for block in iter(lambda: stream.read(1024 * 1024), b""):
             digest.update(block)
     return digest.hexdigest()
+
+
+_digest = digest_path
 
 
 def build_inventory(root: Path) -> list[SourceRecord]:

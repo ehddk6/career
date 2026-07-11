@@ -1,0 +1,88 @@
+{
+  "file": "지역농협_선정개선본_농협연계강화.md",
+  "docx": "지역농협_선정개선본_농협연계강화.docx",
+  "docx_opened": true,
+  "paragraphs": 11,
+  "contains_question_runs": false,
+  "sections": [
+    {
+      "section": "1. 성장 가능성",
+      "no_space_count": 453,
+      "limit_ok": true,
+      "target_band_ok": true,
+      "nh_terms": [
+        "농협",
+        "지역농협",
+        "조합원",
+        "영농",
+        "금융",
+        "영농자금"
+      ],
+      "nh_link_ok": true
+    },
+    {
+      "section": "2. 의사결정",
+      "no_space_count": 457,
+      "limit_ok": true,
+      "target_band_ok": true,
+      "nh_terms": [
+        "농협",
+        "지역농협",
+        "조합원",
+        "영농",
+        "경제사업"
+      ],
+      "nh_link_ok": true
+    },
+    {
+      "section": "3. 신뢰",
+      "no_space_count": 445,
+      "limit_ok": true,
+      "target_band_ok": true,
+      "nh_terms": [
+        "농협",
+        "지역농협",
+        "조합원",
+        "영농",
+        "경제사업",
+        "교육지원",
+        "금융",
+        "창구"
+      ],
+      "nh_link_ok": true
+    },
+    {
+      "section": "4. 가치와 역할",
+      "no_space_count": 450,
+      "limit_ok": true,
+      "target_band_ok": true,
+      "nh_terms": [
+        "농협",
+        "지역농협",
+        "조합원",
+        "영농",
+        "금융",
+        "창구",
+        "영농자금"
+      ],
+      "nh_link_ok": true
+    },
+    {
+      "section": "5. 농협 사업 구조와 기여",
+      "no_space_count": 456,
+      "limit_ok": true,
+      "target_band_ok": true,
+      "nh_terms": [
+        "농협",
+        "지역농협",
+        "조합원",
+        "영농",
+        "경제사업",
+        "교육지원",
+        "금융",
+        "영농자금"
+      ],
+      "nh_link_ok": true
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-07-05",
+  "scope": {
+    "current_submission_ready_set": 42,
+    "legacy_html_set": 45,
+    "total_submission_ready_candidates": 87
+  },
+  "recommendation_counts": {
+    "current_submission_ready": 42,
+    "legacy_submission_ready": 45,
+    "total_submission_ready": 87
+  },
+  "coverage_note": "기존 42개 제출권장화 결과에 예전 자기소개서 HTML 45개를 별도 제출권장 후보로 추가했습니다.",
+  "legacy_outputs": {
+    "manifest": "legacy_submission_ready_manifest.json",
+    "evaluation_json": "legacy_submission_ready_re_evaluation_20260705.json",
+    "evaluation_md": "legacy_submission_ready_re_evaluation_20260705.md",
+    "combined_docx": "legacy_self_intro_submission_ready_20260705.docx",
+    "combined_all_docx": "all_self_intro_submission_ready_including_legacy_20260705.docx"
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "question_index": {"type": "integer"},
+          "text": {"type": "string"},
+          "applied_rules": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        },
+        "required": ["question_index", "text", "applied_rules"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["items"],
+  "additionalProperties": false
+}

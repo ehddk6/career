@@ -1,0 +1,14 @@
+[patina] batch safety: files=10, backend=codex-cli, prompt_mode=minimal, max_concurrency=2, max_retries=0, timeout_ms=180000, worst_case_requests=10, max_prompt_chars=69959, avg_prompt_chars=68079
+[patina] codex-cli is a local agent CLI, not a stateless batch completion API. Large batches should prefer an OpenAI-compatible HTTP provider when possible.
+[patina] largest prompt is ~69,959 chars; failed attempts still send the full prompt.
+[patina] batch file failed: C:\Users\ehddk\OneDrive\문서\취업\jasoseo_all_review_20260705\final_gate_20260705\final_gate_drafts\32_(24-10-30)한국도로공사서비스 사무·영업_수도권동부.pdf_제출권장후보_final_gate.md (1/999 failures): codex-cli backend: timed out after 179995ms
+[patina] deterministic score diverged from LLM score (12.2 vs 36.4); using pessimistic 36.4
+[patina] score gate failed: overall 36.4 > 30
+[patina] deterministic score diverged from LLM score (2.8 vs 28.6); using pessimistic 28.6
+[patina] deterministic score diverged from LLM score (5.3 vs 36.4); using pessimistic 36.4
+[patina] score gate failed: overall 36.4 > 30
+[patina] deterministic score diverged from LLM score (5.8 vs 38.5); using pessimistic 38.5
+[patina] score gate failed: overall 38.5 > 30
+[patina] Error: batch completed with failures
+         Batch completed with 1 failed file(s). Successes: 9/10. Failures: 1/10.
+         → C:\Users\ehddk\OneDrive\문서\취업\jasoseo_all_review_20260705\final_gate_20260705\final_gate_drafts\32_(24-10-30)한국도로공사서비스 사무·영업_수도권동부.pdf_제출권장후보_final_gate.md: codex-cli backend: timed out after 179995ms

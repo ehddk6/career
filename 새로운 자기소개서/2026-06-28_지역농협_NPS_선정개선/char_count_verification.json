@@ -1,0 +1,51 @@
+{
+  "국민연금공단_선정개선본.md": [
+    {
+      "section": "1. 책임감",
+      "count_mode": "space",
+      "count": 621
+    },
+    {
+      "section": "2. 조직 적응과 관계 형성",
+      "count_mode": "space",
+      "count": 645
+    },
+    {
+      "section": "3. 직무역량과 입사 후 실천",
+      "count_mode": "space",
+      "count": 672
+    },
+    {
+      "section": "4. 원칙 준수와 설득",
+      "count_mode": "space",
+      "count": 664
+    }
+  ],
+  "지역농협_선정개선본.md": [
+    {
+      "section": "1. 성장 가능성",
+      "count_mode": "no_space",
+      "count": 477
+    },
+    {
+      "section": "2. 의사결정",
+      "count_mode": "no_space",
+      "count": 489
+    },
+    {
+      "section": "3. 신뢰",
+      "count_mode": "no_space",
+      "count": 473
+    },
+    {
+      "section": "4. 가치와 역할",
+      "count_mode": "no_space",
+      "count": 493
+    },
+    {
+      "section": "5. 농협 사업 구조와 기여",
+      "count_mode": "no_space",
+      "count": 485
+    }
+  ]
+}

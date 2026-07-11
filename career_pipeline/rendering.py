@@ -1,3 +1,4 @@
+"""DOCX/Markdown 렌더링. 표준 비즈니스 문서 형식으로 자소서를 생성합니다."""
 from pathlib import Path
 
 from docx import Document
@@ -6,12 +7,22 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml.ns import qn
 from docx.shared import Inches, Pt, RGBColor
 
+from .character_count import count_characters
 from .models import DraftResponse, Question
 
 
 BLUE = RGBColor(0x2E, 0x74, 0xB5)
 DARK_BLUE = RGBColor(0x1F, 0x4D, 0x78)
 MUTED = RGBColor(0x66, 0x66, 0x66)
+
+
+def _constraint_text(question: Question, answer: str = "") -> str:
+    mode = "공백 제외" if question.count_mode == "spaces_excluded" else "공백 포함"
+    current = count_characters(answer, question.count_mode)
+    return (
+        f"제한: {question.character_limit or '미지정'}자 ({mode})"
+        f" · 현재: {current}자"
+    )
 
 
 def _set_font(style, name: str, size: float, color=None, bold=None) -> None:
@@ -71,7 +82,7 @@ def render_draft_markdown(
         chunks.extend(
             [
                 f"## {question.index}. {question.prompt}",
-                f"제한: {question.character_limit or '미지정'}자",
+                _constraint_text(question, by_index.get(question.index, "")),
                 "",
                 by_index.get(question.index, ""),
                 "",
@@ -91,7 +102,7 @@ def render_draft_docx(
     for question in questions:
         document.add_heading(f"{question.index}. {question.prompt}", level=1)
         document.add_paragraph(
-            f"제한: {question.character_limit or '미지정'}자",
+            _constraint_text(question, by_index.get(question.index, "")),
             style="Constraint",
         )
         document.add_paragraph(by_index.get(question.index, ""))

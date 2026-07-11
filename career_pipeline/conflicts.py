@@ -1,3 +1,4 @@
+"""사실 충돌 검출. 토큰 유사도와 confirmed 상태로 충돌 여부를 판정합니다."""
 from .models import Conflict, FactClaim
 
 

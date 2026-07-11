@@ -1,3 +1,4 @@
+"""실행 상태 관리. run.json 작성, run 디렉토리 생성을 담당합니다."""
 from datetime import datetime
 import json
 from pathlib import Path
@@ -31,4 +32,7 @@ def write_json(path: Path, payload) -> None:
 
 
 def write_state(run_dir: Path, state: dict) -> None:
+    if "started_at" not in state:
+        from datetime import datetime
+        state["started_at"] = datetime.now().isoformat()
     write_json(run_dir / "run.json", state)

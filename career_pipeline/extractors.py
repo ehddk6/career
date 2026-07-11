@@ -1,3 +1,4 @@
+"""DOCX, PDF, XLSX, TXT, MD 파일에서 텍스트를 추출합니다. 블록 단위로 분리하여 paragraph 리스트를 반환합니다."""
 from pathlib import Path
 import re
 

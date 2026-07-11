@@ -1,3 +1,4 @@
+"""사실 추출. 정규식으로 수치/단위 패턴을 검출하여 FactClaim을 생성합니다."""
 import re
 
 from .models import ExtractedDocument, FactClaim
@@ -5,7 +6,7 @@ from .models import ExtractedDocument, FactClaim
 
 METRIC = re.compile(
     r"(?P<number>\d[\d,]*(?:\.\d+)?)\s*"
-    r"(?P<unit>억\s*원|천만\s*원|만\s*원|원|건|명|%|페이지|일|주|개월|년)"
+    r"(?P<unit>조\s*원|억\s*원|천만\s*원|만\s*원|원|건|명|%|페이지|일|주|개월|년)"
 )
 TOKEN = re.compile(r"[가-힣A-Za-z]{2,}")
 STOPWORDS = {

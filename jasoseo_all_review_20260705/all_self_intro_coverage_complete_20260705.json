@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-07-05",
+  "scope": {
+    "current_submission_ready_set": 42,
+    "legacy_html_set": 45,
+    "supplemental_candidate_set": 9,
+    "total_submission_ready_candidates": 96
+  },
+  "recommendation_counts": {
+    "current_submission_ready": 42,
+    "legacy_submission_ready": 45,
+    "supplemental_submission_ready": 9,
+    "total_submission_ready": 96
+  },
+  "outputs": {
+    "complete_docx": "all_self_intro_submission_ready_complete_20260705.docx",
+    "supplemental_evaluation_md": "supplemental_submission_ready_re_evaluation_20260705.md",
+    "supplemental_combined_docx": "supplemental_self_intro_submission_ready_20260705.docx"
+  },
+  "verification_boundary": "지원 전에는 실제 최신 공고 문항, 글자 수, 블라인드 기준을 다시 대조해야 합니다."
+}

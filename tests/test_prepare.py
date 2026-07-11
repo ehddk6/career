@@ -1,5 +1,6 @@
 from pathlib import Path
 
+import json
 from docx import Document
 import pytest
 import yaml
@@ -37,7 +38,7 @@ def test_prepare_writes_artifacts_blocks_on_conflict_and_resumes(tmp_path: Path)
     state = prepare_run(tmp_path, "HUG 금융·기금", draft, None, "test")
 
     run_dir = Path(state["run_dir"])
-    assert state["status"] == "blocked"
+    assert state["status"] == "blocked_conflict"
     assert (run_dir / "01_자료목록.md").exists()
     assert (run_dir / "02_사실원장.json").exists()
     assert (run_dir / "03_충돌검사.md").exists()
@@ -74,9 +75,10 @@ def test_prepare_writes_artifacts_blocks_on_conflict_and_resumes(tmp_path: Path)
     assert resumed["questions"] == [
         {
             "index": 1,
-            "prompt": "지원동기를 작성해 주십시오.",
-            "character_limit": 600,
-        }
+                "prompt": "지원동기를 작성해 주십시오.",
+                "character_limit": 600,
+                "count_mode": "spaces_included",
+            }
     ]
 
 
@@ -84,6 +86,12 @@ def test_prepare_excludes_company_research_from_personal_fact_conflicts(tmp_path
     write_docx(tmp_path / "career.docx", "서울시청 근무 기간은 1개월입니다.")
     research = tmp_path / "자료조사"
     research.mkdir()
+    frame_dir = tmp_path / "자료조사" / "자소서_유튜브_프레임분석_2026-07-03"
+    frame_dir.mkdir(parents=True)
+    (frame_dir / "01_자소서_작성원칙_요약.md").write_text(
+        "# 작성 원칙\n\n- 유튜브 예시 문장은 사실 근거가 아닙니다.\n",
+        encoding="utf-8",
+    )
     write_docx(research / "posting.docx", "채용 근무 기간은 3개월입니다.")
     draft = tmp_path / "draft.docx"
     write_docx(
@@ -94,7 +102,15 @@ def test_prepare_excludes_company_research_from_personal_fact_conflicts(tmp_path
 
     state = prepare_run(tmp_path, "HUG 금융·기금", draft, None, "research-filter")
 
+    run_dir = Path(state["run_dir"])
+    fact_payload = json.loads(
+        (run_dir / "02_사실원장.json").read_text(encoding="utf-8")
+    )
+
     assert state["status"] == "ready_for_research"
+    assert state["writing_guidance"]["status"] == "available"
+    assert (run_dir / "05_작성가이드_유튜브프레임.md").exists()
+    assert all("유튜브 예시 문장" not in item["context"] for item in fact_payload)
 
 
 def test_prepare_fails_fast_with_clear_message_when_draft_is_locked(

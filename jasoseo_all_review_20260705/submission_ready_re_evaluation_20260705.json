@@ -1,0 +1,2876 @@
+[
+  {
+    "file": "01_26-01-15_한국공정거래조정원(KOFAIR) 일반직 6급_개선안.md",
+    "organization": "한국공정거래조정원",
+    "question_count": 6,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. 지원동기 (1000자)",
+        "chars_no_space": 661,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "2. 직무 역량 (1000자)",
+        "chars_no_space": 642,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "3. 문제해결 경험 (1000자)",
+        "chars_no_space": 651,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "4. 설득 및 합의 경험 (1000자)",
+        "chars_no_space": 629,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 5,
+        "prompt": "5. 기관 역할 및 이슈 (1000자)",
+        "chars_no_space": 642,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 6,
+        "prompt": "6. 입사 후 포부 (1000자)",
+        "chars_no_space": 672,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "02_26-01-16_NH농협은행 6급초급_일반_개선안.md",
+    "organization": "NH농협은행",
+    "question_count": 5,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. NH농협은행에 지원하게 된 계기와 입행 후 최고의 금융전문가로 성장하기 위한 지금까지의 노력을 작성해 주세요.",
+        "chars_no_space": 371,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "2. 여러 사람과 협력할 때 다른 사람들과 차별화 되는 본인의 장점은 무엇이며, 이를 농협은행에서 어떻게 활용하고 싶은지 구체적으로 작성해 주세요.",
+        "chars_no_space": 346,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "3. 은행원에게 요구되는 중요한 자질 중 하나는 윤리의식입니다. 본인이 정직과 원칙을 지키며 올바르게 행동했던 경험을 구체적으로 작성해 주세요.",
+        "chars_no_space": 369,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "4. 본인이 경험한 혁신적이고 차별화된 디지털 서비스나 플랫폼 중에 농협은행의 디지털 플랫폼에 반영하고 싶은 요소를 하나 선택하여 작성해 주시고,그 이유와 이를 통해 고객에게 제공할 수 있는 가치에 대해 설명해 주세요.",
+        "chars_no_space": 327,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 5,
+        "prompt": "5. 위 자기소개서 내용 외에 추가적으로 본인을 소개할 내용을 작성해 주세요.",
+        "chars_no_space": 361,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "03_26-01-16_한국주택금융공사(HF) [일반전형]강원서부지사_개선안.md",
+    "organization": "한국주택금융공사",
+    "question_count": 3,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "공사 체험형 인턴 지원동기 및 입사를 통해 기대하고 있는 개인적인 목표는 무엇인지 기술해 주십시오.",
+        "chars_no_space": 376,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "공사의 조직문화(협력, 도전, 포용) 중 지원자가 가장 부합하다고 생각하는 가치에 대하여 지원자의 학업, 경험*(동아리·대외활동 등)을 기반으로 에피소드 형식으로 기술해 주십시오. * 경력사항 기반 작성 지양",
+        "chars_no_space": 373,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "공사 상품(보금자리론, 주택보증, 주택연금 등) 중 지원자가 가장 관심을 갖고 있는 상품을 1가지 선택하고, 그 이유와 본인이 기여할 수 있는 방안에 대해 기술해 주십시오.",
+        "chars_no_space": 350,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "04_26-03-04_국민건강보험공단(h·well) [일반]강원_행정 6급가_개선안.md",
+    "organization": "국민건강보험공단",
+    "question_count": 6,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. 다른 사람과 공동의 목표를 추진하는 과정에서 다른 의견이나 이해관계로 어려움이 있었던 경험을 기술해 주시기 바랍니다. 협력을 이끌어 내기 위해 어떤 방식으로 소통하고 조율하였는지, 그 과정에서 중요하게 고려한 점은 무엇인지 본인의 역할과 결과를 중심으로 기술해 주시기 바랍니다.",
+        "chars_no_space": 357,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "2. 개인적인 생각이나 주변의 압박이 아닌, 규정이나 원칙을 기준으로 공정한 결정을 내려야 했던 경험에 대하여 기술해 주시기 바랍니다. 당시 어떤 기준으로 의사결정을 했는지, 그 결과에 대해 본인이 느꼈던 점은 무엇인지 구체적으로 기술해 주시기 바랍니다.",
+        "chars_no_space": 370,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "3. 기존의 방식이나 절차에 대해 불편하거나 비효율적이라고 느껴 개선이 필요하다고 판단한 경험을 기술해 주시기 바랍니다. 당시 어떤 점이 문제라고 생각했는지, 이를 개선하기 위해 어떻게 행동하였는지를 중심으로 기술해 주시기 바랍니다.",
+        "chars_no_space": 327,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "4. 지원한 직무분야와 관련하여, 본인이 갖춘 전문지식 또는 기술, 경력을 어떻게 습득하고 발전시키기 위해 노력하였는지, 본인의 경험을 객관적인 실적을 포함하여 구체적으로 기술해 주시기 바랍니다.",
+        "chars_no_space": 334,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 5,
+        "prompt": "기재한 경력사항에 대하여 실제 수행한 업무를 기준으로 기술하시기 바랍니다.",
+        "chars_no_space": 367,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 6,
+        "prompt": "기재한 경험사항에 대하여 실제 활동한 내용을 기준으로 기술하시기 바랍니다.",
+        "chars_no_space": 361,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "05_26-03-12_건강보험심사평가원(HIRA) 행정직_사무 행정_6급가_일반_개선안.md",
+    "organization": "건강보험심사평가원",
+    "question_count": 4,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "지원 직무에 필요한 지식과 기술(공고문 [별첨1] 참고)을 습득하기 위해 노력했던 경험을 기술하고, 입사 후 해당 역량을 어떻게 발휘할 수 있을지 구체적으로 기술하여 주십시오. (500자 이내)",
+        "chars_no_space": 353,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "주변에서 모두 당연하게 받아들이는 관행이지만 원칙에 위배된다고 판단하여 이를 개선하고자 노력했던 경험을 구체적으로 기술하여 주십시오. (500자 이내)",
+        "chars_no_space": 323,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "본인의 단점으로 소통에 어려움을 겪었던 경험과, 이를 극복하기 위해 어떤 노력을 하였는지 구체적으로 기술하여 주십시오. (500자 이내)",
+        "chars_no_space": 352,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "업무 수행 중 기존보다 효율적인 방식을 주도적으로 도입하여 성과를 냈던 경험을 제시하고, 새로운 방식의 도입 배경과 그 결과를 구체적으로 기술하여 주십시오. (500자 이내)",
+        "chars_no_space": 359,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "06_26-03-17_국민연금공단(NPS) [일반전형-권역] 6급 사무직_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 4,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. 맡은 업무(역할)를 수행하면서 책임감을 발휘해 업무(역할)를 완수했던 경험에 대해 당시 상황, 본인의 행동, 그리고 결과를 중심으로 상세히 기술해 주십시오.(600자 이상 800자 미만)",
+        "chars_no_space": 540,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "2. 새로운 조직이나 팀에 합류했을 당시 구성원들과 관계를 형성하고 조직에 적응하기 위해 노력했던 경험에 대해 구체적으로 기술해 주십시오.(600자 이상 800자 미만)",
+        "chars_no_space": 510,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "1. 본인이 보유한 직무역량이 우리 조직의 목표 달성 또는 주요 현안 해결에 어떻게 기여할 수 있는지 설명하고 입사 후 실무 현장에서 실천할 수 있는 구체적인 행동 계획을 기술해 주십시오. (600자 이상 800자 미만)",
+        "chars_no_space": 522,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "2. 이해관계가 상충하거나 규정에 반하는 요구를 하는 고객 또는 상대방을 설득하여 원칙을 지키면서도 합의를 도출한 경험에 대해 기술해 주십시오. 특히 상대방을 설득하기 위해 활용한 본인만의 논리나 소통 전략은 무엇이었는지 구체적으로 기술해 주십시오.(600자 이상 800자 미만)",
+        "chars_no_space": 529,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "07_26-03-28_신한은행 일반직_일반_개선안.md",
+    "organization": "신한은행",
+    "question_count": 4,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. 다른 지원자와 차별화되는 본인만의 강점을 한가지 선택하여, 이를 신한은행에서 어떻게 발휘할 수 있을지 작성해 주세요.",
+        "chars_no_space": 327,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "2. 본인이 중요하게 생각하는 가치관이 타인과 충돌했던 경험은 무엇이며, 이를 어떻게 해결했는지 작성해 주세요.",
+        "chars_no_space": 357,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "3. 최근 사회 이슈 중 중요하다고 생각되는 한 가지를 선택하고 해당 이슈가 은행업에 어떤 영향을 끼칠 것으로 예상되는지 본인의 생각을 작성해 주세요.",
+        "chars_no_space": 362,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "4. 은행 입행 10년 혹은 20년 후 본인의 모습을 상상해보고 어떤 분야의 전문가로 성장하고 싶은지 기술해 주세요.",
+        "chars_no_space": 343,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "08_26-05-27_우리은행 지역인재 (강원)_개선안.md",
+    "organization": "우리은행",
+    "question_count": 4,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. 우리은행에 지원한 이유와 입행 후 이루고 싶은 목표를 구체적으로 설명해 주세요.",
+        "chars_no_space": 341,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "2. 지원 지역에서 우리은행이 ‘가장 먼저 선택받는 주거래 은행’이 되기 위한 방안을 구체적으로 설명해 주세요.",
+        "chars_no_space": 335,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "3. 기존 프로세스를 개선하여 성공적으로 변화를 만들어낸 경험을 구체적으로 작성해 주세요.",
+        "chars_no_space": 360,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "4. AI를 활용하여 문제를 해결한 경험 한 가지를 아래 순서에 따라 구체적으로 설명해 주세요.",
+        "chars_no_space": 368,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "09_26-06-21_주택도시보증공사(HUG) 일반전형_금융·기금(강원)_개선안.md",
+    "organization": "주택도시보증공사",
+    "question_count": 4,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "우리 공사 체험형 인턴에 지원하게 된 동기를 기술하고, 직무와 관련하여 인턴 근무를 통해 성취하고 싶은 역량 또는 달성하고 싶은 목표에 대해 기술해 주십시오.",
+        "chars_no_space": 374,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "HUG의 주요 사업 중 관심 있는 1가지를 선택하고, 체험형 인턴 과정에서 본인이 기여할 수 있는 방안에 대해 기술해 주십시오.",
+        "chars_no_space": 362,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "익숙한 방식이나 관행 속에서 스스로 문제를 인식하고, 새로운 접근이나 시도를 통해 개선해본 경험을 기술해 주십시오.",
+        "chars_no_space": 372,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "주어진 역할에서 책임감을 가지고 성실히 임해 신뢰를 얻었던 경험을 구체적으로 기술하고, 본인에게 어떤 영향을 주었는지 작성해 주십시오.",
+        "chars_no_space": 372,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "10_26-06-21_주택도시보증공사(HUG) 일반전형_금융·기금(강원)_최종개선본_patina_개선안.md",
+    "organization": "주택도시보증공사",
+    "question_count": 4,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "우리 공사 체험형 인턴에 지원하게 된 동기를 기술하고, 직무와 관련하여 인턴 근무를 통해 성취하고 싶은 역량 또는 달성하고 싶은 목표에 대해 기술해 주십시오.",
+        "chars_no_space": 374,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "HUG의 주요 사업 중 관심 있는 1가지를 선택하고, 체험형 인턴 과정에서 본인이 기여할 수 있는 방안에 대해 기술해 주십시오.",
+        "chars_no_space": 362,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "익숙한 방식이나 관행 속에서 스스로 문제를 인식하고, 새로운 접근이나 시도를 통해 개선해본 경험을 기술해 주십시오.",
+        "chars_no_space": 372,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "주어진 역할에서 책임감을 가지고 성실히 임해 신뢰를 얻었던 경험을 구체적으로 기술하고, 본인에게 어떤 영향을 주었는지 작성해 주십시오.",
+        "chars_no_space": 372,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "11_26-06-21_주택도시보증공사(HUG) 일반전형_금융·기금(강원)_최종상위권_patina_개선안.md",
+    "organization": "주택도시보증공사",
+    "question_count": 4,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "우리 공사 체험형 인턴에 지원하게 된 동기를 기술하고, 직무와 관련하여 인턴 근무를 통해 성취하고 싶은 역량 또는 달성하고 싶은 목표에 대해 기술해 주십시오.",
+        "chars_no_space": 374,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "HUG의 주요 사업 중 관심 있는 1가지를 선택하고, 체험형 인턴 과정에서 본인이 기여할 수 있는 방안에 대해 기술해 주십시오.",
+        "chars_no_space": 362,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "익숙한 방식이나 관행 속에서 스스로 문제를 인식하고, 새로운 접근이나 시도를 통해 개선해본 경험을 기술해 주십시오.",
+        "chars_no_space": 372,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "주어진 역할에서 책임감을 가지고 성실히 임해 신뢰를 얻었던 경험을 구체적으로 기술하고, 본인에게 어떤 영향을 주었는지 작성해 주십시오.",
+        "chars_no_space": 372,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "12_IBK기업은행_자기소개서_최종본_개선안.md",
+    "organization": "IBK기업은행",
+    "question_count": 3,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "IBK기업은행을 선택하신 이유와 지원동기를 작성해 주세요.",
+        "chars_no_space": 370,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "본인이 생각하는 장점과 단점을 구체적인 경험과 함께 작성해 주세요.",
+        "chars_no_space": 345,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "남들과는 다른 지원자만의 경험, 또는 전력을 다했던 경험을 작성해 주세요.",
+        "chars_no_space": 346,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "13_NH농협은행_6급_자기소개서_블라인드_최종본_개선안_개선안.md",
+    "organization": "NH농협은행",
+    "question_count": 5,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. NH농협은행에 지원하게 된 계기와 입행 후 최고의 금융전문가로 성장하기 위한 지금까지의 노력을 작성해 주세요.",
+        "chars_no_space": 371,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "2. 여러 사람과 협력할 때 다른 사람들과 차별화되는 본인의 장점은 무엇이며, 이를 농협은행에서 어떻게 활용하고 싶은지 구체적으로 작성해 주세요.",
+        "chars_no_space": 346,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "3. 은행원에게 요구되는 중요한 자질 중 하나는 윤리의식입니다. 본인이 정직과 원칙을 지키며 올바르게 행동했던 경험을 구체적으로 작성해 주세요.",
+        "chars_no_space": 369,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "4. 본인이 경험한 혁신적이고 차별화된 디지털 서비스나 플랫폼 중에 농협은행의 디지털 플랫폼에 반영하고 싶은 요소를 하나 선택하고, 그 이유와 이를 통해 고객에게 제공할 수 있는 가치를 설명해 주세요.",
+        "chars_no_space": 327,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 5,
+        "prompt": "5. 위 자기소개서 내용 외에 추가적으로 본인을 소개할 내용을 작성해 주세요.",
+        "chars_no_space": 361,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "14_NH농협은행_6급_자기소개서_최종제출본_개선안.md",
+    "organization": "NH농협은행",
+    "question_count": 5,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. NH농협은행에 지원하게 된 계기와 입행 후 최고의 금융전문가로 성장하기 위한 지금까지의 노력을 작성해 주세요.",
+        "chars_no_space": 371,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "2. 여러 사람과 협력할 때 다른 사람들과 차별화되는 본인의 장점은 무엇이며, 이를 농협은행에서 어떻게 활용하고 싶은지 구체적으로 작성해 주세요.",
+        "chars_no_space": 346,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "3. 은행원에게 요구되는 중요한 자질 중 하나는 윤리의식입니다. 본인이 정직과 원칙을 지키며 올바르게 행동했던 경험을 구체적으로 작성해 주세요.",
+        "chars_no_space": 369,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "4. 본인이 경험한 혁신적이고 차별화된 디지털 서비스나 플랫폼 중에 농협은행의 디지털 플랫폼에 반영하고 싶은 요소를 하나 선택하고, 그 이유와 이를 통해 고객에게 제공할 수 있는 가치를 설명해 주세요.",
+        "chars_no_space": 327,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 5,
+        "prompt": "5. 위 자기소개서 내용 외에 추가적으로 본인을 소개할 내용을 작성해 주세요.",
+        "chars_no_space": 361,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "15_ssis_개선안.md",
+    "organization": "사회보장정보원",
+    "question_count": 4,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. 지원동기와 입사 후 목표를 작성해 주세요.",
+        "chars_no_space": 374,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "2. 협업 또는 문제해결 경험을 작성해 주세요.",
+        "chars_no_space": 353,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "3. 원칙과 책임감을 지킨 경험을 작성해 주세요.",
+        "chars_no_space": 371,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "4. 직무역량과 입사 후 활용 방안을 작성해 주세요.",
+        "chars_no_space": 354,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "16_기업은행_개선안.md",
+    "organization": "IBK기업은행",
+    "question_count": 4,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. IBK기업은행 지원동기와 입사 후 목표를 작성해 주세요.",
+        "chars_no_space": 370,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "2. 직무역량과 이를 발휘한 경험을 작성해 주세요.",
+        "chars_no_space": 372,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "3. 협업 또는 문제해결 경험을 작성해 주세요.",
+        "chars_no_space": 352,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "4. 원칙과 책임감을 지킨 경험을 작성해 주세요.",
+        "chars_no_space": 371,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "17_사회보장정보원_자기소개서_최종본_개선안.md",
+    "organization": "사회보장정보원",
+    "question_count": 4,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. 지원동기와 입사 후 목표를 작성해 주세요.",
+        "chars_no_space": 374,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "2. 협업 또는 문제해결 경험을 작성해 주세요.",
+        "chars_no_space": 353,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "3. 원칙과 책임감을 지킨 경험을 작성해 주세요.",
+        "chars_no_space": 371,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "4. 직무역량과 입사 후 활용 방안을 작성해 주세요.",
+        "chars_no_space": 354,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "18_새로운 자기소개서_2026-06-28_지역농협_NPS_선정개선_국민연금공단_선정개선본_개선안.md",
+    "organization": "지역농협",
+    "question_count": 1,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "3. 직무역량과 입사 후 실천",
+        "chars_no_space": 347,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "19_새로운 자기소개서_2026-06-28_지역농협_NPS_선정개선_국민연금공단_선정개선본_교열_patina_개선안.md",
+    "organization": "지역농협",
+    "question_count": 1,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "3. 직무역량과 입사 후 실천",
+        "chars_no_space": 347,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "20_새로운 자기소개서_2026-06-28_지역농협_NPS_선정개선_지역농협_강사지침반영_최종후보_개선안.md",
+    "organization": "지역농협",
+    "question_count": 1,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. 성장 가능성",
+        "chars_no_space": 359,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "21_새로운 자기소개서_2026-06-28_지역농협_NPS_선정개선_지역농협_선정개선본_개선안.md",
+    "organization": "지역농협",
+    "question_count": 1,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. 성장 가능성",
+        "chars_no_space": 359,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "22_새로운 자기소개서_2026-06-28_지역농협_NPS_선정개선_지역농협_선정개선본_교열_patina_개선안.md",
+    "organization": "지역농협",
+    "question_count": 1,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. 성장 가능성",
+        "chars_no_space": 359,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "23_새로운 자기소개서_2026-06-28_지역농협_NPS_선정개선_지역농협_선정개선본_농협연계강화_개선안.md",
+    "organization": "지역농협",
+    "question_count": 1,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. 성장 가능성",
+        "chars_no_space": 359,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "24_새로운 자기소개서_25-11-18_서울특별시농수산식품공사(SAFFC) 정규직 6급_사무직_일반행정_일반_개선안.md",
+    "organization": "서울특별시농수산식품공사",
+    "question_count": 4,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. 지원동기와 입사 후 목표를 작성해 주세요.",
+        "chars_no_space": 379,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "2. 협업 또는 문제해결 경험을 작성해 주세요.",
+        "chars_no_space": 358,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "3. 원칙과 책임감을 지킨 경험을 작성해 주세요.",
+        "chars_no_space": 373,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "4. 직무역량과 입사 후 활용 방안을 작성해 주세요.",
+        "chars_no_space": 350,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "25_새로운 자기소개서_25-11-23_흥국생명보험 영업기획_개선안.md",
+    "organization": "흥국생명",
+    "question_count": 3,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. 지원 분야와 관련하여 전문성을 키우기 위해 노력한 경험을 기술해주시기 바랍니다. (1,000자)",
+        "chars_no_space": 342,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "2. 다른 사람들과의 협업 또는 프로젝트 경험에 대해 설명하고, 그 결과를 구체적으로 기술해주시기 바랍니다. (1,000자)",
+        "chars_no_space": 338,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "3. 흥국생명에 지원하시는 동기와 입사 후 성취하고 싶은 부분을 기술해주시기 바랍니다. (1,000자)",
+        "chars_no_space": 333,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "26_새로운 자기소개서_25-11-24_서울교통공사(Seoul Metro) 사무_일반전형_개선안.md",
+    "organization": "서울교통공사",
+    "question_count": 4,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. 지원동기와 입사 후 목표를 작성해 주세요.",
+        "chars_no_space": 371,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "2. 협업 또는 문제해결 경험을 작성해 주세요.",
+        "chars_no_space": 351,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "3. 원칙과 책임감을 지킨 경험을 작성해 주세요.",
+        "chars_no_space": 366,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "4. 직무역량과 입사 후 활용 방안을 작성해 주세요.",
+        "chars_no_space": 349,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "27_새로운 자기소개서_25-11-29_신용보증기금 체험형 청년인턴1 (보증)_개선안.md",
+    "organization": "신용보증기금",
+    "question_count": 3,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. 신용보증기금 청년인턴에 지원하게 된 동기와 인턴생활을 통해 얻거나 배우고자 하는 점을 기술하여 주십시오. (400자 이상 600자 이내)",
+        "chars_no_space": 421,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "2. 신용보증기금이 청년인턴에게 기대하는 역량은 무엇이라고 생각하며, 본인이 그 역량에 어떻게 부합하는지 경험 또는 교육사항 등을 포함하여 기술하여 주십시오. (400자 이상 600자 이내)",
+        "chars_no_space": 412,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "지원자가 생각하기에 신용보증기금이 이러한 프로그램을 운영하게 된 배경이 무엇인지 기술하시고, 정부가 지방소멸방지를 위해 시행 중인 정책 중 신용보증기금이 수행할 수 있는 정책을 한 가지 선택하여 소개하고 동 정부 정책과 관련하여 신용보증기금이 수행하여야 하는 역할 혹은 사업에 대해 기술하여 주시기 바랍니다. (600자 이상 900자 이내)",
+        "chars_no_space": 573,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "28_새로운 자기소개서_25-11-29_신용보증기금(KODIT) 금융사무(일반)_경영_개선안.md",
+    "organization": "신용보증기금",
+    "question_count": 5,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. 공동의 성과 창출을 위해 본인이 특별히 기여했던 경험과 성과 창출 과정에서 발생한 무임승차자 발생, 규칙 미준수, 결론 미합의 등 갈등 상황을 해결하기 위해 본인이 남다르게 기울였던 노력을 구체적으로 기술하여 주십시오. (200자 이상 500자 이내)",
+        "chars_no_space": 318,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "이 전략목표 중에서 본인이 입사 후 가장 크게 기여할 수 있는 것을 한가지 선택하여 그 이유를 직무 역량 토대로 기술하여 주십시오. (200자 이상 500자 이내)",
+        "chars_no_space": 337,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "3. 자발적으로 도전적인 목표를 세우고 그 목표를 달성하기 위해 노력하였던 경험 중 가장 기억에 남는 것은 무엇입니까? 설정한 목표, 목표의 수립 과정, 목표 달성을 위한 노력, 달성 과정에서 아쉬웠던 점이나 그 당시 느꼈던 한계점, 이를 극복하기 위해 했던 행동과 생각, 결과 등에 대해 구체적으로 기술하여 주십시오. (200자 이상 500자 이내)",
+        "chars_no_space": 338,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "4. 신용보증기금의 인재상은 ”공기업인으로서의 기본인품과 금융인으로서의 성장자질을 갖추고 신보의 미래가치를 창출하며 사회적 책임을 다하는 인재”입니다. 지원자가 생각하는 공기업인으로서의 ‘기본인품’은 무엇인지 기술하시고, 본인이 어떻게 이에 부합하는지에 대하여 기술하여 주십시오. (200자 이상 500자 이내)",
+        "chars_no_space": 322,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 5,
+        "prompt": "이와 같은 정부의 지원이 신용보증기금에 미치는 영향을 분석하고, 분석한 영향에 대한 대응방안을 서술하시기 바랍니다. (400자 이상 1,000자 이내)",
+        "chars_no_space": 267,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "29_새로운 자기소개서_25-11-29_주택도시보증공사(HUG) [일반전형] 금융사업_서울_개선안.md",
+    "organization": "주택도시보증공사",
+    "question_count": 6,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "- 직무기술서를 참고하여 본인의 직무 관련 경험(경력·교육·자격)사항 등을 기술하여 주시기 바랍니다.",
+        "chars_no_space": 331,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "- 기재 시 본인의 역할·행동·성과를 중심으로 구체적으로 작성하여 주시기 바랍니다.",
+        "chars_no_space": 345,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "우리 공사 체험형 인턴에 지원하게 된 동기를 기술하고, 직무*와 관련하여 인턴 근무를 통해 성취하고 싶은 역량 또는 달성하고 싶은 목표에 대해 기술해 주십시오.",
+        "chars_no_space": 365,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "HUG의 주요 사업 중 관심 있는 1가지를 선택하고, 체험형 인턴 과정에서 본인이 기여할 수 있는 방안에 대해 기술해 주십시오.",
+        "chars_no_space": 371,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 5,
+        "prompt": "익숙한 방식이나 관행 속에서 스스로 문제를 인식하고, 새로운 접근이나 시도를 통해 개선해본 경험을 기술해 주십시오.",
+        "chars_no_space": 335,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 6,
+        "prompt": "주어진 역할에서 책임감을 가지고 성실히 임해 신뢰를 얻었던 경험을 구체적으로 기술하고, 본인에게 어떤 영향을 주었는지 작성해 주십시오.",
+        "chars_no_space": 373,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "30_새로운 자기소개서_25-11-29_하나저축은행 기업금융_개선안.md",
+    "organization": "하나저축은행",
+    "question_count": 5,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. 하나저축은행에 입사하고자 하는 이유를 솔직하게 기술해 주십시오. (499자)",
+        "chars_no_space": 319,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "2. 해당 직무에 적합하다고 생각하는 자신만의 역량이 무엇인지 구체적인 사례를 바탕으로 기술해 주십시오. (498자)",
+        "chars_no_space": 321,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "3. 자신의 의견과 가치관이 달랐던 사람과의 공동의 목표를 달성하고자 노력했던 경험을 기술해 주십시오. (499자)",
+        "chars_no_space": 342,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "4. 새로운 도전이나 변화를 시도했던 경험을 기술해 주십시오. (498자)",
+        "chars_no_space": 325,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 5,
+        "prompt": "5. 하나저축은행에서 이루고 싶은 10년 후 본인의 비전과 꿈에 대해서 구체적으로 기술해주십시오. (500자)",
+        "chars_no_space": 353,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "31_새로운 자기소개서_26-01-05_서울교통공사(Seoul Metro) 7급_고객안전(일반전형)_개선안.md",
+    "organization": "서울교통공사",
+    "question_count": 5,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "문항: 우리 공사 부문만의 차별점은 무엇이라고 생각하며, 이것이 지원을 결정하는 과정에 어떤 영향을 주었는지 기술해 주십시오.",
+        "chars_no_space": 354,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "문항: 지원한 직무에서 지원자의 강점이나 전문성을 어떻게 발휘할 수 있을지 기술해 주십시오.",
+        "chars_no_space": 372,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "문항: 공사 부문이 서울시민과 지역사회를 위해 담당해야 할 가장 중요한 사회적 역할이나 책임은 무엇이라고 생각하는지 기술해 주십시오.",
+        "chars_no_space": 366,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "문항: 기존에 정형화되어 있던 업무나 절차를 새로운 방식으로 개선하여 좋은 결과를 냈던 경험에 대해 기술해 주십시오.",
+        "chars_no_space": 327,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 5,
+        "prompt": "문항: 입사 후 5년 내에 달성하고 싶은 구체적인 목표는 무엇이며, 이를 달성하기 위해 현재 갖고 있는 경력 로드맵(경력 준비 계획)을 기술해 주십시오.",
+        "chars_no_space": 356,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "32_새로운 자기소개서_HUG2_개선안.md",
+    "organization": "주택도시보증공사",
+    "question_count": 4,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. 지원동기와 입사 후 목표를 작성해 주세요.",
+        "chars_no_space": 374,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "2. 협업 또는 문제해결 경험을 작성해 주세요.",
+        "chars_no_space": 351,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "3. 원칙과 책임감을 지킨 경험을 작성해 주세요.",
+        "chars_no_space": 366,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "4. 직무역량과 입사 후 활용 방안을 작성해 주세요.",
+        "chars_no_space": 348,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "33_새로운 자기소개서_매트로 자소서(11월 24일까지 접수하기)_개선안.md",
+    "organization": "서울교통공사",
+    "question_count": 2,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "3. 지원동기",
+        "chars_no_space": 371,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "4. 입사 후 포부",
+        "chars_no_space": 341,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "34_새로운 자기소개서_우리인턴_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 1,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "2. 1번에서 작성한 목표를 달성하기 위해 요구되는 역량 중 본인이 가장 자신 있는 부분은 무엇이며 그 이유를 구체적으로 말씀해 주세요. *",
+        "chars_no_space": 350,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "35_새로운 자기소개서_하나은행 자소서_개선안.md",
+    "organization": "하나은행",
+    "question_count": 4,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. 하나은행에 지원한 이유를 본인의 지원 분야와 연관지어 구체적으로 작성해 주시기 바랍니다. (800자)",
+        "chars_no_space": 498,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "2. (온기) 공동의 목표를 위해, 원팀 마인드셋으로 구성원 간 협업을 이끌어내거나 협업의 어려움을 극복하기 위해 노력했던 경험을 작성해 주시기 바랍니다. (800자)",
+        "chars_no_space": 508,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "3. (용기) 미래에 대한 용기로 두려움을 극복하고 새로운 변화를 시도한 경험에 관해 사례를 들어 구체적으로 작성해 주시기 바랍니다. (800자)",
+        "chars_no_space": 520,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "4. (동기) 자신의 성장과 발전을 위한 행동의 동기(원동력)에 대해, 입행 후 하나은행에서의 목표 달성을 위한 노력과 연관지어 작성해 주시기 바랍니다. (800자)",
+        "chars_no_space": 490,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "36_새로운 자기소개서_하나저축은행 기업금융(수정안)_개선안.md",
+    "organization": "하나저축은행",
+    "question_count": 5,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. 하나저축은행에 입사하고자 하는 이유를 솔직하게 기술해 주십시오. (500자)",
+        "chars_no_space": 319,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "2. 해당 직무에 적합하다고 생각하는 자신만의 역량이 무엇인지 구체적인 사례를 바탕으로 기술해 주십시오. (500자)",
+        "chars_no_space": 321,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "3. 자신의 의견과 가치관이 달랐던 사람과의 공동의 목표를 달성하고자 노력했던 경험을 기술해 주십시오. (500자)",
+        "chars_no_space": 342,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "4. 새로운 도전이나 변화를 시도했던 경험을 기술해 주십시오. (500자)",
+        "chars_no_space": 325,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 5,
+        "prompt": "5. 입사 후 포부 (별도 문항이 없거나 자유 기술 시 사용)",
+        "chars_no_space": 353,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "37_새로운 자기소개서_해양박물관_개선안.md",
+    "organization": "해양박물관",
+    "question_count": 4,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. 해양박물관 지원동기와 입사 후 목표를 작성해 주세요.",
+        "chars_no_space": 365,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "2. 직무역량과 이를 발휘한 경험을 작성해 주세요.",
+        "chars_no_space": 368,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "3. 협업 또는 문제해결 경험을 작성해 주세요.",
+        "chars_no_space": 349,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "4. 원칙과 책임감을 지킨 경험을 작성해 주세요.",
+        "chars_no_space": 364,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "38_서교공 자소서_개선안.md",
+    "organization": "서울교통공사",
+    "question_count": 5,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. 지원분야의 직무를 수행함에 있어서 지원자의 장점과 소개를 기술하시오. (500자)",
+        "chars_no_space": 331,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "2. 지원분야의 직무를 수행함에 있어서 요구되는 역량이 무엇이라고 생각하며, 이 역량을 갖추기 위한 노력 또는 특별한 경험을 구체적으로 기술하시오. (500자)",
+        "chars_no_space": 322,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "3. 자신 변화와 도전으로 목표를 달성했던 사례를 구체적으로 기술하시오. (500자)",
+        "chars_no_space": 344,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "4. 타인과의 관계에서 가장 힘들었던 갈등상황은 무엇이었으며, 이를 어떻게 극복하였는지 구체적으로 기술하시오. (500자)",
+        "chars_no_space": 318,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 5,
+        "prompt": "5. 공사 입사 후 본인의 비전과 목표는 무엇이며 그것을 이루기 위한 자신만의 계획에 대하여 구체적으로 기술하시오. (500자)",
+        "chars_no_space": 318,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "39_서시서_개선안.md",
+    "organization": "사회보장정보원",
+    "question_count": 4,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. 지원동기와 입사 후 목표를 작성해 주세요.",
+        "chars_no_space": 374,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "2. 협업 또는 문제해결 경험을 작성해 주세요.",
+        "chars_no_space": 353,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "3. 원칙과 책임감을 지킨 경험을 작성해 주세요.",
+        "chars_no_space": 371,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "4. 직무역량과 입사 후 활용 방안을 작성해 주세요.",
+        "chars_no_space": 354,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "40_서울교통공사 자소서_개선안.md",
+    "organization": "서울교통공사",
+    "question_count": 7,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "✧ 성명, 수험번호, 성별, 출신지역, 출신학교, 가족관계, 학력 등 개인 식별정보는 작성하지 않도록 유의해주시기 바랍니다.",
+        "chars_no_space": 354,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "✧ 자기소개서 작성란에는 개인신상정보 모두 블라인드 처리하여 작성하여 주시기 바랍니다.",
+        "chars_no_space": 345,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "지원분야와 관련된 본인의 보유 역량을 기술하여 주시기 바랍니다. *",
+        "chars_no_space": 324,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "자신의 장점을 더욱 극대화 시키거나, 약점을 보완하기 위해 특별히 노력하여 좋은 결과로 이어졌던 경험에 대하여 기술하여 주시기 바랍니다. *",
+        "chars_no_space": 363,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 5,
+        "prompt": "갑작스럽게 발생한 주변 환경의 변화에 대응하고 적응하기 위해 기존에는 생각하지 못했던 방법을 활용했던 경험에 대해 기술하여 주시기 바랍니다. *",
+        "chars_no_space": 334,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 6,
+        "prompt": "타인과의 갈등이 발생했을 때 이를 해결하기 위해 노력하여 성공적인 결과를 얻었던 경험에 대해 기술하여 주시기 바랍니다. *",
+        "chars_no_space": 358,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 7,
+        "prompt": "서울시설공단 인재상 중에서 본인과 부합된다고 생각하는 인재상(전문인, 창조인, 소통인)을 하나 선택하여 본인의 보유 역량과 결부하여 기술하여 주시기 바랍니다. *",
+        "chars_no_space": 325,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "41_지역농협_자기소개서_블라인드_최종본_개선안.md",
+    "organization": "지역농협",
+    "question_count": 4,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. 지원동기와 입사 후 목표를 작성해 주세요.",
+        "chars_no_space": 366,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "2. 협업 또는 문제해결 경험을 작성해 주세요.",
+        "chars_no_space": 344,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "3. 원칙과 책임감을 지킨 경험을 작성해 주세요.",
+        "chars_no_space": 360,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "4. 직무역량과 입사 후 활용 방안을 작성해 주세요.",
+        "chars_no_space": 345,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  },
+  {
+    "file": "42_한국도로공사서비스_자기소개서_찐 통합본_개선안.md",
+    "organization": "한국도로공사서비스",
+    "question_count": 4,
+    "average_score": 100.0,
+    "recommendation": "제출권장",
+    "issue_summary": "없음",
+    "validation_issues": [],
+    "risk_terms_remaining": [],
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "1. 지원동기와 입사 후 목표를 작성해 주세요.",
+        "chars_no_space": 377,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 2,
+        "prompt": "2. 협업 또는 문제해결 경험을 작성해 주세요.",
+        "chars_no_space": 358,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 3,
+        "prompt": "3. 원칙과 책임감을 지킨 경험을 작성해 주세요.",
+        "chars_no_space": 373,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      },
+      {
+        "question_index": 4,
+        "prompt": "4. 직무역량과 입사 후 활용 방안을 작성해 주세요.",
+        "chars_no_space": 354,
+        "score": {
+          "total": 100,
+          "factuality": 25,
+          "target_specificity": 20,
+          "action_result": 20,
+          "job_fit": 15,
+          "distinctiveness": 10,
+          "naturalness": 10,
+          "issues": []
+        }
+      }
+    ]
+  }
+]

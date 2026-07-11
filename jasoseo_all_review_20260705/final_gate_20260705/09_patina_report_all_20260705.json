@@ -1,0 +1,3198 @@
+[
+  {
+    "file": "submission_ready_drafts\\01_26-01-15_한국공정거래조정원(KOFAIR) 일반직 6급_개선안.md",
+    "organization": "한국공정거래조정원",
+    "question_count": 6,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 40,
+        "ai_score_gate": "blocked",
+        "selected_variant": "copyedited",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 40,
+        "ai_score_gate": "blocked",
+        "selected_variant": "copyedited",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 40,
+        "ai_score_gate": "blocked",
+        "selected_variant": "copyedited",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 40,
+        "ai_score_gate": "blocked",
+        "selected_variant": "copyedited",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 5,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 40,
+        "ai_score_gate": "blocked",
+        "selected_variant": "copyedited",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 6,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 40,
+        "ai_score_gate": "blocked",
+        "selected_variant": "copyedited",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\02_26-01-16_NH농협은행 6급초급_일반_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 5,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 5,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\03_26-01-16_한국주택금융공사(HF) [일반전형]강원서부지사_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 3,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\04_26-03-04_국민건강보험공단(h·well) [일반]강원_행정 6급가_개선안.md",
+    "organization": "국민건강보험공단",
+    "question_count": 6,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 5,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 6,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\05_26-03-12_건강보험심사평가원(HIRA) 행정직_사무 행정_6급가_일반_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 4,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\06_26-03-17_국민연금공단(NPS) [일반전형-권역] 6급 사무직_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 4,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\07_26-03-28_신한은행 일반직_일반_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 4,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\08_26-05-27_우리은행 지역인재 (강원)_개선안.md",
+    "organization": "우리은행",
+    "question_count": 4,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\09_26-06-21_주택도시보증공사(HUG) 일반전형_금융·기금(강원)_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 4,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\10_26-06-21_주택도시보증공사(HUG) 일반전형_금융·기금(강원)_최종개선본_patina_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 4,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "stale_after_copyeditor",
+        "selected_ai_score": null,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "copyeditor 적용 후 Patina 재측정 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\11_26-06-21_주택도시보증공사(HUG) 일반전형_금융·기금(강원)_최종상위권_patina_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 4,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\12_IBK기업은행_자기소개서_최종본_개선안.md",
+    "organization": "IBK기업은행",
+    "question_count": 3,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 33,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 33,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 33,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\13_NH농협은행_6급_자기소개서_블라인드_최종본_개선안_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 5,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 5,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\14_NH농협은행_6급_자기소개서_최종제출본_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 5,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 5,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\15_ssis_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 4,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\16_기업은행_개선안.md",
+    "organization": "IBK기업은행",
+    "question_count": 4,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\17_사회보장정보원_자기소개서_최종본_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 4,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\18_새로운 자기소개서_2026-06-28_지역농협_NPS_선정개선_국민연금공단_선정개선본_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 2,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\19_새로운 자기소개서_2026-06-28_지역농협_NPS_선정개선_국민연금공단_선정개선본_교열_patina_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 1,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\20_새로운 자기소개서_2026-06-28_지역농협_NPS_선정개선_지역농협_강사지침반영_최종후보_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 1,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\21_새로운 자기소개서_2026-06-28_지역농협_NPS_선정개선_지역농협_선정개선본_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 2,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\22_새로운 자기소개서_2026-06-28_지역농협_NPS_선정개선_지역농협_선정개선본_교열_patina_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 1,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\23_새로운 자기소개서_2026-06-28_지역농협_NPS_선정개선_지역농협_선정개선본_농협연계강화_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 2,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\24_새로운 자기소개서_25-11-18_서울특별시농수산식품공사(SAFFC) 정규직 6급_사무직_일반행정_일반_개선안.md",
+    "organization": "서울특별시농수산식품공사",
+    "question_count": 4,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\25_새로운 자기소개서_25-11-23_흥국생명보험 영업기획_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 3,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 33,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 33,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 33,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\26_새로운 자기소개서_25-11-24_서울교통공사(Seoul Metro) 사무_일반전형_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 4,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\27_새로운 자기소개서_25-11-29_신용보증기금 체험형 청년인턴1 (보증)_개선안.md",
+    "organization": "신용보증기금",
+    "question_count": 3,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 33,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 33,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 33,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\28_새로운 자기소개서_25-11-29_신용보증기금(KODIT) 금융사무(일반)_경영_개선안.md",
+    "organization": "신용보증기금",
+    "question_count": 5,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 5,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\29_새로운 자기소개서_25-11-29_주택도시보증공사(HUG) [일반전형] 금융사업_서울_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 6,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 40,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 40,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 40,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 40,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 5,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 40,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 6,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 40,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\30_새로운 자기소개서_25-11-29_하나저축은행 기업금융_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 5,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 5,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\31_새로운 자기소개서_26-01-05_서울교통공사(Seoul Metro) 7급_고객안전(일반전형)_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 5,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 5,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\32_새로운 자기소개서_HUG2_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 4,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\33_새로운 자기소개서_매트로 자소서(11월 24일까지 접수하기)_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 2,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 29,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 29,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\34_새로운 자기소개서_우리인턴_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 1,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\35_새로운 자기소개서_하나은행 자소서_개선안.md",
+    "organization": "하나은행",
+    "question_count": 4,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\36_새로운 자기소개서_하나저축은행 기업금융(수정안)_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 5,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 5,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\37_새로운 자기소개서_해양박물관_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 4,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\38_서교공 자소서_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 5,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 5,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 38,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\39_서시서_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 4,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\40_서울교통공사 자소서_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 7,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 41,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 41,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 41,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 41,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 5,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 41,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 6,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 41,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 7,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 41,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\41_지역농협_자기소개서_블라인드_최종본_개선안.md",
+    "organization": "국민연금공단",
+    "question_count": 4,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      }
+    ]
+  },
+  {
+    "file": "submission_ready_drafts\\42_한국도로공사서비스_자기소개서_찐 통합본_개선안.md",
+    "organization": "한국도로공사서비스",
+    "question_count": 4,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 2,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 3,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      },
+      {
+        "question_index": 4,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 36,
+        "ai_score_gate": "blocked",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 기준 초과; 제한 해제 후 문항별 재점검 필요"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\01_(24-02-28)우리은행 지역인재(강원) (1).pdf_제출권장후보.md",
+    "organization": "우리은행",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 1,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\02_(24-02-28)하나은행 2024년 상반기.pdf_제출권장후보.md",
+    "organization": "하나은행",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 4,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\03_(24-02-28)하나은행 일반 (2).pdf_제출권장후보.md",
+    "organization": "하나은행",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 3,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\04_(24-03-07)한국수출입은행 본점(업무일반).pdf_제출권장후보.md",
+    "organization": "한국수출입은행",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 1,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\05_(24-03-08)서민금융진흥원 종합직_일반 (1).pdf_제출권장후보.md",
+    "organization": "서민금융진흥원",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 2,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\06_(24-03-08)우리은행 지역인재(강원) (1).pdf_제출권장후보.md",
+    "organization": "우리은행",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 0,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\07_(24-03-08)하나은행 일반 (1).pdf_제출권장후보.md",
+    "organization": "하나은행",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 1,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\08_(24-03-08)한국서부발전 일반_사무.pdf_제출권장후보.md",
+    "organization": "한국서부발전",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 2,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\09_(24-03-08)한국인터넷진흥원 서울 청사(업무지원).pdf_제출권장후보.md",
+    "organization": "한국인터넷진흥원",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 3,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\10_(24-03-12)국민연금공단 사무직(6급갑)_전국.pdf_제출권장후보.md",
+    "organization": "국민연금공단",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 2,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\11_(24-03-27)IBK기업은행 금융일반(충청·강원권).pdf_제출권장후보.md",
+    "organization": "IBK기업은행",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 3,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\12_(24-03-27)국민건강보험공단 일반(서울)_행정직.pdf_제출권장후보.md",
+    "organization": "국민건강보험공단",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 2,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\13_(24-03-27)인천공항시설관리 경영지원(일근).pdf_제출권장후보.md",
+    "organization": "인천공항시설관리",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 5,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\14_(24-03-28)기술보증기금 체험형 청년인턴(1).pdf_제출권장후보.md",
+    "organization": "기술보증기금",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 1,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\15_(24-04-04)한국마사회 경영지원.pdf_제출권장후보.md",
+    "organization": "한국마사회",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 1,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\16_(24-04-12)NH농협생명 일반직 6급(초급)_강원권.pdf_제출권장후보.md",
+    "organization": "NH농협생명",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 3,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\17_(24-04-15)한화생명 영업마케팅.pdf_제출권장후보.md",
+    "organization": "한화생명",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 1,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\18_(24-04-16)KB국민은행 UB_지역인재(강원).pdf_제출권장후보.md",
+    "organization": "KB국민은행",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 1,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\19_(24-05-27)KB증권 PB.pdf_제출권장후보.md",
+    "organization": "KB증권",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 1,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\20_(24-06-13)동양생명보험 영업지원.pdf_제출권장후보.md",
+    "organization": "동양생명보험",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 1,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\21_(24-06-13)키움증권 경영관리.pdf_제출권장후보.md",
+    "organization": "키움증권",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 3,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\22_(24-08-20)새마을금고중앙회 일반직 6급(서울지역).pdf_제출권장후보.md",
+    "organization": "새마을금고중앙회",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 2,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\23_(24-08-27)수협은행 일반(전국).pdf_제출권장후보.md",
+    "organization": "수협은행",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 1,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\24_(24-08-28)국민연금공단(NPS) 일반.pdf_제출권장후보.md",
+    "organization": "국민연금공단",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 2,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\25_(24-08-29)우리은행 개인금융 (1).pdf_제출권장후보.md",
+    "organization": "우리은행",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 1,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\26_(24-09-04)서울대학교병원(SNUH) 사무보조_일반.pdf_제출권장후보.md",
+    "organization": "서울대학교병원",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 2,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\27_(24-09-10)농협네트웍스 렌탈사업.pdf_제출권장후보.md",
+    "organization": "농협네트웍스",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 2,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\28_(24-09-10)삼성생명 보험지원.pdf_제출권장후보.md",
+    "organization": "삼성생명",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 7,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\29_(24-09-10)한국장학재단(KOSAF) 일반행정_일반.pdf_제출권장후보.md",
+    "organization": "한국장학재단",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 1,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\30_(24-09-23)KB국민은행 UB_지역인재(서울·인천·경기).pdf_제출권장후보.md",
+    "organization": "KB국민은행",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 1,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\31_(24-10-24)서울특별시농수산식품공사(SAFFC) 정규직 6급_사무직_일반.pd_제출권장후보.md",
+    "organization": "서울특별시농수산식품공사",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 4,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\32_(24-10-30)한국도로공사서비스 사무·영업_수도권동부.pdf_제출권장후보.md",
+    "organization": "한국도로공사서비스",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 5,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\33_[퀵실버록시]Retail 영업 지원.pdf_제출권장후보.md",
+    "organization": "퀵실버록시",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 2,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\34_강남구 보건소.pdf_제출권장후보.md",
+    "organization": "강남구 보건소",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 3,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\35_경기도주택도시공사 체험형 인턴.pdf_제출권장후보.md",
+    "organization": "경기도주택도시공사",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 2,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\36_새마을금고 일반직 6급.pdf_제출권장후보.md",
+    "organization": "새마을금고",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 1,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\37_새마을금고중앙회 일반직 6급_catch.pdf_제출권장후보.md",
+    "organization": "새마을금고중앙회",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 3,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\38_성동구도시 관리공단.pdf_제출권장후보.md",
+    "organization": "성동구도시관리공단",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 1,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\39_신용보증기금 인턴.pdf_제출권장후보.md",
+    "organization": "신용보증기금",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 4,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\40_신용회복위원회.pdf_제출권장후보.md",
+    "organization": "신용회복위원회",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 4,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\41_신협첨삭.txt_제출권장후보.md",
+    "organization": "신협",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 1,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\42_은행 계약직 자기소개서.pdf_제출권장후보.md",
+    "organization": "은행",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 3,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\43_주택공사 인턴.pdf_제출권장후보.md",
+    "organization": "한국토지주택공사",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 2,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\44_쿠팡.pdf_제출권장후보.md",
+    "organization": "쿠팡",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 4,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "legacy_submission_ready_drafts\\45_퀵실버코리아자기소개서.pdf_제출권장후보.md",
+    "organization": "퀵실버록시",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 4,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "supplemental_submission_ready_drafts\\01_25-11-23_신용보증재단중앙회(KOREG) 사무 및 업무보조 등_제출권장후보.md",
+    "organization": "국민연금공단",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 1,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "supplemental_submission_ready_drafts\\02_25-11-24_IBK기업은행 [금융일반]일반_제출권장후보.md",
+    "organization": "IBK기업은행",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 4,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "supplemental_submission_ready_drafts\\03_25-11-24_신용보증기금(KODIT) 정규직 5급_상경계_제출권장후보.md",
+    "organization": "신용보증기금",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 1,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "supplemental_submission_ready_drafts\\04_25-11-29_신용보증기금(KODIT) 금융사무_전국(상경계)_제출권장후보.md",
+    "organization": "신용보증기금",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 0,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "supplemental_submission_ready_drafts\\05_25-11-29_신용보증기금(KODIT) 정규직 5급_상경계_제출권장후보.md",
+    "organization": "신용보증기금",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 2,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "supplemental_submission_ready_drafts\\06_25-12-02_우리은행 일반_제출권장후보.md",
+    "organization": "우리은행",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 1,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "supplemental_submission_ready_drafts\\07_신용보증기금 논술_제출권장후보.md",
+    "organization": "신용보증기금",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 2,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "supplemental_submission_ready_drafts\\08_신용보증기금 청년인턴에 지원하게 된 동기와 인턴생활을 통해 얻거_제출권장후보.md",
+    "organization": "신용보증기금",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 1,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  },
+  {
+    "file": "supplemental_submission_ready_drafts\\09_250616 2025년 상반기 국민연금공단 자기소개서 피드백_제출권장후보.md",
+    "organization": "국민연금공단",
+    "question_count": 1,
+    "patina_attempted": true,
+    "patina_applied_count": 0,
+    "items": [
+      {
+        "question_index": 1,
+        "patina_attempted": true,
+        "patina_applied": false,
+        "score_status": "scored_document_batch",
+        "selected_ai_score": 2,
+        "ai_score_gate": "passed",
+        "selected_variant": "original",
+        "patina_status": "document_score_only",
+        "message": "문서 단위 Patina batch 점수 반영"
+      }
+    ]
+  }
+]

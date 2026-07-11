@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "properties": {
+    "text": {"type": "string"},
+    "applied_rules": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "required": ["text", "applied_rules"],
+  "additionalProperties": false
+}

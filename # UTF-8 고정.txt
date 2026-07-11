@@ -1,0 +1,5 @@
+# UTF-8 고정
+[Console]::OutputEncoding = [System.Text.UTF8Encoding]::new($false)
+# .venv(3.12) 빠른 실행/활성화
+function py312 { & "$HOME\venvs_restored\.venv\venv\Scripts\python.exe" @args }
+function venv312 { & "$HOME\venvs_restored\.venv\venv\Scripts\Activate.ps1" }

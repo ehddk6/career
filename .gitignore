@@ -3,4 +3,15 @@
 __pycache__/
 .pytest_cache/
 career_runs/
+.career_profile/
+career_pipeline.egg-info/
+Chrome 비밀번호.csv
 
+# 민감한 개인정보
+학교성적/
+자격증/
+경력증명서/
+*.Zip
+tmp/
+.codex/
+.rendered_nonghyup/

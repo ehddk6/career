@@ -1,6 +1,9 @@
+"""Career Pipeline 데이터 모델. SourceRecord, Question, DraftResponse, ValidationIssue 등을 정의합니다."""
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Literal
+
+from .character_count import CharacterCountMode
 
 
 @dataclass(frozen=True)
@@ -26,6 +29,7 @@ class Question:
     index: int
     prompt: str
     character_limit: int | None
+    count_mode: CharacterCountMode = "spaces_included"
 
 
 @dataclass(frozen=True)
@@ -49,10 +53,18 @@ class Conflict:
 
 
 @dataclass(frozen=True)
+class ExperienceClaimRef:
+    experience_id: str
+    claim_fields: tuple[str, ...]
+
+
+@dataclass(frozen=True)
 class DraftResponse:
     question_index: int
     answer: str
     evidence_paths: tuple[str, ...]
+    experience_refs: tuple[ExperienceClaimRef, ...] = ()
+    research_refs: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)

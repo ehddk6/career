@@ -1,0 +1,13 @@
+[patina] batch safety: files=10, backend=codex-cli, prompt_mode=minimal, max_concurrency=2, max_retries=0, timeout_ms=180000, worst_case_requests=10, max_prompt_chars=70646, avg_prompt_chars=68465
+[patina] codex-cli is a local agent CLI, not a stateless batch completion API. Large batches should prefer an OpenAI-compatible HTTP provider when possible.
+[patina] largest prompt is ~70,646 chars; failed attempts still send the full prompt.
+[patina] deterministic score diverged from LLM score (12.7 vs 36.4); using pessimistic 36.4
+[patina] score gate failed: overall 36.4 > 30
+[patina] deterministic score diverged from LLM score (16.3 vs 38.5); using pessimistic 38.5
+[patina] score gate failed: overall 38.5 > 30
+[patina] deterministic score diverged from LLM score (4.4 vs 36.4); using pessimistic 36.4
+[patina] score gate failed: overall 36.4 > 30
+[patina] deterministic score diverged from LLM score (16.7 vs 41.2); using pessimistic 41.2
+[patina] score gate failed: overall 41.2 > 30
+[patina] deterministic score diverged from LLM score (5.2 vs 36.4); using pessimistic 36.4
+[patina] score gate failed: overall 36.4 > 30

@@ -57,3 +57,15 @@ def test_inventory_marks_unreadable_supported_file_as_failed(tmp_path: Path, mon
 
     assert record.status == "failed"
     assert "PermissionError" in record.reason
+
+
+def test_inventory_excludes_private_profile_directory(tmp_path: Path):
+    profile_dir = tmp_path / ".career_profile"
+    profile_dir.mkdir()
+    (profile_dir / "experience_ledger.json").write_text("{}", encoding="utf-8")
+
+    records = build_inventory(tmp_path)
+    paths = {record.relative_path for record in records}
+
+    assert ".career_profile/" in paths
+    assert ".career_profile/experience_ledger.json" not in paths
