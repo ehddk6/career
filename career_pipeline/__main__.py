@@ -447,7 +447,7 @@ def _phase3_now() -> str:
 
 
 def run_discovery_source_add(args: argparse.Namespace) -> int:
-    _workspace, source_path, _registry_path = _phase3_root(args.root)
+    _workspace, source_path, registry_path = _phase3_root(args.root)
     created_at = _phase3_now()
     source_id = args.source_id or (
         "source-" + sha256(f"{args.organization}|{args.url}".encode("utf-8")).hexdigest()[:24]
@@ -479,6 +479,14 @@ def run_discovery_source_add(args: argparse.Namespace) -> int:
         config=config,
     )
     add_discovery_source(source_path, source, force=args.force)
+    registry = PostingRegistry.load(registry_path)
+    registry.record_event(
+        "source_added",
+        occurred_at=created_at,
+        source_id=source_id,
+        posting_id=None,
+        run_id=None,
+    )
     print(source_id)
     return 0
 

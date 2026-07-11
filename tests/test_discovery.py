@@ -1,4 +1,5 @@
 from hashlib import sha256
+import json
 from pathlib import Path
 
 import pytest
@@ -134,7 +135,7 @@ def test_discovery_run_persists_registry_snapshot_queue_and_is_idempotent(tmp_pa
     assert len((registry_path.parent / "events.jsonl").read_text(encoding="utf-8").splitlines()) == first_event_count
 
 
-def test_expired_posting_goes_to_expired_review_queue(tmp_path: Path):
+def test_expired_posting_does_not_enter_submission_queue(tmp_path: Path):
     registry_path = tmp_path / "registry.json"
     registry = PostingRegistry.load(registry_path)
     content_hash = sha256(b"posting").hexdigest()
@@ -168,9 +169,7 @@ def test_expired_posting_goes_to_expired_review_queue(tmp_path: Path):
     )
 
     assert event == "expired"
-    assert item is not None
-    assert item.queue_status == "expired"
-    assert item.reasons[0].code == "posting_expired"
+    assert item is None
 
 
 def test_source_add_cli_writes_allowlisted_source(tmp_path: Path):
@@ -193,6 +192,8 @@ def test_source_add_cli_writes_allowlisted_source(tmp_path: Path):
 
     assert result == 0
     assert (tmp_path / ".career_profile" / "discovery_sources.json").exists()
+    events = (tmp_path / ".career_profile" / "posting_registry" / "events.jsonl").read_text(encoding="utf-8")
+    assert '"event_type": "source_added"' in events
 
 
 def test_changed_posting_supersedes_previous_queue_item(tmp_path: Path):
@@ -228,3 +229,39 @@ def test_registry_lock_collision_is_safe(tmp_path: Path):
             registry.save()
     finally:
         registry.lock_path.unlink()
+
+
+def test_failed_discovery_is_recorded_as_running_then_retried_with_new_run_id(tmp_path: Path):
+    registry = PostingRegistry.load(tmp_path / "registry.json")
+    calls = {"detail": 0}
+
+    def transport(url: str) -> TransportResponse:
+        if url.endswith("/list"):
+            return response(b'<a href="/jobs/1">Job 1</a>', "text/html")
+        calls["detail"] += 1
+        if calls["detail"] == 1:
+            return TransportResponse(503, {"content-type": "text/plain"}, b"temporary failure")
+        return response("Example\nEngineer\nOfficial role details".encode(), "text/plain")
+
+    configured = source("official_list_page", "https://jobs.example.or.kr/list")
+    first = run_discovery(
+        configured,
+        registry=registry,
+        evaluation_time="2026-07-12T09:00:00+09:00",
+        resolver=resolver,
+        transport=transport,
+    )
+    second = run_discovery(
+        configured,
+        registry=registry,
+        evaluation_time="2026-07-12T09:00:00+09:00",
+        resolver=resolver,
+        transport=transport,
+    )
+
+    assert first.status == "completed_with_errors"
+    assert second.status == "completed"
+    assert first.run_id != second.run_id
+    assert (tmp_path / "discovery_runs" / f"{first.run_id}.json").exists()
+    assert (tmp_path / "discovery_runs" / f"{second.run_id}.json").exists()
+    assert json.loads((tmp_path / "discovery_runs" / f"{second.run_id}.json").read_text(encoding="utf-8"))["status"] == "completed"

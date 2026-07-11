@@ -32,6 +32,7 @@ from .posting_loader import (
     Resolver,
     Transport,
     _default_transport,
+    has_sensitive_query_parameters,
     load_posting_source,
     host_matches_official_domain,
     validate_public_https_url,
@@ -74,33 +75,43 @@ def validate_discovery_source(source: DiscoverySource) -> DiscoverySource:
         issues.append("entry_url: HTTPS is required")
     if parsed.username is not None or parsed.password is not None:
         issues.append("entry_url: credentials are not allowed")
+    if has_sensitive_query_parameters(source.entry_url):
+        issues.append("entry_url: sensitive query parameters are not allowed")
     if not parsed.hostname:
         issues.append("entry_url: host is required")
     if not source.allowed_domains:
         issues.append("allowed_domains: at least one domain is required")
+    if not isinstance(source.config, dict):
+        issues.append("config: expected object")
+        source_config: dict[str, Any] = {}
+    else:
+        source_config = source.config
     for domain in source.allowed_domains:
         normalized = domain.strip().lower().rstrip(".")
         if not normalized or "/" in normalized or "://" in normalized:
             issues.append(f"allowed_domains: invalid domain {domain}")
         elif parsed.hostname and not host_matches_official_domain(parsed.hostname, normalized):
             issues.append(f"allowed_domains: entry URL is outside allowlist: {domain}")
-    pagination = source.config.get("pagination", {})
+    pagination = source_config.get("pagination", {})
+    if not isinstance(pagination, dict):
+        issues.append("config.pagination: expected object")
+        pagination = {}
     if pagination.get("enabled"):
         if pagination.get("strategy") != "query_page":
             issues.append("pagination.strategy: only query_page is supported")
         max_pages = pagination.get("max_pages", 0)
         if not isinstance(max_pages, int) or isinstance(max_pages, bool) or not 1 <= max_pages <= MAX_PAGINATION_PAGES:
             issues.append(f"pagination.max_pages: expected integer from 1 to {MAX_PAGINATION_PAGES}")
-    max_candidates = source.config.get("max_candidates", MAX_CANDIDATES)
+    max_candidates = source_config.get("max_candidates", MAX_CANDIDATES)
     if not isinstance(max_candidates, int) or isinstance(max_candidates, bool) or not 1 <= max_candidates <= MAX_CANDIDATES:
         issues.append(f"max_candidates: expected integer from 1 to {MAX_CANDIDATES}")
-    if source.source_type == "official_sitemap" and not source.config.get("include_pattern"):
+    if source.source_type == "official_sitemap" and not source_config.get("include_pattern"):
         issues.append("official_sitemap requires config.include_pattern")
     if source.source_type == "official_json_api":
-        if not source.config.get("items_path") or not source.config.get("url_field"):
+        if not source_config.get("items_path") or not source_config.get("url_field"):
             issues.append("official_json_api requires config.items_path and config.url_field")
     for key in ("detail_pattern", "include_pattern", "posting_id_pattern"):
-        pattern = source.config.get(key)
+        pattern = source_config.get(key)
         if pattern:
             try:
                 re.compile(str(pattern))
@@ -211,6 +222,8 @@ def _allowed_candidate_url(source: DiscoverySource, url: str, *, resolver: Resol
     host = parsed.hostname or ""
     if not any(host_matches_official_domain(host, domain) for domain in source.allowed_domains):
         return None
+    if has_sensitive_query_parameters(url):
+        return None
     canonical = canonicalize_url(url)
     lowered = canonical.casefold()
     if any(marker in lowered for marker in ("login", "signin", "privacy", "mypage", "apply", "application")):
@@ -283,6 +296,8 @@ def _list_page_candidates(source: DiscoverySource, loaded: LoadedPosting, *, res
 
 def _xml_links(content: bytes) -> list[str]:
     text = content.decode("utf-8", errors="replace")
+    if re.search(r"<!\s*(DOCTYPE|ENTITY)\b", text, re.IGNORECASE):
+        raise DiscoveryValidationError("XML DTD and ENTITY declarations are not allowed")
     if re.search(r"<!\s*(DOCTYPE|ENTITY)", text, re.IGNORECASE):
         raise DiscoveryValidationError("XML DTD and ENTITY declarations are not allowed")
     try:
@@ -294,7 +309,7 @@ def _xml_links(content: bytes) -> list[str]:
 
 def _rss_links(content: bytes) -> list[str]:
     text = content.decode("utf-8", errors="replace")
-    if re.search(r"<!\s*(DOCTYPE|ENTITY)\b", text, re.IGNORECASE):
+    if re.search(r"<!\s*(DOCTYPE|ENTITY)\\b", text, re.IGNORECASE):
         raise DiscoveryValidationError("XML DTD and ENTITY declarations are not allowed")
     try:
         root = ET.fromstring(content)
@@ -329,7 +344,11 @@ def _sitemap_links(
             return []
         nested: list[str] = []
         for url in links[:MAX_SITEMAP_URLS]:
-            candidate_url = _allowed_candidate_url(source, url, resolver=resolver)
+            candidate_url = _allowed_candidate_url(
+                source,
+                urljoin(loaded.metadata.location, url),
+                resolver=resolver,
+            )
             if candidate_url:
                 nested_loaded = _load_page(source, candidate_url, resolver=resolver, transport=transport)
                 nested.extend(
@@ -439,18 +458,43 @@ def run_discovery(
 
     source = validate_discovery_source(source)
     try:
-        datetime.fromisoformat(evaluation_time.replace("Z", "+00:00"))
+        parsed_evaluation = datetime.fromisoformat(evaluation_time.replace("Z", "+00:00"))
+        if parsed_evaluation.tzinfo is None or parsed_evaluation.utcoffset() is None:
+            raise ValueError("timezone is required")
     except ValueError as error:
-        raise DiscoveryValidationError("evaluation_time must be ISO-8601") from error
-    run_id = run_id or "discovery-" + sha256(f"{source.source_id}|{evaluation_time}".encode("utf-8")).hexdigest()[:24]
+        raise DiscoveryValidationError("evaluation_time must be timezone-aware ISO-8601") from error
+    run_path = registry.path.parent / "discovery_runs"
+    base_run_id = "discovery-" + sha256(f"{source.source_id}|{evaluation_time}".encode("utf-8")).hexdigest()[:24]
+    if run_id is None:
+        run_id = base_run_id
+        retry = 0
+        while (run_path / f"{run_id}.json").exists():
+            try:
+                previous = json.loads((run_path / f"{run_id}.json").read_text(encoding="utf-8"))
+            except (OSError, json.JSONDecodeError):
+                break
+            if previous.get("status") not in {"failed", "completed_with_errors"}:
+                break
+            retry += 1
+            run_id = f"{base_run_id}-retry{retry}"
     started_at = evaluation_time
-    registry.record_event(
-        "discovery_started",
-        occurred_at=started_at,
-        source_id=source.source_id,
-        posting_id=None,
-        run_id=run_id,
+    run_file = run_path / f"{run_id}.json"
+    save_discovery_run(
+        run_file,
+        DiscoveryRun(1, run_id, source.source_id, started_at, None, evaluation_time, "running", 0, 0, 0, 0, 0, 0, 0, ()),
     )
+    try:
+        registry.record_event(
+            "discovery_started",
+            occurred_at=started_at,
+            source_id=source.source_id,
+            posting_id=None,
+            run_id=run_id,
+        )
+    except RegistryError as error:
+        failed = DiscoveryRun(1, run_id, source.source_id, started_at, evaluation_time, evaluation_time, "failed", 0, 0, 0, 0, 0, 0, 1, ({"code": type(error).__name__, "message": str(error)[:240]},))
+        save_discovery_run(run_file, failed)
+        return failed
     errors: list[dict[str, Any]] = []
     discovered_count = fetched_count = new_count = changed_count = duplicate_count = expired_count = failed_count = 0
     try:
@@ -468,12 +512,22 @@ def run_discovery(
             run_id=run_id,
             metadata={"failed_count": 1},
         )
-        save_discovery_run(registry.path.parent / "discovery_runs" / f"{run_id}.json", run)
+        save_discovery_run(run_file, run)
         return run
     discovered_count = len(candidates)
     registry_failed = False
     for candidate in candidates:
         try:
+            event_posting_key = _posting_id_for_candidate(source, candidate) or (
+                "candidate-" + sha256(candidate.canonical_url.encode("utf-8")).hexdigest()[:24]
+            )
+            registry.record_event(
+                "posting_discovered",
+                occurred_at=evaluation_time,
+                source_id=source.source_id,
+                posting_id=event_posting_key,
+                run_id=run_id,
+            )
             loaded = _load_page(source, candidate.url, resolver=resolver, transport=transport)
             fetched_count += 1
             analysis = parse_posting(loaded, target=candidate.title_hint or source.organization)
@@ -501,12 +555,20 @@ def run_discovery(
                 new_count += 1
             elif event == "changed":
                 changed_count += 1
-            elif event in {"content_duplicate", "exact_duplicate", "unchanged"}:
+            elif event in {"content_duplicate", "exact_duplicate", "unchanged", "manual_review"}:
                 duplicate_count += 1
             if stored.status == "expired" or event == "expired":
                 expired_count += 1
-            if event == "unchanged":
+            if event in {"exact_duplicate", "unchanged"} and lifecycle_status == "active":
                 continue
+            if event in {"expired", "closed"}:
+                registry.record_event(
+                    "posting_expired" if event == "expired" else "posting_closed",
+                    occurred_at=evaluation_time,
+                    source_id=source.source_id,
+                    posting_id=stored.posting_id,
+                    run_id=run_id,
+                )
             lifecycle_status, lifecycle_reason = posting_lifecycle_status(stored, evaluation_time)
             decision = None
             extra_reasons: list[DecisionReason] = []
@@ -516,6 +578,14 @@ def run_discovery(
                 extra_reasons.append(DecisionReason("content_duplicate", "posting", "다른 URL에서 같은 공고 본문이 발견되었습니다."))
             if applicant_profile is not None and lifecycle_status == "active" and event not in {"content_duplicate"}:
                 decision = evaluate_eligibility(applicant_profile, stored, evaluated_at=evaluation_time)
+                registry.record_event(
+                    "eligibility_evaluated",
+                    occurred_at=evaluation_time,
+                    source_id=source.source_id,
+                    posting_id=stored.posting_id,
+                    run_id=run_id,
+                    metadata={"status": decision.status},
+                )
             elif applicant_profile is None and lifecycle_status == "active":
                 extra_reasons.append(DecisionReason("applicant_profile_missing", "profile", "지원자 프로필이 없어 자격 판정을 수행하지 않았습니다."))
             queue_status = event if event in {"changed", "content_duplicate", "expired", "closed"} else lifecycle_status
@@ -550,7 +620,7 @@ def run_discovery(
         run_id=run_id,
         metadata={"status": status, "discovered_count": discovered_count, "failed_count": failed_count},
     )
-    save_discovery_run(registry.path.parent / "discovery_runs" / f"{run_id}.json", run)
+    save_discovery_run(run_file, run)
     return run
 
 

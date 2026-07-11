@@ -7,7 +7,7 @@ from pathlib import Path
 import socket
 from typing import Callable
 from urllib.error import HTTPError
-from urllib.parse import urljoin, urlsplit
+from urllib.parse import parse_qsl, urljoin, urlsplit
 from urllib.request import HTTPRedirectHandler, Request, build_opener
 
 from .posting_schema import LoadedPosting, PostingSourceMetadata
@@ -31,10 +31,18 @@ LOCAL_CONTENT_TYPES = {
     ".pdf": "application/pdf",
     ".docx": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
 }
+SENSITIVE_QUERY_NAMES = frozenset(
+    {"token", "access_token", "api_key", "key", "auth", "authorization", "session", "sid", "password", "code"}
+)
 
 
 class PostingSourceError(ValueError):
     pass
+
+
+def has_sensitive_query_parameters(url: str) -> bool:
+    parsed = urlsplit(url)
+    return any(name.casefold() in SENSITIVE_QUERY_NAMES for name, _value in parse_qsl(parsed.query, keep_blank_values=True))
 
 
 @dataclass(frozen=True)
@@ -76,6 +84,8 @@ def validate_public_https_url(
         raise PostingSourceError("posting URL must use HTTPS")
     if parsed.username is not None or parsed.password is not None:
         raise PostingSourceError("posting URL must not contain credentials")
+    if has_sensitive_query_parameters(url):
+        raise PostingSourceError("posting URL must not contain sensitive query parameters")
     if not parsed.hostname:
         raise PostingSourceError("posting URL requires a host")
     host = parsed.hostname.rstrip(".").lower()

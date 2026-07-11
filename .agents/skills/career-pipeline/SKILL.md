@@ -41,7 +41,7 @@ DiscoverySource
 → review queue
 ```
 
-registry 인덱스는 `.career_profile/posting_registry/`에 저장하고 원문은 별도 snapshot으로 분리한다. `new`, `exact_duplicate`, `content_duplicate`, `changed`, `unchanged`, `expired`, `closed`, `manual_review`를 구분한다. timezone이 없는 마감일, 파싱되지 않은 필수 조건, 변경·중복 공고는 합격으로 추정하지 않고 검토 queue로 보낸다. 상세 계약은 `docs/posting-discovery-and-registry.md`에 기록한다.
+registry 인덱스는 `.career_profile/posting_registry/`에 저장하고 원문은 별도 snapshot으로 분리한다. `new`, `exact_duplicate`, `content_duplicate`, `changed`, `unchanged`, `expired`, `closed`, `manual_review`를 구분한다. timezone이 없는 마감일과 파싱되지 않은 필수 조건은 합격으로 추정하지 않는다. `expired`, `closed`, `content_duplicate`는 제출 대상 queue에 넣지 않고 상태·이벤트로만 남긴다. 상세 계약은 `docs/posting-discovery-and-registry.md`에 기록한다.
 
 ## 최종화 정책
 
