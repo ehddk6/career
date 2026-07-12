@@ -1,4 +1,29 @@
 from career_pipeline.__main__ import build_parser
+import pytest
+from pathlib import Path
+
+
+def test_m3_cli_parser_shape_is_unchanged():
+    parser=build_parser(); value=parser.parse_args(["application","authorize","--package","p.json","--dry-run-result","d.json","--review","r.json","--allowed-origin","https://jobs.example.or.kr","--mode","fill_only","--output","a.json","--at","2026-07-12T12:00:00+09:00","--expires-at","2026-07-12T13:00:00+09:00","--approver-id","user"])
+    assert value.application_command == "authorize" and value.mode == "fill_only"
+
+def test_m3_cli_legacy_authorize_fails_closed(tmp_path,monkeypatch,capsys):
+    import career_pipeline.__main__ as cli
+    from career_pipeline.application_execution import approve_application, authorize_execution
+    from tests.test_application_execution import KEY, NOW, EXP, dry_run
+    from tests.test_application_package import build_package
+    package=build_package(tmp_path); result=dry_run(package.package_id); review=approve_application(package,result,decision="approved",decided_at=NOW,approver_id="user",signing_key=KEY)
+    monkeypatch.setattr(cli,"run_application_command",lambda _args: authorize_execution(package,result,review,allowed_origin="https://jobs.example.or.kr",mode="fill_only",authorized_at=NOW,expires_at=EXP,approver_id="user",signing_key=KEY))
+    assert cli.main(["application","authorize","--package","p.json","--dry-run-result","d.json","--review","r.json","--allowed-origin","https://jobs.example.or.kr","--mode","fill_only","--output","a.json","--at",NOW,"--expires-at",EXP,"--approver-id","user"]) == 4
+    assert "LEGACY_AUTHORIZATION_UNUSABLE" in capsys.readouterr().out
+
+def test_m3_cli_legacy_fill_fixture_fails_closed(tmp_path,monkeypatch,capsys):
+    import career_pipeline.__main__ as cli
+    from career_pipeline.adapters.jobkorea_jrs import FixtureMockPage, collect_fixture_schema, run_fixture_fill
+    schema=collect_fixture_schema(Path("tests/fixtures/jobkorea_jrs/application_form_v1.html").read_text(encoding="utf-8"))
+    monkeypatch.setattr(cli,"run_application_command",lambda _args: run_fixture_fill(FixtureMockPage(schema),{},None,None,object(),executed_at="2026-07-12T12:00:00+09:00",ledger_path=tmp_path/"ledger.json",signing_key=b"x"*32))
+    assert cli.main(["application","fill-fixture","--adapter","jobkorea_jrs_fixture","--package","p.json","--dry-run-result","d.json","--authorization","a.json","--values","v.json","--ledger","l.json","--output","o.json","--at", "2026-07-12T12:00:00+09:00"]) == 4
+    assert "LEGACY_AUTHORIZATION_UNUSABLE" in capsys.readouterr().out
 
 
 def test_parser_exposes_prepare_and_finalize_commands():

@@ -85,6 +85,11 @@ def _security(driver: FormDriver, fields: tuple[FormFieldDescriptor, ...]) -> tu
 class ReviewRequiredFormAdapter:
     """Inspect and validate only. This class never mutates page state."""
 
+    def probe_contract(self, driver: FormDriver) -> tuple[str | None, str]:
+        """Read-only lineage probe exposed for M3 validation wiring."""
+        fields = driver.discover_fields()
+        return driver.current_url(), form_schema_sha256(fields)
+
     def run(self, driver: FormDriver, *, root: Path, package: ApplicationPackage, private_data_path: Path,
             attachments: Mapping[str, Path] | None = None, evaluation_time: str | None = None) -> FormAutomationResult:
         now = evaluation_time or datetime.now().astimezone().isoformat(timespec="seconds")

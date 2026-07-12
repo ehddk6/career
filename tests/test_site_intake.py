@@ -12,8 +12,37 @@ from career_pipeline.site_intake import (
     load_fixture_resource, parse_read_only_schema, persist_intake,
     validate_url_metadata,
 )
+import career_pipeline.application_execution as execution
+import career_pipeline.site_intake as intake
 
 ROOT = Path("tests/fixtures/site_intake")
+
+
+def _m3_contract():
+    return build_site_intake(posting_url=None,resolved_application_url="https://company.applyin.co.kr/apply",fixture_root=ROOT,fixture_resource_id="safe_single_page.html",discovery_platform_id=None,created_at="2026-07-12T12:00:00+09:00",valid_until="2026-07-12T13:00:00+09:00",known_structure=SAFE_STRUCTURE).contract
+
+def test_site_contract_v2_has_exact_lineage_capability_and_freshness_fields():
+    value=_m3_contract(); assert value is not None
+    assert value.contract_version == 2 and value.observed_at == "2026-07-12T12:00:00+09:00" and value.valid_until == "2026-07-12T13:00:00+09:00"
+    assert value.adapter_id and value.adapter_contract_version == 1 and value.adapter_schema_sha256 == value.schema_sha256
+    assert value.allowed_capabilities == () and value.mutation_enabled is False and value.live_enabled is False
+
+def test_site_intake_can_only_build_disabled_capability_contracts():
+    value=_m3_contract(); assert value is not None
+    assert value.allowed_capabilities == () and not value.mutation_enabled and not value.live_enabled
+
+def test_canonical_site_contract_sha256_is_stable():
+    value=_m3_contract(); assert value is not None
+    assert execution.canonical_site_contract_sha256(value) == execution.canonical_site_contract_sha256(value)
+
+def test_canonical_site_contract_sha256_changes_for_each_security_binding():
+    value=_m3_contract(); assert value is not None
+    changes={"fixture_sha256":"c"*64,"schema_sha256":"c"*64,"adapter_schema_sha256":"c"*64,"exact_origin":"https://other.applyin.co.kr:443","valid_until":"2026-07-12T14:00:00+09:00"}
+    assert all(execution.canonical_site_contract_sha256(value) != execution.canonical_site_contract_sha256(replace(value,**{field:changed})) for field,changed in changes.items())
+
+def test_legacy_registry_contract_is_readable_but_not_v2_issuable(tmp_path):
+    path=tmp_path/"registry.json"; path.write_text(json.dumps({"schema_version":1,"version":0,"records":{},"contracts":{"legacy":{"contract_version":1}},"events":[]}),encoding="utf-8")
+    assert intake.load_intake_registry(path)["contracts"]["legacy"]["contract_version"] == 1
 
 UNSAFE_STRUCTURE_CASES = (
     ({}, "LOGIN_STATUS_UNVERIFIED"),

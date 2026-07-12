@@ -5,7 +5,7 @@ from html.parser import HTMLParser
 import json,re
 from pathlib import Path
 from typing import Mapping,Protocol
-from ..application_execution import claim_fixture_fill_authorization,record_fixture_event
+from ..application_execution import ExecutionAuthorizationV2,LEGACY_AUTHORIZATION_UNUSABLE,claim_fixture_fill_authorization,record_fixture_event
 
 PLATFORM_ID="saramin_applyin"; ADAPTER_ID="saramin_applyin_fixture"; CONTRACT_ID="saramin_applyin_fixture_v1"; CONTRACT_VERSION=1
 FIXTURE_ORIGIN="https://sample-company.applyin.invalid"; LIVE_ENABLED=False
@@ -57,6 +57,7 @@ class FixtureMockPage:
     def check(self,s): self.calls.append(("check",s)); self.values[s]="true"
     def read_value(self,s): return self.values.get(s,"")
 def _pre(page,values,result,auth):
+    if not isinstance(auth, ExecutionAuthorizationV2): raise AdapterBlocked(LEGACY_AUTHORIZATION_UNUSABLE)
     schema=page.snapshot()
     if LIVE_ENABLED or schema!=expected_schema(): raise AdapterBlocked("applyin_schema_mismatch")
     digest=schema_sha256(schema)

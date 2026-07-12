@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 from typing import Mapping, Protocol
 
-from ..application_execution import claim_fixture_fill_authorization, record_fixture_event
+from ..application_execution import ExecutionAuthorizationV2, LEGACY_AUTHORIZATION_UNUSABLE, claim_fixture_fill_authorization, record_fixture_event
 
 ADAPTER_ID="jobkorea_jrs_fixture"; CONTRACT_VERSION=1; SITE_FAMILY="JobKorea JRS"
 SITE_SCHEMA="jobkorea_jrs_fixture_v1"; LIVE_ENABLED=False
@@ -82,6 +82,7 @@ class FixtureMockPage:
     def read_value(self,s): return self.values.get(s,"")
 
 def _prevalidate(page,values,result,authorization):
+    if not isinstance(authorization, ExecutionAuthorizationV2): raise AdapterBlocked(LEGACY_AUTHORIZATION_UNUSABLE)
     if LIVE_ENABLED or authorization.mode!="fill_only": raise AdapterBlocked("fixture_scope_invalid")
     schema=page.snapshot(); expected=expected_schema()
     if schema!=expected: raise AdapterBlocked("fixture_schema_mismatch")

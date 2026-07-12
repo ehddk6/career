@@ -1,10 +1,22 @@
 from hashlib import sha256
 import json
 from pathlib import Path
+import pytest
 
 from career_pipeline.artifacts import sha256_file
 from career_pipeline.form_adapter import FixtureFormDriver, PlaywrightFormDriver, ReviewRequiredFormAdapter, form_automation_result_to_dict
 from career_pipeline.models import ApplicationAnswer, ApplicationAttachment, ApplicationPackage, FormFieldDescriptor
+
+
+def test_form_schema_lineage_matches_site_contract_without_mutation():
+    driver=FixtureFormDriver('<input id="one" name="one">',url="https://fixture.invalid/apply")
+    url,schema=ReviewRequiredFormAdapter().probe_contract(driver)
+    assert url == "https://fixture.invalid/apply" and schema and not hasattr(driver,"fill")
+
+def test_read_only_form_adapter_exposes_probe_only_contract():
+    driver=FixtureFormDriver('<input id="one" name="one">')
+    forbidden=("fill","click","submit","set_input" + "_files")
+    assert ReviewRequiredFormAdapter().probe_contract(driver)[1] and not any(hasattr(driver,name) for name in forbidden)
 
 
 def review_package(tmp_path:Path):

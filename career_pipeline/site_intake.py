@@ -3,7 +3,7 @@ from __future__ import annotations
 
 from contextlib import contextmanager
 from dataclasses import asdict, dataclass
-from datetime import datetime
+from datetime import datetime, timedelta
 from hashlib import sha256
 from html.parser import HTMLParser
 import ipaddress
@@ -74,11 +74,17 @@ class SiteReadOnlyContract:
     site_id: str
     platform_family: str
     contract_id: str
-    contract_version: int
+    contract_version: Literal[2]
+    observed_at: str
+    valid_until: str
     exact_origin: str
     allowed_path_patterns: tuple[str, ...]
     fixture_sha256: str
+    schema_version: str
     schema_sha256: str
+    adapter_id: str
+    adapter_contract_version: int
+    adapter_schema_sha256: str
     page_steps: tuple[str, ...]
     logical_fields: tuple[dict, ...]
     form_selectors: tuple[str, ...]
@@ -91,6 +97,7 @@ class SiteReadOnlyContract:
     attachment_controls: tuple[str, ...]
     iframe_origins: tuple[str, ...]
     risk_markers: tuple[str, ...]
+    allowed_capabilities: tuple[Literal["fill_only", "submit"], ...]
     mutation_enabled: bool
     live_enabled: bool
     manual_review_required: bool
@@ -285,10 +292,19 @@ def _risks(schema: dict, exact_origin: str) -> tuple[str, ...]:
     if len(submits)!=1 or len(saves)!=1: codes.append("SAVE_SUBMIT_AMBIGUOUS")
     return tuple(sorted(set(codes)))
 
-def build_site_intake(*,posting_url,resolved_application_url,fixture_root,fixture_resource_id,discovery_platform_id,created_at,requested_platform_family="auto",known_structure=None) -> SiteIntakeResult:
+def build_site_intake(*,posting_url,resolved_application_url,fixture_root,fixture_resource_id,discovery_platform_id,created_at,requested_platform_family="auto",known_structure=None,valid_until=None) -> SiteIntakeResult:
     try: timestamp=datetime.fromisoformat(created_at.replace("Z","+00:00"))
     except (AttributeError,ValueError) as exc: raise SiteIntakeError("CREATED_AT_INVALID") from exc
     if timestamp.tzinfo is None or timestamp.utcoffset() is None: raise SiteIntakeError("CREATED_AT_INVALID")
+    # The public CLI is intentionally unchanged in M3.  Direct callers can
+    # supply an explicit expiry; legacy read-only intake keeps a bounded day.
+    if valid_until is None:
+        expiry = timestamp + timedelta(days=1)
+        valid_until = expiry.isoformat(timespec="seconds")
+    else:
+        try: expiry=datetime.fromisoformat(valid_until.replace("Z","+00:00"))
+        except (AttributeError,ValueError) as exc: raise SiteIntakeError("VALID_UNTIL_INVALID") from exc
+        if expiry.tzinfo is None or expiry.utcoffset() is None or expiry<=timestamp: raise SiteIntakeError("VALID_UNTIL_INVALID")
     if discovery_platform_id is not None:
         try: discovery=get_platform(discovery_platform_id)
         except PlatformCatalogError as exc: raise SiteIntakeError("DISCOVERY_PLATFORM_INVALID") from exc
@@ -358,15 +374,19 @@ def build_site_intake(*,posting_url,resolved_application_url,fixture_root,fixtur
         "schema_sha256": schema_sha,
         "validation_codes": codes,
         "known_structure": {key: known_structure.get(key, "unknown") for key in sorted(allowed_structure)},
-        "contract_version": CONTRACT_VERSION,
+        "contract_version": 2,
+        "observed_at": created_at,
+        "valid_until": valid_until,
     }
     identity = json.dumps(identity_payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
     identity_sha = sha256(identity.encode()).hexdigest()
     intake_id="intake-"+identity_sha[:24]
-    record=SiteIntakeRecord(intake_id,family,discovery_platform_id,posting_meta.normalized_url if posting_meta else None,target.normalized_url if target else None,exact,target.normalized_host if target else None,resource.resource_id if resource else None,fixture_sha,schema_sha,known_structure.get("login_status","unknown"),known_structure.get("mfa_status","unknown"),known_structure.get("captcha_status","unknown"),known_structure.get("iframe_status","unknown"),known_structure.get("popup_status","unknown"),known_structure.get("redirect_status","unknown"),known_structure.get("attachment_status","unknown"),"multistep" if schema and schema["page_steps"] else "single_page" if schema else "unknown","identified" if schema and any(b["role"]=="save" for b in schema["buttons"]) else "unknown","identified" if schema and len([b for b in schema["buttons"] if b["type"]=="submit"])==1 else "unknown",not ready,tuple(codes),status,created_at,CONTRACT_VERSION)
+    record=SiteIntakeRecord(intake_id,family,discovery_platform_id,posting_meta.normalized_url if posting_meta else None,target.normalized_url if target else None,exact,target.normalized_host if target else None,resource.resource_id if resource else None,fixture_sha,schema_sha,known_structure.get("login_status","unknown"),known_structure.get("mfa_status","unknown"),known_structure.get("captcha_status","unknown"),known_structure.get("iframe_status","unknown"),known_structure.get("popup_status","unknown"),known_structure.get("redirect_status","unknown"),known_structure.get("attachment_status","unknown"),"multistep" if schema and schema["page_steps"] else "single_page" if schema else "unknown","identified" if schema and any(b["role"]=="save" for b in schema["buttons"]) else "unknown","identified" if schema and len([b for b in schema["buttons"] if b["type"]=="submit"])==1 else "unknown",not ready,tuple(codes),status,created_at,2)
     if ready:
         site_id="site-"+sha256((family+"|"+exact).encode()).hexdigest()[:20]
-        contract=SiteReadOnlyContract(site_id,family,"contract-"+identity_sha[:24],CONTRACT_VERSION,exact,(urlsplit(target.normalized_url).path or "/",),fixture_sha,schema_sha,tuple(schema["page_steps"]),tuple(schema["fields"]),tuple(f["selector"] for f in schema["forms"] if f["selector"]),tuple(f["action_path"] for f in schema["forms"] if f["action_path"]),tuple(b["selector"] for b in schema["buttons"] if b["role"]=="save" and b["selector"]),tuple(b["selector"] for b in schema["buttons"] if b["role"]=="next" and b["selector"]),tuple(b["selector"] for b in schema["buttons"] if b["role"]=="previous" and b["selector"]),tuple(b["selector"] for b in schema["buttons"] if b["role"]=="preview" and b["selector"]),tuple(b["selector"] for b in schema["buttons"] if b["type"]=="submit" and b["selector"]),tuple(f["selector"] for f in schema["fields"] if f["type"]=="file" and f["selector"]),tuple(schema["iframe_origins"]),(),False,False,False,())
+        adapter_id = {"jobkorea_jrs":"jobkorea_jrs_fixture", "saramin_applyin":"saramin_applyin_fixture"}.get(family, "unknown")
+        schema_version = f"{adapter_id}_v1"
+        contract=SiteReadOnlyContract(site_id,family,"contract-"+identity_sha[:24],2,created_at,valid_until,exact,(urlsplit(target.normalized_url).path or "/",),fixture_sha,schema_version,schema_sha,adapter_id,1,schema_sha,tuple(schema["page_steps"]),tuple(schema["fields"]),tuple(f["selector"] for f in schema["forms"] if f["selector"]),tuple(f["action_path"] for f in schema["forms"] if f["action_path"]),tuple(b["selector"] for b in schema["buttons"] if b["role"]=="save" and b["selector"]),tuple(b["selector"] for b in schema["buttons"] if b["role"]=="next" and b["selector"]),tuple(b["selector"] for b in schema["buttons"] if b["role"]=="previous" and b["selector"]),tuple(b["selector"] for b in schema["buttons"] if b["role"]=="preview" and b["selector"]),tuple(b["selector"] for b in schema["buttons"] if b["type"]=="submit" and b["selector"]),tuple(f["selector"] for f in schema["fields"] if f["type"]=="file" and f["selector"]),tuple(schema["iframe_origins"]),(),(),False,False,False,())
     return SiteIntakeResult(record,contract,schema)
 
 @contextmanager
