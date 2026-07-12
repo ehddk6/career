@@ -1,7 +1,7 @@
 # Milestone: Deterministic Offline Acceptance
 
 **ID:** M4
-**Status:** pending
+**Status:** executing
 **Dependencies:** M3
 **Risk:** Medium-High
 **Effort:** Large
