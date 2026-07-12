@@ -22,8 +22,10 @@ documentation when it identifies public code/test/document evidence and matches
 no segment may be `.` or `..`. These known roots are the complete allowlist.
 This exception never permits a fixture source path, private path, absolute user
 path, workspace output path, URL with a query/token, raw HTML, or sentinel
-contents. M5's exact runtime JSON and human schemas define no path field, so
-they emit no paths at all.
+contents. M5's outer runtime JSON and human schemas define no dedicated path
+field. The only permitted path-like runtime values are allowlisted repository-
+relative `acceptance.readiness_report.evidence[].source` entries inherited from
+the strict M4 readiness object; every other runtime path value is forbidden.
 
 The current baseline is `528 passed, 5 skipped`. The M4 checkpoint and final
 review are both PASS; M5 starts from that state and must preserve its verified
@@ -194,7 +196,8 @@ the fail-closed test category. Raw fixture HTML, sentinel contents, fixture
 source paths, private paths, absolute user/workspace-output paths, query/token
 values, and every sensitive value remain forbidden in every public envelope and
 human summary. The repository-relative evidence-path exception is limited to
-code, test, and documentation text under the exact allowlist above.
+allowlisted `acceptance.readiness_report.evidence[].source` values and code,
+test, or documentation text under the exact pattern above.
 
 For `status`, `acceptance`, `acceptance_sha256`, `artifact_sha256`, and
 `package_sha256` are always `null`. A validated bare/enveloped readiness report
