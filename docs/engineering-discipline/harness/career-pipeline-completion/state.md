@@ -23,7 +23,7 @@
 | M1 | Phase 6.5 fail-closed hardening | completed | 1 | baseline | `docs/engineering-discipline/plans/2026-07-12-site-intake-fail-closed.md` | `docs/engineering-discipline/reviews/2026-07-12-site-intake-fail-closed-review.md` |
 | M2A | Shared safety kernel | completed | 1 | M1 | `docs/engineering-discipline/plans/2026-07-12-shared-safety-kernel.md` | `docs/engineering-discipline/reviews/2026-07-12-shared-safety-kernel-review.md` |
 | M2B | Requirements and readiness contract | completed | 1 | M1 | `docs/engineering-discipline/plans/2026-07-12-readiness-contract.md` | `docs/engineering-discipline/reviews/2026-07-12-readiness-contract-review.md` |
-| M3 | Contract-bound authorization | pending | 0 | M2A, M2B | - | - |
+| M3 | Contract-bound authorization | executing | 1 | M2A, M2B | `docs/engineering-discipline/plans/2026-07-12-contract-bound-authorization.md` | - |
 | M4 | Deterministic offline acceptance | pending | 0 | M3 | - | - |
 | M5 | Unified CLI and operational gate | pending | 0 | M4 | - | - |
 | M6 | Final local foundation checkpoint | pending | 0 | M5 | - | - |
@@ -40,3 +40,4 @@
 | 2026-07-12 | M1-completed | Commit `c663e15`; independent validation and review passed with `425 passed, 2 skipped`. M2A and M2B are unblocked. |
 | 2026-07-12 | M2-plans-pass | M2A and M2B zero-context plans passed independent compliance review; parallel execution attempt 1 started. |
 | 2026-07-12 | M2-completed | M2A commits `6b3d03d`, `b5b6db7`; M2B commits `a92f366`, `3798f8b`, `20a288b`; combined suite `471 passed, 5 skipped`. Independent validators were rate-limited, so the orchestrator reran all required checks directly and recorded the limitation. |
+| 2026-07-12 | M3-plan-pass | Contract-bound authorization plan passed independent compliance after static/probe/mutation gate and legacy handling corrections; execution attempt 1 started. |

@@ -1,7 +1,7 @@
 # Milestone: Contract-Bound Authorization
 
 **ID:** M3
-**Status:** pending
+**Status:** executing
 **Dependencies:** M2A, M2B
 **Risk:** High
 **Effort:** Medium-Large
