@@ -1,7 +1,7 @@
 # Milestone: Requirements and Readiness Contract
 
 **ID:** M2B
-**Status:** pending
+**Status:** executing
 **Dependencies:** M1
 **Risk:** Medium
 **Effort:** Medium
