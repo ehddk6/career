@@ -100,61 +100,131 @@ submit option.
 readiness payload with `readiness_report_from_dict` before deriving status. It
 does not run a new acceptance flow, mutate the input file, or echo its path.
 
-### Machine JSON envelopes
+### Exact machine JSON envelopes
 
-All successful `--format json` output is one UTF-8 JSON object and nothing
-else. `offline-acceptance --output` writes byte-identical JSON plus a final
-newline, while stdout uses the same object plus a final newline.
-
-```json
-{
-  "schema_version": "career-pipeline-cli-offline-acceptance-v1",
-  "command": "offline-acceptance",
-  "classification": {
-    "local_state": "complete",
-    "external_state": "external_only_blocked",
-    "exit_code": 3
-  },
-  "acceptance": { "...": "offline_acceptance_to_dict result" }
-}
-```
-
-`acceptance` is the existing sanitized serializer result. It must contain no
-signing key/fingerprint, private fields, fixture HTML, fixture path, sensitive
-fixture value, user path, name, email, phone, credential, or URL query value.
-
-```json
-{
-  "schema_version": "career-pipeline-cli-status-v1",
-  "command": "status",
-  "classification": {
-    "local_state": "complete | unsafe",
-    "external_state": "clear | external_only_blocked | not_assessed",
-    "exit_code": 0
-  },
-  "readiness": { "...": "readiness_report_to_dict result" }
-}
-```
-
-For an invalid input, `--format json` prints exactly
-`{"schema_version":"career-pipeline-cli-error-v1","command":"status","error_code":"INVALID_INPUT"}`
-and returns 4. The human error is a fixed `invalid status input` message; it
-must not include the raw exception, input path, file content, or sensitive
-value.
-
-### Human summaries and exit codes
-
-Human output is fixed, one value per line, and never includes paths or raw
-evidence values:
+For either command, every successful or domain-invalid `--format json` result
+is exactly one UTF-8 JSON object with a trailing newline and this exact top-level
+key set, in canonical `sort_keys=True` order:
 
 ```text
-local: complete
-offline acceptance: passed
-external inputs: blocked
-live execution: disabled
-submission: not attempted
-outcome: external_only_blocked (exit 3)
+acceptance
+artifact_sha256
+blocker_codes
+command
+error_code
+external_inputs_status
+live_execution_status
+local_status
+message
+offline_acceptance_status
+outcome
+readiness_sha256
+schema_version
+submission_status
 ```
+
+The key values are constrained as follows:
+
+| key | type and allowed values |
+| --- | --- |
+| `schema_version` | string: `career-pipeline-cli-status-v1` for `status`, `career-pipeline-cli-offline-acceptance-v1` for `offline-acceptance`, or `career-pipeline-cli-error-v1` only for a domain-invalid result |
+| `command` | string: exactly `status` or `offline-acceptance` |
+| `outcome` | string: `local_complete`, `local_unsafe`, `external_only_blocked`, or `invalid_input` |
+| `local_status` | string: `complete` or `unsafe` |
+| `offline_acceptance_status` | `passed`, `failed`, `not_run`, or `null` when not assessed |
+| `external_inputs_status` | `ready`, `blocked`, or `null` when not assessed |
+| `live_execution_status` | `disabled`, `review_required`, `authorized`, or `null` when not assessed |
+| `submission_status` | `not_attempted`, `unverified`, `verified`, or `null` when not assessed |
+| `blocker_codes` | list of unique strings, lexicographically sorted; `[]` when none/not assessed |
+| `readiness_sha256` | lower-case 64-character SHA-256 string for a validated readiness report, otherwise `null` |
+| `artifact_sha256` | lower-case 64-character final-manifest SHA-256 for positive offline acceptance, otherwise `null` |
+| `acceptance` | the existing sanitized `offline_acceptance_to_dict` object for either offline outcome; `null` for `status` and every invalid result |
+| `error_code` | `null` on non-error outcomes; exactly `INVALID_INPUT` for a domain-invalid result |
+| `message` | `null` on non-error outcomes; exactly `invalid status input` or `invalid offline acceptance input` for the corresponding domain-invalid command |
+
+The positive M4 `offline-acceptance` envelope has
+`outcome="external_only_blocked"`, `local_status="complete"`, axis values
+`passed/blocked/disabled/not_attempted`, its sorted readiness blocker codes,
+non-null readiness and final-manifest SHA values, the sanitized positive
+acceptance object, and `error_code=message=null`.
+
+If the M4 API returns `OfflineAcceptanceBlockedResult`, the offline envelope
+has `outcome="local_unsafe"`, `local_status="unsafe"`,
+`offline_acceptance_status="failed"`, all three remaining axis fields `null`,
+`blocker_codes=["blocked_sensitive_fixture"]`, both SHA fields `null`, the
+sanitized blocked acceptance object, and `error_code=message=null`. M5 does not
+provide a CLI option to intentionally produce this outcome; this branch is a
+defensive serializer contract for the existing public M4 union type.
+
+For `status`, `acceptance` and `artifact_sha256` are always `null`. A validated
+bare/enveloped readiness report supplies the four axis fields, sorted blocker
+codes, and its canonical `readiness_sha256`. A fully clear fixture produces
+`local_complete`; a locally unsafe report produces `local_unsafe`; and a locally
+complete report with only external-only blockers produces
+`external_only_blocked`. A domain-invalid input uses the same 14-key shape with
+all axis/SHA fields `null`, `blocker_codes=[]`, `acceptance=null`, and the fixed
+error fields above. No envelope may include a path, raw fixture, signing
+material, private field, name, email, phone, credential, URL query, or other
+PII.
+
+`offline-acceptance --output` is valid only with `--format json`. On success it
+writes byte-identical canonical JSON plus a final newline to stdout and the
+output file. It never prints the output path. Supplying `--output` with
+`--format human` is a domain-invalid offline input (exit 4).
+
+### Exact human summaries, streams, and exit codes
+
+For non-error human results, stdout contains exactly these ten lines in this
+order, each terminated by `\n`; stderr is empty:
+
+```text
+command: <status|offline-acceptance>
+local: <complete|unsafe>
+offline acceptance: <passed|failed|not_run|not_assessed>
+external inputs: <ready|blocked|not_assessed>
+live execution: <disabled|review_required|authorized|not_assessed>
+submission: <not_attempted|unverified|verified|not_assessed>
+blockers: <none|comma-separated sorted codes>
+readiness sha256: <64-char SHA-256|none>
+artifact sha256: <64-char SHA-256|none>
+outcome: <local_complete|local_unsafe|external_only_blocked> (exit <0|2|3>)
+```
+
+The normal M4 positive output ends with `outcome: external_only_blocked (exit
+3)` and still explicitly reports `local: complete`; it never claims live or
+submission readiness.
+
+For a domain-invalid human input, stdout is empty and stderr is exactly these
+four lines, each terminated by `\n`:
+
+```text
+command: <status|offline-acceptance>
+outcome: invalid_input (exit 4)
+error: INVALID_INPUT
+message: <invalid status input|invalid offline acceptance input>
+```
+
+For `--format json`, stdout is the exact JSON envelope described above and
+stderr is empty, including domain-invalid results. The new command handlers
+catch expected domain errors and never print a traceback. Invalid argparse
+syntax (unknown option, missing required option, invalid choice) remains normal
+argparse behavior: usage/error on stderr, no JSON guarantee, and exit 2. This
+is distinct from a parsed command whose readiness/envelope/input validation
+fails, which returns exit 4.
+
+| command | reachable M5 outcome | exact exit |
+| --- | --- | --- |
+| `offline-acceptance` | positive M4 result: `external_only_blocked` | 3 |
+| `offline-acceptance` | defensive `OfflineAcceptanceBlockedResult`: `local_unsafe` | 2 |
+| `offline-acceptance` | parsed domain-invalid input, including `--output` with human format | 4 |
+| `status` | validated fully-clear readiness fixture: `local_complete` | 0 |
+| `status` | validated external-only-blocked readiness/envelope | 3 |
+| `status` | validated locally unsafe readiness/envelope | 2 |
+| `status` | parsed invalid input/envelope/readiness | 4 |
+
+`offline-acceptance` intentionally has no exit-0 production path: M4 always
+preserves external blockers. This prevents the CLI from treating local synthetic
+acceptance as live/submission completion.
 
 Use one pure internal classifier for both commands:
 
@@ -178,6 +248,20 @@ Add `list_fixture_adapters()` to `platform_catalog.py`. It returns a sorted,
 unique tuple by traversing validated `CATALOG` entries with a
 `fixture_adapter_id`, verifies each value agrees with
 `FIXTURE_ADAPTER_REGISTRY`, and rejects any live-enabled/live-adapter entry.
+
+Its exact public shape is:
+
+```python
+def list_fixture_adapters() -> tuple[str, ...]: ...
+```
+
+For the current registry it must return exactly
+`("jobkorea_jrs_fixture", "saramin_applyin_fixture")`. It calls
+`validate_catalog(CATALOG)`, derives IDs only from `Platform.fixture_adapter_id`,
+requires equality with the sorted unique values of
+`FIXTURE_ADAPTER_REGISTRY`, and raises `PlatformCatalogError` for an empty,
+duplicate, mismatched, live-enabled, or live-adapter entry. It neither imports
+execution code nor returns platform objects, origins, paths, or capabilities.
 
 Use this function in `__main__.py` for:
 
@@ -238,8 +322,20 @@ The compatibility test must parse and execute existing safe parser paths as
 part of its assertion, then parse the new commands; it is not a wrapper or a
 duplicate assertion. The product-surface test must inspect new command output
 and added source regions for secret/PII/user-absolute-path/dangerous API leaks.
-Sensitive literals are allowed only in the negative test input construction and
-must be absent from captured output and JSON.
+The JSON tests assert exact top-level key sets and every value/null rule above
+for positive, external-only blocked, local-unsafe, and invalid-input outcomes.
+The human tests assert the exact ordered lines and stdout/stderr placement for
+each of those outcomes. Sensitive literals are allowed only in negative test
+input construction and must be absent from captured output and JSON.
+
+Coverage is kept within the 12-node contract by making each named test exercise
+the real formatter/command for all variants in its stated family: test 2 covers
+positive and defensive-blocked offline JSON; test 3 covers their human summaries;
+test 5 covers status external-only JSON; tests 6 and 7 cover status exits 0 and
+2; test 8 covers JSON and human domain-invalid output for both commands; and
+test 9 checks all successful status human line variants. These are multiple
+assertions of distinct command outcomes, not parameterized node expansion or
+wrapper tests.
 
 RED is test-first:
 
