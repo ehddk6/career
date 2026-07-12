@@ -75,6 +75,7 @@ from .application_execution import (
     approve_application,
     authorize_execution,
     load_review,
+    load_authorization,
     write_workflow_artifact,
 )
 from .registry import PostingRegistry, RegistryError, queue_item_to_dict
@@ -307,6 +308,25 @@ def build_parser() -> argparse.ArgumentParser:
     application_authorize.add_argument("--at", required=True)
     application_authorize.add_argument("--expires-at", required=True)
     application_authorize.add_argument("--approver-id", required=True)
+    application_adapter = application_commands.add_parser("adapter")
+    adapter_commands = application_adapter.add_subparsers(dest="adapter_command", required=True)
+    for name in ("show", "validate"):
+        command = adapter_commands.add_parser(name)
+        command.add_argument("adapter_id", choices=("jobkorea_jrs_fixture",))
+        command.add_argument("--root", default=".")
+    application_fill_fixture = application_commands.add_parser("fill-fixture")
+    application_fill_fixture.add_argument("--root", default=".")
+    application_fill_fixture.add_argument("--adapter", choices=("jobkorea_jrs_fixture",), required=True)
+    application_fill_fixture.add_argument("--package", required=True)
+    application_fill_fixture.add_argument("--dry-run-result", required=True)
+    application_fill_fixture.add_argument("--authorization", required=True)
+    application_fill_fixture.add_argument("--values", required=True)
+    application_fill_fixture.add_argument("--ledger", required=True)
+    application_fill_fixture.add_argument("--output", required=True)
+    application_fill_fixture.add_argument("--at", required=True)
+    application_fixture_result = application_commands.add_parser("fixture-result")
+    application_fixture_result.add_argument("--root", default=".")
+    application_fixture_result.add_argument("--result", required=True)
 
     audit = subparsers.add_parser("audit")
     audit.add_argument("--run", required=True)
@@ -677,6 +697,23 @@ def _application_attachments(root: Path, values: list[str]) -> dict[str, Path]:
 
 def run_application_command(args: argparse.Namespace) -> int:
     root = Path(args.root).resolve()
+    if args.application_command == "adapter":
+        from .adapters.jobkorea_jrs import adapter_contract, collect_fixture_schema, expected_schema, fixture_schema_sha256
+        if args.adapter_command == "show":
+            print(json.dumps(adapter_contract(), ensure_ascii=False, indent=2))
+            return 0
+        fixture = _phase4_path(root, "tests/fixtures/jobkorea_jrs/application_form_v1.html", must_exist=True)
+        schema = collect_fixture_schema(fixture.read_text(encoding="utf-8"))
+        if schema != expected_schema():
+            raise ApplicationPackageError("jobkorea_jrs_fixture schema mismatch")
+        print(fixture_schema_sha256(schema))
+        return 0
+    if args.application_command == "fixture-result":
+        value = json.loads(_phase4_path(root, args.result, must_exist=True).read_text(encoding="utf-8"))
+        safe = {key:value.get(key) for key in ("adapter_id","contract_version","package_id","authorization_id","status","events")}
+        safe["field_count"] = len(value.get("fields", [])) if isinstance(value.get("fields"), list) else 0
+        print(json.dumps(safe, ensure_ascii=False, indent=2))
+        return 0
     if args.application_command == "package":
         run_dir = _phase4_path(root, args.run, must_exist=True)
         state_path = run_dir / "run.json"
@@ -710,6 +747,19 @@ def run_application_command(args: argparse.Namespace) -> int:
         print(package.package_id)
         return 0 if package.validation_status == "ready_for_review" else 2
     package = load_application_package(_phase4_path(root, args.package, must_exist=True))
+    if args.application_command == "fill-fixture":
+        from .adapters.jobkorea_jrs import FixtureMockPage, collect_fixture_schema, run_fixture_fill
+        signing_key = os.environ.get("CAREER_EXECUTION_SIGNING_KEY", "").encode("utf-8")
+        result = load_form_result(_phase4_path(root, args.dry_run_result, must_exist=True))
+        authorization = load_authorization(_phase4_path(root, args.authorization, must_exist=True), signing_key)
+        values = json.loads(_phase4_path(root, args.values, must_exist=True).read_text(encoding="utf-8"))
+        fixture = _phase4_path(root, "tests/fixtures/jobkorea_jrs/application_form_v1.html", must_exist=True)
+        page = FixtureMockPage(collect_fixture_schema(fixture.read_text(encoding="utf-8")))
+        report = run_fixture_fill(page, values, package, result, authorization, executed_at=args.at,
+            ledger_path=_phase4_path(root, args.ledger), signing_key=signing_key)
+        write_json(_phase4_path(root, args.output), report)
+        print(f"{authorization.authorization_id} {report['status']}")
+        return 0
     if args.application_command == "review":
         signing_key = os.environ.get("CAREER_EXECUTION_SIGNING_KEY", "").encode("utf-8")
         result = load_form_result(_phase4_path(root, args.dry_run_result, must_exist=True))

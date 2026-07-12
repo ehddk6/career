@@ -98,3 +98,9 @@ def test_usage_documents_controlled_execution_contract():
         assert required in usage
     for required in ("awaiting_final_confirmation", "submitted_verified", "submission_unverified", "CAPTCHA", "MFA"):
         assert required in contract
+
+
+def test_jobkorea_jrs_fixture_adapter_is_documented_as_offline_only():
+    text=Path("docs/adapters/jobkorea-jrs.md").read_text(encoding="utf-8")
+    for required in ("jobkorea_jrs_fixture","live_enabled=false","실제 기업별 지원서 origin: 미확인","제출을 지원하지 않는다"):
+        assert required in text

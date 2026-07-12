@@ -159,3 +159,12 @@ def test_parser_exposes_review_and_authorization_commands():
         "--output", "authorization.json", "--at", "2026-07-12T12:01:00+09:00", "--expires-at", "2026-07-12T13:00:00+09:00", "--approver-id", "user"])
     assert review.application_command == "review"
     assert authorize.application_command == "authorize"
+
+
+def test_parser_exposes_jobkorea_jrs_fixture_commands():
+    parser=build_parser()
+    show=parser.parse_args(["application","adapter","show","jobkorea_jrs_fixture"])
+    validate=parser.parse_args(["application","adapter","validate","jobkorea_jrs_fixture"])
+    fill=parser.parse_args(["application","fill-fixture","--adapter","jobkorea_jrs_fixture","--package","p.json","--dry-run-result","d.json","--authorization","a.json","--values","v.json","--ledger","l.json","--output","o.json","--at","2026-07-12T12:00:00+09:00"])
+    result=parser.parse_args(["application","fixture-result","--result","o.json"])
+    assert show.adapter_command=="show" and validate.adapter_command=="validate" and fill.application_command=="fill-fixture" and result.application_command=="fixture-result"

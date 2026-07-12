@@ -129,7 +129,7 @@ def _ledger(path,key):
     if value.get("schema_version")!=1 or not isinstance(value.get("authorizations"),dict) or not isinstance(value.get("events"),list): raise ApplicationExecutionError("invalid execution ledger")
     return value
 def _write_ledger(path,value,key): write_json(path,{**value,"integrity_sha256":_sign(value,key)})
-def _event(ledger,kind,a,at,**metadata): ledger["events"].append({"event_id":_id("event",kind,a.authorization_id,at),"event_type":kind,"authorization_id":a.authorization_id,"occurred_at":at,"metadata":metadata})
+def _event(ledger,kind,a,at,**metadata): ledger["events"].append({"event_id":_id("event",kind,a.authorization_id,at,_digest(metadata)),"event_type":kind,"authorization_id":a.authorization_id,"occurred_at":at,"metadata":metadata})
 
 def revoke_authorization(path,a,*,revoked_at,signing_key):
     _validate_auth(a,signing_key); _dt(revoked_at); path=Path(path)
@@ -141,6 +141,34 @@ def _bindings(p,r,review,a):
     expected=(_package_sha(p),p.posting_id,p.posting_sha256,p.profile_sha256,p.final_manifest_sha256,_attachments_sha(p),r.form_schema_sha256)
     actual=(a.package_sha256,a.posting_id,a.posting_sha256,a.profile_sha256,a.final_manifest_sha256,a.attachment_manifest_sha256,a.form_schema_sha256)
     if expected!=actual or a.package_id!=p.package_id or a.review_id!=review.review_id: raise ApplicationExecutionError("execution binding changed")
+
+def claim_fixture_fill_authorization(p,r,a,*,executed_at,ledger_path,signing_key,adapter_id):
+    """Atomically claim a signed fill-only authorization for an offline fixture adapter."""
+    now=_dt(executed_at); _validate_auth(a,signing_key); _dry(p,r)
+    expected=(_package_sha(p),p.posting_id,p.posting_sha256,p.profile_sha256,p.final_manifest_sha256,_attachments_sha(p),r.form_schema_sha256)
+    actual=(a.package_sha256,a.posting_id,a.posting_sha256,a.profile_sha256,a.final_manifest_sha256,a.attachment_manifest_sha256,a.form_schema_sha256)
+    if expected!=actual or a.package_id!=p.package_id: raise ApplicationExecutionError("fixture execution binding changed")
+    if a.mode!="fill_only": raise ApplicationExecutionError("fixture adapter requires fill_only authorization")
+    if now>_dt(a.expires_at): raise ApplicationExecutionError("authorization expired")
+    path=Path(ledger_path)
+    with _lock(path.with_suffix(path.suffix+".lock")):
+        data=_ledger(path,signing_key); state=data["authorizations"].setdefault(a.authorization_id,{})
+        if state.get("revoked_at"): raise ApplicationExecutionError("authorization revoked")
+        if state.get("used_at"): raise ApplicationExecutionError("authorization already used")
+        state.update({"used_at":executed_at,"status":"fixture_fill_started","adapter_id":adapter_id})
+        _event(data,"fill_fixture_validation_started",a,executed_at,adapter_id=adapter_id)
+        _write_ledger(path,data,signing_key)
+
+def record_fixture_event(ledger_path,a,*,event_type,occurred_at,signing_key,adapter_id,logical_field_id=None):
+    allowed={"fill_fixture_blocked","field_fill_started","field_fill_verified","fill_fixture_completed","fill_fixture_failed"}
+    if event_type not in allowed: raise ApplicationExecutionError("invalid fixture event")
+    _validate_auth(a,signing_key); _dt(occurred_at); path=Path(ledger_path)
+    metadata={"adapter_id":adapter_id}
+    if logical_field_id is not None: metadata["logical_field_id"]=logical_field_id
+    with _lock(path.with_suffix(path.suffix+".lock")):
+        data=_ledger(path,signing_key); state=data["authorizations"].get(a.authorization_id)
+        if not state or not state.get("used_at"): raise ApplicationExecutionError("fixture authorization was not claimed")
+        state["status"]=event_type; _event(data,event_type,a,occurred_at,**metadata); _write_ledger(path,data,signing_key)
 
 def execute_application(p,r,review,a,driver,*,executed_at,ledger_path,signing_key,duplicate_detected=False):
     now=_dt(executed_at); _validate_review(review,signing_key); _validate_auth(a,signing_key); _dry(p,r); _bindings(p,r,review,a)

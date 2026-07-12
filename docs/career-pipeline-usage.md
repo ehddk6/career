@@ -176,6 +176,25 @@ python -m career_pipeline application authorize `
 
 `CAREER_EXECUTION_SIGNING_KEY`는 승인·권한 artifact의 HMAC 검증에만 사용하며 파일, 로그, CLI 출력에 기록하지 않습니다. 값이 없거나 32바이트보다 짧으면 review와 authorize는 실패합니다.
 
+Phase 6의 첫 adapter는 실제 사이트가 아닌 `jobkorea_jrs_fixture` 비식별 계약입니다.
+
+```powershell
+python -m career_pipeline application adapter show jobkorea_jrs_fixture
+python -m career_pipeline application adapter validate jobkorea_jrs_fixture
+python -m career_pipeline application fill-fixture `
+  --adapter jobkorea_jrs_fixture `
+  --package ".career_profile/application_packages/package.json" `
+  --dry-run-result ".career_profile/form-result.json" `
+  --authorization ".career_profile/execution-authorization.json" `
+  --values ".career_profile/jrs-fixture-values.json" `
+  --ledger ".career_profile/execution-ledger.json" `
+  --output ".career_profile/jrs-fixture-result.json" `
+  --at "2026-07-12T12:05:00+09:00"
+python -m career_pipeline application fixture-result --result ".career_profile/jrs-fixture-result.json"
+```
+
+이 명령은 저장소 fixture와 메모리 mock만 사용한다. live URL, navigation, attachment, click, submit 옵션은 제공하지 않는다.
+
 ## 2. 공식 공고 분석
 
 공식 PDF/DOCX를 사용자가 확인한 경우:
