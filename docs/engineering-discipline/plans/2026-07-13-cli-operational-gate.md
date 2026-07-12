@@ -11,7 +11,10 @@ M5 never fetches a site, launches a browser, reads credentials, reads real PII,
 uploads a file, clicks a control, submits an application, or collects a
 receipt. It uses only the clean synthetic fixture already constructed by
 `run_offline_acceptance`; the CLI must not expose M4's custom fixture HTML or
-sensitive-fixture scenario.
+any custom scenario control. The literal scenario enum `sensitive_fixture` is
+safe to display only when it is already present in a sanitized blocked M4
+artifact. Raw fixture HTML, sentinel contents, source paths, absolute paths,
+and query/token values are never public.
 
 The current baseline is `528 passed, 5 skipped`. The M4 checkpoint and final
 review are both PASS; M5 starts from that state and must preserve its verified
@@ -95,16 +98,22 @@ to be printed. The command exposes no `--fixture-html`, `--fixture-scenario`,
 signing-key, browser, URL-fetch, credential, PII, attachment, upload, click, or
 submit option.
 
-`status --input` is a required local JSON-file path. It accepts a regular,
-non-symlink file confined below the current working directory; absolute,
-drive-relative, escaping, missing, non-UTF-8, non-object, unknown-key, or
-oversized input is a domain-invalid status input (exit 4). It accepts exactly
-one of: a bare valid `career-pipeline-readiness-v1` document, a strict M5
-positive offline-acceptance envelope, or a strict M5 blocked offline-acceptance
-envelope. It validates a bare/positive embedded readiness payload with
+`status --input` is a required local JSON-file path. `PATH` must be a relative
+path without a drive, UNC root, or leading separator. Resolve it against the
+strictly resolved current working directory; reject it unless every component
+from that directory to the candidate is non-symlink, the resolved target stays
+under that directory, and `lstat` identifies the target as one regular file.
+Read at most `1_000_000` bytes and reject an input whose byte length exceeds
+that limit. Thus absolute, drive-relative, escaping, missing, directory,
+symlink, oversized, non-UTF-8, non-object, unknown-key, or schema-invalid input
+is a domain-invalid status input (exit 4). It accepts exactly one of: a bare
+valid `career-pipeline-readiness-v1` document, a strict M5 positive
+offline-acceptance envelope, or a strict M5 blocked offline-acceptance envelope.
+It validates a bare/positive embedded readiness payload with
 `readiness_report_from_dict` before deriving status, validates every envelope
-field against the exact contract below, does not run a new acceptance flow or
-mutate the input file, and never echoes its path.
+and nested acceptance field with the exact private parser contract below, does
+not run a new acceptance flow or mutate the input file, and never echoes its
+path.
 
 ### Exact machine JSON envelopes
 
@@ -114,16 +123,19 @@ key set, in canonical `sort_keys=True` order:
 
 ```text
 acceptance
+acceptance_sha256
 artifact_sha256
 blocker_codes
 command
 error_code
 external_inputs_status
+kind
 live_execution_status
 local_status
 message
 offline_acceptance_status
 outcome
+package_sha256
 readiness_sha256
 schema_version
 submission_status
@@ -135,6 +147,7 @@ The key values are constrained as follows:
 | --- | --- |
 | `schema_version` | string: `career-pipeline-cli-status-v1` for `status`, `career-pipeline-cli-offline-acceptance-v1` for `offline-acceptance`, or `career-pipeline-cli-error-v1` only for a domain-invalid result |
 | `command` | string: exactly `status` or `offline-acceptance` |
+| `kind` | string: exactly `status` for the `status` command or `offline_acceptance` for the `offline-acceptance` command; it is never inferred from a user-provided path or fixture |
 | `outcome` | string: `local_complete`, `local_unsafe`, `external_only_blocked`, or `invalid_input` |
 | `local_status` | `complete`, `unsafe`, or `null`; it is `null` only for `invalid_input` |
 | `offline_acceptance_status` | `passed`, `failed`, `not_run`, or `null` when not assessed |
@@ -142,8 +155,10 @@ The key values are constrained as follows:
 | `live_execution_status` | `disabled`, `review_required`, `authorized`, or `null` when not assessed |
 | `submission_status` | `not_attempted`, `unverified`, `verified`, or `null` when not assessed |
 | `blocker_codes` | list of unique strings, lexicographically sorted; `[]` when none/not assessed |
+| `acceptance_sha256` | lower-case 64-character SHA-256 of the canonical sanitized `acceptance` object, otherwise `null` when `acceptance=null` |
 | `readiness_sha256` | lower-case 64-character SHA-256 string for a validated readiness report, otherwise `null` |
 | `artifact_sha256` | lower-case 64-character final-manifest SHA-256 for positive offline acceptance, otherwise `null` |
+| `package_sha256` | lower-case 64-character package SHA-256 for positive offline acceptance, otherwise `null` |
 | `acceptance` | the existing sanitized `offline_acceptance_to_dict` object for either offline outcome; `null` for `status` and every invalid result |
 | `error_code` | `null` on non-error outcomes; exactly `INVALID_INPUT` for a domain-invalid result |
 | `message` | `null` on non-error outcomes; exactly `invalid status input` or `invalid offline acceptance input` for the corresponding domain-invalid command |
@@ -151,33 +166,131 @@ The key values are constrained as follows:
 The positive M4 `offline-acceptance` envelope has
 `outcome="external_only_blocked"`, `local_status="complete"`, axis values
 `passed/blocked/disabled/not_attempted`, its sorted readiness blocker codes,
-non-null readiness and final-manifest SHA values, the sanitized positive
-acceptance object, and `error_code=message=null`.
+non-null acceptance, readiness, final-manifest, and package SHA values, the
+sanitized positive acceptance object, and `error_code=message=null`.
 
 If the M4 API returns `OfflineAcceptanceBlockedResult`, the offline envelope
 has `outcome="local_unsafe"`, `local_status="unsafe"`,
 `offline_acceptance_status="failed"`,
 `external_inputs_status="blocked"`, `live_execution_status="disabled"`,
 `submission_status="not_attempted"`,
-`blocker_codes=["blocked_sensitive_fixture"]`, both SHA fields `null`, the
-sanitized blocked acceptance object, and `error_code=message=null`.
+`blocker_codes=["blocked_sensitive_fixture"]`, non-null
+`acceptance_sha256`, and `artifact_sha256=package_sha256=readiness_sha256=null`.
+It carries the sanitized blocked acceptance object and
+`error_code=message=null`.
 
 `scenario="sensitive_fixture"` inside that existing sanitized blocked
 acceptance object is an allowed, non-sensitive enum label. It describes only
-the fail-closed test category. The raw fixture HTML, sentinel, fixture resource
-name/path, source path, and every sensitive value remain forbidden in every
-public envelope and human summary.
+the fail-closed test category. Raw fixture HTML, sentinel contents, source
+paths, absolute paths, query/token values, and every sensitive value remain
+forbidden in every public envelope and human summary.
 
-For `status`, `acceptance` and `artifact_sha256` are always `null`. A validated
-bare/enveloped readiness report supplies the four axis fields, sorted blocker
-codes, and its canonical `readiness_sha256`. A fully clear fixture produces
-`local_complete`; a locally unsafe report produces `local_unsafe`; and a locally
-complete report with only external-only blockers produces
-`external_only_blocked`. A domain-invalid input uses the same 14-key shape with
-`local_status=null`, all four axis fields `null`, both SHA fields `null`,
+For `status`, `acceptance`, `acceptance_sha256`, `artifact_sha256`, and
+`package_sha256` are always `null`. A validated bare/enveloped readiness report
+supplies the four axis fields, sorted blocker codes, and its canonical
+`readiness_sha256`. A fully clear fixture produces `local_complete`; a locally
+unsafe report produces `local_unsafe`; and a locally complete report with only
+external-only blockers produces
+`external_only_blocked`. A domain-invalid input uses the same 17-key shape with
+`local_status=null`, all four axis fields `null`, all four SHA fields `null`,
 `blocker_codes=[]`, `acceptance=null`, and the fixed error fields above. No
-envelope may include a path, raw fixture, signing material, private field, name,
-email, phone, credential, URL query, or other PII.
+envelope may include raw fixture HTML, sentinel contents, source paths, absolute
+paths, query/token values, signing material, private fields, names, emails,
+phones, credentials, or other PII.
+
+### Exact private `status --input` parser contract
+
+Implement private helpers in `__main__.py`; do not add a public
+`offline_acceptance_from_dict` API or modify `offline_acceptance.py`. The parser
+first enforces the 17-key M5 offline envelope set above, then uses a canonical
+UTF-8 JSON helper (`ensure_ascii=False`, `sort_keys=True`, compact separators)
+to recompute `acceptance_sha256` from the nested acceptance object. For either
+accepted offline envelope it requires
+`schema_version="career-pipeline-cli-offline-acceptance-v1"`,
+`command="offline-acceptance"`, and `kind="offline_acceptance"`; it rejects a
+different `kind`, a mismatched command/kind pair, or any unknown top-level key.
+The status command's newly emitted result instead always has
+`command="status"` and `kind="status"`.
+
+For a strict positive offline envelope, `acceptance` has exactly these 18 keys:
+
+```text
+authorization_candidate
+counters
+eligibility_decision_id
+final_manifest_sha256
+live_status
+local_status
+package_id
+package_sha256
+profile_id
+readiness_report
+readiness_sha256
+review_id
+run_id
+schema_version
+site_contract_id
+site_contract_sha256
+submission_status
+posting_id
+```
+
+The outer positive envelope requires
+`schema_version="career-pipeline-cli-offline-acceptance-v1"`,
+`command="offline-acceptance"`, `kind="offline_acceptance"`,
+`outcome="external_only_blocked"`, `local_status="complete"`,
+`error_code=null`, and `message=null`. The parser requires
+`schema_version="career-pipeline-offline-acceptance-v1"`;
+all ID/status fields are non-empty strings with M4's exact
+`awaiting_external_live_enablement`/`disabled`/`not_attempted` status values;
+every field ending `_sha256` is a lower-case SHA-256; and
+`readiness_report` succeeds through `readiness_report_from_dict`. It recomputes
+`readiness_report_sha256` from that validated report and requires equality. The
+outer `readiness_sha256`, `artifact_sha256`, and `package_sha256` must equal the
+nested readiness SHA, `final_manifest_sha256`, and `package_sha256`
+respectively. Outer axis statuses and lexicographically sorted `blocker_codes`
+must exactly equal the validated readiness report's axes and sorted blocker code
+set. `acceptance_sha256` is the SHA-256 of exactly the canonical nested
+`acceptance` object; an independently supplied digest, a different canonical
+projection, or a byte-equivalent-looking non-canonical envelope is rejected.
+
+Within that positive acceptance, `authorization_candidate` has exactly these
+14 keys: `schema_version`, `review_id`, `package_id`, `package_sha256`,
+`site_contract_id`, `site_contract_sha256`, `exact_origin`, `adapter_id`,
+`adapter_contract_version`, `adapter_schema_sha256`, `requested_mode`,
+`requested_at`, `candidate_status`, and `reason_code`. It requires integer
+`schema_version=2`, non-empty identifier strings, SHA regexes, a normalized
+HTTPS origin without query/fragment, integer adapter contract version at least
+1, `requested_mode="fill_only"`, a timezone-aware timestamp,
+`candidate_status="capability_disabled"`, and
+`reason_code="FILL_AUTHORITY_DISABLED"`.
+
+For a strict blocked offline envelope, `acceptance` has exactly four keys:
+`schema_version`, `scenario`, `block_code`, and `counters`. It requires
+`schema_version="career-pipeline-offline-acceptance-v1"`,
+`scenario="sensitive_fixture"`, and
+`block_code="blocked_sensitive_fixture"`. The scenario enum literal is allowed
+output; no raw fixture HTML, sentinel contents, source path, absolute path, or
+query/token value is allowed. The outer envelope must have
+`schema_version="career-pipeline-cli-offline-acceptance-v1"`,
+`command="offline-acceptance"`, `kind="offline_acceptance"`,
+`outcome="local_unsafe"`, `local_status="unsafe"`,
+`offline_acceptance_status="failed"`,
+`external_inputs_status="blocked"`, `live_execution_status="disabled"`,
+`submission_status="not_attempted"`,
+`blocker_codes=["blocked_sensitive_fixture"]`, `readiness_sha256=null`,
+`artifact_sha256=null`, and `package_sha256=null`. Its
+`acceptance_sha256` must match the canonical nested blocked acceptance object.
+There is no `readiness_report` key in this four-key blocked acceptance object;
+therefore readiness, readiness SHA, and package/artifact SHA are all absent or
+`null` exactly as the strict key sets require.
+
+For both nested schemas, `counters` has exactly seven keys:
+`network`, `browser`, `credential`, `pii`, `upload`, `click`, and `submit`.
+Every value is a non-negative integer and every value must be exactly zero.
+Any missing/unknown key, boolean/non-integer counter, nonzero counter, unknown
+scenario, SHA mismatch, readiness mismatch, nested/outer ID mismatch, or
+blocker/status inconsistency is a domain-invalid status input (exit 4).
 
 `offline-acceptance --output` is valid only with `--format json`. On success it
 writes byte-identical canonical JSON plus a final newline to stdout and the
@@ -327,7 +440,7 @@ M5 adds exactly 12 collected nodes, all in `tests/test_cli.py`:
 5. `test_m5_status_reads_offline_envelope_as_external_only_blocked`
 6. `test_m5_status_returns_zero_for_complete_readiness_fixture`
 7. `test_m5_status_returns_two_for_strict_blocked_offline_envelope`
-8. `test_m5_status_rejects_invalid_input_with_exit_four`
+8. `test_m5_status_rejects_strict_input_failures_with_exit_four`
 9. `test_m5_status_human_summary_never_claims_submission`
 10. `test_m5_adapter_list_is_registry_derived_and_fixture_only`
 11. `test_m5_product_surface_redacts_sensitive_values_and_absolute_paths`
@@ -342,9 +455,10 @@ for positive, external-only blocked, local-unsafe, and invalid-input outcomes.
 The human tests assert the exact ordered lines and stdout/stderr placement for
 each of those outcomes. They also assert that the allowed enum
 `sensitive_fixture` may appear only as the blocked acceptance scenario label,
-while its raw fixture/sentinel/path never appears. Sensitive literals are
-allowed only in negative test input construction and must be absent from
-captured output and JSON.
+while raw fixture HTML, sentinel contents, source paths, absolute paths, and
+query/token values never appear. Raw sensitive literals are allowed only in
+negative test input construction and must be absent from captured output and
+JSON.
 
 Coverage is kept within the 12-node contract by making each named test exercise
 the real formatter/command for all variants in its stated family: test 2 covers
@@ -357,6 +471,17 @@ status human line variants. Test 11 separately checks that `sensitive_fixture`
 is an allowed enum label but raw sensitive fixture data is absent. These are
 multiple assertions of distinct command outcomes, not parameterized node
 expansion or wrapper tests.
+
+Test 8 writes exactly six independently malformed `status --input` fixtures:
+(1) a `1_000_001`-byte regular file, (2) a symlink or `..` escape path, (3) a
+malformed JSON or malformed outer envelope, (4) a positive acceptance with one
+unknown nested key, (5) an acceptance/readiness/package digest mismatch after
+canonical recomputation, and (6) a blocked envelope whose block code, blocker
+list, or axis status is inconsistent. Each is a parsed domain input, produces
+the exact invalid-input JSON key set or four-line human stderr contract, exits
+4, and produces no traceback; none relies on argparse exit 2. The one named
+test remains one collected node and directly invokes the actual `status`
+command for all six cases.
 
 RED is test-first:
 
@@ -408,11 +533,14 @@ git diff --unified=0 -- career_pipeline/__main__.py career_pipeline/platform_cat
 
 The first scan may match prose that explicitly says a live action is unsupported;
 review every match and reject any new executable live/mutation call. The second
-scan permits only deliberately constructed negative-test literals, never a
-serializer, human formatter, command option, or documentation example. Scanning
-only added lines avoids treating existing legacy compatibility code as an M5
-regression. Verify captured JSON/human output contains none of those values or
-an absolute path.
+scan permits the safe enum literal `sensitive_fixture` in the strict serializer,
+tests, and documentation, and permits raw sensitive literals only in negative
+test input construction. It never permits raw fixture HTML, sentinel contents,
+source paths, absolute paths, query/token values, or PII in a serializer, human
+formatter, command option, or documentation example. Scanning only added lines
+avoids treating existing legacy compatibility code as an M5 regression. Verify
+captured JSON/human output contains none of those raw values or an absolute
+path.
 
 Finally inspect parser compatibility, the derived adapter list, envelope key
 sets, exit mapping, exact zero M4 counters, and documentation/skill examples.
