@@ -104,3 +104,14 @@ def test_jobkorea_jrs_fixture_adapter_is_documented_as_offline_only():
     text=Path("docs/adapters/jobkorea-jrs.md").read_text(encoding="utf-8")
     for required in ("jobkorea_jrs_fixture","live_enabled=false","실제 기업별 지원서 origin: 미확인","제출을 지원하지 않는다"):
         assert required in text
+
+
+def test_platform_catalog_and_applyin_fixture_are_documented_as_offline_only():
+    catalog = Path("docs/platform-catalog.md").read_text(encoding="utf-8")
+    adapter = Path("docs/adapters/saramin-applyin.md").read_text(encoding="utf-8")
+    usage = Path("docs/career-pipeline-usage.md").read_text(encoding="utf-8")
+    for required in ("saramin_applyin", "discovery only", "exact HTTPS origin", "live_enabled=false"):
+        assert required in catalog
+    for required in ("saramin_applyin_fixture", "fill_only", "attachments: unsupported", "live navigation"):
+        assert required in adapter
+    assert "application platform detect" in usage

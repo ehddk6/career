@@ -138,6 +138,10 @@ Patina는 기본 finalize에서 실행하지 않는다. 기존 호환 옵션과 
 
 `.career_profile/`, `Chrome 비밀번호.csv`, `학교성적/`, `자격증/`, `경력증명서/`는 기본 제외한다. 개인정보와 취업 자료 본문을 URL·검색어·쿠키·외부 폼으로 전송하지 않는다. V2 답변은 승인된 claim과 공식 근거만 사용한다. 문체 표본과 유튜브 프레임 자료는 전략 자료일 뿐 사실 근거가 아니다.
 
+## Phase 6 platform boundary
+
+공고 discovery platform과 application family를 `career_pipeline/platform_catalog.py`에서 분리한다. Applyin 호스트 suffix는 분류에만 사용하며 실행에는 exact HTTPS origin을 요구한다. `jobkorea_jrs_fixture`와 `saramin_applyin_fixture`는 합성 로컬 HTML 및 mock page 전용이다. `live_enabled=false` 상태에서는 실제 사이트 접속, 로그인, 업로드, 클릭, 제출을 시도하지 않는다. schema drift, CAPTCHA, MFA, script, iframe, 미등록 플랫폼 또는 권한 불일치는 `manual_review` 또는 fail-closed로 처리한다.
+
 ## 결과 및 검증
 
 관련 단위 테스트와 전체 `pytest`를 실행한다. 실제 Codex 또는 Patina를 부르는 테스트는 fake runner를 사용한다. 원문·수치·부정·인과·문장 수 변경, 변경률 경계, batch fan-out 금지, stale 중간 파일, manifest SHA 불일치, 원자적 저장, 모델 tier, 호출 예산을 검증한다.

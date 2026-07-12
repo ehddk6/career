@@ -168,3 +168,17 @@ def test_parser_exposes_jobkorea_jrs_fixture_commands():
     fill=parser.parse_args(["application","fill-fixture","--adapter","jobkorea_jrs_fixture","--package","p.json","--dry-run-result","d.json","--authorization","a.json","--values","v.json","--ledger","l.json","--output","o.json","--at","2026-07-12T12:00:00+09:00"])
     result=parser.parse_args(["application","fixture-result","--result","o.json"])
     assert show.adapter_command=="show" and validate.adapter_command=="validate" and fill.application_command=="fill-fixture" and result.application_command=="fixture-result"
+
+
+def test_parser_exposes_platform_catalog_and_applyin_fixture_commands():
+    parser = build_parser()
+    listing = parser.parse_args(["application", "platform", "list", "--role", "discovery"])
+    detection = parser.parse_args(["application", "platform", "detect", "--url", "https://sample.applyin.co.kr/apply", "--discovery-platform", "saramin_direct", "--at", "2026-07-12T12:00:00+09:00"])
+    adapter = parser.parse_args(["application", "adapter", "show", "saramin_applyin_fixture"])
+    schema = parser.parse_args(["application", "adapter", "schema", "saramin_applyin_fixture"])
+    fill = parser.parse_args(["application", "fill-fixture", "--adapter", "saramin_applyin_fixture", "--package", "p.json", "--dry-run-result", "d.json", "--authorization", "a.json", "--values", "v.json", "--ledger", "l.json", "--output", "o.json", "--at", "2026-07-12T12:00:00+09:00"])
+    assert listing.role == "discovery"
+    assert detection.discovery_platform == "saramin_direct"
+    assert adapter.adapter_id == "saramin_applyin_fixture"
+    assert schema.adapter_command == "schema"
+    assert fill.adapter == "saramin_applyin_fixture"

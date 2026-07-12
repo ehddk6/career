@@ -195,6 +195,19 @@ python -m career_pipeline application fixture-result --result ".career_profile/j
 
 이 명령은 저장소 fixture와 메모리 mock만 사용한다. live URL, navigation, attachment, click, submit 옵션은 제공하지 않는다.
 
+## Phase 6 platform catalog and offline adapters
+
+공고를 발견한 플랫폼과 실제 지원 폼을 제공하는 application family를 분리한다. 현재 `saramin_direct`, `work24`, `wanted`, `catch`, `jasoseol`은 discovery only이며 실행 권한을 갖지 않는다. `jobkorea_jrs`와 `saramin_applyin`도 합성 HTML fixture에만 연결되고 `live_enabled=false`다.
+
+```powershell
+python -m career_pipeline application platform list
+python -m career_pipeline application platform detect --url "https://sample.applyin.co.kr/apply" --discovery-platform saramin_direct --at "2026-07-12T12:00:00+09:00"
+python -m career_pipeline application adapter list
+python -m career_pipeline application adapter validate saramin_applyin_fixture
+```
+
+Applyin suffix는 family 분류에만 사용한다. 실행 권한은 항상 exact HTTPS origin과 schema SHA-256에 묶인다. 현재 명령은 실제 사이트 탐색, 로그인, 첨부파일 업로드, 제출을 수행하지 않는다. 상세 계약은 `docs/platform-catalog.md`와 `docs/adapters/saramin-applyin.md`를 따른다.
+
 ## 2. 공식 공고 분석
 
 공식 PDF/DOCX를 사용자가 확인한 경우:
