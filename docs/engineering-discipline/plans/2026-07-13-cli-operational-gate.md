@@ -13,8 +13,17 @@ receipt. It uses only the clean synthetic fixture already constructed by
 `run_offline_acceptance`; the CLI must not expose M4's custom fixture HTML or
 any custom scenario control. The literal scenario enum `sensitive_fixture` is
 safe to display only when it is already present in a sanitized blocked M4
-artifact. Raw fixture HTML, sentinel contents, source paths, absolute paths,
-and query/token values are never public.
+artifact. Raw fixture HTML, sentinel contents, fixture/private source paths,
+absolute user/workspace-output paths, and query/token values are never public.
+
+A repository-relative evidence source path is allowed only in code, tests, or
+documentation when it identifies public code/test/document evidence and matches
+`^(?:career_pipeline|tests|docs|\.agents)(?:/[A-Za-z0-9][A-Za-z0-9._-]*)+$`;
+no segment may be `.` or `..`. These known roots are the complete allowlist.
+This exception never permits a fixture source path, private path, absolute user
+path, workspace output path, URL with a query/token, raw HTML, or sentinel
+contents. M5's exact runtime JSON and human schemas define no path field, so
+they emit no paths at all.
 
 The current baseline is `528 passed, 5 skipped`. The M4 checkpoint and final
 review are both PASS; M5 starts from that state and must preserve its verified
@@ -181,9 +190,11 @@ It carries the sanitized blocked acceptance object and
 
 `scenario="sensitive_fixture"` inside that existing sanitized blocked
 acceptance object is an allowed, non-sensitive enum label. It describes only
-the fail-closed test category. Raw fixture HTML, sentinel contents, source
-paths, absolute paths, query/token values, and every sensitive value remain
-forbidden in every public envelope and human summary.
+the fail-closed test category. Raw fixture HTML, sentinel contents, fixture
+source paths, private paths, absolute user/workspace-output paths, query/token
+values, and every sensitive value remain forbidden in every public envelope and
+human summary. The repository-relative evidence-path exception is limited to
+code, test, and documentation text under the exact allowlist above.
 
 For `status`, `acceptance`, `acceptance_sha256`, `artifact_sha256`, and
 `package_sha256` are always `null`. A validated bare/enveloped readiness report
@@ -194,17 +205,19 @@ external-only blockers produces
 `external_only_blocked`. A domain-invalid input uses the same 17-key shape with
 `local_status=null`, all four axis fields `null`, all four SHA fields `null`,
 `blocker_codes=[]`, `acceptance=null`, and the fixed error fields above. No
-envelope may include raw fixture HTML, sentinel contents, source paths, absolute
-paths, query/token values, signing material, private fields, names, emails,
-phones, credentials, or other PII.
+envelope may include raw fixture HTML, sentinel contents, fixture source paths,
+private paths, absolute user/workspace-output paths, query/token values, signing
+material, private fields, names, emails, phones, credentials, or other PII.
 
 ### Exact private `status --input` parser contract
 
 Implement private helpers in `__main__.py`; do not add a public
 `offline_acceptance_from_dict` API or modify `offline_acceptance.py`. The parser
-first enforces the 17-key M5 offline envelope set above, then uses a canonical
-UTF-8 JSON helper (`ensure_ascii=False`, `sort_keys=True`, compact separators)
-to recompute `acceptance_sha256` from the nested acceptance object. For either
+first parses one UTF-8 JSON object and enforces the 17-key M5 offline envelope
+set above. Outer JSON bytes need not be canonical: whitespace, member order,
+and a final newline are irrelevant after parsing. It canonicalizes internally
+only to recompute nested `acceptance_sha256` and nested readiness SHA values;
+the command canonicalizes its newly emitted output separately. For either
 accepted offline envelope it requires
 `schema_version="career-pipeline-cli-offline-acceptance-v1"`,
 `command="offline-acceptance"`, and `kind="offline_acceptance"`; it rejects a
@@ -251,8 +264,9 @@ nested readiness SHA, `final_manifest_sha256`, and `package_sha256`
 respectively. Outer axis statuses and lexicographically sorted `blocker_codes`
 must exactly equal the validated readiness report's axes and sorted blocker code
 set. `acceptance_sha256` is the SHA-256 of exactly the canonical nested
-`acceptance` object; an independently supplied digest, a different canonical
-projection, or a byte-equivalent-looking non-canonical envelope is rejected.
+`acceptance` object; an independently supplied digest or a different canonical
+nested-acceptance projection is rejected. Outer JSON whitespace, key order, and
+trailing-newline presentation are not part of this check and are accepted.
 
 Within that positive acceptance, `authorization_candidate` has exactly these
 14 keys: `schema_version`, `review_id`, `package_id`, `package_sha256`,
@@ -270,8 +284,9 @@ For a strict blocked offline envelope, `acceptance` has exactly four keys:
 `schema_version="career-pipeline-offline-acceptance-v1"`,
 `scenario="sensitive_fixture"`, and
 `block_code="blocked_sensitive_fixture"`. The scenario enum literal is allowed
-output; no raw fixture HTML, sentinel contents, source path, absolute path, or
-query/token value is allowed. The outer envelope must have
+output; no raw fixture HTML, sentinel contents, fixture source path, private
+path, absolute user/workspace-output path, or query/token value is allowed. The
+outer envelope must have
 `schema_version="career-pipeline-cli-offline-acceptance-v1"`,
 `command="offline-acceptance"`, `kind="offline_acceptance"`,
 `outcome="local_unsafe"`, `local_status="unsafe"`,
@@ -455,10 +470,12 @@ for positive, external-only blocked, local-unsafe, and invalid-input outcomes.
 The human tests assert the exact ordered lines and stdout/stderr placement for
 each of those outcomes. They also assert that the allowed enum
 `sensitive_fixture` may appear only as the blocked acceptance scenario label,
-while raw fixture HTML, sentinel contents, source paths, absolute paths, and
-query/token values never appear. Raw sensitive literals are allowed only in
-negative test input construction and must be absent from captured output and
-JSON.
+while raw fixture HTML, sentinel contents, fixture source paths, private paths,
+absolute user/workspace-output paths, and query/token values never appear. A
+test or documentation assertion may name only an allowlisted repository-relative
+evidence source path under the exact safe pattern above. Raw sensitive literals
+are allowed only in negative test input construction and must be absent from
+captured output and JSON.
 
 Coverage is kept within the 12-node contract by making each named test exercise
 the real formatter/command for all variants in its stated family: test 2 covers
@@ -471,6 +488,11 @@ status human line variants. Test 11 separately checks that `sensitive_fixture`
 is an allowed enum label but raw sensitive fixture data is absent. These are
 multiple assertions of distinct command outcomes, not parameterized node
 expansion or wrapper tests.
+
+Test 5 also writes the accepted outer offline envelope with deliberately
+non-canonical whitespace, member order, and newline presentation. It must return
+the normal validated result and canonicalize only the command's newly emitted
+JSON; no M5 node treats non-canonical outer JSON presentation as invalid.
 
 Test 8 writes exactly six independently malformed `status --input` fixtures:
 (1) a `1_000_001`-byte regular file, (2) a symlink or `..` escape path, (3) a
@@ -533,14 +555,15 @@ git diff --unified=0 -- career_pipeline/__main__.py career_pipeline/platform_cat
 
 The first scan may match prose that explicitly says a live action is unsupported;
 review every match and reject any new executable live/mutation call. The second
-scan permits the safe enum literal `sensitive_fixture` in the strict serializer,
-tests, and documentation, and permits raw sensitive literals only in negative
-test input construction. It never permits raw fixture HTML, sentinel contents,
-source paths, absolute paths, query/token values, or PII in a serializer, human
-formatter, command option, or documentation example. Scanning only added lines
-avoids treating existing legacy compatibility code as an M5 regression. Verify
-captured JSON/human output contains none of those raw values or an absolute
-path.
+scan permits the safe enum literal `sensitive_fixture` and an allowlisted
+repository-relative evidence source path matching the exact safe pattern above
+in code, tests, or documentation; it permits raw sensitive literals only in
+negative test input construction. It never permits raw fixture HTML, sentinel
+contents, fixture source paths, private paths, absolute user/workspace-output
+paths, query/token values, or PII in a serializer, human formatter, command
+option, or documentation example. Scanning only added lines avoids treating
+existing legacy compatibility code as an M5 regression. Verify captured
+JSON/human output contains none of those raw values or prohibited paths.
 
 Finally inspect parser compatibility, the derived adapter list, envelope key
 sets, exit mapping, exact zero M4 counters, and documentation/skill examples.
