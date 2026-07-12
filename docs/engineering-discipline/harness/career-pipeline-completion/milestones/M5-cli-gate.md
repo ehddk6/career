@@ -1,7 +1,7 @@
 # Milestone: Unified CLI and Operational Gate
 
 **ID:** M5
-**Status:** pending
+**Status:** executing
 **Dependencies:** M4
 **Risk:** Medium
 **Effort:** Medium
