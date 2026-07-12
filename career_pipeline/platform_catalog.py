@@ -12,6 +12,8 @@ class Platform:
     public_origins:tuple[str,...]; recognized_host_suffixes:tuple[str,...]; requires_exact_execution_origin:bool
     fixture_adapter_id:str|None; live_adapter_id:str|None; live_enabled:bool; attachment_supported:bool
     login_policy:str; notes:str; contract_version:int
+    actual_execution_origin:str|None=None
+    requires_manual_intake:bool=True
 @dataclass(frozen=True)
 class ApplicationLinkDetection:
     discovery_platform_id:str; original_posting_url:str|None; resolved_application_url:str

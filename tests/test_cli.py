@@ -182,3 +182,10 @@ def test_parser_exposes_platform_catalog_and_applyin_fixture_commands():
     assert adapter.adapter_id == "saramin_applyin_fixture"
     assert schema.adapter_command == "schema"
     assert fill.adapter == "saramin_applyin_fixture"
+
+def test_parser_exposes_read_only_site_intake_commands():
+    parser=build_parser()
+    create=parser.parse_args(["application","site-intake","create","--resolved-application-url","https://company.applyin.co.kr/apply","--fixture-resource-id","safe_single_page.html","--at","2026-07-12T12:00:00+09:00"])
+    schema=parser.parse_args(["application","site-intake","schema","--resolved-application-url","https://company.applyin.co.kr/apply","--fixture-resource-id","safe_single_page.html"])
+    status=parser.parse_args(["application","site-intake","platform-status"])
+    assert create.intake_command=="create" and schema.intake_command=="schema" and status.intake_command=="platform-status"

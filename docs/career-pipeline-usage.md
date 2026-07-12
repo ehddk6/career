@@ -208,6 +208,18 @@ python -m career_pipeline application adapter validate saramin_applyin_fixture
 
 Applyin suffix는 family 분류에만 사용한다. 실행 권한은 항상 exact HTTPS origin과 schema SHA-256에 묶인다. 현재 명령은 실제 사이트 탐색, 로그인, 첨부파일 업로드, 제출을 수행하지 않는다. 상세 계약은 `docs/platform-catalog.md`와 `docs/adapters/saramin-applyin.md`를 따른다.
 
+### Phase 6.5 read-only site intake
+
+실제 기업별 origin과 DOM을 추측하지 않는다. 사용자가 `tests/fixtures/site_intake`에 저장한 비식별 UTF-8 HTML만 검사하여 read-only contract 후보를 만든다.
+
+```powershell
+python -m career_pipeline application site-intake platform-status
+python -m career_pipeline application site-intake create --platform-family auto --resolved-application-url "https://company.applyin.co.kr/apply" --fixture-resource-id "safe_single_page.html" --login-status none --mfa-status none --captcha-status none --iframe-status none --popup-status none --redirect-status none --attachment-status unsupported --at "2026-07-12T12:00:00+09:00"
+python -m career_pipeline application site-intake schema --resolved-application-url "https://company.applyin.co.kr/apply" --fixture-resource-id "safe_single_page.html"
+```
+
+결과가 준비 상태여도 `mutation_enabled=false`, `live_enabled=false`다. URL fetch, browser launch, fill, upload, click, submit은 지원하지 않는다. 자세한 비식별 절차와 차단 사유는 `docs/site-intake.md`를 따른다.
+
 ## 2. 공식 공고 분석
 
 공식 PDF/DOCX를 사용자가 확인한 경우:

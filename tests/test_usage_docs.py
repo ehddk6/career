@@ -115,3 +115,10 @@ def test_platform_catalog_and_applyin_fixture_are_documented_as_offline_only():
     for required in ("saramin_applyin_fixture", "fill_only", "attachments: unsupported", "live navigation"):
         assert required in adapter
     assert "application platform detect" in usage
+
+def test_site_intake_is_documented_as_read_only_and_deidentified():
+    text=Path("docs/site-intake.md").read_text(encoding="utf-8")
+    usage=Path("docs/career-pipeline-usage.md").read_text(encoding="utf-8")
+    for required in ("actual_execution_origin=null","requires_manual_intake=true","mutation_enabled=false","live_enabled=false","de-identified"):
+        assert required in text
+    assert "application site-intake create" in usage

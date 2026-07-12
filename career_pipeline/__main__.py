@@ -319,6 +319,34 @@ def build_parser() -> argparse.ArgumentParser:
     platform_detect.add_argument("--discovery-platform", required=True)
     platform_detect.add_argument("--posting-url")
     platform_detect.add_argument("--at", required=True)
+    application_intake = application_commands.add_parser("site-intake")
+    intake_commands = application_intake.add_subparsers(dest="intake_command", required=True)
+    intake_create = intake_commands.add_parser("create")
+    intake_create.add_argument("--root", default=".")
+    intake_create.add_argument("--posting-url")
+    intake_create.add_argument("--resolved-application-url")
+    intake_create.add_argument("--platform-family", default="auto", choices=("auto","jobkorea_jrs","saramin_applyin","saramin_direct","unknown"))
+    intake_create.add_argument("--fixture-resource-id")
+    intake_create.add_argument("--discovery-platform")
+    intake_create.add_argument("--login-status",choices=("unknown","none","required"),default="unknown")
+    for name in ("mfa-status","captcha-status","iframe-status","popup-status","redirect-status"):
+        intake_create.add_argument("--"+name,choices=("unknown","none","present"),default="unknown")
+    intake_create.add_argument("--attachment-status",choices=("unknown","unsupported","required"),default="unknown")
+    intake_create.add_argument("--registry", default=".career_profile/site_intake/registry.json")
+    intake_create.add_argument("--expected-version", type=int)
+    intake_create.add_argument("--at", required=True)
+    intake_schema = intake_commands.add_parser("schema")
+    intake_schema.add_argument("--root", default=".")
+    intake_schema.add_argument("--resolved-application-url", required=True)
+    intake_schema.add_argument("--fixture-resource-id", required=True)
+    intake_show = intake_commands.add_parser("show")
+    intake_show.add_argument("--root", default=".")
+    intake_show.add_argument("--registry", default=".career_profile/site_intake/registry.json")
+    intake_show.add_argument("--intake-id", required=True)
+    intake_list = intake_commands.add_parser("list")
+    intake_list.add_argument("--root", default=".")
+    intake_list.add_argument("--registry", default=".career_profile/site_intake/registry.json")
+    intake_commands.add_parser("platform-status")
     application_adapter = application_commands.add_parser("adapter")
     adapter_commands = application_adapter.add_subparsers(dest="adapter_command", required=True)
     adapter_commands.add_parser("list")
@@ -709,6 +737,35 @@ def _application_attachments(root: Path, values: list[str]) -> dict[str, Path]:
 
 def run_application_command(args: argparse.Namespace) -> int:
     root = Path(getattr(args, "root", ".")).resolve()
+    if args.application_command == "site-intake":
+        from .site_intake import build_site_intake, load_intake_registry, persist_intake
+        if args.intake_command == "platform-status":
+            value = {
+                "jobkorea_jrs":{"public_service":"known","actual_execution_origin":None,"requires_manual_intake":True},
+                "saramin_applyin":{"host_family":"known","company_exact_origin":"required","requires_manual_intake":True},
+                "saramin_direct":{"discovery":"known","application_destination":"unresolved","requires_manual_intake":True},
+            }
+            print(json.dumps(value,ensure_ascii=False,indent=2)); return 0
+        if args.intake_command in {"show","list"}:
+            registry_path=_phase4_path(root,args.registry,must_exist=True)
+            registry=load_intake_registry(registry_path)
+            if args.intake_command=="show":
+                value=registry.get("records",{}).get(args.intake_id)
+                if value is None: raise ApplicationPackageError("site intake record not found")
+            else:
+                value=[{"intake_id":item.get("intake_id"),"platform_family":item.get("platform_family"),"contract_status":item.get("contract_status"),"manual_review_required":item.get("manual_review_required")} for item in registry.get("records",{}).values()]
+            print(json.dumps(value,ensure_ascii=False,indent=2)); return 0
+        fixture_root=_phase4_path(root,"tests/fixtures/site_intake",must_exist=True)
+        if args.intake_command=="schema":
+            result=build_site_intake(posting_url=None,resolved_application_url=args.resolved_application_url,fixture_root=fixture_root,fixture_resource_id=args.fixture_resource_id,discovery_platform_id=None,created_at="1970-01-01T00:00:00+00:00")
+            safe={"fixture_resource_id":result.record.fixture_resource_id,"fixture_sha256":result.record.fixture_sha256,"schema_sha256":result.record.schema_sha256,"validation_codes":result.record.validation_codes,"schema":result.schema}
+            print(json.dumps(safe,ensure_ascii=False,indent=2)); return 0 if result.schema is not None else 2
+        known_structure={name:getattr(args,name) for name in ("login_status","mfa_status","captcha_status","iframe_status","popup_status","redirect_status","attachment_status")}
+        result=build_site_intake(posting_url=args.posting_url,resolved_application_url=args.resolved_application_url,fixture_root=fixture_root,fixture_resource_id=args.fixture_resource_id,discovery_platform_id=args.discovery_platform,created_at=args.at,requested_platform_family=args.platform_family,known_structure=known_structure)
+        registry_path=_phase4_path(root,args.registry)
+        persist_intake(registry_path,result,expected_version=args.expected_version)
+        print(json.dumps({"intake_id":result.record.intake_id,"platform_family":result.record.platform_family,"contract_status":result.record.contract_status,"manual_review_required":result.record.manual_review_required,"validation_codes":result.record.validation_codes,"fixture_resource_id":result.record.fixture_resource_id,"fixture_sha256":result.record.fixture_sha256,"schema_sha256":result.record.schema_sha256},ensure_ascii=False,indent=2))
+        return 0 if result.record.contract_status=="read_only_contract_ready" else 2
     if args.application_command == "platform":
         from .platform_catalog import classify_application_url, get_platform, list_platforms
         if args.platform_command == "list":

@@ -7,6 +7,8 @@ def test_catalog_has_required_platforms_and_roles():
     validate_catalog(CATALOG)
     assert {p.platform_id for p in CATALOG}=={"jobkorea_jrs","saramin_applyin","saramin_direct","work24","wanted","catch","jasoseol"}
     assert get_platform("saramin_applyin").fixture_adapter_id=="saramin_applyin_fixture"
+    assert get_platform("saramin_applyin").actual_execution_origin is None
+    assert get_platform("jobkorea_jrs").requires_manual_intake is True
     assert get_platform("catch").platform_role=="discovery"
 
 def test_applyin_suffix_detection_preserves_exact_origin():

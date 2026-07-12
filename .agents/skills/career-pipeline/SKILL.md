@@ -142,6 +142,8 @@ Patina는 기본 finalize에서 실행하지 않는다. 기존 호환 옵션과 
 
 공고 discovery platform과 application family를 `career_pipeline/platform_catalog.py`에서 분리한다. Applyin 호스트 suffix는 분류에만 사용하며 실행에는 exact HTTPS origin을 요구한다. `jobkorea_jrs_fixture`와 `saramin_applyin_fixture`는 합성 로컬 HTML 및 mock page 전용이다. `live_enabled=false` 상태에서는 실제 사이트 접속, 로그인, 업로드, 클릭, 제출을 시도하지 않는다. schema drift, CAPTCHA, MFA, script, iframe, 미등록 플랫폼 또는 권한 불일치는 `manual_review` 또는 fail-closed로 처리한다.
 
+Phase 6.5 `site-intake`는 사용자가 제공한 비식별 로컬 HTML을 읽기 전용으로 검사한다. 실제 URL을 요청하지 않으며 fixture 원문·경로·민감값을 결과에 저장하지 않는다. exact origin, fixture SHA, canonical schema SHA와 구조적 validation code만 기록한다. 준비된 계약도 항상 `mutation_enabled=false`, `live_enabled=false`이며 실제 입력 권한을 발급하지 않는다.
+
 ## 결과 및 검증
 
 관련 단위 테스트와 전체 `pytest`를 실행한다. 실제 Codex 또는 Patina를 부르는 테스트는 fake runner를 사용한다. 원문·수치·부정·인과·문장 수 변경, 변경률 경계, batch fan-out 금지, stale 중간 파일, manifest SHA 불일치, 원자적 저장, 모델 tier, 호출 예산을 검증한다.
