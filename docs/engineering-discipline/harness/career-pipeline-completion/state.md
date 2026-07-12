@@ -23,7 +23,7 @@
 | M1 | Phase 6.5 fail-closed hardening | completed | 1 | baseline | `docs/engineering-discipline/plans/2026-07-12-site-intake-fail-closed.md` | `docs/engineering-discipline/reviews/2026-07-12-site-intake-fail-closed-review.md` |
 | M2A | Shared safety kernel | completed | 1 | M1 | `docs/engineering-discipline/plans/2026-07-12-shared-safety-kernel.md` | `docs/engineering-discipline/reviews/2026-07-12-shared-safety-kernel-review.md` |
 | M2B | Requirements and readiness contract | completed | 1 | M1 | `docs/engineering-discipline/plans/2026-07-12-readiness-contract.md` | `docs/engineering-discipline/reviews/2026-07-12-readiness-contract-review.md` |
-| M3 | Contract-bound authorization | executing | 1 | M2A, M2B | `docs/engineering-discipline/plans/2026-07-12-contract-bound-authorization.md` | - |
+| M3 | Contract-bound authorization | completed | 2 | M2A, M2B | `docs/engineering-discipline/plans/2026-07-12-contract-bound-authorization.md` | `docs/engineering-discipline/reviews/2026-07-12-contract-bound-authorization-review.md` |
 | M4 | Deterministic offline acceptance | pending | 0 | M3 | - | - |
 | M5 | Unified CLI and operational gate | pending | 0 | M4 | - | - |
 | M6 | Final local foundation checkpoint | pending | 0 | M5 | - | - |
@@ -41,3 +41,5 @@
 | 2026-07-12 | M2-plans-pass | M2A and M2B zero-context plans passed independent compliance review; parallel execution attempt 1 started. |
 | 2026-07-12 | M2-completed | M2A commits `6b3d03d`, `b5b6db7`; M2B commits `a92f366`, `3798f8b`, `20a288b`; combined suite `471 passed, 5 skipped`. Independent validators were rate-limited, so the orchestrator reran all required checks directly and recorded the limitation. |
 | 2026-07-12 | M3-plan-pass | Contract-bound authorization plan passed independent compliance after static/probe/mutation gate and legacy handling corrections; execution attempt 1 started. |
+| 2026-07-12 | M3-validation-retry | Independent validation found wrapper-only and shadowed tests; attempt 2 replaced them with 41 real security assertions and zero duplicate test definitions. |
+| 2026-07-12 | M3-completed | Commit `42f8b0f`; independent validator PASS; full suite `513 passed, 5 skipped`. Final review-only agent was rate-limited, recorded for M7. |
