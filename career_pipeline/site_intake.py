@@ -292,7 +292,7 @@ def _risks(schema: dict, exact_origin: str) -> tuple[str, ...]:
     if len(submits)!=1 or len(saves)!=1: codes.append("SAVE_SUBMIT_AMBIGUOUS")
     return tuple(sorted(set(codes)))
 
-def build_site_intake(*,posting_url,resolved_application_url,fixture_root,fixture_resource_id,discovery_platform_id,created_at,requested_platform_family="auto",known_structure=None,valid_until=None) -> SiteIntakeResult:
+def build_site_intake(*,posting_url,resolved_application_url,fixture_root,fixture_resource_id,discovery_platform_id,created_at,requested_platform_family="auto",known_structure=None,valid_until=None,adapter_schema_sha256=None) -> SiteIntakeResult:
     try: timestamp=datetime.fromisoformat(created_at.replace("Z","+00:00"))
     except (AttributeError,ValueError) as exc: raise SiteIntakeError("CREATED_AT_INVALID") from exc
     if timestamp.tzinfo is None or timestamp.utcoffset() is None: raise SiteIntakeError("CREATED_AT_INVALID")
@@ -311,6 +311,8 @@ def build_site_intake(*,posting_url,resolved_application_url,fixture_root,fixtur
         if discovery.platform_role not in {"discovery","both"}: raise SiteIntakeError("DISCOVERY_PLATFORM_INVALID")
     posting_meta = validate_url_metadata(posting_url) if posting_url else None
     target = validate_url_metadata(resolved_application_url) if resolved_application_url else None
+    if adapter_schema_sha256 is not None and (not isinstance(adapter_schema_sha256, str) or not re.fullmatch(r"[0-9a-f]{64}", adapter_schema_sha256)):
+        raise SiteIntakeError("ADAPTER_SCHEMA_LINEAGE_INVALID")
     codes=list(target.validation_codes if target else ("APPLICATION_DESTINATION_UNRESOLVED",))
     family=target.platform_family if target else "unknown"; exact=target.exact_origin if target else None
     if family=="saramin_direct": family="unknown"
@@ -363,6 +365,8 @@ def build_site_intake(*,posting_url,resolved_application_url,fixture_root,fixtur
         code = mappings.get(known_structure.get(key, "unknown"))
         if code:
             codes.append(code)
+    if adapter_schema_sha256 is None:
+        codes.append("ADAPTER_SCHEMA_LINEAGE_UNVERIFIED")
     codes=sorted(set(codes)); sensitive="SENSITIVE_FIXTURE" in codes
     ready=bool(resource and schema and exact and family!="unknown" and not codes)
     status="read_only_contract_ready" if ready else "blocked_sensitive_fixture" if sensitive else "blocked_invalid_origin" if not exact else "manual_review_required"
@@ -372,6 +376,7 @@ def build_site_intake(*,posting_url,resolved_application_url,fixture_root,fixtur
         "exact_origin": exact,
         "fixture_sha256": fixture_sha,
         "schema_sha256": schema_sha,
+        "adapter_schema_sha256": adapter_schema_sha256,
         "validation_codes": codes,
         "known_structure": {key: known_structure.get(key, "unknown") for key in sorted(allowed_structure)},
         "contract_version": 2,
@@ -386,7 +391,7 @@ def build_site_intake(*,posting_url,resolved_application_url,fixture_root,fixtur
         site_id="site-"+sha256((family+"|"+exact).encode()).hexdigest()[:20]
         adapter_id = {"jobkorea_jrs":"jobkorea_jrs_fixture", "saramin_applyin":"saramin_applyin_fixture"}.get(family, "unknown")
         schema_version = f"{adapter_id}_v1"
-        contract=SiteReadOnlyContract(site_id,family,"contract-"+identity_sha[:24],2,created_at,valid_until,exact,(urlsplit(target.normalized_url).path or "/",),fixture_sha,schema_version,schema_sha,adapter_id,1,schema_sha,tuple(schema["page_steps"]),tuple(schema["fields"]),tuple(f["selector"] for f in schema["forms"] if f["selector"]),tuple(f["action_path"] for f in schema["forms"] if f["action_path"]),tuple(b["selector"] for b in schema["buttons"] if b["role"]=="save" and b["selector"]),tuple(b["selector"] for b in schema["buttons"] if b["role"]=="next" and b["selector"]),tuple(b["selector"] for b in schema["buttons"] if b["role"]=="previous" and b["selector"]),tuple(b["selector"] for b in schema["buttons"] if b["role"]=="preview" and b["selector"]),tuple(b["selector"] for b in schema["buttons"] if b["type"]=="submit" and b["selector"]),tuple(f["selector"] for f in schema["fields"] if f["type"]=="file" and f["selector"]),tuple(schema["iframe_origins"]),(),(),False,False,False,())
+        contract=SiteReadOnlyContract(site_id,family,"contract-"+identity_sha[:24],2,created_at,valid_until,exact,(urlsplit(target.normalized_url).path or "/",),fixture_sha,schema_version,schema_sha,adapter_id,1,adapter_schema_sha256,tuple(schema["page_steps"]),tuple(schema["fields"]),tuple(f["selector"] for f in schema["forms"] if f["selector"]),tuple(f["action_path"] for f in schema["forms"] if f["action_path"]),tuple(b["selector"] for b in schema["buttons"] if b["role"]=="save" and b["selector"]),tuple(b["selector"] for b in schema["buttons"] if b["role"]=="next" and b["selector"]),tuple(b["selector"] for b in schema["buttons"] if b["role"]=="previous" and b["selector"]),tuple(b["selector"] for b in schema["buttons"] if b["role"]=="preview" and b["selector"]),tuple(b["selector"] for b in schema["buttons"] if b["type"]=="submit" and b["selector"]),tuple(f["selector"] for f in schema["fields"] if f["type"]=="file" and f["selector"]),tuple(schema["iframe_origins"]),(),(),False,False,False,())
     return SiteIntakeResult(record,contract,schema)
 
 @contextmanager

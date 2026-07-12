@@ -19,12 +19,12 @@ ROOT = Path("tests/fixtures/site_intake")
 
 
 def _m3_contract():
-    return build_site_intake(posting_url=None,resolved_application_url="https://company.applyin.co.kr/apply",fixture_root=ROOT,fixture_resource_id="safe_single_page.html",discovery_platform_id=None,created_at="2026-07-12T12:00:00+09:00",valid_until="2026-07-12T13:00:00+09:00",known_structure=SAFE_STRUCTURE).contract
+    return build_site_intake(posting_url=None,resolved_application_url="https://company.applyin.co.kr/apply",fixture_root=ROOT,fixture_resource_id="safe_single_page.html",discovery_platform_id=None,created_at="2026-07-12T12:00:00+09:00",valid_until="2026-07-12T13:00:00+09:00",known_structure=SAFE_STRUCTURE,adapter_schema_sha256="a" * 64).contract
 
 def test_site_contract_v2_has_exact_lineage_capability_and_freshness_fields():
     value=_m3_contract(); assert value is not None
     assert value.contract_version == 2 and value.observed_at == "2026-07-12T12:00:00+09:00" and value.valid_until == "2026-07-12T13:00:00+09:00"
-    assert value.adapter_id and value.adapter_contract_version == 1 and value.adapter_schema_sha256 == value.schema_sha256
+    assert value.adapter_id and value.adapter_contract_version == 1 and value.adapter_schema_sha256 == "a" * 64
     assert value.allowed_capabilities == () and value.mutation_enabled is False and value.live_enabled is False
 
 def test_site_intake_can_only_build_disabled_capability_contracts():
@@ -184,9 +184,32 @@ def test_safe_fixture_produces_stable_read_only_contract():
     schema = parse_read_only_schema(first.html, "https://company.applyin.co.kr:443")
     reordered = first.html.replace('id="applicant_name" name="applicant_name" type="text" required maxlength="40"', 'maxlength="40" required type="text" name="applicant_name" id="applicant_name"')
     assert canonical_schema_sha256(schema) == canonical_schema_sha256(parse_read_only_schema(reordered, "https://company.applyin.co.kr:443"))
-    result = build_site_intake(posting_url="https://www.saramin.co.kr/jobs", resolved_application_url="https://company.applyin.co.kr/apply", fixture_root=ROOT, fixture_resource_id="safe_single_page.html", discovery_platform_id="saramin_direct", created_at="2026-07-12T12:00:00+09:00", known_structure=SAFE_STRUCTURE)
+    result = build_site_intake(posting_url="https://www.saramin.co.kr/jobs", resolved_application_url="https://company.applyin.co.kr/apply", fixture_root=ROOT, fixture_resource_id="safe_single_page.html", discovery_platform_id="saramin_direct", created_at="2026-07-12T12:00:00+09:00", known_structure=SAFE_STRUCTURE, adapter_schema_sha256="a" * 64)
     assert result.record.contract_status == "read_only_contract_ready"
     assert result.contract and result.contract.mutation_enabled is False and result.contract.live_enabled is False
+
+
+def test_m4_site_intake_records_explicit_adapter_schema_lineage(tmp_path):
+    (tmp_path / "safe.html").write_text(SAFE_FORM, encoding="utf-8")
+    result = build_site_intake(posting_url=None, resolved_application_url="https://company.applyin.co.kr/apply",
+        fixture_root=tmp_path, fixture_resource_id="safe.html", discovery_platform_id=None,
+        created_at="2026-07-12T12:00:00+09:00", valid_until="2026-07-12T13:00:00+09:00",
+        known_structure=SAFE_STRUCTURE, adapter_schema_sha256="b" * 64)
+
+    assert result.contract is not None
+    assert result.contract.schema_sha256 != result.contract.adapter_schema_sha256 == "b" * 64
+
+
+def test_m4_site_intake_without_adapter_schema_lineage_fails_closed(tmp_path):
+    (tmp_path / "safe.html").write_text(SAFE_FORM, encoding="utf-8")
+    result = build_site_intake(posting_url=None, resolved_application_url="https://company.applyin.co.kr/apply",
+        fixture_root=tmp_path, fixture_resource_id="safe.html", discovery_platform_id=None,
+        created_at="2026-07-12T12:00:00+09:00", valid_until="2026-07-12T13:00:00+09:00",
+        known_structure=SAFE_STRUCTURE)
+
+    assert result.contract is None
+    assert result.record.manual_review_required is True
+    assert "ADAPTER_SCHEMA_LINEAGE_UNVERIFIED" in result.record.validation_codes
 
 @pytest.mark.parametrize(("structure_override", "expected_code"), UNSAFE_STRUCTURE_CASES)
 def test_every_unverified_structure_status_blocks_ready(tmp_path, structure_override, expected_code):

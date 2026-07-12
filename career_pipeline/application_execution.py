@@ -90,7 +90,7 @@ def _v2_bindings(package, review, contract, adapter_id, adapter_contract_version
     _contract(contract); contract_sha=canonical_site_contract_sha256(contract); origin=normalize_origin(allowed_origin)
     if origin != contract.exact_origin or adapter_id != contract.adapter_id or adapter_contract_version != contract.adapter_contract_version or adapter_schema_sha256 != contract.adapter_schema_sha256:
         raise ApplicationExecutionError("adapter lineage or origin mismatch")
-    expected=(_package_sha(package),package.posting_id,package.posting_sha256,package.profile_sha256,package.final_manifest_sha256,_attachments_sha(package),contract.schema_sha256,contract.contract_id,contract_sha,contract.observed_at,contract.valid_until,contract.exact_origin,contract.adapter_id,contract.adapter_contract_version,contract.adapter_schema_sha256,contract.allowed_capabilities,contract.mutation_enabled,contract.live_enabled)
+    expected=(_package_sha(package),package.posting_id,package.posting_sha256,package.profile_sha256,package.final_manifest_sha256,_attachments_sha(package),contract.adapter_schema_sha256,contract.contract_id,contract_sha,contract.observed_at,contract.valid_until,contract.exact_origin,contract.adapter_id,contract.adapter_contract_version,contract.adapter_schema_sha256,contract.allowed_capabilities,contract.mutation_enabled,contract.live_enabled)
     actual=(review.package_sha256,review.posting_id,review.posting_sha256,review.profile_sha256,review.final_manifest_sha256,review.attachment_manifest_sha256,review.form_schema_sha256,review.site_contract_id,review.site_contract_sha256,review.site_contract_observed_at,review.site_contract_valid_until,review.exact_origin,review.adapter_id,review.adapter_contract_version,review.adapter_schema_sha256,review.allowed_capabilities,review.mutation_enabled,review.live_enabled)
     if review.package_id != package.package_id or expected != actual: raise ApplicationExecutionError("review binding changed")
 
@@ -99,9 +99,9 @@ def approve_application_v2(package, dry_run_result, site_contract: SiteReadOnlyC
     if decision not in {"approved","rejected","deferred"} or not approver_id.strip(): raise ApplicationExecutionError("invalid review")
     if decision == "approved":
         _dry(package,dry_run_result)
-        if dry_run_result.form_schema_sha256 != site_contract.schema_sha256: raise ApplicationExecutionError("form schema does not match site contract")
+        if dry_run_result.form_schema_sha256 != site_contract.adapter_schema_sha256: raise ApplicationExecutionError("form schema does not match site contract")
     contract_sha=canonical_site_contract_sha256(site_contract)
-    values=(_package_sha(package),package.posting_id,package.posting_sha256,package.profile_sha256,package.final_manifest_sha256,_attachments_sha(package),site_contract.schema_sha256,site_contract.contract_id,contract_sha,site_contract.exact_origin,site_contract.adapter_id)
+    values=(_package_sha(package),package.posting_id,package.posting_sha256,package.profile_sha256,package.final_manifest_sha256,_attachments_sha(package),site_contract.adapter_schema_sha256,site_contract.contract_id,contract_sha,site_contract.exact_origin,site_contract.adapter_id)
     raw=ReviewDecisionV2(2,_id("review-v2",*values,decision,approver_id,decided_at),package.package_id,*values[:7],site_contract.contract_id,contract_sha,site_contract.observed_at,site_contract.valid_until,site_contract.exact_origin,site_contract.adapter_id,site_contract.adapter_contract_version,site_contract.adapter_schema_sha256,site_contract.allowed_capabilities,site_contract.mutation_enabled,site_contract.live_enabled,decision,approver_id,decided_at,V2_CONTRACT_VERSION,key_id,"hmac-sha256-v2","")
     return ReviewDecisionV2(**{**asdict(raw),"integrity_sha256":_sign(review_decision_v2_payload(raw),signing_key)})
 

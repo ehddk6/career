@@ -30,14 +30,14 @@ def dry_run(package_id, schema="a" * 64):
         True, schema, True, (), (), ())
 
 
-def contract(*, enabled=True, capabilities=("fill_only",), schema="a" * 64, valid_until=EXP):
+def contract(*, enabled=True, capabilities=("fill_only",), schema="a" * 64, adapter_schema=None, valid_until=EXP):
     return SiteReadOnlyContract(
         site_id="site-m3", platform_family="fixture", contract_id="contract-m3",
         contract_version=2, observed_at=NOW, valid_until=valid_until,
         exact_origin="https://jobs.example.or.kr:443", allowed_path_patterns=("/apply",),
         fixture_sha256="b" * 64, schema_version="fixture-v1", schema_sha256=schema,
         adapter_id="fixture-adapter", adapter_contract_version=1,
-        adapter_schema_sha256=schema, page_steps=(), logical_fields=(), form_selectors=(),
+        adapter_schema_sha256=adapter_schema or schema, page_steps=(), logical_fields=(), form_selectors=(),
         form_actions=(), save_controls=(), next_controls=(), previous_controls=(),
         preview_controls=(), submit_controls=(), attachment_controls=(), iframe_origins=(),
         risk_markers=(), allowed_capabilities=capabilities, mutation_enabled=enabled,
@@ -117,6 +117,26 @@ def test_read_only_contract_builds_local_disabled_candidate(tmp_path):
     review = approve_application_v2(package, result, site, decision="approved", decided_at=NOW, approver_id="reviewer", key_id=KEY_ID, signing_key=KEY)
     candidate = build_authorization_candidate_v2(package, review, site, adapter_id=site.adapter_id, adapter_contract_version=1, adapter_schema_sha256=site.adapter_schema_sha256, allowed_origin=site.exact_origin, mode="fill_only", requested_at=NOW)
     assert candidate.candidate_status == "capability_disabled" and candidate.reason_code == "FILL_AUTHORITY_DISABLED"
+
+
+def test_m4_approval_binds_dry_result_to_adapter_schema_not_site_schema(tmp_path):
+    package = build_package(tmp_path)
+    site = contract(schema="a" * 64, adapter_schema="b" * 64)
+    review = approve_application_v2(package, dry_run(package.package_id, "b" * 64), site,
+        decision="approved", decided_at=NOW, approver_id="reviewer", key_id=KEY_ID, signing_key=KEY)
+
+    assert review.form_schema_sha256 == site.adapter_schema_sha256
+    assert review.form_schema_sha256 != site.schema_sha256
+    assert review.adapter_schema_sha256 == site.adapter_schema_sha256
+
+
+def test_m4_approval_rejects_dry_result_that_misses_adapter_schema(tmp_path):
+    package = build_package(tmp_path)
+    site = contract(schema="a" * 64, adapter_schema="b" * 64)
+
+    with pytest.raises(ApplicationExecutionError, match="form schema"):
+        approve_application_v2(package, dry_run(package.package_id, "a" * 64), site,
+            decision="approved", decided_at=NOW, approver_id="reviewer", key_id=KEY_ID, signing_key=KEY)
 
 
 @pytest.mark.parametrize(("artifact", "expected"), [("review", ExecutionArtifactClassification.review_v1), ("authorization", ExecutionArtifactClassification.authorization_v1)])
