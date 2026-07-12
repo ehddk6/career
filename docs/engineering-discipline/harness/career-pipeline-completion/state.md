@@ -24,7 +24,7 @@
 | M2A | Shared safety kernel | completed | 1 | M1 | `docs/engineering-discipline/plans/2026-07-12-shared-safety-kernel.md` | `docs/engineering-discipline/reviews/2026-07-12-shared-safety-kernel-review.md` |
 | M2B | Requirements and readiness contract | completed | 1 | M1 | `docs/engineering-discipline/plans/2026-07-12-readiness-contract.md` | `docs/engineering-discipline/reviews/2026-07-12-readiness-contract-review.md` |
 | M3 | Contract-bound authorization | completed | 2 | M2A, M2B | `docs/engineering-discipline/plans/2026-07-12-contract-bound-authorization.md` | `docs/engineering-discipline/reviews/2026-07-12-contract-bound-authorization-review.md` |
-| M4 | Deterministic offline acceptance | executing | 1 | M3 | `docs/engineering-discipline/plans/2026-07-12-offline-acceptance.md` | - |
+| M4 | Deterministic offline acceptance | completed | 2 | M3 | `docs/engineering-discipline/plans/2026-07-12-offline-acceptance.md` | `docs/engineering-discipline/reviews/2026-07-13-offline-acceptance-review.md` |
 | M5 | Unified CLI and operational gate | pending | 0 | M4 | - | - |
 | M6 | Final local foundation checkpoint | pending | 0 | M5 | - | - |
 | M7 | Integration verification | pending | 0 | M6 | - | - |
@@ -44,3 +44,5 @@
 | 2026-07-12 | M3-validation-retry | Independent validation found wrapper-only and shadowed tests; attempt 2 replaced them with 41 real security assertions and zero duplicate test definitions. |
 | 2026-07-12 | M3-completed | Commit `42f8b0f`; independent validator PASS; full suite `513 passed, 5 skipped`. Final review-only agent was rate-limited, recorded for M7. |
 | 2026-07-13 | M4-plan-pass | Offline acceptance plan passed independent compliance after eligibility, schema lineage, final-artifact boundary, deterministic clock, and RED-count corrections; execution attempt 1 started. |
+| 2026-07-13 | M4-review-retry | Final review found test-evidence SHA drift and sub-layer-only sensitive fixture coverage; attempt 2 bound the real test SHA and added runner-level sensitive fixture blocking. |
+| 2026-07-13 | M4-completed | Commit `7f68329`; independent validation and final review PASS; full suite `528 passed, 5 skipped`. |
