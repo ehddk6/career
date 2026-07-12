@@ -1,7 +1,7 @@
 # Milestone: Shared Safety Kernel
 
 **ID:** M2A
-**Status:** executing
+**Status:** completed
 **Dependencies:** M1
 **Risk:** Medium
 **Effort:** Medium-Large
