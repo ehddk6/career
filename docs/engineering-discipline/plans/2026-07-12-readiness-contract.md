@@ -497,7 +497,8 @@ Run:
 
 ```powershell
 python -m compileall -q career_pipeline
-git diff --check 6b127c974daf008341e03feb74052b74bb5e0d12..HEAD
+$m2bBaseline = Get-Content -LiteralPath .git/career-pipeline-m2b-baseline -Raw
+git diff --check "$m2bBaseline..HEAD"
 ```
 
 Expected: 두 명령 모두 출력 없이 exit 0.
@@ -507,7 +508,7 @@ Expected: 두 명령 모두 출력 없이 exit 0.
 Run:
 
 ```powershell
-git diff --exit-code 6b127c974daf008341e03feb74052b74bb5e0d12..HEAD -- career_pipeline/__main__.py tests/test_cli.py docs/career-pipeline-usage.md docs/application-execution.md docs/site-intake.md
+git diff --exit-code "$m2bBaseline..HEAD" -- career_pipeline/__main__.py tests/test_cli.py docs/career-pipeline-usage.md docs/application-execution.md docs/site-intake.md
 $matches = rg -n "^(from|import) (requests|httpx|socket|urllib|playwright|selenium|webbrowser|subprocess)(\.|\s|$)" career_pipeline/readiness.py tests/test_readiness.py
 if ($LASTEXITCODE -eq 0) { $matches; throw "forbidden live/network import" }
 if ($LASTEXITCODE -ne 1) { throw "scan failed" }
@@ -523,8 +524,9 @@ Expected: diff와 두 scan 모두 match/output 없이 완료된다. match가 하
 Run:
 
 ```powershell
-git diff --name-only 6b127c974daf008341e03feb74052b74bb5e0d12..HEAD -- career_pipeline/readiness.py tests/test_readiness.py docs/engineering-discipline/harness/career-pipeline-completion/requirements-trace-v1.md
-git log --format="%s" 6b127c974daf008341e03feb74052b74bb5e0d12..HEAD -- career_pipeline/readiness.py tests/test_readiness.py docs/engineering-discipline/harness/career-pipeline-completion/requirements-trace-v1.md
+$m2bBaseline = Get-Content -LiteralPath .git/career-pipeline-m2b-baseline -Raw
+git diff --name-only "$m2bBaseline..HEAD" -- career_pipeline/readiness.py tests/test_readiness.py docs/engineering-discipline/harness/career-pipeline-completion/requirements-trace-v1.md
+git log --format="%s" "$m2bBaseline..HEAD" -- career_pipeline/readiness.py tests/test_readiness.py docs/engineering-discipline/harness/career-pipeline-completion/requirements-trace-v1.md
 git status --porcelain=v1
 ```
 
