@@ -1,11 +1,14 @@
 from dataclasses import replace
+from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timedelta, timezone
+import json
 from pathlib import Path
 import secrets
 
 import pytest
 
 from career_pipeline.application_execution import (ApplicationExecutionError, ReviewDecision, SubmissionEvidence,
-    approve_application, authorize_execution, execute_application, load_authorization, revoke_authorization,
+    approve_application, authorize_execution, execute_application, load_authorization, normalize_origin, revoke_authorization,
     write_workflow_artifact)
 from career_pipeline.models import FormAutomationResult
 from tests.test_application_package import build_package
@@ -109,3 +112,34 @@ def test_rejected_deferred_captcha_and_mfa_cannot_authorize(tmp_path):
             authorize_execution(package,result,review,allowed_origin="https://jobs.example.or.kr",mode="fill_only",authorized_at=NOW,expires_at=EXP,approver_id="user",signing_key=KEY)
     for unsafe in (replace(result,captcha_detected=True),replace(result,mfa_detected=True)):
         with pytest.raises(ApplicationExecutionError): approve_application(package,unsafe,decision="approved",decided_at=NOW,approver_id="user",signing_key=KEY)
+
+
+def test_normalize_origin_compatibility_wrapper_preserves_public_error_type():
+    assert normalize_origin("https://jobs.example.or.kr") == "https://jobs.example.or.kr:443"
+    with pytest.raises(ApplicationExecutionError):
+        normalize_origin("http://jobs.example.or.kr")
+
+
+def test_execution_ledger_preserves_stale_lock_and_maps_timeout_error(tmp_path, monkeypatch):
+    package, result, review, auth, ledger = setup(tmp_path)
+    lock_path = ledger.with_suffix(ledger.suffix + ".lock")
+    from career_pipeline.path_policy import LockOwner, exclusive_lock as real_exclusive_lock
+    owner = LockOwner(1, "c" * 32, 1, "host", (datetime.now(timezone.utc) - timedelta(seconds=600)).isoformat())
+    lock_path.parent.mkdir(parents=True, exist_ok=True)
+    lock_path.write_text(json.dumps(owner.__dict__) + "\n", encoding="utf-8")
+    original = lock_path.read_bytes()
+    import career_pipeline.application_execution as module
+    monkeypatch.setattr(module, "exclusive_lock", lambda path, **_: real_exclusive_lock(path, timeout_seconds=0.02, poll_interval_seconds=0.001, stale_after_seconds=0))
+    with pytest.raises(ApplicationExecutionError, match="execution ledger lock timeout"):
+        revoke_authorization(ledger, auth, revoked_at="2026-07-12T12:10:00+09:00", signing_key=KEY)
+    assert lock_path.read_bytes() == original
+
+
+def test_execution_ledger_concurrent_revocations_remain_valid_json(tmp_path):
+    package, result, review, auth, ledger = setup(tmp_path)
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        list(executor.map(lambda _: revoke_authorization(ledger, auth, revoked_at="2026-07-12T12:10:00+09:00", signing_key=KEY), range(16)))
+    value = json.loads(ledger.read_text(encoding="utf-8"))
+    assert len(value["events"]) == 16
+    assert not ledger.with_suffix(ledger.suffix + ".lock").exists()
+    assert not list(ledger.parent.glob(f".{ledger.name}.*.tmp"))

@@ -9,9 +9,10 @@ import json
 from pathlib import Path
 import time
 from typing import Literal, Protocol
-from urllib.parse import urlsplit
 
 from .models import ApplicationPackage, FormAutomationResult
+from .origin_policy import OriginPolicyError, normalize_origin as _normalize_origin, origin_from_url as _origin_from_url_policy
+from .path_policy import LockAcquisitionError, exclusive_lock
 from .state import write_json
 
 CONTRACT_VERSION="controlled-execution-v1"
@@ -33,15 +34,8 @@ def _package_sha(p): return _digest(asdict(p))
 def _attachments_sha(p): return _digest([asdict(a) for a in p.attachments])
 
 def _origin_from_url(value:str, *, bare:bool)->str:
-    try: parsed=urlsplit(value)
-    except ValueError as e: raise ApplicationExecutionError("invalid origin") from e
-    if parsed.scheme.casefold()!="https" or not parsed.hostname or parsed.username or parsed.password:
-        raise ApplicationExecutionError("origin must be credential-free HTTPS")
-    try: host=parsed.hostname.rstrip(".").encode("idna").decode("ascii").casefold(); port=parsed.port or 443
-    except (UnicodeError,ValueError) as e: raise ApplicationExecutionError("invalid origin host or port") from e
-    if bare and (parsed.path not in {"","/"} or parsed.query or parsed.fragment): raise ApplicationExecutionError("origin must not contain path, query, or fragment")
-    if ":" in host and not host.startswith("["): host=f"[{host}]"
-    return f"https://{host}:{port}"
+    try: return _normalize_origin(value) if bare else _origin_from_url_policy(value)
+    except OriginPolicyError as e: raise ApplicationExecutionError(str(e)) from e
 def normalize_origin(value:str)->str: return _origin_from_url(value,bare=True)
 
 @dataclass(frozen=True)
@@ -111,14 +105,12 @@ def authorize_execution(p,r,review,*,allowed_origin,mode,authorized_at,expires_a
 
 @contextmanager
 def _lock(path):
-    path.parent.mkdir(parents=True,exist_ok=True); deadline=time.monotonic()+5; h=None
-    while h is None:
-        try: h=path.open("x",encoding="utf-8")
-        except FileExistsError:
-            if time.monotonic()>deadline: raise ApplicationExecutionError("execution ledger lock timeout")
-            time.sleep(.05)
-    try: yield
-    finally: h.close(); path.unlink(missing_ok=True)
+    try:
+        with exclusive_lock(path):
+            yield
+    except LockAcquisitionError as error:
+        status = str(error).rsplit(":", 1)[-1].strip()
+        raise ApplicationExecutionError(f"execution ledger lock timeout: {status}") from error
 def _ledger(path,key):
     if path.is_symlink(): raise ApplicationExecutionError("execution ledger must not be symlink")
     if not path.exists(): return {"schema_version":1,"authorizations":{},"events":[]}

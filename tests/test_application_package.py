@@ -1,4 +1,5 @@
 from dataclasses import replace
+from concurrent.futures import ThreadPoolExecutor
 from hashlib import sha256
 import json
 from pathlib import Path
@@ -7,7 +8,7 @@ import pytest
 
 from career_pipeline.application_package import (ApplicationPackageError, application_package_to_dict,
     build_application_package, ensure_application_not_duplicate, materialize_package_values,
-    register_application_package, write_application_package)
+    persist_application_package, register_application_package, write_application_package)
 from career_pipeline.artifacts import sha256_file
 from career_pipeline.__main__ import main
 from career_pipeline.eligibility import applicant_profile_to_dict, decision_to_dict, posting_record_to_dict
@@ -102,3 +103,30 @@ def test_application_package_cli(tmp_path):
     write_json(tmp_path/"profile.json",applicant_profile_to_dict(profile)); write_json(tmp_path/"posting.json",posting_record_to_dict(posting)); write_json(tmp_path/"decision.json",decision_to_dict(decision))
     result=main(["application","package","--root",str(tmp_path),"--run",str(run),"--profile","profile.json","--posting","posting.json","--decision","decision.json","--private-data",str(private),"--attachment",f"resume={resume}","--output",".career_profile/application_packages/package.json","--created-at","2026-07-12T09:00:00+09:00"])
     assert result==0 and (tmp_path/".career_profile"/"application_registry.json").exists()
+
+
+def test_package_paths_reject_windows_drive_relative_and_link_escape(tmp_path):
+    run, state, profile, posting, decision, private, resume = package_inputs(tmp_path)
+    with pytest.raises(ApplicationPackageError):
+        build_application_package(root=tmp_path, run_dir=run, run_state=state, profile=profile, posting=posting, decision=decision, private_data_path=Path("C:private.json"), profile_sha256="d" * 64, attachments={"resume": resume})
+    package = build_application_package(root=tmp_path, run_dir=run, run_state=state, profile=profile, posting=posting, decision=decision, private_data_path=private, profile_sha256="d" * 64, attachments={"resume": resume}, created_at="2026-07-12T09:00:00+09:00")
+    outside = tmp_path.parent / "outside-package.json"
+    outside.write_text("{}", encoding="utf-8")
+    link = tmp_path / "linked-package.json"
+    try:
+        link.symlink_to(outside)
+    except OSError:
+        pytest.skip("symlink creation unavailable")
+    with pytest.raises(ApplicationPackageError):
+        persist_application_package(tmp_path, link, package, private_data_path=private, attachments={"resume": resume})
+
+
+def test_application_registry_concurrent_idempotent_writers_leave_valid_registry(tmp_path):
+    package = build_package(tmp_path)
+    package_path = tmp_path / "package.json"
+    write_application_package(package_path, package)
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        list(executor.map(lambda _: register_application_package(tmp_path, package_path, package), range(16)))
+    registry = json.loads((tmp_path / ".career_profile" / "application_registry.json").read_text(encoding="utf-8"))
+    assert len(registry["entries"]) == 1 and len(registry["events"]) == 1
+    assert not (tmp_path / ".career_profile" / ".application_registry.lock").exists()

@@ -10,12 +10,13 @@ import ipaddress
 import json
 from pathlib import Path, PureWindowsPath
 import re
-import time
 from typing import Literal
 from urllib.parse import parse_qsl, urljoin, urlsplit, urlunsplit
 
 from .state import write_json
 from .platform_catalog import get_platform, PlatformCatalogError
+from .origin_policy import OriginPolicyError, origin_from_url
+from .path_policy import LockAcquisitionError, PathConfinementError, PathLinkError, confine_path, exclusive_lock
 
 CONTRACT_VERSION = 1
 MAX_FIXTURE_BYTES = 1_000_000
@@ -139,7 +140,8 @@ def validate_url_metadata(value: str) -> UrlMetadata:
     normalized = urlunsplit(("https", host if port == 443 else f"{host}:{port}", parsed.path or "/", "", ""))
     codes: list[str] = []
     family = "unknown"
-    exact: str | None = f"https://{host}:{port}"
+    try: exact: str | None = origin_from_url(value)
+    except OriginPolicyError as exc: raise SiteIntakeError("URL_MALFORMED") from exc
     if host == "applyin.co.kr" or host.endswith(".applyin.co.kr"):
         family = "saramin_applyin"
     elif host == "jrs.jobkorea.co.kr":
@@ -156,16 +158,13 @@ def load_fixture_resource(root: Path, resource_name: str) -> FixtureResource:
     win = PureWindowsPath(resource_name)
     if raw.is_absolute() or win.is_absolute() or win.drive or ".." in raw.parts or raw.suffix.casefold() not in {".html", ".htm"}:
         raise SiteIntakeError("FIXTURE_PATH_INVALID")
-    candidate = root / raw
     try:
-        resolved = candidate.resolve(strict=True); resolved.relative_to(root)
-    except (OSError, ValueError) as exc:
+        resolved = confine_path(root, raw, require_file=True)
+    except PathLinkError as exc:
+        raise SiteIntakeError("FIXTURE_LINK_FORBIDDEN") from exc
+    except PathConfinementError as exc:
         raise SiteIntakeError("FIXTURE_PATH_INVALID") from exc
-    current = root
-    for part in resolved.relative_to(root).parts:
-        current = current / part
-        if current.is_symlink(): raise SiteIntakeError("FIXTURE_LINK_FORBIDDEN")
-    if not resolved.is_file() or resolved.stat().st_size > MAX_FIXTURE_BYTES:
+    if resolved.stat().st_size > MAX_FIXTURE_BYTES:
         raise SiteIntakeError("FIXTURE_SIZE_INVALID")
     payload = resolved.read_bytes()
     if b"\x00" in payload: raise SiteIntakeError("FIXTURE_BINARY_FORBIDDEN")
@@ -372,19 +371,17 @@ def build_site_intake(*,posting_url,resolved_application_url,fixture_root,fixtur
 
 @contextmanager
 def _lock(path: Path):
-    deadline=time.monotonic()+5; handle=None; path.parent.mkdir(parents=True,exist_ok=True)
-    while handle is None:
-        try: handle=path.open("x",encoding="utf-8")
-        except FileExistsError:
-            if time.monotonic()>deadline: raise SiteIntakeError("registry lock timeout")
-            time.sleep(.05)
-    try: yield
-    finally: handle.close(); path.unlink(missing_ok=True)
+    try:
+        with exclusive_lock(path):
+            yield
+    except LockAcquisitionError as error:
+        raise SiteIntakeError("registry lock timeout") from error
 
 def persist_intake(path: Path, result: SiteIntakeResult, expected_version: int | None = None) -> dict:
     path=Path(path)
-    if path.is_symlink(): raise SiteIntakeError("registry symlink forbidden")
     with _lock(path.with_suffix(path.suffix+".lock")):
+        try: path = confine_path(path.parent, path, must_exist=False)
+        except PathConfinementError as error: raise SiteIntakeError("registry symlink forbidden") from error
         registry=load_intake_registry(path) if path.exists() else {"schema_version":1,"version":0,"records":{},"contracts":{},"events":[]}
         version=registry.get("version")
         if expected_version is not None and expected_version!=version: raise SiteIntakeError("stale intake writer")

@@ -1,4 +1,7 @@
 from dataclasses import asdict, replace
+from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timedelta, timezone
+import json
 from pathlib import Path
 import shutil
 
@@ -289,3 +292,36 @@ def test_cli_sensitive_schema_output_never_contains_fixture_value(tmp_path,capsy
     assert run_application_command(args)==2
     output=capsys.readouterr().out
     assert "TEST_SESSION_TOKEN_SENTINEL" not in output and '"schema": null' in output
+
+
+def _registry_result():
+    return build_site_intake(posting_url=None, resolved_application_url="https://company.applyin.co.kr/apply", fixture_root=ROOT, fixture_resource_id="safe_single_page.html", discovery_platform_id="saramin_direct", created_at="2026-07-12T12:00:00+09:00")
+
+
+def test_intake_registry_preserves_stale_lock_and_maps_timeout_error(tmp_path, monkeypatch):
+    from career_pipeline.path_policy import LockOwner, exclusive_lock as real_exclusive_lock
+    path = tmp_path / "registry.json"
+    lock_path = path.with_suffix(path.suffix + ".lock")
+    owner = LockOwner(1, "d" * 32, 1, "host", (datetime.now(timezone.utc) - timedelta(seconds=600)).isoformat())
+    lock_path.write_text(json.dumps(owner.__dict__) + "\n", encoding="utf-8")
+    original = lock_path.read_bytes()
+    import career_pipeline.site_intake as module
+    monkeypatch.setattr(module, "exclusive_lock", lambda lock, **_: real_exclusive_lock(lock, timeout_seconds=0.02, poll_interval_seconds=0.001, stale_after_seconds=0))
+    with pytest.raises(SiteIntakeError, match="registry lock timeout"):
+        persist_intake(path, _registry_result())
+    assert lock_path.read_bytes() == original
+
+
+def test_intake_registry_concurrent_idempotent_writers_leave_valid_registry(tmp_path):
+    path, result = tmp_path / "registry.json", _registry_result()
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        list(executor.map(lambda _: persist_intake(path, result), range(16)))
+    registry = json.loads(path.read_text(encoding="utf-8"))
+    assert len(registry["records"]) == 1 and len(registry["events"]) == 1
+    assert not path.with_suffix(path.suffix + ".lock").exists()
+
+
+def test_site_intake_exact_origin_matches_shared_origin_policy():
+    from career_pipeline.origin_policy import origin_from_url
+    value = "https://COMPANY.applyin.co.kr/apply?view=1#top"
+    assert validate_url_metadata(value).exact_origin == origin_from_url(value)

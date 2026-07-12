@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Literal
 from urllib.parse import urlsplit
-from .application_execution import normalize_origin, ApplicationExecutionError
+from .origin_policy import OriginPolicyError, normalize_origin
 
 class PlatformCatalogError(ValueError): pass
 @dataclass(frozen=True)
@@ -48,7 +48,7 @@ def validate_catalog(items):
         for raw in p.public_origins:
             if "*" in raw: raise PlatformCatalogError("wildcard public origin is forbidden")
             try: origin=normalize_origin(raw)
-            except ApplicationExecutionError as e: raise PlatformCatalogError("invalid public origin") from e
+            except OriginPolicyError as e: raise PlatformCatalogError("invalid public origin") from e
             if origin in origins: raise PlatformCatalogError("duplicate public origin")
             origins[origin]=p.platform_id
         for suffix in p.recognized_host_suffixes:

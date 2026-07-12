@@ -9,12 +9,12 @@ from hashlib import sha256
 import json
 from pathlib import Path
 import re
-import time
 from typing import Any, Mapping
 
 from .artifacts import load_and_verify_final_artifact, sha256_file
 from .eligibility import canonicalize_url
 from .models import ApplicantProfile, ApplicationAnswer, ApplicationAttachment, ApplicationPackage, EligibilityDecision, PostingRecord
+from .path_policy import LockAcquisitionError, PathConfinementError, PathLinkError, confine_path, exclusive_lock
 from .state import write_json
 
 SCHEMA_VERSION = 1
@@ -52,24 +52,20 @@ def _timezone_aware(value: str, label: str) -> None:
 
 
 def _inside(root: Path, path: Path, *, label: str, must_exist: bool = True) -> Path:
-    root = root.resolve(strict=True)
-    candidate = path if path.is_absolute() else root / path
     try:
-        resolved = candidate.resolve(strict=must_exist)
-        resolved.relative_to(root)
-    except (OSError, ValueError) as error:
+        return confine_path(root, path, must_exist=must_exist)
+    except PathLinkError as error:
+        raise ApplicationPackageError(f"{label} must not traverse a symlink") from error
+    except PathConfinementError as error:
         raise ApplicationPackageError(f"{label} must remain inside the workspace") from error
-    current = root
-    for part in resolved.relative_to(root).parts:
-        current /= part
-        if current.exists() and current.is_symlink():
-            raise ApplicationPackageError(f"{label} must not traverse a symlink")
-    return resolved
 
 
 def _safe_file(root: Path, path: Path, *, label: str) -> Path:
-    resolved = _inside(root, path, label=label)
-    if not resolved.is_file() or resolved.is_symlink():
+    try:
+        resolved = confine_path(root, path, require_file=True)
+    except PathLinkError as error:
+        raise ApplicationPackageError(f"{label} must be a regular non-symlink file") from error
+    except PathConfinementError as error:
         raise ApplicationPackageError(f"{label} must be a regular non-symlink file")
     return resolved
 
@@ -299,15 +295,11 @@ def _load_registry(path: Path) -> dict[str, Any]:
 
 @contextmanager
 def _application_lock(path: Path, timeout_seconds: float = 5.0):
-    path.parent.mkdir(parents=True, exist_ok=True); deadline = time.monotonic() + timeout_seconds; handle = None
-    while handle is None:
-        try: handle = path.open("x", encoding="utf-8")
-        except FileExistsError:
-            if time.monotonic() >= deadline: raise ApplicationPackageError("could not acquire application registry lock")
-            time.sleep(.05)
-    try: yield
-    finally:
-        handle.close(); path.unlink(missing_ok=True)
+    try:
+        with exclusive_lock(path, timeout_seconds=timeout_seconds):
+            yield
+    except LockAcquisitionError as error:
+        raise ApplicationPackageError("could not acquire application registry lock") from error
 
 
 def ensure_application_not_duplicate(root: Path, package: ApplicationPackage) -> None:
@@ -339,9 +331,10 @@ def _registry_update(root: Path, package_path: Path, package: ApplicationPackage
 
 def register_application_package(root: Path, package_path: Path, package: ApplicationPackage) -> None:
     root = root.resolve(); profile = root / ".career_profile"
-    if profile.is_symlink(): raise ApplicationPackageError(".career_profile must not be a symlink")
+    try: confine_path(root, profile, must_exist=False)
+    except PathConfinementError as error: raise ApplicationPackageError(".career_profile must not be a symlink") from error
     with _application_lock(profile / ".application_registry.lock"):
-        registry_path = profile / "application_registry.json"; registry = _load_registry(registry_path)
+        registry_path = _inside(root, profile / "application_registry.json", label="application registry", must_exist=False); registry = _load_registry(registry_path)
         write_json(registry_path, _registry_update(root, _safe_file(root, package_path, label="application package"), package, registry))
 
 
@@ -349,12 +342,13 @@ def persist_application_package(root: Path, package_path: Path, package: Applica
                                 attachments: Mapping[str, Path] | None = None) -> None:
     """Revalidate inputs immediately before atomically writing package and registry."""
     root = root.resolve(); profile = root / ".career_profile"
-    if profile.is_symlink(): raise ApplicationPackageError(".career_profile must not be a symlink")
+    try: confine_path(root, profile, must_exist=False)
+    except PathConfinementError as error: raise ApplicationPackageError(".career_profile must not be a symlink") from error
     package_path = _inside(root, package_path, label="application package output", must_exist=False)
-    if package_path.exists() and package_path.is_symlink(): raise ApplicationPackageError("application package output must not be a symlink")
     with _application_lock(profile / ".application_registry.lock"):
+        package_path = _inside(root, package_path, label="application package output", must_exist=False)
         materialize_package_values(root, package, private_data_path=private_data_path, attachments=attachments)
-        registry_path = profile / "application_registry.json"; registry = _load_registry(registry_path)
+        registry_path = _inside(root, profile / "application_registry.json", label="application registry", must_exist=False); registry = _load_registry(registry_path)
         existed = package_path.exists()
         try:
             write_application_package(package_path, package)

@@ -1,10 +1,10 @@
 """실행 상태 관리. 원자적 JSON 저장과 실행 상태 이력을 담당합니다."""
 from datetime import datetime
 import json
-import os
 from pathlib import Path
 import re
-import tempfile
+
+from .path_policy import atomic_write_text
 
 
 def resolve_run_dir(
@@ -28,33 +28,8 @@ def resolve_run_dir(
 
 def write_json(path: Path, payload) -> None:
     path = Path(path)
-    path.parent.mkdir(parents=True, exist_ok=True)
     data = json.dumps(payload, ensure_ascii=False, indent=2, default=str) + "\n"
-    temporary: Path | None = None
-    try:
-        with tempfile.NamedTemporaryFile(
-            mode="w",
-            encoding="utf-8",
-            dir=path.parent,
-            prefix=f".{path.name}.",
-            suffix=".tmp",
-            delete=False,
-        ) as handle:
-            temporary = Path(handle.name)
-            handle.write(data)
-            handle.flush()
-            try:
-                os.fsync(handle.fileno())
-            except OSError:
-                # Some mounted or virtual filesystems do not expose fsync.
-                pass
-        temporary.replace(path)
-    finally:
-        if temporary is not None and temporary.exists():
-            try:
-                temporary.unlink()
-            except OSError:
-                pass
+    atomic_write_text(path, data)
 
 
 def write_state(run_dir: Path, state: dict) -> None:

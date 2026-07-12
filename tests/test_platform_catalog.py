@@ -1,4 +1,6 @@
 from dataclasses import replace
+import ast
+from pathlib import Path
 import pytest
 from career_pipeline.platform_catalog import (CATALOG, PlatformCatalogError, classify_application_url,
     get_platform, validate_catalog)
@@ -43,3 +45,14 @@ def test_invalid_catalog_is_rejected(change):
     elif change=="suffix_overlap": items[0]=replace(items[0],recognized_host_suffixes=("company.applyin.co.kr",))
     else: items[0]=replace(items[0],public_origins=("https://company.applyin.co.kr",))
     with pytest.raises(PlatformCatalogError): validate_catalog(tuple(items))
+
+
+def test_platform_catalog_imports_origin_policy_not_execution_policy():
+    source = Path("career_pipeline/platform_catalog.py").read_text(encoding="utf-8")
+    imports = {
+        node.module
+        for node in ast.walk(ast.parse(source))
+        if isinstance(node, ast.ImportFrom) and node.module
+    }
+    assert "origin_policy" in imports or "career_pipeline.origin_policy" in imports
+    assert "application_execution" not in imports and "career_pipeline.application_execution" not in imports
