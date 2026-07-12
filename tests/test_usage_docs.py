@@ -89,3 +89,12 @@ def test_usage_documents_phase4_review_required_flow():
     ):
         assert required in text
     assert "제출 버튼 감지는 기록하되 클릭하지 않는다" in contract
+
+
+def test_usage_documents_controlled_execution_contract():
+    usage = Path("docs/career-pipeline-usage.md").read_text(encoding="utf-8")
+    contract = Path("docs/application-execution.md").read_text(encoding="utf-8")
+    for required in ("application review", "application authorize", "fill_only", "실제 사이트 입력"):
+        assert required in usage
+    for required in ("awaiting_final_confirmation", "submitted_verified", "submission_unverified", "CAPTCHA", "MFA"):
+        assert required in contract

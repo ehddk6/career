@@ -71,7 +71,7 @@ def map_form_fields(package: ApplicationPackage, fields: tuple[FormFieldDescript
     return tuple(mappings)
 
 
-def _schema(fields: tuple[FormFieldDescriptor, ...]) -> str:
+def form_schema_sha256(fields: tuple[FormFieldDescriptor, ...]) -> str:
     return sha256(json.dumps([asdict(f) for f in fields], ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
 
 
@@ -91,7 +91,7 @@ class ReviewRequiredFormAdapter:
         try: parsed = datetime.fromisoformat(now.replace("Z", "+00:00"))
         except ValueError as error: raise FormAdapterError("evaluation_time must be timezone-aware ISO-8601") from error
         if parsed.tzinfo is None or parsed.utcoffset() is None: raise FormAdapterError("evaluation_time must be timezone-aware ISO-8601")
-        fields = driver.discover_fields(); schema = _schema(fields); captcha, mfa, submit = _security(driver, fields)
+        fields = driver.discover_fields(); schema = form_schema_sha256(fields); captcha, mfa, submit = _security(driver, fields)
         mappings = map_form_fields(package, fields); issues: list[str] = []; stop: str | None = None; status = "review_required"
         if package.validation_status == "blocked": status, stop = "blocked", "package_blocked"
         elif package.validation_status != "ready_for_review": status, stop = "manual_review", "package_requires_manual_review"
@@ -119,7 +119,7 @@ class ReviewRequiredFormAdapter:
                     action = "file" if field.input_type == "file" else "select" if field.input_type == "select" else "check" if field.input_type in {"checkbox", "radio"} else "text"
                     actions.append(FormFillAction(field.field_id, mapping.package_field_key, action, sha256(value.encode()).hexdigest(), "planned"))
                 if issues: status, stop, actions = "manual_review", "form_value_incompatible", []
-        final_fields = driver.discover_fields(); unchanged = _schema(final_fields) == schema
+        final_fields = driver.discover_fields(); unchanged = form_schema_sha256(final_fields) == schema
         if not unchanged:
             status, stop, actions = "blocked", "form_schema_changed", []
             issues.append("form schema changed during inspection")
@@ -183,3 +183,12 @@ class PlaywrightFormDriver:
 
 def form_automation_result_to_dict(result: FormAutomationResult) -> dict[str, Any]: return asdict(result)
 def write_form_result(path: Path, result: FormAutomationResult) -> None: write_json(path, form_automation_result_to_dict(result))
+
+
+def load_form_result(path: Path) -> FormAutomationResult:
+    from .models import FormFieldMapping, FormFillAction
+    value = json.loads(Path(path).read_text(encoding="utf-8"))
+    value["mappings"] = tuple(FormFieldMapping(**item) for item in value.get("mappings", []))
+    value["actions"] = tuple(FormFillAction(**item) for item in value.get("actions", []))
+    value["verification_issues"] = tuple(value.get("verification_issues", []))
+    return FormAutomationResult(**value)

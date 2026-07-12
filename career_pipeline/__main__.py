@@ -4,6 +4,7 @@ from dataclasses import asdict
 from datetime import datetime
 from hashlib import sha256
 import json
+import os
 from pathlib import Path, PureWindowsPath
 import sys
 from typing import Sequence
@@ -67,6 +68,14 @@ from .form_adapter import (
     FormAdapterError,
     ReviewRequiredFormAdapter,
     write_form_result,
+    load_form_result,
+)
+from .application_execution import (
+    ApplicationExecutionError,
+    approve_application,
+    authorize_execution,
+    load_review,
+    write_workflow_artifact,
 )
 from .registry import PostingRegistry, RegistryError, queue_item_to_dict
 from .state import write_json
@@ -279,6 +288,25 @@ def build_parser() -> argparse.ArgumentParser:
     application_dry_run.add_argument("--output", required=True)
     application_dry_run.add_argument("--evaluation-time", required=True)
     application_dry_run.add_argument("--page-url", default="https://fixture.invalid/application")
+    application_review = application_commands.add_parser("review")
+    application_review.add_argument("--root", default=".")
+    application_review.add_argument("--package", required=True)
+    application_review.add_argument("--dry-run-result", required=True)
+    application_review.add_argument("--decision", choices=("approved", "rejected", "deferred"), required=True)
+    application_review.add_argument("--output", required=True)
+    application_review.add_argument("--at", required=True)
+    application_review.add_argument("--approver-id", required=True)
+    application_authorize = application_commands.add_parser("authorize")
+    application_authorize.add_argument("--root", default=".")
+    application_authorize.add_argument("--package", required=True)
+    application_authorize.add_argument("--dry-run-result", required=True)
+    application_authorize.add_argument("--review", required=True)
+    application_authorize.add_argument("--allowed-origin", required=True)
+    application_authorize.add_argument("--mode", choices=("fill_only", "submit"), required=True)
+    application_authorize.add_argument("--output", required=True)
+    application_authorize.add_argument("--at", required=True)
+    application_authorize.add_argument("--expires-at", required=True)
+    application_authorize.add_argument("--approver-id", required=True)
 
     audit = subparsers.add_parser("audit")
     audit.add_argument("--run", required=True)
@@ -682,6 +710,22 @@ def run_application_command(args: argparse.Namespace) -> int:
         print(package.package_id)
         return 0 if package.validation_status == "ready_for_review" else 2
     package = load_application_package(_phase4_path(root, args.package, must_exist=True))
+    if args.application_command == "review":
+        signing_key = os.environ.get("CAREER_EXECUTION_SIGNING_KEY", "").encode("utf-8")
+        result = load_form_result(_phase4_path(root, args.dry_run_result, must_exist=True))
+        review = approve_application(package, result, decision=args.decision, decided_at=args.at, approver_id=args.approver_id, signing_key=signing_key)
+        write_workflow_artifact(_phase4_path(root, args.output), review)
+        print(f"{review.review_id} {review.decision}")
+        return 0 if review.decision == "approved" else 2
+    if args.application_command == "authorize":
+        signing_key = os.environ.get("CAREER_EXECUTION_SIGNING_KEY", "").encode("utf-8")
+        result = load_form_result(_phase4_path(root, args.dry_run_result, must_exist=True))
+        review = load_review(_phase4_path(root, args.review, must_exist=True), signing_key)
+        authorization = authorize_execution(package, result, review, allowed_origin=args.allowed_origin,
+            mode=args.mode, authorized_at=args.at, expires_at=args.expires_at, approver_id=args.approver_id, signing_key=signing_key)
+        write_workflow_artifact(_phase4_path(root, args.output), authorization)
+        print(f"{authorization.authorization_id} {authorization.mode}")
+        return 0
     private_path = _phase4_path(root, args.private_data, must_exist=True)
     attachments = _application_attachments(root, args.attachment)
     if args.application_command == "validate":
@@ -714,6 +758,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             json.JSONDecodeError,
             ApplicationPackageError,
             FormAdapterError,
+            ApplicationExecutionError,
             EligibilityValidationError,
             ValueError,
         ) as error:

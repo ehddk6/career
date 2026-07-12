@@ -148,3 +148,14 @@ def test_parser_exposes_phase4_review_required_commands():
     assert package.attachment == ["resume=.career_profile/resume.pdf"]
     assert validate.application_command == "validate"
     assert dry_run.application_command == "dry-run"
+
+
+def test_parser_exposes_review_and_authorization_commands():
+    parser = build_parser()
+    review = parser.parse_args(["application", "review", "--package", "package.json", "--dry-run-result", "dry.json",
+        "--decision", "approved", "--output", "review.json", "--at", "2026-07-12T12:00:00+09:00", "--approver-id", "user"])
+    authorize = parser.parse_args(["application", "authorize", "--package", "package.json", "--dry-run-result", "dry.json",
+        "--review", "review.json", "--allowed-origin", "https://jobs.example.or.kr", "--mode", "fill_only",
+        "--output", "authorization.json", "--at", "2026-07-12T12:01:00+09:00", "--expires-at", "2026-07-12T13:00:00+09:00", "--approver-id", "user"])
+    assert review.application_command == "review"
+    assert authorize.application_command == "authorize"

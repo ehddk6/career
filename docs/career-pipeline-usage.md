@@ -149,6 +149,33 @@ python -m career_pipeline application dry-run `
 
 `dry-run`은 label/name/role 기반으로 필드를 읽기 전용 매핑하고 로컬 입력 자료와의 호환성만 검증합니다. DOM 입력·클릭·파일 업로드·제출은 수행하지 않습니다. CAPTCHA, MFA, 비밀번호, 새 문항, 알 수 없는 필드, 글자 수 제한, 첨부파일 형식 불일치가 발견되면 계획 생성을 중단합니다. `queue approved`나 `review_required`는 실제 제출 승인 또는 자동지원 허용을 뜻하지 않습니다.
 
+```powershell
+$env:CAREER_EXECUTION_SIGNING_KEY = "32바이트 이상의 로컬 비밀 값"
+
+python -m career_pipeline application review `
+  --package ".career_profile/application_packages/package.json" `
+  --dry-run-result ".career_profile/form-result.json" `
+  --decision approved `
+  --output ".career_profile/application-review.json" `
+  --at "2026-07-12T12:00:00+09:00" `
+  --approver-id "local-user"
+
+python -m career_pipeline application authorize `
+  --package ".career_profile/application_packages/package.json" `
+  --dry-run-result ".career_profile/form-result.json" `
+  --review ".career_profile/application-review.json" `
+  --allowed-origin "https://jobs.example.or.kr" `
+  --mode fill_only `
+  --output ".career_profile/execution-authorization.json" `
+  --at "2026-07-12T12:01:00+09:00" `
+  --expires-at "2026-07-12T13:01:00+09:00" `
+  --approver-id "local-user"
+```
+
+`fill_only` 권한은 제출 권한으로 승격할 수 없습니다. Phase 5는 승인·만료·취소·단일 사용·durable intent 계약까지만 제공하며 실제 사이트 입력과 제출 CLI는 제공하지 않습니다. 상세 계약은 `docs/application-execution.md`를 따릅니다.
+
+`CAREER_EXECUTION_SIGNING_KEY`는 승인·권한 artifact의 HMAC 검증에만 사용하며 파일, 로그, CLI 출력에 기록하지 않습니다. 값이 없거나 32바이트보다 짧으면 review와 authorize는 실패합니다.
+
 ## 2. 공식 공고 분석
 
 공식 PDF/DOCX를 사용자가 확인한 경우:
