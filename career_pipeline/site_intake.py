@@ -195,11 +195,16 @@ def _sensitive_codes(html: str) -> tuple[str, ...]:
 
 class _SchemaParser(HTMLParser):
     def __init__(self):
-        super().__init__(convert_charrefs=True); self.forms=[]; self.fields=[]; self.buttons=[]; self.iframes=[]; self.scripts=[]; self.steps=[]; self.redirect_unknown=False; self.security_text=set()
+        super().__init__(convert_charrefs=True); self.forms=[]; self.fields=[]; self.buttons=[]; self.iframes=[]; self.scripts=[]; self.steps=[]; self.redirect_unknown=False; self.security_text=set(); self.base_count=0; self.formaction_count=0; self.form_depth=0; self.nested_form=False; self.malformed_form=False
     def handle_starttag(self, tag, attrs):
         a = {k.casefold(): (v or "") for k,v in attrs}; tag = tag.casefold()
+        if tag == "base": self.base_count += 1
+        if "formaction" in a: self.formaction_count += 1
         selector = "#" + a["id"] if a.get("id") else "[name=" + a["name"] + "]" if a.get("name") else None
-        if tag == "form": self.forms.append({"selector":selector,"method":a.get("method","get").casefold(),"action":a.get("action","")})
+        if tag == "form":
+            if self.form_depth > 0: self.nested_form = True
+            self.form_depth += 1
+            self.forms.append({"selector":selector,"method":a.get("method","get").casefold(),"action":a.get("action","")})
         elif tag in {"input","textarea","select"}:
             typ = "textarea" if tag=="textarea" else "select" if tag=="select" else a.get("type","text").casefold()
             self.fields.append({"selector":selector,"logical_candidate":a.get("name") or a.get("id") or None,"type":typ,"has_name":bool(a.get("name")),"has_id":bool(a.get("id")),"required":"required" in a,"readonly":"readonly" in a,"disabled":"disabled" in a,"maxlength":int(a["maxlength"]) if a.get("maxlength","").isdigit() else None,"pattern_present":bool(a.get("pattern")),"autocomplete":a.get("autocomplete") or None,"options":[],"accept":a.get("accept") or None,"multiple":"multiple" in a,"hidden":typ=="hidden"})
@@ -208,6 +213,14 @@ class _SchemaParser(HTMLParser):
         elif tag == "script": self.scripts.append(a.get("src", "inline"))
         if "data-step" in a: self.steps.append(a["data-step"])
         if a.get("data-redirect","").casefold() == "unknown": self.redirect_unknown=True
+    def handle_endtag(self, tag):
+        if tag.casefold() == "form":
+            if self.form_depth > 0: self.form_depth -= 1
+            else: self.malformed_form = True
+    def handle_startendtag(self, tag, attrs):
+        if tag.casefold() == "form": self.malformed_form = True
+        self.handle_starttag(tag, attrs)
+        self.handle_endtag(tag)
     def handle_data(self,data):
         text=data.casefold()
         for marker in ("captcha","otp","mfa","one-time password"):
@@ -232,7 +245,7 @@ def _safe_embedded_url(value: str, exact_origin: str) -> tuple[str | None,str | 
     return meta.exact_origin,parsed.path or "/"
 
 def parse_read_only_schema(html: str, exact_origin: str) -> dict:
-    parser = _SchemaParser(); parser.feed(html); _select_options(html, parser.fields)
+    parser = _SchemaParser(); parser.feed(html); parser.malformed_form = parser.malformed_form or parser.form_depth != 0; _select_options(html, parser.fields)
     forms=[]
     for form in parser.forms:
         try: action_origin,action_path=_safe_embedded_url(form["action"],exact_origin)
@@ -244,7 +257,7 @@ def parse_read_only_schema(html: str, exact_origin: str) -> dict:
         else:
             try: origin,_=_safe_embedded_url(source,exact_origin); script_origins.append(origin or "invalid")
             except SiteIntakeError: script_origins.append("invalid")
-    return {"forms":forms,"fields":parser.fields,"buttons":parser.buttons,"iframe_origins":sorted(filter(None,(_origin_or_none(urljoin(exact_origin+"/",x)) for x in parser.iframes))),"iframe_count":len(parser.iframes),"script_origins":sorted(script_origins),"script_count":len(parser.scripts),"security_markers":sorted(parser.security_text),"page_steps":sorted(parser.steps),"redirect_unknown":parser.redirect_unknown,"expected_origin":exact_origin}
+    return {"forms":forms,"fields":parser.fields,"buttons":parser.buttons,"iframe_origins":sorted(filter(None,(_origin_or_none(urljoin(exact_origin+"/",x)) for x in parser.iframes))),"iframe_count":len(parser.iframes),"script_origins":sorted(script_origins),"script_count":len(parser.scripts),"security_markers":sorted(parser.security_text),"page_steps":sorted(parser.steps),"redirect_unknown":parser.redirect_unknown,"base_count":parser.base_count,"formaction_count":parser.formaction_count,"nested_form":parser.nested_form,"malformed_form":parser.malformed_form,"expected_origin":exact_origin}
 
 def canonical_schema_sha256(schema: dict) -> str:
     return sha256(json.dumps(schema, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
@@ -259,6 +272,11 @@ def _risks(schema: dict, exact_origin: str) -> tuple[str, ...]:
     if "file" in types: codes.append("ATTACHMENT_POLICY_UNKNOWN")
     if any(f["selector"] is None for f in fields) or len([f["selector"] for f in fields]) != len(set(f["selector"] for f in fields)): codes.append("MANUAL_FIELD_MAPPING_REQUIRED")
     if any(form["action_origin"] != exact_origin for form in schema["forms"]): codes.append("EXTERNAL_FORM_ACTION")
+    if schema["base_count"]: codes.append("BASE_ELEMENT_REVIEW_REQUIRED")
+    if schema["formaction_count"]: codes.append("FORMACTION_REVIEW_REQUIRED")
+    if schema["nested_form"]: codes.append("NESTED_FORM_DETECTED")
+    if len(schema["forms"]) != 1: codes.append("MULTIPLE_FORMS_DETECTED")
+    if schema["malformed_form"]: codes.append("MALFORMED_FORM_STRUCTURE")
     if schema["iframe_count"]: codes.append("EXTERNAL_IFRAME")
     if schema["script_count"]: codes.append("SCRIPT_STRUCTURE_REVIEW_REQUIRED")
     if schema["redirect_unknown"]: codes.append("REDIRECT_STRUCTURE_UNKNOWN")
@@ -296,22 +314,60 @@ def build_site_intake(*,posting_url,resolved_application_url,fixture_root,fixtur
     known_structure=dict(known_structure or {})
     allowed_structure={"login_status":{"unknown","none","required"},"mfa_status":{"unknown","none","present"},"captcha_status":{"unknown","none","present"},"iframe_status":{"unknown","none","present"},"popup_status":{"unknown","none","present"},"redirect_status":{"unknown","none","present"},"attachment_status":{"unknown","unsupported","required"}}
     if any(key not in allowed_structure or value not in allowed_structure[key] for key,value in known_structure.items()): raise SiteIntakeError("KNOWN_STRUCTURE_INVALID")
-    if known_structure.get("mfa_status")=="present": codes.append("MFA_DETECTED")
-    if known_structure.get("captcha_status")=="present": codes.append("CAPTCHA_DETECTED")
-    if known_structure.get("iframe_status")=="present": codes.append("EXTERNAL_IFRAME")
-    if known_structure.get("popup_status") in {"unknown","present"}: codes.append("POPUP_STRUCTURE_UNKNOWN")
-    if known_structure.get("redirect_status") in {"unknown","present"}: codes.append("REDIRECT_STRUCTURE_UNKNOWN")
-    if known_structure.get("attachment_status")=="unknown": codes.append("ATTACHMENT_POLICY_UNKNOWN")
+    structure_risks = {
+        "login_status": {
+            "unknown": "LOGIN_STATUS_UNVERIFIED",
+            "required": "LOGIN_REQUIRED",
+        },
+        "mfa_status": {
+            "unknown": "MFA_STATUS_UNVERIFIED",
+            "present": "MFA_DETECTED",
+        },
+        "captcha_status": {
+            "unknown": "CAPTCHA_STATUS_UNVERIFIED",
+            "present": "CAPTCHA_DETECTED",
+        },
+        "iframe_status": {
+            "unknown": "IFRAME_STATUS_UNVERIFIED",
+            "present": "EXTERNAL_IFRAME",
+        },
+        "popup_status": {
+            "unknown": "POPUP_STRUCTURE_UNKNOWN",
+            "present": "POPUP_STRUCTURE_UNKNOWN",
+        },
+        "redirect_status": {
+            "unknown": "REDIRECT_STRUCTURE_UNKNOWN",
+            "present": "REDIRECT_STRUCTURE_UNKNOWN",
+        },
+        "attachment_status": {
+            "unknown": "ATTACHMENT_POLICY_UNKNOWN",
+            "required": "ATTACHMENT_REQUIRED",
+        },
+    }
+    for key, mappings in structure_risks.items():
+        code = mappings.get(known_structure.get(key, "unknown"))
+        if code:
+            codes.append(code)
     codes=sorted(set(codes)); sensitive="SENSITIVE_FIXTURE" in codes
     ready=bool(resource and schema and exact and family!="unknown" and not codes)
     status="read_only_contract_ready" if ready else "blocked_sensitive_fixture" if sensitive else "blocked_invalid_origin" if not exact else "manual_review_required"
     fixture_sha=resource.sha256 if resource else None; schema_sha=canonical_schema_sha256(schema) if schema else None
-    identity="|".join((family,exact or "",fixture_sha or "",schema_sha or "",str(CONTRACT_VERSION)))
-    intake_id="intake-"+sha256(identity.encode()).hexdigest()[:24]
-    record=SiteIntakeRecord(intake_id,family,discovery_platform_id,posting_meta.normalized_url if posting_meta else None,target.normalized_url if target else None,exact,target.normalized_host if target else None,resource.resource_id if resource else None,fixture_sha,schema_sha,known_structure.get("login_status","unknown"),known_structure.get("mfa_status","clear" if schema and "MFA_DETECTED" not in codes else "unknown"),known_structure.get("captcha_status","clear" if schema and "CAPTCHA_DETECTED" not in codes else "unknown"),known_structure.get("iframe_status","none" if schema and not schema["iframe_count"] else "unknown"),known_structure.get("popup_status","none" if schema else "unknown"),known_structure.get("redirect_status","unknown" if schema and schema["redirect_unknown"] else "none" if schema else "unknown"),known_structure.get("attachment_status","unsupported" if schema and not any(f["type"]=="file" for f in schema["fields"]) else "unknown"),"multistep" if schema and schema["page_steps"] else "single_page" if schema else "unknown","identified" if schema and any(b["role"]=="save" for b in schema["buttons"]) else "unknown","identified" if schema and len([b for b in schema["buttons"] if b["type"]=="submit"])==1 else "unknown",not ready,tuple(codes),status,created_at,CONTRACT_VERSION)
+    identity_payload = {
+        "platform_family": family,
+        "exact_origin": exact,
+        "fixture_sha256": fixture_sha,
+        "schema_sha256": schema_sha,
+        "validation_codes": codes,
+        "known_structure": {key: known_structure.get(key, "unknown") for key in sorted(allowed_structure)},
+        "contract_version": CONTRACT_VERSION,
+    }
+    identity = json.dumps(identity_payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    identity_sha = sha256(identity.encode()).hexdigest()
+    intake_id="intake-"+identity_sha[:24]
+    record=SiteIntakeRecord(intake_id,family,discovery_platform_id,posting_meta.normalized_url if posting_meta else None,target.normalized_url if target else None,exact,target.normalized_host if target else None,resource.resource_id if resource else None,fixture_sha,schema_sha,known_structure.get("login_status","unknown"),known_structure.get("mfa_status","unknown"),known_structure.get("captcha_status","unknown"),known_structure.get("iframe_status","unknown"),known_structure.get("popup_status","unknown"),known_structure.get("redirect_status","unknown"),known_structure.get("attachment_status","unknown"),"multistep" if schema and schema["page_steps"] else "single_page" if schema else "unknown","identified" if schema and any(b["role"]=="save" for b in schema["buttons"]) else "unknown","identified" if schema and len([b for b in schema["buttons"] if b["type"]=="submit"])==1 else "unknown",not ready,tuple(codes),status,created_at,CONTRACT_VERSION)
     if ready:
         site_id="site-"+sha256((family+"|"+exact).encode()).hexdigest()[:20]
-        contract=SiteReadOnlyContract(site_id,family,"contract-"+sha256(identity.encode()).hexdigest()[:24],CONTRACT_VERSION,exact,(urlsplit(target.normalized_url).path or "/",),fixture_sha,schema_sha,tuple(schema["page_steps"]),tuple(schema["fields"]),tuple(f["selector"] for f in schema["forms"] if f["selector"]),tuple(f["action_path"] for f in schema["forms"] if f["action_path"]),tuple(b["selector"] for b in schema["buttons"] if b["role"]=="save" and b["selector"]),tuple(b["selector"] for b in schema["buttons"] if b["role"]=="next" and b["selector"]),tuple(b["selector"] for b in schema["buttons"] if b["role"]=="previous" and b["selector"]),tuple(b["selector"] for b in schema["buttons"] if b["role"]=="preview" and b["selector"]),tuple(b["selector"] for b in schema["buttons"] if b["type"]=="submit" and b["selector"]),tuple(f["selector"] for f in schema["fields"] if f["type"]=="file" and f["selector"]),tuple(schema["iframe_origins"]),(),False,False,False,())
+        contract=SiteReadOnlyContract(site_id,family,"contract-"+identity_sha[:24],CONTRACT_VERSION,exact,(urlsplit(target.normalized_url).path or "/",),fixture_sha,schema_sha,tuple(schema["page_steps"]),tuple(schema["fields"]),tuple(f["selector"] for f in schema["forms"] if f["selector"]),tuple(f["action_path"] for f in schema["forms"] if f["action_path"]),tuple(b["selector"] for b in schema["buttons"] if b["role"]=="save" and b["selector"]),tuple(b["selector"] for b in schema["buttons"] if b["role"]=="next" and b["selector"]),tuple(b["selector"] for b in schema["buttons"] if b["role"]=="previous" and b["selector"]),tuple(b["selector"] for b in schema["buttons"] if b["role"]=="preview" and b["selector"]),tuple(b["selector"] for b in schema["buttons"] if b["type"]=="submit" and b["selector"]),tuple(f["selector"] for f in schema["fields"] if f["type"]=="file" and f["selector"]),tuple(schema["iframe_origins"]),(),False,False,False,())
     return SiteIntakeResult(record,contract,schema)
 
 @contextmanager

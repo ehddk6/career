@@ -12,6 +12,41 @@ from career_pipeline.site_intake import (
 
 ROOT = Path("tests/fixtures/site_intake")
 
+UNSAFE_STRUCTURE_CASES = (
+    ({}, "LOGIN_STATUS_UNVERIFIED"),
+    ({"login_status": "unknown"}, "LOGIN_STATUS_UNVERIFIED"),
+    ({"login_status": "required"}, "LOGIN_REQUIRED"),
+    ({"mfa_status": "unknown"}, "MFA_STATUS_UNVERIFIED"),
+    ({"mfa_status": "present"}, "MFA_DETECTED"),
+    ({"captcha_status": "unknown"}, "CAPTCHA_STATUS_UNVERIFIED"),
+    ({"captcha_status": "present"}, "CAPTCHA_DETECTED"),
+    ({"iframe_status": "unknown"}, "IFRAME_STATUS_UNVERIFIED"),
+    ({"iframe_status": "present"}, "EXTERNAL_IFRAME"),
+    ({"popup_status": "unknown"}, "POPUP_STRUCTURE_UNKNOWN"),
+    ({"popup_status": "present"}, "POPUP_STRUCTURE_UNKNOWN"),
+    ({"redirect_status": "unknown"}, "REDIRECT_STRUCTURE_UNKNOWN"),
+    ({"redirect_status": "present"}, "REDIRECT_STRUCTURE_UNKNOWN"),
+    ({"attachment_status": "unknown"}, "ATTACHMENT_POLICY_UNKNOWN"),
+    ({"attachment_status": "required"}, "ATTACHMENT_REQUIRED"),
+)
+
+SAFE_STRUCTURE = {
+    "login_status": "none", "mfa_status": "none", "captcha_status": "none",
+    "iframe_status": "none", "popup_status": "none", "redirect_status": "none",
+    "attachment_status": "unsupported",
+}
+
+SAFE_FORM = """<form id="application" action="https://company.applyin.co.kr/submit" method="post"><button id="save" type="button" data-role="save">Save</button><button id="submit" type="submit">Submit</button></form>"""
+
+STRUCTURE_CASES = (
+    ("<base href='https://other.invalid/'>" + SAFE_FORM, "BASE_ELEMENT_REVIEW_REQUIRED"),
+    (SAFE_FORM.replace('id="submit"', 'id="submit" formaction="/other"'), "FORMACTION_REVIEW_REQUIRED"),
+    ("<form action='https://company.applyin.co.kr/submit'><form></form></form>", "NESTED_FORM_DETECTED"),
+    ("<form action='https://company.applyin.co.kr/one'></form><form action='https://company.applyin.co.kr/two'></form>", "MULTIPLE_FORMS_DETECTED"),
+    ("<form action='https://company.applyin.co.kr/submit'>", "MALFORMED_FORM_STRUCTURE"),
+    ("<form action='https://company.applyin.co.kr/submit'/><button id='save' type='button' data-role='save'>Save</button><button id='submit' type='submit'>Submit</button>", "MALFORMED_FORM_STRUCTURE"),
+)
+
 def test_applyin_url_is_classified_without_network_and_query_is_removed():
     result = validate_url_metadata("https://company.applyin.co.kr/apply?view=1#top")
     assert result.platform_family == "saramin_applyin"
@@ -117,9 +152,73 @@ def test_safe_fixture_produces_stable_read_only_contract():
     schema = parse_read_only_schema(first.html, "https://company.applyin.co.kr:443")
     reordered = first.html.replace('id="applicant_name" name="applicant_name" type="text" required maxlength="40"', 'maxlength="40" required type="text" name="applicant_name" id="applicant_name"')
     assert canonical_schema_sha256(schema) == canonical_schema_sha256(parse_read_only_schema(reordered, "https://company.applyin.co.kr:443"))
-    result = build_site_intake(posting_url="https://www.saramin.co.kr/jobs", resolved_application_url="https://company.applyin.co.kr/apply", fixture_root=ROOT, fixture_resource_id="safe_single_page.html", discovery_platform_id="saramin_direct", created_at="2026-07-12T12:00:00+09:00")
+    result = build_site_intake(posting_url="https://www.saramin.co.kr/jobs", resolved_application_url="https://company.applyin.co.kr/apply", fixture_root=ROOT, fixture_resource_id="safe_single_page.html", discovery_platform_id="saramin_direct", created_at="2026-07-12T12:00:00+09:00", known_structure=SAFE_STRUCTURE)
     assert result.record.contract_status == "read_only_contract_ready"
     assert result.contract and result.contract.mutation_enabled is False and result.contract.live_enabled is False
+
+@pytest.mark.parametrize(("structure_override", "expected_code"), UNSAFE_STRUCTURE_CASES)
+def test_every_unverified_structure_status_blocks_ready(tmp_path, structure_override, expected_code):
+    known_structure = {} if not structure_override else {**SAFE_STRUCTURE, **structure_override}
+    result = build_site_intake(
+        posting_url=None,
+        resolved_application_url="https://company.applyin.co.kr/apply",
+        fixture_root=ROOT,
+        fixture_resource_id="safe_single_page.html",
+        discovery_platform_id=None,
+        created_at="2026-07-12T12:00:00+09:00",
+        known_structure=known_structure,
+    )
+    assert expected_code in result.record.validation_codes
+    assert result.record.manual_review_required is True
+    assert result.contract is None
+
+def test_review_evidence_changes_intake_identity(monkeypatch):
+    kwargs = {
+        "posting_url": None,
+        "resolved_application_url": "https://company.applyin.co.kr/apply",
+        "fixture_root": ROOT,
+        "fixture_resource_id": "safe_single_page.html",
+        "discovery_platform_id": None,
+        "created_at": "2026-07-12T12:00:00+09:00",
+        "known_structure": SAFE_STRUCTURE,
+    }
+    first = build_site_intake(**kwargs)
+    second = build_site_intake(**kwargs)
+    assert first.record.intake_id == second.record.intake_id
+
+    login_required = build_site_intake(
+        **{**kwargs, "known_structure": {**SAFE_STRUCTURE, "login_status": "required"}}
+    )
+    assert login_required.record.intake_id != first.record.intake_id
+
+    monkeypatch.setattr(
+        "career_pipeline.site_intake._risks",
+        lambda *_: ("MANUAL_FIELD_MAPPING_REQUIRED",),
+    )
+    changed_codes = build_site_intake(**kwargs)
+    assert changed_codes.record.intake_id not in {
+        first.record.intake_id,
+        login_required.record.intake_id,
+    }
+
+@pytest.mark.parametrize(("html", "expected_code"), STRUCTURE_CASES)
+def test_unsupported_html_structures_require_manual_review(tmp_path, html, expected_code):
+    def build_inline_intake(tmp_path, html):
+        (tmp_path / "case.html").write_text(html, encoding="utf-8")
+        return build_site_intake(
+            posting_url=None,
+            resolved_application_url="https://company.applyin.co.kr/apply",
+            fixture_root=tmp_path,
+            fixture_resource_id="case.html",
+            discovery_platform_id=None,
+            created_at="2026-07-12T12:00:00+09:00",
+            known_structure=SAFE_STRUCTURE,
+        )
+
+    result = build_inline_intake(tmp_path, html)
+    assert expected_code in result.record.validation_codes
+    assert result.record.manual_review_required is True
+    assert result.contract is None
 
 @pytest.mark.parametrize("old,new", [
     ('required maxlength="40"','maxlength="40"'),
