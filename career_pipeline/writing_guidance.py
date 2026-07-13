@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from datetime import datetime
+import os
 from pathlib import Path
 
 
@@ -34,12 +35,18 @@ def _latest_frame_dir(root: Path) -> Path | None:
     return sorted(candidates, key=lambda path: (path.name, path.stat().st_mtime), reverse=True)[0]
 
 
-def _existing_source_files(source_dir: Path) -> list[dict[str, str]]:
+def _existing_source_files(source_dir: Path, root: Path) -> list[dict[str, str]]:
     files: list[dict[str, str]] = []
     for name, role in SOURCE_FILE_ROLES.items():
         path = source_dir / name
         if path.exists():
-            files.append({"name": name, "path": str(path), "role": role})
+            files.append(
+                {
+                    "name": name,
+                    "path": path.relative_to(root).as_posix(),
+                    "role": role,
+                }
+            )
     return files
 
 
@@ -113,6 +120,84 @@ def _render_guidance(source_dir: Path, source_files: list[dict[str, str]]) -> st
     return "\n".join(lines)
 
 
+def _latest_mtime(paths: list[Path]) -> float | None:
+    values: list[float] = []
+    for path in paths:
+        try:
+            if path.is_dir():
+                values.extend(
+                    item.stat().st_mtime
+                    for item in path.iterdir()
+                    if item.is_file()
+                )
+            elif path.is_file():
+                values.append(path.stat().st_mtime)
+        except OSError:
+            continue
+    return max(values) if values else None
+
+
+def guidance_freshness(source_dir: Path) -> dict[str, str | None]:
+    """Compare an imported strategy snapshot with its local source project."""
+
+    configured = os.environ.get("CAREER_YOUTUBE_GUIDANCE_ROOT", "").strip()
+    external_root = (
+        Path(configured).expanduser()
+        if configured
+        else Path.home() / "OneDrive" / "\ubb38\uc11c" / "\uc790\uc18c\uc11c \uc720\ud29c\ube0c \uc815\ubcf4"
+    )
+    imported_latest = _latest_mtime([source_dir])
+    external_latest = _latest_mtime(
+        [
+            external_root / "captures_manifest.csv",
+            external_root / "playlist.json",
+            external_root / "progress.json",
+            external_root / "analyses",
+        ]
+    )
+    if external_latest is None:
+        status = "external_source_unavailable"
+    elif imported_latest is None:
+        status = "imported_snapshot_unavailable"
+    elif external_latest > imported_latest:
+        status = "stale"
+    else:
+        status = "fresh"
+    return {
+        "status": status,
+        "external_source_latest_at": (
+            datetime.fromtimestamp(external_latest).astimezone().isoformat()
+            if external_latest is not None
+            else None
+        ),
+        "imported_snapshot_latest_at": (
+            datetime.fromtimestamp(imported_latest).astimezone().isoformat()
+            if imported_latest is not None
+            else None
+        ),
+    }
+
+
+def workspace_guidance_status(root: Path) -> dict[str, object]:
+    """Return strategy snapshot availability and freshness without copying content."""
+
+    source_dir = _latest_frame_dir(root)
+    if source_dir is None:
+        return {
+            "status": "missing",
+            "kind": GUIDANCE_KIND,
+            "use_policy": GUIDANCE_POLICY,
+            "freshness": {"status": "imported_snapshot_unavailable"},
+        }
+    return {
+        "status": "available",
+        "kind": GUIDANCE_KIND,
+        "use_policy": GUIDANCE_POLICY,
+        "source_dir": source_dir.relative_to(root).as_posix(),
+        "freshness": guidance_freshness(source_dir),
+    }
+
+
 def attach_writing_guidance(root: Path, run_dir: Path, state: dict) -> dict:
     """Attach strategy-only YouTube frame guidance metadata to a run state."""
 
@@ -126,21 +211,26 @@ def attach_writing_guidance(root: Path, run_dir: Path, state: dict) -> dict:
         state["writing_guidance"] = metadata
         return metadata
 
-    source_files = _existing_source_files(source_dir)
+    source_files = _existing_source_files(source_dir, root)
     missing_files = [
         name for name in SOURCE_FILE_ROLES if not (source_dir / name).exists()
     ]
     artifact = run_dir / GUIDANCE_ARTIFACT
-    artifact.write_text(_render_guidance(source_dir, source_files), encoding="utf-8")
+    source_label = source_dir.relative_to(root).as_posix()
+    rendered = _render_guidance(source_dir, source_files).replace(
+        str(source_dir), source_label
+    )
+    artifact.write_text(rendered, encoding="utf-8")
 
     metadata.update(
         {
             "status": "available",
-            "source_dir": str(source_dir),
-            "artifact": str(artifact),
+            "source_dir": source_dir.relative_to(root).as_posix(),
+            "artifact": artifact.relative_to(root).as_posix(),
             "source_files": source_files,
             "missing_files": missing_files,
             "generated_at": datetime.now().isoformat(),
+            "freshness": guidance_freshness(source_dir),
         }
     )
     state["writing_guidance"] = metadata

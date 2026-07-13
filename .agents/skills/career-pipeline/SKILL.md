@@ -151,6 +151,19 @@ Patina는 기본 finalize에서 실행하지 않는다. 기존 호환 옵션과 
 
 `.career_profile/`, `Chrome 비밀번호.csv`, `학교성적/`, `자격증/`, `경력증명서/`는 기본 제외한다. 개인정보와 취업 자료 본문을 URL·검색어·쿠키·외부 폼으로 전송하지 않는다. V2 답변은 승인된 claim과 공식 근거만 사용한다. 문체 표본과 유튜브 프레임 자료는 전략 자료일 뿐 사실 근거가 아니다.
 
+## 실제 지원 품질 판정
+
+과거 자기소개서의 `legacy_internal_score`나 감사 점수는 합격 가능성 점수가 아니다. 포트폴리오의 `quality_readiness`는 다음 6개 게이트를 각각 기록한다.
+
+1. 확정 경험 원장
+2. 7일 이내 다시 확인한 활성 공식 공고
+3. `eligible`로 확정된 지원 자격
+4. 완료된 V2 공식 회사·직무 조사
+5. 최종 manifest와 감사를 통과한 선택 자기소개서
+6. 최종 자기소개서 claim과 연결되어 감사를 통과한 면접팩
+
+여섯 게이트가 모두 통과한 경우에만 `ready`다. 활성 공고는 유효하지만 나머지 검토가 남으면 `review_required`, 공고가 없거나 오래됐으면 `not_ready`다. 차단 사유는 `blocker_codes`와 설명으로 남긴다. 유튜브 작성전략은 `writing_guidance.freshness`로 원본 대비 최신성을 확인하되 계속 전략 자료로만 사용한다.
+
 ## Phase 6 platform boundary
 
 공고 discovery platform과 application family를 `career_pipeline/platform_catalog.py`에서 분리한다. Applyin 호스트 suffix는 분류에만 사용하며 실행에는 exact HTTPS origin을 요구한다. `jobkorea_jrs_fixture`와 `saramin_applyin_fixture`는 합성 로컬 HTML 및 mock page 전용이다. `live_enabled=false` 상태에서는 실제 사이트 접속, 로그인, 업로드, 클릭, 제출을 시도하지 않는다. schema drift, CAPTCHA, MFA, script, iframe, 미등록 플랫폼 또는 권한 불일치는 `manual_review` 또는 fail-closed로 처리한다.

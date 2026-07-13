@@ -196,7 +196,7 @@ def test_quality_audit_scores_submission_ready_run(tmp_path: Path):
     audit = run_quality_audit(tmp_path)
 
     assert audit["score"] >= 95
-    assert audit["recommendation"] == "제출권장"
+    assert audit["recommendation"] == "내부검증 우수"
     assert (tmp_path / "11_최종품질감사.json").exists()
     assert (tmp_path / "11_최종품질감사.md").exists()
 

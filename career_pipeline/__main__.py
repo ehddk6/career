@@ -1363,7 +1363,10 @@ def main(argv: Sequence[str] | None = None) -> int:
         except (OSError, ValueError) as error:
             print(error)
             return 4
-        print(f"{audit['score']}/100 {audit['recommendation']}")
+        print(
+            f"내부검증 {audit['internal_validation_score']}/100 "
+            f"{audit['recommendation']} · 제출 상태는 portfolio 품질 게이트에서 별도 확인"
+        )
         return 0 if int(audit["score"]) >= 90 else 2
     if args.command == "profile":
         if args.profile_command == "build":

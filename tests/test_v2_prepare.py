@@ -174,7 +174,7 @@ def test_v2_prepare_writes_confirmed_profile_posting_and_matching_artifacts(tmp_
     assert guidance["kind"] == "youtube_frame_strategy"
     assert guidance["use_policy"] == "strategy_only_not_factual_evidence"
     guidance_path = run_dir / "05_작성가이드_유튜브프레임.md"
-    assert guidance["artifact"] == str(guidance_path)
+    assert guidance["artifact"] == guidance_path.relative_to(tmp_path).as_posix()
     assert guidance_path.exists()
     guidance_text = guidance_path.read_text(encoding="utf-8")
     assert "공식 근거 또는 경험 사실 근거로 사용하지 않습니다." in guidance_text

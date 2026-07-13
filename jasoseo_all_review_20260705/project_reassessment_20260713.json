@@ -1,0 +1,1387 @@
+{
+  "generated_at": "2026-07-13T13:32:15",
+  "assessment_date": "2026-07-13",
+  "scope": "workspace-wide job-search project reassessment",
+  "profile": {
+    "status": "confirmed",
+    "path": ".career_profile\\experience_ledger.json"
+  },
+  "pipeline_runs": {
+    "total_runs": 26,
+    "status_counts": {
+      "blocked": 7,
+      "unknown": 8,
+      "complete": 3,
+      "blocked_conflict": 3,
+      "blocked_posting": 3,
+      "blocked_profile": 1,
+      "ready_for_research": 1
+    },
+    "complete_runs": [
+      {
+        "run": "hug-acceptance-20260621-120711-432130",
+        "status": "complete",
+        "target": "HUG 금융·기금(강원)",
+        "quality_mode": "legacy",
+        "official_research_present": false,
+        "interview_pack_present": true,
+        "final_manifest_present": false
+      },
+      {
+        "run": "kodit-2026-h2-intern-final-20260711-091958-146317",
+        "status": "complete",
+        "target": "신용보증기금 체험형 청년인턴1(보증)",
+        "quality_mode": "v2",
+        "official_research_present": true,
+        "interview_pack_present": true,
+        "final_manifest_present": false
+      },
+      {
+        "run": "kodit-2026-h2-quality-final-20260713",
+        "status": "complete",
+        "target": "신용보증기금 체험형 청년인턴1(보증)",
+        "quality_mode": "v2",
+        "official_research_present": true,
+        "interview_pack_present": true,
+        "final_manifest_present": true
+      }
+    ],
+    "v2_complete_count": 2,
+    "legacy_complete_count": 1,
+    "official_research_complete_count": 2,
+    "interview_pack_complete_count": 2,
+    "final_manifest_complete_count": 1
+  },
+  "cover_letter_corpus": {
+    "candidate_count": 96,
+    "source_counts": {
+      "submission_ready_re_evaluation_20260705.json": 42,
+      "supplemental_submission_ready_re_evaluation_20260705.json": 9,
+      "legacy_submission_ready_re_evaluation_20260705.json": 45
+    },
+    "recommendation_counts": {
+      "제출권장": 96
+    },
+    "organization_counts": {
+      "신용보증기금": 8,
+      "지역농협": 7,
+      "국민연금공단": 6,
+      "우리은행": 5,
+      "주택도시보증공사": 5,
+      "서울교통공사": 5,
+      "IBK기업은행": 4,
+      "하나은행": 4,
+      "NH농협은행": 3,
+      "사회보장정보원": 3,
+      "국민건강보험공단": 2,
+      "서울특별시농수산식품공사": 2,
+      "하나저축은행": 2,
+      "한국도로공사서비스": 2,
+      "KB국민은행": 2,
+      "새마을금고중앙회": 2,
+      "퀵실버록시": 2,
+      "한국공정거래조정원": 1,
+      "한국주택금융공사": 1,
+      "건강보험심사평가원": 1,
+      "신한은행": 1,
+      "흥국생명": 1,
+      "해양박물관": 1,
+      "한국수출입은행": 1,
+      "서민금융진흥원": 1,
+      "한국서부발전": 1,
+      "한국인터넷진흥원": 1,
+      "인천공항시설관리": 1,
+      "기술보증기금": 1,
+      "한국마사회": 1,
+      "NH농협생명": 1,
+      "한화생명": 1,
+      "KB증권": 1,
+      "동양생명보험": 1,
+      "키움증권": 1,
+      "수협은행": 1,
+      "서울대학교병원": 1,
+      "농협네트웍스": 1,
+      "삼성생명": 1,
+      "한국장학재단": 1,
+      "강남구 보건소": 1,
+      "경기도주택도시공사": 1,
+      "새마을금고": 1,
+      "성동구도시관리공단": 1,
+      "신용회복위원회": 1,
+      "신협": 1,
+      "은행": 1,
+      "한국토지주택공사": 1,
+      "쿠팡": 1
+    },
+    "score_summary": {
+      "count": 96,
+      "minimum": 100.0,
+      "maximum": 100.0,
+      "average": 100.0,
+      "unique_score_count": 1,
+      "uniform_scores": true
+    }
+  },
+  "legacy_score_warning": "과거 내부 점수는 후보 이력 보존용이며 현재 제출 우선순위에 사용하지 않습니다.",
+  "portfolio": {
+    "confirmed_profile": true,
+    "total_organizations": 49,
+    "active_posting_count": 1,
+    "ready_count": 0,
+    "review_required_count": 1,
+    "posting_status_counts": {
+      "pending_official_posting": 48,
+      "active": 1
+    },
+    "block_reasons": [
+      {
+        "organization": "IBK기업은행",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "KB국민은행",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "KB증권",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "NH농협생명",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "NH농협은행",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "강남구 보건소",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "건강보험심사평가원",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "경기도주택도시공사",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "국민건강보험공단",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "국민연금공단",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "기술보증기금",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "농협네트웍스",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "동양생명보험",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "사회보장정보원",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "삼성생명",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "새마을금고",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "새마을금고중앙회",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "서민금융진흥원",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "서울교통공사",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "서울대학교병원",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "서울특별시농수산식품공사",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "성동구도시관리공단",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "수협은행",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "신용보증기금",
+        "reasons": "지원 자격이 eligible로 확정되지 않음"
+      },
+      {
+        "organization": "신용회복위원회",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "신한은행",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "신협",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "우리은행",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "은행",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "인천공항시설관리",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "주택도시보증공사",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "지역농협",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "쿠팡",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "퀵실버록시",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "키움증권",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "하나은행",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "하나저축은행",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "한국공정거래조정원",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "한국도로공사서비스",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "한국마사회",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "한국서부발전",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "한국수출입은행",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "한국인터넷진흥원",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "한국장학재단",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "한국주택금융공사",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "한국토지주택공사",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "한화생명",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "해양박물관",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      },
+      {
+        "organization": "흥국생명",
+        "reasons": "지원 자격이 eligible로 확정되지 않음, 최종 품질 감사 미통과, 공식 공고 URL 없음 또는 형식 오류, 공고 확인일 없음 또는 형식 오류, 공고 마감일 없음 또는 형식 오류, 활성 공고 아님, 선택 자기소개서 없음, 안전한 V2 실행 없음"
+      }
+    ],
+    "applications": [
+      {
+        "organization": "IBK기업은행",
+        "candidate_drafts": 4,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "KB국민은행",
+        "candidate_drafts": 2,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "KB증권",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "NH농협생명",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "NH농협은행",
+        "candidate_drafts": 3,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "강남구 보건소",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "건강보험심사평가원",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "경기도주택도시공사",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "국민건강보험공단",
+        "candidate_drafts": 2,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "국민연금공단",
+        "candidate_drafts": 6,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "기술보증기금",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "농협네트웍스",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "동양생명보험",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "사회보장정보원",
+        "candidate_drafts": 3,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "삼성생명",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "새마을금고",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "새마을금고중앙회",
+        "candidate_drafts": 2,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "서민금융진흥원",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "서울교통공사",
+        "candidate_drafts": 5,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "서울대학교병원",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "서울특별시농수산식품공사",
+        "candidate_drafts": 2,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "성동구도시관리공단",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "수협은행",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "신용보증기금",
+        "candidate_drafts": 8,
+        "submission_status": "review_required",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED"
+        ]
+      },
+      {
+        "organization": "신용회복위원회",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "신한은행",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "신협",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "우리은행",
+        "candidate_drafts": 5,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "은행",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "인천공항시설관리",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "주택도시보증공사",
+        "candidate_drafts": 5,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "지역농협",
+        "candidate_drafts": 7,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "쿠팡",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "퀵실버록시",
+        "candidate_drafts": 2,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "키움증권",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "하나은행",
+        "candidate_drafts": 4,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "하나저축은행",
+        "candidate_drafts": 2,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "한국공정거래조정원",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "한국도로공사서비스",
+        "candidate_drafts": 2,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "한국마사회",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "한국서부발전",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "한국수출입은행",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "한국인터넷진흥원",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "한국장학재단",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "한국주택금융공사",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "한국토지주택공사",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "한화생명",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "해양박물관",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      },
+      {
+        "organization": "흥국생명",
+        "candidate_drafts": 1,
+        "submission_status": "not_ready",
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ]
+      }
+    ]
+  },
+  "writing_guidance": {
+    "status": "available",
+    "kind": "youtube_frame_strategy",
+    "use_policy": "strategy_only_not_factual_evidence",
+    "source_dir": "자료조사/자소서_유튜브_프레임분석_2026-07-03",
+    "freshness": {
+      "status": "fresh",
+      "external_source_latest_at": "2026-07-02T23:16:47.628036+09:00",
+      "imported_snapshot_latest_at": "2026-07-03T08:12:41.581765+09:00"
+    }
+  },
+  "application_queue": [
+    {
+      "organization": "IBK기업은행",
+      "candidate_drafts": 4,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "KB국민은행",
+      "candidate_drafts": 2,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "KB증권",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "NH농협생명",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "NH농협은행",
+      "candidate_drafts": 3,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "강남구 보건소",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "건강보험심사평가원",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "경기도주택도시공사",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "국민건강보험공단",
+      "candidate_drafts": 2,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "국민연금공단",
+      "candidate_drafts": 6,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "기술보증기금",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "농협네트웍스",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "동양생명보험",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "사회보장정보원",
+      "candidate_drafts": 3,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "삼성생명",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "새마을금고",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "새마을금고중앙회",
+      "candidate_drafts": 2,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "서민금융진흥원",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "서울교통공사",
+      "candidate_drafts": 5,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "서울대학교병원",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "서울특별시농수산식품공사",
+      "candidate_drafts": 2,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "성동구도시관리공단",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "수협은행",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "신용보증기금",
+      "candidate_drafts": 8,
+      "status": "review_required",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "신용회복위원회",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "신한은행",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "신협",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "우리은행",
+      "candidate_drafts": 5,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "은행",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "인천공항시설관리",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "주택도시보증공사",
+      "candidate_drafts": 5,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "지역농협",
+      "candidate_drafts": 7,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "쿠팡",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "퀵실버록시",
+      "candidate_drafts": 2,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "키움증권",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "하나은행",
+      "candidate_drafts": 4,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "하나저축은행",
+      "candidate_drafts": 2,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "한국공정거래조정원",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "한국도로공사서비스",
+      "candidate_drafts": 2,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "한국마사회",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "한국서부발전",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "한국수출입은행",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "한국인터넷진흥원",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "한국장학재단",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "한국주택금융공사",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "한국토지주택공사",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "한화생명",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "해양박물관",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    },
+    {
+      "organization": "흥국생명",
+      "candidate_drafts": 1,
+      "status": "not_ready",
+      "next_gate": "ELIGIBILITY_NOT_CONFIRMED"
+    }
+  ],
+  "priority_actions": [
+    {
+      "priority": "P0",
+      "area": "활성 지원 검토",
+      "finding": "활성 공고 1개가 일부 품질 게이트에서 검토 대기 중입니다.",
+      "action": "지원 상태판의 품질 차단 코드 중 사용자 확인이 필요한 자격 조건부터 확정합니다."
+    },
+    {
+      "priority": "P1",
+      "area": "지원 전략",
+      "finding": "기존 후보는 과거 공고 기반 자료가 섞여 있어 현재 접수 중인 채용과 직접 연결되지 않습니다.",
+      "action": "이번 주 공고별로 지원 여부, 마감일, 직무, 사용할 초안을 한 표로 관리합니다."
+    }
+  ],
+  "verification_boundary": "이 보고서는 로컬 작업공간의 파일과 실행 기록을 평가합니다. 현재 접수 중인 채용공고, 마감일, 최신 기업 정보는 별도 공식 출처 확인이 필요합니다."
+}

@@ -38,16 +38,35 @@ def _sentences(text: str) -> list[str]:
     return chunks or ([text.strip()] if text.strip() else [])
 
 
+def _has_consecutive_repeat(values: list[str | None], minimum: int = 3) -> bool:
+    previous: str | None = None
+    run = 0
+    for value in values:
+        if value is not None and value == previous:
+            run += 1
+        elif value is not None:
+            previous = value
+            run = 1
+        else:
+            previous = None
+            run = 0
+        if run >= minimum:
+            return True
+    return False
+
+
 def diagnose_text(text: str, question_index: int = 0) -> StyleDiagnostics:
     sentences = _sentences(text)
-    endings = [match.group(1) for sentence in sentences if (match := _CLOSING.search(sentence))]
+    endings = [
+        match.group(1) if (match := _CLOSING.search(sentence)) else None
+        for sentence in sentences
+    ]
     starts = [match.group(1).strip() for sentence in sentences if (match := _START.search(sentence))]
     lengths = [len(sentence.replace(" ", "")) for sentence in sentences]
     reasons: list[str] = []
     score = 0
 
-    ending_counts = Counter(endings)
-    if any(count >= 3 for count in ending_counts.values()):
+    if _has_consecutive_repeat(endings):
         reasons.append("같은 종결 표현 3회 이상 반복")
         score += 2
     start_counts = Counter(starts)

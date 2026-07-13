@@ -460,9 +460,9 @@ def run_quality_audit(run_dir: Path) -> dict[str, Any]:
     style_score, style_issues, style_meta = _style_score(run_dir, state)
     total = cover_score + research_score + interview_score + style_score
     recommendation = (
-        "제출권장"
+        "내부검증 우수"
         if total >= 95
-        else "보완 후 제출권장" if total >= 90 else "보완 필요"
+        else "내부검증 통과" if total >= 90 else "내부검증 보완 필요"
     )
     issues = artifact_issues + cover_issues + research_issues + interview_issues + style_issues
     quality_gate = "pass" if not any(item.severity == "high" for item in issues) else "fail"

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-11T15:42:43",
+  "generated_at": "2026-07-13T13:32:15",
   "confirmed_profile": true,
   "active_posting_count": 1,
   "applications": [
@@ -39,6 +39,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -67,6 +109,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -90,6 +174,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -113,6 +239,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -146,6 +314,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -169,6 +379,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -192,6 +444,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -215,6 +509,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -243,6 +579,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -291,6 +669,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -314,6 +734,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -337,6 +799,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -360,6 +864,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -393,6 +939,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -416,6 +1004,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -439,6 +1069,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -467,6 +1139,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -490,6 +1204,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -533,6 +1289,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -556,6 +1354,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -584,6 +1424,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -607,6 +1489,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -630,6 +1554,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -682,13 +1648,69 @@
       "posting_status": "active",
       "is_active": true,
       "deadline": "2026-07-23T16:00:00+09:00",
-      "last_checked": "2026-07-11",
-      "selected_draft": "jasoseo_all_review_20260705/submission_ready_drafts_docx/27_새로운 자기소개서_25-11-29_신용보증기금 체험형 청년인턴1 (보증)_개선안.docx",
-      "v2_run_dir": "career_runs/kodit-2026-h2-intern-final-20260711-091958-146317",
+      "last_checked": "2026-07-13",
+      "selected_draft": "career_runs/kodit-2026-h2-quality-final-20260713/06_자기소개서.docx",
+      "v2_run_dir": "career_runs/kodit-2026-h2-quality-final-20260713",
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
-      "submission_status": "not_ready"
+      "quality_readiness": {
+        "status": "review_required",
+        "dimensions": {
+          "profile": true,
+          "posting": true,
+          "eligibility": false,
+          "research": true,
+          "cover_letter": true,
+          "interview": true
+        },
+        "passed_gate_count": 5,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "2026-07-13",
+          "deadline": "2026-07-23T16:00:00+09:00",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "career_runs/kodit-2026-h2-quality-final-20260713",
+          "selected_draft": "career_runs/kodit-2026-h2-quality-final-20260713/06_자기소개서.docx"
+        },
+        "selected_artifact_quality": {
+          "metric": "internal_validation_not_hire_probability",
+          "internal_validation_score": 99,
+          "quality_gate": "pass",
+          "human_review_recommended": false,
+          "question_score_min": 93,
+          "question_score_max": 100,
+          "sections": {
+            "cover_letter": {
+              "score": 39,
+              "max": 40
+            },
+            "research": {
+              "score": 25,
+              "max": 25
+            },
+            "interview": {
+              "score": 20,
+              "max": 20
+            },
+            "style_safety": {
+              "score": 15,
+              "max": 15,
+              "voice_sample_status": "valid"
+            }
+          },
+          "issue_codes": [],
+          "final_manifest_sha256": "137ab72da624eef650f3fda7204df38c410117d687fa66d9e56c897febaa3e25"
+        }
+      },
+      "submission_status": "review_required"
     },
     {
       "organization": "신용회복위원회",
@@ -711,6 +1733,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -734,6 +1798,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -757,6 +1863,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -800,6 +1948,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -823,6 +2013,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -846,6 +2078,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -889,6 +2163,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -942,6 +2258,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -965,6 +2323,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -993,6 +2393,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -1016,6 +2458,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -1054,6 +2538,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -1082,6 +2608,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -1105,6 +2673,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -1133,6 +2743,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -1156,6 +2808,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -1179,6 +2873,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -1202,6 +2938,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -1225,6 +3003,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -1248,6 +3068,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -1271,6 +3133,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -1294,6 +3198,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -1317,6 +3263,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -1340,6 +3328,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     },
     {
@@ -1363,6 +3393,48 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "quality_readiness": {
+        "status": "not_ready",
+        "dimensions": {
+          "profile": true,
+          "posting": false,
+          "eligibility": false,
+          "research": false,
+          "cover_letter": false,
+          "interview": false
+        },
+        "passed_gate_count": 1,
+        "total_gate_count": 6,
+        "blocker_codes": [
+          "ELIGIBILITY_NOT_CONFIRMED",
+          "FINAL_AUDIT_NOT_PASSED",
+          "OFFICIAL_POSTING_URL_MISSING_OR_INVALID",
+          "POSTING_CHECK_DATE_MISSING_OR_INVALID",
+          "POSTING_DEADLINE_MISSING_OR_INVALID",
+          "POSTING_NOT_ACTIVE",
+          "SELECTED_DRAFT_MISSING",
+          "V2_RUN_MISSING_OR_UNSAFE"
+        ],
+        "blocker_messages": [
+          "지원 자격이 eligible로 확정되지 않음",
+          "최종 품질 감사 미통과",
+          "공식 공고 URL 없음 또는 형식 오류",
+          "공고 확인일 없음 또는 형식 오류",
+          "공고 마감일 없음 또는 형식 오류",
+          "활성 공고 아님",
+          "선택 자기소개서 없음",
+          "안전한 V2 실행 없음"
+        ],
+        "posting_freshness_days": 7,
+        "evidence": {
+          "posting_checked_at": "",
+          "deadline": "",
+          "eligibility_status": "manual_review",
+          "v2_run_dir": "",
+          "selected_draft": ""
+        },
+        "selected_artifact_quality": null
+      },
       "submission_status": "not_ready"
     }
   ]
