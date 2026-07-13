@@ -30,3 +30,12 @@ Blocked fixtures and URLs return a nonzero exit status. CLI output never include
 - `blocked_invalid_origin`: exact application origin is unresolved or invalid.
 
 Before any future fill-only adapter is considered, a person must confirm the live origin, application path, form steps, login, MFA, CAPTCHA, iframe, redirect, attachment policy, save/submit controls, and the site's automation terms.
+## M5 status relationship
+
+M5 status is separate from site intake. `offline-acceptance` uses the existing
+clean synthetic fixture only and reports its normal result as exit `3`
+(`external_only_blocked`). It never accepts fixture HTML or a scenario option,
+and it never turns a read-only intake contract into live execution authority.
+`status --input <relative-json>` reads a strict local readiness or M5 envelope
+without fetching a URL, launching a browser, uploading, clicking, or
+submitting.

@@ -5,6 +5,19 @@ description: 취업 자료에서 사용자 승인 경험 원장을 만들고 공
 
 # Career Pipeline
 
+## M5 local operational gate
+
+Use `python -m career_pipeline offline-acceptance` only with explicit local
+synthetic inputs: `--workspace`, timezone-aware `--at`,
+`--site-valid-until`, and a lowercase test-evidence SHA-256. It may emit human
+or canonical JSON output; `--output` is JSON-only. The normal result is exit
+`3`, `external_only_blocked`: local synthetic acceptance passed, external
+inputs are blocked, live execution is disabled, and submission was not
+attempted. Use `python -m career_pipeline status --input <relative-json>` to
+read a strict local readiness document or M5 envelope. Do not add or invoke
+browser, network, credential, real-PII, upload, click, or submit behavior for
+these commands.
+
 V2는 승인된 경험과 공식 공고만 제출 답변의 근거로 사용한다. 자동 추출된 `proposed` 값은 사용자가 확인하기 전까지 확정하지 않는다.
 
 ## V2 실행 순서

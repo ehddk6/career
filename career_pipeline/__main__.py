@@ -6,6 +6,8 @@ from hashlib import sha256
 import json
 import os
 from pathlib import Path, PureWindowsPath
+import re
+import stat
 import sys
 from typing import Sequence
 
@@ -79,6 +81,22 @@ from .application_execution import (
     write_workflow_artifact,
 )
 from .registry import PostingRegistry, RegistryError, queue_item_to_dict
+from .origin_policy import OriginPolicyError, normalize_origin
+from .offline_acceptance import (
+    AcceptanceInputs,
+    OfflineAcceptanceError,
+    OfflineAcceptanceBlockedResult,
+    offline_acceptance_to_dict,
+    run_offline_acceptance,
+)
+from .readiness import (
+    ReadinessAxisName,
+    ReadinessContractError,
+    RequirementClassification,
+    canonical_readiness_json,
+    readiness_report_from_dict,
+    readiness_report_sha256,
+)
 from .state import write_json
 
 
@@ -89,6 +107,22 @@ PATINA_BACKENDS = {
     "gemini-cli",
     "kimi-cli",
 }
+
+_M5_KEYS = frozenset({
+    "acceptance", "acceptance_sha256", "artifact_sha256", "blocker_codes",
+    "command", "error_code", "external_inputs_status", "kind",
+    "live_execution_status", "local_status", "message",
+    "offline_acceptance_status", "outcome", "package_sha256",
+    "readiness_sha256", "schema_version", "submission_status",
+})
+_M5_SHA256 = re.compile(r"[0-9a-f]{64}")
+_M5_COUNTER_KEYS = frozenset({"network", "browser", "credential", "pii", "upload", "click", "submit"})
+_M5_SYNTHETIC_SIGNING_KEY = b"career-pipeline-m5-public-synthetic-key"
+_M5_SYNTHETIC_KEY_ID = "m5-public-synthetic"
+
+
+class M5InputError(ValueError):
+    """Raised for parsed M5 command inputs that violate the public contract."""
 
 
 def _patina_backend_chain(value: str) -> str:
@@ -104,6 +138,18 @@ def _patina_backend_chain(value: str) -> str:
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(prog="career-pipeline")
     subparsers = parser.add_subparsers(dest="command", required=True)
+
+    offline_acceptance = subparsers.add_parser("offline-acceptance")
+    offline_acceptance.add_argument("--workspace", required=True)
+    offline_acceptance.add_argument("--at", required=True)
+    offline_acceptance.add_argument("--site-valid-until", required=True)
+    offline_acceptance.add_argument("--test-evidence-sha256", required=True)
+    offline_acceptance.add_argument("--format", choices=("human", "json"), default="human")
+    offline_acceptance.add_argument("--output")
+
+    status = subparsers.add_parser("status")
+    status.add_argument("--input", required=True)
+    status.add_argument("--format", choices=("human", "json"), default="human")
 
     prepare = subparsers.add_parser("prepare")
     prepare.add_argument("--root", required=True)
@@ -350,13 +396,15 @@ def build_parser() -> argparse.ArgumentParser:
     application_adapter = application_commands.add_parser("adapter")
     adapter_commands = application_adapter.add_subparsers(dest="adapter_command", required=True)
     adapter_commands.add_parser("list")
+    from .platform_catalog import list_fixture_adapters
+    fixture_adapters = list_fixture_adapters()
     for name in ("show", "schema", "validate"):
         command = adapter_commands.add_parser(name)
-        command.add_argument("adapter_id", choices=("jobkorea_jrs_fixture", "saramin_applyin_fixture"))
+        command.add_argument("adapter_id", choices=fixture_adapters)
         command.add_argument("--root", default=".")
     application_fill_fixture = application_commands.add_parser("fill-fixture")
     application_fill_fixture.add_argument("--root", default=".")
-    application_fill_fixture.add_argument("--adapter", choices=("jobkorea_jrs_fixture", "saramin_applyin_fixture"), required=True)
+    application_fill_fixture.add_argument("--adapter", choices=fixture_adapters, required=True)
     application_fill_fixture.add_argument("--package", required=True)
     application_fill_fixture.add_argument("--dry-run-result", required=True)
     application_fill_fixture.add_argument("--authorization", required=True)
@@ -388,6 +436,356 @@ def _extract_workspace(root: Path):
             or Path(source.relative_path).parts[:1] == ("경험정리",)
         )
     ]
+
+
+def _m5_canonical_json(value: object) -> bytes:
+    return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode("utf-8")
+
+
+def _m5_sha256(value: object) -> str:
+    return sha256(_m5_canonical_json(value)).hexdigest()
+
+
+def _m5_require_fields(value: object, expected: frozenset[str], label: str) -> dict:
+    if not isinstance(value, dict) or set(value) != expected:
+        raise M5InputError(f"invalid {label}")
+    return value
+
+
+def _m5_sha(value: object, label: str) -> str:
+    if not isinstance(value, str) or _M5_SHA256.fullmatch(value) is None:
+        raise M5InputError(f"invalid {label}")
+    return value
+
+
+def _m5_text(value: object, label: str) -> str:
+    if not isinstance(value, str) or not value:
+        raise M5InputError(f"invalid {label}")
+    return value
+
+
+def _m5_timestamp(value: object, label: str) -> str:
+    text = _m5_text(value, label)
+    try:
+        parsed = datetime.fromisoformat(text.replace("Z", "+00:00"))
+    except ValueError as error:
+        raise M5InputError(f"invalid {label}") from error
+    if parsed.tzinfo is None or parsed.utcoffset() is None:
+        raise M5InputError(f"invalid {label}")
+    return text
+
+
+def _m5_counters(value: object) -> None:
+    counters = _m5_require_fields(value, _M5_COUNTER_KEYS, "counters")
+    if any(type(item) is not int or item != 0 for item in counters.values()):
+        raise M5InputError("invalid counters")
+
+
+def _m5_origin(value: object) -> None:
+    origin = _m5_text(value, "exact_origin")
+    try:
+        canonical = normalize_origin(origin)
+    except OriginPolicyError as error:
+        raise M5InputError("invalid exact_origin") from error
+    if origin != canonical:
+        raise M5InputError("invalid exact_origin")
+
+
+def _m5_axis_values(report: object) -> dict[str, str]:
+    return {item.axis.value: item.status.value for item in report.axes}
+
+
+def _m5_classify_readiness(report: object) -> tuple[str, int]:
+    axes = _m5_axis_values(report)
+    local_missing = any(
+        item.classification is RequirementClassification.LOCALLY_MISSING
+        for item in report.requirements
+    )
+    locally_complete = (
+        axes["local_foundation"] == "complete"
+        and axes["offline_acceptance"] == "passed"
+        and not local_missing
+    )
+    if not locally_complete:
+        return "local_unsafe", 2
+    if not report.blockers:
+        return "local_complete", 0
+    classifications = {
+        item.requirement_id: item.classification
+        for item in report.requirements
+    }
+    if all(
+        classifications.get(item.requirement_id) is RequirementClassification.EXTERNAL_ONLY
+        for item in report.blockers
+    ):
+        return "external_only_blocked", 3
+    return "local_unsafe", 2
+
+
+def _m5_status_envelope(report: object, outcome: str) -> dict[str, object]:
+    axes = _m5_axis_values(report)
+    return {
+        "acceptance": None,
+        "acceptance_sha256": None,
+        "artifact_sha256": None,
+        "blocker_codes": sorted({item.code.value for item in report.blockers}),
+        "command": "status",
+        "error_code": None,
+        "external_inputs_status": axes["external_inputs"],
+        "kind": "status",
+        "live_execution_status": axes["live_execution"],
+        "local_status": "complete" if outcome != "local_unsafe" else "unsafe",
+        "message": None,
+        "offline_acceptance_status": axes["offline_acceptance"],
+        "outcome": outcome,
+        "package_sha256": None,
+        "readiness_sha256": readiness_report_sha256(report),
+        "schema_version": "career-pipeline-cli-status-v1",
+        "submission_status": axes["submission"],
+    }
+
+
+def _m5_validate_positive_acceptance(acceptance: object) -> object:
+    expected = frozenset({
+        "authorization_candidate", "counters", "eligibility_decision_id",
+        "final_manifest_sha256", "live_status", "local_status", "package_id",
+        "package_sha256", "posting_id", "profile_id", "readiness_report",
+        "readiness_sha256", "review_id", "run_id", "schema_version",
+        "site_contract_id", "site_contract_sha256", "submission_status",
+    })
+    data = _m5_require_fields(acceptance, expected, "positive acceptance")
+    if data["schema_version"] != "career-pipeline-offline-acceptance-v1":
+        raise M5InputError("invalid positive acceptance")
+    for key in ("run_id", "posting_id", "profile_id", "eligibility_decision_id", "final_manifest_sha256", "package_id", "package_sha256", "site_contract_id", "site_contract_sha256", "review_id", "readiness_sha256"):
+        _m5_text(data[key], key)
+    for key in ("final_manifest_sha256", "package_sha256", "site_contract_sha256", "readiness_sha256"):
+        _m5_sha(data[key], key)
+    if (data["local_status"], data["live_status"], data["submission_status"]) != ("awaiting_external_live_enablement", "disabled", "not_attempted"):
+        raise M5InputError("invalid positive acceptance status")
+    _m5_counters(data["counters"])
+    candidate = _m5_require_fields(data["authorization_candidate"], frozenset({
+        "schema_version", "review_id", "package_id", "package_sha256", "site_contract_id",
+        "site_contract_sha256", "exact_origin", "adapter_id", "adapter_contract_version",
+        "adapter_schema_sha256", "requested_mode", "requested_at", "candidate_status", "reason_code",
+    }), "authorization candidate")
+    if type(candidate["schema_version"]) is not int or candidate["schema_version"] != 2:
+        raise M5InputError("invalid authorization candidate")
+    for key in ("review_id", "package_id", "site_contract_id", "adapter_id"):
+        _m5_text(candidate[key], key)
+    for key in ("package_sha256", "site_contract_sha256", "adapter_schema_sha256"):
+        _m5_sha(candidate[key], key)
+    if type(candidate["adapter_contract_version"]) is not int or candidate["adapter_contract_version"] < 1:
+        raise M5InputError("invalid adapter contract version")
+    _m5_origin(candidate["exact_origin"])
+    _m5_timestamp(candidate["requested_at"], "requested_at")
+    if (candidate["requested_mode"], candidate["candidate_status"], candidate["reason_code"]) != ("fill_only", "capability_disabled", "FILL_AUTHORITY_DISABLED"):
+        raise M5InputError("invalid authorization candidate status")
+    if any(candidate[key] != data[key] for key in ("review_id", "package_id", "package_sha256", "site_contract_id", "site_contract_sha256")):
+        raise M5InputError("authorization candidate binding mismatch")
+    report = readiness_report_from_dict(data["readiness_report"])
+    if data["readiness_sha256"] != readiness_report_sha256(report):
+        raise M5InputError("readiness digest mismatch")
+    return report
+
+
+def _m5_validate_envelope(value: object) -> object:
+    outer = _m5_require_fields(value, _M5_KEYS, "offline acceptance envelope")
+    if (
+        outer["schema_version"] != "career-pipeline-cli-offline-acceptance-v1"
+        or outer["command"] != "offline-acceptance"
+        or outer["kind"] != "offline_acceptance"
+        or outer["error_code"] is not None
+        or outer["message"] is not None
+    ):
+        raise M5InputError("invalid offline acceptance envelope")
+    acceptance = outer["acceptance"]
+    if not isinstance(acceptance, dict) or outer["acceptance_sha256"] != _m5_sha256(acceptance):
+        raise M5InputError("acceptance digest mismatch")
+    _m5_sha(outer["acceptance_sha256"], "acceptance_sha256")
+    if set(acceptance) == {"schema_version", "scenario", "block_code", "counters"}:
+        if (
+            acceptance.get("schema_version") != "career-pipeline-offline-acceptance-v1"
+            or acceptance.get("scenario") != "sensitive_fixture"
+            or acceptance.get("block_code") != "blocked_sensitive_fixture"
+            or (outer["outcome"], outer["local_status"], outer["offline_acceptance_status"], outer["external_inputs_status"], outer["live_execution_status"], outer["submission_status"]) != ("local_unsafe", "unsafe", "failed", "blocked", "disabled", "not_attempted")
+            or outer["blocker_codes"] != ["blocked_sensitive_fixture"]
+            or any(outer[key] is not None for key in ("readiness_sha256", "artifact_sha256", "package_sha256"))
+        ):
+            raise M5InputError("invalid blocked offline acceptance envelope")
+        _m5_counters(acceptance["counters"])
+        return None
+    report = _m5_validate_positive_acceptance(acceptance)
+    axes = _m5_axis_values(report)
+    blockers = sorted({item.code.value for item in report.blockers})
+    if (
+        (outer["outcome"], outer["local_status"], outer["offline_acceptance_status"], outer["external_inputs_status"], outer["live_execution_status"], outer["submission_status"]) != ("external_only_blocked", "complete", "passed", axes["external_inputs"], axes["live_execution"], axes["submission"])
+        or outer["blocker_codes"] != blockers
+        or outer["readiness_sha256"] != acceptance["readiness_sha256"]
+        or outer["artifact_sha256"] != acceptance["final_manifest_sha256"]
+        or outer["package_sha256"] != acceptance["package_sha256"]
+    ):
+        raise M5InputError("invalid positive offline acceptance envelope")
+    for key in ("readiness_sha256", "artifact_sha256", "package_sha256"):
+        _m5_sha(outer[key], key)
+    if _m5_classify_readiness(report) != ("external_only_blocked", 3):
+        raise M5InputError("invalid positive offline acceptance readiness")
+    return report
+
+
+def _m5_read_status_input(raw_path: str) -> object:
+    path = Path(raw_path)
+    windows = PureWindowsPath(raw_path)
+    if (
+        not raw_path
+        or path.is_absolute()
+        or windows.drive
+        or windows.root
+        or raw_path.startswith(("/", "\\"))
+        or any(part in {".", ".."} for part in path.parts)
+    ):
+        raise M5InputError("invalid status input")
+    cwd = Path.cwd().resolve(strict=True)
+    candidate = cwd.joinpath(*path.parts)
+    try:
+        relative = candidate.relative_to(cwd)
+    except ValueError as error:
+        raise M5InputError("invalid status input") from error
+    checked = cwd
+    for part in relative.parts:
+        checked = checked / part
+        if checked.is_symlink():
+            raise M5InputError("invalid status input")
+    try:
+        target_stat = candidate.lstat()
+        if not stat.S_ISREG(target_stat.st_mode) or target_stat.st_size > 1_000_000:
+            raise M5InputError("invalid status input")
+        resolved = candidate.resolve(strict=True)
+        resolved.relative_to(cwd)
+        raw = candidate.read_bytes()
+        if len(raw) > 1_000_000:
+            raise M5InputError("invalid status input")
+        value = json.loads(raw.decode("utf-8"))
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError, ValueError) as error:
+        if isinstance(error, M5InputError):
+            raise
+        raise M5InputError("invalid status input") from error
+    if not isinstance(value, dict):
+        raise M5InputError("invalid status input")
+    return value
+
+
+def _m5_error_envelope(command: str) -> dict[str, object]:
+    return {
+        "acceptance": None, "acceptance_sha256": None, "artifact_sha256": None,
+        "blocker_codes": [], "command": command, "error_code": "INVALID_INPUT",
+        "external_inputs_status": None,
+        "kind": "offline_acceptance" if command == "offline-acceptance" else "status",
+        "live_execution_status": None, "local_status": None, "message": f"invalid {command.replace('-', ' ')} input",
+        "offline_acceptance_status": None, "outcome": "invalid_input", "package_sha256": None,
+        "readiness_sha256": None, "schema_version": "career-pipeline-cli-error-v1", "submission_status": None,
+    }
+
+
+def _m5_render_human(envelope: dict[str, object], exit_code: int) -> str:
+    blockers = envelope["blocker_codes"]
+    return "\n".join((
+        f"command: {envelope['command']}",
+        f"local: {envelope['local_status']}",
+        f"offline acceptance: {envelope['offline_acceptance_status'] or 'not_assessed'}",
+        f"external inputs: {envelope['external_inputs_status'] or 'not_assessed'}",
+        f"live execution: {envelope['live_execution_status'] or 'not_assessed'}",
+        f"submission: {envelope['submission_status'] or 'not_assessed'}",
+        "blockers: " + (",".join(blockers) if blockers else "none"),
+        f"readiness sha256: {envelope['readiness_sha256'] or 'none'}",
+        f"artifact sha256: {envelope['artifact_sha256'] or 'none'}",
+        f"outcome: {envelope['outcome']} (exit {exit_code})",
+    )) + "\n"
+
+
+def _m5_emit(command: str, output_format: str, envelope: dict[str, object], exit_code: int, *, error: bool = False) -> None:
+    if output_format == "json":
+        sys.stdout.write(_m5_canonical_json(envelope).decode("utf-8") + "\n")
+        return
+    if error:
+        sys.stderr.write("\n".join((
+            f"command: {command}",
+            "outcome: invalid_input (exit 4)",
+            "error: INVALID_INPUT",
+            f"message: {envelope['message']}",
+        )) + "\n")
+        return
+    sys.stdout.write(_m5_render_human(envelope, exit_code))
+
+
+def run_m5_offline_acceptance(args: argparse.Namespace) -> int:
+    if args.output and args.format != "json":
+        raise M5InputError("output requires json")
+    inputs = AcceptanceInputs(
+        args.at, args.at, args.at, args.at, args.at, args.at,
+        args.site_valid_until, args.at, args.at, args.at,
+        _M5_SYNTHETIC_SIGNING_KEY, _M5_SYNTHETIC_KEY_ID,
+        args.test_evidence_sha256,
+    )
+    result = run_offline_acceptance(workspace=Path(args.workspace), inputs=inputs)
+    acceptance = offline_acceptance_to_dict(result)
+    if isinstance(result, OfflineAcceptanceBlockedResult):
+        envelope = {
+            "acceptance": acceptance, "acceptance_sha256": _m5_sha256(acceptance), "artifact_sha256": None,
+            "blocker_codes": ["blocked_sensitive_fixture"], "command": "offline-acceptance", "error_code": None,
+            "external_inputs_status": "blocked", "kind": "offline_acceptance", "live_execution_status": "disabled",
+            "local_status": "unsafe", "message": None, "offline_acceptance_status": "failed", "outcome": "local_unsafe",
+            "package_sha256": None, "readiness_sha256": None, "schema_version": "career-pipeline-cli-offline-acceptance-v1", "submission_status": "not_attempted",
+        }
+        exit_code = 2
+    else:
+        report = result.readiness_report
+        axes = _m5_axis_values(report)
+        outcome, exit_code = _m5_classify_readiness(report)
+        if (outcome, exit_code) != ("external_only_blocked", 3):
+            raise M5InputError("invalid offline acceptance readiness")
+        envelope = {
+            "acceptance": acceptance, "acceptance_sha256": _m5_sha256(acceptance), "artifact_sha256": result.final_manifest_sha256,
+            "blocker_codes": sorted({item.code.value for item in report.blockers}), "command": "offline-acceptance", "error_code": None,
+            "external_inputs_status": axes["external_inputs"], "kind": "offline_acceptance", "live_execution_status": axes["live_execution"],
+            "local_status": "complete", "message": None, "offline_acceptance_status": axes["offline_acceptance"], "outcome": outcome,
+            "package_sha256": result.package_sha256, "readiness_sha256": result.readiness_sha256, "schema_version": "career-pipeline-cli-offline-acceptance-v1", "submission_status": axes["submission"],
+        }
+    if args.output:
+        Path(args.output).write_bytes(_m5_canonical_json(envelope) + b"\n")
+    _m5_emit("offline-acceptance", args.format, envelope, exit_code)
+    return exit_code
+
+
+def run_m5_status(args: argparse.Namespace) -> int:
+    value = _m5_read_status_input(args.input)
+    if value.get("schema_version") == "career-pipeline-readiness-v1":
+        report = readiness_report_from_dict(value)
+    else:
+        report = _m5_validate_envelope(value)
+        if report is None:
+            envelope = {
+                "acceptance": None, "acceptance_sha256": None, "artifact_sha256": None,
+                "blocker_codes": ["blocked_sensitive_fixture"], "command": "status", "error_code": None,
+                "external_inputs_status": "blocked", "kind": "status", "live_execution_status": "disabled",
+                "local_status": "unsafe", "message": None, "offline_acceptance_status": "failed", "outcome": "local_unsafe",
+                "package_sha256": None, "readiness_sha256": None, "schema_version": "career-pipeline-cli-status-v1", "submission_status": "not_attempted",
+            }
+            _m5_emit("status", args.format, envelope, 2)
+            return 2
+    outcome, exit_code = _m5_classify_readiness(report)
+    envelope = _m5_status_envelope(report, outcome)
+    _m5_emit("status", args.format, envelope, exit_code)
+    return exit_code
+
+
+def run_m5_command(args: argparse.Namespace) -> int:
+    command = args.command
+    try:
+        return run_m5_offline_acceptance(args) if command == "offline-acceptance" else run_m5_status(args)
+    except (OSError, ValueError, OfflineAcceptanceError, ReadinessContractError, M5InputError):
+        envelope = _m5_error_envelope(command)
+        _m5_emit(command, args.format, envelope, 4, error=True)
+        return 4
 
 
 def run_profile_build(args: argparse.Namespace) -> int:
@@ -778,15 +1176,20 @@ def run_application_command(args: argparse.Namespace) -> int:
             print(json.dumps(asdict(detection), ensure_ascii=False, indent=2))
         return 0
     if args.application_command == "adapter":
+        from .platform_catalog import list_fixture_adapters
+        fixture_adapters = list_fixture_adapters()
         if args.adapter_command == "list":
-            print(json.dumps(["jobkorea_jrs_fixture", "saramin_applyin_fixture"], ensure_ascii=False, indent=2))
+            print(json.dumps(list(fixture_adapters), ensure_ascii=False, indent=2))
             return 0
-        if args.adapter_id == "jobkorea_jrs_fixture":
-            from .adapters.jobkorea_jrs import adapter_contract, collect_fixture_schema, expected_schema, fixture_schema_sha256
-            fixture_relative = "tests/fixtures/jobkorea_jrs/application_form_v1.html"
-        else:
-            from .adapters.saramin_applyin import adapter_contract, collect_fixture_schema, expected_schema, schema_sha256 as fixture_schema_sha256
-            fixture_relative = "tests/fixtures/saramin_applyin/application_form_v1.html"
+        from .adapters.jobkorea_jrs import adapter_contract as jobkorea_contract, collect_fixture_schema as jobkorea_schema, expected_schema as jobkorea_expected, fixture_schema_sha256 as jobkorea_sha
+        from .adapters.saramin_applyin import adapter_contract as saramin_contract, collect_fixture_schema as saramin_schema, expected_schema as saramin_expected, schema_sha256 as saramin_sha
+        bindings = {
+            "jobkorea_jrs_fixture": (jobkorea_contract, jobkorea_schema, jobkorea_expected, jobkorea_sha, "tests/fixtures/jobkorea_jrs/application_form_v1.html"),
+            "saramin_applyin_fixture": (saramin_contract, saramin_schema, saramin_expected, saramin_sha, "tests/fixtures/saramin_applyin/application_form_v1.html"),
+        }
+        if set(bindings) != set(fixture_adapters):
+            raise ApplicationPackageError("fixture adapter dispatch mismatch")
+        adapter_contract, collect_fixture_schema, expected_schema, fixture_schema_sha256, fixture_relative = bindings[args.adapter_id]
         if args.adapter_command == "show":
             print(json.dumps(adapter_contract(), ensure_ascii=False, indent=2))
             return 0
@@ -839,12 +1242,16 @@ def run_application_command(args: argparse.Namespace) -> int:
         return 0 if package.validation_status == "ready_for_review" else 2
     package = load_application_package(_phase4_path(root, args.package, must_exist=True))
     if args.application_command == "fill-fixture":
-        if args.adapter == "jobkorea_jrs_fixture":
-            from .adapters.jobkorea_jrs import FixtureMockPage, collect_fixture_schema, run_fixture_fill
-            fixture_relative = "tests/fixtures/jobkorea_jrs/application_form_v1.html"
-        else:
-            from .adapters.saramin_applyin import FixtureMockPage, collect_fixture_schema, run_fixture_fill
-            fixture_relative = "tests/fixtures/saramin_applyin/application_form_v1.html"
+        from .platform_catalog import list_fixture_adapters
+        from .adapters.jobkorea_jrs import FixtureMockPage as JobkoreaPage, collect_fixture_schema as jobkorea_schema, run_fixture_fill as jobkorea_fill
+        from .adapters.saramin_applyin import FixtureMockPage as SaraminPage, collect_fixture_schema as saramin_schema, run_fixture_fill as saramin_fill
+        bindings = {
+            "jobkorea_jrs_fixture": (JobkoreaPage, jobkorea_schema, jobkorea_fill, "tests/fixtures/jobkorea_jrs/application_form_v1.html"),
+            "saramin_applyin_fixture": (SaraminPage, saramin_schema, saramin_fill, "tests/fixtures/saramin_applyin/application_form_v1.html"),
+        }
+        if set(bindings) != set(list_fixture_adapters()):
+            raise ApplicationPackageError("fixture adapter dispatch mismatch")
+        FixtureMockPage, collect_fixture_schema, run_fixture_fill, fixture_relative = bindings[args.adapter]
         signing_key = os.environ.get("CAREER_EXECUTION_SIGNING_KEY", "").encode("utf-8")
         result = load_form_result(_phase4_path(root, args.dry_run_result, must_exist=True))
         authorization = load_authorization(_phase4_path(root, args.authorization, must_exist=True), signing_key)
@@ -896,6 +1303,8 @@ def run_application_command(args: argparse.Namespace) -> int:
 
 def main(argv: Sequence[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
+    if args.command in {"offline-acceptance", "status"}:
+        return run_m5_command(args)
     if args.command == "application":
         try:
             return run_application_command(args)

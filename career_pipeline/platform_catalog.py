@@ -62,6 +62,25 @@ def validate_catalog(items):
             raise PlatformCatalogError("public origin conflicts with another platform suffix")
     return tuple(items)
 validate_catalog(CATALOG)
+
+
+def list_fixture_adapters() -> tuple[str, ...]:
+    """Return only validated, disabled fixture adapter identifiers."""
+    catalog = validate_catalog(CATALOG)
+    adapter_ids = tuple(
+        platform.fixture_adapter_id
+        for platform in catalog
+        if platform.fixture_adapter_id is not None
+    )
+    if not adapter_ids or len(adapter_ids) != len(set(adapter_ids)):
+        raise PlatformCatalogError("fixture adapters must be non-empty and unique")
+    if any(platform.live_enabled or platform.live_adapter_id is not None for platform in catalog):
+        raise PlatformCatalogError("fixture adapters must not enable live execution")
+    registry_ids = tuple(sorted(FIXTURE_ADAPTER_REGISTRY.values()))
+    derived_ids = tuple(sorted(adapter_ids))
+    if len(registry_ids) != len(set(registry_ids)) or derived_ids != registry_ids:
+        raise PlatformCatalogError("fixture adapter registry mismatch")
+    return derived_ids
 def get_platform(platform_id):
     for p in CATALOG:
         if p.platform_id==platform_id: return p

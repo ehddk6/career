@@ -23,3 +23,12 @@ review_required
 제출 성공은 접수번호와 완료 URL을 모두 확인한 경우에만 `submitted_verified`로 기록한다. 접수번호 원문은 저장하지 않고 SHA-256 fingerprint만 기록하며 URL query와 fragment는 제거한다. 증거가 부족하면 `submission_unverified`다.
 
 Phase 5에는 운영 사이트용 Playwright mutation adapter와 live 실행 CLI가 포함되지 않는다. 운영 사이트 로그인, MFA, CAPTCHA 우회와 실제 개인정보 전송은 수행하지 않는다. 사이트별 fill-only adapter는 origin·iframe·popup·첨부 TOCTOU 정책과 함께 별도 Phase 6에서 구현한다.
+## M5 operational status boundary
+
+`python -m career_pipeline offline-acceptance` and `python -m career_pipeline
+status` expose only the deterministic local synthetic boundary. The normal
+offline command exits `3` as `external_only_blocked`; this means local checks
+completed while external inputs remain blocked, live execution is disabled, and
+submission is not attempted. These commands provide no browser, credential,
+real-PII, upload, click, or submit option and do not perform any live
+application action.

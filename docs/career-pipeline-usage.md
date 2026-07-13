@@ -392,3 +392,26 @@ Patina는 기본 실행에서 호출하지 않는다. 기존 흐름이 필요한
 ## 충돌 해결과 재개
 
 legacy 실행의 `blocked_conflict`는 `03_충돌검사.md`를 확인하고 `fact_overrides.yaml`에 승인 값을 기록한 뒤 `--resume`으로 재개한다.
+## M5 local operational gate
+
+M5 reports only deterministic, local synthetic acceptance. It does not fetch a
+site, open a browser, read credentials or real personal data, upload, click, or
+submit an application. A successful local synthetic check still reports live
+execution as disabled and submission as not attempted.
+
+```powershell
+python -m career_pipeline offline-acceptance `
+  --workspace "tmp/m5-synthetic" `
+  --at "2026-07-13T12:00:00+09:00" `
+  --site-valid-until "2026-07-13T13:00:00+09:00" `
+  --test-evidence-sha256 "<lowercase sha256>" `
+  --format json `
+  --output "offline-acceptance.json"
+
+python -m career_pipeline status --input "offline-acceptance.json" --format human
+```
+
+The normal M5 offline result exits `3` with `external_only_blocked`: local
+synthetic acceptance is complete, but external inputs remain blocked, live
+execution is disabled, and submission was not attempted. `status` accepts only
+a strict local JSON readiness report or M5 offline-acceptance envelope.
