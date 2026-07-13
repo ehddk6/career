@@ -173,21 +173,36 @@ $SmokeResolved = (Resolve-Path -LiteralPath $Smoke).Path
 $EvidenceSha = (Get-FileHash (Join-Path $Repo 'tests\test_offline_acceptance.py') -Algorithm SHA256).Hash.ToLowerInvariant()
 $SyntheticWorkspace = [System.IO.Path]::GetFullPath((Join-Path $SmokeResolved 'synthetic'))
 $OfflineOutput = [System.IO.Path]::GetFullPath((Join-Path $SmokeResolved 'offline.json'))
+$CaptureScript = [System.IO.Path]::GetFullPath((Join-Path $SmokeResolved 'capture_cli.py'))
+@'
+from pathlib import Path
+import subprocess
+import sys
+
+completed = subprocess.run(
+    [sys.executable, *sys.argv[2:]],
+    stdout=subprocess.PIPE,
+    stderr=subprocess.STDOUT,
+    check=False,
+)
+Path(sys.argv[1]).write_bytes(completed.stdout)
+raise SystemExit(completed.returncode)
+'@ | Set-Content -LiteralPath $CaptureScript -Encoding UTF8
 Push-Location $SmokeResolved
-& $SmokePython -c "import career_pipeline; print(career_pipeline.__name__)" *> import.txt
+& $SmokePython $CaptureScript import.txt -c "import career_pipeline; print(career_pipeline.__name__)"
 if ($LASTEXITCODE -ne 0) { throw 'import smoke failed' }
-& $SmokePython -m career_pipeline --help *> help.txt
+& $SmokePython $CaptureScript help.txt -m career_pipeline --help
 if ($LASTEXITCODE -ne 0) { throw 'help smoke failed' }
 $SavedErrorActionPreference = $ErrorActionPreference
 $ErrorActionPreference = 'Continue'
 try {
-  & $SmokePython -m career_pipeline offline-acceptance --workspace $SyntheticWorkspace --at 2026-07-13T12:00:00+09:00 --site-valid-until 2026-07-13T13:00:00+09:00 --test-evidence-sha256 $EvidenceSha --format json --output $OfflineOutput *> offline.stdout
+  & $SmokePython $CaptureScript offline.stdout -m career_pipeline offline-acceptance --workspace $SyntheticWorkspace --at 2026-07-13T12:00:00+09:00 --site-valid-until 2026-07-13T13:00:00+09:00 --test-evidence-sha256 $EvidenceSha --format json --output $OfflineOutput
   $OfflineExit = $LASTEXITCODE
-  & $SmokePython -m career_pipeline status --input offline.json --format json *> status.stdout
+  & $SmokePython $CaptureScript status.stdout -m career_pipeline status --input offline.json --format json
   $StatusExit = $LASTEXITCODE
-  & $SmokePython -m career_pipeline status --input missing.json --format json *> invalid.stdout
+  & $SmokePython $CaptureScript invalid.stdout -m career_pipeline status --input missing.json --format json
   $InvalidExit = $LASTEXITCODE
-  & $SmokePython -m career_pipeline unsupported-command *> argparse.stderr
+  & $SmokePython $CaptureScript argparse.stderr -m career_pipeline unsupported-command
   $ArgparseExit = $LASTEXITCODE
 } finally {
   $ErrorActionPreference = $SavedErrorActionPreference
