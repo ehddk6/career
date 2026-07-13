@@ -45,10 +45,10 @@ Run from the repository root before writing M6 evidence:
 $ErrorActionPreference = 'Stop'
 $Repo = (Get-Location).Path
 $Head = (git rev-parse HEAD).Trim()
-$Baseline = (git rev-parse 809929c^{commit}).Trim()
-$M5Feature = (git rev-parse 2d30f8b^{commit}).Trim()
-$M5LockFix = (git rev-parse 72aa59c^{commit}).Trim()
-$M5Checkpoint = (git rev-parse f1c3be9^{commit}).Trim()
+$Baseline = (git rev-parse '809929c^{commit}').Trim()
+$M5Feature = (git rev-parse '2d30f8b^{commit}').Trim()
+$M5LockFix = (git rev-parse '72aa59c^{commit}').Trim()
+$M5Checkpoint = (git rev-parse 'f1c3be9^{commit}').Trim()
 $M5Range = "${M5Checkpoint}..${Head}"
 $Dirty = @(git status --porcelain=v1)
 git diff --check
