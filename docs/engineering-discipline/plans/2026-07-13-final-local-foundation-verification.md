@@ -118,7 +118,12 @@ Cleanup is allowed only after the resolved generated root is proven to be the
 exact temporary child created by this run.
 
 ```powershell
-$TempParent = (Resolve-Path -LiteralPath ([System.IO.Path]::GetTempPath())).Path
+$TempParent = [System.IO.Path]::GetFullPath(
+  (Resolve-Path -LiteralPath ([System.IO.Path]::GetTempPath())).Path
+).TrimEnd(
+  [System.IO.Path]::DirectorySeparatorChar,
+  [System.IO.Path]::AltDirectorySeparatorChar
+)
 $RunRoot = [System.IO.Path]::GetFullPath((Join-Path $TempParent ('career-pipeline-m6-' + [guid]::NewGuid().ToString('N'))))
 $Worktree = [System.IO.Path]::GetFullPath((Join-Path $RunRoot 'worktree'))
 $WheelDir = Join-Path $RunRoot 'wheel'
@@ -173,14 +178,24 @@ Push-Location $SmokeResolved
 if ($LASTEXITCODE -ne 0) { throw 'import smoke failed' }
 & $SmokePython -m career_pipeline --help *> help.txt
 if ($LASTEXITCODE -ne 0) { throw 'help smoke failed' }
-& $SmokePython -m career_pipeline offline-acceptance --workspace $SyntheticWorkspace --at 2026-07-13T12:00:00+09:00 --site-valid-until 2026-07-13T13:00:00+09:00 --test-evidence-sha256 $EvidenceSha --format json --output $OfflineOutput *> offline.stdout
-if ($LASTEXITCODE -ne 3) { throw 'offline-acceptance must exit 3' }
-& $SmokePython -m career_pipeline status --input offline.json --format json *> status.stdout
-if ($LASTEXITCODE -ne 3) { throw 'status of the positive envelope must exit 3' }
-& $SmokePython -m career_pipeline status --input missing.json --format json *> invalid.stdout
-if ($LASTEXITCODE -ne 4) { throw 'status missing input must exit 4' }
-& $SmokePython -m career_pipeline unsupported-command *> argparse.stderr
-if ($LASTEXITCODE -ne 2) { throw 'argparse invalid command must exit 2' }
+$SavedErrorActionPreference = $ErrorActionPreference
+$ErrorActionPreference = 'Continue'
+try {
+  & $SmokePython -m career_pipeline offline-acceptance --workspace $SyntheticWorkspace --at 2026-07-13T12:00:00+09:00 --site-valid-until 2026-07-13T13:00:00+09:00 --test-evidence-sha256 $EvidenceSha --format json --output $OfflineOutput *> offline.stdout
+  $OfflineExit = $LASTEXITCODE
+  & $SmokePython -m career_pipeline status --input offline.json --format json *> status.stdout
+  $StatusExit = $LASTEXITCODE
+  & $SmokePython -m career_pipeline status --input missing.json --format json *> invalid.stdout
+  $InvalidExit = $LASTEXITCODE
+  & $SmokePython -m career_pipeline unsupported-command *> argparse.stderr
+  $ArgparseExit = $LASTEXITCODE
+} finally {
+  $ErrorActionPreference = $SavedErrorActionPreference
+}
+if ($OfflineExit -ne 3) { throw 'offline-acceptance must exit 3' }
+if ($StatusExit -ne 3) { throw 'status of the positive envelope must exit 3' }
+if ($InvalidExit -ne 4) { throw 'status missing input must exit 4' }
+if ($ArgparseExit -ne 2) { throw 'argparse invalid command must exit 2' }
 Pop-Location
 ```
 
