@@ -292,7 +292,7 @@ newline and this exact shape:
 {
   "schema_version": "career-pipeline-final-local-foundation-v1",
   "generated_at": "ISO-8601-with-timezone",
-  "repository": {"baseline_commit": "full SHA", "m5_feature_commit": "full SHA", "m5_lock_fix_commit": "full SHA", "m5_checkpoint_commit": "full SHA", "verified_head": "full SHA"},
+  "repository": {"baseline_commit": "809929cc4fd6a7667bdc409899a9620748049b0d", "m5_feature_commit": "2d30f8b05254d8d436759945de1b66d7dff8b4df", "m5_lock_fix_commit": "72aa59c8c6d88d034769a0b74766a84c6222ec0b", "m5_checkpoint_commit": "f1c3be9f02b46e7bce63099927e877b94e394f1e", "verified_head": "full pre-M6-evidence HEAD SHA"},
   "commands": [{"id": "string", "argv": ["string"], "cwd": "repo|temporary", "expected_exit": 0, "observed_exit": 0, "outcome": "passed|failed|skipped|environment_blocked", "stdout_sha256": "sha256-or-null", "stderr_sha256": "sha256-or-null"}],
   "test_runs": [{"attempt": 1, "kind": "full|targeted", "node": "node-or-null", "result": "passed|failed", "passed": 0, "failed": 0, "skipped": 0, "stdout_sha256": "sha256"}],
   "artifacts": [{"logical_name": "string", "sha256": "lowercase SHA-256", "bytes": 0}],
@@ -336,7 +336,7 @@ The M6 top-level key set is exactly `schema_version`, `generated_at`,
 | field | required type and rule |
 | --- | --- |
 | `schema_version`, `generated_at`, `verdict` | string; schema exactly `career-pipeline-final-local-foundation-v1`, timestamp timezone-aware, verdict one of `pass`, `fail`, `blocked` |
-| `repository` | object with exactly five non-empty full 40-hex SHA strings shown in the schema |
+| `repository` | exact object shown. The first four values equal the literal full SHAs in the schema and are ancestors of `verified_head`. `verified_head` is the clean commit tested before the M6 evidence commit; after that commit, M7 requires it to equal the sole parent of the reviewed M6 evidence commit. |
 | `commands` | array; every object has exactly `id`, `argv`, `cwd`, `expected_exit`, `observed_exit`, `outcome`, `stdout_sha256`, `stderr_sha256`; argv is string array, exits are integers, cwd is `repo` or `temporary` |
 | `test_runs` | array of exact objects shown; counts are non-negative integers, node is string or null, stdout hash is lowercase SHA-256 |
 | `artifacts` | array of exact logical-name/SHA/byte objects; bytes is a non-negative integer and logical names contain no path separator. It must include hashes for M1–M5 checkpoint files and every M1–M5 review file listed in the predecessor table, in addition to wheel/smoke evidence. |
@@ -397,7 +397,7 @@ $M6CheckpointText = Get-Content -LiteralPath $M6Checkpoint -Raw
 $ExpectedManifestHash = [regex]::Match($M6CheckpointText, 'Manifest SHA-256:\s*`([0-9a-f]{64})`').Groups[1].Value
 if (-not $ExpectedManifestHash -or $ExpectedManifestHash -ne $M6ManifestSha256) { throw 'M6 manifest hash does not match checkpoint' }
 @'
-import hashlib, json, re
+import hashlib, json, re, subprocess
 from pathlib import Path
 p = Path('docs/engineering-discipline/harness/career-pipeline-completion/manifests/2026-07-13-m6-local-foundation.json')
 v = json.loads(p.read_text(encoding='utf-8'))
@@ -406,6 +406,16 @@ assert set(v) == expected
 assert v['schema_version'] == 'career-pipeline-final-local-foundation-v1'
 assert v['working_tree'] == {'clean_before': True, 'clean_after': True, 'status_porcelain': []}
 assert v['verdict'] == 'pass'
+expected_repository = {
+  'baseline_commit': '809929cc4fd6a7667bdc409899a9620748049b0d',
+  'm5_feature_commit': '2d30f8b05254d8d436759945de1b66d7dff8b4df',
+  'm5_lock_fix_commit': '72aa59c8c6d88d034769a0b74766a84c6222ec0b',
+  'm5_checkpoint_commit': 'f1c3be9f02b46e7bce63099927e877b94e394f1e',
+  'verified_head': subprocess.check_output(['git','rev-parse','HEAD^'], text=True).strip(),
+}
+assert v['repository'] == expected_repository
+for commit in expected_repository.values():
+    subprocess.run(['git','merge-base','--is-ancestor',commit,subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()], check=True)
 assert all(re.fullmatch(r'[0-9a-f]{64}', item['sha256']) for item in v['artifacts'])
 assert all(item['outcome'] in {'passed','failed','skipped','environment_blocked'} for item in v['commands'])
 artifact_hashes = {item['logical_name']: item['sha256'] for item in v['artifacts']}
@@ -459,6 +469,16 @@ Those sections define the exact detached-worktree creation/removal, wheel
 inspection, inherited-dependency limitation, resolved-absolute workspace
 arguments, `0/0/3/3/4/2` smoke exits, and scan commands. The reviewer must not
 reuse an M6 temporary root or M6 captured output.
+
+Immediately after sections 3–5 and before creating review artifacts, run:
+
+```powershell
+if (@(git status --porcelain=v1).Count -ne 0) { throw 'M7 commands dirtied the reviewed tree' }
+```
+
+This is the M7 clean-after-commands gate. After the two M7 evidence files and
+two state files are created, only those exact paths may be dirty until the
+evidence commit; the final post-commit status must again be empty.
 
 M7 PASS requires all of the following: the reviewed tree is clean before and
 after commands; full pytest, compileall, and diff check pass; every smoke exit
@@ -518,6 +538,43 @@ the four shown keys; its commit is the reviewed full SHA and its command IDs
 must refer to entries in `commands`. `predecessor_checkpoints` contains exactly
 M1, M2, M3, M4, M5, and M6 once each, in order; every path is repository-relative
 and every status is `validated` or `unverified_platform_capability`.
+
+Before staging, validate the final manifest with this exact command. It must
+print `final manifest valid`:
+
+```powershell
+@'
+import hashlib, json, re, subprocess
+from pathlib import Path
+m6_path = Path('docs/engineering-discipline/harness/career-pipeline-completion/manifests/2026-07-13-m6-local-foundation.json')
+final_path = Path('docs/engineering-discipline/harness/career-pipeline-completion/manifests/2026-07-13-final-local-foundation-verification.json')
+v = json.loads(final_path.read_text(encoding='utf-8'))
+expected = {'schema_version','generated_at','repository','commands','test_runs','artifacts','smoke','security_scans','docs_skill_contract','symlink_checks','external_blockers','working_tree','limitations','m6_manifest_sha256','m7_reviewer','predecessor_checkpoints','final_verdict'}
+assert set(v) == expected
+assert v['schema_version'] == 'career-pipeline-final-integration-verification-v1'
+assert v['m6_manifest_sha256'] == hashlib.sha256(m6_path.read_bytes()).hexdigest()
+assert v['final_verdict'] == 'pass'
+assert v['working_tree'] == {'clean_before': True, 'clean_after': True, 'status_porcelain': []}
+assert v['m7_reviewer']['mode'] == 'fresh_independent_final_tree_only'
+assert v['m7_reviewer']['verdict'] == 'pass'
+assert v['m7_reviewer']['commit'] == subprocess.check_output(['git','rev-parse','HEAD'], text=True).strip()
+command_ids = {item['id'] for item in v['commands']}
+assert set(v['m7_reviewer']['commands_reexecuted']).issubset(command_ids)
+assert [item['id'] for item in v['predecessor_checkpoints']] == ['M1','M2','M3','M4','M5','M6']
+assert all(re.fullmatch(r'[0-9a-f]{64}', item['sha256']) for item in v['predecessor_checkpoints'])
+for item in v['predecessor_checkpoints']:
+    path = Path(item['path'])
+    assert not path.is_absolute() and '..' not in path.parts
+    assert hashlib.sha256(path.read_bytes()).hexdigest() == item['sha256']
+assert v['repository']['baseline_commit'] == '809929cc4fd6a7667bdc409899a9620748049b0d'
+assert v['repository']['m5_feature_commit'] == '2d30f8b05254d8d436759945de1b66d7dff8b4df'
+assert v['repository']['m5_lock_fix_commit'] == '72aa59c8c6d88d034769a0b74766a84c6222ec0b'
+assert v['repository']['m5_checkpoint_commit'] == 'f1c3be9f02b46e7bce63099927e877b94e394f1e'
+assert v['repository']['verified_head'] == v['m7_reviewer']['commit']
+print('final manifest valid')
+'@ | python -
+if ($LASTEXITCODE -ne 0) { throw 'final manifest validation failed' }
+```
 
 Commit only final M7 evidence:
 
