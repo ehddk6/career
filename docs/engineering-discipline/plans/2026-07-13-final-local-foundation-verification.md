@@ -457,7 +457,7 @@ $RequiredReviews = @(
 foreach ($Review in $RequiredReviews) {
   if (-not (Test-Path -LiteralPath $Review)) { throw "missing predecessor review $Review" }
   $ReviewText = Get-Content -LiteralPath $Review -Raw
-  if ($ReviewText -notmatch '(?im)^\*\*Verdict:\*\*\s*PASS|(?im)^PASS\s*$|(?im)^## Verdict\s*\r?\n\s*`?PASS') { throw "predecessor review is not PASS $Review" }
+  if ($ReviewText -notmatch '(?im)^\*\*Verdict:\*\*\s*\*{0,2}PASS(?: WITH REVIEWER LIMITATION)?\*{0,2}\s*$|(?im)^PASS\s*$|(?im)^## Verdict\s*\r?\n\s*`?PASS') { throw "predecessor review is not PASS $Review" }
 }
 python -m pytest -q -rs
 if ($LASTEXITCODE -ne 0) { throw 'M7 full pytest failed' }
