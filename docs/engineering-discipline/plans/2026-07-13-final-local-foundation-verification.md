@@ -539,6 +539,13 @@ must refer to entries in `commands`. `predecessor_checkpoints` contains exactly
 M1, M2, M3, M4, M5, and M6 once each, in order; every path is repository-relative
 and every status is `validated` or `unverified_platform_capability`.
 
+The repository object has the same five keys in both schemas but a deliberate
+time-bound distinction: M6 `verified_head` is the pre-evidence commit tested by
+M6 and therefore the parent of the M6 evidence commit; the final M7
+`verified_head` is the M6 evidence commit reviewed by the fresh M7 reviewer and
+must equal `m7_reviewer.commit`. The final manifest copies the four fixed
+baseline/M5 SHAs but does not copy M6's earlier `verified_head` value.
+
 Before staging, validate the final manifest with this exact command. It must
 print `final manifest valid`:
 
@@ -576,6 +583,19 @@ print('final manifest valid')
 if ($LASTEXITCODE -ne 0) { throw 'final manifest validation failed' }
 ```
 
+Then require the dirty set to contain exactly the four M7 evidence paths:
+
+```powershell
+$ExpectedDirty = @(
+  ' M docs/engineering-discipline/harness/career-pipeline-completion/milestones/M7-integration-verification.md',
+  ' M docs/engineering-discipline/harness/career-pipeline-completion/state.md',
+  '?? docs/engineering-discipline/harness/career-pipeline-completion/manifests/2026-07-13-final-local-foundation-verification.json',
+  '?? docs/engineering-discipline/harness/career-pipeline-completion/reviews/2026-07-13-m7-integration-review.md'
+) | Sort-Object
+$ActualDirty = @(git status --porcelain=v1) | Sort-Object
+if (Compare-Object $ExpectedDirty $ActualDirty) { throw 'unexpected M7 dirty path set' }
+```
+
 Commit only final M7 evidence:
 
 ```powershell
@@ -583,7 +603,8 @@ git add -- docs/engineering-discipline/harness/career-pipeline-completion/review
 git diff --cached --check
 git diff --cached --name-only
 git commit -m "docs: record M7 integration verification"
-git status --porcelain=v1
+$FinalDirty = @(git status --porcelain=v1)
+if ($FinalDirty.Count -ne 0) { $FinalDirty; throw 'final working tree is not clean' }
 ```
 
 The final status must be empty. Stop there: no push, PR, merge, deployment,
