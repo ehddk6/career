@@ -110,10 +110,12 @@ All commands must exit zero and the final status output must be empty.
 ### 3. Existing-backend offline build and install
 
 Use only `setuptools.build_meta` already declared in `pyproject.toml`. Do not
-install build tooling, dependencies, extras, or use an index/network. Use an
-exact, detached Git worktree that is robust for Windows paths and Unicode
-filenames. The worktree removal below is allowed only after its resolved path
-is proven to be the exact generated temporary directory.
+install build tooling, dependencies, extras, or use an index/network. Use a
+quiet local `git clone --no-hardlinks --no-checkout` followed by a detached
+checkout. This is robust for Windows paths and Unicode filenames and does not
+register metadata under the primary repository's `.git/worktrees` directory.
+Cleanup is allowed only after the resolved generated root is proven to be the
+exact temporary child created by this run.
 
 ```powershell
 $TempParent = (Resolve-Path -LiteralPath ([System.IO.Path]::GetTempPath())).Path
@@ -124,8 +126,10 @@ $Venv = Join-Path $RunRoot 'venv'
 if (-not $Worktree.StartsWith($RunRoot + [System.IO.Path]::DirectorySeparatorChar, [System.StringComparison]::OrdinalIgnoreCase)) { throw 'worktree path escaped generated temp root' }
 if (Test-Path -LiteralPath $RunRoot) { throw 'generated temporary root already exists' }
 New-Item -ItemType Directory -Force $RunRoot, $WheelDir | Out-Null
-git worktree add --detach $Worktree $Head
-if ($LASTEXITCODE -ne 0) { throw 'detached temporary worktree creation failed' }
+git clone --quiet --no-hardlinks --no-checkout $Repo $Worktree
+if ($LASTEXITCODE -ne 0) { throw 'temporary local clone failed' }
+git -C $Worktree checkout --quiet --detach $Head
+if ($LASTEXITCODE -ne 0) { throw 'detached temporary checkout failed' }
 $WorktreeResolved = (Resolve-Path -LiteralPath $Worktree).Path
 $RunRootResolved = (Resolve-Path -LiteralPath $RunRoot).Path
 if ($WorktreeResolved -ne (Join-Path $RunRootResolved 'worktree')) { throw 'resolved worktree path mismatch' }
@@ -200,19 +204,16 @@ Reject public strings containing raw HTML, sentinel values, signing material,
 PII, absolute user/workspace paths, `file:` URLs, or query/fragment values. The
 only path-like runtime exception is a readiness evidence `source` matching
 `^(?:career_pipeline|tests|docs|\.agents)(?:/[A-Za-z0-9][A-Za-z0-9._-]*)+$`.
-Do not recursively remove `$RunRoot` during verification. A leftover generated
-temporary root is an environment observation, never a product change.
-
-After the hash capture and before any optional deletion of the generated
-temporary root, remove only the exact detached worktree. Do not run a recursive
-delete over `$RunRoot` or a computed parent path:
+After every required hash is captured and no process is using the venv, remove
+only the exact generated root. Recursive removal is allowed solely for this
+verified temporary child, never for its parent or a path supplied by a user:
 
 ```powershell
-if ($WorktreeResolved -ne (Join-Path $RunRootResolved 'worktree')) { throw 'refuse to remove unexpected worktree' }
-git worktree remove --force $WorktreeResolved
-if ($LASTEXITCODE -ne 0) { throw 'detached temporary worktree removal failed' }
-if (Test-Path -LiteralPath $WorktreeResolved) { throw 'worktree path still exists after removal' }
-git worktree list --porcelain
+if ([System.IO.Path]::GetDirectoryName($RunRootResolved) -ne $TempParent) { throw 'refuse to remove temp root outside temp parent' }
+if ([System.IO.Path]::GetFileName($RunRootResolved) -notmatch '^career-pipeline-m6-[0-9a-f]{32}$') { throw 'refuse to remove unexpected temp root name' }
+if ($WorktreeResolved -ne (Join-Path $RunRootResolved 'worktree')) { throw 'resolved clone path mismatch before cleanup' }
+Remove-Item -LiteralPath $RunRootResolved -Recurse -Force
+if (Test-Path -LiteralPath $RunRootResolved) { throw 'generated temporary root still exists after cleanup' }
 ```
 
 ### 5. Security, privacy, and documentation/skill scans
@@ -465,7 +466,7 @@ if ($LASTEXITCODE -ne 0) { throw 'M7 diff check failed' }
 
 Next, the reviewer executes the literal M6 sections **3**, **4**, and **5**
 above unchanged after assigning `$Head = $ReviewHead` and `$Repo = $ReviewRepo`.
-Those sections define the exact detached-worktree creation/removal, wheel
+Those sections define the exact detached local-clone creation/removal, wheel
 inspection, inherited-dependency limitation, resolved-absolute workspace
 arguments, `0/0/3/3/4/2` smoke exits, and scan commands. The reviewer must not
 reuse an M6 temporary root or M6 captured output.
