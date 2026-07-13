@@ -117,7 +117,7 @@ is proven to be the exact generated temporary directory.
 
 ```powershell
 $TempParent = (Resolve-Path -LiteralPath ([System.IO.Path]::GetTempPath())).Path
-$RunRoot = [System.IO.Path]::GetFullPath((Join-Path $TempParent ('career-pipeline-m6-' + [guid]::NewGuid().ToString('N')))
+$RunRoot = [System.IO.Path]::GetFullPath((Join-Path $TempParent ('career-pipeline-m6-' + [guid]::NewGuid().ToString('N'))))
 $Worktree = [System.IO.Path]::GetFullPath((Join-Path $RunRoot 'worktree'))
 $WheelDir = Join-Path $RunRoot 'wheel'
 $Venv = Join-Path $RunRoot 'venv'
@@ -130,7 +130,7 @@ $WorktreeResolved = (Resolve-Path -LiteralPath $Worktree).Path
 $RunRootResolved = (Resolve-Path -LiteralPath $RunRoot).Path
 if ($WorktreeResolved -ne (Join-Path $RunRootResolved 'worktree')) { throw 'resolved worktree path mismatch' }
 Push-Location $WorktreeResolved
-python -m pip wheel . --no-deps --no-build-isolation --wheel-dir $WheelDir
+python -m pip wheel . --no-deps --no-build-isolation --no-index --wheel-dir $WheelDir
 Pop-Location
 if ($LASTEXITCODE -ne 0) { throw 'offline wheel build failed' }
 $SmokePython = Join-Path $Venv 'Scripts\python.exe'
@@ -237,11 +237,15 @@ Every scan match has exactly one of these classifications:
 
 - `allowed_negative`: a counter, negative test assertion, parser rejection, or
   documentation sentence that explicitly denies a live action.
-- `existing_required_transport`: only the existing official-source transport in
-  `career_pipeline/posting_loader.py`: imports at lines 7 and 9–11, the
-  injected `Transport` contract, `_default_transport`, and the URL branch of
-  `load_posting_source` at lines 159–205. It is permitted only after the
-  reviewer confirms its public-HTTPS and official-domain guards remain intact.
+- `existing_required_transport`: only (a) the existing official-source
+  transport in `career_pipeline/posting_loader.py` (socket/urllib imports,
+  injected resolver/transport, `_default_transport`, and URL branch of
+  `load_posting_source`) and (b) the existing DNS safety resolvers in
+  `career_pipeline/discovery.py` (`socket` import and `socket.getaddrinfo`
+  defaults). These are permitted only after the reviewer confirms the posting
+  loader's public-HTTPS/official-domain guards and discovery's public-address
+  filtering remain intact. No other module or call site may receive this
+  classification.
 - `forbidden`: every other new executable network/browser/mutation/credential
   access, including any such call reachable from `run_m5_command`,
   `run_m5_offline_acceptance`, `run_m5_status`, or helpers whose name starts
@@ -270,10 +274,14 @@ Perform a consistency check on these four files:
 - `docs/site-intake.md`
 - `.agents/skills/career-pipeline/SKILL.md`
 
-Their M5 wording must preserve `offline-acceptance`, strict `status --input`,
-normal exit `3`, `external_only_blocked`, disabled live execution, and
-not-attempted submission. Record required-literal results and SHA-256 for every
-file.
+Required literals are file-specific: `docs/career-pipeline-usage.md` and
+`.agents/skills/career-pipeline/SKILL.md` require `offline-acceptance`,
+`status --input`, exit `3`, `external_only_blocked`, disabled live execution,
+and not-attempted submission; `docs/site-intake.md` requires the strict status
+artifact boundary and disabled live execution; `docs/application-execution.md`
+requires legacy-unusable authorization, disabled live execution, and no current
+submit capability but need not duplicate the status CLI syntax. Record the
+per-file literal matrix and SHA-256 for every file.
 
 ## M6 evidence schema and commit
 
@@ -382,6 +390,36 @@ $ReviewHead = (git rev-parse HEAD).Trim()
 $M6Manifest = 'docs/engineering-discipline/harness/career-pipeline-completion/manifests/2026-07-13-m6-local-foundation.json'
 if (@(git status --porcelain=v1).Count -ne 0) { throw 'M7 requires a clean reviewed tree' }
 if (-not (Test-Path -LiteralPath $M6Manifest)) { throw 'M6 manifest missing' }
+$M6ManifestSha256 = (Get-FileHash -LiteralPath $M6Manifest -Algorithm SHA256).Hash.ToLowerInvariant()
+if ($M6ManifestSha256 -notmatch '^[0-9a-f]{64}$') { throw 'M6 manifest hash invalid' }
+@'
+import json, re
+from pathlib import Path
+p = Path('docs/engineering-discipline/harness/career-pipeline-completion/manifests/2026-07-13-m6-local-foundation.json')
+v = json.loads(p.read_text(encoding='utf-8'))
+expected = {'schema_version','generated_at','repository','commands','test_runs','artifacts','smoke','security_scans','docs_skill_contract','symlink_checks','external_blockers','working_tree','limitations','predecessor_checkpoints'}
+assert set(v) == expected
+assert v['schema_version'] == 'career-pipeline-local-foundation-verification-v1'
+assert v['working_tree'] == {'before': 'clean', 'after': 'clean'}
+assert all(re.fullmatch(r'[0-9a-f]{64}', item['sha256']) for item in v['artifacts'])
+assert all(item['outcome'] in {'passed','failed','skipped','environment_blocked'} for item in v['commands'])
+assert len(v['predecessor_checkpoints']) == 6
+print('m6 manifest schema valid')
+'@ | python -
+if ($LASTEXITCODE -ne 0) { throw 'M6 manifest schema verification failed' }
+$RequiredCommits = @('c663e15','6b3d03d','b5b6db7','a92f366','3798f8b','20a288b','42f8b0f','7f68329','2d30f8b','72aa59c','f1c3be9')
+foreach ($Commit in $RequiredCommits) { git merge-base --is-ancestor $Commit $ReviewHead; if ($LASTEXITCODE -ne 0) { throw "missing predecessor commit $Commit" } }
+$RequiredCheckpoints = 1..6 | ForEach-Object { "docs/engineering-discipline/harness/career-pipeline-completion/checkpoints/M$($_)-checkpoint.md" }
+foreach ($Checkpoint in $RequiredCheckpoints) { if (-not (Test-Path -LiteralPath $Checkpoint)) { throw "missing predecessor checkpoint $Checkpoint" } }
+$RequiredReviews = @(
+  'docs/engineering-discipline/reviews/2026-07-12-site-intake-fail-closed-review.md',
+  'docs/engineering-discipline/reviews/2026-07-12-shared-safety-kernel-review.md',
+  'docs/engineering-discipline/reviews/2026-07-12-readiness-contract-review.md',
+  'docs/engineering-discipline/reviews/2026-07-12-contract-bound-authorization-review.md',
+  'docs/engineering-discipline/reviews/2026-07-13-offline-acceptance-review.md',
+  'docs/engineering-discipline/reviews/2026-07-13-cli-operational-gate-review.md'
+)
+foreach ($Review in $RequiredReviews) { if (-not (Test-Path -LiteralPath $Review)) { throw "missing predecessor review $Review" } }
 python -m pytest -q -rs
 if ($LASTEXITCODE -ne 0) { throw 'M7 full pytest failed' }
 python -m compileall -q career_pipeline
