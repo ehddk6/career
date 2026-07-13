@@ -1,8 +1,8 @@
 # Milestone: Integration Verification
 
 **ID:** M7
-**Status:** pending
-**Readiness:** ready for an independent M7 review; M7 itself has not run.
+**Status:** completed
+**Readiness:** independent final-tree review passed at `96989a3cc7dc98dc955c56428013e060b63f5732`.
 **Dependencies:** M6
 **Risk:** Medium
 **Effort:** Small
@@ -20,7 +20,8 @@ Validate all milestone outputs as one coherent local-only system.
 
 ## Files Affected
 
-- None; read-only verification unless a corrective milestone is required.
+- `docs/engineering-discipline/harness/career-pipeline-completion/reviews/2026-07-13-m7-integration-review.md`
+- `docs/engineering-discipline/harness/career-pipeline-completion/manifests/2026-07-13-final-local-foundation-verification.json`
 
 ## User Value
 
