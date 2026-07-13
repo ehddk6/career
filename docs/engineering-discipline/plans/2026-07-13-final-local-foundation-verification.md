@@ -395,7 +395,7 @@ $M6ManifestSha256 = (Get-FileHash -LiteralPath $M6Manifest -Algorithm SHA256).Ha
 if ($M6ManifestSha256 -notmatch '^[0-9a-f]{64}$') { throw 'M6 manifest hash invalid' }
 $M6Checkpoint = 'docs/engineering-discipline/harness/career-pipeline-completion/checkpoints/M6-checkpoint.md'
 $M6CheckpointText = Get-Content -LiteralPath $M6Checkpoint -Raw
-$ExpectedManifestHash = [regex]::Match($M6CheckpointText, 'Manifest SHA-256:\s*`([0-9a-f]{64})`').Groups[1].Value
+$ExpectedManifestHash = [regex]::Match($M6CheckpointText, '\*\*Manifest SHA-256:\*\*\s*`([0-9a-f]{64})`').Groups[1].Value
 if (-not $ExpectedManifestHash -or $ExpectedManifestHash -ne $M6ManifestSha256) { throw 'M6 manifest hash does not match checkpoint' }
 @'
 import hashlib, json, re, subprocess
@@ -412,11 +412,14 @@ expected_repository = {
   'm5_feature_commit': '2d30f8b05254d8d436759945de1b66d7dff8b4df',
   'm5_lock_fix_commit': '72aa59c8c6d88d034769a0b74766a84c6222ec0b',
   'm5_checkpoint_commit': 'f1c3be9f02b46e7bce63099927e877b94e394f1e',
-  'verified_head': subprocess.check_output(['git','rev-parse','HEAD^'], text=True).strip(),
+  'verified_head': subprocess.check_output(['git','rev-parse',subprocess.check_output(['git','log','-1','--format=%H','--',str(p)], text=True).strip() + '^'], text=True).strip(),
 }
 assert v['repository'] == expected_repository
+reviewed_head = subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()
+m6_evidence_commit = subprocess.check_output(['git','log','-1','--format=%H','--',str(p)], text=True).strip()
+subprocess.run(['git','merge-base','--is-ancestor',m6_evidence_commit,reviewed_head], check=True)
 for commit in expected_repository.values():
-    subprocess.run(['git','merge-base','--is-ancestor',commit,subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()], check=True)
+    subprocess.run(['git','merge-base','--is-ancestor',commit,reviewed_head], check=True)
 assert all(re.fullmatch(r'[0-9a-f]{64}', item['sha256']) for item in v['artifacts'])
 assert all(item['outcome'] in {'passed','failed','skipped','environment_blocked'} for item in v['commands'])
 artifact_hashes = {item['logical_name']: item['sha256'] for item in v['artifacts']}
