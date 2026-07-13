@@ -127,6 +127,24 @@ def test_exclusive_lock_serializes_concurrent_atomic_json_writers(tmp_path):
     assert not lock_path.exists() and not list(tmp_path.glob(".state.json.*.tmp"))
 
 
+def test_exclusive_lock_retries_transient_windows_permission_error(tmp_path, monkeypatch):
+    lock_path = tmp_path / "state.lock"
+    original_open = Path.open
+    attempts = 0
+
+    def flaky_open(path, mode="r", *args, **kwargs):
+        nonlocal attempts
+        if path == lock_path and mode == "x" and attempts < 2:
+            attempts += 1
+            raise PermissionError(13, "simulated deletion-pending lock")
+        return original_open(path, mode, *args, **kwargs)
+
+    monkeypatch.setattr(Path, "open", flaky_open)
+    with exclusive_lock(lock_path, timeout_seconds=1, poll_interval_seconds=0.001):
+        assert attempts == 2
+    assert not lock_path.exists()
+
+
 def test_state_write_json_preserves_format_and_uses_atomic_replace(tmp_path):
     path = tmp_path / "state.json"
     write_json(path, {"text": "한글", "number": 1})

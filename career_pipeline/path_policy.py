@@ -197,6 +197,13 @@ def exclusive_lock(lock_path: Path, *, timeout_seconds: float = 5.0, poll_interv
                 diagnosis = diagnose_lock(path, stale_after_seconds=stale_after_seconds)
                 raise LockAcquisitionError(f"lock timeout: {diagnosis.status}")
             time.sleep(poll_interval_seconds)
+        except PermissionError as error:
+            # Windows can briefly deny exclusive creation while a just-unlinked
+            # lock is still deletion-pending. Treat that window as contention,
+            # but preserve a bounded failure for persistent permission errors.
+            if time.monotonic() >= deadline:
+                raise LockAcquisitionError("could not acquire lock") from error
+            time.sleep(poll_interval_seconds)
         except OSError as error:
             raise LockAcquisitionError("could not acquire lock") from error
     try:
