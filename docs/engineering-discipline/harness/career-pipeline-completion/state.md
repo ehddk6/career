@@ -26,7 +26,7 @@
 | M3 | Contract-bound authorization | completed | 2 | M2A, M2B | `docs/engineering-discipline/plans/2026-07-12-contract-bound-authorization.md` | `docs/engineering-discipline/reviews/2026-07-12-contract-bound-authorization-review.md` |
 | M4 | Deterministic offline acceptance | completed | 2 | M3 | `docs/engineering-discipline/plans/2026-07-12-offline-acceptance.md` | `docs/engineering-discipline/reviews/2026-07-13-offline-acceptance-review.md` |
 | M5 | Unified CLI and operational gate | completed | 2 | M4 | `docs/engineering-discipline/plans/2026-07-13-cli-operational-gate.md` | `docs/engineering-discipline/reviews/2026-07-13-cli-operational-gate-review.md` |
-| M6 | Final local foundation checkpoint | pending | 0 | M5 | - | - |
+| M6 | Final local foundation checkpoint | executing | 1 | M5 | `docs/engineering-discipline/plans/2026-07-13-final-local-foundation-verification.md` | - |
 | M7 | Integration verification | pending | 0 | M6 | - | - |
 
 ## Execution Log
@@ -49,3 +49,4 @@
 | 2026-07-13 | M5-plan-pass | CLI operational gate plan passed independent compliance after strict envelope, status input, outcome matrix, and evidence-path corrections; execution attempt 1 started. |
 | 2026-07-13 | M5-review-retry | Final review found non-canonical origins accepted by strict status input; attempt 2 enforced shared origin canonicalization and passed re-review. |
 | 2026-07-13 | M5-completed | Commit `2d30f8b`; final review PASS. Post-commit regression exposed transient Windows deletion-pending lock contention, fixed in `72aa59c`; full suite `541 passed, 5 skipped`. |
+| 2026-07-13 | M6-M7-plan-pass | Final verification plan passed independent compliance after Windows worktree, dependency limitation, transport classification, manifest binding, and clean-tree corrections; M6 execution attempt 1 started. |
