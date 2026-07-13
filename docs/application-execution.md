@@ -23,6 +23,12 @@ review_required
 제출 성공은 접수번호와 완료 URL을 모두 확인한 경우에만 `submitted_verified`로 기록한다. 접수번호 원문은 저장하지 않고 SHA-256 fingerprint만 기록하며 URL query와 fragment는 제거한다. 증거가 부족하면 `submission_unverified`다.
 
 Phase 5에는 운영 사이트용 Playwright mutation adapter와 live 실행 CLI가 포함되지 않는다. 운영 사이트 로그인, MFA, CAPTCHA 우회와 실제 개인정보 전송은 수행하지 않는다. 사이트별 fill-only adapter는 origin·iframe·popup·첨부 TOCTOU 정책과 함께 별도 Phase 6에서 구현한다.
+
+위의 v1 실행 흐름은 역사적 계약 설명이며 현재 artifact를 실행 가능하게
+만들지 않는다. v1 review/authorization은 자동 승격되지 않고 실행 진입점에서
+`LEGACY_AUTHORIZATION_UNUSABLE`로 fail-closed한다. 현재 생성되는 site contract는
+live/mutation capability가 비활성화되어 있어 fill 또는 submit 권한을 발급할 수 없다.
+
 ## M5 operational status boundary
 
 `python -m career_pipeline offline-acceptance` and `python -m career_pipeline

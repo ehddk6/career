@@ -297,7 +297,7 @@ newline and this exact shape:
   "test_runs": [{"attempt": 1, "kind": "full|targeted", "node": "node-or-null", "result": "passed|failed", "passed": 0, "failed": 0, "skipped": 0, "stdout_sha256": "sha256"}],
   "artifacts": [{"logical_name": "string", "sha256": "lowercase SHA-256", "bytes": 0}],
   "smoke": {"import_exit": 0, "help_exit": 0, "offline_acceptance_exit": 3, "status_exit": 3, "invalid_status_exit": 4, "argparse_exit": 2, "public_output_safe": true},
-  "security_scans": [{"id": "string", "matches": [{"file": "repo-relative", "line": 1, "classification": "allowed_negative|existing_required_transport|forbidden", "detail": "string"}], "passed": true}],
+  "security_scans": [{"id": "string", "matches": [{"file": "repo-relative", "line": 1, "classification": "allowed_negative|existing_required_transport|local_diagnostic_metadata|forbidden", "detail": "string"}], "passed": true}],
   "docs_skill_contract": {"files": [{"path": "repo-relative", "sha256": "lowercase SHA-256"}], "passed": true},
   "symlink_checks": {"status": "passed|unverified_platform_capability", "skips": [{"node": "string", "reason": "string"}]},
   "external_blockers": ["ORIGIN_UNCONFIRMED", "DOM_UNVERIFIED", "AUTOMATION_POLICY_UNCONFIRMED", "CREDENTIALS_UNAVAILABLE", "MFA_REQUIRED", "CAPTCHA_PRESENT", "PII_TRANSMISSION_UNAUTHORIZED", "UPLOAD_NOT_AUTHORIZED", "CLICK_NOT_AUTHORIZED", "SUBMIT_NOT_AUTHORIZED", "RECEIPT_UNVERIFIED"],
@@ -339,9 +339,9 @@ The M6 top-level key set is exactly `schema_version`, `generated_at`,
 | `repository` | object with exactly five non-empty full 40-hex SHA strings shown in the schema |
 | `commands` | array; every object has exactly `id`, `argv`, `cwd`, `expected_exit`, `observed_exit`, `outcome`, `stdout_sha256`, `stderr_sha256`; argv is string array, exits are integers, cwd is `repo` or `temporary` |
 | `test_runs` | array of exact objects shown; counts are non-negative integers, node is string or null, stdout hash is lowercase SHA-256 |
-| `artifacts` | array of exact logical-name/SHA/byte objects; bytes is a non-negative integer and logical names contain no path separator |
+| `artifacts` | array of exact logical-name/SHA/byte objects; bytes is a non-negative integer and logical names contain no path separator. It must include hashes for M1–M5 checkpoint files and every M1–M5 review file listed in the predecessor table, in addition to wheel/smoke evidence. |
 | `smoke` | exact object shown; integer exits must be `0`, `0`, `3`, `3`, `4`, `2` in the named order and `public_output_safe=true` |
-| `security_scans` | array; `classification` is only `allowed_negative`, `existing_required_transport`, or `forbidden`; a PASS manifest contains no `forbidden` match |
+| `security_scans` | array; `classification` is only `allowed_negative`, `existing_required_transport`, `local_diagnostic_metadata`, or `forbidden`; `local_diagnostic_metadata` is allowed only for `socket.gethostname` in `career_pipeline/path_policy.py`, which records a lock owner hostname and performs no transport. A PASS manifest contains no `forbidden` match. |
 | `docs_skill_contract` | exact object; every path is repository-relative and every SHA is lowercase 64-hex |
 | `symlink_checks` | exact object; status only `passed` or `unverified_platform_capability`, and every skip has a node and reason string |
 | `external_blockers` | sorted unique string array containing exactly the 11 listed blocker codes |
@@ -392,18 +392,39 @@ if (@(git status --porcelain=v1).Count -ne 0) { throw 'M7 requires a clean revie
 if (-not (Test-Path -LiteralPath $M6Manifest)) { throw 'M6 manifest missing' }
 $M6ManifestSha256 = (Get-FileHash -LiteralPath $M6Manifest -Algorithm SHA256).Hash.ToLowerInvariant()
 if ($M6ManifestSha256 -notmatch '^[0-9a-f]{64}$') { throw 'M6 manifest hash invalid' }
+$M6Checkpoint = 'docs/engineering-discipline/harness/career-pipeline-completion/checkpoints/M6-checkpoint.md'
+$M6CheckpointText = Get-Content -LiteralPath $M6Checkpoint -Raw
+$ExpectedManifestHash = [regex]::Match($M6CheckpointText, 'Manifest SHA-256:\s*`([0-9a-f]{64})`').Groups[1].Value
+if (-not $ExpectedManifestHash -or $ExpectedManifestHash -ne $M6ManifestSha256) { throw 'M6 manifest hash does not match checkpoint' }
 @'
-import json, re
+import hashlib, json, re
 from pathlib import Path
 p = Path('docs/engineering-discipline/harness/career-pipeline-completion/manifests/2026-07-13-m6-local-foundation.json')
 v = json.loads(p.read_text(encoding='utf-8'))
-expected = {'schema_version','generated_at','repository','commands','test_runs','artifacts','smoke','security_scans','docs_skill_contract','symlink_checks','external_blockers','working_tree','limitations','predecessor_checkpoints'}
+expected = {'schema_version','generated_at','repository','commands','test_runs','artifacts','smoke','security_scans','docs_skill_contract','symlink_checks','external_blockers','working_tree','limitations','verdict'}
 assert set(v) == expected
-assert v['schema_version'] == 'career-pipeline-local-foundation-verification-v1'
-assert v['working_tree'] == {'before': 'clean', 'after': 'clean'}
+assert v['schema_version'] == 'career-pipeline-final-local-foundation-v1'
+assert v['working_tree'] == {'clean_before': True, 'clean_after': True, 'status_porcelain': []}
+assert v['verdict'] == 'pass'
 assert all(re.fullmatch(r'[0-9a-f]{64}', item['sha256']) for item in v['artifacts'])
 assert all(item['outcome'] in {'passed','failed','skipped','environment_blocked'} for item in v['commands'])
-assert len(v['predecessor_checkpoints']) == 6
+artifact_hashes = {item['logical_name']: item['sha256'] for item in v['artifacts']}
+predecessor_files = {
+  'checkpoint-M1': 'docs/engineering-discipline/harness/career-pipeline-completion/checkpoints/M1-checkpoint.md',
+  'checkpoint-M2': 'docs/engineering-discipline/harness/career-pipeline-completion/checkpoints/M2-checkpoint.md',
+  'checkpoint-M3': 'docs/engineering-discipline/harness/career-pipeline-completion/checkpoints/M3-checkpoint.md',
+  'checkpoint-M4': 'docs/engineering-discipline/harness/career-pipeline-completion/checkpoints/M4-checkpoint.md',
+  'checkpoint-M5': 'docs/engineering-discipline/harness/career-pipeline-completion/checkpoints/M5-checkpoint.md',
+  'review-M1': 'docs/engineering-discipline/reviews/2026-07-12-site-intake-fail-closed-review.md',
+  'review-M2A': 'docs/engineering-discipline/reviews/2026-07-12-shared-safety-kernel-review.md',
+  'review-M2B': 'docs/engineering-discipline/reviews/2026-07-12-readiness-contract-review.md',
+  'review-M3': 'docs/engineering-discipline/reviews/2026-07-12-contract-bound-authorization-review.md',
+  'review-M4': 'docs/engineering-discipline/reviews/2026-07-13-offline-acceptance-review.md',
+  'review-M5': 'docs/engineering-discipline/reviews/2026-07-13-cli-operational-gate-review.md',
+}
+for logical_name, raw_path in predecessor_files.items():
+    data = Path(raw_path).read_bytes()
+    assert artifact_hashes[logical_name] == hashlib.sha256(data).hexdigest(), logical_name
 print('m6 manifest schema valid')
 '@ | python -
 if ($LASTEXITCODE -ne 0) { throw 'M6 manifest schema verification failed' }
@@ -419,7 +440,11 @@ $RequiredReviews = @(
   'docs/engineering-discipline/reviews/2026-07-13-offline-acceptance-review.md',
   'docs/engineering-discipline/reviews/2026-07-13-cli-operational-gate-review.md'
 )
-foreach ($Review in $RequiredReviews) { if (-not (Test-Path -LiteralPath $Review)) { throw "missing predecessor review $Review" } }
+foreach ($Review in $RequiredReviews) {
+  if (-not (Test-Path -LiteralPath $Review)) { throw "missing predecessor review $Review" }
+  $ReviewText = Get-Content -LiteralPath $Review -Raw
+  if ($ReviewText -notmatch '(?im)^\*\*Verdict:\*\*\s*PASS|(?im)^PASS\s*$|(?im)^## Verdict\s*\r?\n\s*`?PASS') { throw "predecessor review is not PASS $Review" }
+}
 python -m pytest -q -rs
 if ($LASTEXITCODE -ne 0) { throw 'M7 full pytest failed' }
 python -m compileall -q career_pipeline
@@ -440,7 +465,10 @@ after commands; full pytest, compileall, and diff check pass; every smoke exit
 matches; the wheel contains the project package and metadata; the inherited
 runtime-dependency limitation is recorded; no `forbidden` scan match exists;
 every `existing_required_transport` match is confined to the exact
-`posting_loader.py` allowlist and M5 reachability check prints `m5 paths clear`;
+`posting_loader.py` or `discovery.py` allowlist, every
+`local_diagnostic_metadata` match is the single `path_policy.py`
+`socket.gethostname` lock-owner field, and M5 reachability check prints
+`m5 paths clear`;
 all four docs/skill files agree; M6 and final manifests validate their exact
 schemas; and every predecessor row above is either `validated` or explicitly
 `unverified_platform_capability` for a symlink-host limitation only.
@@ -472,7 +500,7 @@ omitted M6 fields:
   "test_runs": [{"attempt": 1, "kind": "full|targeted", "node": "node-or-null", "result": "passed|failed", "passed": 0, "failed": 0, "skipped": 0, "stdout_sha256": "sha256"}],
   "artifacts": [{"logical_name": "string", "sha256": "lowercase SHA-256", "bytes": 0}],
   "smoke": {"import_exit": 0, "help_exit": 0, "offline_acceptance_exit": 3, "status_exit": 3, "invalid_status_exit": 4, "argparse_exit": 2, "public_output_safe": true},
-  "security_scans": [{"id": "string", "matches": [{"file": "repo-relative", "line": 1, "classification": "allowed_negative|existing_required_transport|forbidden", "detail": "string"}], "passed": true}],
+  "security_scans": [{"id": "string", "matches": [{"file": "repo-relative", "line": 1, "classification": "allowed_negative|existing_required_transport|local_diagnostic_metadata|forbidden", "detail": "string"}], "passed": true}],
   "docs_skill_contract": {"files": [{"path": "repo-relative", "sha256": "lowercase SHA-256"}], "passed": true},
   "symlink_checks": {"status": "passed|unverified_platform_capability", "skips": [{"node": "string", "reason": "string"}]},
   "external_blockers": ["sorted unique blocker codes"],
