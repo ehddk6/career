@@ -1,8 +1,8 @@
 # Long Run State: Career Pipeline Local Completion
 
 **Created:** 2026-07-12
-**Last Updated:** 2026-07-12
-**Status:** executing
+**Last Updated:** 2026-07-13
+**Status:** M6 completed; M7 pending and ready for independent review
 
 **Verification Strategy:**
 - **Level:** integration and test-suite
@@ -26,8 +26,8 @@
 | M3 | Contract-bound authorization | completed | 2 | M2A, M2B | `docs/engineering-discipline/plans/2026-07-12-contract-bound-authorization.md` | `docs/engineering-discipline/reviews/2026-07-12-contract-bound-authorization-review.md` |
 | M4 | Deterministic offline acceptance | completed | 2 | M3 | `docs/engineering-discipline/plans/2026-07-12-offline-acceptance.md` | `docs/engineering-discipline/reviews/2026-07-13-offline-acceptance-review.md` |
 | M5 | Unified CLI and operational gate | completed | 2 | M4 | `docs/engineering-discipline/plans/2026-07-13-cli-operational-gate.md` | `docs/engineering-discipline/reviews/2026-07-13-cli-operational-gate-review.md` |
-| M6 | Final local foundation checkpoint | executing | 1 | M5 | `docs/engineering-discipline/plans/2026-07-13-final-local-foundation-verification.md` | - |
-| M7 | Integration verification | pending | 0 | M6 | - | - |
+| M6 | Final local foundation checkpoint | completed | 1 | M5 | `docs/engineering-discipline/plans/2026-07-13-final-local-foundation-verification.md` | `docs/engineering-discipline/harness/career-pipeline-completion/checkpoints/M6-checkpoint.md` |
+| M7 | Integration verification | pending (ready) | 0 | M6 | `docs/engineering-discipline/plans/2026-07-13-final-local-foundation-verification.md` | - |
 
 ## Execution Log
 
@@ -50,3 +50,4 @@
 | 2026-07-13 | M5-review-retry | Final review found non-canonical origins accepted by strict status input; attempt 2 enforced shared origin canonicalization and passed re-review. |
 | 2026-07-13 | M5-completed | Commit `2d30f8b`; final review PASS. Post-commit regression exposed transient Windows deletion-pending lock contention, fixed in `72aa59c`; full suite `541 passed, 5 skipped`. |
 | 2026-07-13 | M6-M7-plan-pass | Final verification plan passed independent compliance after Windows worktree, dependency limitation, transport classification, manifest binding, and clean-tree corrections; M6 execution attempt 1 started. |
+| 2026-07-13 | M6-completed | Verified clean head `b675c3a1ac7bc0643def7fbb71bc6226d7b607d6`: two full suites `541 passed, 5 skipped`; offline clone/wheel/install/CLI smoke and scans passed. Manifest SHA-256 `92389066c973c8dc71d2db1ed9d8da8b9f0166bb9436f5d73a0dfe05a052274b`; M7 is pending and ready only for independent review. |

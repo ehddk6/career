@@ -2,6 +2,7 @@
 
 **ID:** M7
 **Status:** pending
+**Readiness:** ready for an independent M7 review; M7 itself has not run.
 **Dependencies:** M6
 **Risk:** Medium
 **Effort:** Small
