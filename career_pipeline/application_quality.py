@@ -26,6 +26,7 @@ QUALITY_DIMENSIONS = (
     "interview",
 )
 BLOCKER_MESSAGES = {
+    "RIGOROUS_SELECTION_REQUIRED": "제출 후보는 rigorous 독립 심사를 통과해야 함",
     "CONFIRMED_PROFILE_MISSING": "확정 경험 원장 없음",
     "OFFICIAL_POSTING_URL_MISSING_OR_INVALID": "공식 공고 URL 없음 또는 형식 오류",
     "POSTING_NOT_ACTIVE": "활성 공고 아님",
@@ -61,6 +62,19 @@ def _has_json_content(path: Path) -> bool:
     except (OSError, json.JSONDecodeError):
         return False
     return isinstance(value, (dict, list)) and bool(value)
+
+
+def _rigorous_selection_passed(run_dir: Path | None) -> bool:
+    if run_dir is None:
+        return False
+    manifest = _load_object(run_dir / "12_최종산출물.json")
+    selection = manifest.get("selection")
+    return bool(
+        isinstance(selection, dict)
+        and selection.get("selection_mode") == "rigorous"
+        and selection.get("status") == "passed"
+        and selection.get("hard_fail") is False
+    )
 
 
 def _safe_workspace_path(root: Path, raw: object) -> Path | None:
@@ -125,10 +139,20 @@ def research_artifacts_ready(run_dir: Path | None, today: date | None = None) ->
         searched_at
         and 0 <= (evaluation_date - searched_at).days <= POSTING_FRESHNESS_DAYS
     )
+    audit = _load_object(run_dir / "11_최종품질감사.json")
+    research_section = (
+        audit.get("sections", {}).get("research", {}) if audit else {}
+    )
+    research_audit_complete = bool(
+        isinstance(research_section.get("score"), (int, float))
+        and research_section.get("score") == research_section.get("max")
+        and research_section.get("max", 0) > 0
+    )
     return bool(
         _has_json_content(run_dir / "04_공식근거.json")
         and execution.get("status") == "verified"
         and research_fresh
+        and research_audit_complete
     )
 
 
@@ -280,6 +304,7 @@ def assess_application_quality(
             has_candidates
             and _final_artifact_valid(root, run_dir, target)
             and _audit_passed(run_dir)
+            and _rigorous_selection_passed(run_dir)
         ),
         "interview": _interview_ready(run_dir),
     }
@@ -315,6 +340,8 @@ def assess_application_quality(
             blockers.append("FINAL_ARTIFACT_VALIDATION_FAILED")
         if not dimensions["interview"]:
             blockers.append("INTERVIEW_PACK_NOT_VERIFIED")
+        if not _rigorous_selection_passed(run_dir):
+            blockers.append("RIGOROUS_SELECTION_REQUIRED")
     if not _audit_passed(run_dir):
         blockers.append("FINAL_AUDIT_NOT_PASSED")
     if target.get("selected_draft") and _safe_workspace_path(root, target.get("selected_draft")) is None:

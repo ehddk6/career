@@ -32,6 +32,7 @@ def write_final_artifact_manifest(
     model_tier: str | None,
     model_id: str | None,
     validation: dict,
+    selection: dict | None = None,
 ) -> dict:
     files = {
         "answer_json": run_dir / "draft_final.json",
@@ -57,6 +58,9 @@ def write_final_artifact_manifest(
         "model_tier": model_tier,
         "model_id": model_id,
         "validation": validation,
+        "selection": selection or {
+            "selection_mode": "single", "status": "not_run", "hard_fail": False
+        },
     }
     write_json(run_dir / "12_최종산출물.json", payload)
     return payload

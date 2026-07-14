@@ -117,3 +117,48 @@ def test_copyeditor_reports_actionable_usage_limit_reason():
 
     assert result.status == "fallback_backend_error"
     assert result.message == "copyeditor backend usage limit"
+
+
+def test_copyeditor_rejects_modality_change_from_ability_to_completion():
+    original = "자료를 검토할 수 있었습니다."
+
+    def runner(*args, **kwargs):
+        return completed("자료를 검토했습니다.")
+
+    result = copyedit_text(original, runner=runner)
+
+    assert result.status == "fallback_validation"
+    assert result.text == original
+    assert "서술 양태 변경" in result.message
+
+
+def test_copyeditor_batch_prompt_receives_only_selected_style_reasons():
+    captured = {}
+
+    def runner(command, **kwargs):
+        captured["input"] = kwargs["input"]
+        payload = {
+            "items": [
+                {
+                    "question_index": 1,
+                    "text": "자료를 확인했습니다.",
+                    "applied_rules": [],
+                }
+            ]
+        }
+        return CompletedProcess(
+            args=["codex"],
+            returncode=0,
+            stdout=json.dumps(payload, ensure_ascii=False),
+            stderr="",
+        )
+
+    copyedit_responses(
+        [DraftResponse(1, "자료를 확인했습니다.", ("a.txt",))],
+        target_org="농협",
+        diagnostics_by_index={1: ("연결어 반복: 또한",)},
+        runner=runner,
+    )
+
+    assert "연결어 반복: 또한" in captured["input"]
+    assert "style_reasons에 적힌 문제만" in captured["input"]

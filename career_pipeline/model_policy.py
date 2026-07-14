@@ -36,6 +36,13 @@ def choose_tier(diagnostics, requested: ModelTier | None = None) -> ModelConfig:
         "문장 길이 분산이 지나치게 낮음",
         "문항 간 표현 중복",
         "피동 표현 과다",
+        "'할 수 있습니다' 반복",
+        "긴 관형절이 겹친 문장",
+        "같은 의미의 문장 반복",
+        "과도한 목록 구성",
     }
-    tier: ModelTier = "terra" if reasons.intersection(structural) else "luna"
+    has_structural_risk = bool(reasons.intersection(structural)) or any(
+        reason.startswith("연결어 반복:") for reason in reasons
+    )
+    tier: ModelTier = "terra" if has_structural_risk else "luna"
     return resolve_model(tier)

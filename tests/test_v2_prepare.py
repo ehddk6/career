@@ -149,7 +149,8 @@ def test_v2_prepare_writes_confirmed_profile_posting_and_matching_artifacts(tmp_
     assert state["status"] == "ready_for_research"
     assert state["quality_mode"] == "v2"
     assert state["research_policy"] == "evidence-first"
-    assert state["required_research_skill"] == "evidence-first-research"
+    assert state["research_method_default"] == "evidence-first-research"
+    assert state["research_method_enforced"] is False
     for name in (
         "00_채용공고분석.json",
         "00_채용공고분석.md",
@@ -224,4 +225,5 @@ def test_legacy_prepare_records_legacy_quality_mode(tmp_path: Path):
 
     assert state["quality_mode"] == "legacy"
     assert state["research_policy"] == "evidence-first"
-    assert state["required_research_skill"] == "evidence-first-research"
+    assert state["research_method_default"] == "evidence-first-research"
+    assert state["research_method_enforced"] is False

@@ -107,6 +107,9 @@ def build_portfolio(root: Path) -> dict[str, Any]:
                 "legacy_internal_score": legacy["average_score"],
                 "legacy_recommendation": legacy["recommendation"],
                 "legacy_score_source": legacy["source"],
+                "current_internal_validation_score": (
+                    quality.get("selected_artifact_quality") or {}
+                ).get("internal_validation_score"),
                 "quality_readiness": quality,
                 "submission_status": quality["status"],
             }
@@ -138,6 +141,7 @@ def write_portfolio(payload: dict[str, Any], output_dir: Path) -> None:
         "v2_run_dir",
         "legacy_internal_score",
         "legacy_recommendation",
+        "current_internal_validation_score",
         "quality_gates",
         "quality_blockers",
         "submission_status",
@@ -164,17 +168,19 @@ def write_portfolio(payload: dict[str, Any], output_dir: Path) -> None:
         f"- 확정 경험 원장: {'있음' if payload['confirmed_profile'] else '없음'}",
         f"- 활성 공고: {payload['active_posting_count']}개",
         "",
-        "과거 내부 평가(100점)는 참고용입니다. 현재 품질은 경험·공고·지원자격·공식조사·최종 자기소개서·면접팩의 6개 독립 게이트로 판정합니다.",
+        "과거 내부 평가(100점)는 참고용입니다. 현재 내부검증 점수와 실제 제출 준비 상태를 분리하며, 제출 상태는 경험·공고·지원자격·공식조사·최종 자기소개서·면접팩의 6개 독립 게이트로 판정합니다.",
         "",
-        "| 기관 | 후보 초안 | 공고 상태 | 활성 | 과거 내부 평가 | 품질 게이트 | 제출 상태 |",
-        "|---|---:|---|:---:|---:|---:|---|",
+        "| 기관 | 후보 초안 | 공고 상태 | 활성 | 과거 내부 평가 | 현재 내부검증 | 품질 게이트 | 제출 상태 |",
+        "|---|---:|---|:---:|---:|---:|---:|---|",
     ]
     for item in payload["applications"]:
         legacy = item.get("legacy_internal_score")
         legacy_cell = f"{legacy}" if legacy is not None else "-"
+        current = item.get("current_internal_validation_score")
+        current_cell = f"{current}" if current is not None else "-"
         lines.append(
             f"| {item['organization']} | {item['candidate_drafts']} | {item['posting_status']} | "
-            f"{'O' if item.get('is_active') else 'X'} | {legacy_cell} | "
+            f"{'O' if item.get('is_active') else 'X'} | {legacy_cell} | {current_cell} | "
             f"{item['quality_readiness']['passed_gate_count']}/{item['quality_readiness']['total_gate_count']} | "
             f"{item['submission_status']} |"
         )

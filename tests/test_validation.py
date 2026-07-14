@@ -1,9 +1,11 @@
 from career_pipeline.models import DraftResponse, ExperienceClaimRef, Question
 from career_pipeline.profile_schema import (
+    ClaimVerification,
     EvidenceRef,
     Experience,
     ExperienceLedger,
     ProfileClaim,
+    stable_claim_id,
 )
 from career_pipeline.validation import validate_draft
 
@@ -122,3 +124,147 @@ def test_v2_validation_rejects_unknown_unconfirmed_missing_and_mismatched_claims
         "unknown_claim_field",
         "unapproved_metric",
     } <= codes
+
+
+def test_v2_validation_requires_referenced_claim_to_appear_in_answer():
+    evidence = EvidenceRef("career.txt", 0, "a" * 64, "b" * 64)
+    experience = Experience(
+        "exp_visible", "비교 경험", "", None, "", "상황", (), (), (),
+        (ProfileClaim("experience_summary", "수식과 외주 프로그램의 결과 비교 분석 보고서", "confirmed", (evidence,)),),
+        "confirmed", "2026-06-21T12:00:00+09:00",
+    )
+    ledger = ExperienceLedger(1, "2026-06-21", "C:/career", (experience,))
+    question = Question(1, "경험", 600)
+    response = DraftResponse(
+        1, "자료를 확인하고 기준을 정리했습니다.", ("career.txt",),
+        (ExperienceClaimRef("exp_visible", ("experience_summary",)),),
+    )
+    issues = validate_draft([question], [response], "HUG", {"career.txt"}, profile_ledger=ledger, require_experience_refs=True)
+    assert "experience_claim_not_visible" in {issue.code for issue in issues}
+
+    visible = DraftResponse(
+        1, "수식과 외주 프로그램의 결과 비교 분석 보고서를 작성해 확인했습니다.", ("career.txt",),
+        (ExperienceClaimRef("exp_visible", ("experience_summary",)),),
+    )
+    assert "experience_claim_not_visible" not in {
+        issue.code for issue in validate_draft([question], [visible], "HUG", {"career.txt"}, profile_ledger=ledger, require_experience_refs=True)
+    }
+
+
+def test_v2_allows_embedded_counts_from_the_referenced_narrative_claim():
+    evidence = EvidenceRef("career.txt", 0, "a" * 64, "b" * 64)
+    provisional = ProfileClaim(
+        "experience_summary",
+        "상인 50명 인터뷰와 5개 시장 비교를 수행함",
+        "confirmed",
+        (evidence,),
+        verification=ClaimVerification(
+            method="direct_source", scope="source excerpt", contribution="observed"
+        ),
+    )
+    claim = ProfileClaim(
+        provisional.field,
+        provisional.normalized_value,
+        provisional.status,
+        provisional.evidence,
+        stable_claim_id("exp_counts", provisional),
+        provisional.verification,
+    )
+    ledger = ExperienceLedger(
+        2,
+        "2026-07-14",
+        "C:/career",
+        (Experience(
+            "exp_counts", "시장 조사", "", None, "", "", (), (), (),
+            (claim,), "confirmed", "2026-07-14",
+        ),),
+    )
+    response = DraftResponse(
+        1,
+        "상인 50명 인터뷰와 5개 시장 비교를 수행했습니다.",
+        ("career.txt",),
+        (ExperienceClaimRef("exp_counts", (), (claim.claim_id,)),),
+    )
+
+    issues = validate_draft(
+        [Question(1, "경험을 설명하시오", 600)],
+        [response],
+        "HUG",
+        {"career.txt"},
+        profile_ledger=ledger,
+        require_experience_refs=True,
+    )
+
+    assert "unapproved_metric" not in {issue.code for issue in issues}
+
+
+def test_v2_research_only_question_uses_official_research_instead_of_forced_experience():
+    ledger = ExperienceLedger(1, "2026-07-13", "C:/career", ())
+    question = Question(
+        1,
+        "최근 중소기업에 영향을 미치는 경제·사회 이슈를 선택하고 이유를 서술하십시오.",
+        600,
+    )
+    response = DraftResponse(
+        1,
+        "고환율은 14조원 규모의 지원과 원재료 수입 비용, 운전자금 부담에 영향을 줄 수 있습니다.",
+        (),
+        research_refs=("official-fx-risk",),
+    )
+
+    issues = validate_draft(
+        [question],
+        [response],
+        "신용보증기금",
+        set(),
+        profile_ledger=ledger,
+        require_experience_refs=True,
+    )
+
+    assert not {"missing_evidence", "missing_experience_ref"}.intersection(
+        issue.code for issue in issues
+    )
+    assert "unapproved_metric" not in {issue.code for issue in issues}
+
+
+def test_v2_experience_question_still_requires_confirmed_experience_reference():
+    ledger = ExperienceLedger(1, "2026-07-13", "C:/career", ())
+    question = Question(1, "문제를 해결한 경험을 기술하십시오.", 600)
+    response = DraftResponse(1, "자료를 확인해 문제를 해결했습니다.", ())
+
+    issues = validate_draft(
+        [question],
+        [response],
+        "신용보증기금",
+        set(),
+        profile_ledger=ledger,
+        require_experience_refs=True,
+    )
+
+    assert {"missing_evidence", "missing_experience_ref"} <= {
+        issue.code for issue in issues
+    }
+
+
+def test_v2_pure_company_business_question_uses_research_without_forced_experience():
+    ledger = ExperienceLedger(1, "2026-07-13", "C:/career", ())
+    question = Question(1, "HUG의 주요 사업과 기관의 역할을 설명하십시오.", 600)
+    response = DraftResponse(
+        1,
+        "전세보증금반환보증은 임차인의 보증금 반환 위험을 줄이는 사업입니다.",
+        (),
+        research_refs=("hug-program",),
+    )
+
+    issues = validate_draft(
+        [question],
+        [response],
+        "HUG",
+        set(),
+        profile_ledger=ledger,
+        require_experience_refs=True,
+    )
+
+    assert not {"missing_evidence", "missing_experience_ref"}.intersection(
+        issue.code for issue in issues
+    )

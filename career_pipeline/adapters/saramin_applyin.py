@@ -5,7 +5,8 @@ from html.parser import HTMLParser
 import json,re
 from pathlib import Path
 from typing import Mapping,Protocol
-from ..application_execution import ExecutionAuthorizationV2,LEGACY_AUTHORIZATION_UNUSABLE,claim_fixture_fill_authorization,record_fixture_event
+from ..application_execution import FixtureExecutionAuthorization,LEGACY_AUTHORIZATION_UNUSABLE,claim_fixture_fill_authorization,record_fixture_event
+from ..models import FormAutomationResult
 
 PLATFORM_ID="saramin_applyin"; ADAPTER_ID="saramin_applyin_fixture"; CONTRACT_ID="saramin_applyin_fixture_v1"; CONTRACT_VERSION=1
 FIXTURE_ORIGIN="https://sample-company.applyin.invalid"; LIVE_ENABLED=False
@@ -57,11 +58,14 @@ class FixtureMockPage:
     def check(self,s): self.calls.append(("check",s)); self.values[s]="true"
     def read_value(self,s): return self.values.get(s,"")
 def _pre(page,values,result,auth):
-    if not isinstance(auth, ExecutionAuthorizationV2): raise AdapterBlocked(LEGACY_AUTHORIZATION_UNUSABLE)
+    if not isinstance(auth, FixtureExecutionAuthorization): raise AdapterBlocked(LEGACY_AUTHORIZATION_UNUSABLE)
+    if not isinstance(page, FixtureMockPage): raise AdapterBlocked("fixture_page_required")
+    if not isinstance(result, FormAutomationResult) or not getattr(result, "package_id", None): raise AdapterBlocked("applyin_result_invalid")
+    if not isinstance(values, Mapping): raise AdapterBlocked("applyin_values_invalid")
     schema=page.snapshot()
-    if LIVE_ENABLED or schema!=expected_schema(): raise AdapterBlocked("applyin_schema_mismatch")
+    if LIVE_ENABLED or auth.fixture_only is not True or auth.mode!="fill_only" or schema!=expected_schema(): raise AdapterBlocked("applyin_schema_mismatch")
     digest=schema_sha256(schema)
-    if auth.mode!="fill_only" or auth.allowed_origin!="https://sample-company.applyin.invalid:443" or digest!=auth.form_schema_sha256 or digest!=result.form_schema_sha256: raise AdapterBlocked("applyin_authorization_mismatch")
+    if auth.exact_origin!="https://sample-company.applyin.invalid:443" or auth.adapter_id!=ADAPTER_ID or auth.adapter_contract_version!=CONTRACT_VERSION or digest!=auth.form_schema_sha256 or digest!=result.form_schema_sha256: raise AdapterBlocked("applyin_authorization_mismatch")
     if set(values)!={f[0] for f in FIELDS}: raise AdapterBlocked("applyin_field_set_mismatch")
     for i,_s,t,r,m,o in FIELDS:
         v=values[i]

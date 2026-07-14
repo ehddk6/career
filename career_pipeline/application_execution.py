@@ -20,6 +20,7 @@ from .state import write_json
 
 CONTRACT_VERSION="controlled-execution-v1"
 V2_CONTRACT_VERSION="controlled-execution-v2"
+FIXTURE_CONTRACT_VERSION="fixture-execution-v1"
 LEGACY_AUTHORIZATION_UNUSABLE="LEGACY_AUTHORIZATION_UNUSABLE"
 class ApplicationExecutionError(ValueError): pass
 def _key(value:bytes)->bytes:
@@ -126,6 +127,7 @@ def authorize_execution_v2(package, review: ReviewDecisionV2, site_contract: Sit
 
 def classify_execution_artifact(value: Mapping[str, Any]) -> ExecutionArtifactClassification:
     if not isinstance(value,Mapping): return ExecutionArtifactClassification.unsupported
+    if value.get("schema_version") == 1 and value.get("fixture_only") is True and "authorization_id" in value: return ExecutionArtifactClassification.fixture_authorization
     if value.get("schema_version") == 1 and "authorization_id" in value: return ExecutionArtifactClassification.authorization_v1
     if value.get("schema_version") == 1 and "review_id" in value: return ExecutionArtifactClassification.review_v1
     if value.get("schema_version") == 2 and "review_id" in value and "site_contract_id" in value:
@@ -158,11 +160,42 @@ class ExecutionAuthorizationV2:
     schema_version: Literal[2]; authorization_id: str; review_id: str; package_id: str; package_sha256: str; posting_id: str; posting_sha256: str; profile_sha256: str; final_manifest_sha256: str; attachment_manifest_sha256: str; form_schema_sha256: str; site_contract_id: str; site_contract_sha256: str; site_contract_observed_at: str; site_contract_valid_until: str; exact_origin: str; adapter_id: str; adapter_contract_version: int; adapter_schema_sha256: str; allowed_capabilities: tuple[Literal["fill_only", "submit"], ...]; mode: Literal["fill_only", "submit"]; approver_id: str; authorized_at: str; expires_at: str; nonce: str; contract_version: Literal["controlled-execution-v2"]; key_id: str; signature_version: Literal["hmac-sha256-v2"]; integrity_sha256: str
 
 @dataclass(frozen=True)
+class FixtureExecutionAuthorization:
+    """Signed authority for a synthetic fixture mock page only.
+
+    This contract is intentionally separate from V2 external execution
+    authority. It accepts only HTTPS ``.invalid`` origins and can authorize
+    neither a browser nor a network, upload, or submit operation.
+    """
+    schema_version: Literal[1]
+    authorization_id: str
+    package_id: str
+    package_sha256: str
+    posting_id: str
+    posting_sha256: str
+    profile_sha256: str
+    final_manifest_sha256: str
+    attachment_manifest_sha256: str
+    form_schema_sha256: str
+    adapter_id: str
+    adapter_contract_version: int
+    exact_origin: str
+    mode: Literal["fill_only"]
+    fixture_only: bool
+    issued_at: str
+    expires_at: str
+    nonce: str
+    contract_version: Literal["fixture-execution-v1"]
+    key_id: str
+    signature_version: Literal["hmac-sha256-fixture-v1"]
+    integrity_sha256: str
+
+@dataclass(frozen=True)
 class ValidatedExecutionCandidateV2:
     schema_version: Literal[2]; authorization_id: str; review_id: str; package_id: str; site_contract_id: str; mode: Literal["fill_only", "submit"]; validated_at: str; blocker_status: Literal["mutation_blocked"]
 
 class ExecutionArtifactClassification(str, Enum):
-    review_v1="review_v1"; authorization_v1="authorization_v1"; review_v2="review_v2"; authorization_v2="authorization_v2"; unsupported="unsupported"
+    review_v1="review_v1"; authorization_v1="authorization_v1"; fixture_authorization="fixture_authorization"; review_v2="review_v2"; authorization_v2="authorization_v2"; unsupported="unsupported"
 
 @dataclass(frozen=True)
 class SubmissionEvidence:
@@ -226,6 +259,7 @@ def _event(ledger,kind,a,at,**metadata): ledger["events"].append({"event_id":_id
 
 def revoke_authorization(path,a,*,revoked_at,signing_key):
     if isinstance(a, ExecutionAuthorizationV2): _v2_authorization(a,a.key_id,signing_key)
+    elif isinstance(a, FixtureExecutionAuthorization): _validate_fixture_authorization(a,signing_key)
     else: _validate_auth(a,signing_key)
     _dt(revoked_at); path=Path(path)
     with _lock(path.with_suffix(path.suffix+".lock")):
@@ -256,13 +290,71 @@ def validate_execution_candidate_v2(package, review: ReviewDecisionV2, authoriza
     if driver.current_form_schema_sha256() != authorization.form_schema_sha256: raise ApplicationExecutionError("live form schema changed")
     return ValidatedExecutionCandidateV2(2,authorization.authorization_id,review.review_id,package.package_id,site_contract.contract_id,authorization.mode,executed_at,"mutation_blocked")
 
+def fixture_authorization_payload(authorization: FixtureExecutionAuthorization) -> dict[str, Any]:
+    value=asdict(authorization); value.pop("integrity_sha256",None); return value
+
+def _validate_fixture_authorization(authorization: FixtureExecutionAuthorization, signing_key: bytes) -> None:
+    if not isinstance(authorization, FixtureExecutionAuthorization):
+        raise ApplicationExecutionError(LEGACY_AUTHORIZATION_UNUSABLE)
+    if authorization.schema_version != 1 or authorization.contract_version != FIXTURE_CONTRACT_VERSION or authorization.signature_version != "hmac-sha256-fixture-v1":
+        raise ApplicationExecutionError("fixture authorization contract mismatch")
+    if not authorization.fixture_only or authorization.mode != "fill_only":
+        raise ApplicationExecutionError("fixture authorization scope invalid")
+    _key_id(authorization.key_id)
+    if not hmac.compare_digest(authorization.integrity_sha256, _sign(fixture_authorization_payload(authorization), signing_key)):
+        raise ApplicationExecutionError("fixture authorization integrity check failed")
+    for value, label in ((authorization.package_sha256,"package SHA"),(authorization.posting_sha256,"posting SHA"),(authorization.profile_sha256,"profile SHA"),(authorization.final_manifest_sha256,"manifest SHA"),(authorization.attachment_manifest_sha256,"attachment SHA"),(authorization.form_schema_sha256,"form schema SHA")):
+        _sha(value, label)
+    if _origin_from_url(authorization.exact_origin, bare=True) != authorization.exact_origin or not authorization.exact_origin.endswith(".invalid:443"):
+        raise ApplicationExecutionError("fixture authorization origin invalid")
+    _dt(authorization.issued_at); _dt(authorization.expires_at)
+    if _dt(authorization.expires_at) <= _dt(authorization.issued_at):
+        raise ApplicationExecutionError("fixture authorization expiry invalid")
+
+def issue_fixture_fill_authorization(package, result: FormAutomationResult, *, adapter_id: str, adapter_contract_version: int, form_schema_sha256: str, allowed_origin: str, authorized_at: str, expires_at: str, key_id: str, signing_key: bytes) -> FixtureExecutionAuthorization:
+    """Issue a short-lived, local-only fill authority for a synthetic fixture."""
+    _dt(authorized_at); _dt(expires_at); _key_id(key_id)
+    if _dt(expires_at) <= _dt(authorized_at): raise ApplicationExecutionError("fixture authorization expiry invalid")
+    if not getattr(package, "package_id", None) or not isinstance(result, FormAutomationResult) or result.package_id != package.package_id:
+        raise ApplicationExecutionError("fixture package binding changed")
+    if result.status != "review_required" or result.stop_reason or not result.dom_unchanged or result.captcha_detected or result.mfa_detected:
+        raise ApplicationExecutionError("fixture dry-run is not eligible")
+    _sha(form_schema_sha256, "form schema SHA")
+    if form_schema_sha256 != result.form_schema_sha256: raise ApplicationExecutionError("fixture form schema mismatch")
+    if not adapter_id or adapter_contract_version < 1: raise ApplicationExecutionError("invalid fixture adapter lineage")
+    exact_origin=_origin_from_url(allowed_origin, bare=True)
+    if not exact_origin.endswith(".invalid:443"): raise ApplicationExecutionError("fixture authorization origin invalid")
+    package_sha=_package_sha(package)
+    nonce=_id("fixture-nonce",package.package_id,adapter_id,form_schema_sha256,authorized_at,expires_at)
+    raw=FixtureExecutionAuthorization(1,_id("fixture-authorization",nonce),package.package_id,package_sha,package.posting_id,package.posting_sha256,package.profile_sha256,package.final_manifest_sha256,_attachments_sha(package),form_schema_sha256,adapter_id,adapter_contract_version,exact_origin,"fill_only",True,authorized_at,expires_at,nonce,FIXTURE_CONTRACT_VERSION,key_id,"hmac-sha256-fixture-v1","")
+    return FixtureExecutionAuthorization(**{**asdict(raw),"integrity_sha256":_sign(fixture_authorization_payload(raw),signing_key)})
+
+def _fixture_bindings(package, result: FormAutomationResult, authorization: FixtureExecutionAuthorization, adapter_id: str) -> None:
+    expected=(_package_sha(package),package.posting_id,package.posting_sha256,package.profile_sha256,package.final_manifest_sha256,_attachments_sha(package),result.form_schema_sha256)
+    actual=(authorization.package_sha256,authorization.posting_id,authorization.posting_sha256,authorization.profile_sha256,authorization.final_manifest_sha256,authorization.attachment_manifest_sha256,authorization.form_schema_sha256)
+    if authorization.package_id != package.package_id or authorization.adapter_id != adapter_id or expected != actual or result.package_id != package.package_id:
+        raise ApplicationExecutionError("fixture execution binding changed")
+
 def claim_fixture_fill_authorization(p,r,a,*,executed_at,ledger_path,signing_key,adapter_id,validation_event="fill_fixture_validation_started"):
-    raise ApplicationExecutionError(LEGACY_AUTHORIZATION_UNUSABLE)
+    _validate_fixture_authorization(a, signing_key); _dt(executed_at); _fixture_bindings(p,r,a,adapter_id)
+    now=_dt(executed_at)
+    if now < _dt(a.issued_at): raise ApplicationExecutionError("fixture authorization before issue")
+    if now > _dt(a.expires_at): raise ApplicationExecutionError("fixture authorization expired")
+    allowed={"fill_fixture_validation_started","applyin_fixture_validation_started"}
+    if validation_event not in allowed: raise ApplicationExecutionError("invalid fixture validation event")
+    path=Path(ledger_path)
+    with _lock(path.with_suffix(path.suffix+".lock")):
+        data=_ledger(path,signing_key); state=data["authorizations"].setdefault(a.authorization_id,{})
+        if state.get("revoked_at"): raise ApplicationExecutionError("fixture authorization revoked")
+        if state.get("used_at"): raise ApplicationExecutionError("fixture authorization already used")
+        state.update({"used_at":executed_at,"status":validation_event,"adapter_id":adapter_id})
+        _event(data,validation_event,a,executed_at,adapter_id=adapter_id); _write_ledger(path,data,signing_key)
+    return {"authorization_id":a.authorization_id,"status":"claimed"}
 
 def record_fixture_event(ledger_path,a,*,event_type,occurred_at,signing_key,adapter_id,logical_field_id=None):
-    allowed={"fill_fixture_blocked","field_fill_started","field_fill_verified","fill_fixture_completed","fill_fixture_failed","applyin_fixture_blocked","applyin_fixture_completed","applyin_fixture_failed"}
+    allowed={"fill_fixture_blocked","field_fill_started","field_fill_verified","fill_fixture_validation_started","fill_fixture_completed","fill_fixture_failed","applyin_fixture_blocked","applyin_fixture_validation_started","applyin_fixture_completed","applyin_fixture_failed"}
     if event_type not in allowed: raise ApplicationExecutionError("invalid fixture event")
-    _validate_auth(a,signing_key); _dt(occurred_at); path=Path(ledger_path)
+    _validate_fixture_authorization(a,signing_key); _dt(occurred_at); path=Path(ledger_path)
     metadata={"adapter_id":adapter_id}
     if logical_field_id is not None: metadata["logical_field_id"]=logical_field_id
     with _lock(path.with_suffix(path.suffix+".lock")):
@@ -278,3 +370,6 @@ def load_review(path,signing_key):
     value=ReviewDecision(**json.loads(Path(path).read_text(encoding="utf-8"))); _validate_review(value,signing_key); return value
 def load_authorization(path,signing_key):
     value=ExecutionAuthorization(**json.loads(Path(path).read_text(encoding="utf-8"))); _validate_auth(value,signing_key); return value
+
+def load_fixture_authorization(path,signing_key):
+    value=FixtureExecutionAuthorization(**json.loads(Path(path).read_text(encoding="utf-8"))); _validate_fixture_authorization(value,signing_key); return value

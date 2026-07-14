@@ -30,6 +30,7 @@ class Question:
     prompt: str
     character_limit: int | None
     count_mode: CharacterCountMode = "spaces_included"
+    minimum_character_limit: int | None = None
 
 
 @dataclass(frozen=True)
@@ -55,7 +56,8 @@ class Conflict:
 @dataclass(frozen=True)
 class ExperienceClaimRef:
     experience_id: str
-    claim_fields: tuple[str, ...]
+    claim_fields: tuple[str, ...] = ()
+    claim_ids: tuple[str, ...] = ()
 
 
 @dataclass(frozen=True)

@@ -155,6 +155,17 @@ def test_recommended_allocation_applies_reuse_penalty_only_after_first_use():
     assert all(candidate.reuse_penalty == 0 for match in matches for candidate in match.candidates)
 
 
+def test_matching_prefers_unused_alternative_when_reuse_gap_is_below_four():
+    ledger = ledger_with(experience("exp_one"), experience("exp_two"))
+    questions = [Question(1, "지원동기", 600), Question(2, "입사 후 목표", 600)]
+
+    matches = match_questions(ledger, posting_with(), questions)
+
+    assert matches[0].recommended.experience_id == "exp_one"
+    assert matches[1].recommended.experience_id == "exp_two"
+    assert "4점 미만" in matches[1].allocation_note
+
+
 def test_markdown_distinguishes_allowed_and_blocked_claims():
     candidate = experience("exp_one", claim_status="proposed")
     candidate = Experience(

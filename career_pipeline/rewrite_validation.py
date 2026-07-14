@@ -25,6 +25,10 @@ _QUOTED = (
 _ACRONYM = re.compile(r"\b[A-Z][A-Z0-9._-]{1,}\b")
 _NEGATION = re.compile(r"않|못|없|아니|불가|제외|미달|금지|어렵")
 _CAUSATION = re.compile(r"때문|결과|따라|덕분|원인|영향|(?:으로|로)\s*인(?:해|하여)")
+_NARRATIVE_STATE = {
+    "ability": re.compile(r"수\s*있|가능"),
+    "intention": re.compile(r"하겠|할\s*예정|계획|하고자|희망"),
+}
 _KOREAN_NAMED_ENTITY = re.compile(
     r"[가-힣A-Za-z0-9·&]{2,}(?:공사|공단|은행|협회|재단|대학교|센터|본부|직무)"
 )
@@ -57,8 +61,13 @@ def _quoted_values(text: str) -> Counter[str]:
 
 
 def sentence_count(text: str) -> int:
-    endings = re.findall(r"[.!?…。]+(?:[\"'”’」』)\]]*)", text)
-    return len(endings) or (1 if text.strip() else 0)
+    return len(
+        [
+            match.group(0)
+            for match in re.finditer(r"[^.!?…。\n]+(?:[.!?…。]+|$)", text)
+            if match.group(0).strip()
+        ]
+    )
 
 
 def change_ratio(original: str, rewritten: str) -> float:
@@ -71,6 +80,15 @@ def change_ratio(original: str, rewritten: str) -> float:
 
 def protected_terms_from_text(text: str) -> tuple[str, ...]:
     return tuple(dict.fromkeys(_KOREAN_NAMED_ENTITY.findall(text)))
+
+
+def _narrative_state(text: str) -> Counter[str]:
+    return Counter(
+        {
+            label: len(pattern.findall(text))
+            for label, pattern in _NARRATIVE_STATE.items()
+        }
+    )
 
 
 def meaning_preservation_issue(
@@ -90,6 +108,8 @@ def meaning_preservation_issue(
         return "부정 표현 변경"
     if bool(_CAUSATION.search(original)) != bool(_CAUSATION.search(rewritten)):
         return "인과 표현 변경"
+    if _narrative_state(original) != _narrative_state(rewritten):
+        return "서술 양태 변경"
     compact_original = re.sub(r"\s+", "", original)
     compact_rewritten = re.sub(r"\s+", "", rewritten)
     for term in protected_terms:

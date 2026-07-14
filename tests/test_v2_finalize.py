@@ -2,7 +2,37 @@ import json
 from pathlib import Path
 
 from career_pipeline.__main__ import main
-from career_pipeline.orchestrator import finalize_run
+from career_pipeline.orchestrator import _load_draft_responses, finalize_run
+
+
+def test_load_draft_responses_preserves_exact_claim_ids(tmp_path: Path) -> None:
+    draft_path = tmp_path / "draft.json"
+    draft_path.write_text(
+        json.dumps(
+            [
+                {
+                    "question_index": 1,
+                    "answer": "답변",
+                    "evidence_paths": ["career.txt"],
+                    "experience_refs": [
+                        {
+                            "experience_id": "exp-1",
+                            "claim_ids": ["claim-1"],
+                        }
+                    ],
+                    "research_refs": [],
+                }
+            ],
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
+
+    responses, issues = _load_draft_responses(draft_path)
+
+    assert issues == []
+    assert responses[0].experience_refs[0].claim_ids == ("claim-1",)
+    assert responses[0].experience_refs[0].claim_fields == ()
 
 
 def prepare_v2_run(run_dir: Path, *, answer: str = "의심 사례 20건을 확인했습니다.") -> None:
@@ -116,6 +146,7 @@ def test_v2_finalize_writes_quality_gate_report(tmp_path: Path):
     assert "- 공고 공식성: 통과" in report
     assert "- 경험·문항 매칭: 통과" in report
     assert "- stale 근거: 없음" in report
+    assert "경험 근거 1개, 공식 근거 0개" in report
 
 
 def test_v2_finalize_uses_patina_when_requested(tmp_path: Path, monkeypatch):
@@ -323,7 +354,8 @@ def test_finalize_blocks_pending_evidence_first_research_manifest(tmp_path: Path
     prepare_v2_run(tmp_path)
     state = json.loads((tmp_path / "run.json").read_text(encoding="utf-8"))
     state["research_policy"] = "evidence-first"
-    state["required_research_skill"] = "evidence-first-research"
+    state["research_method_default"] = "evidence-first-research"
+    state["research_method_enforced"] = False
     (tmp_path / "run.json").write_text(
         json.dumps(state, ensure_ascii=False), encoding="utf-8"
     )

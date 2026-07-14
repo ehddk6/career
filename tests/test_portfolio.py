@@ -143,15 +143,20 @@ def test_portfolio_ready_requires_all_six_quality_gates(tmp_path: Path):
         path.write_bytes(name.encode("utf-8"))
     (run / "12_최종산출물.json").write_text(
         json.dumps(
-            {
-                "answer_json_path": "draft_final.json",
+                {
+                    "answer_json_path": "draft_final.json",
                 "markdown_path": "06_자기소개서.md",
                 "docx_path": "06_자기소개서.docx",
-                "sha256": {
+                    "sha256": {
                     name: sha256(path.read_bytes()).hexdigest()
                     for name, path in final_files.items()
+                    },
+                    "selection": {
+                        "selection_mode": "rigorous",
+                        "status": "passed",
+                        "hard_fail": False,
+                    },
                 },
-            },
             ensure_ascii=False,
         ),
         encoding="utf-8",
@@ -163,7 +168,10 @@ def test_portfolio_ready_requires_all_six_quality_gates(tmp_path: Path):
                 "internal_validation_score": 99,
                 "quality_gate": "pass",
                 "issues": [],
-                "sections": {"interview": {"score": 20, "max": 20}},
+                "sections": {
+                    "research": {"score": 25, "max": 25},
+                    "interview": {"score": 20, "max": 20},
+                },
             }
         ),
         encoding="utf-8",
@@ -203,6 +211,56 @@ def test_portfolio_ready_requires_all_six_quality_gates(tmp_path: Path):
     tampered = build_portfolio(tmp_path)["applications"][0]
     assert tampered["submission_status"] == "review_required"
     assert "FINAL_ARTIFACT_VALIDATION_FAILED" in tampered["quality_readiness"]["blocker_codes"]
+
+
+def test_portfolio_research_gate_requires_full_research_audit_section(tmp_path: Path):
+    _seed_review(tmp_path)
+    profile = tmp_path / ".career_profile"
+    profile.mkdir()
+    (profile / "experience_ledger.json").write_text("{}", encoding="utf-8")
+    run = tmp_path / "career_runs" / "research-gap"
+    run.mkdir(parents=True)
+    (run / "run.json").write_text(
+        json.dumps({"status": "complete", "quality_mode": "v2"}),
+        encoding="utf-8",
+    )
+    (run / "04_공식근거.json").write_text('[{"verified": true}]', encoding="utf-8")
+    (run / "04_리서치실행.json").write_text(
+        json.dumps({"status": "verified", "searched_at": date.today().isoformat()}),
+        encoding="utf-8",
+    )
+    (run / "11_최종품질감사.json").write_text(
+        json.dumps(
+            {
+                "internal_validation_score": 96,
+                "quality_gate": "pass",
+                "issues": [],
+                "sections": {
+                    "research": {"score": 21, "max": 25},
+                    "interview": {"score": 20, "max": 20},
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
+    target = {
+        "v2_run_dir": "career_runs/research-gap",
+        "official_posting_url": "https://example.or.kr/posting",
+        "posting_status": "active",
+        "last_checked": date.today().isoformat(),
+        "deadline": "2099-07-23T16:00:00+09:00",
+        "eligibility_status": "eligible",
+    }
+
+    quality = assess_application_quality(
+        tmp_path,
+        target,
+        confirmed_profile=True,
+        has_candidates=True,
+    )
+
+    assert quality["dimensions"]["research"] is False
+    assert "OFFICIAL_RESEARCH_NOT_VERIFIED" in quality["blocker_codes"]
 
 
 def test_portfolio_stale_posting_is_not_active(tmp_path: Path):

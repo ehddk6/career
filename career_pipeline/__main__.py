@@ -63,6 +63,7 @@ from .profile_schema import (
     ProfileValidationError,
     ledger_to_dict,
     load_ledger,
+    migrate_ledger_v1,
 )
 from .models import DiscoverySource
 from .form_adapter import (
@@ -78,6 +79,8 @@ from .application_execution import (
     authorize_execution,
     load_review,
     load_authorization,
+    load_fixture_authorization,
+    issue_fixture_fill_authorization,
     write_workflow_artifact,
 )
 from .registry import PostingRegistry, RegistryError, queue_item_to_dict
@@ -175,6 +178,11 @@ def build_parser() -> argparse.ArgumentParser:
     finalize.add_argument("--max-model-calls", type=int)
     finalize.add_argument("--max-postprocess-calls", type=int, default=1)
     finalize.add_argument("--max-stage-seconds", type=float)
+    finalize.add_argument(
+        "--selection-mode", choices=("single", "rigorous"), default="single"
+    )
+    finalize.add_argument("--incumbent")
+    finalize.add_argument("--rigorous-timeout-ms", type=int, default=300_000)
     finalize.add_argument("--no-patina", action="store_true")
     finalize.add_argument("--legacy-patina", action="store_true")
     finalize.add_argument(
@@ -208,6 +216,10 @@ def build_parser() -> argparse.ArgumentParser:
     profile_confirm.add_argument("--proposed", required=True)
     profile_confirm.add_argument("--decisions", required=True)
     profile_confirm.add_argument("--output", required=True)
+
+    profile_migrate = profile_commands.add_parser("migrate")
+    profile_migrate.add_argument("--source", required=True)
+    profile_migrate.add_argument("--output", required=True)
 
     profile_applicant = profile_commands.add_parser("applicant")
     profile_applicant.add_argument("--ledger", required=True)
@@ -412,9 +424,34 @@ def build_parser() -> argparse.ArgumentParser:
     application_fill_fixture.add_argument("--ledger", required=True)
     application_fill_fixture.add_argument("--output", required=True)
     application_fill_fixture.add_argument("--at", required=True)
+    application_fixture_authorize = application_commands.add_parser("fixture-authorize")
+    application_fixture_authorize.add_argument("--root", default=".")
+    application_fixture_authorize.add_argument("--adapter", choices=fixture_adapters, required=True)
+    application_fixture_authorize.add_argument("--package", required=True)
+    application_fixture_authorize.add_argument("--dry-run-result", required=True)
+    application_fixture_authorize.add_argument("--output", required=True)
+    application_fixture_authorize.add_argument("--allowed-origin", required=True)
+    application_fixture_authorize.add_argument("--at", required=True)
+    application_fixture_authorize.add_argument("--expires-at", required=True)
     application_fixture_result = application_commands.add_parser("fixture-result")
     application_fixture_result.add_argument("--root", default=".")
     application_fixture_result.add_argument("--result", required=True)
+    application_live_plan = application_commands.add_parser("live-plan")
+    application_live_plan.add_argument("--root", default=".")
+    application_live_plan.add_argument("--adapter", choices=("saramin_applyin_kodit_live",), required=True)
+    application_live_plan.add_argument("--snapshot", required=True)
+    application_live_plan.add_argument("--output", required=True)
+    application_live_plan.add_argument("--at", required=True)
+    application_live_authorize = application_commands.add_parser("live-authorize")
+    application_live_authorize.add_argument("--root", default=".")
+    application_live_authorize.add_argument("--package", required=True)
+    application_live_authorize.add_argument("--plan", required=True)
+    application_live_authorize.add_argument("--mode", choices=("fill_only", "submit"), required=True)
+    application_live_authorize.add_argument("--approver-id", required=True)
+    application_live_authorize.add_argument("--at", required=True)
+    application_live_authorize.add_argument("--expires-at", required=True)
+    application_live_authorize.add_argument("--confirm-live-action", action="store_true")
+    application_live_authorize.add_argument("--output", required=True)
 
     audit = subparsers.add_parser("audit")
     audit.add_argument("--run", required=True)
@@ -1096,6 +1133,26 @@ def run_queue_command(args: argparse.Namespace) -> int:
     return 0
 
 
+def run_profile_migrate(args: argparse.Namespace) -> int:
+    source = Path(args.source).resolve()
+    output = Path(args.output).resolve()
+    if source == output:
+        print("profile migrate refuses to overwrite the source ledger")
+        return 4
+    try:
+        migrated = migrate_ledger_v1(load_ledger(source))
+    except (OSError, ProfileValidationError) as error:
+        print(error)
+        return 4
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(
+        json.dumps(ledger_to_dict(migrated), ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
+    print(output)
+    return 0
+
+
 def _phase4_path(root: Path, value: str, *, must_exist: bool = False) -> Path:
     root = root.resolve()
     windows = PureWindowsPath(value)
@@ -1135,6 +1192,13 @@ def _application_attachments(root: Path, values: list[str]) -> dict[str, Path]:
 
 def run_application_command(args: argparse.Namespace) -> int:
     root = Path(getattr(args, "root", ".")).resolve()
+    if args.application_command == "live-plan":
+        from .adapters.saramin_applyin_live import build_preconfirm_plan
+        snapshot = json.loads(_phase4_path(root, args.snapshot, must_exist=True).read_text(encoding="utf-8"))
+        plan = build_preconfirm_plan(snapshot, created_at=args.at)
+        write_json(_phase4_path(root, args.output), asdict(plan))
+        print(f"{plan.plan_id} {plan.form_schema_sha256}")
+        return 0
     if args.application_command == "site-intake":
         from .site_intake import build_site_intake, load_intake_registry, persist_intake
         if args.intake_command == "platform-status":
@@ -1241,6 +1305,32 @@ def run_application_command(args: argparse.Namespace) -> int:
         print(package.package_id)
         return 0 if package.validation_status == "ready_for_review" else 2
     package = load_application_package(_phase4_path(root, args.package, must_exist=True))
+    if args.application_command == "live-authorize":
+        from .live_application import issue_live_grant, live_plan_from_dict
+        plan = live_plan_from_dict(json.loads(_phase4_path(root, args.plan, must_exist=True).read_text(encoding="utf-8")))
+        signing_key = os.environ.get("CAREER_APPLICATION_AUTH_HMAC_KEY", "").encode("utf-8")
+        key_id = os.environ.get("CAREER_APPLICATION_AUTH_KEY_ID", "live-local")
+        grant = issue_live_grant(package, plan, mode=args.mode, approval_actor=args.approver_id,
+            issued_at=args.at, expires_at=args.expires_at, key_id=key_id, signing_key=signing_key,
+            action_time_confirmed=args.confirm_live_action)
+        write_json(_phase4_path(root, args.output), asdict(grant))
+        print(f"{grant.grant_id} {grant.mode}")
+        return 0
+    if args.application_command == "fixture-authorize":
+        from .platform_catalog import list_fixture_adapters
+        if args.adapter not in list_fixture_adapters():
+            raise ApplicationPackageError("unknown fixture adapter")
+        signing_key = os.environ.get("CAREER_EXECUTION_SIGNING_KEY", "").encode("utf-8")
+        key_id = os.environ.get("CAREER_EXECUTION_KEY_ID", "fixture-local")
+        result = load_form_result(_phase4_path(root, args.dry_run_result, must_exist=True))
+        authorization = issue_fixture_fill_authorization(package, result,
+            adapter_id=args.adapter, adapter_contract_version=1,
+            form_schema_sha256=result.form_schema_sha256,
+            allowed_origin=args.allowed_origin, authorized_at=args.at,
+            expires_at=args.expires_at, key_id=key_id, signing_key=signing_key)
+        write_workflow_artifact(_phase4_path(root, args.output), authorization)
+        print(f"{authorization.authorization_id} {authorization.mode}")
+        return 0
     if args.application_command == "fill-fixture":
         from .platform_catalog import list_fixture_adapters
         from .adapters.jobkorea_jrs import FixtureMockPage as JobkoreaPage, collect_fixture_schema as jobkorea_schema, run_fixture_fill as jobkorea_fill
@@ -1254,7 +1344,7 @@ def run_application_command(args: argparse.Namespace) -> int:
         FixtureMockPage, collect_fixture_schema, run_fixture_fill, fixture_relative = bindings[args.adapter]
         signing_key = os.environ.get("CAREER_EXECUTION_SIGNING_KEY", "").encode("utf-8")
         result = load_form_result(_phase4_path(root, args.dry_run_result, must_exist=True))
-        authorization = load_authorization(_phase4_path(root, args.authorization, must_exist=True), signing_key)
+        authorization = load_fixture_authorization(_phase4_path(root, args.authorization, must_exist=True), signing_key)
         values = json.loads(_phase4_path(root, args.values, must_exist=True).read_text(encoding="utf-8"))
         fixture = _phase4_path(root, fixture_relative, must_exist=True)
         page = FixtureMockPage(collect_fixture_schema(fixture.read_text(encoding="utf-8")))
@@ -1379,6 +1469,8 @@ def main(argv: Sequence[str] | None = None) -> int:
                 return 4
         if args.profile_command == "confirm":
             return run_profile_confirm(args)
+        if args.profile_command == "migrate":
+            return run_profile_migrate(args)
         if args.profile_command == "applicant":
             try:
                 return run_profile_applicant(args)
@@ -1464,6 +1556,9 @@ def main(argv: Sequence[str] | None = None) -> int:
         max_model_calls=args.max_model_calls,
         max_postprocess_calls=args.max_postprocess_calls,
         max_stage_seconds=args.max_stage_seconds,
+        selection_mode=args.selection_mode,
+        incumbent_path=Path(args.incumbent) if args.incumbent else None,
+        rigorous_timeout_ms=args.rigorous_timeout_ms,
     )
     print(state["status"])
     if state["status"] == "complete":

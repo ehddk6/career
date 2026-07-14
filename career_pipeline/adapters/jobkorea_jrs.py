@@ -7,7 +7,8 @@ import json
 from pathlib import Path
 from typing import Mapping, Protocol
 
-from ..application_execution import ExecutionAuthorizationV2, LEGACY_AUTHORIZATION_UNUSABLE, claim_fixture_fill_authorization, record_fixture_event
+from ..application_execution import FixtureExecutionAuthorization, LEGACY_AUTHORIZATION_UNUSABLE, claim_fixture_fill_authorization, record_fixture_event
+from ..models import FormAutomationResult
 
 ADAPTER_ID="jobkorea_jrs_fixture"; CONTRACT_VERSION=1; SITE_FAMILY="JobKorea JRS"
 SITE_SCHEMA="jobkorea_jrs_fixture_v1"; LIVE_ENABLED=False
@@ -82,12 +83,15 @@ class FixtureMockPage:
     def read_value(self,s): return self.values.get(s,"")
 
 def _prevalidate(page,values,result,authorization):
-    if not isinstance(authorization, ExecutionAuthorizationV2): raise AdapterBlocked(LEGACY_AUTHORIZATION_UNUSABLE)
-    if LIVE_ENABLED or authorization.mode!="fill_only": raise AdapterBlocked("fixture_scope_invalid")
+    if not isinstance(authorization, FixtureExecutionAuthorization): raise AdapterBlocked(LEGACY_AUTHORIZATION_UNUSABLE)
+    if not isinstance(page, FixtureMockPage): raise AdapterBlocked("fixture_page_required")
+    if not isinstance(result, FormAutomationResult) or not getattr(result, "package_id", None): raise AdapterBlocked("fixture_result_invalid")
+    if not isinstance(values, Mapping): raise AdapterBlocked("fixture_values_invalid")
+    if LIVE_ENABLED or authorization.fixture_only is not True or authorization.mode!="fill_only": raise AdapterBlocked("fixture_scope_invalid")
     schema=page.snapshot(); expected=expected_schema()
     if schema!=expected: raise AdapterBlocked("fixture_schema_mismatch")
     digest=fixture_schema_sha256(schema)
-    if digest!=result.form_schema_sha256 or digest!=authorization.form_schema_sha256: raise AdapterBlocked("authorized_schema_mismatch")
+    if authorization.exact_origin!="https://jrs.fixture.invalid:443" or authorization.adapter_id!=ADAPTER_ID or authorization.adapter_contract_version!=CONTRACT_VERSION or digest!=result.form_schema_sha256 or digest!=authorization.form_schema_sha256: raise AdapterBlocked("authorized_schema_mismatch")
     if set(values)!={x[0] for x in FIELDS}: raise AdapterBlocked("field_set_mismatch")
     for logical,selector,typ,required,limit,options in FIELDS:
         value=values[logical]

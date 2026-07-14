@@ -59,6 +59,7 @@ class QuestionMatch:
     question_type: str
     candidates: tuple[MatchCandidate, ...]
     recommended: MatchCandidate | None
+    allocation_note: str = ""
 
 
 def _tokens(text: str) -> frozenset[str]:
@@ -212,11 +213,33 @@ def match_questions(
             key=lambda item: (-item.total_score, item.experience_id),
             default=None,
         )
+        allocation_note = ""
+        unused = [item for item in raw if not used.get(item.experience_id, 0)]
+        reused = [item for item in raw if used.get(item.experience_id, 0)]
+        if unused and reused:
+            best_reused = reused[0]
+            best_unused = unused[0]
+            raw_gap = best_reused.total_score - best_unused.total_score
+            if raw_gap < 4:
+                recommended = next(
+                    item for item in adjusted
+                    if item.experience_id == best_unused.experience_id
+                )
+                allocation_note = (
+                    f"재사용 후보({best_reused.experience_id})와 대체 후보"
+                    f"({best_unused.experience_id})의 원점수 차이가 {raw_gap}점으로 4점 미만이어서 "
+                    "대체 경험을 우선함"
+                )
+            else:
+                allocation_note = (
+                    f"재사용 후보({best_reused.experience_id})가 대체 후보"
+                    f"({best_unused.experience_id})보다 원점수 {raw_gap}점 높아 재사용을 허용함"
+                )
         if recommended is not None:
             used[recommended.experience_id] = used.get(recommended.experience_id, 0) + 1
-        results.append(
-            QuestionMatch(question, question_type, tuple(raw[:3]), recommended)
-        )
+        results.append(QuestionMatch(
+            question, question_type, tuple(raw[:3]), recommended, allocation_note
+        ))
     return tuple(results)
 
 
@@ -229,6 +252,7 @@ def render_matches_markdown(matches: tuple[QuestionMatch, ...]) -> str:
                 "",
                 f"- 문항 유형: `{match.question_type}`",
                 f"- 추천 경험: `{match.recommended.experience_id if match.recommended else '없음'}`",
+                f"- 배치 판단: {match.allocation_note or '첫 사용 또는 대체 후보 없음'}",
                 "",
             ]
         )

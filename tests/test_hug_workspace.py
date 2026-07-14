@@ -5,7 +5,7 @@ from datetime import datetime, timezone
 import json
 
 from career_pipeline.orchestrator import prepare_run
-from career_pipeline.profile_schema import load_ledger
+from career_pipeline.profile_schema import ClaimVerification, load_ledger
 from career_pipeline.quality import validate_profile_gate
 from career_pipeline.extractors import extract_path
 from career_pipeline.inventory import digest_path
@@ -78,7 +78,16 @@ def test_approved_profile_passes_v2_profile_gate_with_synthetic_ledger(tmp_path)
                 exp,
                 status='confirmed',
                 confirmed_at=datetime.now(timezone.utc).isoformat(),
-                claims=tuple(replace(c, status='confirmed') for c in exp.claims),
+                claims=tuple(replace(
+                    c,
+                    status='confirmed',
+                    verification=ClaimVerification(
+                        method='documented_total',
+                        measurement_period='fixture',
+                        scope='fixture source sentence',
+                        contribution='caused',
+                    ),
+                ) for c in exp.claims),
             )
             for exp in proposed.experiences
         ),

@@ -45,3 +45,12 @@ def test_extracts_extended_character_limit_formats_and_same_line_limits():
 
     assert [question.character_limit for question in questions] == [600, 700, 600]
     assert questions[0].prompt == "지원동기를 기술해 주십시오."
+
+
+def test_extracts_minimum_and_maximum_character_limits():
+    questions = extract_questions((
+        "1. 지원 동기와 입사 후 계획을 작성해 주십시오. (400자 이상 600자 이내)",
+    ))
+
+    assert questions[0].minimum_character_limit == 400
+    assert questions[0].character_limit == 600
