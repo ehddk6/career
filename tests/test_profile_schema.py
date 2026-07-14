@@ -4,6 +4,7 @@ from pathlib import Path
 import pytest
 
 from career_pipeline.profile_schema import (
+    ClaimVerification,
     EvidenceRef,
     Experience,
     ExperienceLedger,
@@ -12,6 +13,9 @@ from career_pipeline.profile_schema import (
     ledger_to_dict,
     load_ledger,
     validate_ledger,
+    claim_submission_issues,
+    migrate_ledger_v1,
+    stable_claim_id,
 )
 
 
@@ -112,3 +116,39 @@ def test_ledger_json_round_trip(tmp_path: Path):
     )
 
     assert load_ledger(path) == ledger()
+
+
+def test_percentage_claim_requires_correct_before_after_formula():
+    claim = ProfileClaim(
+        "metric:percentage", "30%", "confirmed", (evidence(),),
+        verification=ClaimVerification(
+            method="before_after", baseline="50건", result="25건",
+            formula="decrease_percent", measurement_period="2026-01",
+            scope="민원 50건", contribution="caused",
+        ),
+    )
+    assert "percentage_value_mismatch" in claim_submission_issues(claim)
+
+
+def test_percentage_without_formula_is_quarantined():
+    claim = ProfileClaim(
+        "metric:percentage", "30%", "confirmed", (evidence(),),
+        verification=ClaimVerification(
+            method="before_after", scope="업무", contribution="contributed"
+        ),
+    )
+    assert "percentage_formula_incomplete" in claim_submission_issues(claim)
+
+
+def test_v1_migration_preserves_qualitative_claim_and_quarantines_metric():
+    source = experience()
+    qualitative = ProfileClaim("experience_summary", "자료를 대조했습니다", "confirmed", (evidence(),))
+    metric = ProfileClaim("metric:percentage", "30%", "confirmed", (evidence(),))
+    source = Experience(**{**source.__dict__, "claims": (qualitative, metric)})
+
+    migrated = migrate_ledger_v1(ledger(source))
+
+    assert migrated.schema_version == 2
+    assert migrated.experiences[0].claims[0].status == "confirmed"
+    assert migrated.experiences[0].claims[1].status == "needs_verification"
+    assert all(item.claim_id.startswith("clm_") for item in migrated.experiences[0].claims)

@@ -7,6 +7,11 @@ import re
 from urllib.parse import urlparse
 
 from .models import DraftResponse, Question, ValidationIssue
+from .prompt_policy import (
+    is_issue_analysis_prompt,
+    is_research_only_prompt,
+    normalize_prompt,
+)
 
 
 TARGET_OFFICIAL_DOMAINS = {
@@ -18,7 +23,16 @@ TARGET_OFFICIAL_DOMAINS = {
     "국민연금공단": "nps.or.kr",
 }
 REQUIRED_RESEARCH_POLICY = "evidence-first"
-REQUIRED_RESEARCH_SKILL = "evidence-first-research"
+DEFAULT_RESEARCH_METHOD = "evidence-first-research"
+RESEARCH_CLAIM_TYPES = {
+    "organization_role",
+    "job_duty",
+    "industry_issue",
+    "program_or_service",
+    "risk_or_limit",
+    "eligibility",
+    "selection_criteria",
+}
 
 
 @dataclass(frozen=True)
@@ -33,6 +47,8 @@ class ResearchClaim:
     basis_date: str = ""
     verification_status: str = "confirmed"
     conflict_note: str = ""
+    claim_type: str = "unspecified"
+    application_use: str = ""
 
 
 @dataclass(frozen=True)
@@ -67,6 +83,8 @@ def load_research_claims(path: Path) -> tuple[ResearchClaim, ...]:
                 basis_date=str(item.get("basis_date", "")),
                 verification_status=str(item.get("verification_status", "confirmed")),
                 conflict_note=str(item.get("conflict_note", "")),
+                claim_type=str(item.get("claim_type", "unspecified")),
+                application_use=str(item.get("application_use", "")),
             )
         )
     return tuple(claims)
@@ -114,9 +132,9 @@ def validate_research_execution(
             f"기업조사 정책은 {REQUIRED_RESEARCH_POLICY}여야 합니다.",
         ),
         (
-            execution.skill_name == REQUIRED_RESEARCH_SKILL,
-            "invalid_research_skill",
-            f"기업조사는 {REQUIRED_RESEARCH_SKILL} 스킬로 실행해야 합니다.",
+            bool(execution.skill_name.strip()),
+            "missing_research_method",
+            "기업조사에 사용한 방법 또는 도구 식별자가 없습니다.",
         ),
         (
             execution.status == "verified",
@@ -169,8 +187,43 @@ def official_domains_for_target(
 
 
 def _needs_research(prompt: str) -> bool:
-    normalized = prompt.replace(" ", "")
-    return "주요사업" in normalized or ("지원" in normalized and "동기" in normalized)
+    normalized = normalize_prompt(prompt)
+    return (
+        is_research_only_prompt(prompt)
+        or "주요사업" in normalized
+        or ("지원" in normalized and "동기" in normalized)
+        or "기관의역할" in normalized
+        or "회사의역할" in normalized
+        or "업무수행계획" in normalized
+        or "직무계획" in normalized
+    )
+
+
+def _required_claim_type_groups(prompt: str) -> tuple[set[str], ...]:
+    normalized = normalize_prompt(prompt)
+    groups: list[set[str]] = []
+    if is_issue_analysis_prompt(prompt):
+        groups.append({"industry_issue", "risk_or_limit"})
+    if any(cue in normalized for cue in ("지원동기", "지원하게된", "기관의역할", "회사의역할", "주요사업")):
+        groups.append({"organization_role", "program_or_service"})
+    if any(cue in normalized for cue in ("업무수행계획", "직무계획", "근무계획", "주요업무", "직무", "업무")):
+        groups.append({"job_duty", "program_or_service"})
+    return tuple(groups)
+
+
+def _application_use_mentions_question(application_use: str, index: int) -> bool:
+    compact = re.sub(r"\s+", "", application_use)
+    if "전체문항" in compact or "공통문항" in compact:
+        return True
+    for match in re.finditer(r"문항([0-9·,과및~\-]+)", compact):
+        expression = match.group(1)
+        if str(index) in re.findall(r"\d+", expression):
+            return True
+        for start, end in re.findall(r"(\d+)[~\-](\d+)", expression):
+            lower, upper = sorted((int(start), int(end)))
+            if lower <= index <= upper:
+                return True
+    return False
 
 
 def _official(url: str, allowed_domains: tuple[str, ...]) -> bool:
@@ -220,6 +273,7 @@ def validate_research_evidence(
     claims: tuple[ResearchClaim, ...],
     *,
     allowed_domains: tuple[str, ...],
+    strict: bool = False,
 ) -> list[ValidationIssue]:
     issues: list[ValidationIssue] = []
     by_id = {claim.claim_id: claim for claim in claims}
@@ -228,6 +282,9 @@ def validate_research_evidence(
         response = response_by_index.get(question.index)
         if response is None:
             continue
+        required_claim_type_groups = _required_claim_type_groups(question.prompt)
+        referenced_claim_types: set[str] = set()
+        referenced_hosts: set[str] = set()
         if _needs_research(question.prompt) and not response.research_refs:
             issues.append(
                 ValidationIssue(
@@ -248,6 +305,9 @@ def validate_research_evidence(
                 )
                 continue
             source_valid = _official(claim.source_url, allowed_domains)
+            host = (urlparse(claim.source_url).hostname or "").lower()
+            if source_valid and host:
+                referenced_hosts.add(host)
             if not source_valid:
                 issues.append(
                     ValidationIssue(
@@ -280,6 +340,50 @@ def validate_research_evidence(
                         f"공식 근거가 검증 완료 상태가 아닙니다: {claim_id}",
                     )
                 )
+            if strict and claim.claim_type not in RESEARCH_CLAIM_TYPES:
+                issues.append(
+                    ValidationIssue(
+                        "missing_research_claim_type",
+                        question.index,
+                        f"공식 근거의 용도 분류가 없습니다: {claim_id}",
+                    )
+                )
+            else:
+                referenced_claim_types.add(claim.claim_type)
+            if strict and len(claim.claim.strip()) < 15:
+                issues.append(
+                    ValidationIssue(
+                        "weak_research_claim",
+                        question.index,
+                        f"공식 근거 주장이 너무 추상적입니다: {claim_id}",
+                    )
+                )
+            if strict and len(claim.evidence_excerpt.strip()) < 12:
+                issues.append(
+                    ValidationIssue(
+                        "weak_research_excerpt",
+                        question.index,
+                        f"공식 근거 발췌가 너무 짧습니다: {claim_id}",
+                    )
+                )
+            if strict and not claim.application_use.strip():
+                issues.append(
+                    ValidationIssue(
+                        "missing_research_application_use",
+                        question.index,
+                        f"공식 근거를 자기소개서·면접에 어떻게 사용할지 기록되지 않았습니다: {claim_id}",
+                    )
+                )
+            elif strict and not _application_use_mentions_question(
+                claim.application_use, question.index
+            ):
+                issues.append(
+                    ValidationIssue(
+                        "research_application_use_not_linked",
+                        question.index,
+                        f"공식 근거의 활용 기록이 실제 사용 문항 {question.index}과 연결되지 않습니다: {claim_id}",
+                    )
+                )
             if contains_prompt_injection(claim.claim) or contains_prompt_injection(
                 claim.evidence_excerpt
             ):
@@ -298,4 +402,29 @@ def validate_research_evidence(
                         f"공식 근거의 핵심 주장이 답변에 드러나지 않습니다: {claim_id}",
                     )
                 )
+        if strict and referenced_claim_types:
+            for required_group in required_claim_type_groups:
+                if required_group.intersection(referenced_claim_types):
+                    continue
+                issues.append(
+                    ValidationIssue(
+                        "research_claim_type_mismatch",
+                        question.index,
+                        "문항 유형에 필요한 공식 근거 분류가 없습니다. "
+                        f"필요: {', '.join(sorted(required_group))}",
+                    )
+                )
+        if (
+            strict
+            and is_issue_analysis_prompt(question.prompt)
+            and response.research_refs
+            and len(referenced_hosts) < 2
+        ):
+            issues.append(
+                ValidationIssue(
+                    "insufficient_issue_source_diversity",
+                    question.index,
+                    "경제·사회 이슈 문항은 서로 다른 두 공식 출처로 맥락과 대응을 교차 확인해야 합니다.",
+                )
+            )
     return issues

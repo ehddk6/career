@@ -8,10 +8,16 @@ from datetime import datetime
 from pathlib import Path
 
 from .profile_builder import build_experience_review_queue
-from .profile_schema import ExperienceLedger, ProfileValidationError
+from .profile_schema import (
+    ClaimVerification,
+    ExperienceLedger,
+    ProfileValidationError,
+    claim_submission_issues,
+    validate_ledger,
+)
 
 
-DECISIONS = {"pending", "confirmed", "rejected"}
+DECISIONS = {"pending", "confirmed", "needs_verification", "rejected"}
 
 
 def write_review_template(ledger: ExperienceLedger, path: Path) -> None:
@@ -20,20 +26,79 @@ def write_review_template(ledger: ExperienceLedger, path: Path) -> None:
         writer = csv.DictWriter(
             stream,
             fieldnames=(
-                "experience_id",
-                "source_path",
-                "paragraph_index",
-                "review_priority",
-                "summary",
-                "check",
-                "decision",
-                "claims_confirmed",
-                "notes",
+                "experience_id", "claim_id", "claim_field", "claim_value",
+                "source_path", "paragraph_index", "decision", "method",
+                "baseline", "result", "formula", "measurement_period", "scope",
+                "contribution", "notes",
             ),
         )
         writer.writeheader()
-        for item in build_experience_review_queue(ledger):
-            writer.writerow({**item, "decision": "pending", "claims_confirmed": "no", "notes": ""})
+        queued = {item["experience_id"] for item in build_experience_review_queue(ledger)}
+        for experience in ledger.experiences:
+            if experience.experience_id not in queued:
+                continue
+            for claim in experience.claims:
+                evidence = claim.evidence[0] if claim.evidence else None
+                verification = claim.verification or ClaimVerification()
+                writer.writerow({
+                    "experience_id": experience.experience_id,
+                    "claim_id": claim.claim_id,
+                    "claim_field": claim.field,
+                    "claim_value": claim.normalized_value,
+                    "source_path": evidence.source_path if evidence else "",
+                    "paragraph_index": evidence.paragraph_index if evidence else "",
+                    "decision": "pending",
+                    "method": verification.method,
+                    "baseline": verification.baseline or "",
+                    "result": verification.result or "",
+                    "formula": verification.formula or "",
+                    "measurement_period": verification.measurement_period or "",
+                    "scope": verification.scope or "",
+                    "contribution": verification.contribution,
+                    "notes": "",
+                })
+
+
+def _optional(row: dict[str, str], key: str) -> str | None:
+    value = (row.get(key) or "").strip()
+    return value or None
+
+
+def _claim_decisions(path: Path) -> dict[str, tuple[str, ClaimVerification]]:
+    try:
+        with path.open("r", encoding="utf-8-sig", newline="") as stream:
+            rows = list(csv.DictReader(stream))
+    except OSError as error:
+        raise ProfileValidationError([f"decisions file: {error}"]) from error
+    result: dict[str, tuple[str, ClaimVerification]] = {}
+    issues: list[str] = []
+    for index, row in enumerate(rows, start=2):
+        claim_id = (row.get("claim_id") or "").strip()
+        decision = (row.get("decision") or "pending").strip().lower()
+        if not claim_id:
+            issues.append(f"row {index}: claim_id is required for schema v2")
+            continue
+        if decision not in DECISIONS:
+            issues.append(f"row {index}: invalid decision {decision!r}")
+            continue
+        if claim_id in result:
+            issues.append(f"row {index}: duplicate claim_id {claim_id}")
+            continue
+        result[claim_id] = (
+            decision,
+            ClaimVerification(
+                method=(row.get("method") or "none").strip(),
+                baseline=_optional(row, "baseline"),
+                result=_optional(row, "result"),
+                formula=_optional(row, "formula"),
+                measurement_period=_optional(row, "measurement_period"),
+                scope=_optional(row, "scope"),
+                contribution=(row.get("contribution") or "unknown").strip(),
+            ),
+        )
+    if issues:
+        raise ProfileValidationError(issues)
+    return result
 
 
 def _decisions(path: Path) -> dict[str, tuple[str, bool]]:
@@ -62,6 +127,47 @@ def _decisions(path: Path) -> dict[str, tuple[str, bool]]:
 
 
 def confirm_ledger(proposed: ExperienceLedger, decisions_path: Path) -> tuple[ExperienceLedger, dict[str, int]]:
+    if proposed.schema_version >= 2:
+        decisions = _claim_decisions(decisions_path)
+        known_claims = {
+            claim.claim_id
+            for experience in proposed.experiences
+            for claim in experience.claims
+        }
+        unknown = sorted(set(decisions).difference(known_claims))
+        if unknown:
+            raise ProfileValidationError([f"unknown claim_id: {item}" for item in unknown])
+        confirmed_at = datetime.now().astimezone().isoformat(timespec="seconds")
+        counts = {
+            "confirmed": 0, "rejected": 0, "pending": 0,
+            "needs_verification": 0, "blocked_unsafe_claim": 0,
+        }
+        experiences = []
+        for experience in proposed.experiences:
+            claims = []
+            for claim in experience.claims:
+                decision, verification = decisions.get(
+                    claim.claim_id, ("pending", claim.verification or ClaimVerification())
+                )
+                candidate = replace(claim, status=decision if decision != "pending" else claim.status, verification=verification)
+                if decision == "confirmed" and claim_submission_issues(candidate):
+                    candidate = replace(candidate, status="needs_verification")
+                    counts["blocked_unsafe_claim"] += 1
+                    counts["needs_verification"] += 1
+                else:
+                    counts[candidate.status if candidate.status in counts else "pending"] += 1
+                claims.append(candidate)
+            is_confirmed = any(item.status == "confirmed" for item in claims)
+            experiences.append(replace(
+                experience,
+                claims=tuple(claims),
+                status="confirmed" if is_confirmed else "proposed",
+                confirmed_at=confirmed_at if is_confirmed else None,
+            ))
+        result = replace(proposed, experiences=tuple(experiences))
+        return validate_ledger(result), counts
+
+    # Legacy compatibility: only schema-v1 ledgers accept experience-level rows.
     decisions = _decisions(decisions_path)
     known_ids = {item.experience_id for item in proposed.experiences}
     unknown = sorted(set(decisions).difference(known_ids))

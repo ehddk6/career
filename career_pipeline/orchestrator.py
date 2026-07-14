@@ -6,6 +6,7 @@ from pathlib import Path
 import re
 
 import yaml
+from docx import Document
 
 from .conflicts import (
     apply_overrides,
@@ -26,7 +27,12 @@ from .posting_loader import (
 )
 from .copyeditor_adapter import copyedit_responses
 from .cost_limit import CostLimitExceeded, CostTracker
-from .model_policy import ModelTier, choose_tier
+from .model_policy import ModelTier, choose_tier, resolve_model
+from .rigorous_selection import (
+    RigorousSelectionError,
+    run_rigorous_selection,
+    subprocess_model_runner,
+)
 from .posting_parser import parse_posting, reconcile_questions, render_posting_analysis
 from .profile_refresh import refresh_profile
 from .profile_schema import (
@@ -55,8 +61,8 @@ from .patina_adapter import (
     score_text,
 )
 from .research_evidence import (
+    DEFAULT_RESEARCH_METHOD,
     REQUIRED_RESEARCH_POLICY,
-    REQUIRED_RESEARCH_SKILL,
     load_research_execution,
     load_research_claims,
     official_domains_for_target,
@@ -179,14 +185,25 @@ def _load_draft_responses(path: Path) -> tuple[list[DraftResponse], list[Validat
                 break
             experience_id = reference.get("experience_id")
             claim_fields = reference.get("claim_fields", [])
-            if not isinstance(experience_id, str) or not isinstance(claim_fields, list) or not all(
-                isinstance(field, str) for field in claim_fields
+            claim_ids = reference.get("claim_ids", [])
+            if (
+                not isinstance(experience_id, str)
+                or not isinstance(claim_fields, list)
+                or not all(isinstance(field, str) for field in claim_fields)
+                or not isinstance(claim_ids, list)
+                or not all(isinstance(claim_id, str) for claim_id in claim_ids)
             ):
                 issues.append(
                     ValidationIssue("invalid_experience_ref", question_index, "experience_refs 항목 형식이 올바르지 않습니다.")
                 )
                 break
-            parsed_refs.append(ExperienceClaimRef(experience_id, tuple(claim_fields)))
+            parsed_refs.append(
+                ExperienceClaimRef(
+                    experience_id,
+                    tuple(claim_fields),
+                    tuple(claim_ids),
+                )
+            )
         else:
             responses.append(
                 DraftResponse(
@@ -200,6 +217,92 @@ def _load_draft_responses(path: Path) -> tuple[list[DraftResponse], list[Validat
     return responses, issues
 
 
+def _hydrate_claim_evidence_paths(
+    responses: list[DraftResponse], ledger: ExperienceLedger
+) -> None:
+    """Reconcile evidence paths from exact claim IDs without trusting model paths.
+
+    In the rigorous contract, claim IDs are the authoritative reference.  A
+    model may omit ``evidence_paths`` or return a display path that is not the
+    ledger's canonical source path.  Keeping that path would create a false
+    ``unknown_evidence`` failure even though the claim itself is exact.  When
+    valid claim IDs are present, rebuild the path list solely from their
+    verified evidence; preserve model paths only when no claim can supply one
+    so an ungrounded response still fails closed.
+    """
+    by_experience = {item.experience_id: item for item in ledger.experiences}
+    hydrated: list[DraftResponse] = []
+    for response in responses:
+        claim_paths: set[str] = set()
+        for reference in response.experience_refs:
+            experience = by_experience.get(reference.experience_id)
+            if experience is None:
+                continue
+            claims = {claim.claim_id: claim for claim in experience.claims}
+            for claim_id in reference.claim_ids:
+                claim = claims.get(claim_id)
+                if claim is None:
+                    continue
+                claim_paths.update(evidence.source_path for evidence in claim.evidence)
+        if not response.experience_refs and response.research_refs:
+            # Research evidence is tracked by research_refs.  Do not let a
+            # model copy official URLs into the personal evidence channel.
+            paths: set[str] = set()
+        else:
+            paths = claim_paths or set(response.evidence_paths)
+        hydrated.append(replace(response, evidence_paths=tuple(sorted(paths))))
+    responses[:] = hydrated
+
+
+def _link_final_claims_to_interview_pack(
+    run_dir: Path, responses: list[DraftResponse]
+) -> None:
+    """Attach the selected draft's evidence IDs to the matching interview blocks.
+
+    The interview pack is prepared before rigorous selection, so its original
+    evidence lines can refer to the incumbent rather than the selected
+    candidate.  Preserve the authored practice answers but add a deterministic
+    linkage line for the final response claims and research references.  This
+    keeps the pack auditable without inventing interview content.
+    """
+    path = run_dir / "08_면접대비팩.md"
+    if not path.exists():
+        return
+    text = path.read_text(encoding="utf-8")
+    marker_re = re.compile(r"(?m)^##\s*문항\s+(\d+)\s*$")
+    markers = list(marker_re.finditer(text))
+    if not markers:
+        return
+    by_index = {response.question_index: response for response in responses}
+    additions: list[tuple[int, str]] = []
+    for offset, marker in enumerate(markers):
+        index = int(marker.group(1))
+        response = by_index.get(index)
+        if response is None:
+            continue
+        ids: list[str] = []
+        for reference in response.experience_refs:
+            ids.append(reference.experience_id)
+            ids.extend(reference.claim_ids)
+        ids.extend(response.research_refs)
+        ids = list(dict.fromkeys(ids))
+        if not ids:
+            continue
+        end = markers[offset + 1].start() if offset + 1 < len(markers) else len(text)
+        block = text[marker.start():end]
+        line = "- 최종 제출본 근거 ID: " + ", ".join(ids)
+        if line in block:
+            continue
+        insertion = text.find("\n", marker.end())
+        if insertion < 0 or insertion >= end:
+            insertion = marker.end()
+        additions.append((insertion + 1, line + "\n"))
+    for position, addition in reversed(additions):
+        text = text[:position] + addition + text[position:]
+    if additions:
+        path.write_text(text, encoding="utf-8")
+
+
 def _write_research_execution_template(run_dir: Path) -> None:
     path = run_dir / "04_리서치실행.json"
     if path.exists():
@@ -208,7 +311,7 @@ def _write_research_execution_template(run_dir: Path) -> None:
         path,
         {
             "policy": REQUIRED_RESEARCH_POLICY,
-            "skill_name": REQUIRED_RESEARCH_SKILL,
+            "skill_name": DEFAULT_RESEARCH_METHOD,
             "mode": "ordinary-online",
             "searched_at": "",
             "status": "pending",
@@ -467,7 +570,8 @@ def _prepare_v2(
         "posting_snapshot_id": analysis.source.content_sha256,
         "official_research_domains": list(research_domains),
         "research_policy": REQUIRED_RESEARCH_POLICY,
-        "required_research_skill": REQUIRED_RESEARCH_SKILL,
+        "research_method_default": DEFAULT_RESEARCH_METHOD,
+        "research_method_enforced": False,
         "questions": [asdict(question) for question in reconciliation.questions],
         "selected_experience_ids": [
             item.recommended.experience_id
@@ -517,7 +621,24 @@ def prepare_run(
                 source, status="failed", reason=f"{type(error).__name__}: {error}"
             )
 
-    questions = extract_questions(extract_path(draft_record).paragraphs)
+    if draft_record.extension == ".docx":
+        draft_document = Document(draft_record.path)
+        question_blocks = [
+            " ".join(paragraph.text.split())
+            for paragraph in draft_document.paragraphs
+            if paragraph.text.strip()
+        ]
+        for table in draft_document.tables:
+            for row in table.rows:
+                for cell in row.cells:
+                    question_blocks.extend(
+                        " ".join(line.split())
+                        for line in cell.text.splitlines()
+                        if line.strip()
+                    )
+        questions = extract_questions(tuple(question_blocks))
+    else:
+        questions = extract_questions(extract_path(draft_record).paragraphs)
     (run_dir / "01_자료목록.md").write_text(
         _inventory_markdown(inventory), encoding="utf-8"
     )
@@ -564,7 +685,8 @@ def prepare_run(
         "draft": str(draft),
         "posting": posting,
         "research_policy": REQUIRED_RESEARCH_POLICY,
-        "required_research_skill": REQUIRED_RESEARCH_SKILL,
+        "research_method_default": DEFAULT_RESEARCH_METHOD,
+        "research_method_enforced": False,
         "questions": [asdict(question) for question in questions],
         "conflict_count": len(conflicts),
     }
@@ -602,7 +724,8 @@ def _write_review_report(
             f"- 문항 {question.index}: {count_characters(response.answer, question.count_mode)}/"
             f"{question.character_limit or '미지정'}자 "
             f"({'공백 제외' if question.count_mode == 'spaces_excluded' else '공백 포함'}), "
-            f"근거 {len(response.evidence_paths)}개"
+            f"경험 근거 {len(response.experience_refs)}개, "
+            f"공식 근거 {len(response.research_refs)}개"
         )
     if issues:
         review_lines.extend(["", "## 검증 이슈", ""])
@@ -617,6 +740,29 @@ def _write_review_report(
     (run_dir / "07_자기소개서_검토보고서.md").write_text(
         "\n".join(review_lines) + "\n", encoding="utf-8"
     )
+
+
+def _incumbent_from_markdown(
+    path: Path,
+    baseline: list[DraftResponse],
+) -> list[DraftResponse]:
+    text = path.read_text(encoding="utf-8")
+    matches = list(re.finditer(r"(?m)^#{2,3}\s*(?:문항\s*)?(\d+)\s*$", text))
+    if not matches:
+        raise ValueError("incumbent markdown has no numbered headings")
+    answers: dict[int, str] = {}
+    for index, match in enumerate(matches):
+        end = matches[index + 1].start() if index + 1 < len(matches) else len(text)
+        answer = text[match.end():end].strip()
+        answer = re.sub(r"(?m)^`?글자\s*수\s*:.*$", "", answer).strip()
+        answers[int(match.group(1))] = answer
+    baseline_by_index = {item.question_index: item for item in baseline}
+    if set(answers) != set(baseline_by_index):
+        raise ValueError("incumbent question set does not match the run")
+    return [
+        replace(baseline_by_index[index], answer=answers[index])
+        for index in sorted(answers)
+    ]
 
 
 def finalize_run(
@@ -638,6 +784,10 @@ def finalize_run(
     max_model_calls: int | None = None,
     max_postprocess_calls: int = 1,
     max_stage_seconds: float | None = None,
+    selection_mode: str = "single",
+    incumbent_path: Path | None = None,
+    rigorous_runner=None,
+    rigorous_timeout_ms: int = 300_000,
 ) -> dict:
     run_dir = run_dir.resolve()
     state = json.loads((run_dir / "run.json").read_text(encoding="utf-8"))
@@ -647,10 +797,30 @@ def finalize_run(
         effective_postprocess = "always" if copyedit else "never"
     if effective_postprocess not in {"auto", "always", "never"}:
         raise ValueError("postprocess must be auto, always, or never")
+    if selection_mode not in {"single", "rigorous"}:
+        raise ValueError("selection_mode must be single or rigorous")
+    if selection_mode == "rigorous" and (copyedit or humanize):
+        raise ValueError("rigorous selection requires copyedit and patina disabled")
+    if selection_mode == "rigorous":
+        effective_postprocess = "never"
+    if selection_mode == "rigorous" and max_model_calls is not None and max_model_calls < 9:
+        raise ValueError("rigorous selection requires max_model_calls >= 9")
+    state["selection_mode"] = selection_mode
     state["postprocess_policy"] = effective_postprocess
     state["max_model_calls"] = max_model_calls
     state["max_postprocess_calls"] = max_postprocess_calls
     state["max_stage_seconds"] = max_stage_seconds
+    state["legacy_patina"] = bool(humanize)
+    if not humanize:
+        # A finalize rerun defines the current execution mode.  Do not let a
+        # legacy opt-in from an older run keep affecting audits or manifests.
+        state["patina_attempted"] = False
+        state["patina_score_attempted"] = False
+        state["patina_applied"] = False
+        state["patina_status"] = "disabled"
+        state["patina_score_enabled"] = False
+        state["patina_voice_sample_used"] = None
+        state.pop("patina_summary", None)
     if state.get("status") in {
         "blocked",
         "blocked_profile",
@@ -703,6 +873,22 @@ def finalize_run(
             state["issues"] = [asdict(item) for item in draft_issues]
         write_state(run_dir, state)
         return state
+
+    if selection_mode == "rigorous" and incumbent_path is not None:
+        try:
+            responses = _incumbent_from_markdown(incumbent_path.resolve(), responses)
+        except (OSError, ValueError) as error:
+            state.update(
+                status="blocked_validation",
+                blocked_stage="rigorous_incumbent",
+                validation_issues=[{
+                    "code": "invalid_incumbent",
+                    "question_index": 0,
+                    "message": str(error),
+                }],
+            )
+            write_state(run_dir, state)
+            return state
 
     ledger = None
     research_claims = ()
@@ -853,6 +1039,15 @@ def finalize_run(
     _write_review_report(
         run_dir, questions, responses, v2=v2, issues=issues
     )
+    if selection_mode == "rigorous" and issues:
+        # The incumbent is an anonymous comparison candidate, not the final
+        # submission.  Its response-level failures must remain visible to the
+        # judges instead of aborting independent candidate generation.  Run-
+        # level failures (question_index == 0) still fail closed.
+        state["incumbent_preflight_issues"] = [
+            asdict(item) for item in issues if item.question_index != 0
+        ]
+        issues = [item for item in issues if item.question_index == 0]
     if issues:
         state.update(
             status="blocked_validation",
@@ -1045,6 +1240,10 @@ def finalize_run(
                 kwargs = {
                     "target_org": state["target"],
                     "job_terms": job_terms,
+                    "diagnostics_by_index": {
+                        diagnostic.question_index: diagnostic.style_reasons
+                        for diagnostic in selected_diagnostics
+                    },
                     "timeout_ms": effective_timeout_ms,
                     "model_tier": model.tier,
                     "model_id": model.model_id,
@@ -1203,7 +1402,6 @@ def finalize_run(
         state["model_calls"] = call_tracker.to_dict()
 
     if humanize:
-        state["legacy_patina"] = True
         legacy_timeout_ms = patina_timeout_ms
         if max_stage_seconds is not None:
             legacy_timeout_ms = min(
@@ -1405,6 +1603,81 @@ def finalize_run(
         )
         _write_review_report(run_dir, questions, responses, v2=v2, issues=[])
 
+    if selection_mode == "rigorous":
+        posting_frozen = json.loads(
+            (run_dir / "00_채용공고분석.json").read_text(encoding="utf-8")
+        )
+        research_frozen = []
+        research_path = run_dir / "04_공식근거.json"
+        if research_path.exists():
+            research_frozen = json.loads(research_path.read_text(encoding="utf-8"))
+        frozen_packet = {
+            "target": state["target"],
+            "posting": posting_frozen,
+            "experience_ledger": ledger_to_dict(ledger) if ledger is not None else None,
+            "research_claims": research_frozen,
+        }
+
+        def validate_rigorous_candidate(candidate: list[DraftResponse]):
+            _hydrate_claim_evidence_paths(candidate, ledger)
+            candidate_issues = validate_draft(
+                questions,
+                candidate,
+                state["target"],
+                known_sources,
+                profile_ledger=ledger,
+                require_experience_refs=v2,
+            )
+            if v2 and state.get("strict_quality", False):
+                # Qualitative preferences (density, repeated experience,
+                # narrative strength) are decided by the three independent
+                # judges.  The deterministic gate remains limited to facts,
+                # exact claim references, question limits and official-source
+                # linkage so that a style heuristic cannot eliminate every
+                # candidate before blind selection.
+                candidate_issues.extend(validate_research_evidence(
+                    questions,
+                    candidate,
+                    research_claims,
+                    allowed_domains=tuple(state.get("official_research_domains", [])),
+                ))
+            return candidate_issues
+
+        sol_model = resolve_model("sol").model_id
+        try:
+            rigorous_result = run_rigorous_selection(
+                run_dir,
+                questions=questions,
+                incumbent=tuple(responses),
+                frozen_packet=frozen_packet,
+                model_id=sol_model,
+                validate_candidate=validate_rigorous_candidate,
+                runner=rigorous_runner or subprocess_model_runner,
+                max_calls=max_model_calls or 9,
+                timeout_ms=rigorous_timeout_ms,
+            )
+        except (OSError, ValueError, RigorousSelectionError) as error:
+            state.update(
+                status="blocked_selection",
+                blocked_stage="rigorous",
+                rigorous_selection={
+                    "status": "failed",
+                    "selection_mode": "rigorous",
+                    "model_id": sol_model,
+                    "error": str(error),
+                },
+            )
+            write_state(run_dir, state)
+            return state
+        responses = list(rigorous_result.responses)
+        _link_final_claims_to_interview_pack(run_dir, responses)
+        state["rigorous_selection"] = rigorous_result.metadata
+        selected_source = "rigorous"
+    else:
+        state["rigorous_selection"] = {
+            "status": "not_run", "selection_mode": "single", "hard_fail": False,
+        }
+
     state["model_calls"] = call_tracker.to_dict()
     output_paths = (
         run_dir / "06_자기소개서.md",
@@ -1443,6 +1716,7 @@ def finalize_run(
         model_tier=state.get("postprocess_tier"),
         model_id=state.get("postprocess_model_id"),
         validation={"status": "passed", "issues": []},
+        selection=state.get("rigorous_selection"),
     )
     write_state(run_dir, state)
     return state

@@ -9,6 +9,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from .application_quality import assess_application_quality
+
 
 EVALUATION_FILES = (
     "submission_ready_re_evaluation_20260705.json",
@@ -82,9 +84,13 @@ def build_portfolio(root: Path) -> dict[str, Any]:
         target = overrides.get(organization, {})
         official_url = str(target.get("official_posting_url", ""))
         posting_status = str(target.get("posting_status", "pending_official_posting"))
-        is_active = bool(official_url) and confirmed_profile and posting_status == "active"
-        audit_passed = bool(target.get("audit_passed"))
-        submission_status = "ready" if is_active and items and audit_passed else "not_ready"
+        quality = assess_application_quality(
+            root,
+            target,
+            confirmed_profile=confirmed_profile,
+            has_candidates=bool(items),
+        )
+        is_active = quality["dimensions"]["posting"]
         applications.append(
             {
                 "organization": organization,
@@ -101,7 +107,11 @@ def build_portfolio(root: Path) -> dict[str, Any]:
                 "legacy_internal_score": legacy["average_score"],
                 "legacy_recommendation": legacy["recommendation"],
                 "legacy_score_source": legacy["source"],
-                "submission_status": submission_status,
+                "current_internal_validation_score": (
+                    quality.get("selected_artifact_quality") or {}
+                ).get("internal_validation_score"),
+                "quality_readiness": quality,
+                "submission_status": quality["status"],
             }
         )
     active_count = sum(1 for item in applications if item["is_active"])
@@ -131,6 +141,9 @@ def write_portfolio(payload: dict[str, Any], output_dir: Path) -> None:
         "v2_run_dir",
         "legacy_internal_score",
         "legacy_recommendation",
+        "current_internal_validation_score",
+        "quality_gates",
+        "quality_blockers",
         "submission_status",
     )
     with (output_dir / "application_portfolio.csv").open(
@@ -139,7 +152,14 @@ def write_portfolio(payload: dict[str, Any], output_dir: Path) -> None:
         writer = csv.DictWriter(stream, fieldnames=fields)
         writer.writeheader()
         writer.writerows(
-            {field: item.get(field, "") for field in fields}
+            {
+                **{field: item.get(field, "") for field in fields},
+                "quality_gates": (
+                    f"{item['quality_readiness']['passed_gate_count']}/"
+                    f"{item['quality_readiness']['total_gate_count']}"
+                ),
+                "quality_blockers": ";".join(item["quality_readiness"]["blocker_codes"]),
+            }
             for item in payload["applications"]
         )
     lines = [
@@ -148,17 +168,21 @@ def write_portfolio(payload: dict[str, Any], output_dir: Path) -> None:
         f"- 확정 경험 원장: {'있음' if payload['confirmed_profile'] else '없음'}",
         f"- 활성 공고: {payload['active_posting_count']}개",
         "",
-        "과거 내부 평가(100점)는 참고용이며, 공식 공고와 확정 근거가 모두 확인된 활성 기관만 제출 가능 상태가 됩니다.",
+        "과거 내부 평가(100점)는 참고용입니다. 현재 내부검증 점수와 실제 제출 준비 상태를 분리하며, 제출 상태는 경험·공고·지원자격·공식조사·최종 자기소개서·면접팩의 6개 독립 게이트로 판정합니다.",
         "",
-        "| 기관 | 후보 초안 | 공고 상태 | 활성 | 과거 내부 평가 | 제출 상태 |",
-        "|---|---:|---|:---:|---:|---|",
+        "| 기관 | 후보 초안 | 공고 상태 | 활성 | 과거 내부 평가 | 현재 내부검증 | 품질 게이트 | 제출 상태 |",
+        "|---|---:|---|:---:|---:|---:|---:|---|",
     ]
     for item in payload["applications"]:
         legacy = item.get("legacy_internal_score")
         legacy_cell = f"{legacy}" if legacy is not None else "-"
+        current = item.get("current_internal_validation_score")
+        current_cell = f"{current}" if current is not None else "-"
         lines.append(
             f"| {item['organization']} | {item['candidate_drafts']} | {item['posting_status']} | "
-            f"{'O' if item.get('is_active') else 'X'} | {legacy_cell} | {item['submission_status']} |"
+            f"{'O' if item.get('is_active') else 'X'} | {legacy_cell} | {current_cell} | "
+            f"{item['quality_readiness']['passed_gate_count']}/{item['quality_readiness']['total_gate_count']} | "
+            f"{item['submission_status']} |"
         )
     (output_dir / "application_portfolio.md").write_text(
         "\n".join(lines) + "\n", encoding="utf-8"

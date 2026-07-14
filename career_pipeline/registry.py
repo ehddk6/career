@@ -13,6 +13,7 @@ import time as time_module
 from typing import Any, Iterator
 
 from .eligibility import (
+    canonicalize_url,
     compare_postings,
     decision_to_dict,
     evaluate_eligibility,
@@ -91,6 +92,8 @@ def _offset(value: str) -> timezone:
         minutes = int(value[4:6])
     except ValueError as error:
         raise RegistryError(f"invalid posting timezone: {value}") from error
+    if hours > 23 or minutes > 59:
+        raise RegistryError(f"invalid posting timezone: {value}")
     delta = timedelta(hours=hours, minutes=minutes)
     return timezone(delta if value[0] == "+" else -delta)
 
@@ -119,7 +122,7 @@ def posting_lifecycle_status(record: PostingRecord, evaluation_time: str) -> tup
             deadline = datetime.fromisoformat(raw_deadline)
             if deadline.tzinfo is None:
                 deadline = deadline.replace(tzinfo=posting_zone)
-    except ValueError as error:
+    except (RegistryError, ValueError) as error:
         return "manual_review", DecisionReason("deadline_invalid", "deadline", "공고 마감일 형식을 확인할 수 없습니다.")
     if evaluation.astimezone(timezone.utc) > deadline.astimezone(timezone.utc):
         return "expired", DecisionReason("posting_expired", "deadline", "공고 마감일이 평가 시각보다 지났습니다.")
@@ -292,9 +295,15 @@ class PostingRegistry:
         )
 
     def write_snapshot(self, posting_id: str, content: bytes, raw_sha256: str) -> Path:
+        if not re.fullmatch(r"[0-9a-f]{64}", raw_sha256):
+            raise RegistryError("snapshot raw_sha256 must be lowercase SHA-256")
+        if self.snapshots_dir.is_symlink():
+            raise RegistryError("snapshot directory must not be a symlink")
         self.snapshots_dir.mkdir(parents=True, exist_ok=True)
         safe_id = re.sub(r"[^A-Za-z0-9._-]+", "_", posting_id).strip("._")[:80] or "posting"
         path = self.snapshots_dir / f"{safe_id}-{raw_sha256}.bin"
+        if path.is_symlink():
+            raise RegistryError("snapshot output must not be a symlink")
         if path.exists():
             if path.read_bytes() != content:
                 raise RegistryError(f"snapshot hash collision: {path.name}")
@@ -317,10 +326,15 @@ class PostingRegistry:
         role_match: bool = False,
     ) -> tuple[str, PostingRecord, tuple[dict[str, str], ...]]:
         lifecycle, lifecycle_reason = posting_lifecycle_status(record, evaluation_time)
+        safe_url = canonicalize_url(record.url)
+        safe_canonical_url = canonicalize_url(record.canonical_url or safe_url)
+        safe_alias_urls = tuple(sorted({canonicalize_url(url) for url in record.alias_urls if url}))
         current = replace(
             record,
+            url=safe_url,
             source_id=source_id or record.source_id,
-            canonical_url=record.canonical_url or record.url,
+            canonical_url=safe_canonical_url,
+            alias_urls=safe_alias_urls,
             status=lifecycle,
             first_seen_at=record.first_seen_at or evaluation_time,
             last_seen_at=evaluation_time,
@@ -350,7 +364,11 @@ class PostingRegistry:
             return new_event, current, ()
         comparison = compare_postings(direct, current)
         if comparison.event in {"exact_duplicate", "unchanged"}:
-            event = "expired" if lifecycle == "expired" else ("closed" if lifecycle == "closed" else "unchanged")
+            event = (
+                lifecycle
+                if lifecycle in {"expired", "closed", "manual_review"}
+                else comparison.event
+            )
             merged = replace(direct, last_seen_at=evaluation_time, status=lifecycle, source_id=source_id or direct.source_id)
             self.postings[direct.posting_id] = merged
             self._event("posting_seen", occurred_at=evaluation_time, source_id=source_id, posting_id=direct.posting_id, run_id=run_id, metadata={"classification": event})
@@ -379,7 +397,7 @@ class PostingRegistry:
         role_match: bool = False,
         extra_reasons: tuple[DecisionReason, ...] = (),
     ) -> ReviewQueueItem | None:
-        if discovery_status == "ineligible":
+        if discovery_status in {"ineligible", "content_duplicate", "expired", "closed"}:
             return None
         if discovery_status not in DISCOVERY_EVENTS:
             raise RegistryError(f"unknown discovery status: {discovery_status}")
@@ -400,6 +418,10 @@ class PostingRegistry:
         if existing is not None:
             return existing
         if discovery_status == "changed":
+            for key, item in list(self.queue.items()):
+                if item.posting_id == posting.posting_id and item.queue_status in {"pending", "approved", "deferred"}:
+                    self.queue[key] = replace(item, queue_status="superseded", updated_at=evaluation_time)
+        elif discovery_status == "manual_review":
             for key, item in list(self.queue.items()):
                 if item.posting_id == posting.posting_id and item.queue_status in {"pending", "approved", "deferred"}:
                     self.queue[key] = replace(item, queue_status="superseded", updated_at=evaluation_time)
@@ -440,8 +462,11 @@ class PostingRegistry:
         item = self.queue.get(queue_id)
         if item is None:
             raise RegistryError(f"queue item not found: {queue_id}")
+        _parse_iso(at)
         if item.queue_status in {"superseded", "expired"}:
             raise RegistryError("cannot decide a superseded or expired queue item")
+        if item.queue_status in {"approved", "rejected", "deferred"}:
+            raise RegistryError("queue item has already been decided")
         updated = replace(item, queue_status=decision, updated_at=at)
         self.queue[queue_id] = updated
         self._event("queue_decided", occurred_at=at, source_id=item.source_id, posting_id=item.posting_id, run_id=None, metadata={"queue_id": queue_id, "decision": decision})

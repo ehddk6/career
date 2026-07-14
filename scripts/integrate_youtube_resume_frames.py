@@ -12,7 +12,9 @@ from typing import Iterable
 
 
 JOB_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_SOURCE_ROOT = Path.home() / "OneDrive" / "문서" / "자소서 유튜브 정보"
+DEFAULT_SOURCE_ROOT = (
+    Path.home() / "OneDrive" / "\ubb38\uc11c" / "\uc790\uc18c\uc11c \uc720\ud29c\ube0c \uc815\ubcf4"
+)
 DEFAULT_OUTPUT_ROOT = JOB_ROOT / "자료조사" / f"자소서_유튜브_프레임분석_{datetime.now():%Y-%m-%d}"
 
 

@@ -74,3 +74,51 @@ def test_usage_documents_phase3_discovery_registry_queue_flow():
         "queue 승인은 실제 원서 제출 승인이 아닙니다",
     ):
         assert required in text
+
+
+def test_usage_documents_phase4_review_required_flow():
+    text = Path("docs/career-pipeline-usage.md").read_text(encoding="utf-8")
+    contract = Path("docs/phase4-output-contract.md").read_text(encoding="utf-8")
+    for required in (
+        "application package",
+        "application validate",
+        "application dry-run",
+        "review_required",
+        "CAPTCHA",
+        "MFA",
+    ):
+        assert required in text
+    assert "제출 버튼 감지는 기록하되 클릭하지 않는다" in contract
+
+
+def test_usage_documents_controlled_execution_contract():
+    usage = Path("docs/career-pipeline-usage.md").read_text(encoding="utf-8")
+    contract = Path("docs/application-execution.md").read_text(encoding="utf-8")
+    for required in ("application review", "application authorize", "fill_only", "실제 사이트 입력"):
+        assert required in usage
+    for required in ("awaiting_final_confirmation", "submitted_verified", "submission_unverified", "CAPTCHA", "MFA"):
+        assert required in contract
+
+
+def test_jobkorea_jrs_fixture_adapter_is_documented_as_offline_only():
+    text=Path("docs/adapters/jobkorea-jrs.md").read_text(encoding="utf-8")
+    for required in ("jobkorea_jrs_fixture","live_enabled=false","실제 기업별 지원서 origin: 미확인","제출을 지원하지 않는다"):
+        assert required in text
+
+
+def test_platform_catalog_and_applyin_fixture_are_documented_as_offline_only():
+    catalog = Path("docs/platform-catalog.md").read_text(encoding="utf-8")
+    adapter = Path("docs/adapters/saramin-applyin.md").read_text(encoding="utf-8")
+    usage = Path("docs/career-pipeline-usage.md").read_text(encoding="utf-8")
+    for required in ("saramin_applyin", "discovery only", "exact HTTPS origin", "live_enabled=false"):
+        assert required in catalog
+    for required in ("saramin_applyin_fixture", "fill_only", "attachments: unsupported", "live navigation"):
+        assert required in adapter
+    assert "application platform detect" in usage
+
+def test_site_intake_is_documented_as_read_only_and_deidentified():
+    text=Path("docs/site-intake.md").read_text(encoding="utf-8")
+    usage=Path("docs/career-pipeline-usage.md").read_text(encoding="utf-8")
+    for required in ("actual_execution_origin=null","requires_manual_intake=true","mutation_enabled=false","live_enabled=false","de-identified"):
+        assert required in text
+    assert "application site-intake create" in usage

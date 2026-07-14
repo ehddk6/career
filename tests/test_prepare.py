@@ -78,6 +78,7 @@ def test_prepare_writes_artifacts_blocks_on_conflict_and_resumes(tmp_path: Path)
                 "prompt": "지원동기를 작성해 주십시오.",
                 "character_limit": 600,
                 "count_mode": "spaces_included",
+                "minimum_character_limit": None,
             }
     ]
 

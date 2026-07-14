@@ -9,7 +9,7 @@ from career_pipeline.inventory import digest_path
 from career_pipeline.models import SourceRecord
 from career_pipeline.orchestrator import finalize_run, prepare_run
 from career_pipeline.profile_builder import build_proposed_ledger
-from career_pipeline.profile_schema import ledger_to_dict
+from career_pipeline.profile_schema import ClaimVerification, ledger_to_dict
 
 
 QUESTIONS = (
@@ -46,7 +46,16 @@ def build_and_confirm_fixture_profile(root: Path) -> Path:
     confirmed_experiences = tuple(
         replace(
             experience,
-            claims=tuple(replace(claim, status="confirmed") for claim in experience.claims),
+            claims=tuple(replace(
+                claim,
+                status="confirmed",
+                verification=ClaimVerification(
+                    method="documented_total",
+                    measurement_period="fixture",
+                    scope="fixture source sentence",
+                    contribution="caused",
+                ),
+            ) for claim in experience.claims),
             status="confirmed",
             confirmed_at="2026-06-21T12:00:00+09:00",
         )

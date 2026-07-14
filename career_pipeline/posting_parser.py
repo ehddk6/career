@@ -103,11 +103,16 @@ def _posting_blocks(loaded: LoadedPosting) -> tuple[str, ...]:
         document = Document(BytesIO(loaded.content))
         blocks: list[str] = []
         for paragraph in document.paragraphs:
-            blocks.extend(split_text_blocks(paragraph.text))
+            text = " ".join(paragraph.text.split())
+            if text:
+                blocks.append(text)
         for table in document.tables:
             for row in table.rows:
                 for cell in row.cells:
-                    blocks.extend(split_text_blocks(cell.text))
+                    for line in cell.text.splitlines():
+                        text = " ".join(line.split())
+                        if text:
+                            blocks.append(text)
         return tuple(blocks)
     if loaded.extension == ".pdf":
         blocks = []
@@ -207,6 +212,15 @@ def reconcile_questions(
                     "character_limit_mismatch",
                     posting.character_limit,
                     draft.character_limit,
+                )
+            )
+        if posting.minimum_character_limit != draft.minimum_character_limit:
+            mismatches.append(
+                QuestionMismatch(
+                    index,
+                    "minimum_character_limit_mismatch",
+                    posting.minimum_character_limit,
+                    draft.minimum_character_limit,
                 )
             )
         if posting.count_mode != draft.count_mode:

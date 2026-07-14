@@ -4,11 +4,17 @@ from difflib import SequenceMatcher
 import re
 
 from .character_count import count_characters
-from .facts import METRIC, _normalize
+from .facts import METRIC, _normalize, _normalize_token
 from .matching import QuestionMatch
 from .models import DraftResponse, Question, ValidationIssue
 from .nonghyup_guidance import validate_nonghyup_answer
 from .posting_schema import PostingAnalysis
+from .prompt_policy import (
+    is_issue_analysis_prompt,
+    is_research_only_prompt,
+    needs_target_specificity,
+    normalize_prompt,
+)
 from .profile_schema import ExperienceLedger
 
 
@@ -35,8 +41,22 @@ MINIMUM_FILL_RATIO = 0.8
 DEFAULT_MIN_ANSWER_SCORE = 65
 STRICT_MIN_ANSWER_SCORE = 85
 STRICT_MIN_AVERAGE_SCORE = 90
-TEXT_TOKEN = re.compile(r"[가-힣A-Za-z0-9]+")
-TARGET_STOPWORDS = {"일반전형", "체험형", "인턴", "금융", "기금", "강원", "직무"}
+TARGET_STOPWORDS = {
+    "일반전형",
+    "일반",
+    "체험형",
+    "인턴",
+    "청년",
+    "청년인턴",
+    "청년인턴1",
+    "금융",
+    "기금",
+    "강원",
+    "직무",
+    "보증",
+    "행정",
+    "사무",
+}
 TEXT_TOKEN = re.compile(r"[^\W_]+", re.UNICODE)
 
 
@@ -52,24 +72,26 @@ def _target_tokens(target_org: str) -> tuple[str, ...]:
     )
 
 
-ACTION_CUES = ("확인", "분석", "대조", "정리", "제안", "개선", "조정", "검토", "작성", "도입")
-RESULT_CUES = ("결과", "줄", "높", "개선", "달성", "완료", "방지", "신뢰", "정확", "절감")
-ABSTRACT_PHRASES = ("최선을 다", "기여하겠습니다", "성실하게", "적극적으로", "노력하겠습니다", "역량을 발휘")
-ACTION_CUES = ACTION_CUES + (
+ACTION_CUES = (
     "확인",
     "분석",
+    "대조",
     "비교",
     "검토",
     "정리",
     "제안",
     "개선",
+    "조정",
     "조율",
     "작성",
+    "도입",
     "실행",
     "공유",
 )
-RESULT_CUES = RESULT_CUES + (
+RESULT_CUES = (
     "결과",
+    "줄",
+    "높",
     "성과",
     "개선",
     "완료",
@@ -77,20 +99,56 @@ RESULT_CUES = RESULT_CUES + (
     "감소",
     "증가",
     "신뢰",
+    "정확",
+    "절감",
     "만족",
     "수상",
 )
-ABSTRACT_PHRASES = ABSTRACT_PHRASES + (
-    "최선을 다하겠습니다",
+ABSTRACT_PHRASES = (
+    "최선을 다",
     "기여하겠습니다",
     "성실하게",
     "적극적으로",
     "노력하겠습니다",
+    "역량을 발휘",
+)
+ANALYSIS_CUES = (
+    "원인",
+    "영향",
+    "위험",
+    "부담",
+    "악화",
+    "증가",
+    "감소",
+    "차이",
+    "구분",
+    "때문",
+    "따라",
+)
+RESPONSE_CUES = (
+    "대응",
+    "지원",
+    "관리",
+    "개선",
+    "연계",
+    "점검",
+    "완화",
+    "확인",
+    "구분",
+    "필요",
+    "보호",
+    "제공",
+    "역할",
+    "사업",
 )
 
 
 def _word_tokens(text: str) -> set[str]:
-    return {token.lower() for token in TEXT_TOKEN.findall(text) if len(token) >= 2}
+    return {
+        _normalize_token(token).lower()
+        for token in TEXT_TOKEN.findall(text)
+        if len(_normalize_token(token)) >= 2
+    }
 
 
 def score_answer_quality(
@@ -101,6 +159,7 @@ def score_answer_quality(
     job_terms: tuple[str, ...] = (),
     baseline_text: str | None = None,
     peer_answers: tuple[str, ...] = (),
+    evidence_verified: bool | None = None,
 ) -> AnswerQualityScore:
     issues: list[str] = []
     factuality = 25
@@ -110,26 +169,41 @@ def score_answer_quality(
         if _metric_values(answer) != _metric_values(baseline_text):
             factuality = 0
             issues.append("fact_change")
+    elif evidence_verified is False:
+        factuality = 15
+        issues.append("evidence_link_missing")
 
-    target_specificity = 20 if any(
+    needs_target = needs_target_specificity(question.prompt)
+    target_specificity = 20 if not needs_target or any(
         token.lower() in answer.lower() for token in _target_tokens(target_org)
     ) else 0
     if not target_specificity:
         issues.append("missing_target")
 
-    has_action = any(cue in answer for cue in ACTION_CUES)
-    has_result = any(cue in answer for cue in RESULT_CUES)
+    if is_research_only_prompt(question.prompt):
+        has_action = any(cue in answer for cue in ANALYSIS_CUES)
+        has_result = any(cue in answer for cue in RESPONSE_CUES)
+        missing_action_code = "missing_analysis"
+        missing_result_code = "missing_response"
+    else:
+        has_action = any(cue in answer for cue in ACTION_CUES)
+        has_result = any(cue in answer for cue in RESULT_CUES)
+        missing_action_code = "missing_action"
+        missing_result_code = "missing_result"
     action_result = (10 if has_action else 0) + (10 if has_result else 0)
     if not has_action:
-        issues.append("missing_action")
+        issues.append(missing_action_code)
     if not has_result:
-        issues.append("missing_result")
+        issues.append(missing_result_code)
 
     answer_tokens = _word_tokens(answer)
     job_tokens = set().union(*(_word_tokens(term) for term in job_terms)) if job_terms else set()
     overlap = answer_tokens.intersection(job_tokens)
-    job_fit = 15 if len(overlap) >= 2 else 8 if overlap else 0
-    if job_terms and not overlap:
+    if is_research_only_prompt(question.prompt):
+        job_fit = 15
+    else:
+        job_fit = 15 if len(overlap) >= 2 else 8 if overlap else 0
+    if job_terms and not overlap and not is_research_only_prompt(question.prompt):
         issues.append("missing_job_connection")
 
     abstract_hits = sum(phrase in answer for phrase in ABSTRACT_PHRASES)
@@ -180,7 +254,11 @@ def validate_answer_quality(
             continue
         answer = response.answer.strip()
         if question.character_limit and question.character_limit >= 200:
-            minimum = round(question.character_limit * MINIMUM_FILL_RATIO)
+            minimum = (
+                question.minimum_character_limit
+                if question.minimum_character_limit is not None
+                else round(question.character_limit * MINIMUM_FILL_RATIO)
+            )
             answer_length = count_characters(answer, question.count_mode)
             if answer_length < minimum:
                 issues.append(
@@ -190,8 +268,7 @@ def validate_answer_quality(
                         f"답변이 충분히 구체적이지 않습니다: {answer_length}/{question.character_limit}자 (최소 {minimum}자, {question.count_mode})",
                     )
                 )
-        prompt = question.prompt.replace(" ", "")
-        needs_target = ("지원" in prompt and "동기" in prompt) or "주요사업" in prompt
+        needs_target = needs_target_specificity(question.prompt)
         target_tokens = _target_tokens(target_org)
         if needs_target and target_tokens and not any(
             token.lower() in answer.lower() for token in target_tokens
@@ -211,6 +288,14 @@ def validate_answer_quality(
             answer,
             target_org,
             job_terms=job_terms,
+            peer_answers=tuple(
+                other.answer
+                for other in responses
+                if other.question_index != question.index and other.answer.strip()
+            ),
+            evidence_verified=bool(
+                response.experience_refs or response.research_refs
+            ),
         )
         scores.append(score)
         if score.total < minimum_score:
@@ -308,6 +393,7 @@ def validate_interview_pack(
     responses: list[DraftResponse],
     *,
     allowed_metric_values: set[str] | None = None,
+    strict: bool = False,
 ) -> list[ValidationIssue]:
     issues: list[ValidationIssue] = []
     required_sections = (
@@ -330,8 +416,7 @@ def validate_interview_pack(
                 )
             )
     for question in questions:
-        markers = (f"문항 {question.index}", f"문항{question.index}")
-        if not any(marker in interview_text for marker in markers):
+        if _find_interview_question_marker(interview_text, question.index) < 0:
             issues.append(
                 ValidationIssue(
                     "missing_interview_question",
@@ -341,8 +426,9 @@ def validate_interview_pack(
             )
     for response in responses:
         if response.answer.strip() and response.answer[:12] not in interview_text:
-            prompt_marker = f"문항 {response.question_index}"
-            if prompt_marker not in interview_text:
+            if _find_interview_question_marker(
+                interview_text, response.question_index
+            ) < 0:
                 issues.append(
                     ValidationIssue(
                         "interview_not_linked_to_answer",
@@ -360,8 +446,216 @@ def validate_interview_pack(
                         0,
                         f"면접팩의 승인되지 않은 수치: {match.group(0)}",
                     )
+                    )
+    if strict:
+        intro_match = re.search(
+            r"(?ms)^#{1,6}\s*1분 자기소개\s*$\s*(.*?)(?=^#{1,6}\s|\Z)",
+            interview_text,
+        )
+        if intro_match is None or not intro_match.group(1).strip():
+            issues.append(
+                ValidationIssue(
+                    "interview_intro_missing",
+                    0,
+                    "1분 자기소개 본문이 없습니다.",
                 )
+            )
+        else:
+            intro_length = _spoken_length(intro_match.group(1))
+            if not 120 <= intro_length <= 420:
+                issues.append(
+                    ValidationIssue(
+                        "interview_intro_length",
+                        0,
+                        f"1분 자기소개 길이가 연습 범위를 벗어납니다: {intro_length}자",
+                    )
+                )
+        question_markers = [
+            (
+                question.index,
+                _find_interview_question_marker(interview_text, question.index),
+            )
+            for question in questions
+        ]
+        valid_markers = sorted(
+            (
+                (index, position)
+                for index, position in question_markers
+                if position >= 0
+            ),
+            key=lambda item: item[1],
+        )
+        for offset, (index, position) in enumerate(valid_markers):
+            end = valid_markers[offset + 1][1] if offset + 1 < len(valid_markers) else len(interview_text)
+            block = interview_text[position:end]
+            missing = [
+                section for section in (
+                    "30초",
+                    "60초",
+                    "90초",
+                    "꼬리질문",
+                    "꼬리답변",
+                    "압박질문",
+                    "압박답변",
+                    "근거",
+                )
+                if section not in block
+            ]
+            if missing:
+                issues.append(
+                    ValidationIssue(
+                        "interview_question_block_incomplete",
+                        index,
+                        f"문항 {index} 면접 블록에 누락된 연습 요소: {', '.join(missing)}",
+                    )
+                )
+                continue
+            timed_answers = {
+                label: _extract_interview_value(block, f"{label} 답변")
+                for label in ("30초", "60초", "90초")
+            }
+            ranges = {
+                "30초": (45, 180),
+                "60초": (85, 320),
+                "90초": (130, 500),
+            }
+            lengths: dict[str, int] = {}
+            for label, value in timed_answers.items():
+                if not value:
+                    issues.append(
+                        ValidationIssue(
+                            "interview_timed_answer_missing",
+                            index,
+                            f"문항 {index}의 {label} 답변 본문이 없습니다.",
+                        )
+                    )
+                    continue
+                length = _spoken_length(value)
+                lengths[label] = length
+                lower, upper = ranges[label]
+                if not lower <= length <= upper:
+                    issues.append(
+                        ValidationIssue(
+                            "interview_timed_answer_length",
+                            index,
+                            f"문항 {index}의 {label} 답변 길이가 연습 범위를 벗어납니다: {length}자",
+                        )
+                    )
+            if len(lengths) == 3 and not (
+                lengths["60초"] >= lengths["30초"] + 25
+                and lengths["90초"] >= lengths["60초"] + 30
+            ):
+                issues.append(
+                    ValidationIssue(
+                        "interview_timed_answer_progression",
+                        index,
+                        f"문항 {index}의 30·60·90초 답변이 충분한 폭으로 단계적 구체화되지 않습니다.",
+                    )
+                )
+            for label in ("꼬리질문", "압박질문"):
+                value = _extract_interview_value(block, label)
+                if _spoken_length(value) < 8:
+                    issues.append(
+                        ValidationIssue(
+                            "interview_probe_missing",
+                            index,
+                            f"문항 {index}의 {label}이 비어 있거나 지나치게 짧습니다.",
+                        )
+                    )
+            for label in ("꼬리답변", "압박답변"):
+                value = _extract_interview_value(block, label)
+                if _spoken_length(value) < 30:
+                    issues.append(
+                        ValidationIssue(
+                            "interview_defense_answer_missing",
+                            index,
+                            f"문항 {index}의 {label}이 없거나 방어 논리가 부족합니다.",
+                        )
+                    )
+            response = next(
+                (item for item in responses if item.question_index == index),
+                None,
+            )
+            if response is not None:
+                expected_refs = {
+                    reference.experience_id
+                    for reference in response.experience_refs
+                }.union(response.research_refs)
+                missing_refs = sorted(
+                    reference for reference in expected_refs if reference not in block
+                )
+                if missing_refs:
+                    issues.append(
+                        ValidationIssue(
+                            "interview_evidence_not_linked",
+                            index,
+                            f"문항 {index} 면접 답변에 자기소개서 근거 ID가 연결되지 않았습니다: {', '.join(missing_refs)}",
+                        )
+                    )
+                response_tokens = _interview_content_tokens(response.answer)
+                minimum_overlap = 2 if len(response_tokens) >= 4 else 1
+                for label, value in timed_answers.items():
+                    if not value:
+                        continue
+                    overlap = response_tokens.intersection(
+                        _interview_content_tokens(value)
+                    )
+                    if len(overlap) < minimum_overlap:
+                        issues.append(
+                            ValidationIssue(
+                                "interview_answer_not_aligned",
+                                index,
+                                f"문항 {index}의 {label} 답변이 최종 자기소개서 내용과 충분히 연결되지 않습니다.",
+                            )
+                        )
     return issues
+
+
+_INTERVIEW_LABEL = (
+    "30초 답변|60초 답변|90초 답변|꼬리질문|꼬리답변|압박질문|압박답변|근거"
+)
+
+
+def _extract_interview_value(block: str, label: str) -> str:
+    match = re.search(
+        rf"(?ms)^\s*[-*]?\s*{re.escape(label)}\s*:\s*(.*?)"
+        rf"(?=^\s*[-*]?\s*(?:{_INTERVIEW_LABEL})\s*:|^#{1,6}\s|\Z)",
+        block,
+    )
+    return match.group(1).strip() if match else ""
+
+
+def _find_interview_question_marker(text: str, index: int) -> int:
+    match = re.search(
+        rf"(?m)^\s*(?:#{{1,6}}\s*)?문항\s*{index}(?:\s+대응)?\s*$",
+        text,
+    )
+    return match.start() if match else -1
+
+
+def _spoken_length(text: str) -> int:
+    plain = re.sub(r"[`*_#>\[\]()|]", "", text)
+    return len(re.sub(r"\s+", "", plain))
+
+
+_INTERVIEW_CONTENT_STOPWORDS = {
+    "자료",
+    "업무",
+    "경험",
+    "지원",
+    "기관",
+    "고객",
+    "답변",
+    "확인",
+    "결과",
+    "생각",
+    "정확",
+    "기여",
+}
+
+
+def _interview_content_tokens(text: str) -> set[str]:
+    return _word_tokens(text) - _INTERVIEW_CONTENT_STOPWORDS
 
 
 def _has_any(text: str, cues: tuple[str, ...]) -> bool:
@@ -371,8 +665,96 @@ def _has_any(text: str, cues: tuple[str, ...]) -> bool:
 def _validate_prompt_requirements(
     question: Question, answer: str
 ) -> list[ValidationIssue]:
-    prompt = question.prompt.replace(" ", "")
+    prompt = normalize_prompt(question.prompt)
     issues: list[ValidationIssue] = []
+
+    motivation_prompt = (
+        "지원동기" in prompt
+        or "지원하게된" in prompt
+        or ("지원" in prompt and "동기" in prompt)
+    )
+    if motivation_prompt:
+        sentences = [
+            sentence.strip()
+            for sentence in re.split(r"[.!?。]+", answer)
+            if sentence.strip()
+        ]
+        lead = " ".join(sentences[:2])
+        if not _has_any(
+            lead,
+            ("매력", "때문", "가치", "의미", "관심", "지원했", "선택", "신뢰"),
+        ):
+            issues.append(
+                ValidationIssue(
+                    "missing_motivation_reason",
+                    question.index,
+                    "지원동기 문항의 앞부분에 이 기관·직무를 선택한 개인적 이유가 드러나지 않습니다.",
+                )
+            )
+
+    if "배우" in prompt and not _has_any(
+        answer, ("배우", "익히", "학습", "이해", "숙지")
+    ):
+        issues.append(
+            ValidationIssue(
+                "missing_learning_plan",
+                question.index,
+                "문항이 요구한 학습·성장 내용을 답변하지 않았습니다.",
+            )
+        )
+
+    if "기여" in prompt and not (
+        _has_any(answer, ACTION_CUES)
+        and _has_any(answer, ("하겠습니다", "겠습니다", "계획", "목표"))
+    ):
+        issues.append(
+            ValidationIssue(
+                "missing_contribution_plan",
+                question.index,
+                "기여 문항에 입사 후 직접 수행할 행동이 구체적으로 제시되지 않았습니다.",
+            )
+        )
+
+    if "태도" in prompt and _has_any(prompt, ("노력", "실천")):
+        has_attitude = _has_any(
+            answer, ("태도", "먼저", "관찰", "경청", "존중", "확인")
+        )
+        has_practice = _has_any(
+            answer, ("기록", "체크리스트", "공유", "질문", "실천", "반영")
+        )
+        if not (has_attitude and has_practice):
+            issues.append(
+                ValidationIssue(
+                    "missing_attitude_practice",
+                    question.index,
+                    "태도 문항에는 중요하게 여기는 태도와 실제 실천 방법이 모두 필요합니다.",
+                )
+            )
+
+    if _has_any(prompt, ("업무수행계획", "근무계획", "직무계획")):
+        sequence_hits = sum(
+            cue in answer
+            for cue in ("초기", "먼저", "마감", "이후", "반복", "익숙", "점검")
+        )
+        if sequence_hits < 2:
+            issues.append(
+                ValidationIssue(
+                    "missing_execution_sequence",
+                    question.index,
+                    "업무수행계획에 초기 학습·실행·점검의 순서가 충분히 드러나지 않습니다.",
+                )
+            )
+
+    if is_issue_analysis_prompt(question.prompt):
+        reasoning_hits = sum(cue in answer for cue in ANALYSIS_CUES)
+        if reasoning_hits < 2:
+            issues.append(
+                ValidationIssue(
+                    "missing_issue_reasoning",
+                    question.index,
+                    "경제·사회 이슈를 선택한 이유와 영향 경로가 충분히 설명되지 않았습니다.",
+                )
+            )
 
     if "성장가능성" in prompt and "활용" in prompt:
         if not _has_any(answer, ("부족", "보완", "처음", "계기", "판단")) or not _has_any(

@@ -77,6 +77,98 @@ def test_natural_draft_auto_postprocess_calls_zero(tmp_path: Path):
     assert (tmp_path / "12_최종산출물.json").exists()
 
 
+def test_formal_ending_warning_alone_does_not_call_postprocess(tmp_path: Path):
+    answer = (
+        "자료를 확인합니다. 여러 기준과 예외를 차례로 검토합니다. "
+        "검토 결과를 담당자에게 공유합니다."
+    )
+    _write_minimal_run(tmp_path, [answer])
+    calls: list[int] = []
+
+    state = finalize_run(
+        tmp_path,
+        postprocess="auto",
+        postprocess_runner=_batch_runner({"items": []}, calls),
+    )
+
+    diagnostics = json.loads(
+        (tmp_path / "09_style_diagnostics.json").read_text(encoding="utf-8")
+    )
+    assert state["status"] == "complete"
+    assert calls == []
+    assert diagnostics[0]["should_rewrite"] is False
+    assert any("종결" in item for item in diagnostics[0]["style_reasons"])
+
+
+def test_nonlegacy_finalize_clears_stale_legacy_patina_state(tmp_path: Path):
+    _write_minimal_run(tmp_path, ["자료를 확인하고 기준을 기록했습니다."])
+    state = json.loads((tmp_path / "run.json").read_text(encoding="utf-8"))
+    state.update(
+        legacy_patina=True,
+        patina_attempted=True,
+        patina_score_attempted=True,
+        patina_applied=True,
+        patina_status="applied",
+        patina_score_enabled=True,
+        patina_voice_sample_used="stale-voice.txt",
+        patina_summary={"attempted_questions": 1},
+    )
+    write_state(tmp_path, state)
+
+    finalized = finalize_run(tmp_path, postprocess="never", humanize=False)
+
+    assert finalized["status"] == "complete"
+    assert finalized["legacy_patina"] is False
+    assert finalized["patina_attempted"] is False
+    assert finalized["patina_score_attempted"] is False
+    assert finalized["patina_applied"] is False
+    assert finalized["patina_status"] == "disabled"
+    assert finalized["patina_score_enabled"] is False
+    assert finalized["patina_voice_sample_used"] is None
+    assert "patina_summary" not in finalized
+
+
+def test_structural_style_risk_is_sent_to_one_targeted_terra_batch(tmp_path: Path):
+    answer = (
+        "이를 통해 오류를 줄일 수 있습니다. 또한 기준을 정리할 수 있습니다. "
+        "이를 통해 기록을 남길 수 있습니다. 또한 결과를 공유합니다."
+    )
+    _write_minimal_run(tmp_path, [answer])
+    captured: list[str] = []
+
+    def runner(*args, **kwargs):
+        captured.append(kwargs["input"])
+        return CompletedProcess(
+            args=["codex"],
+            returncode=0,
+            stdout=json.dumps(
+                {
+                    "items": [
+                        {
+                            "question_index": 1,
+                            "text": answer,
+                            "applied_rules": [],
+                        }
+                    ]
+                },
+                ensure_ascii=False,
+            ),
+            stderr="",
+        )
+
+    state = finalize_run(
+        tmp_path,
+        postprocess="auto",
+        postprocess_runner=runner,
+    )
+
+    assert state["status"] == "complete"
+    assert len(captured) == 1
+    assert "연결어 반복" in captured[0]
+    assert "'할 수 있습니다' 반복" in captured[0]
+    assert state["postprocess_tier"] == "terra"
+
+
 def test_multiple_style_risk_items_use_one_batch_call(tmp_path: Path):
     answers = [
         "자료를 확인했습니다. 기준을 기록했습니다. 결과를 공유했습니다.",

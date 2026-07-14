@@ -7,10 +7,12 @@ import re
 from .facts import extract_fact_claims
 from .models import ExtractedDocument, FactClaim
 from .profile_schema import (
+    ClaimVerification,
     EvidenceRef,
     Experience,
     ExperienceLedger,
     ProfileClaim,
+    stable_claim_id,
 )
 from .source_policy import is_evidence_path
 
@@ -44,8 +46,8 @@ def excerpt_sha256(context: str) -> str:
     return sha256(normalized.encode("utf-8")).hexdigest()
 
 
-def _profile_claim(claim: FactClaim, source_sha256: str) -> ProfileClaim:
-    return ProfileClaim(
+def _profile_claim(claim: FactClaim, source_sha256: str, experience_id: str) -> ProfileClaim:
+    provisional = ProfileClaim(
         field=claim.field,
         normalized_value=claim.normalized_value,
         status="proposed",
@@ -57,6 +59,15 @@ def _profile_claim(claim: FactClaim, source_sha256: str) -> ProfileClaim:
                 excerpt_sha256=excerpt_sha256(claim.context),
             ),
         ),
+        verification=ClaimVerification(),
+    )
+    return ProfileClaim(
+        field=provisional.field,
+        normalized_value=provisional.normalized_value,
+        status=provisional.status,
+        evidence=provisional.evidence,
+        claim_id=stable_claim_id(experience_id, provisional),
+        verification=provisional.verification,
     )
 
 
@@ -69,8 +80,9 @@ def _qualitative_claim(
     paragraph_index: int,
     context: str,
     source_sha256: str,
+    experience_id: str,
 ) -> ProfileClaim:
-    return ProfileClaim(
+    provisional = ProfileClaim(
         field="experience_summary",
         normalized_value=" ".join(context.split()),
         status="proposed",
@@ -82,6 +94,17 @@ def _qualitative_claim(
                 excerpt_sha256(context),
             ),
         ),
+        verification=ClaimVerification(
+            method="direct_source", scope="source excerpt", contribution="observed"
+        ),
+    )
+    return ProfileClaim(
+        field=provisional.field,
+        normalized_value=provisional.normalized_value,
+        status=provisional.status,
+        evidence=provisional.evidence,
+        claim_id=stable_claim_id(experience_id, provisional),
+        verification=provisional.verification,
     )
 
 
@@ -183,9 +206,10 @@ def build_proposed_ledger(
             else frozenset(token.lower() for token in WORD.findall(context))
         )
         role, situation, actions, outcomes, competencies = _structured_fields(context)
+        experience_id = stable_experience_id(source_path, paragraph_index, tokens)
         profile_claims = (
             tuple(
-                _profile_claim(claim, source_hashes[source_path])
+                _profile_claim(claim, source_hashes[source_path], experience_id)
                 for claim in claims
             )
             if claims
@@ -195,14 +219,13 @@ def build_proposed_ledger(
                     paragraph_index,
                     context,
                     source_hashes[source_path],
+                    experience_id,
                 ),
             )
         )
         experiences.append(
             Experience(
-                experience_id=stable_experience_id(
-                    source_path, paragraph_index, tokens
-                ),
+                experience_id=experience_id,
                 title=f"{Path(source_path).stem} 문단 {paragraph_index + 1}",
                 organization_alias="",
                 period=None,
@@ -218,7 +241,7 @@ def build_proposed_ledger(
         )
 
     return ExperienceLedger(
-        schema_version=1,
+        schema_version=2,
         generated_at=datetime.now().astimezone().isoformat(timespec="seconds"),
         workspace_root=workspace_root.as_posix(),
         experiences=tuple(experiences),

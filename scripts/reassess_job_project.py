@@ -54,6 +54,8 @@ def _profile_status(root: Path) -> dict[str, Any]:
 
 
 def _run_summary(root: Path) -> dict[str, Any]:
+    from career_pipeline.application_quality import research_artifacts_ready
+
     runs: list[dict[str, str]] = []
     for run_dir in sorted((root / "career_runs").glob("*")):
         state = _load_json(run_dir / "run.json", {})
@@ -65,6 +67,9 @@ def _run_summary(root: Path) -> dict[str, Any]:
                 "status": str(state.get("status", "unknown")),
                 "target": str(state.get("target", "")),
                 "quality_mode": str(state.get("quality_mode", "legacy")),
+                "official_research_present": research_artifacts_ready(run_dir),
+                "interview_pack_present": (run_dir / "08_면접대비팩.md").is_file(),
+                "final_manifest_present": (run_dir / "12_최종산출물.json").is_file(),
             }
         )
     complete = [item for item in runs if item["status"] == "complete"]
@@ -76,6 +81,15 @@ def _run_summary(root: Path) -> dict[str, Any]:
         "complete_runs": complete,
         "v2_complete_count": len(v2_complete),
         "legacy_complete_count": len(legacy_complete),
+        "official_research_complete_count": sum(
+            1 for item in v2_complete if item["official_research_present"]
+        ),
+        "interview_pack_complete_count": sum(
+            1 for item in v2_complete if item["interview_pack_present"]
+        ),
+        "final_manifest_complete_count": sum(
+            1 for item in v2_complete if item["final_manifest_present"]
+        ),
     }
 
 
@@ -121,6 +135,10 @@ def _portfolio_summary(root: Path) -> dict[str, Any]:
     )
     active = [item for item in applications if isinstance(item, dict) and item.get("is_active")]
     ready = [item for item in applications if isinstance(item, dict) and item.get("submission_status") == "ready"]
+    review_required = [
+        item for item in applications
+        if isinstance(item, dict) and item.get("submission_status") == "review_required"
+    ]
     posting_counts = Counter(
         str(item.get("posting_status", "")) for item in applications if isinstance(item, dict)
     )
@@ -131,15 +149,8 @@ def _portfolio_summary(root: Path) -> dict[str, Any]:
         if item.get("submission_status") == "ready":
             continue
         org = str(item.get("organization", ""))
-        reasons: list[str] = []
-        if not item.get("official_posting_url"):
-            reasons.append("공식 공고 URL 없음")
-        if not item.get("is_active"):
-            reasons.append("활성 공고 아님")
-        if isinstance(payload, dict) and not payload.get("confirmed_profile"):
-            reasons.append("확정 경험 원장 없음")
-        if not item.get("candidate_drafts"):
-            reasons.append("후보 초안 없음")
+        quality = item.get("quality_readiness", {})
+        reasons = list(quality.get("blocker_messages", [])) if isinstance(quality, dict) else []
         block_reasons.append(
             {"organization": org, "reasons": ", ".join(reasons) or "미확인"}
         )
@@ -148,27 +159,46 @@ def _portfolio_summary(root: Path) -> dict[str, Any]:
         "total_organizations": len(applications),
         "active_posting_count": len(active),
         "ready_count": len(ready),
+        "review_required_count": len(review_required),
         "posting_status_counts": dict(posting_counts),
         "block_reasons": block_reasons,
+        "applications": [
+            {
+                "organization": str(item.get("organization", "")),
+                "candidate_drafts": item.get("candidate_drafts", 0),
+                "submission_status": str(item.get("submission_status", "not_ready")),
+                "blocker_codes": (
+                    item.get("quality_readiness", {}).get("blocker_codes", [])
+                    if isinstance(item.get("quality_readiness"), dict)
+                    else []
+                ),
+            }
+            for item in applications
+            if isinstance(item, dict)
+        ],
     }
 
 
 def build_reassessment(root: Path) -> dict[str, Any]:
+    from career_pipeline.writing_guidance import workspace_guidance_status
+
     review_dir = root / REVIEW_DIR
     profile = _profile_status(root)
     runs = _run_summary(root)
     evaluations = _evaluation_summary(review_dir)
     portfolio = _portfolio_summary(root)
-    application_queue = [
-        {
-            "organization": organization,
-            "candidate_drafts": count,
-            "status": "공고 확인 필요",
-            "next_gate": "최신 공식 공고와 확정 경험 원장 확인",
-        }
-        for organization, count in evaluations["organization_counts"].items()
-        if organization
-    ]
+    writing_guidance = workspace_guidance_status(root)
+    application_queue = []
+    for item in portfolio["applications"]:
+        blockers_for_item = item.get("blocker_codes", [])
+        application_queue.append(
+            {
+                "organization": item["organization"],
+                "candidate_drafts": item["candidate_drafts"],
+                "status": item["submission_status"],
+                "next_gate": blockers_for_item[0] if blockers_for_item else "all_quality_gates_passed",
+            }
+        )
     blockers: list[dict[str, str]] = []
 
     if profile["status"] != "confirmed":
@@ -180,13 +210,13 @@ def build_reassessment(root: Path) -> dict[str, Any]:
                 "action": "후보 원장을 검토해 사실인 경험과 수치만 confirmed 원장으로 확정합니다.",
             }
         )
-    if evaluations["score_summary"]["uniform_scores"]:
+    if portfolio["review_required_count"]:
         blockers.append(
             {
                 "priority": "P0",
-                "area": "자기소개서 평가",
-                "finding": "모든 후보가 같은 점수를 받아 제출 우선순위를 판별할 수 없습니다.",
-                "action": "최신 공고 문항·글자 수·직무 연결·근거 상태를 반영한 상대 평가로 다시 선별합니다.",
+                "area": "활성 지원 검토",
+                "finding": f"활성 공고 {portfolio['review_required_count']}개가 일부 품질 게이트에서 검토 대기 중입니다.",
+                "action": "지원 상태판의 품질 차단 코드 중 사용자 확인이 필요한 자격 조건부터 확정합니다.",
             }
         )
     if runs["v2_complete_count"] == 0:
@@ -206,14 +236,18 @@ def build_reassessment(root: Path) -> dict[str, Any]:
             "action": "이번 주 공고별로 지원 여부, 마감일, 직무, 사용할 초안을 한 표로 관리합니다.",
         }
     )
-    blockers.append(
-        {
-            "priority": "P2",
-            "area": "면접 준비",
-            "finding": "완료된 면접팩은 HUG 중심이며, 다른 우선 기업용 검증된 면접팩이 부족합니다.",
-            "action": "확정 경험 원장을 기준으로 우선 지원 기업별 1분 소개·꼬리질문·반박질문을 생성합니다.",
-        }
-    )
+    if runs["interview_pack_complete_count"] < max(1, portfolio["active_posting_count"]):
+        blockers.append(
+            {
+                "priority": "P2",
+                "area": "면접 준비",
+                "finding": (
+                    f"V2 완료 실행의 검증 대상 면접팩은 {runs['interview_pack_complete_count']}개이고 "
+                    f"활성 공고는 {portfolio['active_posting_count']}개입니다."
+                ),
+                "action": "활성 공고별 최종 자기소개서와 동일한 claim만 사용하는 면접팩을 생성·감사합니다.",
+            }
+        )
 
     return {
         "generated_at": datetime.now().isoformat(timespec="seconds"),
@@ -222,7 +256,13 @@ def build_reassessment(root: Path) -> dict[str, Any]:
         "profile": profile,
         "pipeline_runs": runs,
         "cover_letter_corpus": evaluations,
+        "legacy_score_warning": (
+            "과거 내부 점수는 후보 이력 보존용이며 현재 제출 우선순위에 사용하지 않습니다."
+            if evaluations["score_summary"]["uniform_scores"]
+            else "과거 내부 점수는 현재 제출 우선순위와 분리합니다."
+        ),
         "portfolio": portfolio,
+        "writing_guidance": writing_guidance,
         "application_queue": application_queue,
         "priority_actions": blockers,
         "verification_boundary": (
@@ -238,6 +278,7 @@ def render_reassessment(payload: dict[str, Any]) -> str:
     corpus = payload["cover_letter_corpus"]
     portfolio = payload["portfolio"]
     scores = corpus["score_summary"]
+    guidance = payload["writing_guidance"]
     lines = [
         "# 취업 프로젝트 전체 재평가",
         "",
@@ -249,8 +290,11 @@ def render_reassessment(payload: dict[str, Any]) -> str:
         f"- 경험 원장: {profile['status']}",
         f"- 자기소개서 후보: {corpus['candidate_count']}개",
         f"- 후보 평가 점수: {scores['minimum']}~{scores['maximum']}점, 고유 점수 {scores['unique_score_count']}개",
+        f"- 과거 점수 처리: {payload['legacy_score_warning']}",
         f"- 파이프라인 실행: {runs['total_runs']}개, 완료 {len(runs['complete_runs'])}개, V2 완료 {runs['v2_complete_count']}개",
-        f"- 49개 기관 상태판: 활성 공고 {portfolio['active_posting_count']}개, 제출 준비 완료 {portfolio['ready_count']}개",
+        f"- V2 품질 커버리지: 공식조사 {runs['official_research_complete_count']}개, 면접팩 {runs['interview_pack_complete_count']}개, 최종 manifest {runs['final_manifest_complete_count']}개",
+        f"- {portfolio['total_organizations']}개 기관 상태판: 활성 공고 {portfolio['active_posting_count']}개, 검토 필요 {portfolio['review_required_count']}개, 제출 준비 완료 {portfolio['ready_count']}개",
+        f"- 유튜브 작성전략: {guidance['status']} / 원본 동기화 {guidance['freshness']['status']}",
         "",
         "## 우선 개선",
         "",

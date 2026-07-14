@@ -14,7 +14,7 @@ import json
 from pathlib import Path
 import re
 from typing import Any, Mapping
-from urllib.parse import urlsplit
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 from .models import (
     ApplicantExperience,
@@ -41,6 +41,10 @@ ELIGIBILITY_STATUSES = {
 RULE_STATUSES = {"met", "not_met", "unknown"}
 SCHEMA_VERSION = 1
 _SHA256_RE = re.compile(r"^[0-9a-f]{64}$")
+_TRACKING_QUERY_NAMES = frozenset({"fbclid", "gclid", "mc_cid", "mc_eid", "_hsenc", "_hsmi"})
+_SENSITIVE_QUERY_NAMES = frozenset(
+    {"token", "access_token", "api_key", "key", "auth", "authorization", "session", "sid", "password", "code"}
+)
 _LEVEL_RANK = {
     "고졸": 1,
     "고등학교": 1,
@@ -766,12 +770,23 @@ def canonicalize_url(url: str) -> str:
     parsed = urlsplit(url.strip())
     if parsed.scheme in {"http", "https"} and parsed.hostname:
         host = parsed.hostname.casefold()
+        if ":" in host:
+            host = f"[{host}]"
         if parsed.port and parsed.port not in {80, 443}:
             host = f"{host}:{parsed.port}"
         path = parsed.path or "/"
         if path != "/":
             path = path.rstrip("/")
-        return f"{parsed.scheme.casefold()}://{host}{path}{('?' + parsed.query) if parsed.query else ''}"
+        query_items = []
+        for name, value in parse_qsl(parsed.query, keep_blank_values=True):
+            normalized_name = name.casefold()
+            if normalized_name in _SENSITIVE_QUERY_NAMES or normalized_name in _TRACKING_QUERY_NAMES:
+                continue
+            if normalized_name.startswith("utm_"):
+                continue
+            query_items.append((name, value))
+        query = urlencode(sorted(query_items, key=lambda item: (item[0].casefold(), item[1])))
+        return urlunsplit((parsed.scheme.casefold(), host, path, query, ""))
     if parsed.scheme == "file":
         return parsed._replace(fragment="").geturl()
     return url.strip().rstrip("/")

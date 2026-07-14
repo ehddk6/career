@@ -45,7 +45,7 @@ registry 인덱스에는 원문 전체를 저장하지 않는다. 원문은 SHA-
 
 ## 자격 판정과 queue
 
-`new` 또는 `changed` 공고만 기본 자격 판정 대상이다. `expired`, `closed`, `content_duplicate`, 필수 조건 파싱 실패, timezone 불명 공고는 자동 자격 판정을 하지 않고 queue에 수동 검토 사유를 남긴다.
+`new` 또는 `changed` 공고만 기본 자격 판정 대상이다. `expired`, `closed`, `content_duplicate`, 필수 조건 파싱 실패, timezone 불명 공고는 자동 자격 판정을 하지 않는다. `expired`, `closed`, `content_duplicate`는 제출 대상 queue에 넣지 않고 registry 상태와 이벤트로만 남긴다.
 
 자격 상태는 기존 Phase 2의 네 상태를 그대로 사용한다. `ineligible`은 기본 queue에 등록하지 않으며, `eligible`, `eligible_with_gaps`, `manual_review`는 `pending` queue로 등록한다. 공고가 변경되면 기존 승인 queue는 `superseded`가 되고 변경 snapshot에 대한 새 queue 항목이 생성된다. queue 승인은 실제 원서 제출 승인이 아니다.
 

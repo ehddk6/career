@@ -3,6 +3,7 @@ from dataclasses import asdict, dataclass
 from datetime import datetime
 import json
 from pathlib import Path
+import re
 from typing import Any
 
 from .models import DraftResponse, ExperienceClaimRef, Question, ValidationIssue
@@ -15,6 +16,7 @@ from .quality import (
 )
 from .artifacts import load_and_verify_final_artifact
 from .research_evidence import (
+    RESEARCH_CLAIM_TYPES,
     contains_prompt_injection,
     load_research_claims,
     load_research_execution,
@@ -42,6 +44,23 @@ def _read_json(path: Path, default: Any) -> Any:
         return default
 
 
+def _text_mentions_question(text: str, index: int) -> bool:
+    """Return whether a mapping label explicitly includes a question number."""
+    compact = re.sub(r"\s+", "", text)
+    if "전체문항" in compact or "공통문항" in compact:
+        return True
+    for match in re.finditer(r"문항([0-9·,과및~\-]+)", compact):
+        expression = match.group(1)
+        numbers = [int(number) for number in re.findall(r"\d+", expression)]
+        if index in numbers:
+            return True
+        for start, end in re.findall(r"(\d+)[~\-](\d+)", expression):
+            lower, upper = sorted((int(start), int(end)))
+            if lower <= index <= upper:
+                return True
+    return False
+
+
 def _questions(state: dict[str, Any]) -> list[Question]:
     return [Question(**item) for item in state.get("questions", [])]
 
@@ -62,6 +81,7 @@ def _responses_from_payload(payload: Any) -> list[DraftResponse]:
                     ExperienceClaimRef(
                         str(reference.get("experience_id", "")),
                         tuple(str(field) for field in reference.get("claim_fields", [])),
+                        tuple(str(claim_id) for claim_id in reference.get("claim_ids", [])),
                     )
                     for reference in item.get("experience_refs", [])
                     if isinstance(reference, dict)
@@ -150,6 +170,26 @@ def _issue_from_validation(category: str, issue: ValidationIssue) -> AuditIssue:
         "unknown_experience_ref",
         "unconfirmed_claim_ref",
         "research_prompt_injection",
+        "missing_interview_section",
+        "missing_interview_question",
+        "interview_question_block_incomplete",
+        "interview_intro_missing",
+        "interview_intro_length",
+        "interview_timed_answer_missing",
+        "interview_timed_answer_length",
+        "interview_timed_answer_progression",
+        "interview_probe_missing",
+        "interview_defense_answer_missing",
+        "interview_evidence_not_linked",
+        "interview_answer_not_aligned",
+        "research_claim_type_mismatch",
+        "research_application_use_not_linked",
+        "missing_motivation_reason",
+        "missing_learning_plan",
+        "missing_contribution_plan",
+        "missing_attitude_practice",
+        "missing_execution_sequence",
+        "missing_issue_reasoning",
     }
     severity = "high" if issue.code in critical else "medium"
     return AuditIssue(category, issue.code, severity, issue.message, issue.question_index)
@@ -235,7 +275,20 @@ def _cover_letter_score(
         )
         if response is None:
             continue
-        row = score_answer_quality(question, response.answer, target, job_terms=terms)
+        row = score_answer_quality(
+            question,
+            response.answer,
+            target,
+            job_terms=terms,
+            peer_answers=tuple(
+                other.answer
+                for other in responses
+                if other.question_index != question.index and other.answer.strip()
+            ),
+            evidence_verified=bool(
+                response.experience_refs or response.research_refs
+            ),
+        )
         score_rows.append({"question_index": question.index, "score": asdict(row)})
     if not score_rows:
         issues.append(
@@ -244,7 +297,22 @@ def _cover_letter_score(
         return 0, issues, score_rows
     average = sum(row["score"]["total"] for row in score_rows) / len(score_rows)
     base = round(min(40, average * 0.4))
-    return _deduct(base, issues), issues, score_rows
+    rigorous = state.get("rigorous_selection", {})
+    rigorous_passed = (
+        isinstance(rigorous, dict)
+        and rigorous.get("selection_mode") == "rigorous"
+        and rigorous.get("status") == "passed"
+        and not rigorous.get("hard_fail", True)
+    )
+    # In rigorous mode, three independent judges already decide qualitative
+    # preferences such as density, repeated experience and narrative strength.
+    # The final audit still reports those heuristic observations, but only
+    # deterministic fact/question/limit defects reduce the cover-letter score.
+    penalty_issues = [
+        issue for issue in issues
+        if not rigorous_passed or issue.code not in {item.code for item in quality_issues}
+    ]
+    return _deduct(base, penalty_issues), issues, score_rows
 
 
 def _research_score(
@@ -272,9 +340,28 @@ def _research_score(
             responses,
             claims,
             allowed_domains=tuple(state.get("official_research_domains", [])),
+            strict=bool(state.get("strict_quality", False)),
         )
         issues.extend(_issue_from_validation("research", item) for item in validation)
         for claim in claims:
+            if state.get("strict_quality", False) and claim.claim_type not in RESEARCH_CLAIM_TYPES:
+                issues.append(
+                    AuditIssue(
+                        "research",
+                        "missing_research_claim_type",
+                        "medium",
+                        f"공식 근거의 용도 분류가 없거나 올바르지 않습니다: {claim.claim_id}",
+                    )
+                )
+            if state.get("strict_quality", False) and not claim.application_use.strip():
+                issues.append(
+                    AuditIssue(
+                        "research",
+                        "missing_research_application_use",
+                        "medium",
+                        f"공식 근거의 자기소개서·면접 활용처가 없습니다: {claim.claim_id}",
+                    )
+                )
             if not claim.source_type:
                 issues.append(
                     AuditIssue(
@@ -329,10 +416,11 @@ def _research_score(
                     f"리서치 실행 기록을 읽을 수 없습니다: {error}",
                 )
             )
-    research_md = (run_dir / "04_기업직무조사.md")
-    if not research_md.exists() or "https://" not in research_md.read_text(
-        encoding="utf-8"
-    ):
+    research_md = run_dir / "04_기업직무조사.md"
+    research_text = (
+        research_md.read_text(encoding="utf-8") if research_md.exists() else ""
+    )
+    if "https://" not in research_text:
         issues.append(
             AuditIssue(
                 "research",
@@ -341,6 +429,56 @@ def _research_score(
                 "기업조사 문서에 공식 HTTPS 링크가 없습니다.",
             )
         )
+    if state.get("strict_quality", False):
+        for section in ("확인된 사실", "해석", "확인 필요", "문항·면접 활용 맵"):
+            if section not in research_text:
+                issues.append(
+                    AuditIssue(
+                        "research",
+                        "research_section_missing",
+                        "medium",
+                        f"기업·직무 조사 문서에 필수 구역이 없습니다: {section}",
+                    )
+                )
+        research_lines = research_text.splitlines()
+        for claim in claims:
+            if claim.claim_id not in research_text:
+                issues.append(
+                    AuditIssue(
+                        "research",
+                        "research_claim_not_documented",
+                        "medium",
+                        f"공식 근거 원장의 주장이 기업·직무 조사 문서에 없습니다: {claim.claim_id}",
+                    )
+                )
+        for response in responses:
+            for claim_id in response.research_refs:
+                mapped_lines = [
+                    line for line in research_lines if claim_id in line
+                ]
+                if not mapped_lines:
+                    issues.append(
+                        AuditIssue(
+                            "research",
+                            "research_claim_not_mapped",
+                            "medium",
+                            f"자기소개서가 참조한 공식 근거가 기업·직무 조사 활용 맵에 없습니다: {claim_id}",
+                        )
+                    )
+                    continue
+                if not any(
+                    _text_mentions_question(line, response.question_index)
+                    for line in mapped_lines
+                ):
+                    issues.append(
+                        AuditIssue(
+                            "research",
+                            "research_claim_not_mapped_to_question",
+                            "medium",
+                            "공식 근거 활용 맵이 실제 자기소개서 문항과 연결되지 않았습니다: "
+                            f"문항 {response.question_index} / {claim_id}",
+                        )
+                    )
     return _deduct(25, issues), issues
 
 
@@ -363,13 +501,36 @@ def _interview_score(
             )
         except Exception:
             allowed_values = set()
+    interview_text = path.read_text(encoding="utf-8")
     validation = validate_interview_pack(
-        path.read_text(encoding="utf-8"),
+        interview_text,
         questions,
         responses,
         allowed_metric_values=allowed_values,
+        strict=True,
     )
     issues.extend(_issue_from_validation("interview", item) for item in validation)
+    try:
+        selection_claim_ids = {
+            claim.claim_id
+            for claim in load_research_claims(run_dir / "04_공식근거.json")
+            if claim.claim_type == "selection_criteria"
+        }
+    except Exception:
+        selection_claim_ids = set()
+    missing_selection_claims = sorted(
+        claim_id for claim_id in selection_claim_ids if claim_id not in interview_text
+    )
+    if missing_selection_claims:
+        issues.append(
+            AuditIssue(
+                "interview",
+                "interview_selection_criteria_not_linked",
+                "medium",
+                "공식 선발 평가 기준이 면접팩에 연결되지 않았습니다: "
+                + ", ".join(missing_selection_claims),
+            )
+        )
     return _deduct(20, issues), issues
 
 
@@ -420,10 +581,24 @@ def _style_score(run_dir: Path, state: dict[str, Any]) -> tuple[int, list[AuditI
             for item in style_report
             if isinstance(item, dict)
         )
-        if risk_count:
-            issues.append(AuditIssue("style", "style_risk_detected", "medium", "문체 위험 진단이 기록되었습니다."))
+        actionable_count = sum(
+            bool(item.get("should_rewrite"))
+            for item in style_report
+            if isinstance(item, dict)
+        )
+        if actionable_count:
+            issues.append(
+                AuditIssue(
+                    "style",
+                    "style_risk_detected",
+                    "medium",
+                    f"교열 기준을 넘는 문체 위험이 {actionable_count}개 문항에서 발견되었습니다.",
+                )
+            )
             score += 2
         else:
+            # Low-level diagnostics remain explainable warnings in the report,
+            # but ordinary formal-document cadence is not an audit defect.
             score += 5
     else:
         score += 4
@@ -442,7 +617,11 @@ def _style_score(run_dir: Path, state: dict[str, Any]) -> tuple[int, list[AuditI
     score += 3 if voice_status == "valid" else 2 if voice_status == "missing" else 0
     if state.get("status") == "complete" and state.get("final_artifact"):
         score += 2
-    return min(15, score), issues, {"voice_sample_status": voice_status}
+    return min(15, score), issues, {
+        "voice_sample_status": voice_status,
+        "style_warning_score": risk_count if isinstance(style_report, list) else None,
+        "actionable_style_items": actionable_count if isinstance(style_report, list) else None,
+    }
 
 
 def run_quality_audit(run_dir: Path) -> dict[str, Any]:
@@ -460,9 +639,9 @@ def run_quality_audit(run_dir: Path) -> dict[str, Any]:
     style_score, style_issues, style_meta = _style_score(run_dir, state)
     total = cover_score + research_score + interview_score + style_score
     recommendation = (
-        "제출권장"
+        "내부검증 우수"
         if total >= 95
-        else "보완 후 제출권장" if total >= 90 else "보완 필요"
+        else "내부검증 통과" if total >= 90 else "내부검증 보완 필요"
     )
     issues = artifact_issues + cover_issues + research_issues + interview_issues + style_issues
     quality_gate = "pass" if not any(item.severity == "high" for item in issues) else "fail"

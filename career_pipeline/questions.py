@@ -31,6 +31,7 @@ def extract_questions(paragraphs: tuple[str, ...]) -> list[Question]:
         limit = range_limit or LIMIT.search(paragraph)
         prompt = RANGE_LIMIT.sub("", paragraph) if range_limit else LIMIT.sub("", paragraph)
         prompt = prompt.strip()
+        minimum_value = int(range_limit.group(1)) if range_limit else None
         limit_value = int(range_limit.group(2)) if range_limit else (int(limit.group(1)) if limit else None)
         if re.fullmatch(r"\d+[.)]", prompt):
             pending = prompt
@@ -54,6 +55,7 @@ def extract_questions(paragraphs: tuple[str, ...]) -> list[Question]:
                         prompt,
                         limit_value,
                         _count_mode(paragraph),
+                        minimum_value,
                     )
                 )
                 pending = None
@@ -66,12 +68,19 @@ def extract_questions(paragraphs: tuple[str, ...]) -> list[Question]:
                     f"{pending} {prompt}".strip(),
                     limit_value,
                     _count_mode(paragraph),
+                    minimum_value,
                 )
             )
             pending = None
     if pending:
         questions.append(Question(len(questions) + 1, pending, None))
     return [
-        Question(item.index, _clean_prompt(item.prompt), item.character_limit, item.count_mode)
+        Question(
+            item.index,
+            _clean_prompt(item.prompt),
+            item.character_limit,
+            item.count_mode,
+            item.minimum_character_limit,
+        )
         for item in questions
     ]

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><title>Synthetic Applyin fixture</title></head>
+<body>
+<form id="applyin-application" action="https://sample-company.applyin.invalid/application/submit" method="post">
+  <label for="applicant_name">Applicant name</label><input id="applicant_name" name="applicant_name" type="text" required maxlength="40">
+  <label for="email">Email</label><input id="email" name="email" type="email" required maxlength="120">
+  <label for="phone">Phone</label><input id="phone" name="phone" type="tel" required maxlength="20">
+  <label for="recruitment_track">Track</label><select id="recruitment_track" name="recruitment_track" required><option value="general_admin">General administration</option><option value="finance">Finance</option><option value="customer_support">Customer support</option></select>
+  <label for="preferred_region">Region</label><select id="preferred_region" name="preferred_region" required><option value="seoul">Seoul</option><option value="gangwon">Gangwon</option><option value="nationwide">Nationwide</option></select>
+  <label for="education_summary">Education</label><textarea id="education_summary" name="education_summary" required maxlength="500"></textarea>
+  <label for="experience_summary">Experience</label><textarea id="experience_summary" name="experience_summary" required maxlength="1000"></textarea>
+  <label for="motivation">Motivation</label><textarea id="motivation" name="motivation" required maxlength="1000"></textarea>
+  <label for="competency">Competency</label><textarea id="competency" name="competency" required maxlength="1000"></textarea>
+  <label for="teamwork">Teamwork</label><textarea id="teamwork" name="teamwork" required maxlength="1000"></textarea>
+  <label for="career_plan">Career plan</label><textarea id="career_plan" name="career_plan" required maxlength="1000"></textarea>
+  <label for="privacy_consent">Privacy consent</label><input id="privacy_consent" name="privacy_consent" type="checkbox" required>
+  <button id="save_draft" type="button">Save draft</button>
+  <button id="final_submit" type="submit">Final submit</button>
+</form>
+</body>
+</html>
