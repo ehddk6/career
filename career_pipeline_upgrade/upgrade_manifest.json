@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-15",
+  "branch": "codex/phase6-5-site-intake-readonly",
+  "baseline_head": "005552bde938a617d05122873330afcd47a8e54c",
+  "implementation_status": "implemented_live_benchmark_mixed",
+  "quality_target": "all_dimensions_ahead",
+  "new_interfaces": [
+    "finalize --quality-profile fast|balanced|high_quality|max_quality",
+    "benchmark init",
+    "benchmark validate",
+    "05_문항전략.json",
+    "company/interview contract schema v2"
+  ],
+  "compatibility": {
+    "legacy_single": true,
+    "legacy_rigorous": true,
+    "contract_schema_v1_read": true,
+    "contract_schema_v2_write": true,
+    "legacy_model_env_fallback": "CAREER_MODEL_SOL"
+  },
+  "external_actions": {
+    "commit": false,
+    "push": false,
+    "pull_request": false,
+    "submission": false
+  },
+  "live_benchmark": {
+    "status": "MIXED",
+    "same_input_hash_match": true,
+    "model_id": "gpt-5.6-sol",
+    "career_pipeline_max_quality_status": "PASS",
+    "all_dimensions_ahead_claim": false
+  }
+}

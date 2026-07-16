@@ -1,4 +1,4 @@
-from career_pipeline.style_diagnostics import diagnose_text
+from career_pipeline.style_diagnostics import diagnose_text, style_repair_details
 
 
 def test_same_ending_only_triggers_when_three_are_consecutive():
@@ -65,3 +65,16 @@ def test_trailing_sentence_without_punctuation_is_included():
     result = diagnose_text("자료를 확인했습니다. 마지막 결과를 공유합니다")
 
     assert result.metrics["sentence_count"] == 2
+
+
+def test_style_repair_details_identifies_exact_repeated_starts_and_ending_run():
+    details = style_repair_details(
+        "환율 변화가 큽니다. 환율 위험을 봅니다. "
+        "자료를 확인합니다. 기준을 확인합니다. 결과를 확인합니다."
+    )
+
+    assert "환율" in details["repeated_start_tokens"]
+    assert details["consecutive_ending_runs"][-1] == {
+        "ending_class": "합니다",
+        "sentence_indexes": [3, 4, 5],
+    }

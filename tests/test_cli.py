@@ -42,6 +42,15 @@ def test_parser_exposes_prepare_and_finalize_commands():
         ]
     )
     finalize = parser.parse_args(["finalize", "--run", "career_runs/sample"])
+    maximum = parser.parse_args(
+        [
+            "finalize",
+            "--run",
+            "career_runs/sample",
+            "--quality-profile",
+            "max_quality",
+        ]
+    )
     audit = parser.parse_args(["audit", "--run", "career_runs/sample"])
     fallback = parser.parse_args(
         [
@@ -70,9 +79,59 @@ def test_parser_exposes_prepare_and_finalize_commands():
     assert finalize.postprocess == "auto"
     assert finalize.max_postprocess_calls == 1
     assert finalize.legacy_patina is False
+    assert maximum.quality_profile == "max_quality"
     assert fallback.patina_backend == "codex-cli,openai-http"
     assert fallback.patina_max_retries == 1
     assert fallback.patina_voice_sample == "voice.txt"
+
+
+def test_parser_exposes_benchmark_commands():
+    parser = build_parser()
+    initialize = parser.parse_args(
+        [
+            "benchmark",
+            "init",
+            "--output",
+            "benchmark.json",
+            "--data-package-id",
+            "CAREER-DATA-TEST",
+        ]
+    )
+    validate = parser.parse_args(
+        ["benchmark", "validate", "--input", "benchmark.json"]
+    )
+    run = parser.parse_args(
+        [
+            "benchmark",
+            "run",
+            "--output",
+            "result.json",
+            "--data-package-id",
+            "CAREER-DATA-TEST",
+            "--baseline-file",
+            "a.json",
+            "--challenger-file",
+            "b.json",
+            "--model",
+            "gpt-5.5",
+        ]
+    )
+
+    assert initialize.benchmark_command == "init"
+    assert initialize.challenger_label == "career-pipeline"
+    assert validate.benchmark_command == "validate"
+    assert run.benchmark_command == "run"
+    assert run.model == "gpt-5.5"
+
+
+def test_parser_exposes_contract_build_command():
+    parser = build_parser()
+    value = parser.parse_args(
+        ["contracts", "build", "--run", "career_runs/sample"]
+    )
+
+    assert value.contracts_command == "build"
+    assert value.run == "career_runs/sample"
 
 
 def test_parser_exposes_phase2_commands():

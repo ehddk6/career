@@ -159,6 +159,7 @@ def test_v2_prepare_writes_confirmed_profile_posting_and_matching_artifacts(tmp_
         "03_경험직무매칭.md",
         "04_공식근거.json",
         "04_리서치실행.json",
+        "05_문항전략.json",
     ):
         assert (run_dir / name).exists()
     manifest = json.loads(
@@ -166,6 +167,11 @@ def test_v2_prepare_writes_confirmed_profile_posting_and_matching_artifacts(tmp_
     )
     assert manifest["status"] == "pending"
     assert manifest["skill_name"] == "evidence-first-research"
+    requirement_map = json.loads(
+        (run_dir / "05_문항전략.json").read_text(encoding="utf-8")
+    )
+    assert requirement_map["questions"][0]["requires_target_specificity"] is True
+    assert state["question_requirement_map"] == "05_문항전략.json"
     snapshot = (run_dir / "02_확정경험원장.json").read_text(encoding="utf-8")
     assert "raw_proposed" not in snapshot
     assert "사용금지" not in snapshot
@@ -174,6 +180,8 @@ def test_v2_prepare_writes_confirmed_profile_posting_and_matching_artifacts(tmp_
     assert guidance["status"] == "available"
     assert guidance["kind"] == "youtube_frame_strategy"
     assert guidance["use_policy"] == "strategy_only_not_factual_evidence"
+    assert guidance["target"] == "HUG 금융·기금"
+    assert guidance["target_specific"]["status"] == "source_unavailable"
     guidance_path = run_dir / "05_작성가이드_유튜브프레임.md"
     assert guidance["artifact"] == guidance_path.relative_to(tmp_path).as_posix()
     assert guidance_path.exists()

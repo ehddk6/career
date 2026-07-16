@@ -108,6 +108,23 @@ def test_profile_validate_returns_4_for_invalid_profile(tmp_path: Path):
     assert main(["profile", "validate", "--profile", str(path)]) == 4
 
 
+def test_profile_validate_blocks_missing_source_evidence(tmp_path: Path, capsys):
+    source = tmp_path / "career.txt"
+    source.write_text("예산 1,000만원을 절감했습니다.", encoding="utf-8")
+    profile = tmp_path / ".career_profile" / "experience_ledger.json"
+    profile.parent.mkdir()
+    profile.write_text(
+        json.dumps(confirmed_payload(tmp_path, source), ensure_ascii=False),
+        encoding="utf-8",
+    )
+    source.unlink()
+
+    assert main(["profile", "validate", "--profile", str(profile)]) == 4
+    output = capsys.readouterr().out
+    assert "invalid source evidence" in output
+    assert "source_missing" in output
+
+
 def test_profile_refresh_returns_2_and_writes_review_when_stale(tmp_path: Path):
     source = tmp_path / "career.txt"
     source.write_text("예산 1,000만원을 절감했습니다.", encoding="utf-8")

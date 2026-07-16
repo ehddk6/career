@@ -204,6 +204,23 @@ def write_submission_ready_run(run_dir: Path) -> None:
     )
     (run_dir / "06_자기소개서.md").write_text("# 자기소개서\n", encoding="utf-8")
     (run_dir / "06_자기소개서.docx").write_bytes(b"test docx artifact")
+    (run_dir / "mock_interview_evidence.json").write_text(
+        json.dumps(
+            {
+                "rounds": [
+                    {
+                        "question": f"질문 {index}",
+                        "user_answer": f"실제 답변 {index}",
+                        "follow_up": f"추가질문 {index}",
+                        "retry_goal": goal,
+                    }
+                    for index, goal in enumerate(("사실 경계", "수치 산식", "직무 전이"), 1)
+                ],
+            },
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
     state["final_artifact"] = write_final_artifact_manifest(
         run_dir,
         selected_source="draft",

@@ -1,0 +1,56 @@
+{
+  "schema_version": 2,
+  "generated_at": "2026-07-16",
+  "status": "REQUIRES_CURRENT_SOURCE_RERUN",
+  "claim_allowed": false,
+  "data_package_id": "CAREER-DATA-02B036CBE425",
+  "challenger_run": "tmp/career_pipeline_all_dimensions_20260716_v24",
+  "benchmark_path": "tmp/external_prompt_benchmark_20260715/benchmark_v24_gpt55.json",
+  "result": {
+    "baseline_wins": 0,
+    "challenger_wins": 26,
+    "ties": 0,
+    "section_results": {
+      "company_research": "B",
+      "self_intro": "B",
+      "interview": "B"
+    }
+  },
+  "safety": {
+    "baseline_hard_fail": true,
+    "challenger_hard_fail": false,
+    "challenger_contract_review_required": false,
+    "mock_interview_status": "not_executed"
+  },
+  "validation": {
+    "focused_tests": "76 passed",
+    "full_suite": "677 passed, 5 skipped",
+    "internal_audit_score": 96,
+    "character_counts": [523, 504, 541, 1222]
+  },
+  "remaining_risks": [
+    "actual voice mock interview not executed",
+    "some official press detail URLs were not promoted after server errors",
+    "qualitative model judgment can vary across reruns",
+    "current approved experience ledger references missing files under 경험정리",
+    "current-folder benchmark is pending user confirmation and ledger approval"
+  ],
+  "current_source_audit": {
+    "approved_ledger_status": "invalid_source_evidence",
+    "missing_sources": [
+      "경험정리/경험요약정리.docx",
+      "경험정리/인생기술서.docx"
+    ],
+    "current_folder_proposed_experience_count": 30,
+    "current_folder_evidence_paths": [
+      "경험정리/경험정리.docx"
+    ],
+    "youtube_target_strategy": {
+      "target": "신용보증기금 체험형 청년인턴1(보증)",
+      "title_direct_video_count": 4,
+      "company_tag_video_count": 2,
+      "institution_group_video_count": 2,
+      "use_policy": "strategy_only_not_factual_evidence"
+    }
+  }
+}

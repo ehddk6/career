@@ -12,6 +12,13 @@ import sys
 from typing import Sequence
 
 from .audit import run_quality_audit
+from .contract_builder import (
+    apply_source_refresh_audit,
+    build_run_prompt_contracts,
+    enrich_run_company_research,
+    refresh_run_interview_contract,
+)
+from .rigorous_selection import write_checkpoint_hybrid
 from .application_package import (
     ApplicationPackageError,
     build_application_package,
@@ -64,6 +71,15 @@ from .profile_schema import (
     ledger_to_dict,
     load_ledger,
     migrate_ledger_v1,
+)
+from .prompt_contracts import (
+    initialize_run_prompt_contracts,
+    validate_run_prompt_contracts,
+)
+from .quality_benchmark import (
+    load_and_evaluate_benchmark,
+    run_blind_benchmark,
+    write_benchmark_template,
 )
 from .models import DiscoverySource
 from .form_adapter import (
@@ -181,6 +197,11 @@ def build_parser() -> argparse.ArgumentParser:
     finalize.add_argument(
         "--selection-mode", choices=("single", "rigorous"), default="single"
     )
+    finalize.add_argument(
+        "--quality-profile",
+        choices=("fast", "balanced", "high_quality", "max_quality"),
+        help="품질·비용 프로필. 지정하면 selection-mode을 프로필에 맞게 설정합니다.",
+    )
     finalize.add_argument("--incumbent")
     finalize.add_argument("--rigorous-timeout-ms", type=int, default=300_000)
     finalize.add_argument("--no-patina", action="store_true")
@@ -233,6 +254,53 @@ def build_parser() -> argparse.ArgumentParser:
     portfolio_build = portfolio_commands.add_parser("build")
     portfolio_build.add_argument("--root", required=True)
     portfolio_build.add_argument("--output-dir", required=True)
+
+    contracts = subparsers.add_parser("contracts")
+    contract_commands = contracts.add_subparsers(
+        dest="contracts_command", required=True
+    )
+    contracts_init = contract_commands.add_parser("init")
+    contracts_init.add_argument("--run", required=True)
+    contracts_build = contract_commands.add_parser("build")
+    contracts_build.add_argument("--run", required=True)
+    contracts_enrich = contract_commands.add_parser("enrich-company")
+    contracts_enrich.add_argument("--run", required=True)
+    contracts_enrich.add_argument("--output-run", required=True)
+    contracts_enrich.add_argument("--claim-ledger", action="append", required=True)
+    contracts_enrich.add_argument("--source-ledger", action="append", required=True)
+    contracts_enrich.add_argument("--fresh-selection", action="store_true")
+    contracts_validate = contract_commands.add_parser("validate")
+    contracts_validate.add_argument("--run", required=True)
+    contracts_refresh = contract_commands.add_parser("refresh-interview")
+    contracts_refresh.add_argument("--run", required=True)
+    contracts_refresh.add_argument("--draft", required=True)
+    contracts_source_refresh = contract_commands.add_parser("refresh-sources")
+    contracts_source_refresh.add_argument("--run", required=True)
+    contracts_source_refresh.add_argument("--audit", required=True)
+
+    benchmark = subparsers.add_parser("benchmark")
+    benchmark_commands = benchmark.add_subparsers(
+        dest="benchmark_command", required=True
+    )
+    benchmark_init = benchmark_commands.add_parser("init")
+    benchmark_init.add_argument("--output", required=True)
+    benchmark_init.add_argument("--data-package-id", required=True)
+    benchmark_init.add_argument("--baseline-label", default="external-prompts")
+    benchmark_init.add_argument("--challenger-label", default="career-pipeline")
+    benchmark_validate = benchmark_commands.add_parser("validate")
+    benchmark_validate.add_argument("--input", required=True)
+    benchmark_run = benchmark_commands.add_parser("run")
+    benchmark_run.add_argument("--output", required=True)
+    benchmark_run.add_argument("--data-package-id", required=True)
+    benchmark_run.add_argument("--baseline-label", default="external-prompts")
+    benchmark_run.add_argument("--challenger-label", default="career-pipeline")
+    benchmark_run.add_argument("--baseline-file", action="append", required=True)
+    benchmark_run.add_argument("--challenger-file", action="append", required=True)
+    benchmark_run.add_argument("--model", required=True)
+    benchmark_run.add_argument("--timeout-ms", type=int, default=600_000)
+    benchmark_hybrid = benchmark_commands.add_parser("hybrid")
+    benchmark_hybrid.add_argument("--run", required=True)
+    benchmark_hybrid.add_argument("--output", required=True)
 
     posting = subparsers.add_parser("posting")
     posting_commands = posting.add_subparsers(
@@ -862,7 +930,18 @@ def run_profile_refresh(args: argparse.Namespace) -> int:
 
 def run_profile_validate(args: argparse.Namespace) -> int:
     try:
-        load_ledger(Path(args.profile))
+        profile_path = Path(args.profile).resolve()
+        ledger = load_ledger(profile_path)
+        workspace_root = Path(ledger.workspace_root).expanduser()
+        if not workspace_root.is_absolute():
+            workspace_root = (profile_path.parent.parent / workspace_root).resolve()
+        review = refresh_profile(workspace_root, ledger)
+        source_issues = [item for item in review.items if item.status != "unchanged"]
+        if source_issues:
+            print("invalid source evidence")
+            for item in source_issues:
+                print(f"{item.experience_id}: {item.source_path}: {item.reason}")
+            return 4
     except (OSError, ProfileValidationError) as error:
         print(error)
         return 4
@@ -906,6 +985,78 @@ def run_portfolio_build(args: argparse.Namespace) -> int:
     write_portfolio(payload, output)
     print(output)
     return 0
+
+
+def run_contracts_command(args: argparse.Namespace) -> int:
+    run_dir = Path(args.run).resolve()
+    if args.contracts_command == "init":
+        company_path, interview_path = initialize_run_prompt_contracts(run_dir)
+        print(company_path)
+        print(interview_path)
+        return 0
+    if args.contracts_command == "build":
+        company_path, interview_path = build_run_prompt_contracts(run_dir)
+        print(company_path)
+        print(interview_path)
+        return 0
+    if args.contracts_command == "enrich-company":
+        research_path, company_path, interview_path = enrich_run_company_research(
+            run_dir,
+            Path(args.output_run),
+            [Path(path) for path in args.claim_ledger],
+            [Path(path) for path in args.source_ledger],
+            fresh_selection=args.fresh_selection,
+        )
+        print(research_path)
+        print(company_path)
+        print(interview_path)
+        return 0
+    if args.contracts_command == "refresh-interview":
+        draft = json.loads(Path(args.draft).read_text(encoding="utf-8"))
+        if not isinstance(draft, list):
+            raise ValueError("면접 계약 갱신 draft는 JSON 배열이어야 합니다.")
+        path = refresh_run_interview_contract(run_dir, draft)
+        print(path)
+        return 0
+    if args.contracts_command == "refresh-sources":
+        path = apply_source_refresh_audit(run_dir, Path(args.audit))
+        print(path)
+        return 0
+    report = validate_run_prompt_contracts(run_dir)
+    print(json.dumps(report.to_dict(), ensure_ascii=False, indent=2))
+    return 2 if report.hard_fail else 0
+
+
+def run_benchmark_command(args: argparse.Namespace) -> int:
+    if args.benchmark_command == "hybrid":
+        output = write_checkpoint_hybrid(Path(args.run), Path(args.output))
+        print(output)
+        return 0
+    if args.benchmark_command == "init":
+        output = write_benchmark_template(
+            Path(args.output).resolve(),
+            data_package_id=args.data_package_id,
+            baseline_label=args.baseline_label,
+            challenger_label=args.challenger_label,
+        )
+        print(output)
+        return 0
+    if args.benchmark_command == "run":
+        result = run_blind_benchmark(
+            Path(args.output).resolve(),
+            data_package_id=args.data_package_id,
+            baseline_label=args.baseline_label,
+            challenger_label=args.challenger_label,
+            baseline_files=[Path(item).resolve() for item in args.baseline_file],
+            challenger_files=[Path(item).resolve() for item in args.challenger_file],
+            model_id=args.model,
+            timeout_ms=args.timeout_ms,
+        )
+        print(json.dumps(result.to_dict(), ensure_ascii=False, indent=2))
+        return 0 if result.verdict == "ALL_DIMENSIONS_AHEAD" else 2
+    result = load_and_evaluate_benchmark(Path(args.input).resolve())
+    print(json.dumps(result.to_dict(), ensure_ascii=False, indent=2))
+    return 2 if result.verdict in {"MIXED", "HARD_FAIL"} else 0
 
 
 def run_posting_analyze(args: argparse.Namespace) -> int:
@@ -1447,6 +1598,18 @@ def main(argv: Sequence[str] | None = None) -> int:
             return 4
     if args.command == "portfolio":
         return run_portfolio_build(args)
+    if args.command == "contracts":
+        try:
+            return run_contracts_command(args)
+        except (OSError, ValueError, json.JSONDecodeError) as error:
+            print(error)
+            return 4
+    if args.command == "benchmark":
+        try:
+            return run_benchmark_command(args)
+        except (OSError, ValueError, json.JSONDecodeError) as error:
+            print(error)
+            return 4
     if args.command == "audit":
         try:
             audit = run_quality_audit(Path(args.run))
@@ -1559,6 +1722,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         selection_mode=args.selection_mode,
         incumbent_path=Path(args.incumbent) if args.incumbent else None,
         rigorous_timeout_ms=args.rigorous_timeout_ms,
+        quality_profile=args.quality_profile,
     )
     print(state["status"])
     if state["status"] == "complete":
