@@ -180,6 +180,8 @@ def test_v2_prepare_writes_confirmed_profile_posting_and_matching_artifacts(tmp_
     assert guidance["status"] == "available"
     assert guidance["kind"] == "youtube_frame_strategy"
     assert guidance["use_policy"] == "strategy_only_not_factual_evidence"
+    assert guidance["target"] == "HUG 금융·기금"
+    assert guidance["target_specific"]["status"] == "source_unavailable"
     guidance_path = run_dir / "05_작성가이드_유튜브프레임.md"
     assert guidance["artifact"] == guidance_path.relative_to(tmp_path).as_posix()
     assert guidance_path.exists()

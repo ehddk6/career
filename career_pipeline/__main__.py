@@ -930,7 +930,18 @@ def run_profile_refresh(args: argparse.Namespace) -> int:
 
 def run_profile_validate(args: argparse.Namespace) -> int:
     try:
-        load_ledger(Path(args.profile))
+        profile_path = Path(args.profile).resolve()
+        ledger = load_ledger(profile_path)
+        workspace_root = Path(ledger.workspace_root).expanduser()
+        if not workspace_root.is_absolute():
+            workspace_root = (profile_path.parent.parent / workspace_root).resolve()
+        review = refresh_profile(workspace_root, ledger)
+        source_issues = [item for item in review.items if item.status != "unchanged"]
+        if source_issues:
+            print("invalid source evidence")
+            for item in source_issues:
+                print(f"{item.experience_id}: {item.source_path}: {item.reason}")
+            return 4
     except (OSError, ProfileValidationError) as error:
         print(error)
         return 4

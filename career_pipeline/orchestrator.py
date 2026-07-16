@@ -471,7 +471,7 @@ def _blocked_v2_state(
             issue.code == "conflicting_profile_claim" for issue in issues
         ),
     }
-    attach_writing_guidance(root, run_dir, state)
+    attach_writing_guidance(root, run_dir, state, target=target)
     write_state(run_dir, state)
     return state
 
@@ -663,7 +663,7 @@ def _prepare_v2(
         ],
         "conflict_count": 0,
     }
-    attach_writing_guidance(root, run_dir, state)
+    attach_writing_guidance(root, run_dir, state, target=target)
     write_state(run_dir, state)
     return state
 
@@ -774,7 +774,7 @@ def prepare_run(
         "conflict_count": len(conflicts),
     }
     _write_research_execution_template(run_dir)
-    attach_writing_guidance(root, run_dir, state)
+    attach_writing_guidance(root, run_dir, state, target=target)
     write_state(run_dir, state)
     return state
 
