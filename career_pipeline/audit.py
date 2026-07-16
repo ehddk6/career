@@ -1,6 +1,7 @@
 """Final run audit for submission-quality career pipeline artifacts."""
 from dataclasses import asdict, dataclass
 from datetime import datetime
+from hashlib import sha256
 import json
 from pathlib import Path
 import re
@@ -26,6 +27,7 @@ from .research_evidence import (
 from .state import write_json
 from .validation import referenced_claim_values, validate_draft
 from .profile_schema import load_ledger
+from .prompt_contracts import validate_run_prompt_contracts
 
 
 @dataclass(frozen=True)
@@ -509,6 +511,18 @@ def _interview_score(
         allowed_metric_values=allowed_values,
         strict=True,
     )
+    contract_report = validate_run_prompt_contracts(
+        run_dir,
+        responses=responses,
+        write_report=False,
+    )
+    if contract_report.enabled and not contract_report.hard_fail:
+        # The v2 JSON contract is the authoritative claim-link graph. Legacy
+        # Markdown may contain practice prose from an earlier incumbent.
+        validation = [
+            item for item in validation
+            if item.code != "interview_evidence_not_linked"
+        ]
     issues.extend(_issue_from_validation("interview", item) for item in validation)
     try:
         selection_claim_ids = {
@@ -558,7 +572,7 @@ def _voice_sample_status(run_dir: Path, state: dict[str, Any]) -> tuple[str, Aud
                 "medium",
                 "voice_sample은 1-3단락, 20KB 이하여야 합니다.",
             )
-        return "valid", None
+        return "format_valid_private", None
     return "missing", None
 
 
@@ -614,7 +628,7 @@ def _style_score(run_dir: Path, state: dict[str, Any]) -> tuple[int, list[AuditI
     voice_status, voice_issue = _voice_sample_status(run_dir, state)
     if voice_issue is not None:
         issues.append(voice_issue)
-    score += 3 if voice_status == "valid" else 2 if voice_status == "missing" else 0
+    score += 3 if voice_status == "format_valid_private" else 2 if voice_status == "missing" else 0
     if state.get("status") == "complete" and state.get("final_artifact"):
         score += 2
     return min(15, score), issues, {
@@ -627,6 +641,21 @@ def _style_score(run_dir: Path, state: dict[str, Any]) -> tuple[int, list[AuditI
 def run_quality_audit(run_dir: Path) -> dict[str, Any]:
     run_dir = run_dir.resolve()
     state = _read_json(run_dir / "run.json", {})
+    quality_rows = _read_json(run_dir / "10_품질점수.json", None)
+    if isinstance(quality_rows, list):
+        semantics = {
+            "metric_type": "INTERNAL_EVALUATION",
+            "is_applicant_fact_or_claim": False,
+            "allowed_use": "후보 품질 비교와 파이프라인 회귀 검사",
+            "prohibited_use": "지원자 경험 성과 수치 또는 외부 사실로 인용",
+        }
+        normalized_rows = []
+        for row in quality_rows:
+            if isinstance(row, dict):
+                normalized_rows.append({**row, "score_semantics": row.get("score_semantics", semantics)})
+            else:
+                normalized_rows.append(row)
+        write_json(run_dir / "10_품질점수.json", normalized_rows)
     questions = _questions(state)
     responses, artifact_issues = _final_responses(run_dir, state)
     cover_score, cover_issues, score_rows = _cover_letter_score(
@@ -636,9 +665,92 @@ def run_quality_audit(run_dir: Path) -> dict[str, Any]:
         run_dir, state, questions, responses
     )
     interview_score, interview_issues = _interview_score(run_dir, questions, responses)
+    contract_report = validate_run_prompt_contracts(
+        run_dir,
+        target=str(state.get("target", "")),
+        responses=responses,
+        write_report=False,
+    )
+    contract_audit_issues = [
+        AuditIssue(
+            "interview",
+            f"prompt_contract_{issue.code}",
+            "high" if issue.severity == "HARD_FAIL" else "medium",
+            issue.message,
+        )
+        for issue in contract_report.issues
+    ]
+    if contract_audit_issues:
+        interview_issues.extend(contract_audit_issues)
+        interview_score = min(interview_score, _deduct(20, contract_audit_issues))
+    mock_evidence_path = run_dir / "mock_interview_evidence.json"
+    mock_payload = _read_json(mock_evidence_path, {})
+    mock_rounds = mock_payload.get("rounds", []) if isinstance(mock_payload, dict) else []
+    valid_mock_rounds = [
+        row
+        for row in mock_rounds
+        if isinstance(row, dict)
+        and str(row.get("question", "")).strip()
+        and str(row.get("user_answer", "")).strip()
+        and str(row.get("follow_up", "")).strip()
+        and str(row.get("retry_goal", "")).strip()
+    ]
+    mock_interview_status = "completed" if len(valid_mock_rounds) >= 3 else "not_executed"
+    if mock_interview_status != "completed":
+        mock_issue = AuditIssue(
+            "interview",
+            "mock_interview_not_executed",
+            "medium",
+            "실제 답변을 기다려 추가질문과 재시도를 수행한 모의면접 증거가 없습니다.",
+        )
+        interview_issues.append(mock_issue)
+        interview_score = min(interview_score, _deduct(20, [mock_issue]))
     style_score, style_issues, style_meta = _style_score(run_dir, state)
+    voice_candidates = [run_dir / "voice_sample.txt"]
+    if state.get("patina_voice_sample_used"):
+        voice_candidates.insert(0, Path(str(state["patina_voice_sample_used"])))
+    if state.get("root"):
+        voice_candidates.append(Path(str(state["root"])) / ".career_profile" / "voice_sample.txt")
+    voice_path = next((path for path in voice_candidates if path.is_file()), None)
+    style_meta["voice_sample_evidence"] = (
+        {
+            "present": True,
+            "sha256": sha256(voice_path.read_bytes()).hexdigest(),
+            "content_included": False,
+            "pii_redacted": True,
+            "evidence_artifact": "11_voice_sample_evidence.json",
+            "allowed_use": "비공개 문체 참고자료의 존재·형식 확인",
+            "prohibited_use": "면접 말하기 품질·전달력·내용 정확성 통과 근거",
+        }
+        if voice_path is not None
+        else {
+            "present": False,
+            "sha256": None,
+            "content_included": False,
+            "pii_redacted": True,
+            "evidence_artifact": "11_voice_sample_evidence.json",
+            "allowed_use": "비공개 문체 참고자료의 존재·형식 확인",
+            "prohibited_use": "면접 말하기 품질·전달력·내용 정확성 통과 근거",
+        }
+    )
+    voice_evidence = {
+        "schema_version": 1,
+        "purpose": "VOICE_SAMPLE_EXISTENCE_AND_FORMAT_PROOF",
+        "content_included": False,
+        "pii_redacted": True,
+        "present": voice_path is not None,
+        "sha256": sha256(voice_path.read_bytes()).hexdigest() if voice_path is not None else None,
+        "validation_status": style_meta.get("voice_sample_status", "missing"),
+        "allowed_use": "비공개 문체 참고자료의 존재·형식 확인",
+        "prohibited_use": "면접 말하기 품질·전달력·내용 정확성 통과 근거",
+        "note": "원문과 개인 식별 정보는 감사·벤치마크 산출물에 복사하지 않습니다.",
+    }
+    write_json(run_dir / "11_voice_sample_evidence.json", voice_evidence)
     total = cover_score + research_score + interview_score + style_score
     recommendation = (
+        "내부검증 통과·실전 모의면접 필요"
+        if mock_interview_status != "completed"
+        else
         "내부검증 우수"
         if total >= 95
         else "내부검증 통과" if total >= 90 else "내부검증 보완 필요"
@@ -651,6 +763,14 @@ def run_quality_audit(run_dir: Path) -> dict[str, Any]:
         "run_dir": str(run_dir),
         "score": total,
         "internal_validation_score": total,
+        "score_semantics": {
+            "metric_type": "INTERNAL_EVALUATION",
+            "is_applicant_fact_or_claim": False,
+            "formula": "cover_letter + research + interview + style_safety",
+            "maximum": 100,
+            "allowed_use": "파이프라인 내부 품질 게이트와 회귀 비교",
+            "prohibited_use": "지원자의 성과·경험 수치 또는 외부 사실로 인용",
+        },
         "quality_gate": quality_gate,
         "human_review_recommended": bool(issues),
         "recommendation": recommendation,
@@ -660,6 +780,7 @@ def run_quality_audit(run_dir: Path) -> dict[str, Any]:
             "interview": {"score": interview_score, "max": 20},
             "style_safety": {"score": style_score, "max": 15, **style_meta},
         },
+        "mock_interview_status": mock_interview_status,
         "question_scores": score_rows,
         "issues": [asdict(item) for item in issues],
     }

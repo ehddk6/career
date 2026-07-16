@@ -84,10 +84,30 @@ draft.json
 
 `finalize --selection-mode rigorous`는 동결 자료의 `data_package_id`, 버전과 SHA-256을
 고정한 뒤 4개 전략(`FACT_FIRST`, `QUESTION_FIRST`, `EXPERIENCE_DIVERSITY`,
-`JOB_RELEVANCE`)으로 후보를 생성한다. 후보 전략은 익명 심사 입력에서 제거한다. 세 심사 결과는
+`JOB_COMPANY_FIT`)으로 후보를 생성한다. 후보 전략은 익명 심사 입력에서 제거한다. 세 심사 결과는
 동일 배점으로 집계하며, 결정론적 오류는 즉시 차단하고 의미적 우려는 `REVIEW_REQUIRED`로
 보관한 뒤 원자료 대조로 확정한다. 심사위원 2명 이상이 동일하게 지목한 이식 요소만 최소 합성에
 사용하고, 최종 합성본은 기존 1위와 X/Y 전체 버전 비교를 다시 거친다.
+
+`--quality-profile max_quality`는 여기에 `NATURAL_VOICE`, `INTERVIEW_DEFENSE` 후보와
+`INTERVIEW_COACH` 심사를 추가한다. 문항별 하위 요구와 적정 글자 범위는 V2 `prepare`가 만든
+`05_문항전략.json`에서 읽으며 특정 기관·문항 수·글자 수를 하드코딩하지 않는다. 생성·심사·합성·최종
+비교 모델은 `CAREER_MODEL_GENERATION`, `CAREER_MODEL_JUDGE`,
+`CAREER_MODEL_SYNTHESIS`, `CAREER_MODEL_COMPARISON`으로 독립 설정하고, 없으면
+`CAREER_MODEL_SOL`을 호환 fallback으로 사용한다. 실제 모델명에 `sol` 문자열을 요구하지 않는다.
+최대 호출 예산은 31회이며 6개 후보 각각의 결정론적 실패 복구 2회, 항상 수행하는 최종 품질 정제,
+결정론적 문체 위험 복구 7회와 X/Y 재비교를 포함한다. 이 모드에서 짧은 문항은 상한의 85%, 긴 문항은 80%를 권장 최소 범위로
+검증한다.
+
+통합 계약 신규 초기화는 schema v2를 사용한다. 회사조사는 시장·대체재·최근 실행 결과·전략 성공조건·
+직무 영향·조사 종료기준·면접 활용을 추가 검증한다. 면접 답변 카드는 `brief`·`standard`·`detailed`
+말하기 버전, 내용/전달 분리 평가, 모르는 질문의 사실 경계를 포함한다. 기존 schema v1 계약은 계속 읽는다.
+`contracts build`는 동결된 공고·공식 근거·확정 경험·현재 초안에서 검증 가능한 회사조사와 면접 계약을
+자동 조립한다. 기존 파일은 덮어쓰지 않으며, 확인되지 않은 재무·문화·면접 형식은 명시적 미확인 상태로
+남긴다. rigorous 최종 선택 뒤에는 제출 claim 참조를 면접 패킷에 다시 연결하고 계약을 재검증한다.
+공식 URL을 다시 확인한 경우에는 원문을 복사하지 않고 URL·확인일·상태만 담은 감사 JSON을 만든 뒤
+`contracts refresh-sources --run <run> --audit <audit.json>`을 사용한다. 기존 source manifest에 없는 URL,
+`VERIFIED`가 아닌 상태, 잘못된 날짜는 차단하며 claim 내용은 이 명령으로 변경하지 않는다.
 
 문체 진단은 AI 작성 여부를 판정하지 않고 `style_risk_score`, `style_reasons`만 기록한다. 검사는 종결·문장 시작·상투 표현·문장 길이 분산·피동·명사화·추상적 다짐·문항 간 중복을 설명 가능한 규칙으로 기록한다. `should_rewrite=false`인 낮은 위험은 감사 감점이 아니라 설명용 경고로 취급한다.
 
@@ -148,6 +168,7 @@ Patina는 기본 finalize에서 실행하지 않는다. 기존 호환 옵션과 
 - `draft_final.json`: 최종 답변의 canonical JSON
 - `06_자기소개서.md`, `06_자기소개서.docx`
 - `12_최종산출물.json`: 위 파일의 상대 경로·SHA-256·선택 원본·생성 시각·후처리 여부·모델 tier/ID·검증 결과
+- `07_글자수검증.json`: 문항별 답변 SHA-256·계산 모드·하드 제한·목표 구간·headroom
 - `run.json.final_artifact`: 동일 manifest 정보
 
 `audit`는 파일 존재 순서로 `draft_humanized.json`, `draft_copyedited.json`, `draft.json`을 선택하지 않는다. `run.json.final_artifact` 또는 `12_최종산출물.json`에 기록된 최종 파일과 SHA-256만 검사하며, 이전 실행의 중간 파일은 무시한다.

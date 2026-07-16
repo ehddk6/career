@@ -275,3 +275,47 @@ def diagnose_responses(
                 )
                 break
     return diagnostics
+
+
+def style_repair_details(text: str) -> dict[str, object]:
+    """Expose exact sentence starts and ending runs for a bounded style repair."""
+    sentences = _sentences(text)
+    rows: list[dict[str, object]] = []
+    starts: list[str | None] = []
+    endings: list[str | None] = []
+    for index, sentence in enumerate(sentences, 1):
+        start_match = _START.search(sentence)
+        ending_matches = _CLOSING.findall(sentence)
+        start = start_match.group(1).strip() if start_match else None
+        ending = ending_matches[-1] if ending_matches else None
+        starts.append(start)
+        endings.append(ending)
+        rows.append(
+            {
+                "sentence_index": index,
+                "start_token": start,
+                "ending_class": ending,
+                "text": sentence,
+            }
+        )
+    start_counts = Counter(item for item in starts if item)
+    ending_runs: list[dict[str, object]] = []
+    run_start = 0
+    for index in range(1, len(endings) + 1):
+        if index < len(endings) and endings[index] == endings[run_start] and endings[index]:
+            continue
+        if endings[run_start] and index - run_start >= 3:
+            ending_runs.append(
+                {
+                    "ending_class": endings[run_start],
+                    "sentence_indexes": list(range(run_start + 1, index + 1)),
+                }
+            )
+        run_start = index
+    return {
+        "repeated_start_tokens": sorted(
+            token for token, count in start_counts.items() if count >= 2
+        ),
+        "consecutive_ending_runs": ending_runs,
+        "sentences": rows,
+    }

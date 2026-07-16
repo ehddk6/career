@@ -1,6 +1,7 @@
 from datetime import datetime
 """전체 파이프라인 조정. prepare와 finalize로 나뉘며, profile/posting/matching/research/finalize 흐름을 제어합니다."""
 from dataclasses import asdict, replace
+from hashlib import sha256
 import json
 from pathlib import Path
 import re
@@ -26,8 +27,9 @@ from .posting_loader import (
     write_posting_snapshot,
 )
 from .copyeditor_adapter import copyedit_responses
+from .contract_builder import refresh_run_interview_contract
 from .cost_limit import CostLimitExceeded, CostTracker
-from .model_policy import ModelTier, choose_tier, resolve_model
+from .model_policy import ModelTier, choose_tier, resolve_model, resolve_role_model
 from .rigorous_selection import (
     RigorousSelectionError,
     run_rigorous_selection,
@@ -40,6 +42,16 @@ from .profile_schema import (
     ProfileValidationError,
     ledger_to_dict,
     load_ledger,
+)
+from .prompt_contracts import (
+    INTERVIEW_CONTRACT_NAME,
+    prompt_contract_context,
+    validate_run_prompt_contracts,
+)
+from .quality_profiles import get_quality_profile, legacy_rigorous_profile
+from .question_requirements import (
+    build_question_requirement_map,
+    validate_question_requirement_map,
 )
 from .quality import (
     STRICT_MIN_ANSWER_SCORE,
@@ -254,31 +266,100 @@ def _hydrate_claim_evidence_paths(
     responses[:] = hydrated
 
 
+def _replace_interview_contract_claims(
+    run_dir: Path, responses: list[DraftResponse]
+) -> None:
+    """Replace the JSON claim audit with the exact current response references."""
+    contract_path = run_dir / INTERVIEW_CONTRACT_NAME
+    if contract_path.is_file():
+        payload = json.loads(contract_path.read_text(encoding="utf-8"))
+        if isinstance(payload, dict):
+            payload["submitted_claims"] = [
+                {
+                    "question_index": response.question_index,
+                    "experience_ids": sorted(
+                        {
+                            reference.experience_id
+                            for reference in response.experience_refs
+                            if reference.experience_id
+                        }
+                    ),
+                    "experience_claim_ids": sorted(
+                        {
+                            claim_id
+                            for reference in response.experience_refs
+                            for claim_id in reference.claim_ids
+                            if claim_id
+                        }
+                    ),
+                    "research_claim_ids": sorted(set(response.research_refs)),
+                    "status": "CONFIRMED",
+                }
+                for response in sorted(responses, key=lambda item: item.question_index)
+            ]
+            write_json(contract_path, payload)
+
+
 def _link_final_claims_to_interview_pack(
     run_dir: Path, responses: list[DraftResponse]
 ) -> None:
-    """Attach the selected draft's evidence IDs to the matching interview blocks.
+    """Attach the selected draft's evidence IDs to JSON and Markdown interview blocks.
 
     The interview pack is prepared before rigorous selection, so its original
     evidence lines can refer to the incumbent rather than the selected
-    candidate.  Preserve the authored practice answers but add a deterministic
-    linkage line for the final response claims and research references.  This
-    keeps the pack auditable without inventing interview content.
+    candidate. Preserve the authored practice answers while replacing the JSON
+    claim audit and adding deterministic Markdown linkage lines.
     """
+    contract_path = run_dir / INTERVIEW_CONTRACT_NAME
+    refresh_inputs = (
+        "00_채용공고분석.json",
+        "02_확정경험원장.json",
+        "03_경험직무매칭.json",
+        "04_공식근거.json",
+    )
+    if contract_path.is_file() and all((run_dir / name).is_file() for name in refresh_inputs):
+        refresh_run_interview_contract(
+            run_dir,
+            [
+                {
+                    "question_index": response.question_index,
+                    "answer": response.answer,
+                    "evidence_paths": list(response.evidence_paths),
+                    "experience_refs": [
+                        {
+                            "experience_id": reference.experience_id,
+                            "claim_fields": list(reference.claim_fields),
+                            "claim_ids": list(reference.claim_ids),
+                        }
+                        for reference in response.experience_refs
+                    ],
+                    "research_refs": list(response.research_refs),
+                }
+                for response in responses
+            ],
+        )
+    else:
+        _replace_interview_contract_claims(run_dir, responses)
+
     path = run_dir / "08_면접대비팩.md"
     if not path.exists():
         return
     text = path.read_text(encoding="utf-8")
+    original_text = text
     marker_re = re.compile(r"(?m)^##\s*문항\s+(\d+)\s*$")
     markers = list(marker_re.finditer(text))
     if not markers:
         return
     by_index = {response.question_index: response for response in responses}
-    additions: list[tuple[int, str]] = []
+    rebuilt = [text[: markers[0].start()]]
     for offset, marker in enumerate(markers):
         index = int(marker.group(1))
         response = by_index.get(index)
+        end = markers[offset + 1].start() if offset + 1 < len(markers) else len(text)
+        block = text[marker.start():end]
+        block = re.sub(r"(?m)^- 최종 제출본 근거 ID:.*\n?", "", block)
         if response is None:
+            rebuilt.append(block)
             continue
         ids: list[str] = []
         for reference in response.experience_refs:
@@ -286,20 +367,14 @@ def _link_final_claims_to_interview_pack(
             ids.extend(reference.claim_ids)
         ids.extend(response.research_refs)
         ids = list(dict.fromkeys(ids))
-        if not ids:
-            continue
-        end = markers[offset + 1].start() if offset + 1 < len(markers) else len(text)
-        block = text[marker.start():end]
-        line = "- 최종 제출본 근거 ID: " + ", ".join(ids)
-        if line in block:
-            continue
-        insertion = text.find("\n", marker.end())
-        if insertion < 0 or insertion >= end:
-            insertion = marker.end()
-        additions.append((insertion + 1, line + "\n"))
-    for position, addition in reversed(additions):
-        text = text[:position] + addition + text[position:]
-    if additions:
+        if ids:
+            line = "- 최종 제출본 근거 ID: " + ", ".join(ids)
+            insertion = block.find("\n")
+            insertion = len(block) if insertion < 0 else insertion + 1
+            block = block[:insertion] + "\n" + line + "\n" + block[insertion:]
+        rebuilt.append(block)
+    text = "".join(rebuilt)
+    if text != original_text:
         path.write_text(text, encoding="utf-8")
 
 
@@ -537,6 +612,13 @@ def _prepare_v2(
     (run_dir / "03_경험직무매칭.md").write_text(
         render_matches_markdown(matches), encoding="utf-8"
     )
+    question_requirement_map = build_question_requirement_map(
+        reconciliation.questions,
+        target=target,
+        posting=asdict(analysis),
+        matches=matches,
+    )
+    write_json(run_dir / "05_문항전략.json", question_requirement_map)
     matching_issues = validate_matching_gate(matches)
     if matching_issues:
         return _blocked_v2_state(
@@ -573,6 +655,7 @@ def _prepare_v2(
         "research_method_default": DEFAULT_RESEARCH_METHOD,
         "research_method_enforced": False,
         "questions": [asdict(question) for question in reconciliation.questions],
+        "question_requirement_map": "05_문항전략.json",
         "selected_experience_ids": [
             item.recommended.experience_id
             for item in matches
@@ -706,6 +789,7 @@ def _write_review_report(
 ) -> None:
     response_by_index = {item.question_index: item for item in responses}
     review_lines = ["# 자기소개서 검토보고서", ""]
+    count_rows: list[dict[str, object]] = []
     if v2:
         status = "통과" if not issues else "실패"
         review_lines.extend(
@@ -720,8 +804,37 @@ def _write_review_report(
         response = response_by_index.get(question.index)
         if response is None:
             continue
+        actual_count = count_characters(response.answer, question.count_mode)
+        if question.character_limit:
+            if question.character_limit <= 800:
+                target_min = round(question.character_limit * 5 / 6)
+                target_max = round(question.character_limit * 11 / 12)
+            else:
+                target_min = round(question.character_limit * 0.75)
+                target_max = round(question.character_limit * 0.9)
+            target_status = "PASS" if target_min <= actual_count <= target_max else "REVIEW_REQUIRED"
+        else:
+            target_min = target_max = None
+            target_status = "NOT_APPLICABLE"
+        count_rows.append(
+            {
+                "question_index": question.index,
+                "answer_sha256": sha256(response.answer.encode("utf-8")).hexdigest(),
+                "actual_count": actual_count,
+                "hard_limit": question.character_limit,
+                "target_min": target_min,
+                "target_max": target_max,
+                "count_mode": question.count_mode,
+                "newline_policy": "counted_as_stored",
+                "hard_limit_status": "PASS" if not question.character_limit or actual_count <= question.character_limit else "FAIL",
+                "target_status": target_status,
+                "headroom": question.character_limit - actual_count if question.character_limit else None,
+                "metric_type": "FORMAT_CHECK",
+                "is_applicant_fact_or_claim": False,
+            }
+        )
         review_lines.append(
-            f"- 문항 {question.index}: {count_characters(response.answer, question.count_mode)}/"
+            f"- 문항 {question.index}: {actual_count}/"
             f"{question.character_limit or '미지정'}자 "
             f"({'공백 제외' if question.count_mode == 'spaces_excluded' else '공백 포함'}), "
             f"경험 근거 {len(response.experience_refs)}개, "
@@ -739,6 +852,15 @@ def _write_review_report(
         )
     (run_dir / "07_자기소개서_검토보고서.md").write_text(
         "\n".join(review_lines) + "\n", encoding="utf-8"
+    )
+    write_json(
+        run_dir / "07_글자수검증.json",
+        {
+            "schema_version": 1,
+            "count_function": "career_pipeline.character_count.count_characters",
+            "target_policy": "limit<=800: 5/6..11/12, limit>800: 0.75..0.90",
+            "rows": count_rows,
+        },
     )
 
 
@@ -788,9 +910,11 @@ def finalize_run(
     incumbent_path: Path | None = None,
     rigorous_runner=None,
     rigorous_timeout_ms: int = 300_000,
+    quality_profile: str | None = None,
 ) -> dict:
     run_dir = run_dir.resolve()
     state = json.loads((run_dir / "run.json").read_text(encoding="utf-8"))
+    previous_status = str(state.get("status", ""))
     legacy_copyedit = postprocess is None and copyedit
     effective_postprocess = postprocess
     if effective_postprocess is None:
@@ -799,13 +923,36 @@ def finalize_run(
         raise ValueError("postprocess must be auto, always, or never")
     if selection_mode not in {"single", "rigorous"}:
         raise ValueError("selection_mode must be single or rigorous")
+    resolved_profile = get_quality_profile(quality_profile) if quality_profile else None
+    if resolved_profile is not None:
+        selection_mode = resolved_profile.selection_mode
     if selection_mode == "rigorous" and (copyedit or humanize):
         raise ValueError("rigorous selection requires copyedit and patina disabled")
     if selection_mode == "rigorous":
         effective_postprocess = "never"
-    if selection_mode == "rigorous" and max_model_calls is not None and max_model_calls < 9:
-        raise ValueError("rigorous selection requires max_model_calls >= 9")
+    rigorous_profile = (
+        resolved_profile if selection_mode == "rigorous" else None
+    )
+    if selection_mode == "rigorous" and rigorous_profile is None:
+        rigorous_profile = legacy_rigorous_profile()
+    required_selection_calls = (
+        rigorous_profile.max_selection_calls if rigorous_profile is not None else 0
+    )
+    if (
+        selection_mode == "rigorous"
+        and max_model_calls is not None
+        and max_model_calls < required_selection_calls
+    ):
+        raise ValueError(
+            f"{rigorous_profile.name} selection requires max_model_calls >= "
+            f"{required_selection_calls}"
+        )
     state["selection_mode"] = selection_mode
+    state["quality_profile"] = (
+        resolved_profile.name
+        if resolved_profile is not None
+        else ("legacy_rigorous" if selection_mode == "rigorous" else "legacy_single")
+    )
     state["postprocess_policy"] = effective_postprocess
     state["max_model_calls"] = max_model_calls
     state["max_postprocess_calls"] = max_postprocess_calls
@@ -1036,6 +1183,24 @@ def finalize_run(
                 )
             )
 
+    if previous_status in {"blocked_selection", "complete"} and selection_mode == "rigorous":
+        # A failed final contract revalidation may have left the sidecar linked
+        # to the attempted selection. Restore the incumbent contract before
+        # preflight; the selected candidate replaces it atomically later.
+        _replace_interview_contract_claims(run_dir, responses)
+    contract_report = validate_run_prompt_contracts(
+        run_dir,
+        target=state["target"],
+        responses=responses,
+    )
+    if contract_report.enabled:
+        state["prompt_contracts"] = contract_report.to_dict()
+        issues.extend(
+            ValidationIssue(issue.code, 0, issue.message)
+            for issue in contract_report.issues
+            if issue.severity == "HARD_FAIL"
+        )
+
     _write_review_report(
         run_dir, questions, responses, v2=v2, issues=issues
     )
@@ -1150,7 +1315,6 @@ def finalize_run(
 
     postprocess_attempted = False
     postprocess_applied = False
-    postprocess_tier: str | None = None
     postprocess_model_id: str | None = None
     postprocess_budget_blocked = False
     model_unconfigured = False
@@ -1596,6 +1760,12 @@ def finalize_run(
                     "question_index": item["question_index"],
                     "selected_variant": item["selected_variant"],
                     "score": item["selected_score"],
+                    "score_semantics": {
+                        "metric_type": "INTERNAL_EVALUATION",
+                        "is_applicant_fact_or_claim": False,
+                        "allowed_use": "후보 품질 비교",
+                        "prohibited_use": "지원자 경험 성과 수치로 인용",
+                    },
                 }
                 for item in patina_report
                 if "selected_score" in item
@@ -1617,6 +1787,21 @@ def finalize_run(
             "experience_ledger": ledger_to_dict(ledger) if ledger is not None else None,
             "research_claims": research_frozen,
         }
+        question_requirement_path = run_dir / "05_문항전략.json"
+        if question_requirement_path.is_file():
+            question_requirement_map = json.loads(
+                question_requirement_path.read_text(encoding="utf-8")
+            )
+        else:
+            question_requirement_map = build_question_requirement_map(
+                questions,
+                target=state["target"],
+                posting=posting_frozen,
+            )
+        frozen_packet["question_requirement_map"] = question_requirement_map
+        contract_context = prompt_contract_context(run_dir)
+        if contract_context is not None:
+            frozen_packet["prompt_contracts"] = contract_context
 
         def validate_rigorous_candidate(candidate: list[DraftResponse]):
             _hydrate_claim_evidence_paths(candidate, ledger)
@@ -1641,9 +1826,24 @@ def finalize_run(
                     research_claims,
                     allowed_domains=tuple(state.get("official_research_domains", [])),
                 ))
+                candidate_issues.extend(
+                    validate_question_requirement_map(
+                        candidate,
+                        question_requirement_map,
+                        target=state["target"],
+                        enforce_preferred_range=(
+                            rigorous_profile is not None
+                            and rigorous_profile.name == "max_quality"
+                        ),
+                    )
+                )
             return candidate_issues
 
         sol_model = resolve_model("sol").model_id
+        role_models = {
+            role: resolve_role_model(role).model_id or sol_model
+            for role in ("generation", "judge", "synthesis", "comparison")
+        }
         try:
             rigorous_result = run_rigorous_selection(
                 run_dir,
@@ -1653,8 +1853,13 @@ def finalize_run(
                 model_id=sol_model,
                 validate_candidate=validate_rigorous_candidate,
                 runner=rigorous_runner or subprocess_model_runner,
-                max_calls=max_model_calls or 9,
+                max_calls=max_model_calls or required_selection_calls,
                 timeout_ms=rigorous_timeout_ms,
+                quality_profile=rigorous_profile,
+                stage_models=role_models,
+                resume_from_checkpoint=(
+                    previous_status in {"blocked_selection", "complete"}
+                ),
             )
         except (OSError, ValueError, RigorousSelectionError) as error:
             state.update(
@@ -1671,13 +1876,109 @@ def finalize_run(
             return state
         responses = list(rigorous_result.responses)
         _link_final_claims_to_interview_pack(run_dir, responses)
+        final_contract_report = validate_run_prompt_contracts(
+            run_dir,
+            target=state["target"],
+            responses=responses,
+        )
+        if final_contract_report.enabled:
+            state["prompt_contracts"] = final_contract_report.to_dict()
+        final_contract_failures = [
+            issue
+            for issue in final_contract_report.issues
+            if issue.severity == "HARD_FAIL"
+        ]
+        if final_contract_failures:
+            state.update(
+                status="blocked_selection",
+                blocked_stage="prompt_contracts",
+                validation_issues=[asdict(issue) for issue in final_contract_failures],
+                rigorous_selection={
+                    **rigorous_result.metadata,
+                    "status": "failed_contract_revalidation",
+                },
+            )
+            write_state(run_dir, state)
+            return state
         state["rigorous_selection"] = rigorous_result.metadata
         selected_source = "rigorous"
+        final_diagnostics = diagnose_responses(responses)
+        write_json(
+            run_dir / "09_style_diagnostics.json",
+            [item.to_dict() for item in final_diagnostics],
+        )
+        write_json(
+            run_dir / "09_copyeditor_report.json",
+            [
+                {
+                    "question_index": item.question_index,
+                    "status": "rigorous_integrated_style_pass",
+                    "style_risk_score": diagnostic.style_risk_score,
+                    "style_reasons": list(diagnostic.style_reasons),
+                }
+                for item, diagnostic in zip(responses, final_diagnostics)
+            ],
+        )
+        write_json(
+            run_dir / "10_품질점수.json",
+            [
+                {
+                    "question_index": question.index,
+                    "score": asdict(
+                        score_answer_quality(
+                            question,
+                            next(
+                                response.answer
+                                for response in responses
+                                if response.question_index == question.index
+                            ),
+                            state["target"],
+                            job_terms=job_terms,
+                        )
+                    ),
+                    "score_semantics": {
+                        "metric_type": "INTERNAL_EVALUATION",
+                        "is_applicant_fact_or_claim": False,
+                        "allowed_use": "후보 품질 비교",
+                        "prohibited_use": "지원자 경험 성과 수치로 인용",
+                    },
+                }
+                for question in questions
+            ],
+        )
     else:
         state["rigorous_selection"] = {
             "status": "not_run", "selection_mode": "single", "hard_fail": False,
         }
 
+    final_diagnostics = diagnose_responses(responses)
+    write_json(
+        run_dir / "09_style_diagnostics.json",
+        [item.to_dict() for item in final_diagnostics],
+    )
+    write_json(
+        run_dir / "10_품질점수.json",
+        [
+            {
+                "question_index": question.index,
+                "score": asdict(
+                    score_answer_quality(
+                        question,
+                        next(item.answer for item in responses if item.question_index == question.index),
+                        state["target"],
+                        job_terms=job_terms,
+                    )
+                ),
+                "score_semantics": {
+                    "metric_type": "INTERNAL_EVALUATION",
+                    "is_applicant_fact_or_claim": False,
+                    "allowed_use": "후보 품질 비교",
+                    "prohibited_use": "지원자 경험 성과 수치로 인용",
+                },
+            }
+            for question in questions
+        ],
+    )
     state["model_calls"] = call_tracker.to_dict()
     output_paths = (
         run_dir / "06_자기소개서.md",

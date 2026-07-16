@@ -159,6 +159,7 @@ def test_v2_prepare_writes_confirmed_profile_posting_and_matching_artifacts(tmp_
         "03_경험직무매칭.md",
         "04_공식근거.json",
         "04_리서치실행.json",
+        "05_문항전략.json",
     ):
         assert (run_dir / name).exists()
     manifest = json.loads(
@@ -166,6 +167,11 @@ def test_v2_prepare_writes_confirmed_profile_posting_and_matching_artifacts(tmp_
     )
     assert manifest["status"] == "pending"
     assert manifest["skill_name"] == "evidence-first-research"
+    requirement_map = json.loads(
+        (run_dir / "05_문항전략.json").read_text(encoding="utf-8")
+    )
+    assert requirement_map["questions"][0]["requires_target_specificity"] is True
+    assert state["question_requirement_map"] == "05_문항전략.json"
     snapshot = (run_dir / "02_확정경험원장.json").read_text(encoding="utf-8")
     assert "raw_proposed" not in snapshot
     assert "사용금지" not in snapshot

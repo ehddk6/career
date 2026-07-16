@@ -6,10 +6,17 @@ from typing import Literal
 
 
 ModelTier = Literal["luna", "terra", "sol"]
+ModelRole = Literal["generation", "judge", "synthesis", "comparison"]
 MODEL_ENV = {
     "luna": "CAREER_MODEL_LUNA",
     "terra": "CAREER_MODEL_TERRA",
     "sol": "CAREER_MODEL_SOL",
+}
+ROLE_ENV = {
+    "generation": "CAREER_MODEL_GENERATION",
+    "judge": "CAREER_MODEL_JUDGE",
+    "synthesis": "CAREER_MODEL_SYNTHESIS",
+    "comparison": "CAREER_MODEL_COMPARISON",
 }
 
 
@@ -19,8 +26,30 @@ class ModelConfig:
     model_id: str | None
 
 
+@dataclass(frozen=True)
+class RoleModelConfig:
+    role: ModelRole
+    model_id: str | None
+    source: str
+
+
 def resolve_model(tier: ModelTier) -> ModelConfig:
     return ModelConfig(tier=tier, model_id=os.environ.get(MODEL_ENV[tier]) or None)
+
+
+def resolve_role_model(
+    role: ModelRole, *, fallback_tier: ModelTier = "sol"
+) -> RoleModelConfig:
+    """단계 역할별 모델을 읽고 기존 tier 설정을 호환 fallback으로 사용한다."""
+    role_model = os.environ.get(ROLE_ENV[role]) or None
+    if role_model:
+        return RoleModelConfig(role=role, model_id=role_model, source=ROLE_ENV[role])
+    fallback = resolve_model(fallback_tier)
+    return RoleModelConfig(
+        role=role,
+        model_id=fallback.model_id,
+        source=MODEL_ENV[fallback_tier],
+    )
 
 
 def choose_tier(diagnostics, requested: ModelTier | None = None) -> ModelConfig:
