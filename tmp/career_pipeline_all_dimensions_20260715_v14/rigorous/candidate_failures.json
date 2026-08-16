@@ -1,0 +1,44 @@
+[
+  {
+    "stage": "incumbent",
+    "repair_attempted": false,
+    "repair_attempts": 0,
+    "codes": [
+      "under_preferred_minimum",
+      "under_preferred_minimum",
+      "missing_target_specificity",
+      "under_preferred_minimum"
+    ],
+    "question_indexes": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  {
+    "stage": "candidate_2",
+    "repair_attempted": true,
+    "repair_attempts": 2,
+    "codes": [
+      "under_preferred_minimum"
+    ],
+    "question_indexes": [
+      4
+    ]
+  },
+  {
+    "stage": "candidate_4",
+    "repair_attempted": true,
+    "repair_attempts": 2,
+    "codes": [
+      "non_official_research_source",
+      "unlinked_research_claim",
+      "missing_research_reference"
+    ],
+    "question_indexes": [
+      1,
+      3
+    ]
+  }
+]

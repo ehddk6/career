@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "run_id": "IV-20260715-1544",
+  "interview_package_id": "IV-DATA-001",
+  "interview_package_version": "1.0",
+  "generated_at": "2026-07-15T15:44:10+09:00",
+  "research_cutoff_date": "2026-07-15",
+  "status": "REVIEW_REQUIRED",
+  "target": {
+    "organization": "신용보증기금",
+    "job": "체험형 청년인턴1(보증)",
+    "stage": "면접전형",
+    "official_interview_window": "2026-08-12~2026-08-14",
+    "individual_schedule": "UNVERIFIED",
+    "format": "UNVERIFIED",
+    "duration": "UNVERIFIED",
+    "panel_size": "UNVERIFIED"
+  },
+  "data_packages": {
+    "personal": {"id": "PDP-485C2FAD", "version": "1.0"},
+    "company_research": {"id": "CRP-KODIT-20260715", "version": "1.1"},
+    "application": {"id": "APP-DE94AED7", "portal_submission_status": "UNVERIFIED"}
+  },
+  "question_counts": {
+    "tier_1": 12,
+    "tier_2": 15,
+    "tier_3": 8,
+    "total": 35
+  },
+  "answer_card_ids": ["Q001", "Q002", "Q003", "Q004", "Q005", "Q006", "Q007", "Q008", "Q009", "Q010", "Q011", "Q012"],
+  "competency_ids": ["C01", "C02", "C03", "C04", "C05", "C06"],
+  "primary_experiences": [
+    {"id": "EX01", "depth": "D2", "status": "NEEDS_VERIFICATION"},
+    {"id": "EX02", "depth": "D1", "status": "NEEDS_VERIFICATION"},
+    {"id": "EX03", "depth": "D3", "status": "DEFENSIBLE_WITH_QUALIFICATION"},
+    {"id": "EX04", "depth": "D3", "status": "DEFENSIBLE_WITH_QUALIFICATION"},
+    {"id": "EX05", "depth": "D2", "status": "NEEDS_VERIFICATION"}
+  ],
+  "official_fact_ids": ["CR-001", "CR-002", "CR-003", "CR-004", "CR-005", "CR-006", "CR-007", "CR-008", "CR-009", "CR-010", "CR-011"],
+  "submitted_claim_ids": ["SCL-001", "SCL-002", "SCL-003", "SCL-004", "SCL-005", "SCL-006", "SCL-007", "SCL-008", "SCL-009", "SCL-010", "SCL-011", "SCL-012", "SCL-013", "SCL-014", "SCL-015", "SCL-016"],
+  "hard_fail": {
+    "deterministic_count": 0,
+    "semantic_open_items": 4,
+    "reason": "핵심 경험 일부가 D3/D4 방어 깊이에 미달하고 개인 면접·지원 사실이 미확인"
+  },
+  "simulation": {
+    "completed_count": 0,
+    "recommended_mode": "STANDARD",
+    "recommended_feedback_timing": "AFTER_FULL_INTERVIEW",
+    "recommended_difficulty": "REALISTIC"
+  },
+  "excluded_inputs": [
+    "input/직무기술서/직무기술서_상담직.pdf",
+    "input/직무기술서/직무기술서_영업직(보훈).pdf",
+    "input/직무기술서/직무기술서_영업직(사무영업).pdf",
+    "input/직무기술서/직무기술서_영업직(사회형평).pdf",
+    "input/직무기술서/직무기술서_영업직(안전).pdf",
+    "input/직무기술서/직무기술서_영업직(정보통신).pdf"
+  ],
+  "artifacts": [
+    "frozen/interview_data_package.yaml",
+    "evidence/submitted_claim_ledger.md",
+    "evidence/document_consistency_table.md",
+    "evidence/needs_verification.md",
+    "evidence/prohibited_claims.md",
+    "architecture/interview_architecture_packet.md",
+    "architecture/competency_map.md",
+    "final/one_page_interview_map.md",
+    "final/core_question_set.md",
+    "final/answer_cards.md",
+    "final/probe_defense_notes.md",
+    "final/company_fact_sheet.md",
+    "final/reverse_questions.md",
+    "final/day_of_checklist.md",
+    "final/final_audit.md"
+  ]
+}
+

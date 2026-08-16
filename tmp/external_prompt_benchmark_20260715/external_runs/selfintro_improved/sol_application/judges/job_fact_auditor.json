@@ -1,0 +1,195 @@
+{
+  "data_package_id": "SOL-DATA-EXT-001",
+  "data_package_version": "1.0",
+  "judge_mode": "JOB_FACT_AUDITOR",
+  "evaluations": [
+    {
+      "candidate_id": "M7",
+      "judge_mode": "JOB_FACT_AUDITOR",
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "hard_fail_reasons": [],
+      "review_required": [
+        "Q2의 계획 운영과 목표 달성 인과는 frozen 근거만으로 약하다.",
+        "Q4 세부 지원수단은 지원자 제안으로만 유지해야 한다."
+      ],
+      "scores": {
+        "question_fidelity": 20,
+        "fact_accuracy": 18,
+        "job_relevance": 15,
+        "action_specificity": 14,
+        "experience_allocation": 10,
+        "interview_defensibility": 8,
+        "korean_readability": 5,
+        "applicant_distinctiveness": 3,
+        "length_and_format": 2
+      },
+      "total": 95,
+      "strongest_point": "Q1의 F01과 Q3의 F03·F04 연결이 사실 범위 안에서 명확하다.",
+      "largest_risk": "Q2가 계획 운영과 목표 달성의 인과를 넓게 읽히게 한다.",
+      "question_notes": {
+        "q1": "F01·R01·R02와 대체로 일치한다.",
+        "q2": "F05·F16·F17 기반이나 운영·성과 인과는 확인이 필요하다.",
+        "q3": "인턴 권한 경계를 잘 지킨다.",
+        "q4": "기업별 영향과 선별 지원을 구분했다."
+      },
+      "transferable_elements": [
+        {
+          "question": "q1",
+          "element_type": "fact_grounded_experience",
+          "exact_element": "동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 입력해 결과 비교 분석 보고서를 작성하고 팀장에게 보고한 경험",
+          "reason": "F01과 직접 연결된다.",
+          "fact_ids": ["F01"]
+        },
+        {
+          "question": "q3",
+          "element_type": "authority_boundary",
+          "exact_element": "제 판단을 보태지 않은 채 근거와 함께 담당자에게 보고하겠습니다",
+          "reason": "승인·판단 권한을 확대하지 않는다.",
+          "fact_ids": ["F03", "F04"]
+        }
+      ]
+    },
+    {
+      "candidate_id": "R8",
+      "judge_mode": "JOB_FACT_AUDITOR",
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "hard_fail_reasons": [],
+      "review_required": [
+        "Q1의 비교 기준·확인 지점은 합리적 추론이나 실제 내용은 확인되지 않았다.",
+        "Q4의 환위험 관리 안내는 제안형으로만 유지해야 한다."
+      ],
+      "scores": {
+        "question_fidelity": 20,
+        "fact_accuracy": 19,
+        "job_relevance": 15,
+        "action_specificity": 15,
+        "experience_allocation": 10,
+        "interview_defensibility": 9,
+        "korean_readability": 5,
+        "applicant_distinctiveness": 3,
+        "length_and_format": 2
+      },
+      "total": 98,
+      "strongest_point": "권장 경험 배분과 일치하고 Q3의 권한 경계가 안전하다.",
+      "largest_risk": "세부 정책수단은 현행 제도로 단정하면 안 된다.",
+      "question_notes": {
+        "q1": "F01·R01·R02 기반이 안정적이다.",
+        "q2": "F08을 과장 없이 적응 태도와 연결한다.",
+        "q3": "보증 판단을 직접 하겠다는 표현이 없다.",
+        "q4": "기업별 환노출과 선별 지원 논리가 좋다."
+      },
+      "transferable_elements": [
+        {
+          "question": "q2",
+          "element_type": "experience_selection",
+          "exact_element": "상인 50명을 인터뷰하고 5개 다른 시장을 비교해 문제점과 개선 방안을 도출한 경험",
+          "reason": "F08로 방어할 수 있다.",
+          "fact_ids": ["F08"]
+        },
+        {
+          "question": "q3",
+          "element_type": "authority_boundary",
+          "exact_element": "확인한 사실-근거 자료-문의할 내용 순서로 정리해 보고하겠습니다",
+          "reason": "내부 기준 결정 권한을 주장하지 않는다.",
+          "fact_ids": ["F13"]
+        }
+      ]
+    },
+    {
+      "candidate_id": "P2",
+      "judge_mode": "JOB_FACT_AUDITOR",
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "hard_fail_reasons": [],
+      "review_required": [
+        "Q2의 프로젝트명은 F08에 직접 연결되지 않아 삭제가 필요하다.",
+        "Q4 세부 지원수단은 지원자 제안으로만 유지해야 한다."
+      ],
+      "scores": {
+        "question_fidelity": 20,
+        "fact_accuracy": 18,
+        "job_relevance": 15,
+        "action_specificity": 15,
+        "experience_allocation": 10,
+        "interview_defensibility": 8,
+        "korean_readability": 5,
+        "applicant_distinctiveness": 3,
+        "length_and_format": 2
+      },
+      "total": 96,
+      "strongest_point": "Q1과 Q3의 경험 연결이 선명하다.",
+      "largest_risk": "Q2 프로젝트명의 사실 추적성이 없다.",
+      "question_notes": {
+        "q1": "F01·R01·R02에 근거한다.",
+        "q2": "경험 내용은 F08과 맞지만 프로젝트명은 삭제해야 한다.",
+        "q3": "F03·F04의 허용 범위 안에서 사용한다.",
+        "q4": "환율 영향의 방향을 기업별로 나눈다."
+      },
+      "transferable_elements": [
+        {
+          "question": "q3",
+          "element_type": "experience_selection",
+          "exact_element": "지급결정서·추납·분납 자료 3,000쪽을 이틀 안에 정리하는 과제를 기한 내 마치고 불필요한 전화 업무를 줄인 경험",
+          "reason": "F03·F04 범위를 벗어나지 않는다.",
+          "fact_ids": ["F03", "F04"]
+        },
+        {
+          "question": "q4",
+          "element_type": "issue_boundary",
+          "exact_element": "수입 투입 비중, 결제 통화, 대금 회수 시점에 따라 같은 업종에서도 영향은 달라집니다",
+          "reason": "영향의 과잉 일반화를 피한다.",
+          "fact_ids": []
+        }
+      ]
+    },
+    {
+      "candidate_id": "C3",
+      "judge_mode": "JOB_FACT_AUDITOR",
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "hard_fail_reasons": [],
+      "review_required": [
+        "Q4의 보증료 지원·협약기관 정보 대조는 공식 운영절차가 아닌 제안이다."
+      ],
+      "scores": {
+        "question_fidelity": 20,
+        "fact_accuracy": 19,
+        "job_relevance": 15,
+        "action_specificity": 15,
+        "experience_allocation": 10,
+        "interview_defensibility": 9,
+        "korean_readability": 5,
+        "applicant_distinctiveness": 3,
+        "length_and_format": 2
+      },
+      "total": 98,
+      "strongest_point": "Q3이 인턴의 권한 확대 위험을 가장 명확히 차단한다.",
+      "largest_risk": "Q4 세부 수단이 현행 제도로 읽힐 수 있다.",
+      "question_notes": {
+        "q1": "기관 역할·직무·경험 연결이 안정적이다.",
+        "q2": "F08 범위 안에서 적응 태도를 설명한다.",
+        "q3": "보증 판단 권한 부정과 보고 계획이 구체적이다.",
+        "q4": "기업별 영향 차이와 사후관리 논리가 좋다."
+      },
+      "transferable_elements": [
+        {
+          "question": "q3",
+          "element_type": "authority_boundary",
+          "exact_element": "보증 여부나 기업 신용을 판단하지 않겠습니다",
+          "reason": "승인·판정 권한 주장을 차단한다.",
+          "fact_ids": ["F13"]
+        },
+        {
+          "question": "q2",
+          "element_type": "experience_selection",
+          "exact_element": "상인 50명을 인터뷰하고 5개 다른 시장을 비교해 문제점과 개선 방안을 도출한 경험",
+          "reason": "F08의 직접 사용 범위 안이다.",
+          "fact_ids": ["F08"]
+        }
+      ]
+    }
+  ]
+}
+

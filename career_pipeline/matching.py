@@ -9,6 +9,9 @@ from .profile_schema import Experience, ExperienceLedger, ProfileClaim
 
 
 QUESTION_TYPES = {
+    "policy_issue": ("경제·사회 이슈", "정책 금융기관", "지원할 수 있는 방안"),
+    "work_plan": ("업무수행계획", "실제 근무 시", "근무한다고 가정"),
+    "organization_adaptation": ("새로운 조직", "조직에 적응", "적응하기 위해"),
     "motivation": ("지원동기", "지원하게 된 동기", "입사 후"),
     "problem_solving": ("문제", "개선", "새로운 접근", "변화"),
     "collaboration": ("협업", "갈등", "팀"),
@@ -18,7 +21,21 @@ TYPE_CUES = {
     "problem_solving": ("문제", "개선", "해결", "확인", "분석", "변화"),
     "collaboration": ("협업", "협력", "갈등", "팀", "조정", "공동"),
     "trust": ("책임", "성실", "신뢰", "원칙", "정확"),
-    "motivation": ("고객", "정확", "자료", "지원", "학습"),
+    "motivation": (
+        "고객", "정확", "지원", "학습", "공공", "예산", "증빙", "신뢰",
+        "검증", "부정수급",
+    ),
+    "organization_adaptation": (
+        "조직", "행사", "역할", "협업", "조정", "소통", "갈등", "흐름",
+        "프로세스", "개선", "제안", "출석부",
+    ),
+    "work_plan": (
+        "자료", "확인", "대조", "검증", "필터", "분류", "우선순위", "연결",
+        "기록", "보고", "안내", "VLOOKUP",
+    ),
+    "policy_issue": (
+        "분석", "비교", "위험", "지원", "판단", "기준", "대안", "시장",
+    ),
     "general": ("확인", "정리", "기록", "자료", "고객"),
     "growth": ("부족", "보완", "개선", "학습", "피드백", "성장"),
     "decision": ("기준", "자료", "분석", "비교", "검토", "결정", "판단"),
@@ -92,6 +109,9 @@ def _experience_text(experience: Experience) -> str:
 
 
 def _classify_question(prompt: str) -> str:
+    for question_type in ("policy_issue", "work_plan", "organization_adaptation"):
+        if any(marker in prompt for marker in QUESTION_TYPES[question_type]):
+            return question_type
     nonghyup_guide = classify_nonghyup_prompt(prompt)
     if nonghyup_guide is not None:
         return nonghyup_guide.question_type
@@ -155,12 +175,8 @@ def _candidate(
         if posting.competencies
         else 0
     )
-    question_fit_score = (
-        15
-        if TYPE_CUES[question_type]
-        and any(cue in text for cue in TYPE_CUES[question_type])
-        else 0
-    )
+    cue_hits = sum(cue in text for cue in TYPE_CUES[question_type])
+    question_fit_score = min(30, 10 + 5 * cue_hits) if cue_hits else 0
     allowed = _claims(experience, "confirmed")
     blocked = tuple(
         f"{claim.field}={claim.normalized_value} ({claim.status})"

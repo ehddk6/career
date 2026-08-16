@@ -1,0 +1,58 @@
+{
+  "source_candidate_id": "C20ACF614",
+  "source_median_total": 93.5,
+  "experience_allocation_score": [
+    3,
+    0,
+    -1
+  ],
+  "agreed_transferable_elements": [
+    {
+      "question": "1",
+      "element_type": "experience",
+      "exact_element": "같은 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과를 비교하고 분석 보고서를 작성해 보고한 경험",
+      "reason": "보증 기한연장·기업신용 상시관리에서 원자료와 전산값을 대조하는 행동으로 전이 가능하다.",
+      "fact_ids": [
+        "clm_3e69991c9b56d728b429",
+        "exp_9e97f274590a323b",
+        "kodit-intern-duty-20260711"
+      ],
+      "judge_count": 2
+    },
+    {
+      "question": "1",
+      "element_type": "experience",
+      "exact_element": "동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과 비교 분석 보고서를 작성해 보고한 경험",
+      "reason": "원자료와 처리값 대조, 누락·변동·예외 기록이라는 인턴 보조 행동으로 전이 가능하다.",
+      "fact_ids": [
+        "clm_3e69991c9b56d728b429",
+        "exp_9e97f274590a323b",
+        "kodit-intern-duty-20260711"
+      ],
+      "judge_count": 2
+    },
+    {
+      "question": "2",
+      "element_type": "experience",
+      "exact_element": "상인 인터뷰와 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험",
+      "reason": "확인한 내용과 판단한 내용을 구분하는 태도는 조직 적응 문항에 연결되지만, 수치 방어가 필요하다.",
+      "fact_ids": [
+        "clm_abaa19a532d1aabc9140",
+        "exp_a07fd710e2b7c0c2"
+      ],
+      "judge_count": 2
+    },
+    {
+      "question": "3",
+      "element_type": "experience",
+      "exact_element": "기초연금 관련 자료를 체계적으로 분류한 경험",
+      "reason": "자료 출처, 처리 단계, 확인 여부를 표시하는 업무수행계획과 직접 연결된다.",
+      "fact_ids": [
+        "clm_88cfeab230789e5b0d5f",
+        "exp_151ae891bd2719ad",
+        "kodit-intern-duty-20260711"
+      ],
+      "judge_count": 2
+    }
+  ]
+}

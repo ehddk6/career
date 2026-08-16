@@ -1,0 +1,29 @@
+{
+  "company_data_package_id": "CR-DATA-001",
+  "company_data_package_version": "1.0",
+  "status": "INSUFFICIENT_SOURCE_DATA",
+  "source_path": "inputs/workspace/career_run/04_공식근거.json",
+  "source_sha256": "4956a70618e06435f17e122eaa31fd1cb33abe00df425fd468302df46b88bcf0",
+  "records": [],
+  "missing_metrics": [
+    "revenue_growth",
+    "operating_margin",
+    "net_margin",
+    "segment_or_region_mix",
+    "rd_to_revenue",
+    "capex_change",
+    "operating_cash_flow",
+    "free_cash_flow",
+    "cash_and_debt_change",
+    "inventory_and_receivables_change",
+    "employee_change",
+    "revenue_per_employee",
+    "concentration",
+    "company_operating_kpis"
+  ],
+  "excluded_numeric_claim": {
+    "claim_id": "bok-fx-risk-20260711",
+    "value": "14조원",
+    "reason": "한국은행 중소기업 한시 특별지원 한도이며 KODIT 재무 수치가 아님"
+  }
+}

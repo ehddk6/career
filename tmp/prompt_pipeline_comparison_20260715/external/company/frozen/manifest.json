@@ -1,0 +1,20 @@
+{
+  "run_id": "CR-20260715-0935",
+  "company_data_package_id": "CR-DATA-001",
+  "company_data_package_version": "1.0",
+  "frozen_at": "2026-07-15T09:35:22+09:00",
+  "research_cutoff_date": "2026-07-13",
+  "inputs": [
+    {"path":"inputs/workspace/career_run/00_채용공고분석.json","sha256":"ba3bcd6961bc22ff875d537399004b7d6f9e305dacffb533d0944617eac05d3b","scope":"target_and_posting"},
+    {"path":"inputs/workspace/career_run/02_확정경험원장.json","sha256":"485c2fad17ec5cddf117b884e0baf61d4aa9bcfdc9c5b1cc96ab1435e2d3f2c4","scope":"confirmed_applicant_evidence"},
+    {"path":"inputs/workspace/career_run/03_경험직무매칭.json","sha256":"f3fa46c805196366e87b6af4315cd92997bd0e420d1e85e2ff0c8c8ef0246061","scope":"routing_only"},
+    {"path":"inputs/workspace/career_run/04_공식근거.json","sha256":"4956a70618e06435f17e122eaa31fd1cb33abe00df425fd468302df46b88bcf0","scope":"frozen_official_evidence"},
+    {"path":"inputs/workspace/career_run/04_기업직무조사.md","sha256":"c7046db516f3cb2f2a659b79d3cdaee4ce843ebe2afdc33557207dc60aaafe54","scope":"frozen_research_synthesis"},
+    {"path":"inputs/workspace/직무기술서/직무기술서_상담직.pdf","sha256":"c085653246cb209d0db93ae981babe6c92e88dbee01b4212db6a328fbc52e509","scope":"excluded_off_target_entity"},
+    {"path":"inputs/workspace/직무기술서/직무기술서_영업직(보훈).pdf","sha256":"646cab9a010221089b8e0237c8407cc391754ef1926b78870826d02c80a71881","scope":"excluded_off_target_entity"},
+    {"path":"inputs/workspace/직무기술서/직무기술서_영업직(사무영업).pdf","sha256":"fb6f312f73fa836818743f1d3a0770508bb54f6a6989ae56ef67289e5ae3724f","scope":"excluded_off_target_entity"},
+    {"path":"inputs/workspace/직무기술서/직무기술서_영업직(사회형평).pdf","sha256":"41bd180560657128783299056e52465d00a0f77d1594e125cc94543bfcd06c6e","scope":"excluded_off_target_entity"},
+    {"path":"inputs/workspace/직무기술서/직무기술서_영업직(안전).pdf","sha256":"4b63a0416ce924da02f8002117bd9beb58500db361bf0468c10467db53bc3bbd","scope":"excluded_off_target_entity"},
+    {"path":"inputs/workspace/직무기술서/직무기술서_영업직(정보통신).pdf","sha256":"1b4318e4d1d29f1ca125a47d9ed71e040e9715190b556112498383fc88ac509e","scope":"excluded_off_target_entity"}
+  ]
+}

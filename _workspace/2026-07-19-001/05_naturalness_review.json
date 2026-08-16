@@ -1,0 +1,276 @@
+{
+  "status": "passed",
+  "diagnostics": [
+    {
+      "question_index": 1,
+      "style_risk_score": 2,
+      "style_reasons": [
+        "같은 종결 표현 3회 이상 반복",
+        "종결 표현 다양성 부족"
+      ],
+      "should_rewrite": false,
+      "metrics": {
+        "sentence_count": 9,
+        "sentence_length_variance": 13.431,
+        "sentence_length_cv": 0.326,
+        "passive_ratio": 0.0,
+        "nominal_ratio": 0.0,
+        "repeated_connector_count": 0,
+        "ability_phrase_count": 1,
+        "conclusion_cliche_count": 0,
+        "abstract_noun_count": 0,
+        "pronoun_start_count": 1,
+        "nominal_ending_count": 0,
+        "long_relative_sentence_count": 0,
+        "semantic_repeat": 0,
+        "excessive_list": 0,
+        "naturalness": 90.0,
+        "sentence_rhythm": 77.0,
+        "ending_variety": 34.0,
+        "sentence_length_balance": 92.0,
+        "translationese_ai_safety": 96.0,
+        "nominalization_control": 96.0,
+        "editor_total": 85.0
+      }
+    },
+    {
+      "question_index": 2,
+      "style_risk_score": 2,
+      "style_reasons": [
+        "같은 종결 표현 3회 이상 반복",
+        "종결 표현 다양성 부족"
+      ],
+      "should_rewrite": false,
+      "metrics": {
+        "sentence_count": 9,
+        "sentence_length_variance": 10.682,
+        "sentence_length_cv": 0.255,
+        "passive_ratio": 0.0,
+        "nominal_ratio": 0.0,
+        "repeated_connector_count": 0,
+        "ability_phrase_count": 1,
+        "conclusion_cliche_count": 0,
+        "abstract_noun_count": 0,
+        "pronoun_start_count": 0,
+        "nominal_ending_count": 0,
+        "long_relative_sentence_count": 0,
+        "semantic_repeat": 0,
+        "excessive_list": 0,
+        "naturalness": 87.0,
+        "sentence_rhythm": 77.0,
+        "ending_variety": 34.0,
+        "sentence_length_balance": 78.0,
+        "translationese_ai_safety": 96.0,
+        "nominalization_control": 96.0,
+        "editor_total": 82.95
+      }
+    },
+    {
+      "question_index": 3,
+      "style_risk_score": 2,
+      "style_reasons": [
+        "같은 종결 표현 3회 이상 반복",
+        "종결 표현 다양성 부족"
+      ],
+      "should_rewrite": false,
+      "metrics": {
+        "sentence_count": 11,
+        "sentence_length_variance": 12.298,
+        "sentence_length_cv": 0.34,
+        "passive_ratio": 0.0,
+        "nominal_ratio": 0.091,
+        "repeated_connector_count": 0,
+        "ability_phrase_count": 0,
+        "conclusion_cliche_count": 0,
+        "abstract_noun_count": 0,
+        "pronoun_start_count": 0,
+        "nominal_ending_count": 0,
+        "long_relative_sentence_count": 0,
+        "semantic_repeat": 0,
+        "excessive_list": 0,
+        "naturalness": 93.0,
+        "sentence_rhythm": 77.0,
+        "ending_variety": 47.0,
+        "sentence_length_balance": 92.0,
+        "translationese_ai_safety": 96.0,
+        "nominalization_control": 96.0,
+        "editor_total": 87.65
+      }
+    },
+    {
+      "question_index": 4,
+      "style_risk_score": 2,
+      "style_reasons": [
+        "같은 종결 표현 3회 이상 반복",
+        "종결 표현 다양성 부족"
+      ],
+      "should_rewrite": false,
+      "metrics": {
+        "sentence_count": 22,
+        "sentence_length_variance": 13.145,
+        "sentence_length_cv": 0.304,
+        "passive_ratio": 0.0,
+        "nominal_ratio": 0.091,
+        "repeated_connector_count": 0,
+        "ability_phrase_count": 1,
+        "conclusion_cliche_count": 0,
+        "abstract_noun_count": 0,
+        "pronoun_start_count": 0,
+        "nominal_ending_count": 0,
+        "long_relative_sentence_count": 0,
+        "semantic_repeat": 0,
+        "excessive_list": 0,
+        "naturalness": 84.0,
+        "sentence_rhythm": 77.0,
+        "ending_variety": 59.0,
+        "sentence_length_balance": 92.0,
+        "translationese_ai_safety": 96.0,
+        "nominalization_control": 96.0,
+        "editor_total": 84.8
+      }
+    }
+  ],
+  "benchmarks": [
+    {
+      "baseline": "claude-combined",
+      "self_intro_counts": {
+        "A": 0,
+        "B": 17,
+        "TIE": 0
+      },
+      "writing_axes": {
+        "natural_korean": {
+          "choice": "B",
+          "reason": "구체 장면과 짧은 판단문이 섞여 자연스럽게 읽힌다.",
+          "decisive_difference": "추상 원칙보다 화자의 관찰을 먼저 둔다.",
+          "evidence_refs": [
+            "C1 / 문항 2 / \"현장을 다시 보니\"",
+            "B1 / 문항 3 / \"배우기 → 실행 → 점검\""
+          ]
+        },
+        "naturalness": {
+          "choice": "B",
+          "reason": "각 문항에서 관찰과 생각의 변화가 드러나 매뉴얼형 문장 비중이 낮다.",
+          "decisive_difference": "\"처리가 끝나도 다시 봅니다\"처럼 화자의 리듬이 보인다.",
+          "evidence_refs": [
+            "C1 / 문항 3 / \"처리가 끝나도 다시 봅니다\"",
+            "B1 / 문항 3 / 점검표·처리·기록의 순차 계획"
+          ]
+        },
+        "sentence_rhythm": {
+          "choice": "B",
+          "reason": "짧은 문장과 설명문을 의도적으로 교차한다.",
+          "decisive_difference": "장면 문장 뒤에 짧은 판단문을 배치한다.",
+          "evidence_refs": [
+            "C1 / 문항 1 / \"겉으로는 이상이 없어 보이는 서류였습니다\"",
+            "C1 / 문항 3 / \"처리가 끝나도 다시 봅니다\""
+          ]
+        },
+        "ending_variety": {
+          "choice": "B",
+          "reason": "서술·회고·계획·질문형 판단이 섞여 종결 반복이 덜하다.",
+          "decisive_difference": "-했습니다, -생각합니다, -하겠습니다가 문맥별로 분산된다.",
+          "evidence_refs": [
+            "C1 / 문항 2 / \"알 수 있었습니다\"",
+            "C1 / 문항 4 / \"가려야 하는 이유입니다\""
+          ]
+        },
+        "sentence_length_balance": {
+          "choice": "B",
+          "reason": "짧은 장면 문장과 긴 설명 문장의 길이 차가 뚜렷하다.",
+          "decisive_difference": "짧은 문장으로 핵심 판단을 끊어 긴 문장을 완화한다.",
+          "evidence_refs": [
+            "C1 / 문항 1 / \"겉으로는 이상이 없어 보이는 서류였습니다\"",
+            "C1 / 문항 4 / 기업별 확인 항목 문장"
+          ]
+        },
+        "translationese_ai_safety": {
+          "choice": "B",
+          "reason": "상투적 결론보다 제한과 불확실성을 구체적으로 말한다.",
+          "decisive_difference": "피해·회복 가능성을 먼저 단정하지 않는다는 경계가 있다.",
+          "evidence_refs": [
+            "C1 / 문항 4 / \"확인되지 않은 피해나 회복 가능성을 먼저 단정하지 않아야\"",
+            "B1 / 문항 3 / \"믿고 맡길 수 있는 인턴\""
+          ]
+        },
+        "nominalization_control": {
+          "choice": "B",
+          "reason": "추상명사보다 관찰·묻기·대조·질문의 동사가 중심이다.",
+          "decisive_difference": "\"상대가 어떤 정보로 움직이는지 묻는\" 행동을 직접 쓴다.",
+          "evidence_refs": [
+            "C1 / 문항 2 / \"상대가 어떤 정보로 움직이는지 묻는 습관\"",
+            "B1 / 문항 3 / \"규정, 기준일, 필수 서류, 보고 경로를 점검표\""
+          ]
+        }
+      }
+    },
+    {
+      "baseline": "claude-second",
+      "self_intro_counts": {
+        "A": 0,
+        "B": 17,
+        "TIE": 0
+      },
+      "writing_axes": {
+        "natural_korean": {
+          "choice": "B",
+          "reason": "문장 연결이 구어적이면서도 지원서 문체를 유지한다.",
+          "decisive_difference": "X의 업무수행계획보다 절차 동사 연쇄가 적다.",
+          "evidence_refs": [
+            "C1: 질문 2, ‘한쪽의 혼선이 다른 쪽을 계속 늦추고 있었습니다’",
+            "B1: 질문 3, ‘점검표…맞춰보며…정리해서 보고…기록’"
+          ]
+        },
+        "naturalness": {
+          "choice": "B",
+          "reason": "관찰과 생각의 변화가 화자의 목소리로 드러난다.",
+          "decisive_difference": "매뉴얼형 업무 계획보다 실제 경험의 감각이 남는다.",
+          "evidence_refs": [
+            "C1: 질문 1, ‘놓쳤을 차이라는 생각이 들었습니다’"
+          ]
+        },
+        "sentence_rhythm": {
+          "choice": "B",
+          "reason": "짧은 판단문과 설명문이 섞여 있다.",
+          "decisive_difference": "‘처리가 끝나도 다시 봅니다’처럼 속도 조절이 있다.",
+          "evidence_refs": [
+            "C1: 질문 3, ‘처리가 끝나도 다시 봅니다’"
+          ]
+        },
+        "ending_variety": {
+          "choice": "B",
+          "reason": "서술·판단·계획 종결이 섞인다.",
+          "decisive_difference": "X보다 ‘하겠습니다’ 연속이 적다.",
+          "evidence_refs": [
+            "C1: 질문 2, ‘알 수 있었습니다…생겼습니다…익히겠습니다’"
+          ]
+        },
+        "sentence_length_balance": {
+          "choice": "B",
+          "reason": "장면을 짧게 끊은 뒤 근거 문장을 확장한다.",
+          "decisive_difference": "문장 길이가 균질적이지 않다.",
+          "evidence_refs": [
+            "C1: 질문 1, ‘겉으로는 이상이 없어 보이는 서류였습니다’"
+          ]
+        },
+        "translationese_ai_safety": {
+          "choice": "B",
+          "reason": "추상 구호 대신 질문과 자료 확인의 장면을 쓴다.",
+          "decisive_difference": "정책 제안도 보고서식 축 나열보다 판단 질문으로 시작한다.",
+          "evidence_refs": [
+            "C1: 질문 4, ‘관세 피해 기업인가’보다 ‘어디에서 얼마나 오래 막히는가’"
+          ]
+        },
+        "nominalization_control": {
+          "choice": "B",
+          "reason": "자료·사람·행동을 주어로 둔 문장이 많다.",
+          "decisive_difference": "X보다 ‘점검·정리·처리’ 명사화와 절차 나열이 적다.",
+          "evidence_refs": [
+            "C1: 질문 1, ‘원자료와 전산값을 맞춰보고’",
+            "B1: 질문 3, ‘완료 여부와 후속 조치를 기록’"
+          ]
+        }
+      }
+    }
+  ]
+}

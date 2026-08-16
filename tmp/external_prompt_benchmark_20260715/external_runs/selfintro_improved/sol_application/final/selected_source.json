@@ -1,0 +1,10 @@
+{
+  "run_id": "SOL-20260715-1537",
+  "data_package_id": "SOL-DATA-EXT-001",
+  "data_package_version": "1.0",
+  "selected_version": "Y",
+  "selected_source": "synthesis/version_S.md",
+  "baseline_winner": "R8",
+  "version_z_created": false,
+  "comparison": "comparison/final_comparison.json"
+}

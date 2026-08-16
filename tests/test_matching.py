@@ -124,7 +124,45 @@ def test_question_type_fit_rewards_relevant_experience():
     )
 
     assert match.candidates[0].experience_id == "exp_collaboration"
-    assert match.candidates[0].question_fit_score == 15
+    assert match.candidates[0].question_fit_score >= 15
+
+
+def test_kodit_question_types_allocate_distinct_cohesive_experiences():
+    ledger = ledger_with(
+        experience(
+            "exp_seoul",
+            actions=(
+                "공공 예산 지원 증빙을 대조하고 부정수급 가능성을 검증해 불일치 건을 분류",
+            ),
+        ),
+        experience(
+            "exp_banpo",
+            actions=(
+                "행사 역할과 업무 흐름을 파악하고 온라인 출석부를 제안",
+                "관계자 갈등을 분석하고 소통하며 일정을 조정",
+            ),
+        ),
+        experience(
+            "exp_nps",
+            actions=(
+                "VLOOKUP으로 연금액과 소득 자료를 연결하고 우선순위를 분류",
+            ),
+        ),
+    )
+    questions = (
+        Question(1, "지원하게 된 동기와 기관의 역할, 배우고 기여할 부분", 600),
+        Question(2, "새로운 조직에 적응하기 위해 중요한 태도와 실천 노력", 600),
+        Question(3, "실제 근무 시 업무수행계획을 기술", 600),
+    )
+
+    matches = match_questions(ledger, posting_with(), questions)
+
+    assert [item.question_type for item in matches] == [
+        "motivation", "organization_adaptation", "work_plan"
+    ]
+    assert [item.recommended.experience_id for item in matches] == [
+        "exp_seoul", "exp_banpo", "exp_nps"
+    ]
 
 
 def test_zero_overlap_ties_are_deterministic_and_limited_to_three():

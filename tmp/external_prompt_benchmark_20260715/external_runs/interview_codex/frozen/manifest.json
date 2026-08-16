@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "run_id": "IV-20260715-1544",
+  "interview_package_id": "IV-DATA-001",
+  "interview_package_version": "1.0",
+  "frozen_at": "2026-07-15T15:44:10+09:00",
+  "research_cutoff_date": "2026-07-15",
+  "frozen_inputs": [
+    {"path": "input/career_run/00_채용공고원문/source.docx", "sha256": "5b6f69118ca1eece39f284fb26c18e42422ba01088f978b9829c0501bc456779"},
+    {"path": "input/career_run/02_확정경험원장.json", "sha256": "485c2fad17ec5cddf117b884e0baf61d4aa9bcfdc9c5b1cc96ab1435e2d3f2c4"},
+    {"path": "input/career_run/draft_final.json", "sha256": "de94aed7e0cdaaf22607bd4afbf649d63e91861f18d3dc94c899b655590da50b"},
+    {"path": "input/career_run/04_공식근거.json", "sha256": "4956a70618e06435f17e122eaa31fd1cb33abe00df425fd468302df46b88bcf0"},
+    {"path": "input/career_run/12_최종산출물.json", "sha256": "32adf25c653e09d89ebf95fec255ce5f47922449d96c1659f277fe013cce9beb"}
+  ],
+  "generated_artifacts": [
+    {"path": "frozen/interview_data_package.yaml", "sha256": "f0b3c0108abaf3ad2c3a3411a63d9732f72d601ce8851a5ca348b702dabaf3b6"},
+    {"path": "evidence/submitted_claim_ledger.md", "sha256": "c0c6409059f084ed72aea994b5b081d9282a5bc8396c206a34c3cfc826e24d2c"},
+    {"path": "evidence/document_consistency_table.md", "sha256": "ee31e32d4d02027d794aab3f048d9b58e0de045617c7847c0b8d40d1a5360c21"},
+    {"path": "evidence/needs_verification.md", "sha256": "58803303e5039ea699960e648412ac36b1158dd147f3832c3cae311f62a5b3d3"},
+    {"path": "evidence/prohibited_claims.md", "sha256": "9dd52d8703ab191e205fd47c935b8b38ded467e80ba930552b27b8f2e78b7ae5"},
+    {"path": "architecture/interview_architecture_packet.md", "sha256": "4c94d0cb1609bf127bc0580c269ccdf2fad467732fa2c3a500d84fd54676b694"},
+    {"path": "architecture/competency_map.md", "sha256": "a890b7b5b24148348bd32612cff25f689fa0935d39d8858f07c6d755f3f8364b"},
+    {"path": "final/one_page_interview_map.md", "sha256": "c5062fc5526c614cb5e7a940e092291df9548c87334b17d055e918552ed73c56"},
+    {"path": "final/core_question_set.md", "sha256": "6587d14aa02d2f0dd9d191b39b526311d915bee0b87d843014a6b930f66c843c"},
+    {"path": "final/answer_cards.md", "sha256": "cda603c1fe5d89f44d1b574199a27be46cc022e60ac7e66f2d0262b3464334aa"},
+    {"path": "final/probe_defense_notes.md", "sha256": "66f292ae48fface3d723d568afe8dba6763911ca38659ae5c8eacf34278a88a8"},
+    {"path": "final/company_fact_sheet.md", "sha256": "665b99604da2397d52999831a908dc930b8ba1826750e33337f370ef5397e992"},
+    {"path": "final/reverse_questions.md", "sha256": "2a275d5ec142c9886e38049998c4fbb693ef90d883c9b8ff2ed07e9bd0df4519"},
+    {"path": "final/day_of_checklist.md", "sha256": "7e7af09cf4498f9801ee04d5d736ced6b7e19bbb48b90528b6bd89682accb946"},
+    {"path": "final/interview_package.json", "sha256": "6fcaad8ae6ab4c50353fbe6d0fa59b1d9a0d712f473eb0745f1b6a2da6a7e2da"},
+    {"path": "scripts/validate_answers.py", "sha256": "600feee62d533376ec4685278ed8cd232c39c458b0a61916fcf32159c80fceba"}
+  ],
+  "notes": [
+    "generated_artifacts hashes are content snapshots taken before final audit wording update",
+    "final/final_audit.md is excluded from generated_artifacts to avoid a self-referential audit cycle",
+    "portal submission status and individual interview details remain UNVERIFIED"
+  ]
+}

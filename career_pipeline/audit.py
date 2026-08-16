@@ -192,6 +192,8 @@ def _issue_from_validation(category: str, issue: ValidationIssue) -> AuditIssue:
         "missing_attitude_practice",
         "missing_execution_sequence",
         "missing_issue_reasoning",
+        "weak_observable_result",
+        "missing_duty_or_competency_match",
     }
     severity = "high" if issue.code in critical else "medium"
     return AuditIssue(category, issue.code, severity, issue.message, issue.question_index)
@@ -581,6 +583,9 @@ def _style_score(run_dir: Path, state: dict[str, Any]) -> tuple[int, list[AuditI
     score = 0
     copy_report = _read_json(run_dir / "09_copyeditor_report.json", None)
     style_report = _read_json(run_dir / "09_style_diagnostics.json", None)
+    youtube_overlap_report = _read_json(
+        run_dir / "09_youtube_phrase_overlap_report.json", None
+    )
     if isinstance(copy_report, list):
         if any(str(item.get("status", "")).startswith("fallback") for item in copy_report if isinstance(item, dict)):
             issues.append(AuditIssue("style", "copyeditor_fallback", "medium", "copyeditor가 fallback 되었습니다."))
@@ -635,6 +640,16 @@ def _style_score(run_dir: Path, state: dict[str, Any]) -> tuple[int, list[AuditI
         "voice_sample_status": voice_status,
         "style_warning_score": risk_count if isinstance(style_report, list) else None,
         "actionable_style_items": actionable_count if isinstance(style_report, list) else None,
+        "youtube_phrase_overlap_match_count": (
+            int(youtube_overlap_report.get("match_count", 0))
+            if isinstance(youtube_overlap_report, dict)
+            else None
+        ),
+        "youtube_phrase_overlap_manual_review_required": (
+            bool(youtube_overlap_report.get("manual_review_required", False))
+            if isinstance(youtube_overlap_report, dict)
+            else None
+        ),
     }
 
 

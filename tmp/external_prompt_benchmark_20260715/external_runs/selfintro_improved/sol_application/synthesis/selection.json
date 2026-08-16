@@ -1,0 +1,248 @@
+{
+  "data_package_id": "SOL-DATA-EXT-001",
+  "data_package_version": "1.0",
+  "status": "PASS",
+  "package_errors": [],
+  "ranking": [
+    {
+      "candidate_id": "R8",
+      "candidate_file": "candidate_B.md",
+      "disqualified": false,
+      "review_required": [
+        "Q1의 비교 기준·확인 지점은 당시 보고서의 실제 구조로 확대하지 않아야 한다.",
+        "Q1의 비교 기준·확인 지점은 합리적 추론이나 실제 내용은 확인되지 않았다.",
+        "Q4의 환위험 관리 안내는 제안형으로만 유지해야 한다."
+      ],
+      "median_total": 96,
+      "minimum_total": 95,
+      "median_core": 54,
+      "judge_spread": 3,
+      "judge_totals": [
+        98,
+        95,
+        96
+      ]
+    },
+    {
+      "candidate_id": "P2",
+      "candidate_file": "candidate_C.md",
+      "disqualified": false,
+      "review_required": [
+        "Q1은 실제 결과 차이를 전제하므로 비교·보고 사실만 남겨야 한다.",
+        "Q2의 프로젝트명은 F08에 직접 연결되지 않아 삭제가 필요하다.",
+        "Q2의 프로젝트명은 F08에 직접 연결되지 않아 삭제해야 한다.",
+        "Q4 세부 지원수단은 지원자 제안으로만 유지해야 한다."
+      ],
+      "median_total": 96,
+      "minimum_total": 92,
+      "median_core": 53,
+      "judge_spread": 7,
+      "judge_totals": [
+        96,
+        99,
+        92
+      ]
+    },
+    {
+      "candidate_id": "C3",
+      "candidate_file": "candidate_D.md",
+      "disqualified": false,
+      "review_required": [
+        "Q1의 비교 과정과 상시관리 목적은 실제 내부 절차로 단정하지 않아야 한다.",
+        "Q4의 보증료 지원·협약기관 정보 대조는 공식 운영절차가 아닌 제안이다.",
+        "Q4의 보증료 지원과 협약기관 정보 대조는 제안임을 더 분명히 해야 한다."
+      ],
+      "median_total": 95,
+      "minimum_total": 92,
+      "median_core": 52,
+      "judge_spread": 6,
+      "judge_totals": [
+        98,
+        92,
+        95
+      ]
+    },
+    {
+      "candidate_id": "M7",
+      "candidate_file": "candidate_A.md",
+      "disqualified": false,
+      "review_required": [
+        "Q1의 비교 과정은 F01보다 구체적이므로 당시 실제 절차로 확대하지 않아야 한다.",
+        "Q2의 계획 운영과 목표 달성 인과는 frozen 근거만으로 약하다.",
+        "Q2의 계획 운영과 목표 달성 인과는 면접 전 원문 확인이 필요하다.",
+        "Q2의 상세 표현은 원문 범위를 넘지 않는지 확인이 필요하다.",
+        "Q4 세부 지원수단은 지원자 제안으로만 유지해야 한다."
+      ],
+      "median_total": 94,
+      "minimum_total": 93,
+      "median_core": 52,
+      "judge_spread": 2,
+      "judge_totals": [
+        95,
+        94,
+        93
+      ]
+    }
+  ],
+  "winner": {
+    "candidate_id": "R8",
+    "candidate_file": "candidate_B.md",
+    "disqualified": false,
+    "review_required": [
+      "Q1의 비교 기준·확인 지점은 당시 보고서의 실제 구조로 확대하지 않아야 한다.",
+      "Q1의 비교 기준·확인 지점은 합리적 추론이나 실제 내용은 확인되지 않았다.",
+      "Q4의 환위험 관리 안내는 제안형으로만 유지해야 한다."
+    ],
+    "median_total": 96,
+    "minimum_total": 95,
+    "median_core": 54,
+    "judge_spread": 3,
+    "judge_totals": [
+      98,
+      95,
+      96
+    ]
+  },
+  "runner_up": {
+    "candidate_id": "P2",
+    "candidate_file": "candidate_C.md",
+    "disqualified": false,
+    "review_required": [
+      "Q1은 실제 결과 차이를 전제하므로 비교·보고 사실만 남겨야 한다.",
+      "Q2의 프로젝트명은 F08에 직접 연결되지 않아 삭제가 필요하다.",
+      "Q2의 프로젝트명은 F08에 직접 연결되지 않아 삭제해야 한다.",
+      "Q4 세부 지원수단은 지원자 제안으로만 유지해야 한다."
+    ],
+    "median_total": 96,
+    "minimum_total": 92,
+    "median_core": 53,
+    "judge_spread": 7,
+    "judge_totals": [
+      96,
+      99,
+      92
+    ]
+  },
+  "agreed_transferable_elements": [
+    {
+      "candidate_id": "C3",
+      "question": "q2",
+      "element_type": "experience_selection",
+      "exact_element": "상인 50명을 인터뷰하고 5개 다른 시장을 비교해 문제점과 개선 방안을 도출한 경험",
+      "judge_count": 3,
+      "reasons": [
+        "F08의 직접 사용 범위 안이다.",
+        "경청과 비교 태도를 뒷받침한다.",
+        "새 조직 적응 태도의 근거로 적합하다."
+      ],
+      "fact_ids": [
+        "F08"
+      ]
+    },
+    {
+      "candidate_id": "C3",
+      "question": "q3",
+      "element_type": "authority_boundary",
+      "exact_element": "보증 여부나 기업 신용을 판단하지 않겠습니다",
+      "judge_count": 3,
+      "reasons": [
+        "보증 판단 권한을 주장하지 않는다.",
+        "승인·판정 권한 주장을 차단한다.",
+        "인턴 권한 경계를 명시한다."
+      ],
+      "fact_ids": [
+        "F13"
+      ]
+    },
+    {
+      "candidate_id": "M7",
+      "question": "q1",
+      "element_type": "fact_grounded_experience",
+      "exact_element": "동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 입력해 결과 비교 분석 보고서를 작성하고 팀장에게 보고한 경험",
+      "judge_count": 3,
+      "reasons": [
+        "F01과 직접 연결된다.",
+        "자료 대조와 보고 역량을 직접 보여 준다.",
+        "직무 적합성의 출발점으로 쓰기 좋다."
+      ],
+      "fact_ids": [
+        "F01"
+      ]
+    },
+    {
+      "candidate_id": "M7",
+      "question": "q3",
+      "element_type": "authority_boundary",
+      "exact_element": "제 판단을 보태지 않은 채 근거와 함께 담당자에게 보고하겠습니다",
+      "judge_count": 3,
+      "reasons": [
+        "승인·판단 권한을 확대하지 않는다.",
+        "업무 계획을 인턴 범위에 둔다.",
+        "인턴 권한 경계를 지킨다."
+      ],
+      "fact_ids": [
+        "F03",
+        "F04"
+      ]
+    },
+    {
+      "candidate_id": "P2",
+      "question": "q3",
+      "element_type": "experience_selection",
+      "exact_element": "지급결정서·추납·분납 자료 3,000쪽을 이틀 안에 정리하는 과제를 기한 내 마치고 불필요한 전화 업무를 줄인 경험",
+      "judge_count": 3,
+      "reasons": [
+        "F03·F04 범위를 벗어나지 않는다.",
+        "기한 준수와 대량자료 처리 경험을 직무에 연결한다.",
+        "대량자료 처리 경험을 직무계획과 직접 연결한다."
+      ],
+      "fact_ids": [
+        "F03",
+        "F04"
+      ]
+    },
+    {
+      "candidate_id": "P2",
+      "question": "q4",
+      "element_type": "issue_boundary",
+      "exact_element": "수입 투입 비중, 결제 통화, 대금 회수 시점에 따라 같은 업종에서도 영향은 달라집니다",
+      "judge_count": 3,
+      "reasons": [
+        "고환율의 영향을 과잉 일반화하지 않는다.",
+        "기업별 영향 차이를 분명히 한다.",
+        "영향의 과잉 일반화를 피한다."
+      ],
+      "fact_ids": []
+    },
+    {
+      "candidate_id": "R8",
+      "question": "q2",
+      "element_type": "experience_selection",
+      "exact_element": "상인 50명을 인터뷰하고 5개 다른 시장을 비교해 문제점과 개선 방안을 도출한 경험",
+      "judge_count": 3,
+      "reasons": [
+        "F08로 방어할 수 있다.",
+        "경청과 기준 확인 태도를 뒷받침한다.",
+        "확인된 관찰·비교 행동으로 적응 태도를 뒷받침한다."
+      ],
+      "fact_ids": [
+        "F08"
+      ]
+    },
+    {
+      "candidate_id": "R8",
+      "question": "q3",
+      "element_type": "authority_boundary",
+      "exact_element": "확인한 사실-근거 자료-문의할 내용 순서로 정리해 보고하겠습니다",
+      "judge_count": 3,
+      "reasons": [
+        "내부 기준 결정 권한을 주장하지 않는다.",
+        "사실과 판단을 구분한다.",
+        "판단과 보고의 경계를 분명히 한다."
+      ],
+      "fact_ids": [
+        "F13"
+      ]
+    }
+  ]
+}

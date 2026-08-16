@@ -1,0 +1,6 @@
+[
+  {
+    "stage": "judge_job_fact_auditor",
+    "error": "candidate set mismatch: JOB_FACT_AUDITOR"
+  }
+]

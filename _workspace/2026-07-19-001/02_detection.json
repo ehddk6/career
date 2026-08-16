@@ -1,0 +1,10 @@
+{
+  "source": "career_runs/kodit-human-editor-max-20260719/draft_final.json",
+  "findings": [
+    {"category": "C-4", "severity": "S2", "scope": "Q1,Q3,Q4", "reason": "문항이 기관·정책 요약문으로 시작해 지원자가 늦게 등장함"},
+    {"category": "C-1", "severity": "S2", "scope": "Q3,Q4", "reason": "기준·확인·기록·보고가 절차 순서로 길게 이어짐"},
+    {"category": "E-1", "severity": "S2", "scope": "Q4", "reason": "비슷한 길이의 설명문이 계속되어 읽는 속도가 바뀌지 않음"},
+    {"category": "I-2", "severity": "S2", "scope": "all", "reason": "기준·사항·과정·역할 같은 명사가 실제 행동보다 앞섬"},
+    {"category": "A-15", "severity": "S2", "scope": "Q2", "reason": "'모습은 ... 장면입니다'처럼 추상 주어가 결론을 대신함"}
+  ]
+}

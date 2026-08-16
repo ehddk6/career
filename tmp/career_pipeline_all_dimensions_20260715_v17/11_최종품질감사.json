@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-16T21:10:07.999253",
+  "run_dir": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\career_pipeline_all_dimensions_20260715_v17",
+  "score": 93,
+  "internal_validation_score": 93,
+  "score_semantics": {
+    "metric_type": "INTERNAL_EVALUATION",
+    "is_applicant_fact_or_claim": false,
+    "formula": "cover_letter + research + interview + style_safety",
+    "maximum": 100,
+    "allowed_use": "파이프라인 내부 품질 게이트와 회귀 비교",
+    "prohibited_use": "지원자의 성과·경험 수치 또는 외부 사실로 인용"
+  },
+  "quality_gate": "pass",
+  "human_review_recommended": true,
+  "recommendation": "내부검증 통과·실전 모의면접 필요",
+  "sections": {
+    "cover_letter": {
+      "score": 40,
+      "max": 40
+    },
+    "research": {
+      "score": 25,
+      "max": 25
+    },
+    "interview": {
+      "score": 16,
+      "max": 20
+    },
+    "style_safety": {
+      "score": 12,
+      "max": 15,
+      "voice_sample_status": "valid",
+      "style_warning_score": 6,
+      "actionable_style_items": 1,
+      "voice_sample_evidence": {
+        "present": true,
+        "sha256": "3fc42f36ed13607c16c9f1c20075e3bcbd850ad01fb1765f103d7cf625c3fd20",
+        "content_included": false,
+        "pii_redacted": true,
+        "evidence_artifact": "11_voice_sample_evidence.json"
+      }
+    }
+  },
+  "mock_interview_status": "not_executed",
+  "question_scores": [
+    {
+      "question_index": 1,
+      "score": {
+        "total": 100,
+        "factuality": 25,
+        "target_specificity": 20,
+        "action_result": 20,
+        "job_fit": 15,
+        "distinctiveness": 10,
+        "naturalness": 10,
+        "issues": []
+      }
+    },
+    {
+      "question_index": 2,
+      "score": {
+        "total": 100,
+        "factuality": 25,
+        "target_specificity": 20,
+        "action_result": 20,
+        "job_fit": 15,
+        "distinctiveness": 10,
+        "naturalness": 10,
+        "issues": []
+      }
+    },
+    {
+      "question_index": 3,
+      "score": {
+        "total": 100,
+        "factuality": 25,
+        "target_specificity": 20,
+        "action_result": 20,
+        "job_fit": 15,
+        "distinctiveness": 10,
+        "naturalness": 10,
+        "issues": []
+      }
+    },
+    {
+      "question_index": 4,
+      "score": {
+        "total": 100,
+        "factuality": 25,
+        "target_specificity": 20,
+        "action_result": 20,
+        "job_fit": 15,
+        "distinctiveness": 10,
+        "naturalness": 10,
+        "issues": []
+      }
+    }
+  ],
+  "issues": [
+    {
+      "category": "interview",
+      "code": "mock_interview_not_executed",
+      "severity": "medium",
+      "message": "실제 답변을 기다려 추가질문과 재시도를 수행한 모의면접 증거가 없습니다.",
+      "question_index": 0
+    },
+    {
+      "category": "style",
+      "code": "style_risk_detected",
+      "severity": "medium",
+      "message": "교열 기준을 넘는 문체 위험이 1개 문항에서 발견되었습니다.",
+      "question_index": 0
+    }
+  ]
+}

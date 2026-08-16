@@ -1,0 +1,214 @@
+{
+  "data_package_id": "CAREER-DATA-3B03F55784A4",
+  "data_package_version": "2.0",
+  "judge_mode": "KOREAN_EDITOR",
+  "evaluations": [
+    {
+      "candidate_id": "C29D6F72B",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "REVIEW_REQUIRED",
+      "hard_fail_type": null,
+      "review_required": [
+        "문항 1~3에서 동일한 자료 대조·기록·보고 경험과 행동이 반복되어 문항별 인상이 충분히 분리되지 않는다.",
+        "문항 3은 구체적이지만 확인·대조·기록·보고 행동이 촘촘하게 이어져 소리 내어 읽을 때 다소 숨이 차고 기계적인 병렬감이 있다."
+      ],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 17,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 10,
+        "experience_allocation": 3,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 4,
+        "korean_readability": 8,
+        "applicant_distinctiveness": 5,
+        "length_and_format": 2
+      },
+      "total": 92,
+      "weakness_codes": [
+        "experience_overlap",
+        "spoken_answer_risk",
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "문항 1",
+          "element_type": "company_role_connection",
+          "exact_element": "신용보증기금은 기업이 부담하는 채무를 보증해 성장유망기업의 자금 조달을 돕고, 보증신청 이후 신용조사와 보증심사를 수행하는 정책금융기관으로 이해하고 있습니다.",
+          "reason": "기관 역할을 지원 동기의 전제로 정확하게 제시하며 공식 확인 사실에 근거한다.",
+          "fact_ids": [
+            "kodit-role-20260711"
+          ]
+        },
+        {
+          "question": "문항 1",
+          "element_type": "experience_based_action",
+          "exact_element": "저는 같은 데이터를 기존 엑셀 수식과 외주 프로그램에 각각 입력해 결과를 비교한 뒤 분석 보고서를 작성한 경험이 있습니다.",
+          "reason": "자료 대조와 보고 역량을 구체적인 확인 경험으로 입증한다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "문항 3",
+          "element_type": "execution_method",
+          "exact_element": "저는 동일 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과를 비교하고 분석 보고서를 작성한 경험이 있습니다.",
+          "reason": "상시관리 업무에서 제시한 대조·기록 방식의 방어 가능한 근거다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "문항 4",
+          "element_type": "balanced_issue_analysis",
+          "exact_element": "반면 수출기업은 가격경쟁력이나 원화 환산 수익 측면에서 유리할 수 있으므로 ‘고환율이면 모든 중소기업이 피해를 본다’고 단정해서는 안 됩니다.",
+          "reason": "공식 근거의 conflict_note를 반영해 기업별 영향을 구분한다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "KOREAN_EDITOR"
+    },
+    {
+      "candidate_id": "C71941425",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "REVIEW_REQUIRED",
+      "hard_fail_type": null,
+      "review_required": [
+        "문항 4 후반부는 선별 지원·사후 점검의 취지가 반복되어 앞부분보다 문장 밀도가 떨어진다.",
+        "문항 1의 ‘보증 실무자로 성장’은 체험형 인턴의 학습 목표로는 자연스럽지만 지원자 고유의 동기보다는 다소 상투적이다."
+      ],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 17,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 6,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 4,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 5,
+        "length_and_format": 2
+      },
+      "total": 95,
+      "weakness_codes": [
+        "spoken_answer_risk",
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "문항 1",
+          "element_type": "direct_motivation",
+          "exact_element": "저는 기업의 신용을 살펴 자금조달의 연결고리를 만드는 보증 업무를 현장에서 배우고 싶어 지원했습니다.",
+          "reason": "첫 문장에서 지원 이유와 희망 직무를 직접 연결한다.",
+          "fact_ids": [
+            "kodit-role-20260711",
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "문항 1",
+          "element_type": "experience_based_contribution",
+          "exact_element": "상인 인터뷰와 타 시장 비교 분석을 진행하며 현장의 말을 자료와 함께 살펴본 경험이 있습니다.",
+          "reason": "현장 정보와 비교 자료를 함께 검토한 경험이 확인된 사실에 근거한다.",
+          "fact_ids": [
+            "clm_0ab71c1aab141b099564"
+          ]
+        },
+        {
+          "question": "문항 2",
+          "element_type": "verification_experience",
+          "exact_element": "저는 기존 엑셀 수식과 외주 프로그램에 같은 데이터를 입력한 결과를 비교하고, 그 내용을 보고서로 작성해 팀장에게 보고한 경험이 있습니다.",
+          "reason": "확인과 보고를 중시한다는 태도를 구체적 경험으로 방어할 수 있다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "문항 4",
+          "element_type": "evidence_based_issue_framing",
+          "exact_element": "한국은행은 높은 환율 변동성과 중동지역 리스크를 점검하면서 14조원 한도의 중소기업 한시 특별지원 운용기간을 재연장했습니다.",
+          "reason": "이슈의 시의성과 정책적 중요성을 공식 근거로 제시한다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "KOREAN_EDITOR"
+    },
+    {
+      "candidate_id": "C8DBD9F67",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "REVIEW_REQUIRED",
+      "hard_fail_type": null,
+      "review_required": [
+        "문항 1의 ‘기업과 기금 사이의 신뢰가 흔들리지 않도록’은 의미가 크고 추상적이어서 앞선 구체 행동보다 다소 과장되어 들린다.",
+        "문항 3의 ‘세 단계로 수행하겠습니다’ 이후 구조는 명확하지만 먼저·이후·마지막으로의 정형적 배열이 두드러진다."
+      ],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 17,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 6,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 5,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 5,
+        "length_and_format": 2
+      },
+      "total": 96,
+      "weakness_codes": [
+        "korean_style",
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "문항 1",
+          "element_type": "direct_motivation",
+          "exact_element": "기업의 가능성을 세심하게 살피는 보증 업무를 배우며, 정확한 자료 확인으로 신뢰를 보태고 싶어 지원했습니다.",
+          "reason": "지원 동기와 인턴이 수행할 수 있는 기여를 첫 문장에서 직접 제시한다.",
+          "fact_ids": [
+            "kodit-role-20260711",
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "문항 1",
+          "element_type": "experience_based_action",
+          "exact_element": "저는 기존 엑셀 수식과 외주 프로그램에 동일한 데이터를 입력한 뒤 결과를 비교해 보고서를 작성하고 팀장에게 보고한 경험이 있습니다.",
+          "reason": "자료 대조와 보고 행동이 확인된 경험 사실에 근거한다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "문항 3",
+          "element_type": "experience_based_work_method",
+          "exact_element": "저는 방대한 자료를 체계적으로 분류해 정리한 경험이 있어, 자료가 많을수록 기준을 먼저 세우는 태도의 중요성을 알고 있습니다.",
+          "reason": "자료 분류 중심의 수행계획을 확인 가능한 경험으로 뒷받침한다.",
+          "fact_ids": [
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        },
+        {
+          "question": "문항 4",
+          "element_type": "balanced_issue_analysis",
+          "exact_element": "원재료와 부품을 수입하는 기업에는 비용과 운전자금 부담을 높이는 반면, 수출기업에는 가격경쟁력 측면에서 기회가 될 수 있어 기업별 영향이 엇갈리고 정책금융의 정교한 선별이 필요하기 때문입니다.",
+          "reason": "고환율의 상반된 영향을 구분하며 공식 근거의 유의사항과 일치한다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "KOREAN_EDITOR"
+    }
+  ]
+}

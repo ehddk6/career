@@ -17,6 +17,8 @@ from urllib.parse import urlsplit
 
 
 POSTING_FRESHNESS_DAYS = 7
+MIN_QUESTION_QUALITY_SCORE = 85
+MIN_AVERAGE_QUESTION_QUALITY_SCORE = 90
 QUALITY_DIMENSIONS = (
     "profile",
     "posting",
@@ -27,6 +29,10 @@ QUALITY_DIMENSIONS = (
 )
 BLOCKER_MESSAGES = {
     "RIGOROUS_SELECTION_REQUIRED": "제출 후보는 rigorous 독립 심사를 통과해야 함",
+    "SELECTION_QUALITY_FLOOR_NOT_MET": "엄격 선발의 절대 품질 하한 또는 의미 검토가 미해결임",
+    "HUMAN_REVIEW_REQUIRED": "최종 품질 감사에서 사람 검토가 남아 있음",
+    "QUESTION_QUALITY_FLOOR_NOT_MET": "문항별 최소 85점 또는 평균 90점 기준 미달",
+    "TARGET_LENGTH_REVIEW_REQUIRED": "문항 권장 분량 검토가 남아 있음",
     "CONFIRMED_PROFILE_MISSING": "확정 경험 원장 없음",
     "OFFICIAL_POSTING_URL_MISSING_OR_INVALID": "공식 공고 URL 없음 또는 형식 오류",
     "POSTING_NOT_ACTIVE": "활성 공고 아님",
@@ -69,11 +75,15 @@ def _rigorous_selection_passed(run_dir: Path | None) -> bool:
         return False
     manifest = _load_object(run_dir / "12_최종산출물.json")
     selection = manifest.get("selection")
+    quality_floor = selection.get("quality_floor") if isinstance(selection, dict) else None
     return bool(
         isinstance(selection, dict)
         and selection.get("selection_mode") == "rigorous"
         and selection.get("status") == "passed"
         and selection.get("hard_fail") is False
+        and selection.get("review_required") is False
+        and isinstance(quality_floor, dict)
+        and quality_floor.get("passed") is True
     )
 
 
@@ -221,11 +231,42 @@ def _audit_passed(run_dir: Path | None) -> bool:
         for item in audit.get("issues", [])
         if isinstance(item, dict) and item.get("severity") == "high"
     ]
+    question_totals = [
+        item.get("score", {}).get("total")
+        for item in audit.get("question_scores", [])
+        if isinstance(item, dict) and isinstance(item.get("score"), dict)
+    ]
+    numeric_totals = [
+        float(value)
+        for value in question_totals
+        if isinstance(value, (int, float)) and not isinstance(value, bool)
+    ]
+    question_floor_passed = bool(
+        numeric_totals
+        and min(numeric_totals) >= MIN_QUESTION_QUALITY_SCORE
+        and sum(numeric_totals) / len(numeric_totals)
+        >= MIN_AVERAGE_QUESTION_QUALITY_SCORE
+    )
+    length_report = _load_object(run_dir / "07_글자수검증.json")
+    length_rows = length_report.get("rows", []) if length_report else []
+    target_lengths_passed = bool(
+        isinstance(length_rows, list)
+        and length_rows
+        and all(
+            isinstance(item, dict)
+            and item.get("hard_limit_status") == "PASS"
+            and item.get("target_status") == "PASS"
+            for item in length_rows
+        )
+    )
     return bool(
         audit.get("quality_gate") == "pass"
         and isinstance(score, (int, float))
         and score >= 90
         and not high_issues
+        and audit.get("human_review_recommended") is False
+        and question_floor_passed
+        and target_lengths_passed
     )
 
 
@@ -342,6 +383,35 @@ def assess_application_quality(
             blockers.append("INTERVIEW_PACK_NOT_VERIFIED")
         if not _rigorous_selection_passed(run_dir):
             blockers.append("RIGOROUS_SELECTION_REQUIRED")
+            selection = _load_object(run_dir / "12_최종산출물.json").get("selection")
+            if isinstance(selection, dict) and selection.get("selection_mode") == "rigorous":
+                blockers.append("SELECTION_QUALITY_FLOOR_NOT_MET")
+        audit_payload = _load_object(run_dir / "11_최종품질감사.json")
+        if audit_payload.get("human_review_recommended") is not False:
+            blockers.append("HUMAN_REVIEW_REQUIRED")
+        question_totals = [
+            item.get("score", {}).get("total")
+            for item in audit_payload.get("question_scores", [])
+            if isinstance(item, dict) and isinstance(item.get("score"), dict)
+        ]
+        numeric_totals = [
+            float(value)
+            for value in question_totals
+            if isinstance(value, (int, float)) and not isinstance(value, bool)
+        ]
+        if not numeric_totals or min(numeric_totals) < MIN_QUESTION_QUALITY_SCORE or (
+            sum(numeric_totals) / len(numeric_totals)
+            < MIN_AVERAGE_QUESTION_QUALITY_SCORE
+        ):
+            blockers.append("QUESTION_QUALITY_FLOOR_NOT_MET")
+        length_rows = _load_object(run_dir / "07_글자수검증.json").get("rows", [])
+        if not isinstance(length_rows, list) or not length_rows or any(
+            not isinstance(item, dict)
+            or item.get("hard_limit_status") != "PASS"
+            or item.get("target_status") != "PASS"
+            for item in length_rows
+        ):
+            blockers.append("TARGET_LENGTH_REVIEW_REQUIRED")
     if not _audit_passed(run_dir):
         blockers.append("FINAL_AUDIT_NOT_PASSED")
     if target.get("selected_draft") and _safe_workspace_path(root, target.get("selected_draft")) is None:

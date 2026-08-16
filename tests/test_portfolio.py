@@ -6,6 +6,7 @@ from pathlib import Path
 from career_pipeline.__main__ import main
 from career_pipeline.application_quality import assess_application_quality
 from career_pipeline.portfolio import build_portfolio
+from tests.test_v2_prepare import write_profile
 
 
 def _seed_review(tmp_path: Path, *, score: float = 100.0, recommendation: str = "제출권장") -> Path:
@@ -121,9 +122,12 @@ def test_portfolio_applies_verified_target_but_requires_audit_for_ready(tmp_path
 
 def test_portfolio_ready_requires_all_six_quality_gates(tmp_path: Path):
     review = _seed_review(tmp_path)
+    source = tmp_path / "career.txt"
+    source.write_text(
+        "자료를 교차 확인해 의심 사례 20건을 발견했습니다.", encoding="utf-8"
+    )
+    write_profile(tmp_path, source)
     profile = tmp_path / ".career_profile"
-    profile.mkdir()
-    (profile / "experience_ledger.json").write_text("{}", encoding="utf-8")
     run = tmp_path / "career_runs" / "verified"
     run.mkdir(parents=True)
     (run / "run.json").write_text(
@@ -155,6 +159,8 @@ def test_portfolio_ready_requires_all_six_quality_gates(tmp_path: Path):
                         "selection_mode": "rigorous",
                         "status": "passed",
                         "hard_fail": False,
+                        "review_required": False,
+                        "quality_floor": {"passed": True},
                     },
                 },
             ensure_ascii=False,
@@ -164,14 +170,32 @@ def test_portfolio_ready_requires_all_six_quality_gates(tmp_path: Path):
     (run / "08_면접대비팩.md").write_text("# 면접팩", encoding="utf-8")
     (run / "11_최종품질감사.json").write_text(
         json.dumps(
-            {
-                "internal_validation_score": 99,
-                "quality_gate": "pass",
-                "issues": [],
-                "sections": {
+                {
+                    "internal_validation_score": 99,
+                    "quality_gate": "pass",
+                    "human_review_recommended": False,
+                    "issues": [],
+                    "question_scores": [
+                        {"question_index": 1, "score": {"total": 90}}
+                    ],
+                    "sections": {
                     "research": {"score": 25, "max": 25},
                     "interview": {"score": 20, "max": 20},
                 },
+            }
+        ),
+        encoding="utf-8",
+    )
+    (run / "07_글자수검증.json").write_text(
+        json.dumps(
+            {
+                "rows": [
+                    {
+                        "question_index": 1,
+                        "hard_limit_status": "PASS",
+                        "target_status": "PASS",
+                    }
+                ]
             }
         ),
         encoding="utf-8",

@@ -1,0 +1,188 @@
+{
+  "data_package_id": "SOL-DATA-EXT-001",
+  "data_package_version": "1.0",
+  "judge_mode": "KOREAN_EDITOR",
+  "evaluations": [
+    {
+      "candidate_id": "M7",
+      "judge_mode": "KOREAN_EDITOR",
+      "hard_fail_status": "REVIEW_REQUIRED",
+      "hard_fail_type": null,
+      "hard_fail_reasons": [],
+      "review_required": [
+        "Q2의 상세 표현은 원문 범위를 넘지 않는지 확인이 필요하다."
+      ],
+      "scores": {
+        "question_fidelity": 20,
+        "fact_accuracy": 18,
+        "job_relevance": 14,
+        "action_specificity": 15,
+        "experience_allocation": 9,
+        "interview_defensibility": 9,
+        "korean_readability": 4,
+        "applicant_distinctiveness": 3,
+        "length_and_format": 2
+      },
+      "total": 94,
+      "strongest_point": "Q2의 자료 기반 계획 조정 경험이 차별적이다.",
+      "largest_risk": "Q1은 공익 일반론으로 시작하고 Q2 상세 표현은 근거보다 구체적이다.",
+      "question_notes": {
+        "q1": "개인 경험에서 바로 시작하지 않아 동기의 선명도가 약하다.",
+        "q2": "현황 확인과 기준 조정 태도는 좋다.",
+        "q3": "구체적이나 마지막 보충 문장이 겹친다.",
+        "q4": "균형은 좋지만 정책 메모처럼 읽힌다."
+      },
+      "transferable_elements": [
+        {
+          "question": "q1",
+          "element_type": "fact_grounded_experience",
+          "exact_element": "동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 입력해 결과 비교 분석 보고서를 작성하고 팀장에게 보고한 경험",
+          "reason": "직무 적합성의 출발점으로 쓰기 좋다.",
+          "fact_ids": ["F01"]
+        },
+        {
+          "question": "q3",
+          "element_type": "authority_boundary",
+          "exact_element": "제 판단을 보태지 않은 채 근거와 함께 담당자에게 보고하겠습니다",
+          "reason": "업무 계획을 인턴 범위에 둔다.",
+          "fact_ids": ["F03", "F04"]
+        }
+      ]
+    },
+    {
+      "candidate_id": "R8",
+      "judge_mode": "KOREAN_EDITOR",
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "hard_fail_reasons": [],
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 20,
+        "fact_accuracy": 19,
+        "job_relevance": 15,
+        "action_specificity": 14,
+        "experience_allocation": 10,
+        "interview_defensibility": 9,
+        "korean_readability": 4,
+        "applicant_distinctiveness": 2,
+        "length_and_format": 2
+      },
+      "total": 95,
+      "strongest_point": "문항별 경험 역할이 분명하고 사실 경계를 대체로 지켰다.",
+      "largest_risk": "안전한 대신 모범답안형이고 Q4 용어 밀도가 높다.",
+      "question_notes": {
+        "q1": "구성은 안정적이나 첫 문장은 정석적이다.",
+        "q2": "F08을 무리 없이 활용했다.",
+        "q3": "권한 경계와 인계 계획이 좋다.",
+        "q4": "내용은 안정적이나 정책 메모처럼 느껴질 수 있다."
+      },
+      "transferable_elements": [
+        {
+          "question": "q2",
+          "element_type": "experience_selection",
+          "exact_element": "상인 50명을 인터뷰하고 5개 다른 시장을 비교해 문제점과 개선 방안을 도출한 경험",
+          "reason": "경청과 기준 확인 태도를 뒷받침한다.",
+          "fact_ids": ["F08"]
+        },
+        {
+          "question": "q3",
+          "element_type": "authority_boundary",
+          "exact_element": "확인한 사실-근거 자료-문의할 내용 순서로 정리해 보고하겠습니다",
+          "reason": "사실과 판단을 구분한다.",
+          "fact_ids": ["F13"]
+        }
+      ]
+    },
+    {
+      "candidate_id": "P2",
+      "judge_mode": "KOREAN_EDITOR",
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "hard_fail_reasons": [],
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 20,
+        "fact_accuracy": 19,
+        "job_relevance": 15,
+        "action_specificity": 15,
+        "experience_allocation": 10,
+        "interview_defensibility": 10,
+        "korean_readability": 5,
+        "applicant_distinctiveness": 3,
+        "length_and_format": 2
+      },
+      "total": 99,
+      "strongest_point": "문항별 첫 문장과 경험 배분이 가장 선명하다.",
+      "largest_risk": "Q3·Q4의 절차가 촘촘해 매뉴얼처럼 보일 수 있다.",
+      "question_notes": {
+        "q1": "지원동기를 가장 직접적으로 제시한다.",
+        "q2": "경청·확인·피드백 흐름이 매끄럽다.",
+        "q3": "F03·F04와 권한 경계가 설득력 있다.",
+        "q4": "공식 근거와 지원자 제안이 비교적 잘 분리된다."
+      },
+      "transferable_elements": [
+        {
+          "question": "q3",
+          "element_type": "experience_selection",
+          "exact_element": "지급결정서·추납·분납 자료 3,000쪽을 이틀 안에 정리하는 과제를 기한 내 마치고 불필요한 전화 업무를 줄인 경험",
+          "reason": "기한 준수와 대량자료 처리 경험을 직무에 연결한다.",
+          "fact_ids": ["F03", "F04"]
+        },
+        {
+          "question": "q4",
+          "element_type": "issue_boundary",
+          "exact_element": "수입 투입 비중, 결제 통화, 대금 회수 시점에 따라 같은 업종에서도 영향은 달라집니다",
+          "reason": "기업별 영향 차이를 분명히 한다.",
+          "fact_ids": []
+        }
+      ]
+    },
+    {
+      "candidate_id": "C3",
+      "judge_mode": "KOREAN_EDITOR",
+      "hard_fail_status": "REVIEW_REQUIRED",
+      "hard_fail_type": null,
+      "hard_fail_reasons": [],
+      "review_required": [
+        "Q4의 보증료 지원과 협약기관 정보 대조는 제안임을 더 분명히 해야 한다."
+      ],
+      "scores": {
+        "question_fidelity": 20,
+        "fact_accuracy": 18,
+        "job_relevance": 14,
+        "action_specificity": 14,
+        "experience_allocation": 10,
+        "interview_defensibility": 8,
+        "korean_readability": 4,
+        "applicant_distinctiveness": 2,
+        "length_and_format": 2
+      },
+      "total": 92,
+      "strongest_point": "보증 인턴의 보조 역할을 벗어나지 않으면서 실제 흐름을 그린다.",
+      "largest_risk": "Q4의 공식 근거와 개인 제안 경계가 흐리다.",
+      "question_notes": {
+        "q1": "정형적 표현으로 개인 동기의 온도가 낮다.",
+        "q2": "확인·기록·공유 구조가 반복된다.",
+        "q3": "구체적이나 매뉴얼처럼 읽힌다.",
+        "q4": "제안과 현행 제도의 경계를 더 밝혀야 한다."
+      },
+      "transferable_elements": [
+        {
+          "question": "q3",
+          "element_type": "authority_boundary",
+          "exact_element": "보증 여부나 기업 신용을 판단하지 않겠습니다",
+          "reason": "인턴 권한 경계를 명시한다.",
+          "fact_ids": ["F13"]
+        },
+        {
+          "question": "q2",
+          "element_type": "experience_selection",
+          "exact_element": "상인 50명을 인터뷰하고 5개 다른 시장을 비교해 문제점과 개선 방안을 도출한 경험",
+          "reason": "새 조직 적응 태도의 근거로 적합하다.",
+          "fact_ids": ["F08"]
+        }
+      ]
+    }
+  ]
+}
+

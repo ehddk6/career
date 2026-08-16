@@ -107,6 +107,9 @@ def write_submission_ready_run(run_dir: Path) -> None:
         "저는 의심 사례 20건을 접수한 뒤 계약서, 납부 내역, 민원 기록을 항목별로 대조하고 오류 원인을 담당자와 확인했습니다. "
         "그 결과 누락 기준을 표로 정리해 검토 흐름을 개선했고, 보증심사 자료 검토 업무에서도 같은 방식으로 위험 신호를 먼저 확인하겠습니다. "
         "또한 확인된 사실과 추정을 분리해 기록하고, 고객에게는 필요한 서류와 다음 절차를 쉬운 표현으로 안내하겠습니다. "
+        "업무 전에는 필수 확인 항목을 체크리스트로 만들고, 판단이 필요한 건은 근거와 함께 담당자에게 전달하겠습니다. "
+        "접수 자료의 기준일과 필수 항목을 먼저 맞춘 뒤 계약서와 납부 내역의 불일치를 구분하겠습니다. "
+        "확인이 끝난 항목에는 근거를 남기고, 임의로 판단할 수 없는 내용은 원자료와 질문을 함께 정리해 보고하겠습니다. "
         "이 경험을 바탕으로 HUG의 보증 업무에서 정확성과 고객 신뢰를 함께 높이겠습니다."
     )
     draft = [
@@ -295,7 +298,7 @@ def test_audit_penalizes_actionable_style_risk(tmp_path: Path):
     assert "style_risk_detected" in {item["code"] for item in audit["issues"]}
 
 
-def test_audit_cli_returns_success_for_90_or_higher(tmp_path: Path):
+def test_audit_cli_returns_success_only_when_score_and_review_gate_pass(tmp_path: Path):
     write_submission_ready_run(tmp_path)
 
     assert main(["audit", "--run", str(tmp_path)]) == 0

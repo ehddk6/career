@@ -1,0 +1,366 @@
+{
+  "enabled": true,
+  "contract_version": "2026-07-15",
+  "data_package_id": "CAREER-DATA-585CEFB0E812",
+  "data_package_version": "1.0",
+  "company_path": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\project\\contracts-init-check\\04_기업직무조사.json",
+  "interview_path": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\project\\contracts-init-check\\08_면접대비팩.json",
+  "hard_fail": true,
+  "review_required": true,
+  "issues": [
+    {
+      "code": "invalid_research_cutoff_date",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "research_cutoff_date는 YYYY-MM-DD 형식이어야 합니다."
+    },
+    {
+      "code": "missing_legal_entity",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "정확한 채용 법인명이 없습니다."
+    },
+    {
+      "code": "unverified_legal_entity",
+      "severity": "REVIEW_REQUIRED",
+      "artifact": "04_기업직무조사.json",
+      "message": "법인·브랜드·사업부 관계를 확인해야 합니다."
+    },
+    {
+      "code": "missing_source_manifest",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "회사조사 출처 원장이 비어 있습니다."
+    },
+    {
+      "code": "missing_company_claim_ledger",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "회사조사 주장 원장이 비어 있습니다."
+    },
+    {
+      "code": "incomplete_business_model",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "business_model.core_customers가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_business_model",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "business_model.customer_problem가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_business_model",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "business_model.value_proposition가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_business_model",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "business_model.revenue_logic가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_business_model",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "business_model.major_costs가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_business_model",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "business_model.critical_risks가 비어 있습니다."
+    },
+    {
+      "code": "missing_strategy_execution",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "전략 발표·자원 투입·실행·성과 단계가 없습니다."
+    },
+    {
+      "code": "missing_role_value_map",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "회사 과제와 지원 직무의 연결 지도가 없습니다."
+    },
+    {
+      "code": "incomplete_applicant_bridge",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "applicant_bridge.requirement가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_applicant_bridge",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "applicant_bridge.requirement가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_applicant_bridge",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "applicant_bridge.requirement가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_applicant_bridge",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "applicant_bridge.requirement가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_applicant_bridge",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "applicant_bridge.requirement가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_applicant_bridge",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "applicant_bridge.requirement가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_applicant_bridge",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "applicant_bridge.requirement가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_applicant_bridge",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "applicant_bridge.requirement가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_applicant_bridge",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "applicant_bridge.requirement가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_applicant_bridge",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "applicant_bridge.requirement가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_applicant_bridge",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "applicant_bridge.requirement가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_applicant_bridge",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "applicant_bridge.requirement가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_applicant_bridge",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "applicant_bridge.requirement가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_applicant_bridge",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "applicant_bridge.requirement가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_applicant_bridge",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "applicant_bridge.requirement가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_applicant_bridge",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "applicant_bridge.requirement가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_applicant_bridge",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "applicant_bridge.requirement가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_applicant_bridge",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "applicant_bridge.requirement가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_applicant_bridge",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "applicant_bridge.requirement가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_applicant_bridge",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "applicant_bridge.requirement가 비어 있습니다."
+    },
+    {
+      "code": "missing_financial_analysis_reason",
+      "severity": "REVIEW_REQUIRED",
+      "artifact": "04_기업직무조사.json",
+      "message": "financial_analysis을 분석하지 않은 이유가 필요합니다."
+    },
+    {
+      "code": "missing_competitor_analysis_reason",
+      "severity": "REVIEW_REQUIRED",
+      "artifact": "04_기업직무조사.json",
+      "message": "competitor_analysis을 분석하지 않은 이유가 필요합니다."
+    },
+    {
+      "code": "missing_culture_analysis_reason",
+      "severity": "REVIEW_REQUIRED",
+      "artifact": "04_기업직무조사.json",
+      "message": "culture_analysis을 분석하지 않은 이유가 필요합니다."
+    },
+    {
+      "code": "incomplete_first_90_days",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "first_90_days.days_0_30가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_first_90_days",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "first_90_days.days_31_60가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_first_90_days",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "first_90_days.days_61_90가 비어 있습니다."
+    },
+    {
+      "code": "missing_company_counterargument",
+      "severity": "REVIEW_REQUIRED",
+      "artifact": "04_기업직무조사.json",
+      "message": "가장 강한 반대 해석이 없습니다."
+    },
+    {
+      "code": "missing_company_unknowns",
+      "severity": "REVIEW_REQUIRED",
+      "artifact": "04_기업직무조사.json",
+      "message": "핵심 불확실성이 기록되지 않았습니다."
+    },
+    {
+      "code": "incomplete_application_decision",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "decision.main_reason가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_application_decision",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "decision.strongest_support가 비어 있습니다."
+    },
+    {
+      "code": "incomplete_application_decision",
+      "severity": "HARD_FAIL",
+      "artifact": "04_기업직무조사.json",
+      "message": "decision.strongest_counterargument가 비어 있습니다."
+    },
+    {
+      "code": "submitted_claim_not_linked",
+      "severity": "HARD_FAIL",
+      "artifact": "08_면접대비팩.json",
+      "message": "문항 2의 경험 참조가 면접 패킷에 누락되었습니다: exp_6841c9278134a4c9"
+    },
+    {
+      "code": "submitted_claim_not_linked",
+      "severity": "HARD_FAIL",
+      "artifact": "08_면접대비팩.json",
+      "message": "문항 2의 경험 claim 참조가 면접 패킷에 누락되었습니다: clm_ee52e4b4eb158c123a20"
+    },
+    {
+      "code": "submitted_claim_not_linked",
+      "severity": "HARD_FAIL",
+      "artifact": "08_면접대비팩.json",
+      "message": "문항 3의 경험 참조가 면접 패킷에 누락되었습니다: exp_a07fd710e2b7c0c2"
+    },
+    {
+      "code": "submitted_claim_not_linked",
+      "severity": "HARD_FAIL",
+      "artifact": "08_면접대비팩.json",
+      "message": "문항 3의 경험 claim 참조가 면접 패킷에 누락되었습니다: clm_abaa19a532d1aabc9140"
+    },
+    {
+      "code": "missing_document_consistency",
+      "severity": "REVIEW_REQUIRED",
+      "artifact": "08_면접대비팩.json",
+      "message": "이력서·자기소개서·경력기술서 간 표현 차이와 모순 감사가 없습니다."
+    },
+    {
+      "code": "competency_count_review",
+      "severity": "REVIEW_REQUIRED",
+      "artifact": "08_면접대비팩.json",
+      "message": "핵심 역량은 4~6개로 압축하는 편이 좋습니다."
+    },
+    {
+      "code": "insufficient_defense_depth",
+      "severity": "HARD_FAIL",
+      "artifact": "08_면접대비팩.json",
+      "message": "exp_9e97f274590a323b는 D3 이상이어야 합니다."
+    },
+    {
+      "code": "incomplete_experience_defense",
+      "severity": "HARD_FAIL",
+      "artifact": "08_면접대비팩.json",
+      "message": "exp_9e97f274590a323b의 직접 행동과 판단 기준이 필요합니다."
+    },
+    {
+      "code": "missing_experience_defense",
+      "severity": "HARD_FAIL",
+      "artifact": "08_면접대비팩.json",
+      "message": "핵심 경험 exp_a07fd710e2b7c0c2의 방어 원장이 없습니다."
+    },
+    {
+      "code": "missing_experience_defense",
+      "severity": "HARD_FAIL",
+      "artifact": "08_면접대비팩.json",
+      "message": "핵심 경험 exp_6841c9278134a4c9의 방어 원장이 없습니다."
+    },
+    {
+      "code": "missing_tier1_coverage",
+      "severity": "HARD_FAIL",
+      "artifact": "08_면접대비팩.json",
+      "message": "필수 면접 영역이 누락되었습니다: collaboration, company_choice, conflict, core_numbers, failure, first_90_days, job_choice, motivation, representative_experience, self_intro, strength, weakness"
+    },
+    {
+      "code": "thin_tier1_question_set",
+      "severity": "REVIEW_REQUIRED",
+      "artifact": "08_면접대비팩.json",
+      "message": "TIER 1 질문이 10개보다 적습니다."
+    },
+    {
+      "code": "thin_core_question_set",
+      "severity": "REVIEW_REQUIRED",
+      "artifact": "08_면접대비팩.json",
+      "message": "핵심 질문 세트가 25개보다 적습니다."
+    },
+    {
+      "code": "reverse_question_count_review",
+      "severity": "REVIEW_REQUIRED",
+      "artifact": "08_면접대비팩.json",
+      "message": "우선 역질문은 2~3개가 적절합니다."
+    },
+    {
+      "code": "missing_day_of_checklist",
+      "severity": "HARD_FAIL",
+      "artifact": "08_면접대비팩.json",
+      "message": "면접 당일 체크리스트가 없습니다."
+    }
+  ]
+}

@@ -1,0 +1,3204 @@
+{
+  "schema_version": 2,
+  "contract_version": "2026-07-15",
+  "data_package_id": "CAREER-DATA-02B036CBE425",
+  "data_package_version": "2.0",
+  "submitted_claims": [
+    {
+      "question_index": 1,
+      "experience_ids": [
+        "exp_9e97f274590a323b"
+      ],
+      "experience_claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "question_index": 2,
+      "experience_ids": [
+        "exp_a07fd710e2b7c0c2"
+      ],
+      "experience_claim_ids": [
+        "clm_abaa19a532d1aabc9140"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "question_index": 3,
+      "experience_ids": [
+        "exp_3279ca654f7e0e37"
+      ],
+      "experience_claim_ids": [
+        "clm_5e91929d8d87322e2c70"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "question_index": 4,
+      "experience_ids": [],
+      "experience_claim_ids": [],
+      "research_claim_ids": [
+        "bok-fx-risk-20260711",
+        "kodit-liquidity-support-20260711"
+      ],
+      "status": "CONFIRMED"
+    }
+  ],
+  "document_consistency": [
+    {
+      "item": "자기소개서 경험·수치·기관·직무 참조",
+      "status": "CONSISTENT",
+      "response_strategy": "최종 동결 draft와 경험·공식 근거 ID를 기준으로 답변한다."
+    }
+  ],
+  "interview_architecture": {
+    "stage": {
+      "value": "공식 공고에서 확인되지 않음",
+      "status": "UNKNOWN",
+      "evidence": "동결된 공고에 명시 없음"
+    },
+    "format": {
+      "value": "공식 공고에서 확인되지 않음",
+      "status": "UNKNOWN",
+      "evidence": "동결된 공고에 명시 없음"
+    },
+    "duration": {
+      "value": "공식 공고에서 확인되지 않음",
+      "status": "UNKNOWN",
+      "evidence": "동결된 공고에 명시 없음"
+    },
+    "panel": {
+      "value": "공식 공고에서 확인되지 않음",
+      "status": "UNKNOWN",
+      "evidence": "동결된 공고에 명시 없음"
+    },
+    "presentation": {
+      "value": "공식 공고에서 확인되지 않음",
+      "status": "UNKNOWN",
+      "evidence": "동결된 공고에 명시 없음"
+    },
+    "case": {
+      "value": "공식 공고에서 확인되지 않음",
+      "status": "UNKNOWN",
+      "evidence": "동결된 공고에 명시 없음"
+    },
+    "group_discussion": {
+      "value": "공식 공고에서 확인되지 않음",
+      "status": "UNKNOWN",
+      "evidence": "동결된 공고에 명시 없음"
+    }
+  },
+  "competencies": [
+    {
+      "competency_id": "accuracy",
+      "definition": "근거와 기준을 대조해 오류·누락을 줄이는 역량",
+      "observable_behaviors": [
+        "원자료 대조",
+        "예외 기록",
+        "재점검"
+      ]
+    },
+    {
+      "competency_id": "communication",
+      "definition": "진행 상태와 판단이 필요한 사항을 제때 공유하는 역량",
+      "observable_behaviors": [
+        "질문 묶음 정리",
+        "진행 보고",
+        "인계 기록"
+      ]
+    },
+    {
+      "competency_id": "boundary",
+      "definition": "권한과 확인되지 않은 범위를 구분하는 역량",
+      "observable_behaviors": [
+        "추정과 사실 구분",
+        "승인 요청",
+        "한계 설명"
+      ]
+    },
+    {
+      "competency_id": "adaptation",
+      "definition": "피드백을 업무 기준과 반복 행동으로 바꾸는 역량",
+      "observable_behaviors": [
+        "업무 용어 정리",
+        "피드백 체크리스트",
+        "재발 방지"
+      ]
+    }
+  ],
+  "experience_defense": [
+    {
+      "experience_id": "exp_3279ca654f7e0e37",
+      "depth": "D3",
+      "defense_status": "DEFENSIBLE",
+      "claim_ids": [
+        "clm_5e91929d8d87322e2c70"
+      ],
+      "confirmed_scope": "이 경험을 살려 자료별 출처, 처리 단계, 확인 여부를 표시하고, 같은 자료를 다시 볼 때도 흐름을 놓치지 않겠습니다.",
+      "unconfirmed_scope": [
+        "claim에 없는 수치의 산식·측정기간",
+        "팀 전체 결과 중 원장에 없는 개인 기여",
+        "당시 최종 승인자의 판단 근거"
+      ],
+      "direct_actions": [
+        "이 경험을 살려 자료별 출처, 처리 단계, 확인 여부를 표시하고, 같은 자료를 다시 볼 때도 흐름을 놓치지 않겠습니다."
+      ],
+      "judgment_standards": [
+        "원자료와 처리 결과의 일치 여부",
+        "기한·정확성·보고 필요성을 함께 확인"
+      ],
+      "metric_defense": {
+        "required": false,
+        "rule": "수치의 기준값·결과값·산식·측정기간·개인 기여를 모두 설명할 수 있을 때만 발화"
+      },
+      "prohibited_claims": [
+        "원장 claim에 없는 30%·90% 등 성과 수치",
+        "팀 결과를 개인이 단독으로 만든 성과라는 표현",
+        "인턴이 보증 승인·신용판단을 내린다는 표현"
+      ],
+      "red_team_questions": [
+        "이 행동의 원자료는 무엇입니까?",
+        "팀 결과와 직접 행동을 구분하면 어디까지입니까?",
+        "같은 상황에서 결과가 달랐다면 무엇을 먼저 확인합니까?"
+      ],
+      "limitations": [
+        "최종 판단·승인 권한과 본인의 보조 행동을 구분해 설명",
+        "원장에 수치 산식이 없으면 숫자를 말하지 않고 행동만 설명"
+      ]
+    },
+    {
+      "experience_id": "exp_9e97f274590a323b",
+      "depth": "D3",
+      "defense_status": "DEFENSIBLE",
+      "claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "confirmed_scope": "동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과 비교 분석 보고서를 작성해 보고한 경험이 있습니다.",
+      "unconfirmed_scope": [
+        "claim에 없는 수치의 산식·측정기간",
+        "팀 전체 결과 중 원장에 없는 개인 기여",
+        "당시 최종 승인자의 판단 근거"
+      ],
+      "direct_actions": [
+        "동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과 비교 분석 보고서를 작성해 보고한 경험이 있습니다."
+      ],
+      "judgment_standards": [
+        "원자료와 처리 결과의 일치 여부",
+        "기한·정확성·보고 필요성을 함께 확인"
+      ],
+      "metric_defense": {
+        "required": false,
+        "rule": "수치의 기준값·결과값·산식·측정기간·개인 기여를 모두 설명할 수 있을 때만 발화"
+      },
+      "prohibited_claims": [
+        "원장 claim에 없는 30%·90% 등 성과 수치",
+        "팀 결과를 개인이 단독으로 만든 성과라는 표현",
+        "인턴이 보증 승인·신용판단을 내린다는 표현"
+      ],
+      "red_team_questions": [
+        "이 행동의 원자료는 무엇입니까?",
+        "팀 결과와 직접 행동을 구분하면 어디까지입니까?",
+        "같은 상황에서 결과가 달랐다면 무엇을 먼저 확인합니까?"
+      ],
+      "limitations": [
+        "최종 판단·승인 권한과 본인의 보조 행동을 구분해 설명",
+        "원장에 수치 산식이 없으면 숫자를 말하지 않고 행동만 설명"
+      ]
+    },
+    {
+      "experience_id": "exp_a07fd710e2b7c0c2",
+      "depth": "D4",
+      "defense_status": "DEFENSIBLE_WITH_QUALIFICATION",
+      "claim_ids": [
+        "clm_abaa19a532d1aabc9140"
+      ],
+      "confirmed_scope": "저는 상인 인터뷰와 5개 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험이 있습니다.",
+      "unconfirmed_scope": [
+        "claim에 없는 수치의 산식·측정기간",
+        "팀 전체 결과 중 원장에 없는 개인 기여",
+        "당시 최종 승인자의 판단 근거"
+      ],
+      "direct_actions": [
+        "저는 상인 인터뷰와 5개 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험이 있습니다."
+      ],
+      "judgment_standards": [
+        "원자료와 처리 결과의 일치 여부",
+        "기한·정확성·보고 필요성을 함께 확인"
+      ],
+      "metric_defense": {
+        "required": true,
+        "rule": "수치의 기준값·결과값·산식·측정기간·개인 기여를 모두 설명할 수 있을 때만 발화"
+      },
+      "prohibited_claims": [
+        "원장 claim에 없는 30%·90% 등 성과 수치",
+        "팀 결과를 개인이 단독으로 만든 성과라는 표현",
+        "인턴이 보증 승인·신용판단을 내린다는 표현"
+      ],
+      "red_team_questions": [
+        "이 행동의 원자료는 무엇입니까?",
+        "팀 결과와 직접 행동을 구분하면 어디까지입니까?",
+        "같은 상황에서 결과가 달랐다면 무엇을 먼저 확인합니까?"
+      ],
+      "limitations": [
+        "최종 판단·승인 권한과 본인의 보조 행동을 구분해 설명",
+        "원장에 수치 산식이 없으면 숫자를 말하지 않고 행동만 설명"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "question_id": "Q1",
+      "question": "1분 자기소개를 해 주십시오.",
+      "question_type": "RECRUITER",
+      "tier": 1,
+      "probability": "HIGH",
+      "selection_rationale": "첫 답변에서 핵심 경험과 직무 연결을 함께 확인",
+      "competency_ids": [
+        "accuracy"
+      ],
+      "experience_ids": [
+        "exp_9e97f274590a323b"
+      ],
+      "coverage_tags": [
+        "self_intro"
+      ],
+      "evidence_scope": "SUBMITTED_DRAFT",
+      "source_question_indexes": [
+        1
+      ],
+      "answer_anchor": "동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과 비교 분석 보고서를 작성해 보고한 경험이 있습니다. 이 경험에서 확인·기록을 습관화했고, 이를 체험형 청년인턴1(보증) 업무에 연결하겠습니다.",
+      "confirmed_evidence": [
+        "clm_3e69991c9b56d728b429",
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "answer_boundary": "확인·기록·보고까지만 말하고 승인·심사 권한과 미검증 수치는 주장하지 않음"
+    },
+    {
+      "question_id": "Q2",
+      "question": "왜 신용보증기금이고 왜 보증 분야 청년인턴입니까?",
+      "question_type": "RECRUITER",
+      "tier": 1,
+      "probability": "HIGH",
+      "selection_rationale": "기관 선택 근거와 보증 인턴 지원 이유를 분리 확인",
+      "competency_ids": [
+        "communication"
+      ],
+      "experience_ids": [
+        "exp_9e97f274590a323b"
+      ],
+      "coverage_tags": [
+        "motivation"
+      ],
+      "evidence_scope": "SUBMITTED_DRAFT",
+      "source_question_indexes": [
+        1
+      ],
+      "answer_anchor": "신용보증기금 청년인턴에 지원한 이유는 기업의 자금 조달을 돕는 보증 업무를 단순 지원이 아니라, 신용조사와 보증심사를 통해 신뢰를 세우는 일로 보았기 때문입니다.",
+      "confirmed_evidence": [
+        "clm_3e69991c9b56d728b429",
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "answer_boundary": "확인·기록·보고까지만 말하고 승인·심사 권한과 미검증 수치는 주장하지 않음"
+    },
+    {
+      "question_id": "Q3",
+      "question": "신용보증기금의 역할을 본인 말로 설명해 주십시오.",
+      "question_type": "RECRUITER",
+      "tier": 1,
+      "probability": "HIGH",
+      "selection_rationale": "기관 역할을 홍보 문구가 아닌 공식 기능으로 설명하는지 확인",
+      "competency_ids": [
+        "boundary"
+      ],
+      "experience_ids": [],
+      "coverage_tags": [
+        "company_choice"
+      ],
+      "evidence_scope": "SUBMITTED_DRAFT",
+      "source_question_indexes": [
+        1
+      ],
+      "answer_anchor": "신용보증기금은 기업이 부담하는 채무를 보증해 성장유망기업을 지원하고, 보증신청 뒤 신용조사와 보증심사를 수행한다고 이해했습니다.",
+      "confirmed_evidence": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "answer_boundary": "확인·기록·보고까지만 말하고 승인·심사 권한과 미검증 수치는 주장하지 않음"
+    },
+    {
+      "question_id": "Q4",
+      "question": "신용보증 기한연장과 기업신용 상시관리 업무를 어떻게 이해합니까?",
+      "question_type": "RECRUITER",
+      "tier": 1,
+      "probability": "HIGH",
+      "selection_rationale": "기한연장·상시관리 업무와 인턴 권한 경계를 확인",
+      "competency_ids": [
+        "adaptation"
+      ],
+      "experience_ids": [
+        "exp_3279ca654f7e0e37"
+      ],
+      "coverage_tags": [
+        "job_choice"
+      ],
+      "evidence_scope": "SUBMITTED_DRAFT",
+      "source_question_indexes": [
+        3
+      ],
+      "answer_anchor": "신용보증기금 청년인턴으로 근무한다면 초기 학습, 실행, 점검의 순서로 업무를 수행하겠습니다.",
+      "confirmed_evidence": [
+        "clm_5e91929d8d87322e2c70",
+        "kodit-intern-duty-20260711"
+      ],
+      "answer_boundary": "확인·기록·보고까지만 말하고 승인·심사 권한과 미검증 수치는 주장하지 않음"
+    },
+    {
+      "question_id": "Q5",
+      "question": "결과 비교 분석 보고서 경험에서 본인이 직접 한 행동과 직무 강점을 설명해 주십시오.",
+      "question_type": "HIRING_MANAGER",
+      "tier": 1,
+      "probability": "HIGH",
+      "selection_rationale": "최종 제출본의 핵심 경험과 직접 행동을 검증",
+      "competency_ids": [
+        "accuracy"
+      ],
+      "experience_ids": [
+        "exp_9e97f274590a323b"
+      ],
+      "coverage_tags": [
+        "representative_experience"
+      ],
+      "evidence_scope": "SUBMITTED_DRAFT",
+      "source_question_indexes": [
+        1
+      ],
+      "answer_anchor": "동일한 데이터를 엑셀 수식과 외주 프로그램에 넣어 결과를 비교하고, 분석 보고서를 작성해 팀장에게 보고했습니다.",
+      "confirmed_evidence": [
+        "clm_3e69991c9b56d728b429",
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "answer_boundary": "확인·기록·보고까지만 말하고 승인·심사 권한과 미검증 수치는 주장하지 않음"
+    },
+    {
+      "question_id": "Q6",
+      "question": "자료 대조 결과가 예상과 다르거나 불일치를 발견하면 어떤 순서로 대응하겠습니까?",
+      "question_type": "HIRING_MANAGER",
+      "tier": 1,
+      "probability": "HIGH",
+      "selection_rationale": "자료 불일치 상황의 확인·보고 순서를 검증",
+      "competency_ids": [
+        "communication"
+      ],
+      "experience_ids": [],
+      "coverage_tags": [
+        "failure"
+      ],
+      "evidence_scope": "SUBMITTED_DRAFT",
+      "source_question_indexes": [
+        2
+      ],
+      "answer_anchor": "자료 불일치를 발견하면 영향 범위를 표시하고 원문·기준일·입력 이력을 대조한 뒤, 임의로 고치지 않고 차이와 근거를 담당자에게 보고하겠습니다.",
+      "confirmed_evidence": [],
+      "answer_boundary": "확인·기록·보고까지만 말하고 승인·심사 권한과 미검증 수치는 주장하지 않음"
+    },
+    {
+      "question_id": "Q7",
+      "question": "같은 데이터를 두 방식으로 처리한 결과를 비교할 때 무엇을 확인하고 어떻게 보고했습니까?",
+      "question_type": "HIRING_MANAGER",
+      "tier": 1,
+      "probability": "HIGH",
+      "selection_rationale": "비교 결과의 조건 통제와 보고 근거를 검증",
+      "competency_ids": [
+        "boundary"
+      ],
+      "experience_ids": [
+        "exp_9e97f274590a323b"
+      ],
+      "coverage_tags": [
+        "conflict"
+      ],
+      "evidence_scope": "SUBMITTED_DRAFT",
+      "source_question_indexes": [
+        1
+      ],
+      "answer_anchor": "결과 비교에서는 입력값·수식·기준을 대조하고, 확인한 차이와 근거를 보고서로 정리해 담당자에게 보고하겠습니다.",
+      "confirmed_evidence": [
+        "clm_3e69991c9b56d728b429",
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "answer_boundary": "확인·기록·보고까지만 말하고 승인·심사 권한과 미검증 수치는 주장하지 않음"
+    },
+    {
+      "question_id": "Q8",
+      "question": "현장 의견과 비교 자료를 함께 다룬 경험에서 본인의 역할과 배운 점은 무엇입니까?",
+      "question_type": "HIRING_MANAGER",
+      "tier": 1,
+      "probability": "HIGH",
+      "selection_rationale": "현장 의견과 비교 자료를 함께 다룬 역할을 검증",
+      "competency_ids": [
+        "adaptation"
+      ],
+      "experience_ids": [
+        "exp_a07fd710e2b7c0c2"
+      ],
+      "coverage_tags": [
+        "collaboration"
+      ],
+      "evidence_scope": "SUBMITTED_DRAFT",
+      "source_question_indexes": [
+        2
+      ],
+      "answer_anchor": "저는 상인 인터뷰와 5개 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험이 있습니다. 이 경험에서 확인한 내용과 판단을 구분하고, 진행 상황을 공유한 제 행동만 설명하겠습니다.",
+      "confirmed_evidence": [
+        "clm_abaa19a532d1aabc9140",
+        "kodit-intern-duty-20260711"
+      ],
+      "answer_boundary": "확인·기록·보고까지만 말하고 승인·심사 권한과 미검증 수치는 주장하지 않음"
+    },
+    {
+      "question_id": "Q9",
+      "question": "보증 분야 인턴 업무에 적합한 가장 큰 강점과 근거는 무엇입니까?",
+      "question_type": "HIRING_MANAGER",
+      "tier": 1,
+      "probability": "HIGH",
+      "selection_rationale": "직무 강점이 승인 경험으로 입증되는지 확인",
+      "competency_ids": [
+        "accuracy"
+      ],
+      "experience_ids": [
+        "exp_a07fd710e2b7c0c2"
+      ],
+      "coverage_tags": [
+        "strength"
+      ],
+      "evidence_scope": "SUBMITTED_DRAFT",
+      "source_question_indexes": [
+        2
+      ],
+      "answer_anchor": "제 강점은 확인 기준을 반복 행동으로 옮기는 점입니다. 저는 상인 인터뷰와 5개 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험이 있습니다.",
+      "confirmed_evidence": [
+        "clm_abaa19a532d1aabc9140",
+        "kodit-intern-duty-20260711"
+      ],
+      "answer_boundary": "확인·기록·보고까지만 말하고 승인·심사 권한과 미검증 수치는 주장하지 않음"
+    },
+    {
+      "question_id": "Q10",
+      "question": "새 조직에서 작은 오류와 같은 질문의 반복을 줄이기 위해 어떻게 관리하겠습니까?",
+      "question_type": "HIRING_MANAGER",
+      "tier": 1,
+      "probability": "HIGH",
+      "selection_rationale": "낯선 조직에서 오류 재발을 줄이는 행동을 확인",
+      "competency_ids": [
+        "communication"
+      ],
+      "experience_ids": [],
+      "coverage_tags": [
+        "weakness"
+      ],
+      "evidence_scope": "SUBMITTED_DRAFT",
+      "source_question_indexes": [
+        2
+      ],
+      "answer_anchor": "새 조직에서는 질문과 피드백을 업무노트에 남기고, 다음 처리 전 체크리스트로 재확인해 같은 질문과 작은 오류의 반복을 줄이겠습니다.",
+      "confirmed_evidence": [],
+      "answer_boundary": "확인·기록·보고까지만 말하고 승인·심사 권한과 미검증 수치는 주장하지 않음"
+    },
+    {
+      "question_id": "Q11",
+      "question": "3개월 인턴 기간에 업무를 어떤 순서로 익히고 수행하겠습니까?",
+      "question_type": "HIRING_MANAGER",
+      "tier": 1,
+      "probability": "HIGH",
+      "selection_rationale": "3개월 안의 현실적인 학습·실행·점검 계획을 확인",
+      "competency_ids": [
+        "boundary"
+      ],
+      "experience_ids": [
+        "exp_3279ca654f7e0e37"
+      ],
+      "coverage_tags": [
+        "first_90_days"
+      ],
+      "evidence_scope": "SUBMITTED_DRAFT",
+      "source_question_indexes": [
+        3
+      ],
+      "answer_anchor": "신용보증기금 청년인턴으로 근무한다면 초기 학습, 실행, 점검의 순서로 업무를 수행하겠습니다.",
+      "confirmed_evidence": [
+        "clm_5e91929d8d87322e2c70",
+        "kodit-intern-duty-20260711"
+      ],
+      "answer_boundary": "확인·기록·보고까지만 말하고 승인·심사 권한과 미검증 수치는 주장하지 않음"
+    },
+    {
+      "question_id": "Q12",
+      "question": "높은 환율 변동성이 중소기업에 미치는 영향과 정책금융 대응을 설명해 주십시오.",
+      "question_type": "HIRING_MANAGER",
+      "tier": 1,
+      "probability": "HIGH",
+      "selection_rationale": "중소기업 이슈와 정책금융 대응의 사실 경계를 검증",
+      "competency_ids": [
+        "adaptation"
+      ],
+      "experience_ids": [],
+      "coverage_tags": [
+        "core_numbers"
+      ],
+      "evidence_scope": "SUBMITTED_DRAFT",
+      "source_question_indexes": [
+        4
+      ],
+      "answer_anchor": "최근 중소기업에 큰 영향을 미치는 이슈로는 높은 환율 변동성을 선택하겠습니다.",
+      "confirmed_evidence": [
+        "bok-fx-risk-20260711",
+        "kodit-liquidity-support-20260711"
+      ],
+      "answer_boundary": "확인·기록·보고까지만 말하고 승인·심사 권한과 미검증 수치는 주장하지 않음"
+    },
+    {
+      "question_id": "Q13",
+      "question": "지급 결정서·추납·분납 자료를 분류할 때 우선순위와 검수 순서를 어떻게 정했습니까?",
+      "question_type": "FACT_AUDITOR",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "selection_rationale": "공고 직무·최종 제출본·정책금융 사실 경계 중 하나를 추가 검증",
+      "competency_ids": [
+        "accuracy"
+      ],
+      "experience_ids": [],
+      "coverage_tags": [
+        "kodit_role_specific"
+      ],
+      "source_question_indexes": []
+    },
+    {
+      "question_id": "Q14",
+      "question": "여러 업무의 마감이 겹치면 어떤 기준으로 우선순위를 정하고 언제 보고합니까?",
+      "question_type": "SITUATIONAL_INTERVIEWER",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "selection_rationale": "공고 직무·최종 제출본·정책금융 사실 경계 중 하나를 추가 검증",
+      "competency_ids": [
+        "communication"
+      ],
+      "experience_ids": [],
+      "coverage_tags": [
+        "kodit_role_specific"
+      ],
+      "source_question_indexes": []
+    },
+    {
+      "question_id": "Q15",
+      "question": "원자료와 시스템 값이 다르면 첫 세 단계에서 무엇을 확인하겠습니까?",
+      "question_type": "SITUATIONAL_INTERVIEWER",
+      "tier": 2,
+      "probability": "HIGH",
+      "selection_rationale": "공고 직무·최종 제출본·정책금융 사실 경계 중 하나를 추가 검증",
+      "competency_ids": [
+        "boundary"
+      ],
+      "experience_ids": [],
+      "coverage_tags": [
+        "kodit_role_specific"
+      ],
+      "source_question_indexes": []
+    },
+    {
+      "question_id": "Q16",
+      "question": "동료와 업무 방법이 다를 때 상대의 근거를 확인하고 합의하는 절차는 무엇입니까?",
+      "question_type": "SITUATIONAL_INTERVIEWER",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "selection_rationale": "공고 직무·최종 제출본·정책금융 사실 경계 중 하나를 추가 검증",
+      "competency_ids": [
+        "adaptation"
+      ],
+      "experience_ids": [],
+      "coverage_tags": [
+        "kodit_role_specific"
+      ],
+      "source_question_indexes": []
+    },
+    {
+      "question_id": "Q17",
+      "question": "기업 고객이 급하다며 필수 절차 생략을 요구하면 어떻게 응대하겠습니까?",
+      "question_type": "SITUATIONAL_INTERVIEWER",
+      "tier": 2,
+      "probability": "HIGH",
+      "selection_rationale": "공고 직무·최종 제출본·정책금융 사실 경계 중 하나를 추가 검증",
+      "competency_ids": [
+        "accuracy"
+      ],
+      "experience_ids": [],
+      "coverage_tags": [
+        "kodit_role_specific"
+      ],
+      "source_question_indexes": []
+    },
+    {
+      "question_id": "Q18",
+      "question": "한정된 보증 재원을 다루는 공공기관에서 청렴과 기록이 왜 중요합니까?",
+      "question_type": "EXECUTIVE",
+      "tier": 2,
+      "probability": "HIGH",
+      "selection_rationale": "공고 직무·최종 제출본·정책금융 사실 경계 중 하나를 추가 검증",
+      "competency_ids": [
+        "communication"
+      ],
+      "experience_ids": [],
+      "coverage_tags": [
+        "kodit_role_specific"
+      ],
+      "source_question_indexes": []
+    },
+    {
+      "question_id": "Q19",
+      "question": "기대한 결과가 나오지 않았을 때 사실과 판단을 어떻게 나누어 보고하겠습니까?",
+      "question_type": "SITUATIONAL_INTERVIEWER",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "selection_rationale": "공고 직무·최종 제출본·정책금융 사실 경계 중 하나를 추가 검증",
+      "competency_ids": [
+        "boundary"
+      ],
+      "experience_ids": [],
+      "coverage_tags": [
+        "kodit_role_specific"
+      ],
+      "source_question_indexes": []
+    },
+    {
+      "question_id": "Q20",
+      "question": "결과 비교 분석 보고서에서 비교 기준·차이·본인 역할을 구분해 설명해 주십시오.",
+      "question_type": "FACT_AUDITOR",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "selection_rationale": "공고 직무·최종 제출본·정책금융 사실 경계 중 하나를 추가 검증",
+      "competency_ids": [
+        "adaptation"
+      ],
+      "experience_ids": [],
+      "coverage_tags": [
+        "kodit_role_specific"
+      ],
+      "source_question_indexes": []
+    },
+    {
+      "question_id": "Q21",
+      "question": "민감한 기업정보를 다룰 때 열람·메모·공유 범위를 어떻게 지키겠습니까?",
+      "question_type": "SITUATIONAL_INTERVIEWER",
+      "tier": 2,
+      "probability": "HIGH",
+      "selection_rationale": "공고 직무·최종 제출본·정책금융 사실 경계 중 하나를 추가 검증",
+      "competency_ids": [
+        "accuracy"
+      ],
+      "experience_ids": [],
+      "coverage_tags": [
+        "kodit_role_specific"
+      ],
+      "source_question_indexes": []
+    },
+    {
+      "question_id": "Q22",
+      "question": "모르는 업무를 빨리 배우기 위한 용어·사례·질문·체크리스트 순서를 설명해 주십시오.",
+      "question_type": "SITUATIONAL_INTERVIEWER",
+      "tier": 2,
+      "probability": "HIGH",
+      "selection_rationale": "공고 직무·최종 제출본·정책금융 사실 경계 중 하나를 추가 검증",
+      "competency_ids": [
+        "communication"
+      ],
+      "experience_ids": [],
+      "coverage_tags": [
+        "kodit_role_specific"
+      ],
+      "source_question_indexes": []
+    },
+    {
+      "question_id": "Q23",
+      "question": "기업의 도전과 성장을 지원하는 신용보증기금의 역할 중 본인과 맞는 부분은 무엇입니까?",
+      "question_type": "EXECUTIVE",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "selection_rationale": "공고 직무·최종 제출본·정책금융 사실 경계 중 하나를 추가 검증",
+      "competency_ids": [
+        "boundary"
+      ],
+      "experience_ids": [],
+      "coverage_tags": [
+        "kodit_role_specific"
+      ],
+      "source_question_indexes": []
+    },
+    {
+      "question_id": "Q24",
+      "question": "신용보증의 신청·조사·심사·약정·보증서 발급 흐름을 아는 범위에서 설명해 주십시오.",
+      "question_type": "SITUATIONAL_INTERVIEWER",
+      "tier": 2,
+      "probability": "HIGH",
+      "selection_rationale": "공고 직무·최종 제출본·정책금융 사실 경계 중 하나를 추가 검증",
+      "competency_ids": [
+        "adaptation"
+      ],
+      "experience_ids": [],
+      "coverage_tags": [
+        "kodit_role_specific"
+      ],
+      "source_question_indexes": []
+    },
+    {
+      "question_id": "Q25",
+      "question": "기업신용 상시관리가 필요한 이유와 인턴이 확인·기록·보고할 범위를 말해 주십시오.",
+      "question_type": "SITUATIONAL_INTERVIEWER",
+      "tier": 2,
+      "probability": "HIGH",
+      "selection_rationale": "공고 직무·최종 제출본·정책금융 사실 경계 중 하나를 추가 검증",
+      "competency_ids": [
+        "accuracy"
+      ],
+      "experience_ids": [],
+      "coverage_tags": [
+        "kodit_role_specific"
+      ],
+      "source_question_indexes": []
+    },
+    {
+      "question_id": "Q26",
+      "question": "2026년 신용보증기금의 실행 과제 중 공식 근거로 확인한 한 가지를 설명해 주십시오.",
+      "question_type": "EXECUTIVE",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "selection_rationale": "공고 직무·최종 제출본·정책금융 사실 경계 중 하나를 추가 검증",
+      "competency_ids": [
+        "communication"
+      ],
+      "experience_ids": [],
+      "coverage_tags": [
+        "kodit_role_specific"
+      ],
+      "source_question_indexes": []
+    },
+    {
+      "question_id": "Q27",
+      "question": "3개월 인턴이 과장 없이 남길 수 있는 실제 기여는 무엇입니까?",
+      "question_type": "SITUATIONAL_INTERVIEWER",
+      "tier": 2,
+      "probability": "HIGH",
+      "selection_rationale": "공고 직무·최종 제출본·정책금융 사실 경계 중 하나를 추가 검증",
+      "competency_ids": [
+        "boundary"
+      ],
+      "experience_ids": [],
+      "coverage_tags": [
+        "kodit_role_specific"
+      ],
+      "source_question_indexes": []
+    },
+    {
+      "question_id": "Q28",
+      "question": "수치가 포함된 업무개선 경험을 질문받았는데 산식을 설명할 수 없다면 어떻게 답하겠습니까?",
+      "question_type": "FACT_AUDITOR",
+      "tier": 3,
+      "probability": "MEDIUM",
+      "selection_rationale": "공고 직무·최종 제출본·정책금융 사실 경계 중 하나를 추가 검증",
+      "competency_ids": [
+        "adaptation"
+      ],
+      "experience_ids": [],
+      "coverage_tags": [
+        "kodit_role_specific"
+      ],
+      "source_question_indexes": []
+    },
+    {
+      "question_id": "Q29",
+      "question": "이용자 불편 개선 경험에서 확인된 행동과 확인되지 않은 성과를 구분해 주십시오.",
+      "question_type": "FACT_AUDITOR",
+      "tier": 3,
+      "probability": "MEDIUM",
+      "selection_rationale": "공고 직무·최종 제출본·정책금융 사실 경계 중 하나를 추가 검증",
+      "competency_ids": [
+        "accuracy"
+      ],
+      "experience_ids": [],
+      "coverage_tags": [
+        "kodit_role_specific"
+      ],
+      "source_question_indexes": []
+    },
+    {
+      "question_id": "Q30",
+      "question": "상인 인터뷰와 5개 타 시장 비교에서 어떤 기준으로 공통점과 차이를 정리했습니까?",
+      "question_type": "SITUATIONAL_INTERVIEWER",
+      "tier": 3,
+      "probability": "MEDIUM",
+      "selection_rationale": "공고 직무·최종 제출본·정책금융 사실 경계 중 하나를 추가 검증",
+      "competency_ids": [
+        "communication"
+      ],
+      "experience_ids": [],
+      "coverage_tags": [
+        "kodit_role_specific"
+      ],
+      "source_question_indexes": []
+    },
+    {
+      "question_id": "Q31",
+      "question": "리더와 팔로워 역할을 상황과 업무 기준에 따라 어떻게 선택합니까?",
+      "question_type": "SITUATIONAL_INTERVIEWER",
+      "tier": 3,
+      "probability": "MEDIUM",
+      "selection_rationale": "공고 직무·최종 제출본·정책금융 사실 경계 중 하나를 추가 검증",
+      "competency_ids": [
+        "boundary"
+      ],
+      "experience_ids": [],
+      "coverage_tags": [
+        "kodit_role_specific"
+      ],
+      "source_question_indexes": []
+    },
+    {
+      "question_id": "Q32",
+      "question": "압박이 큰 상황에서 할 일을 나누고 중간보고하는 방식을 설명해 주십시오.",
+      "question_type": "SITUATIONAL_INTERVIEWER",
+      "tier": 3,
+      "probability": "MEDIUM",
+      "selection_rationale": "공고 직무·최종 제출본·정책금융 사실 경계 중 하나를 추가 검증",
+      "competency_ids": [
+        "adaptation"
+      ],
+      "experience_ids": [],
+      "coverage_tags": [
+        "kodit_role_specific"
+      ],
+      "source_question_indexes": []
+    },
+    {
+      "question_id": "Q33",
+      "question": "업무 중 본인의 판단이 틀렸음을 알게 되면 누구에게 무엇부터 보고하겠습니까?",
+      "question_type": "SITUATIONAL_INTERVIEWER",
+      "tier": 3,
+      "probability": "MEDIUM",
+      "selection_rationale": "공고 직무·최종 제출본·정책금융 사실 경계 중 하나를 추가 검증",
+      "competency_ids": [
+        "accuracy"
+      ],
+      "experience_ids": [],
+      "coverage_tags": [
+        "kodit_role_specific"
+      ],
+      "source_question_indexes": []
+    },
+    {
+      "question_id": "Q34",
+      "question": "희망 외 영업점 배치 가능성과 근무기간 조건을 어떻게 최종 확인하겠습니까?",
+      "question_type": "SITUATIONAL_INTERVIEWER",
+      "tier": 3,
+      "probability": "HIGH",
+      "selection_rationale": "공고 직무·최종 제출본·정책금융 사실 경계 중 하나를 추가 검증",
+      "competency_ids": [
+        "communication"
+      ],
+      "experience_ids": [],
+      "coverage_tags": [
+        "kodit_role_specific"
+      ],
+      "source_question_indexes": []
+    },
+    {
+      "question_id": "Q35",
+      "question": "마지막으로 본인을 뽑아야 하는 이유를 확인된 경험과 직무 행동으로 설명해 주십시오.",
+      "question_type": "SITUATIONAL_INTERVIEWER",
+      "tier": 3,
+      "probability": "HIGH",
+      "selection_rationale": "공고 직무·최종 제출본·정책금융 사실 경계 중 하나를 추가 검증",
+      "competency_ids": [
+        "boundary"
+      ],
+      "experience_ids": [],
+      "coverage_tags": [
+        "kodit_role_specific"
+      ],
+      "source_question_indexes": []
+    }
+  ],
+  "priority_question_set": [
+    {
+      "question_id": "Q1",
+      "question": "1분 자기소개를 해 주십시오.",
+      "selection_rationale": "첫 답변에서 핵심 경험과 직무 연결을 함께 확인",
+      "answer_anchor": "동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과 비교 분석 보고서를 작성해 보고한 경험이 있습니다. 이 경험에서 확인·기록을 습관화했고, 이를 체험형 청년인턴1(보증) 업무에 연결하겠습니다."
+    },
+    {
+      "question_id": "Q2",
+      "question": "왜 신용보증기금이고 왜 보증 분야 청년인턴입니까?",
+      "selection_rationale": "기관 선택 근거와 보증 인턴 지원 이유를 분리 확인",
+      "answer_anchor": "신용보증기금 청년인턴에 지원한 이유는 기업의 자금 조달을 돕는 보증 업무를 단순 지원이 아니라, 신용조사와 보증심사를 통해 신뢰를 세우는 일로 보았기 때문입니다."
+    },
+    {
+      "question_id": "Q3",
+      "question": "신용보증기금의 역할을 본인 말로 설명해 주십시오.",
+      "selection_rationale": "기관 역할을 홍보 문구가 아닌 공식 기능으로 설명하는지 확인",
+      "answer_anchor": "신용보증기금은 기업이 부담하는 채무를 보증해 성장유망기업을 지원하고, 보증신청 뒤 신용조사와 보증심사를 수행한다고 이해했습니다."
+    },
+    {
+      "question_id": "Q4",
+      "question": "신용보증 기한연장과 기업신용 상시관리 업무를 어떻게 이해합니까?",
+      "selection_rationale": "기한연장·상시관리 업무와 인턴 권한 경계를 확인",
+      "answer_anchor": "신용보증기금 청년인턴으로 근무한다면 초기 학습, 실행, 점검의 순서로 업무를 수행하겠습니다."
+    },
+    {
+      "question_id": "Q5",
+      "question": "결과 비교 분석 보고서 경험에서 본인이 직접 한 행동과 직무 강점을 설명해 주십시오.",
+      "selection_rationale": "최종 제출본의 핵심 경험과 직접 행동을 검증",
+      "answer_anchor": "동일한 데이터를 엑셀 수식과 외주 프로그램에 넣어 결과를 비교하고, 분석 보고서를 작성해 팀장에게 보고했습니다."
+    },
+    {
+      "question_id": "Q6",
+      "question": "자료 대조 결과가 예상과 다르거나 불일치를 발견하면 어떤 순서로 대응하겠습니까?",
+      "selection_rationale": "자료 불일치 상황의 확인·보고 순서를 검증",
+      "answer_anchor": "자료 불일치를 발견하면 영향 범위를 표시하고 원문·기준일·입력 이력을 대조한 뒤, 임의로 고치지 않고 차이와 근거를 담당자에게 보고하겠습니다."
+    },
+    {
+      "question_id": "Q7",
+      "question": "같은 데이터를 두 방식으로 처리한 결과를 비교할 때 무엇을 확인하고 어떻게 보고했습니까?",
+      "selection_rationale": "비교 결과의 조건 통제와 보고 근거를 검증",
+      "answer_anchor": "결과 비교에서는 입력값·수식·기준을 대조하고, 확인한 차이와 근거를 보고서로 정리해 담당자에게 보고하겠습니다."
+    },
+    {
+      "question_id": "Q8",
+      "question": "현장 의견과 비교 자료를 함께 다룬 경험에서 본인의 역할과 배운 점은 무엇입니까?",
+      "selection_rationale": "현장 의견과 비교 자료를 함께 다룬 역할을 검증",
+      "answer_anchor": "저는 상인 인터뷰와 5개 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험이 있습니다. 이 경험에서 확인한 내용과 판단을 구분하고, 진행 상황을 공유한 제 행동만 설명하겠습니다."
+    },
+    {
+      "question_id": "Q9",
+      "question": "보증 분야 인턴 업무에 적합한 가장 큰 강점과 근거는 무엇입니까?",
+      "selection_rationale": "직무 강점이 승인 경험으로 입증되는지 확인",
+      "answer_anchor": "제 강점은 확인 기준을 반복 행동으로 옮기는 점입니다. 저는 상인 인터뷰와 5개 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험이 있습니다."
+    },
+    {
+      "question_id": "Q10",
+      "question": "새 조직에서 작은 오류와 같은 질문의 반복을 줄이기 위해 어떻게 관리하겠습니까?",
+      "selection_rationale": "낯선 조직에서 오류 재발을 줄이는 행동을 확인",
+      "answer_anchor": "새 조직에서는 질문과 피드백을 업무노트에 남기고, 다음 처리 전 체크리스트로 재확인해 같은 질문과 작은 오류의 반복을 줄이겠습니다."
+    },
+    {
+      "question_id": "Q11",
+      "question": "3개월 인턴 기간에 업무를 어떤 순서로 익히고 수행하겠습니까?",
+      "selection_rationale": "3개월 안의 현실적인 학습·실행·점검 계획을 확인",
+      "answer_anchor": "신용보증기금 청년인턴으로 근무한다면 초기 학습, 실행, 점검의 순서로 업무를 수행하겠습니다."
+    },
+    {
+      "question_id": "Q12",
+      "question": "높은 환율 변동성이 중소기업에 미치는 영향과 정책금융 대응을 설명해 주십시오.",
+      "selection_rationale": "중소기업 이슈와 정책금융 대응의 사실 경계를 검증",
+      "answer_anchor": "최근 중소기업에 큰 영향을 미치는 이슈로는 높은 환율 변동성을 선택하겠습니다."
+    }
+  ],
+  "job_specific_question_set": [
+    {
+      "question_id": "Q5",
+      "question": "결과 비교 분석 보고서 경험에서 본인이 직접 한 행동과 직무 강점을 설명해 주십시오.",
+      "selection_rationale": "최종 제출본의 핵심 경험과 직접 행동을 검증"
+    },
+    {
+      "question_id": "Q7",
+      "question": "같은 데이터를 두 방식으로 처리한 결과를 비교할 때 무엇을 확인하고 어떻게 보고했습니까?",
+      "selection_rationale": "비교 결과의 조건 통제와 보고 근거를 검증"
+    },
+    {
+      "question_id": "Q8",
+      "question": "현장 의견과 비교 자료를 함께 다룬 경험에서 본인의 역할과 배운 점은 무엇입니까?",
+      "selection_rationale": "현장 의견과 비교 자료를 함께 다룬 역할을 검증"
+    },
+    {
+      "question_id": "Q12",
+      "question": "높은 환율 변동성이 중소기업에 미치는 영향과 정책금융 대응을 설명해 주십시오.",
+      "selection_rationale": "중소기업 이슈와 정책금융 대응의 사실 경계를 검증"
+    },
+    {
+      "question_id": "Q13",
+      "question": "지급 결정서·추납·분납 자료를 분류할 때 우선순위와 검수 순서를 어떻게 정했습니까?",
+      "selection_rationale": "공고 직무·최종 제출본·정책금융 사실 경계 중 하나를 추가 검증"
+    },
+    {
+      "question_id": "Q25",
+      "question": "기업신용 상시관리가 필요한 이유와 인턴이 확인·기록·보고할 범위를 말해 주십시오.",
+      "selection_rationale": "공고 직무·최종 제출본·정책금융 사실 경계 중 하나를 추가 검증"
+    },
+    {
+      "question_id": "Q30",
+      "question": "상인 인터뷰와 5개 타 시장 비교에서 어떤 기준으로 공통점과 차이를 정리했습니까?",
+      "selection_rationale": "공고 직무·최종 제출본·정책금융 사실 경계 중 하나를 추가 검증"
+    }
+  ],
+  "answer_cards": [
+    {
+      "question_id": "Q1",
+      "coverage_tag": "self_intro",
+      "evidence_scope": "SUBMITTED_DRAFT",
+      "source_question_indexes": [
+        1
+      ],
+      "one_sentence_answer": "동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과 비교 분석 보고서를 작성해 보고한 경험이 있습니다. 이 경험에서 확인·기록을 습관화했고, 이를 체험형 청년인턴1(보증) 업무에 연결하겠습니다.",
+      "judgment_standard": "정확성·기한·권한 경계를 함께 지키는가",
+      "direct_actions": [
+        "동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과 비교 분석 보고서를 작성해 보고한 경험이 있습니다."
+      ],
+      "job_connection": "신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다.",
+      "experience_ids": [
+        "exp_9e97f274590a323b"
+      ],
+      "experience_claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "spoken_versions": {
+        "brief": {
+          "target_seconds": 20,
+          "text": "저는 동일한 데이터를 두 방식으로 처리한 결과를 비교해 분석 보고서를 작성하고 팀장에게 보고한 경험이 있습니다. 이 확인 습관을 보증 업무에 연결하겠습니다."
+        },
+        "standard": {
+          "target_seconds": 60,
+          "text": "저는 동일한 데이터를 엑셀 수식과 외주 프로그램에 넣어 결과를 비교하고, 분석 보고서를 작성해 팀장에게 보고한 경험이 있습니다. 서로 다른 처리 결과를 그대로 넘기지 않고 비교 근거를 정리해 팀장에게 보고한 점이 제 강점입니다. 이 확인 습관을 보증 업무에 연결하겠습니다."
+        },
+        "detailed": {
+          "target_seconds": 120,
+          "text": "저는 동일한 데이터를 엑셀 수식과 외주 프로그램에 넣어 결과를 비교하고, 분석 보고서를 작성해 팀장에게 보고한 경험이 있습니다. 서로 다른 처리 결과를 그대로 넘기지 않고 비교 근거를 정리해 팀장에게 보고한 점이 제 강점입니다. 이 확인 습관을 보증 업무에 연결하겠습니다. 제가 직접 한 일은 같은 입력 조건에서 결과 차이를 확인하고 보고서로 정리한 범위입니다. 수식을 개발했거나 최종 의사결정을 했다고 확대하지 않겠습니다. 보증 분야 청년인턴으로 근무한다면 업무 기준을 먼저 익힌 뒤 원자료와 처리값을 대조하고, 누락·변동·예외는 근거와 함께 보고하겠습니다. 기한연장과 기업신용 상시관리에서도 판단을 대신하기보다 담당자가 확인할 자료의 상태를 정확히 전달하겠습니다."
+        }
+      },
+      "spoken_timing_audit": {
+        "brief": {
+          "character_count": 87,
+          "expected_range": [
+            40,
+            140
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        },
+        "standard": {
+          "character_count": 152,
+          "expected_range": [
+            120,
+            320
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        },
+        "detailed": {
+          "character_count": 373,
+          "expected_range": [
+            260,
+            900
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        }
+      }
+    },
+    {
+      "question_id": "Q2",
+      "coverage_tag": "motivation",
+      "evidence_scope": "SUBMITTED_DRAFT",
+      "source_question_indexes": [
+        1
+      ],
+      "one_sentence_answer": "신용보증기금 청년인턴에 지원한 이유는 기업의 자금 조달을 돕는 보증 업무를 단순 지원이 아니라, 신용조사와 보증심사를 통해 신뢰를 세우는 일로 보았기 때문입니다.",
+      "judgment_standard": "정확성·기한·권한 경계를 함께 지키는가",
+      "direct_actions": [
+        "신용보증기금의 보증 역할과 인턴 업무를 확인하고 지원 동기·학습·기여 계획을 연결"
+      ],
+      "job_connection": "신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다.",
+      "experience_ids": [
+        "exp_9e97f274590a323b"
+      ],
+      "experience_claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "spoken_versions": {
+        "brief": {
+          "target_seconds": 20,
+          "text": "신용보증기금 청년인턴에 지원한 이유는 기업의 자금 조달을 돕는 보증 업무를 단순 지원이 아니라, 신용조사와 보증심사를 통해 신뢰를 세우는 일로 보았기 때문입니다."
+        },
+        "standard": {
+          "target_seconds": 60,
+          "text": "신용보증기금 청년인턴에 지원한 이유는 기업의 자금 조달을 돕는 보증 업무를 단순 지원이 아니라, 신용조사와 보증심사를 통해 신뢰를 세우는 일로 보았기 때문입니다. 신용보증은 신용조사와 보증심사를 거쳐 기업의 자금 접근을 돕는 일이고, 인턴은 신용보증 기한연장, 기업신용 상시관리 등을 보조합니다. 저는 서로 다른 처리 결과를 비교해 근거를 보고서로 정리한 경험이 이 업무의 확인 과정과 맞닿아 있다고 보았습니다."
+        },
+        "detailed": {
+          "target_seconds": 120,
+          "text": "신용보증기금 청년인턴에 지원한 이유는 기업의 자금 조달을 돕는 보증 업무를 단순 지원이 아니라, 신용조사와 보증심사를 통해 신뢰를 세우는 일로 보았기 때문입니다. 신용보증은 신용조사와 보증심사를 거쳐 기업의 자금 접근을 돕는 일이고, 인턴은 신용보증 기한연장, 기업신용 상시관리 등을 보조합니다. 저는 서로 다른 처리 결과를 비교해 근거를 보고서로 정리한 경험이 이 업무의 확인 과정과 맞닿아 있다고 보았습니다. 당시 동일한 데이터를 엑셀 수식과 외주 프로그램에 넣고 결과 차이를 분석해 팀장에게 보고했습니다. 보증 분야에서도 업무 기준을 먼저 익히고 원자료와 처리값의 차이를 기록해 담당자가 판단할 근거를 빠짐없이 전달하겠습니다. 승인이나 심사 판단을 대신하지 않고, 확인한 사실과 남은 확인 사항을 구분해 보고하겠습니다."
+        }
+      },
+      "spoken_timing_audit": {
+        "brief": {
+          "character_count": 90,
+          "expected_range": [
+            40,
+            140
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        },
+        "standard": {
+          "character_count": 230,
+          "expected_range": [
+            120,
+            320
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        },
+        "detailed": {
+          "character_count": 405,
+          "expected_range": [
+            260,
+            900
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        }
+      }
+    },
+    {
+      "question_id": "Q3",
+      "coverage_tag": "company_choice",
+      "evidence_scope": "SUBMITTED_DRAFT",
+      "source_question_indexes": [
+        1
+      ],
+      "one_sentence_answer": "신용보증기금은 기업이 부담하는 채무를 보증해 성장유망기업을 지원하고, 보증신청 뒤 신용조사와 보증심사를 수행한다고 이해했습니다.",
+      "judgment_standard": "정확성·기한·권한 경계를 함께 지키는가",
+      "direct_actions": [
+        "기업 채무보증·신용조사·보증심사라는 공식 역할을 근거로 설명"
+      ],
+      "job_connection": "신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다.",
+      "experience_ids": [],
+      "experience_claim_ids": [],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "spoken_versions": {
+        "brief": {
+          "target_seconds": 20,
+          "text": "신용보증기금은 기업이 부담하는 채무를 보증해 성장유망기업을 지원하고, 보증신청 뒤 신용조사와 보증심사를 수행한다고 이해했습니다."
+        },
+        "standard": {
+          "target_seconds": 60,
+          "text": "신용보증기금은 기업이 부담하는 채무를 보증해 성장유망기업을 지원하고, 보증신청 뒤 신용조사와 보증심사를 수행한다고 이해했습니다. 기업의 채무를 보증하기 전에 신용을 조사하고 보증 여부를 심사하며, 보증 뒤에도 기업신용을 관리하는 구조로 이해합니다."
+        },
+        "detailed": {
+          "target_seconds": 120,
+          "text": "신용보증기금은 기업이 부담하는 채무를 보증해 성장유망기업을 지원하고, 보증신청 뒤 신용조사와 보증심사를 수행한다고 이해했습니다. 기업의 채무를 보증하기 전에 신용을 조사하고 보증 여부를 심사하며, 보증 뒤에도 기업신용을 관리하는 구조로 이해합니다. 인턴은 승인 판단을 대신하지 않고 기한연장과 상시관리에 필요한 자료를 확인·기록해 담당자에게 보고해야 합니다. 기업 자료와 기존 기록이 다르면 원문과 기준 시점을 다시 확인하고, 차이와 남은 확인 사항을 나누어 전달하겠습니다. 공개 자료로 알 수 없는 내부 심사 기준은 추정하지 않겠습니다."
+        }
+      },
+      "spoken_timing_audit": {
+        "brief": {
+          "character_count": 71,
+          "expected_range": [
+            40,
+            140
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        },
+        "standard": {
+          "character_count": 138,
+          "expected_range": [
+            120,
+            320
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        },
+        "detailed": {
+          "character_count": 301,
+          "expected_range": [
+            260,
+            900
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        }
+      }
+    },
+    {
+      "question_id": "Q4",
+      "coverage_tag": "job_choice",
+      "evidence_scope": "SUBMITTED_DRAFT",
+      "source_question_indexes": [
+        3
+      ],
+      "one_sentence_answer": "신용보증기금 청년인턴으로 근무한다면 초기 학습, 실행, 점검의 순서로 업무를 수행하겠습니다.",
+      "judgment_standard": "정확성·기한·권한 경계를 함께 지키는가",
+      "direct_actions": [
+        "이 경험을 살려 자료별 출처, 처리 단계, 확인 여부를 표시하고, 같은 자료를 다시 볼 때도 흐름을 놓치지 않겠습니다."
+      ],
+      "job_connection": "신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다.",
+      "experience_ids": [
+        "exp_3279ca654f7e0e37"
+      ],
+      "experience_claim_ids": [
+        "clm_5e91929d8d87322e2c70"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "spoken_versions": {
+        "brief": {
+          "target_seconds": 20,
+          "text": "신용보증기금 청년인턴으로 근무한다면 초기 학습, 실행, 점검의 순서로 업무를 수행하겠습니다."
+        },
+        "standard": {
+          "target_seconds": 60,
+          "text": "신용보증기금 청년인턴으로 근무한다면 초기 학습, 실행, 점검의 순서로 업무를 수행하겠습니다. 먼저 신용보증 기한연장과 기업신용 상시관리의 업무 흐름, 필요한 자료 항목, 보고 기준을 숙지하겠습니다. 보증 분야 체험형 청년인턴의 주요업무가 신용보증 기한연장과 기업신용 상시관리라는 공식 내용을 기준으로, 제 역할을 독립 판단이 아니라 확인·기록·보고에 두겠습니다."
+        },
+        "detailed": {
+          "target_seconds": 120,
+          "text": "신용보증기금 청년인턴으로 근무한다면 초기 학습, 실행, 점검의 순서로 업무를 수행하겠습니다. 먼저 신용보증 기한연장과 기업신용 상시관리의 업무 흐름, 필요한 자료 항목, 보고 기준을 숙지하겠습니다. 보증 분야 체험형 청년인턴의 주요업무가 신용보증 기한연장과 기업신용 상시관리라는 공식 내용을 기준으로, 제 역할을 독립 판단이 아니라 확인·기록·보고에 두겠습니다. 저는 기초연금 업무에서 지급 결정서·추납·분납 자료를 정리하고 실질적 수급 대상자를 정확히 선별해야 하는 과제를 맡았습니다. 이 경험을 살려 자료별 출처, 처리 단계, 확인 여부를 표시하고, 같은 자료를 다시 볼 때도 흐름을 놓치지 않겠습니다. 이후에는 원자료와 입력값을 대조하고, 누락·불일치·변동 사항을 따로 모아 담당자에게 보고하겠습니다."
+        }
+      },
+      "spoken_timing_audit": {
+        "brief": {
+          "character_count": 51,
+          "expected_range": [
+            40,
+            140
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        },
+        "standard": {
+          "character_count": 202,
+          "expected_range": [
+            120,
+            320
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        },
+        "detailed": {
+          "character_count": 395,
+          "expected_range": [
+            260,
+            900
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        }
+      }
+    },
+    {
+      "question_id": "Q5",
+      "coverage_tag": "representative_experience",
+      "evidence_scope": "SUBMITTED_DRAFT",
+      "source_question_indexes": [
+        1
+      ],
+      "one_sentence_answer": "동일한 데이터를 엑셀 수식과 외주 프로그램에 넣어 결과를 비교하고, 분석 보고서를 작성해 팀장에게 보고했습니다.",
+      "judgment_standard": "정확성·기한·권한 경계를 함께 지키는가",
+      "direct_actions": [
+        "동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과 비교 분석 보고서를 작성해 보고한 경험이 있습니다."
+      ],
+      "job_connection": "신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다.",
+      "experience_ids": [
+        "exp_9e97f274590a323b"
+      ],
+      "experience_claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "spoken_versions": {
+        "brief": {
+          "target_seconds": 20,
+          "text": "동일한 데이터를 엑셀 수식과 외주 프로그램에 넣어 결과를 비교하고, 분석 보고서를 작성해 팀장에게 보고했습니다."
+        },
+        "standard": {
+          "target_seconds": 60,
+          "text": "기존 엑셀 수식과 외주 프로그램에 동일한 데이터를 넣고 나온 결과를 비교해 분석 보고서를 작성한 뒤 팀장에게 보고했습니다. 제가 직접 한 일은 같은 입력을 사용해 차이를 확인하고 보고서로 정리한 범위입니다. 결과가 다르다는 사실과 확인한 범위를 구분해 전달했습니다."
+        },
+        "detailed": {
+          "target_seconds": 120,
+          "text": "기존 엑셀 수식과 외주 프로그램에 동일한 데이터를 넣고 나온 결과를 비교해 분석 보고서를 작성한 뒤 팀장에게 보고했습니다. 제가 직접 한 일은 같은 입력을 사용해 차이를 확인하고 보고서로 정리한 범위입니다. 결과가 다르다는 사실과 확인한 범위를 구분해 전달했습니다. 비교의 전제는 두 방식에 같은 데이터를 넣는 것이었고, 나온 값을 그대로 받아들이지 않고 차이가 있다는 사실을 보고서에 남겼습니다. 수식 개발이나 최종 의사결정을 제가 했다고 확대하지 않겠습니다. 질문에서 원인을 더 묻더라도 원장에 확인되지 않은 내용은 추정하지 않겠습니다. 이 경험은 신용보증 기한연장, 기업신용 상시관리 등에서 원자료와 처리값이 맞는지 대조하고, 차이와 확인 범위를 담당자에게 보고하는 행동으로 옮기겠습니다. 면접에서는 동일 입력, 결과 비교, 보고서 작성, 팀장 보고의 순서로 확인된 사실을 설명하겠습니다."
+        }
+      },
+      "spoken_timing_audit": {
+        "brief": {
+          "character_count": 62,
+          "expected_range": [
+            40,
+            140
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        },
+        "standard": {
+          "character_count": 148,
+          "expected_range": [
+            120,
+            320
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        },
+        "detailed": {
+          "character_count": 444,
+          "expected_range": [
+            260,
+            900
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        }
+      }
+    },
+    {
+      "question_id": "Q6",
+      "coverage_tag": "failure",
+      "evidence_scope": "SUBMITTED_DRAFT",
+      "source_question_indexes": [],
+      "one_sentence_answer": "자료 불일치를 발견하면 영향 범위를 표시하고 원문·기준일·입력 이력을 대조한 뒤, 임의로 고치지 않고 차이와 근거를 담당자에게 보고하겠습니다.",
+      "judgment_standard": "정확성·기한·권한 경계를 함께 지키는가",
+      "direct_actions": [
+        "영향 범위 표시 → 원문·기준일·입력 이력 대조 → 차이와 근거 보고 → 지시 후 수정·재점검"
+      ],
+      "job_connection": "신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다.",
+      "experience_ids": [],
+      "experience_claim_ids": [],
+      "research_claim_ids": [],
+      "spoken_versions": {
+        "brief": {
+          "target_seconds": 20,
+          "text": "자료 불일치를 발견하면 영향 범위를 표시하고 원문·기준일·입력 이력을 대조한 뒤, 임의로 고치지 않고 차이와 근거를 담당자에게 보고하겠습니다."
+        },
+        "standard": {
+          "target_seconds": 60,
+          "text": "자료 불일치를 발견하면 영향 범위를 표시하고 원문·기준일·입력 이력을 대조한 뒤, 임의로 고치지 않고 차이와 근거를 담당자에게 보고하겠습니다. 먼저 잘못된 값이 영향을 주는 범위를 표시하고, 원문·기준일·입력 이력을 차례로 대조하겠습니다."
+        },
+        "detailed": {
+          "target_seconds": 120,
+          "text": "자료 불일치를 발견하면 영향 범위를 표시하고 원문·기준일·입력 이력을 대조한 뒤, 임의로 고치지 않고 차이와 근거를 담당자에게 보고하겠습니다. 먼저 잘못된 값이 영향을 주는 범위를 표시하고, 원문·기준일·입력 이력을 차례로 대조하겠습니다. 차이의 원인을 확인하지 못한 상태에서 임의로 값을 고치지 않겠습니다. 확인한 사실, 아직 모르는 부분, 업무에 미칠 영향을 나누어 담당자에게 보고하겠습니다. 지시를 받은 뒤 수정 전후 값을 기록하고 같은 불일치가 남았는지 재점검하겠습니다. 이는 과거 성과 주장이 아니라 실제 업무 상황에서 따를 대응 원칙입니다."
+        }
+      },
+      "spoken_timing_audit": {
+        "brief": {
+          "character_count": 79,
+          "expected_range": [
+            40,
+            140
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        },
+        "standard": {
+          "character_count": 133,
+          "expected_range": [
+            120,
+            320
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        },
+        "detailed": {
+          "character_count": 308,
+          "expected_range": [
+            260,
+            900
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        }
+      }
+    },
+    {
+      "question_id": "Q7",
+      "coverage_tag": "conflict",
+      "evidence_scope": "SUBMITTED_DRAFT",
+      "source_question_indexes": [
+        1
+      ],
+      "one_sentence_answer": "결과 비교에서는 입력값·수식·기준을 대조하고, 확인한 차이와 근거를 보고서로 정리해 담당자에게 보고하겠습니다.",
+      "judgment_standard": "정확성·기한·권한 경계를 함께 지키는가",
+      "direct_actions": [
+        "입력값 확인 → 수식·처리 기준 대조 → 차이 기록 → 분석 보고서 보고"
+      ],
+      "job_connection": "신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다.",
+      "experience_ids": [
+        "exp_9e97f274590a323b"
+      ],
+      "experience_claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "spoken_versions": {
+        "brief": {
+          "target_seconds": 20,
+          "text": "결과 비교에서는 입력값·수식·기준을 대조하고, 확인한 차이와 근거를 보고서로 정리해 담당자에게 보고하겠습니다."
+        },
+        "standard": {
+          "target_seconds": 60,
+          "text": "동일한 데이터를 두 방식에 넣었다는 조건을 먼저 맞추고, 나온 결과의 차이를 비교해 분석 보고서로 정리했습니다. 확인한 차이는 제 판단으로 덮지 않고 팀장에게 보고했으며, 답변에서도 확인된 차이와 보고 사실까지만 말하겠습니다."
+        },
+        "detailed": {
+          "target_seconds": 120,
+          "text": "동일한 데이터를 두 방식에 넣었다는 조건을 먼저 맞추고, 나온 결과의 차이를 비교해 분석 보고서로 정리했습니다. 확인한 차이는 제 판단으로 덮지 않고 팀장에게 보고했으며, 답변에서도 확인된 차이와 보고 사실까지만 말하겠습니다. 비교 결과만으로 어느 방식이 항상 옳다고 단정하지 않고, 당시 확인하지 않은 원인이나 성과도 덧붙이지 않겠습니다. 질문을 받으면 동일 입력, 결과 차이, 보고서 작성, 팀장 보고의 순서로 확인된 사실만 답하겠습니다. 신용보증 기한연장, 기업신용 상시관리 등에서도 값이 다르면 입력과 근거를 다시 대조한 뒤 차이를 기록해 보고하겠습니다."
+        }
+      },
+      "spoken_timing_audit": {
+        "brief": {
+          "character_count": 61,
+          "expected_range": [
+            40,
+            140
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        },
+        "standard": {
+          "character_count": 126,
+          "expected_range": [
+            120,
+            320
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        },
+        "detailed": {
+          "character_count": 314,
+          "expected_range": [
+            260,
+            900
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        }
+      }
+    },
+    {
+      "question_id": "Q8",
+      "coverage_tag": "collaboration",
+      "evidence_scope": "SUBMITTED_DRAFT",
+      "source_question_indexes": [
+        2
+      ],
+      "one_sentence_answer": "저는 상인 인터뷰와 5개 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험이 있습니다. 이 경험에서 확인한 내용과 판단을 구분하고, 진행 상황을 공유한 제 행동만 설명하겠습니다.",
+      "judgment_standard": "정확성·기한·권한 경계를 함께 지키는가",
+      "direct_actions": [
+        "저는 상인 인터뷰와 5개 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험이 있습니다."
+      ],
+      "job_connection": "신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다.",
+      "experience_ids": [
+        "exp_a07fd710e2b7c0c2"
+      ],
+      "experience_claim_ids": [
+        "clm_abaa19a532d1aabc9140"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "spoken_versions": {
+        "brief": {
+          "target_seconds": 20,
+          "text": "상인 인터뷰와 5개 타 시장을 비교해 문제점과 개선 방향을 도출했습니다. 현장 의견과 비교 자료를 함께 보는 태도를 보증 업무에 적용하겠습니다."
+        },
+        "standard": {
+          "target_seconds": 60,
+          "text": "저는 상인 인터뷰와 5개 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험이 있습니다. 이 경험에서 확인한 내용과 판단을 구분하고, 진행 상황을 공유한 제 행동만 설명하겠습니다. 현장 의견만 따르지 않고 5개 타 시장의 자료와 나란히 놓아 공통점과 차이를 정리한 뒤 문제점과 개선 방향을 도출했습니다."
+        },
+        "detailed": {
+          "target_seconds": 120,
+          "text": "저는 상인 인터뷰와 5개 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험이 있습니다. 이 경험에서 확인한 내용과 판단을 구분하고, 진행 상황을 공유한 제 행동만 설명하겠습니다. 현장 의견만 따르지 않고 5개 타 시장의 자료와 나란히 놓아 공통점과 차이를 정리한 뒤 문제점과 개선 방향을 도출했습니다. 제 역할은 인터뷰와 비교 자료를 정리한 범위이며, 실행 성과까지 제 기여로 말하지 않겠습니다. 현장 의견과 비교 자료가 다를 때는 어느 한쪽을 먼저 결론으로 삼기보다 차이가 생긴 기준을 확인하겠습니다. 이 기준을 신용보증 기한연장, 기업신용 상시관리 등의 자료 확인과 보고에도 적용하겠습니다."
+        }
+      },
+      "spoken_timing_audit": {
+        "brief": {
+          "character_count": 80,
+          "expected_range": [
+            40,
+            140
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        },
+        "standard": {
+          "character_count": 174,
+          "expected_range": [
+            120,
+            320
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        },
+        "detailed": {
+          "character_count": 338,
+          "expected_range": [
+            260,
+            900
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        }
+      }
+    },
+    {
+      "question_id": "Q9",
+      "coverage_tag": "strength",
+      "evidence_scope": "SUBMITTED_DRAFT",
+      "source_question_indexes": [
+        2
+      ],
+      "one_sentence_answer": "제 강점은 확인 기준을 반복 행동으로 옮기는 점입니다. 저는 상인 인터뷰와 5개 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험이 있습니다.",
+      "judgment_standard": "정확성·기한·권한 경계를 함께 지키는가",
+      "direct_actions": [
+        "저는 상인 인터뷰와 5개 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험이 있습니다."
+      ],
+      "job_connection": "신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다.",
+      "experience_ids": [
+        "exp_a07fd710e2b7c0c2"
+      ],
+      "experience_claim_ids": [
+        "clm_abaa19a532d1aabc9140"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "spoken_versions": {
+        "brief": {
+          "target_seconds": 20,
+          "text": "제 강점은 확인 기준을 반복 행동으로 옮기는 점입니다. 저는 상인 인터뷰와 5개 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험이 있습니다."
+        },
+        "standard": {
+          "target_seconds": 60,
+          "text": "제 강점은 확인 기준을 반복 행동으로 옮기는 점입니다. 저는 상인 인터뷰와 5개 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험이 있습니다. 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다."
+        },
+        "detailed": {
+          "target_seconds": 120,
+          "text": "제 강점은 확인 기준을 반복 행동으로 옮기는 점입니다. 저는 상인 인터뷰와 5개 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험이 있습니다. 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다. 제 강점은 자료가 많아도 출처와 처리 단계를 표시해 다시 확인할 수 있게 정리하는 점입니다. 지급 결정서·추납·분납 자료를 다룬 경험에서도 정확한 선별이 필요한 과제를 맡았습니다. 다만 최종 판단을 제가 했다고 확대하지 않겠습니다. 신용보증 기한연장, 기업신용 상시관리 등에서도 같은 기준으로 자료 상태와 남은 확인 사항을 담당자에게 전달하겠습니다."
+        }
+      },
+      "spoken_timing_audit": {
+        "brief": {
+          "character_count": 85,
+          "expected_range": [
+            40,
+            140
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        },
+        "standard": {
+          "character_count": 153,
+          "expected_range": [
+            120,
+            320
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        },
+        "detailed": {
+          "character_count": 349,
+          "expected_range": [
+            260,
+            900
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        }
+      }
+    },
+    {
+      "question_id": "Q10",
+      "coverage_tag": "weakness",
+      "evidence_scope": "SUBMITTED_DRAFT",
+      "source_question_indexes": [],
+      "one_sentence_answer": "새 조직에서는 질문과 피드백을 업무노트에 남기고, 다음 처리 전 체크리스트로 재확인해 같은 질문과 작은 오류의 반복을 줄이겠습니다.",
+      "judgment_standard": "정확성·기한·권한 경계를 함께 지키는가",
+      "direct_actions": [
+        "질문·답변 기록 → 체크리스트 반영 → 다음 업무 전 재확인 → 반복 오류 보고"
+      ],
+      "job_connection": "신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다.",
+      "experience_ids": [],
+      "experience_claim_ids": [],
+      "research_claim_ids": [],
+      "spoken_versions": {
+        "brief": {
+          "target_seconds": 20,
+          "text": "새 조직에서는 질문과 피드백을 업무노트에 남기고, 다음 처리 전 체크리스트로 재확인해 같은 질문과 작은 오류의 반복을 줄이겠습니다."
+        },
+        "standard": {
+          "target_seconds": 60,
+          "text": "새 조직에서는 질문과 피드백을 업무노트에 남기고, 다음 처리 전 체크리스트로 재확인해 같은 질문과 작은 오류의 반복을 줄이겠습니다. 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다."
+        },
+        "detailed": {
+          "target_seconds": 120,
+          "text": "새 조직에서는 질문과 피드백을 업무노트에 남기고, 다음 처리 전 체크리스트로 재확인해 같은 질문과 작은 오류의 반복을 줄이겠습니다. 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다. 처음 듣는 용어와 예외는 질문하기 전에 제가 이해한 내용을 한 줄로 정리하고, 담당자의 답을 업무노트에 남기겠습니다. 다음 처리 때는 같은 항목을 체크리스트로 먼저 확인한 뒤 질문하겠습니다. 그래도 반복되는 오류는 숨기지 않고 발생 조건과 함께 보고해 기준을 다시 확인하겠습니다. 이는 확인되지 않은 과거 경험이 아니라 입사 후 실행할 관리 방식입니다."
+        }
+      },
+      "spoken_timing_audit": {
+        "brief": {
+          "character_count": 73,
+          "expected_range": [
+            40,
+            140
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        },
+        "standard": {
+          "character_count": 141,
+          "expected_range": [
+            120,
+            320
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        },
+        "detailed": {
+          "character_count": 339,
+          "expected_range": [
+            260,
+            900
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        }
+      }
+    },
+    {
+      "question_id": "Q11",
+      "coverage_tag": "first_90_days",
+      "evidence_scope": "SUBMITTED_DRAFT",
+      "source_question_indexes": [
+        3
+      ],
+      "one_sentence_answer": "신용보증기금 청년인턴으로 근무한다면 초기 학습, 실행, 점검의 순서로 업무를 수행하겠습니다.",
+      "judgment_standard": "정확성·기한·권한 경계를 함께 지키는가",
+      "direct_actions": [
+        "이 경험을 살려 자료별 출처, 처리 단계, 확인 여부를 표시하고, 같은 자료를 다시 볼 때도 흐름을 놓치지 않겠습니다."
+      ],
+      "job_connection": "신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다.",
+      "experience_ids": [
+        "exp_3279ca654f7e0e37"
+      ],
+      "experience_claim_ids": [
+        "clm_5e91929d8d87322e2c70"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "spoken_versions": {
+        "brief": {
+          "target_seconds": 20,
+          "text": "신용보증기금 청년인턴으로 근무한다면 초기 학습, 실행, 점검의 순서로 업무를 수행하겠습니다."
+        },
+        "standard": {
+          "target_seconds": 60,
+          "text": "신용보증기금 청년인턴으로 근무한다면 초기 학습, 실행, 점검의 순서로 업무를 수행하겠습니다. 먼저 신용보증 기한연장과 기업신용 상시관리의 업무 흐름, 필요한 자료 항목, 보고 기준을 숙지하겠습니다. 보증 분야 체험형 청년인턴의 주요업무가 신용보증 기한연장과 기업신용 상시관리라는 공식 내용을 기준으로, 제 역할을 독립 판단이 아니라 확인·기록·보고에 두겠습니다."
+        },
+        "detailed": {
+          "target_seconds": 120,
+          "text": "신용보증기금 청년인턴으로 근무한다면 초기 학습, 실행, 점검의 순서로 업무를 수행하겠습니다. 먼저 신용보증 기한연장과 기업신용 상시관리의 업무 흐름, 필요한 자료 항목, 보고 기준을 숙지하겠습니다. 보증 분야 체험형 청년인턴의 주요업무가 신용보증 기한연장과 기업신용 상시관리라는 공식 내용을 기준으로, 제 역할을 독립 판단이 아니라 확인·기록·보고에 두겠습니다. 저는 기초연금 업무에서 지급 결정서·추납·분납 자료를 정리하고 실질적 수급 대상자를 정확히 선별해야 하는 과제를 맡았습니다. 이 경험을 살려 자료별 출처, 처리 단계, 확인 여부를 표시하고, 같은 자료를 다시 볼 때도 흐름을 놓치지 않겠습니다. 이후에는 원자료와 입력값을 대조하고, 누락·불일치·변동 사항을 따로 모아 담당자에게 보고하겠습니다."
+        }
+      },
+      "spoken_timing_audit": {
+        "brief": {
+          "character_count": 51,
+          "expected_range": [
+            40,
+            140
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        },
+        "standard": {
+          "character_count": 202,
+          "expected_range": [
+            120,
+            320
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        },
+        "detailed": {
+          "character_count": 395,
+          "expected_range": [
+            260,
+            900
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        }
+      }
+    },
+    {
+      "question_id": "Q12",
+      "coverage_tag": "core_numbers",
+      "evidence_scope": "SUBMITTED_DRAFT",
+      "source_question_indexes": [
+        4
+      ],
+      "one_sentence_answer": "최근 중소기업에 큰 영향을 미치는 이슈로는 높은 환율 변동성을 선택하겠습니다.",
+      "judgment_standard": "정확성·기한·권한 경계를 함께 지키는가",
+      "direct_actions": [
+        "기업별 매출·원가·외화 결제 조건 확인",
+        "일시적 유동성 부족과 구조적 위험 구분",
+        "지원 뒤 환율 노출·회수·연체 변화 점검"
+      ],
+      "job_connection": "기업별 환율 노출과 현금흐름을 확인해 유동성 지원 필요성과 보증 위험을 함께 판단하는 정책금융 논리로 연결됩니다.",
+      "experience_ids": [],
+      "experience_claim_ids": [],
+      "research_claim_ids": [
+        "bok-fx-risk-20260711",
+        "kodit-liquidity-support-20260711"
+      ],
+      "spoken_versions": {
+        "brief": {
+          "target_seconds": 20,
+          "text": "최근 중소기업에 큰 영향을 미치는 이슈로는 높은 환율 변동성을 선택하겠습니다."
+        },
+        "standard": {
+          "target_seconds": 60,
+          "text": "최근 중소기업에 큰 영향을 미치는 이슈로는 높은 환율 변동성을 선택하겠습니다. 한국은행은 높은 환율 변동성과 중동지역 리스크를 점검하면서 14조원 한도의 중소기업 한시 특별지원 운용기간을 재연장했습니다. 이는 환율 부담이 일시적 문제가 아니라 자금 사정과 거래 안정성에 계속 영향을 준다는 점을 보여줍니다. 영향의 방향은 기업마다 다르게 나타납니다. 원재료나 부품을 수입하는 기업은 매입 단가와 운전자금 부담이 커집니다."
+        },
+        "detailed": {
+          "target_seconds": 120,
+          "text": "최근 중소기업에 큰 영향을 미치는 이슈로는 높은 환율 변동성을 선택하겠습니다. 한국은행은 높은 환율 변동성과 중동지역 리스크를 점검하면서 14조원 한도의 중소기업 한시 특별지원 운용기간을 재연장했습니다. 이는 환율 부담이 일시적 문제가 아니라 자금 사정과 거래 안정성에 계속 영향을 준다는 점을 보여줍니다. 원재료나 부품을 수입하는 기업은 매입 단가와 운전자금 부담이 커집니다. 외화 차입이나 결제 비중이 큰 기업은 금융비용과 환손익 관리가 어려워집니다. 반면 일부 수출기업에는 가격경쟁력 측면의 긍정적 효과도 예상됩니다. 매출 구조, 원가 구조, 외화 결제 조건, 납품 계약의 전가 가능성을 나누어 보는 것이 출발점입니다. 그 크기는 수입 원재료 비중, 외화 결제 시점, 납품단가 조정 속도에 따라 달라집니다. 유동성 공백에는 보증과 금융비용 부담 완화가 필요합니다. 신용보증기금은 지역 수출기업 등의 유동성과 금융비용 부담을 완화하기 위해 협약보증을 공급하고 있습니다. 이 제도와 보증 상담을 연결하되, 실제 현금흐름 압박을 겪는 기업을 먼저 선별해야 합니다. 첫째, 환율 피해 주장만으로 지원 필요성을 확정하지 말고 세금계산서, 거래 조건, 외화 결제 내역처럼 확인 가능한 자료를 보아야 합니다. 둘째, 단기 유동성 지원이 상환능력 악화를 늦추는 데 그치지 않도록 매출 회복 가능성과 비용 전가 가능성을 함께 점검해야 합니다. 보증 이후에는 환율 노출, 매출채권 회수, 연체 여부를 기준 시점별로 기록하겠습니다. 결국 지원 속도와 사실 확인의 균형이 핵심입니다."
+        }
+      },
+      "spoken_timing_audit": {
+        "brief": {
+          "character_count": 43,
+          "expected_range": [
+            40,
+            140
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        },
+        "standard": {
+          "character_count": 235,
+          "expected_range": [
+            120,
+            320
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        },
+        "detailed": {
+          "character_count": 765,
+          "expected_range": [
+            260,
+            900
+          ],
+          "status": "PASS",
+          "metric_type": "FORMAT_CHECK"
+        }
+      }
+    }
+  ],
+  "probes": [
+    {
+      "probe_id": "P1",
+      "question_id": "Q1",
+      "category": "FACT",
+      "question": "'동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과 비교 분석 보고서를 작성해 보고한 경험이 있습니다.'을 확인할 수 있는 원자료와 최종 산출물은 각각 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        1
+      ],
+      "experience_claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "defense_focus": "원문·claim ID·수치 산식",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "자료명과 확인한 사실을 첫 문장에 답하기"
+    },
+    {
+      "probe_id": "P2",
+      "question_id": "Q1",
+      "category": "JUDGMENT",
+      "question": "'동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과 비교 분석 보고서를 작성해 보고한 경험이 있습니다.'에서 가장 먼저 확인한 항목과 그 순서를 택한 이유는 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        1
+      ],
+      "experience_claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "defense_focus": "행동 순서와 선택 기준",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "선택 기준과 이유를 각각 한 문장으로 말하기"
+    },
+    {
+      "probe_id": "P3",
+      "question_id": "Q1",
+      "category": "CONTRIBUTION",
+      "question": "'동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과 비교 분석 보고서를 작성해 보고한 경험이 있습니다.' 가운데 본인이 직접 한 일과 팀이 판단한 일을 나눠 말해 주십시오.",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        1
+      ],
+      "experience_claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "defense_focus": "팀 결과와 직접 행동 분리",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "내 행동과 타인의 판단을 분리해 말하기"
+    },
+    {
+      "probe_id": "P4",
+      "question_id": "Q1",
+      "category": "ALTERNATIVE",
+      "question": "'동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과 비교 분석 보고서를 작성해 보고한 경험이 있습니다.'을 다시 한다면 정확도나 속도를 위해 한 가지 무엇을 바꾸겠습니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        1
+      ],
+      "experience_claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "defense_focus": "한계와 다음 행동",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "한계 하나와 다음 행동 하나만 제시하기"
+    },
+    {
+      "probe_id": "P5",
+      "question_id": "Q1",
+      "category": "JOB_TRANSFER",
+      "question": "'동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과 비교 분석 보고서를 작성해 보고한 경험이 있습니다.'을 신용보증 기한연장, 기업신용 상시관리 등에 적용한다면 첫날 어떤 자료부터 확인하겠습니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        1
+      ],
+      "experience_claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "defense_focus": "기한연장·상시관리의 구체 행동",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "입사 후 첫 행동을 동사로 시작해 말하기"
+    },
+    {
+      "probe_id": "P6",
+      "question_id": "Q2",
+      "category": "FACT",
+      "question": "'신용보증기금의 보증 역할과 인턴 업무를 확인하고 지원 동기·학습·기여 계획을 연결'을 확인할 수 있는 원자료와 최종 산출물은 각각 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        1
+      ],
+      "experience_claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "defense_focus": "원문·claim ID·수치 산식",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "자료명과 확인한 사실을 첫 문장에 답하기"
+    },
+    {
+      "probe_id": "P7",
+      "question_id": "Q2",
+      "category": "JUDGMENT",
+      "question": "'신용보증기금의 보증 역할과 인턴 업무를 확인하고 지원 동기·학습·기여 계획을 연결'에서 가장 먼저 확인한 항목과 그 순서를 택한 이유는 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        1
+      ],
+      "experience_claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "defense_focus": "행동 순서와 선택 기준",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "선택 기준과 이유를 각각 한 문장으로 말하기"
+    },
+    {
+      "probe_id": "P8",
+      "question_id": "Q2",
+      "category": "CONTRIBUTION",
+      "question": "'신용보증기금의 보증 역할과 인턴 업무를 확인하고 지원 동기·학습·기여 계획을 연결' 가운데 본인이 직접 한 일과 팀이 판단한 일을 나눠 말해 주십시오.",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        1
+      ],
+      "experience_claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "defense_focus": "팀 결과와 직접 행동 분리",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "내 행동과 타인의 판단을 분리해 말하기"
+    },
+    {
+      "probe_id": "P9",
+      "question_id": "Q2",
+      "category": "ALTERNATIVE",
+      "question": "'신용보증기금의 보증 역할과 인턴 업무를 확인하고 지원 동기·학습·기여 계획을 연결'을 다시 한다면 정확도나 속도를 위해 한 가지 무엇을 바꾸겠습니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        1
+      ],
+      "experience_claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "defense_focus": "한계와 다음 행동",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "한계 하나와 다음 행동 하나만 제시하기"
+    },
+    {
+      "probe_id": "P10",
+      "question_id": "Q2",
+      "category": "JOB_TRANSFER",
+      "question": "'신용보증기금의 보증 역할과 인턴 업무를 확인하고 지원 동기·학습·기여 계획을 연결'을 신용보증 기한연장, 기업신용 상시관리 등에 적용한다면 첫날 어떤 자료부터 확인하겠습니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        1
+      ],
+      "experience_claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "defense_focus": "기한연장·상시관리의 구체 행동",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "입사 후 첫 행동을 동사로 시작해 말하기"
+    },
+    {
+      "probe_id": "P11",
+      "question_id": "Q3",
+      "category": "FACT",
+      "question": "'기업 채무보증·신용조사·보증심사라는 공식 역할을 근거로 설명'의 근거가 된 공식 자료와 확인 기준일은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        1
+      ],
+      "experience_claim_ids": [],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "defense_focus": "원문·claim ID·수치 산식",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "공식 자료에서 확인한 역할까지만 설명하고 내부 절차나 성과는 추정하지 않는다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "자료명과 확인한 사실을 첫 문장에 답하기"
+    },
+    {
+      "probe_id": "P12",
+      "question_id": "Q3",
+      "category": "JUDGMENT",
+      "question": "기관의 여러 기능 중 '기업 채무보증·신용조사·보증심사라는 공식 역할을 근거로 설명'을 지원 이유로 선택한 까닭은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        1
+      ],
+      "experience_claim_ids": [],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "defense_focus": "행동 순서와 선택 기준",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "공식 자료에서 확인한 역할까지만 설명하고 내부 절차나 성과는 추정하지 않는다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "선택 기준과 이유를 각각 한 문장으로 말하기"
+    },
+    {
+      "probe_id": "P13",
+      "question_id": "Q3",
+      "category": "CONTRIBUTION",
+      "question": "'기업 채무보증·신용조사·보증심사라는 공식 역할을 근거로 설명'에서 인턴이 할 일과 담당자가 판단할 일을 구분해 주십시오.",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        1
+      ],
+      "experience_claim_ids": [],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "defense_focus": "팀 결과와 직접 행동 분리",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "공식 자료에서 확인한 역할까지만 설명하고 내부 절차나 성과는 추정하지 않는다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "내 행동과 타인의 판단을 분리해 말하기"
+    },
+    {
+      "probe_id": "P14",
+      "question_id": "Q3",
+      "category": "ALTERNATIVE",
+      "question": "'기업 채무보증·신용조사·보증심사라는 공식 역할을 근거로 설명'과 다른 업무에 배치되면 학습 계획을 어떻게 조정하겠습니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        1
+      ],
+      "experience_claim_ids": [],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "defense_focus": "한계와 다음 행동",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "공식 자료에서 확인한 역할까지만 설명하고 내부 절차나 성과는 추정하지 않는다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "한계 하나와 다음 행동 하나만 제시하기"
+    },
+    {
+      "probe_id": "P15",
+      "question_id": "Q3",
+      "category": "JOB_TRANSFER",
+      "question": "'기업 채무보증·신용조사·보증심사라는 공식 역할을 근거로 설명'을 신용보증 기한연장, 기업신용 상시관리 등의 하루 행동으로 바꾸면 무엇부터 하겠습니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        1
+      ],
+      "experience_claim_ids": [],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "defense_focus": "기한연장·상시관리의 구체 행동",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "공식 자료에서 확인한 역할까지만 설명하고 내부 절차나 성과는 추정하지 않는다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "입사 후 첫 행동을 동사로 시작해 말하기"
+    },
+    {
+      "probe_id": "P16",
+      "question_id": "Q4",
+      "category": "FACT",
+      "question": "'이 경험을 살려 자료별 출처, 처리 단계, 확인 여부를 표시하고, 같은 자료를 다시 볼 때도 흐름을 놓치지 않겠습니다.'을 확인할 수 있는 원자료와 최종 산출물은 각각 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        3
+      ],
+      "experience_claim_ids": [
+        "clm_5e91929d8d87322e2c70"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "defense_focus": "원문·claim ID·수치 산식",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "자료명과 확인한 사실을 첫 문장에 답하기"
+    },
+    {
+      "probe_id": "P17",
+      "question_id": "Q4",
+      "category": "JUDGMENT",
+      "question": "'이 경험을 살려 자료별 출처, 처리 단계, 확인 여부를 표시하고, 같은 자료를 다시 볼 때도 흐름을 놓치지 않겠습니다.'에서 가장 먼저 확인한 항목과 그 순서를 택한 이유는 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        3
+      ],
+      "experience_claim_ids": [
+        "clm_5e91929d8d87322e2c70"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "defense_focus": "행동 순서와 선택 기준",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "선택 기준과 이유를 각각 한 문장으로 말하기"
+    },
+    {
+      "probe_id": "P18",
+      "question_id": "Q4",
+      "category": "CONTRIBUTION",
+      "question": "'이 경험을 살려 자료별 출처, 처리 단계, 확인 여부를 표시하고, 같은 자료를 다시 볼 때도 흐름을 놓치지 않겠습니다.' 가운데 본인이 직접 한 일과 팀이 판단한 일을 나눠 말해 주십시오.",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        3
+      ],
+      "experience_claim_ids": [
+        "clm_5e91929d8d87322e2c70"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "defense_focus": "팀 결과와 직접 행동 분리",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "내 행동과 타인의 판단을 분리해 말하기"
+    },
+    {
+      "probe_id": "P19",
+      "question_id": "Q4",
+      "category": "ALTERNATIVE",
+      "question": "'이 경험을 살려 자료별 출처, 처리 단계, 확인 여부를 표시하고, 같은 자료를 다시 볼 때도 흐름을 놓치지 않겠습니다.'을 다시 한다면 정확도나 속도를 위해 한 가지 무엇을 바꾸겠습니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        3
+      ],
+      "experience_claim_ids": [
+        "clm_5e91929d8d87322e2c70"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "defense_focus": "한계와 다음 행동",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "한계 하나와 다음 행동 하나만 제시하기"
+    },
+    {
+      "probe_id": "P20",
+      "question_id": "Q4",
+      "category": "JOB_TRANSFER",
+      "question": "'이 경험을 살려 자료별 출처, 처리 단계, 확인 여부를 표시하고, 같은 자료를 다시 볼 때도 흐름을 놓치지 않겠습니다.'을 신용보증 기한연장, 기업신용 상시관리 등에 적용한다면 첫날 어떤 자료부터 확인하겠습니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        3
+      ],
+      "experience_claim_ids": [
+        "clm_5e91929d8d87322e2c70"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "defense_focus": "기한연장·상시관리의 구체 행동",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "입사 후 첫 행동을 동사로 시작해 말하기"
+    },
+    {
+      "probe_id": "P21",
+      "question_id": "Q5",
+      "category": "FACT",
+      "question": "'동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과 비교 분석 보고서를 작성해 보고한 경험이 있습니다.'을 확인할 수 있는 원자료와 최종 산출물은 각각 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        1
+      ],
+      "experience_claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "defense_focus": "원문·claim ID·수치 산식",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "자료명과 확인한 사실을 첫 문장에 답하기"
+    },
+    {
+      "probe_id": "P22",
+      "question_id": "Q5",
+      "category": "JUDGMENT",
+      "question": "'동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과 비교 분석 보고서를 작성해 보고한 경험이 있습니다.'에서 가장 먼저 확인한 항목과 그 순서를 택한 이유는 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        1
+      ],
+      "experience_claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "defense_focus": "행동 순서와 선택 기준",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "선택 기준과 이유를 각각 한 문장으로 말하기"
+    },
+    {
+      "probe_id": "P23",
+      "question_id": "Q5",
+      "category": "CONTRIBUTION",
+      "question": "'동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과 비교 분석 보고서를 작성해 보고한 경험이 있습니다.' 가운데 본인이 직접 한 일과 팀이 판단한 일을 나눠 말해 주십시오.",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        1
+      ],
+      "experience_claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "defense_focus": "팀 결과와 직접 행동 분리",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "내 행동과 타인의 판단을 분리해 말하기"
+    },
+    {
+      "probe_id": "P24",
+      "question_id": "Q5",
+      "category": "ALTERNATIVE",
+      "question": "'동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과 비교 분석 보고서를 작성해 보고한 경험이 있습니다.'을 다시 한다면 정확도나 속도를 위해 한 가지 무엇을 바꾸겠습니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        1
+      ],
+      "experience_claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "defense_focus": "한계와 다음 행동",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "한계 하나와 다음 행동 하나만 제시하기"
+    },
+    {
+      "probe_id": "P25",
+      "question_id": "Q5",
+      "category": "JOB_TRANSFER",
+      "question": "'동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과 비교 분석 보고서를 작성해 보고한 경험이 있습니다.'을 신용보증 기한연장, 기업신용 상시관리 등에 적용한다면 첫날 어떤 자료부터 확인하겠습니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        1
+      ],
+      "experience_claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "defense_focus": "기한연장·상시관리의 구체 행동",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "입사 후 첫 행동을 동사로 시작해 말하기"
+    },
+    {
+      "probe_id": "P26",
+      "question_id": "Q6",
+      "category": "FACT",
+      "question": "'영향 범위 표시 → 원문·기준일·입력 이력 대조 → 차이와 근거 보고 → 지시 후 수정·재점검'은 실제 경험이 아니라 대응 원칙이라는 점을 먼저 밝혀 주시겠습니까?",
+      "status": "DEFENSIBLE_WITH_QUALIFICATION",
+      "basis_type": "PROCEDURAL_RESPONSE",
+      "source_question_indexes": [],
+      "experience_claim_ids": [],
+      "research_claim_ids": [],
+      "defense_focus": "원문·claim ID·수치 산식",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "과거에 했다고 바꾸어 말하지 않고, 상황형 질문에 대한 절차와 권한 경계로 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "자료명과 확인한 사실을 첫 문장에 답하기"
+    },
+    {
+      "probe_id": "P27",
+      "question_id": "Q6",
+      "category": "JUDGMENT",
+      "question": "'영향 범위 표시 → 원문·기준일·입력 이력 대조 → 차이와 근거 보고 → 지시 후 수정·재점검'의 어느 단계에서 담당자 확인이 필요합니까?",
+      "status": "DEFENSIBLE_WITH_QUALIFICATION",
+      "basis_type": "PROCEDURAL_RESPONSE",
+      "source_question_indexes": [],
+      "experience_claim_ids": [],
+      "research_claim_ids": [],
+      "defense_focus": "행동 순서와 선택 기준",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "과거에 했다고 바꾸어 말하지 않고, 상황형 질문에 대한 절차와 권한 경계로 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "선택 기준과 이유를 각각 한 문장으로 말하기"
+    },
+    {
+      "probe_id": "P28",
+      "question_id": "Q6",
+      "category": "CONTRIBUTION",
+      "question": "'영향 범위 표시 → 원문·기준일·입력 이력 대조 → 차이와 근거 보고 → 지시 후 수정·재점검'에서 본인이 처리할 부분과 즉시 보고할 부분을 나눠 주십시오.",
+      "status": "DEFENSIBLE_WITH_QUALIFICATION",
+      "basis_type": "PROCEDURAL_RESPONSE",
+      "source_question_indexes": [],
+      "experience_claim_ids": [],
+      "research_claim_ids": [],
+      "defense_focus": "팀 결과와 직접 행동 분리",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "과거에 했다고 바꾸어 말하지 않고, 상황형 질문에 대한 절차와 권한 경계로 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "내 행동과 타인의 판단을 분리해 말하기"
+    },
+    {
+      "probe_id": "P29",
+      "question_id": "Q6",
+      "category": "ALTERNATIVE",
+      "question": "시간이 절반뿐이라면 '영향 범위 표시 → 원문·기준일·입력 이력 대조 → 차이와 근거 보고 → 지시 후 수정·재점검'에서 무엇을 생략하지 않겠습니까?",
+      "status": "DEFENSIBLE_WITH_QUALIFICATION",
+      "basis_type": "PROCEDURAL_RESPONSE",
+      "source_question_indexes": [],
+      "experience_claim_ids": [],
+      "research_claim_ids": [],
+      "defense_focus": "한계와 다음 행동",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "과거에 했다고 바꾸어 말하지 않고, 상황형 질문에 대한 절차와 권한 경계로 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "한계 하나와 다음 행동 하나만 제시하기"
+    },
+    {
+      "probe_id": "P30",
+      "question_id": "Q6",
+      "category": "JOB_TRANSFER",
+      "question": "'영향 범위 표시 → 원문·기준일·입력 이력 대조 → 차이와 근거 보고 → 지시 후 수정·재점검'을 신용보증 기한연장, 기업신용 상시관리 등에 적용할 때 남겨야 할 기록은 무엇입니까?",
+      "status": "DEFENSIBLE_WITH_QUALIFICATION",
+      "basis_type": "PROCEDURAL_RESPONSE",
+      "source_question_indexes": [],
+      "experience_claim_ids": [],
+      "research_claim_ids": [],
+      "defense_focus": "기한연장·상시관리의 구체 행동",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "과거에 했다고 바꾸어 말하지 않고, 상황형 질문에 대한 절차와 권한 경계로 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "입사 후 첫 행동을 동사로 시작해 말하기"
+    },
+    {
+      "probe_id": "P31",
+      "question_id": "Q7",
+      "category": "FACT",
+      "question": "'입력값 확인 → 수식·처리 기준 대조 → 차이 기록 → 분석 보고서 보고'을 확인할 수 있는 원자료와 최종 산출물은 각각 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        1
+      ],
+      "experience_claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "defense_focus": "원문·claim ID·수치 산식",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "자료명과 확인한 사실을 첫 문장에 답하기"
+    },
+    {
+      "probe_id": "P32",
+      "question_id": "Q7",
+      "category": "JUDGMENT",
+      "question": "'입력값 확인 → 수식·처리 기준 대조 → 차이 기록 → 분석 보고서 보고'에서 가장 먼저 확인한 항목과 그 순서를 택한 이유는 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        1
+      ],
+      "experience_claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "defense_focus": "행동 순서와 선택 기준",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "선택 기준과 이유를 각각 한 문장으로 말하기"
+    },
+    {
+      "probe_id": "P33",
+      "question_id": "Q7",
+      "category": "CONTRIBUTION",
+      "question": "'입력값 확인 → 수식·처리 기준 대조 → 차이 기록 → 분석 보고서 보고' 가운데 본인이 직접 한 일과 팀이 판단한 일을 나눠 말해 주십시오.",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        1
+      ],
+      "experience_claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "defense_focus": "팀 결과와 직접 행동 분리",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "내 행동과 타인의 판단을 분리해 말하기"
+    },
+    {
+      "probe_id": "P34",
+      "question_id": "Q7",
+      "category": "ALTERNATIVE",
+      "question": "'입력값 확인 → 수식·처리 기준 대조 → 차이 기록 → 분석 보고서 보고'을 다시 한다면 정확도나 속도를 위해 한 가지 무엇을 바꾸겠습니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        1
+      ],
+      "experience_claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "defense_focus": "한계와 다음 행동",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "한계 하나와 다음 행동 하나만 제시하기"
+    },
+    {
+      "probe_id": "P35",
+      "question_id": "Q7",
+      "category": "JOB_TRANSFER",
+      "question": "'입력값 확인 → 수식·처리 기준 대조 → 차이 기록 → 분석 보고서 보고'을 신용보증 기한연장, 기업신용 상시관리 등에 적용한다면 첫날 어떤 자료부터 확인하겠습니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        1
+      ],
+      "experience_claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "defense_focus": "기한연장·상시관리의 구체 행동",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "입사 후 첫 행동을 동사로 시작해 말하기"
+    },
+    {
+      "probe_id": "P36",
+      "question_id": "Q8",
+      "category": "FACT",
+      "question": "'저는 상인 인터뷰와 5개 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험이 있습니다.'을 확인할 수 있는 원자료와 최종 산출물은 각각 무엇입니까?",
+      "status": "DEFENSIBLE_WITH_QUALIFICATION",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        2
+      ],
+      "experience_claim_ids": [
+        "clm_abaa19a532d1aabc9140"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "defense_focus": "원문·claim ID·수치 산식",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "자료명과 확인한 사실을 첫 문장에 답하기"
+    },
+    {
+      "probe_id": "P37",
+      "question_id": "Q8",
+      "category": "JUDGMENT",
+      "question": "'저는 상인 인터뷰와 5개 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험이 있습니다.'에서 가장 먼저 확인한 항목과 그 순서를 택한 이유는 무엇입니까?",
+      "status": "DEFENSIBLE_WITH_QUALIFICATION",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        2
+      ],
+      "experience_claim_ids": [
+        "clm_abaa19a532d1aabc9140"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "defense_focus": "행동 순서와 선택 기준",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "선택 기준과 이유를 각각 한 문장으로 말하기"
+    },
+    {
+      "probe_id": "P38",
+      "question_id": "Q8",
+      "category": "CONTRIBUTION",
+      "question": "'저는 상인 인터뷰와 5개 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험이 있습니다.' 가운데 본인이 직접 한 일과 팀이 판단한 일을 나눠 말해 주십시오.",
+      "status": "DEFENSIBLE_WITH_QUALIFICATION",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        2
+      ],
+      "experience_claim_ids": [
+        "clm_abaa19a532d1aabc9140"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "defense_focus": "팀 결과와 직접 행동 분리",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "내 행동과 타인의 판단을 분리해 말하기"
+    },
+    {
+      "probe_id": "P39",
+      "question_id": "Q8",
+      "category": "ALTERNATIVE",
+      "question": "'저는 상인 인터뷰와 5개 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험이 있습니다.'을 다시 한다면 정확도나 속도를 위해 한 가지 무엇을 바꾸겠습니까?",
+      "status": "DEFENSIBLE_WITH_QUALIFICATION",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        2
+      ],
+      "experience_claim_ids": [
+        "clm_abaa19a532d1aabc9140"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "defense_focus": "한계와 다음 행동",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "한계 하나와 다음 행동 하나만 제시하기"
+    },
+    {
+      "probe_id": "P40",
+      "question_id": "Q8",
+      "category": "JOB_TRANSFER",
+      "question": "'저는 상인 인터뷰와 5개 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험이 있습니다.'을 신용보증 기한연장, 기업신용 상시관리 등에 적용한다면 첫날 어떤 자료부터 확인하겠습니까?",
+      "status": "DEFENSIBLE_WITH_QUALIFICATION",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        2
+      ],
+      "experience_claim_ids": [
+        "clm_abaa19a532d1aabc9140"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "defense_focus": "기한연장·상시관리의 구체 행동",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "입사 후 첫 행동을 동사로 시작해 말하기"
+    },
+    {
+      "probe_id": "P41",
+      "question_id": "Q9",
+      "category": "FACT",
+      "question": "'저는 상인 인터뷰와 5개 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험이 있습니다.'을 확인할 수 있는 원자료와 최종 산출물은 각각 무엇입니까?",
+      "status": "DEFENSIBLE_WITH_QUALIFICATION",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        2
+      ],
+      "experience_claim_ids": [
+        "clm_abaa19a532d1aabc9140"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "defense_focus": "원문·claim ID·수치 산식",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "자료명과 확인한 사실을 첫 문장에 답하기"
+    },
+    {
+      "probe_id": "P42",
+      "question_id": "Q9",
+      "category": "JUDGMENT",
+      "question": "'저는 상인 인터뷰와 5개 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험이 있습니다.'에서 가장 먼저 확인한 항목과 그 순서를 택한 이유는 무엇입니까?",
+      "status": "DEFENSIBLE_WITH_QUALIFICATION",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        2
+      ],
+      "experience_claim_ids": [
+        "clm_abaa19a532d1aabc9140"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "defense_focus": "행동 순서와 선택 기준",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "선택 기준과 이유를 각각 한 문장으로 말하기"
+    },
+    {
+      "probe_id": "P43",
+      "question_id": "Q9",
+      "category": "CONTRIBUTION",
+      "question": "'저는 상인 인터뷰와 5개 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험이 있습니다.' 가운데 본인이 직접 한 일과 팀이 판단한 일을 나눠 말해 주십시오.",
+      "status": "DEFENSIBLE_WITH_QUALIFICATION",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        2
+      ],
+      "experience_claim_ids": [
+        "clm_abaa19a532d1aabc9140"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "defense_focus": "팀 결과와 직접 행동 분리",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "내 행동과 타인의 판단을 분리해 말하기"
+    },
+    {
+      "probe_id": "P44",
+      "question_id": "Q9",
+      "category": "ALTERNATIVE",
+      "question": "'저는 상인 인터뷰와 5개 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험이 있습니다.'을 다시 한다면 정확도나 속도를 위해 한 가지 무엇을 바꾸겠습니까?",
+      "status": "DEFENSIBLE_WITH_QUALIFICATION",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        2
+      ],
+      "experience_claim_ids": [
+        "clm_abaa19a532d1aabc9140"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "defense_focus": "한계와 다음 행동",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "한계 하나와 다음 행동 하나만 제시하기"
+    },
+    {
+      "probe_id": "P45",
+      "question_id": "Q9",
+      "category": "JOB_TRANSFER",
+      "question": "'저는 상인 인터뷰와 5개 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험이 있습니다.'을 신용보증 기한연장, 기업신용 상시관리 등에 적용한다면 첫날 어떤 자료부터 확인하겠습니까?",
+      "status": "DEFENSIBLE_WITH_QUALIFICATION",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        2
+      ],
+      "experience_claim_ids": [
+        "clm_abaa19a532d1aabc9140"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "defense_focus": "기한연장·상시관리의 구체 행동",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "입사 후 첫 행동을 동사로 시작해 말하기"
+    },
+    {
+      "probe_id": "P46",
+      "question_id": "Q10",
+      "category": "FACT",
+      "question": "'질문·답변 기록 → 체크리스트 반영 → 다음 업무 전 재확인 → 반복 오류 보고'은 실제 경험이 아니라 대응 원칙이라는 점을 먼저 밝혀 주시겠습니까?",
+      "status": "DEFENSIBLE_WITH_QUALIFICATION",
+      "basis_type": "PROCEDURAL_RESPONSE",
+      "source_question_indexes": [],
+      "experience_claim_ids": [],
+      "research_claim_ids": [],
+      "defense_focus": "원문·claim ID·수치 산식",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "과거에 했다고 바꾸어 말하지 않고, 상황형 질문에 대한 절차와 권한 경계로 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "자료명과 확인한 사실을 첫 문장에 답하기"
+    },
+    {
+      "probe_id": "P47",
+      "question_id": "Q10",
+      "category": "JUDGMENT",
+      "question": "'질문·답변 기록 → 체크리스트 반영 → 다음 업무 전 재확인 → 반복 오류 보고'의 어느 단계에서 담당자 확인이 필요합니까?",
+      "status": "DEFENSIBLE_WITH_QUALIFICATION",
+      "basis_type": "PROCEDURAL_RESPONSE",
+      "source_question_indexes": [],
+      "experience_claim_ids": [],
+      "research_claim_ids": [],
+      "defense_focus": "행동 순서와 선택 기준",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "과거에 했다고 바꾸어 말하지 않고, 상황형 질문에 대한 절차와 권한 경계로 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "선택 기준과 이유를 각각 한 문장으로 말하기"
+    },
+    {
+      "probe_id": "P48",
+      "question_id": "Q10",
+      "category": "CONTRIBUTION",
+      "question": "'질문·답변 기록 → 체크리스트 반영 → 다음 업무 전 재확인 → 반복 오류 보고'에서 본인이 처리할 부분과 즉시 보고할 부분을 나눠 주십시오.",
+      "status": "DEFENSIBLE_WITH_QUALIFICATION",
+      "basis_type": "PROCEDURAL_RESPONSE",
+      "source_question_indexes": [],
+      "experience_claim_ids": [],
+      "research_claim_ids": [],
+      "defense_focus": "팀 결과와 직접 행동 분리",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "과거에 했다고 바꾸어 말하지 않고, 상황형 질문에 대한 절차와 권한 경계로 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "내 행동과 타인의 판단을 분리해 말하기"
+    },
+    {
+      "probe_id": "P49",
+      "question_id": "Q10",
+      "category": "ALTERNATIVE",
+      "question": "시간이 절반뿐이라면 '질문·답변 기록 → 체크리스트 반영 → 다음 업무 전 재확인 → 반복 오류 보고'에서 무엇을 생략하지 않겠습니까?",
+      "status": "DEFENSIBLE_WITH_QUALIFICATION",
+      "basis_type": "PROCEDURAL_RESPONSE",
+      "source_question_indexes": [],
+      "experience_claim_ids": [],
+      "research_claim_ids": [],
+      "defense_focus": "한계와 다음 행동",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "과거에 했다고 바꾸어 말하지 않고, 상황형 질문에 대한 절차와 권한 경계로 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "한계 하나와 다음 행동 하나만 제시하기"
+    },
+    {
+      "probe_id": "P50",
+      "question_id": "Q10",
+      "category": "JOB_TRANSFER",
+      "question": "'질문·답변 기록 → 체크리스트 반영 → 다음 업무 전 재확인 → 반복 오류 보고'을 신용보증 기한연장, 기업신용 상시관리 등에 적용할 때 남겨야 할 기록은 무엇입니까?",
+      "status": "DEFENSIBLE_WITH_QUALIFICATION",
+      "basis_type": "PROCEDURAL_RESPONSE",
+      "source_question_indexes": [],
+      "experience_claim_ids": [],
+      "research_claim_ids": [],
+      "defense_focus": "기한연장·상시관리의 구체 행동",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "과거에 했다고 바꾸어 말하지 않고, 상황형 질문에 대한 절차와 권한 경계로 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "입사 후 첫 행동을 동사로 시작해 말하기"
+    },
+    {
+      "probe_id": "P51",
+      "question_id": "Q11",
+      "category": "FACT",
+      "question": "'이 경험을 살려 자료별 출처, 처리 단계, 확인 여부를 표시하고, 같은 자료를 다시 볼 때도 흐름을 놓치지 않겠습니다.'을 확인할 수 있는 원자료와 최종 산출물은 각각 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        3
+      ],
+      "experience_claim_ids": [
+        "clm_5e91929d8d87322e2c70"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "defense_focus": "원문·claim ID·수치 산식",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "자료명과 확인한 사실을 첫 문장에 답하기"
+    },
+    {
+      "probe_id": "P52",
+      "question_id": "Q11",
+      "category": "JUDGMENT",
+      "question": "'이 경험을 살려 자료별 출처, 처리 단계, 확인 여부를 표시하고, 같은 자료를 다시 볼 때도 흐름을 놓치지 않겠습니다.'에서 가장 먼저 확인한 항목과 그 순서를 택한 이유는 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        3
+      ],
+      "experience_claim_ids": [
+        "clm_5e91929d8d87322e2c70"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "defense_focus": "행동 순서와 선택 기준",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "선택 기준과 이유를 각각 한 문장으로 말하기"
+    },
+    {
+      "probe_id": "P53",
+      "question_id": "Q11",
+      "category": "CONTRIBUTION",
+      "question": "'이 경험을 살려 자료별 출처, 처리 단계, 확인 여부를 표시하고, 같은 자료를 다시 볼 때도 흐름을 놓치지 않겠습니다.' 가운데 본인이 직접 한 일과 팀이 판단한 일을 나눠 말해 주십시오.",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        3
+      ],
+      "experience_claim_ids": [
+        "clm_5e91929d8d87322e2c70"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "defense_focus": "팀 결과와 직접 행동 분리",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "내 행동과 타인의 판단을 분리해 말하기"
+    },
+    {
+      "probe_id": "P54",
+      "question_id": "Q11",
+      "category": "ALTERNATIVE",
+      "question": "'이 경험을 살려 자료별 출처, 처리 단계, 확인 여부를 표시하고, 같은 자료를 다시 볼 때도 흐름을 놓치지 않겠습니다.'을 다시 한다면 정확도나 속도를 위해 한 가지 무엇을 바꾸겠습니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        3
+      ],
+      "experience_claim_ids": [
+        "clm_5e91929d8d87322e2c70"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "defense_focus": "한계와 다음 행동",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "한계 하나와 다음 행동 하나만 제시하기"
+    },
+    {
+      "probe_id": "P55",
+      "question_id": "Q11",
+      "category": "JOB_TRANSFER",
+      "question": "'이 경험을 살려 자료별 출처, 처리 단계, 확인 여부를 표시하고, 같은 자료를 다시 볼 때도 흐름을 놓치지 않겠습니다.'을 신용보증 기한연장, 기업신용 상시관리 등에 적용한다면 첫날 어떤 자료부터 확인하겠습니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        3
+      ],
+      "experience_claim_ids": [
+        "clm_5e91929d8d87322e2c70"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "defense_focus": "기한연장·상시관리의 구체 행동",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "확인된 직접 행동을 먼저 말하고, 팀의 결과와 최종 판단권자의 역할은 분리해 답한다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "입사 후 첫 행동을 동사로 시작해 말하기"
+    },
+    {
+      "probe_id": "P56",
+      "question_id": "Q12",
+      "category": "FACT",
+      "question": "'기업별 매출·원가·외화 결제 조건 확인'의 근거가 된 공식 자료와 확인 기준일은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        4
+      ],
+      "experience_claim_ids": [],
+      "research_claim_ids": [
+        "bok-fx-risk-20260711",
+        "kodit-liquidity-support-20260711"
+      ],
+      "defense_focus": "원문·claim ID·수치 산식",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "공식 자료에서 확인한 역할까지만 설명하고 내부 절차나 성과는 추정하지 않는다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "자료명과 확인한 사실을 첫 문장에 답하기"
+    },
+    {
+      "probe_id": "P57",
+      "question_id": "Q12",
+      "category": "JUDGMENT",
+      "question": "기관의 여러 기능 중 '기업별 매출·원가·외화 결제 조건 확인'을 지원 이유로 선택한 까닭은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        4
+      ],
+      "experience_claim_ids": [],
+      "research_claim_ids": [
+        "bok-fx-risk-20260711",
+        "kodit-liquidity-support-20260711"
+      ],
+      "defense_focus": "행동 순서와 선택 기준",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "공식 자료에서 확인한 역할까지만 설명하고 내부 절차나 성과는 추정하지 않는다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "선택 기준과 이유를 각각 한 문장으로 말하기"
+    },
+    {
+      "probe_id": "P58",
+      "question_id": "Q12",
+      "category": "CONTRIBUTION",
+      "question": "'기업별 매출·원가·외화 결제 조건 확인'에서 인턴이 할 일과 담당자가 판단할 일을 구분해 주십시오.",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        4
+      ],
+      "experience_claim_ids": [],
+      "research_claim_ids": [
+        "bok-fx-risk-20260711",
+        "kodit-liquidity-support-20260711"
+      ],
+      "defense_focus": "팀 결과와 직접 행동 분리",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "공식 자료에서 확인한 역할까지만 설명하고 내부 절차나 성과는 추정하지 않는다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "내 행동과 타인의 판단을 분리해 말하기"
+    },
+    {
+      "probe_id": "P59",
+      "question_id": "Q12",
+      "category": "ALTERNATIVE",
+      "question": "'기업별 매출·원가·외화 결제 조건 확인'과 다른 업무에 배치되면 학습 계획을 어떻게 조정하겠습니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        4
+      ],
+      "experience_claim_ids": [],
+      "research_claim_ids": [
+        "bok-fx-risk-20260711",
+        "kodit-liquidity-support-20260711"
+      ],
+      "defense_focus": "한계와 다음 행동",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "공식 자료에서 확인한 역할까지만 설명하고 내부 절차나 성과는 추정하지 않는다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "한계 하나와 다음 행동 하나만 제시하기"
+    },
+    {
+      "probe_id": "P60",
+      "question_id": "Q12",
+      "category": "JOB_TRANSFER",
+      "question": "'기업별 매출·원가·외화 결제 조건 확인'을 신용보증 기한연장, 기업신용 상시관리 등의 하루 행동으로 바꾸면 무엇부터 하겠습니까?",
+      "status": "DEFENSIBLE",
+      "basis_type": "CLAIM_LINKED_RESPONSE",
+      "source_question_indexes": [
+        4
+      ],
+      "experience_claim_ids": [],
+      "research_claim_ids": [
+        "bok-fx-risk-20260711",
+        "kodit-liquidity-support-20260711"
+      ],
+      "defense_focus": "기한연장·상시관리의 구체 행동",
+      "safe_answer_boundary": "상황형 절차 답변은 과거 경험 주장으로 바꾸지 않으며, 원장과 공식 근거에 없는 사실·수치·권한은 말하지 않음",
+      "safe_answer_example": "공식 자료에서 확인한 역할까지만 설명하고 내부 절차나 성과는 추정하지 않는다.",
+      "red_flag": "결과 수치를 산식 없이 말하거나 팀 성과를 개인 성과로 바꿈",
+      "retry_goal": "입사 후 첫 행동을 동사로 시작해 말하기"
+    }
+  ],
+  "reverse_questions": [
+    "입사 초기 가장 먼저 익혀야 할 품질 기준은 무엇입니까?",
+    "반복적으로 발생하는 예외 업무와 보고 기준은 무엇입니까?",
+    "인턴이 피드백을 가장 빠르게 업무에 반영하는 방법은 무엇입니까?"
+  ],
+  "day_of_checklist": [
+    "회사명·직무명·공고 업무 재확인",
+    "핵심 경험의 직접 행동·판단 기준·한계 확인",
+    "수치가 있는 claim의 산출 근거와 기여 범위 확인",
+    "모르는 질문에서 사실 경계를 지키는 문장 연습"
+  ],
+  "delivery_evaluation": {
+    "content_criteria": [
+      "질문에 먼저 답함",
+      "claim ID 범위 안의 사실",
+      "개인 기여와 한계 구분",
+      "직무 행동 연결"
+    ],
+    "delivery_criteria": [
+      "첫 문장 20초 이내",
+      "문장 종결을 흐리지 않음",
+      "속도·호흡·시선",
+      "추가질문 뒤 핵심을 다시 정리"
+    ]
+  },
+  "unknown_answer_policy": {
+    "validity_check": "질문의 전제와 기준 시점을 먼저 확인합니다.",
+    "confirmed_fact": "제가 확인한 공식 자료와 확정 경험에서 아는 범위를 먼저 말합니다.",
+    "boundary_statement": "제가 확인한 공식 자료의 범위에서는 여기까지 말씀드릴 수 있습니다.",
+    "reasoning_bridge": "다만 공고의 업무와 확인된 원칙을 기준으로 보면 이렇게 접근하겠습니다.",
+    "verification_commitment": "입사 후에는 담당 기준과 최신 자료를 먼저 확인한 뒤 판단하겠습니다.",
+    "job_link": "확인 결과는 신용보증 기한연장, 기업신용 상시관리 등의 기록·보고 행동으로 연결합니다."
+  },
+  "pressure_boundaries": [
+    "수치의 기준값·결과값·산식·측정기간 중 하나라도 없으면 숫자를 말하지 않음",
+    "팀 결과와 본인의 직접 행동을 한 문장씩 분리",
+    "보증 승인·신용판단은 담당자의 권한이며 인턴은 확인·기록·보고까지만 수행",
+    "확인되지 않은 내부 문화·KPI·시스템 권한은 모른다고 답한 뒤 확인 경로를 제시"
+  ],
+  "pressure_response_examples": [
+    {
+      "challenge": "그 수치가 정확하다는 근거가 있습니까?",
+      "safe_response": "현재 원장에는 산식 전체가 확인되지 않아 숫자로 단정하지 않겠습니다. 확인된 것은 제가 수행한 분류·대조·보고 행동입니다."
+    },
+    {
+      "challenge": "결국 본인이 성과를 만든 것 아닙니까?",
+      "safe_response": "팀의 최종 결과와 제 기여는 구분해야 합니다. 제가 직접 한 일은 원자료를 대조하고 차이를 기록해 보고한 범위입니다."
+    },
+    {
+      "challenge": "인턴도 보증 여부를 판단할 수 있지 않습니까?",
+      "safe_response": "보증 승인과 신용판단은 담당자의 권한입니다. 저는 기준에 맞게 자료를 확인·기록하고 이상 사항을 보고하겠습니다."
+    },
+    {
+      "challenge": "모르는 내용도 의견을 말해 보십시오.",
+      "safe_response": "공식 자료에서 확인한 범위까지만 말씀드리겠습니다. 확인이 필요한 부분은 판단 기준과 확인 경로를 제시하겠습니다."
+    }
+  ],
+  "simulation_policy": {
+    "mode": "RANDOM_MIXED",
+    "feedback_timing": "AFTER_FULL_INTERVIEW",
+    "difficulty": "REALISTIC",
+    "one_question_at_a_time": true,
+    "wait_for_user_answer": true,
+    "rounds": [
+      {
+        "round": 1,
+        "mode": "STANDARD",
+        "success_criteria": [
+          "60초 안에 질문에 먼저 답함",
+          "claim ID 밖 사실 없음"
+        ]
+      },
+      {
+        "round": 2,
+        "mode": "FACT_CHECK",
+        "success_criteria": [
+          "수치 산식과 개인 기여 범위 설명",
+          "모르는 범위 인정"
+        ]
+      },
+      {
+        "round": 3,
+        "mode": "PRESSURE",
+        "success_criteria": [
+          "반론 뒤에도 사실 경계 유지",
+          "대안과 직무 전이 제시"
+        ]
+      }
+    ],
+    "retry_rule": "실패 기준 한 개만 정해 같은 질문을 다시 답하고, 통과 후 다음 질문으로 이동"
+  },
+  "final_audit": {
+    "status": "CONDITIONAL_PASS",
+    "strongest_point": "최종 자기소개서의 경험·research claim을 질문과 답변 카드까지 추적할 수 있습니다.",
+    "largest_risk": "실제 면접 형식과 배치 부서의 세부 업무는 공식 자료에서 확인되지 않았습니다.",
+    "priority_revisions": [
+      "실제 음성 모의면접으로 전달 방식 확인",
+      "공고 갱신 시 면접 구조 재확인"
+    ]
+  }
+}

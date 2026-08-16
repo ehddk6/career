@@ -1,0 +1,27 @@
+{
+  "judge_mode": "FACT_AUDITOR",
+  "candidate_id": "S1",
+  "hard_fail": false,
+  "hard_fail_reasons": [],
+  "scores": {
+    "question_fidelity": 19,
+    "fact_accuracy": 20,
+    "job_relevance": 15,
+    "action_specificity": 14,
+    "experience_allocation": 10,
+    "interview_defensibility": 10,
+    "korean_readability": 4,
+    "applicant_distinctiveness": 2,
+    "length_and_format": 2
+  },
+  "total": 96,
+  "strongest_point": "Q1~Q3은 공식 직무 범위와 PF-01·PF-03·PF-02를 각각 분리해 연결했고, 인턴의 판단·승인 권한을 넘지 않는 지원 계획으로 썼다.",
+  "largest_risk": "Q4 첫 문장에서 높은 환율 변동성과 중동지역 리스크를 함께 선택해 '이슈 하나'라는 지시가 다소 흐려진다. 본문은 환율 영향 중심이므로 중동지역 리스크는 공식 배경으로만 한정하는 편이 더 안전하다.",
+  "question_notes": {
+    "q1": "지원 동기, 기관 역할 이해, 학습·기여 계획을 모두 충족한다. 기관 역할·인턴 주요업무와 PF-01 수치·기여는 허용 근거와 일치한다.",
+    "q2": "새 조직 적응 태도를 '기준 학습·이용자 관점·공유'로 제시하고 PF-03의 정렬 개선 및 민원 30% 감소로 뒷받침했다. 이후 실천 계획도 지원자 행동 계획으로 한정돼 있다.",
+    "q3": "공식 주요업무를 출발점으로 접수·대조·보고·인계의 지원 계획을 구체화했다. PF-02의 이중 결과 비교·팀장 보고를 넘어서 차이 원인이나 성과를 주장하지 않았고, 불일치 판단도 담당자에게 보고하도록 제한했다.",
+    "q4": "RF-03과 RF-04의 확인 사실을 정책 제안과 문단 단위로 분리했다. 환율 영향의 기업별 차이와 지원·사후관리 방안은 제안으로 표기돼 있으며, 협약보증·14조원·운용기간 재연장 표현은 제공 근거와 일치한다. 다만 첫 문장은 두 이슈를 병렬 선택한 듯 보여 단일 이슈 요구에 대한 형식상 위험이 있다."
+  },
+  "required_repairs": []
+}

@@ -1,0 +1,8 @@
+simulation_mode: STANDARD
+feedback_timing: AFTER_FULL_INTERVIEW
+difficulty: REALISTIC
+question_count: 12
+target_duration: "20 minutes (practice target, official duration UNVERIFIED)"
+target_interview_stage: 면접전형
+status: NOT_RUN
+

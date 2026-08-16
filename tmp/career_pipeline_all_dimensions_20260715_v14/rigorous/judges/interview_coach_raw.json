@@ -1,0 +1,248 @@
+{
+  "data_package_id": "CAREER-DATA-F9C8B89D27FE",
+  "data_package_version": "2.0",
+  "judge_mode": "INTERVIEW_COACH",
+  "evaluations": [
+    {
+      "candidate_id": "C23F25003",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "Q4 is strong but dense for spoken defense; several claims would need concise oral explanation of 기업별 영향, 지원 필요성, 상환 가능성 구분."
+      ],
+      "scores": {
+        "question_fidelity": 13,
+        "fact_accuracy": 15,
+        "job_relevance": 11,
+        "company_specificity": 10,
+        "action_specificity": 12,
+        "experience_allocation": 8,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 4,
+        "korean_readability": 7,
+        "applicant_distinctiveness": 7,
+        "length_and_format": 1
+      },
+      "total": 96,
+      "weakness_codes": [
+        "spoken_answer_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience_action",
+          "exact_element": "기존 엑셀 수식과 외주 프로그램에 동일한 데이터를 넣어 결과를 비교하고 분석 보고서를 작성해 보고한 경험",
+          "reason": "보증 기한연장·상시관리에서 원자료와 전산값 대조, 변동·누락·예외 기록으로 연결됨.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429",
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "experience_action",
+          "exact_element": "기초연금 관련 자료를 체계적으로 분류하며 지급 절차가 원활히 진행되도록 보조한 경험",
+          "reason": "자료 분류와 처리 단계 표시가 인턴의 보조·보고 업무로 방어 가능함.",
+          "fact_ids": [
+            "exp_151ae891bd2719ad",
+            "clm_88cfeab230789e5b0d5f",
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "research_claim",
+          "exact_element": "높은 환율 변동성과 중동지역 리스크, 14조원 한도의 중소기업 한시 특별지원 운용기간 재연장",
+          "reason": "이슈 선택의 근거가 공식 확인 claim에 기반하고, 기업별 영향 차이를 인정함.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "C326E9A26",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "Q4 uses several safe company claims beyond the answer's listed research_refs; semantically defensible under safe_claims, but final audit should ensure claim IDs are carried through if this candidate is selected."
+      ],
+      "scores": {
+        "question_fidelity": 13,
+        "fact_accuracy": 14,
+        "job_relevance": 11,
+        "company_specificity": 10,
+        "action_specificity": 11,
+        "experience_allocation": 8,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 4,
+        "korean_readability": 7,
+        "applicant_distinctiveness": 7,
+        "length_and_format": 1
+      },
+      "total": 94,
+      "weakness_codes": [
+        "spoken_answer_risk",
+        "format_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience_action",
+          "exact_element": "동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과 비교 분석 보고서를 작성해 보고한 경험",
+          "reason": "자료 확인과 판단 보조라는 인턴 기여 행동으로 직접 연결됨.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429",
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "work_habit",
+          "exact_element": "마감 기한을 정하고 남은 일정을 달력과 노트에 적어 관리",
+          "reason": "새 조직 적응에서 지시사항·제출기한·확인자료·보고대상 정리 행동으로 구체화됨.",
+          "fact_ids": [
+            "exp_22d1df6407915aa2",
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "research_claim",
+          "exact_element": "보증은 기업의 부담을 없애는 제도가 아니라 채권자의 신용위험 일부를 기금으로 이전해 자금조달을 돕는 구조",
+          "reason": "지원 방안과 유의점에서 보증의 한계를 인정해 면접 방어력이 높음.",
+          "fact_ids": [
+            "CLM-COMP-012"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "C63FA4540",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "Q3 states use of 신용조사 자료 categories. This is within safe_claims, but the answer should preserve the limitation that an intern cannot assume direct access to all sensitive records."
+      ],
+      "scores": {
+        "question_fidelity": 13,
+        "fact_accuracy": 15,
+        "job_relevance": 11,
+        "company_specificity": 10,
+        "action_specificity": 11,
+        "experience_allocation": 8,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 5,
+        "korean_readability": 8,
+        "applicant_distinctiveness": 7,
+        "length_and_format": 1
+      },
+      "total": 97,
+      "weakness_codes": [
+        "interview_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience_action",
+          "exact_element": "같은 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과를 비교한 뒤 보고서를 작성",
+          "reason": "보증 업무의 자료 대조와 예외 보고에 가장 직접적으로 전환 가능함.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429",
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "research_claim",
+          "exact_element": "신용조사에 여러 등기·행정·금융거래·국세·세무회계 자료와 재무제표 등이 활용된다는 설명",
+          "reason": "업무수행계획의 자료명·기준일·누락 여부·전산 반영 상태 체크 행동을 뒷받침함.",
+          "fact_ids": [
+            "CLM-COMP-005"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "reasoning_pattern",
+          "exact_element": "고환율을 모든 중소기업의 악재로 단정하지 않고 수입 원가, 외화 부채, 수출 매출, 납품단가 전가 가능성으로 구분",
+          "reason": "conflict_note를 반영해 정책금융 지원의 선별성과 유의점을 방어 가능하게 만듦.",
+          "fact_ids": [
+            "bok-fx-risk-20260711",
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "CA61EE459",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "Q2 relies on exp_638228200e37de69, which is defensible only with qualification because metric defense is required for the 2040대 신청자 0명 and 5070대 target claim. Oral answer must avoid unsupported causal or outcome expansion."
+      ],
+      "scores": {
+        "question_fidelity": 12,
+        "fact_accuracy": 14,
+        "job_relevance": 10,
+        "company_specificity": 9,
+        "action_specificity": 10,
+        "experience_allocation": 7,
+        "interview_defensibility": 7,
+        "spoken_defensibility": 4,
+        "korean_readability": 8,
+        "applicant_distinctiveness": 7,
+        "length_and_format": 1
+      },
+      "total": 89,
+      "weakness_codes": [
+        "interview_risk",
+        "action_gap"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience_action",
+          "exact_element": "같은 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과를 비교하고 분석 보고서를 작성해 팀장에게 보고",
+          "reason": "자료 확인, 차이 기록, 담당자 보고라는 보증 인턴 행동으로 방어 가능함.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429",
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "experience_action",
+          "exact_element": "과거 데이터의 신청 흐름을 보고 주요 대상 설정을 다시 보게 된 경험",
+          "reason": "조직 적응 태도에서 자료 기반으로 근거를 정리한다는 방향은 유효하나 수치·기여 범위 방어가 필요함.",
+          "fact_ids": [
+            "exp_638228200e37de69",
+            "clm_2bfba21afb61776d752b"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "experience_action",
+          "exact_element": "기초연금 관련 자료를 체계적으로 분류해 지급 절차를 보조한 경험",
+          "reason": "자료 출처와 처리 단계 표시, 누락·변동 확인으로 연결됨.",
+          "fact_ids": [
+            "exp_151ae891bd2719ad",
+            "clm_88cfeab230789e5b0d5f",
+            "kodit-intern-duty-20260711"
+          ]
+        }
+      ]
+    }
+  ]
+}

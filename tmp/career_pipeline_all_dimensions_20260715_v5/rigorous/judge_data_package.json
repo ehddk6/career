@@ -1,0 +1,842 @@
+{
+  "target": "신용보증기금 체험형 청년인턴1(보증)",
+  "posting": {
+    "schema_version": 1,
+    "target": "신용보증기금 체험형 청년인턴1(보증)",
+    "source": {
+      "kind": "docx",
+      "location": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\career_runs\\kodit-2026-h2-official-questions.docx",
+      "retrieved_at": "2026-07-14T07:32:08+09:00",
+      "content_sha256": "5b6f69118ca1eece39f284fb26c18e42422ba01088f978b9829c0501bc456779",
+      "official_status": "user_attested",
+      "content_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+    },
+    "organization": "신용보증기금",
+    "role": "체험형 청년인턴1(보증)",
+    "locations": [],
+    "duties": [
+      "신용보증 기한연장, 기업신용 상시관리 등"
+    ],
+    "competencies": [],
+    "requirements": [
+      "채용공고문에 따른 지원자격을 충족한 자"
+    ],
+    "preferences": [],
+    "questions": [
+      {
+        "index": 1,
+        "prompt": "신용보증기금 청년인턴에 지원하게 된 동기와 신용보증기금의 역할에 대한 본인의 이해를 바탕으로 인턴 근무 중 배우고, 기여하고 싶은 부분을 기술하여 주십시오.",
+        "character_limit": 600,
+        "count_mode": "spaces_included",
+        "minimum_character_limit": 400
+      },
+      {
+        "index": 2,
+        "prompt": "지원자가 새로운 조직에 적응하기 위해 중요하게 생각하는 태도가 무엇이며, 그 태도를 실제 근무과정에서 실천하기 위해 어떤 노력을 할 것인지 기술하여 주십시오.",
+        "character_limit": 600,
+        "count_mode": "spaces_included",
+        "minimum_character_limit": 400
+      },
+      {
+        "index": 3,
+        "prompt": "신용보증기금의 청년인턴으로 근무한다고 가정할 때, 실제 근무 시 지원자의 업무수행계획을 기술하여 주십시오.",
+        "character_limit": 600,
+        "count_mode": "spaces_included",
+        "minimum_character_limit": 400
+      },
+      {
+        "index": 4,
+        "prompt": "최근 중소기업에 큰 영향을 미치는 경제·사회 이슈를 하나 선택하여 그 이유를 서술하여 주시기 바랍니다. 또한, 해당 이슈와 관련하여 영향을 받는 중소기업을 정책 금융기관이 지원할 수 있는 방안과 지원 과정에서 유의할 점을 서술하여 주시기 바랍니다.",
+        "character_limit": 1500,
+        "count_mode": "spaces_included",
+        "minimum_character_limit": null
+      }
+    ],
+    "constraints": [
+      "성명, 연령, 성별, 출신지, 가족관계, 학교, 학력, 신체조건 등 채용의 공정성을 해칠 수 있는 사항은 기재하지 않는다."
+    ],
+    "uncertainties": []
+  },
+  "question_requirement_map": {
+    "schema_version": 1,
+    "target": "신용보증기금 체험형 청년인턴1(보증)",
+    "question_set_sha256": "b638d5ac8304f99dd7b5899bdc78e568141c0d5342709d580294126f9a02fa1c",
+    "questions": [
+      {
+        "question_index": 1,
+        "prompt": "신용보증기금 청년인턴에 지원하게 된 동기와 신용보증기금의 역할에 대한 본인의 이해를 바탕으로 인턴 근무 중 배우고, 기여하고 싶은 부분을 기술하여 주십시오.",
+        "prompt_sha256": "0c535642cbbf78d6e8933ed34d7f7c468ec3d062239d53e4bcfc429400589178",
+        "character_limit": 600,
+        "count_mode": "spaces_included",
+        "preferred_character_range": {
+          "minimum": 510,
+          "preferred_maximum": 558
+        },
+        "requires_target_specificity": true,
+        "requires_job_connection": true,
+        "requirements": [
+          {
+            "requirement_id": "direct_answer",
+            "description": "문항의 핵심 질문에 첫 두 문장 안에서 직접 답함",
+            "hard_fail_if_missing": true,
+            "answer_cues": []
+          },
+          {
+            "requirement_id": "motivation_reason",
+            "description": "지원 이유",
+            "hard_fail_if_missing": true,
+            "answer_cues": [
+              "때문",
+              "선택",
+              "지원했",
+              "가치",
+              "의미",
+              "관심",
+              "신뢰"
+            ]
+          },
+          {
+            "requirement_id": "learning_plan",
+            "description": "학습·성장 방법",
+            "hard_fail_if_missing": true,
+            "answer_cues": [
+              "배우",
+              "익히",
+              "학습",
+              "숙지",
+              "이해",
+              "피드백"
+            ]
+          },
+          {
+            "requirement_id": "contribution_plan",
+            "description": "현실적인 기여 행동",
+            "hard_fail_if_missing": true,
+            "answer_cues": [
+              "확인",
+              "대조",
+              "기록",
+              "보고",
+              "안내",
+              "점검",
+              "하겠습니다",
+              "겠습니다"
+            ]
+          }
+        ],
+        "job_duties": [
+          "신용보증 기한연장, 기업신용 상시관리 등"
+        ],
+        "job_competencies": [],
+        "recommended_experience_id": null,
+        "reuse_policy": "AVOID_WHEN_CONFIRMED_ALTERNATIVE_EXISTS"
+      },
+      {
+        "question_index": 2,
+        "prompt": "지원자가 새로운 조직에 적응하기 위해 중요하게 생각하는 태도가 무엇이며, 그 태도를 실제 근무과정에서 실천하기 위해 어떤 노력을 할 것인지 기술하여 주십시오.",
+        "prompt_sha256": "e44fd95a8b69c9e9e8cccf2df6c92bf0bad3672015ed032bfea26f6157756789",
+        "character_limit": 600,
+        "count_mode": "spaces_included",
+        "preferred_character_range": {
+          "minimum": 510,
+          "preferred_maximum": 558
+        },
+        "requires_target_specificity": false,
+        "requires_job_connection": true,
+        "requirements": [
+          {
+            "requirement_id": "direct_answer",
+            "description": "문항의 핵심 질문에 첫 두 문장 안에서 직접 답함",
+            "hard_fail_if_missing": true,
+            "answer_cues": []
+          }
+        ],
+        "job_duties": [
+          "신용보증 기한연장, 기업신용 상시관리 등"
+        ],
+        "job_competencies": [],
+        "recommended_experience_id": null,
+        "reuse_policy": "AVOID_WHEN_CONFIRMED_ALTERNATIVE_EXISTS"
+      },
+      {
+        "question_index": 3,
+        "prompt": "신용보증기금의 청년인턴으로 근무한다고 가정할 때, 실제 근무 시 지원자의 업무수행계획을 기술하여 주십시오.",
+        "prompt_sha256": "cdd953c7fb00ad0dcde16c9edca1ec252b93b34fadc399dc56ba06de3c8f2f04",
+        "character_limit": 600,
+        "count_mode": "spaces_included",
+        "preferred_character_range": {
+          "minimum": 510,
+          "preferred_maximum": 558
+        },
+        "requires_target_specificity": true,
+        "requires_job_connection": true,
+        "requirements": [
+          {
+            "requirement_id": "direct_answer",
+            "description": "문항의 핵심 질문에 첫 두 문장 안에서 직접 답함",
+            "hard_fail_if_missing": true,
+            "answer_cues": []
+          },
+          {
+            "requirement_id": "execution_sequence",
+            "description": "초기 학습·실행·점검 순서",
+            "hard_fail_if_missing": true,
+            "answer_cues": [
+              "먼저",
+              "초기",
+              "이후",
+              "점검",
+              "재확인",
+              "익숙",
+              "반복"
+            ]
+          }
+        ],
+        "job_duties": [
+          "신용보증 기한연장, 기업신용 상시관리 등"
+        ],
+        "job_competencies": [],
+        "recommended_experience_id": null,
+        "reuse_policy": "AVOID_WHEN_CONFIRMED_ALTERNATIVE_EXISTS"
+      },
+      {
+        "question_index": 4,
+        "prompt": "최근 중소기업에 큰 영향을 미치는 경제·사회 이슈를 하나 선택하여 그 이유를 서술하여 주시기 바랍니다. 또한, 해당 이슈와 관련하여 영향을 받는 중소기업을 정책 금융기관이 지원할 수 있는 방안과 지원 과정에서 유의할 점을 서술하여 주시기 바랍니다.",
+        "prompt_sha256": "ee8efe44d247af0b6991719fcf986cb3c25bcfd4a2e46522cfb56cb8be677130",
+        "character_limit": 1500,
+        "count_mode": "spaces_included",
+        "preferred_character_range": {
+          "minimum": 1200,
+          "preferred_maximum": 1395
+        },
+        "requires_target_specificity": false,
+        "requires_job_connection": false,
+        "requirements": [
+          {
+            "requirement_id": "direct_answer",
+            "description": "문항의 핵심 질문에 첫 두 문장 안에서 직접 답함",
+            "hard_fail_if_missing": true,
+            "answer_cues": []
+          },
+          {
+            "requirement_id": "issue_reasoning",
+            "description": "이슈의 원인·영향·대응 논리",
+            "hard_fail_if_missing": true,
+            "answer_cues": [
+              "원인",
+              "영향",
+              "때문",
+              "따라서",
+              "반면",
+              "위험",
+              "대응"
+            ]
+          }
+        ],
+        "job_duties": [
+          "신용보증 기한연장, 기업신용 상시관리 등"
+        ],
+        "job_competencies": [],
+        "recommended_experience_id": null,
+        "reuse_policy": "AVOID_WHEN_CONFIRMED_ALTERNATIVE_EXISTS"
+      }
+    ]
+  },
+  "research_claims": [
+    {
+      "claim_id": "kodit-role-20260711",
+      "claim": "신용보증기금은 기업이 부담하는 채무를 보증해 성장유망기업을 지원하며, 보증신청 뒤 신용조사와 보증심사를 수행한다.",
+      "source_url": "https://www.kodit.co.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11064&mi=2521",
+      "checked_at": "2026-07-13",
+      "evidence_excerpt": "신청기업의 요청에 따라 기업이 부담하는 각종 채무를 보증해 성장유망기업을 지원하며, 보증신청 뒤 신용조사와 보증심사를 수행한다.",
+      "source_type": "official",
+      "published_at": "",
+      "basis_date": "2026-07-13",
+      "verification_status": "verified",
+      "conflict_note": "",
+      "claim_type": "organization_role",
+      "application_use": "문항 1에서 신용보증기금의 역할과 지원 동기를 연결하고 1분 자기소개 근거로 사용"
+    },
+    {
+      "claim_id": "kodit-intern-duty-20260711",
+      "claim": "보증 분야 체험형 청년인턴의 주요업무는 신용보증 기한연장과 기업신용 상시관리다.",
+      "source_url": "https://kodit2.saramin.co.kr/service/kodit2/3872/applicant/apply/recruit_default.asp",
+      "checked_at": "2026-07-13",
+      "evidence_excerpt": "체험형 청년인턴1 보증 분야의 주요업무는 신용보증 기한연장과 기업신용 상시관리다.",
+      "source_type": "official",
+      "published_at": "2026-07-09",
+      "basis_date": "2026-07-09",
+      "verification_status": "verified",
+      "conflict_note": "",
+      "claim_type": "job_duty",
+      "application_use": "문항 1·2·3에서 보증 기한연장·기업신용 상시관리 업무와 근무 태도·수행계획을 구체화"
+    },
+    {
+      "claim_id": "bok-fx-risk-20260711",
+      "claim": "한국은행은 높은 환율 변동성과 중동지역 리스크를 점검하면서 14조원 한도의 중소기업 한시 특별지원 운용기간을 재연장했다.",
+      "source_url": "https://www.bok.or.kr/portal/bbs/B0000156/view.do?depth=200067&menuNo=200067&nttId=10096935&programType=newsData&relate=Y",
+      "checked_at": "2026-07-13",
+      "evidence_excerpt": "높은 환율 변동성에 유의하고, 14조원 한도의 중소기업 한시 특별지원 운용기간을 6개월 재연장했다.",
+      "source_type": "official",
+      "published_at": "2026-03-12",
+      "basis_date": "2026-03",
+      "verification_status": "verified",
+      "conflict_note": "고환율은 수출 가격경쟁력에는 긍정적일 수 있어 기업별 영향 구분이 필요하다.",
+      "claim_type": "industry_issue",
+      "application_use": "문항 4에서 고환율의 기업별 영향과 정책금융 대응을 구분하는 근거로 사용"
+    },
+    {
+      "claim_id": "kodit-liquidity-support-20260711",
+      "claim": "신용보증기금은 지역 수출기업 등의 유동성과 금융비용 부담을 완화하기 위해 협약보증을 공급하고 있다.",
+      "source_url": "https://www.kodit.co.kr/kodit/na/ntt/selectNttInfo.do?bbsId=47&mi=2639&nttSn=4429533",
+      "checked_at": "2026-07-13",
+      "evidence_excerpt": "지역 소재 수출기업 등을 대상으로 우대보증과 보증료 지원을 제공한다.",
+      "source_type": "official",
+      "published_at": "2026-03-24",
+      "basis_date": "2026-03-24",
+      "verification_status": "verified",
+      "conflict_note": "",
+      "claim_type": "program_or_service",
+      "application_use": "문항 4에서 유동성·금융비용 부담에 대한 선별 지원과 사후관리 방안을 연결"
+    }
+  ],
+  "experience_ledger": {
+    "schema_version": 2,
+    "experiences": [
+      {
+        "experience_id": "exp_9e97f274590a323b",
+        "title": "경험요약정리 문단 37",
+        "organization_alias": "",
+        "period": null,
+        "role": "",
+        "situation": "기존 엑셀 수식과 외주 프로그램에 동일한 데이터를 넣고 돌린 '결과 비교 분석 보고서'를 작성하여 팀장에게 보고함.",
+        "actions": [
+          "기존 엑셀 수식과 외주 프로그램에 동일한 데이터를 넣고 돌린 '결과 비교 분석 보고서'를 작성하여 팀장에게 보고함."
+        ],
+        "outcomes": [
+          "기존 엑셀 수식과 외주 프로그램에 동일한 데이터를 넣고 돌린 '결과 비교 분석 보고서'를 작성하여 팀장에게 보고함."
+        ],
+        "competencies": [
+          "분석력"
+        ],
+        "claims": [
+          {
+            "field": "experience_summary",
+            "normalized_value": "기존 엑셀 수식과 외주 프로그램에 동일한 데이터를 넣고 돌린 '결과 비교 분석 보고서'를 작성하여 팀장에게 보고함.",
+            "status": "confirmed",
+            "evidence": [
+              {
+                "source_path": "경험정리/경험요약정리.docx",
+                "paragraph_index": 36,
+                "source_sha256": "5ca8c41d4da09551084685fa29aaab0ab75312e9909c8ad5a030f32edd2cff59",
+                "excerpt_sha256": "aa768ed0a000c476013c96bbeec60d258b5a1c213d71f5478b1fe018504951d5"
+              }
+            ],
+            "claim_id": "clm_3e69991c9b56d728b429",
+            "verification": {
+              "method": "direct_source",
+              "baseline": null,
+              "result": null,
+              "formula": null,
+              "measurement_period": null,
+              "scope": "source excerpt",
+              "contribution": "observed"
+            }
+          }
+        ],
+        "status": "confirmed",
+        "confirmed_at": "2026-07-11T08:46:26+09:00"
+      },
+      {
+        "experience_id": "exp_638228200e37de69",
+        "title": "경험요약정리 문단 73",
+        "organization_alias": "",
+        "period": null,
+        "role": "",
+        "situation": "과거 데이터(2040대 신청자 0명)를 분석하여 주 타겟을 지역 기반이 탄탄한 **5070대 중장년층**으로 재설정함.",
+        "actions": [
+          "과거 데이터(2040대 신청자 0명)를 분석하여 주 타겟을 지역 기반이 탄탄한 **5070대 중장년층**으로 재설정함."
+        ],
+        "outcomes": [],
+        "competencies": [
+          "분석력"
+        ],
+        "claims": [
+          {
+            "field": "experience_summary",
+            "normalized_value": "과거 데이터(2040대 신청자 )를 분석하여 주 타겟을 지역 기반이 탄탄한 **5070대 중장년층**으로 재설정함. 과거 데이터(2040대 신청자 )를 분석하여 주 타겟을 지역 기반이 탄탄한 **5070대 중장년층**으로 재설정함.",
+            "status": "confirmed",
+            "evidence": [
+              {
+                "source_path": "경험정리/경험요약정리.docx",
+                "paragraph_index": 72,
+                "source_sha256": "5ca8c41d4da09551084685fa29aaab0ab75312e9909c8ad5a030f32edd2cff59",
+                "excerpt_sha256": "7784d343f664d1b72e93bcc15574493d8a3117b272b5a887915872264aad2072"
+              }
+            ],
+            "claim_id": "clm_2bfba21afb61776d752b",
+            "verification": {
+              "method": "direct_source",
+              "baseline": null,
+              "result": null,
+              "formula": null,
+              "measurement_period": null,
+              "scope": "source excerpt",
+              "contribution": "observed"
+            }
+          }
+        ],
+        "status": "confirmed",
+        "confirmed_at": "2026-07-11T08:46:26+09:00"
+      },
+      {
+        "experience_id": "exp_151ae891bd2719ad",
+        "title": "경험정리 문단 406",
+        "organization_alias": "",
+        "period": null,
+        "role": "",
+        "situation": "특히, 3000페이지 분량의 자료를 체계적으로 분류하여 2일 만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다.",
+        "actions": [
+          "특히, 3000페이지 분량의 자료를 체계적으로 분류하여 2일 만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다."
+        ],
+        "outcomes": [],
+        "competencies": [
+          "분석력"
+        ],
+        "claims": [
+          {
+            "field": "experience_summary",
+            "normalized_value": "특히,  분량의 자료를 체계적으로 분류하여  만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다. 특히,  분량의 자료를 체계적으로 분류하여  만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다.",
+            "status": "confirmed",
+            "evidence": [
+              {
+                "source_path": "경험정리/경험정리.docx",
+                "paragraph_index": 405,
+                "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+                "excerpt_sha256": "3dbb4141798e73cdf2e16111b6ae9e90bc11ccbca3244047835be6a8dbfbeace"
+              }
+            ],
+            "claim_id": "clm_88cfeab230789e5b0d5f",
+            "verification": {
+              "method": "direct_source",
+              "baseline": null,
+              "result": null,
+              "formula": null,
+              "measurement_period": null,
+              "scope": "source excerpt",
+              "contribution": "observed"
+            }
+          }
+        ],
+        "status": "confirmed",
+        "confirmed_at": "2026-07-11T08:46:26+09:00"
+      },
+      {
+        "experience_id": "exp_22d1df6407915aa2",
+        "title": "인생기술서 문단 587",
+        "organization_alias": "",
+        "period": null,
+        "role": "",
+        "situation": "예를 들어, 학업이나 업무가 주어졌을 때 마감 기한을 정해놓고 남은 날짜를 디데이 설정하거나 일일계획 목표를 설정하고 컴퓨터나 핸드폰 달력, 노트에 기재하여 최소한 목표달성도 70% 달성하기 위해 노력합니다.",
+        "actions": [],
+        "outcomes": [
+          "예를 들어, 학업이나 업무가 주어졌을 때 마감 기한을 정해놓고 남은 날짜를 디데이 설정하거나 일일계획 목표를 설정하고 컴퓨터나 핸드폰 달력, 노트에 기재하여 최소한 목표달성도 70% 달성하기 위해 노력합니다."
+        ],
+        "competencies": [],
+        "claims": [
+          {
+            "field": "experience_summary",
+            "normalized_value": "예를 들어, 학업이나 업무가 주어졌을 때 마감 기한을 정해놓고 남은 날짜를 디데이 설정하거나 일일계획 목표를 설정하고 컴퓨터나 핸드폰 달력, 노트에 기재하여 최소한 목표달성도  달성하기 위해 노력합니다. 예를 들어, 학업이나 업무가 주어졌을 때 마감 기한을 정해놓고 남은 날짜를 디데이 설정하거나 일일계획 목표를 설정하고 컴퓨터나 핸드폰 달력, 노트에 기재하여 최소한 목표달성도  달성하기 위해 노력합니다.",
+            "status": "confirmed",
+            "evidence": [
+              {
+                "source_path": "경험정리/인생기술서.docx",
+                "paragraph_index": 586,
+                "source_sha256": "58e1fcb26cd3777c03be687c58f92a4ca22c3c28a3e376e7d4788d50d1be4775",
+                "excerpt_sha256": "3e5ef791b94e1fb80659bed7f9648224648bc7e1b9cb8469a7353e5b894c7da0"
+              }
+            ],
+            "claim_id": "clm_1476776eb88306fe8fc1",
+            "verification": {
+              "method": "direct_source",
+              "baseline": null,
+              "result": null,
+              "formula": null,
+              "measurement_period": null,
+              "scope": "source excerpt",
+              "contribution": "observed"
+            }
+          }
+        ],
+        "status": "confirmed",
+        "confirmed_at": "2026-07-11T08:46:26+09:00"
+      }
+    ]
+  },
+  "prompt_contracts": {
+    "contract_version": "2026-07-15",
+    "data_package_id": "CAREER-DATA-585CEFB0E812",
+    "data_package_version": "2.0",
+    "company_research": {
+      "entity": {
+        "legal_entity_name": "신용보증기금",
+        "brand_name": "신용보증기금",
+        "target_business_unit": "체험형 청년인턴1(보증)",
+        "status": "CONFIRMED"
+      },
+      "business_model": {
+        "core_customers": [
+          "공식 근거에 명시된 정책금융 지원 대상"
+        ],
+        "customer_problem": "공식 근거에 명시된 자금 접근·신용관리 문제",
+        "value_proposition": "공식 기준과 심사를 통한 금융 접근 지원",
+        "revenue_logic": "공공기관의 정책 목적과 법정·공식 사업 구조에 따른 업무 수행",
+        "major_costs": [
+          "심사·관리 인력",
+          "업무 시스템과 리스크 관리"
+        ],
+        "critical_risks": [
+          "자료 오류와 누락",
+          "지원 필요성과 위험의 오판"
+        ]
+      },
+      "role_value_map": [
+        {
+          "company_issue": "공식 기준에 따른 정확한 업무 수행과 예외 관리",
+          "role_actions": [
+            "신용보증 기한연장, 기업신용 상시관리 등"
+          ],
+          "claim_ids": [
+            "kodit-role-20260711",
+            "kodit-intern-duty-20260711",
+            "bok-fx-risk-20260711",
+            "kodit-liquidity-support-20260711",
+            "kodit-selection-criteria-20260713"
+          ],
+          "certainty": "POSTING_CONFIRMED"
+        }
+      ],
+      "applicant_bridge": [
+        {
+          "requirement": "신용보증기금 청년인턴에 지원하게 된 동기와 신용보증기금의 역할에 대한 본인의 이해를 바탕으로 인턴 근무 중 배우고, 기여하고 싶은 부분을 기술하여 주십시오.",
+          "experience_id": "exp_151ae891bd2719ad",
+          "experience_claim_ids": [
+            "clm_88cfeab230789e5b0d5f"
+          ],
+          "fit_state": "TRANSFERABLE"
+        },
+        {
+          "requirement": "지원자가 새로운 조직에 적응하기 위해 중요하게 생각하는 태도가 무엇이며, 그 태도를 실제 근무과정에서 실천하기 위해 어떤 노력을 할 것인지 기술하여 주십시오.",
+          "experience_id": "exp_638228200e37de69",
+          "experience_claim_ids": [
+            "clm_2bfba21afb61776d752b"
+          ],
+          "fit_state": "TRANSFERABLE"
+        },
+        {
+          "requirement": "신용보증기금의 청년인턴으로 근무한다고 가정할 때, 실제 근무 시 지원자의 업무수행계획을 기술하여 주십시오.",
+          "experience_id": "exp_2df35f8fca5e30b8",
+          "experience_claim_ids": [
+            "clm_732a31834ac4cb075533"
+          ],
+          "fit_state": "TRANSFERABLE"
+        },
+        {
+          "requirement": "최근 중소기업에 큰 영향을 미치는 경제·사회 이슈를 하나 선택하여 그 이유를 서술하여 주시기 바랍니다. 또한, 해당 이슈와 관련하여 영향을 받는 중소기업을 정책 금융기관이 지원할 수 있는 방안과 지원 과정에서 유의할 점을 서술하여 주시기 바랍니다.",
+          "experience_id": "exp_2e966c8ac3146a5b",
+          "experience_claim_ids": [
+            "clm_41fbcc79285f9a15295d"
+          ],
+          "fit_state": "TRANSFERABLE"
+        }
+      ],
+      "red_team": {
+        "strongest_counterargument": "공개된 기관 역할이 실제 배치 부서의 일상 업무와 완전히 같다고 단정할 수 없습니다.",
+        "critical_unknowns": [
+          "실제 인턴의 시스템 권한",
+          "팀별 업무량과 성과 기준"
+        ]
+      },
+      "decision": {
+        "status": "APPLY_WITH_CONDITIONS",
+        "main_reason": "공식 근거로 확인된 기관 역할과 공고 업무가 확정 경험의 확인·대조·기록 행동과 연결됩니다.",
+        "strongest_support": "공고 및 공식 근거의 역할·업무 claim",
+        "strongest_counterargument": "실제 배치와 권한은 공개 자료만으로 확인되지 않습니다.",
+        "conditions_that_would_change_decision": [
+          "실제 배치 업무가 공고와 크게 다른 경우",
+          "지원 자격 또는 근무 조건이 달라지는 경우"
+        ]
+      },
+      "safe_claims": [
+        {
+          "claim_id": "kodit-role-20260711",
+          "claim": "신용보증기금은 기업이 부담하는 채무를 보증해 성장유망기업을 지원하며, 보증신청 뒤 신용조사와 보증심사를 수행한다.",
+          "claim_type": "FACT",
+          "status": "CONFIRMED_PRIMARY",
+          "source_ids": [
+            "source-1"
+          ],
+          "research_refs": [
+            "kodit-role-20260711"
+          ],
+          "application_use": [
+            "자기소개서",
+            "면접"
+          ],
+          "allowed_outputs": [
+            "SELF_INTRO",
+            "INTERVIEW"
+          ],
+          "prohibited_uses": [],
+          "confidence": 0.95,
+          "requires_user_confirmation": false,
+          "interview_defense_status": "DEFENSIBLE",
+          "use_decision": "ALLOW"
+        },
+        {
+          "claim_id": "kodit-intern-duty-20260711",
+          "claim": "보증 분야 체험형 청년인턴의 주요업무는 신용보증 기한연장과 기업신용 상시관리다.",
+          "claim_type": "FACT",
+          "status": "CONFIRMED_PRIMARY",
+          "source_ids": [
+            "source-2"
+          ],
+          "research_refs": [
+            "kodit-intern-duty-20260711"
+          ],
+          "application_use": [
+            "자기소개서",
+            "면접"
+          ],
+          "allowed_outputs": [
+            "SELF_INTRO",
+            "INTERVIEW"
+          ],
+          "prohibited_uses": [],
+          "confidence": 0.95,
+          "requires_user_confirmation": false,
+          "interview_defense_status": "DEFENSIBLE",
+          "use_decision": "ALLOW"
+        },
+        {
+          "claim_id": "bok-fx-risk-20260711",
+          "claim": "한국은행은 높은 환율 변동성과 중동지역 리스크를 점검하면서 14조원 한도의 중소기업 한시 특별지원 운용기간을 재연장했다.",
+          "claim_type": "EXTERNAL_CLAIM",
+          "status": "CONFIRMED_PRIMARY",
+          "source_ids": [
+            "source-3"
+          ],
+          "research_refs": [
+            "bok-fx-risk-20260711"
+          ],
+          "application_use": [
+            "자기소개서",
+            "면접"
+          ],
+          "allowed_outputs": [
+            "SELF_INTRO",
+            "INTERVIEW"
+          ],
+          "prohibited_uses": [],
+          "confidence": 0.95,
+          "requires_user_confirmation": false,
+          "interview_defense_status": "DEFENSIBLE",
+          "use_decision": "ALLOW"
+        },
+        {
+          "claim_id": "kodit-liquidity-support-20260711",
+          "claim": "신용보증기금은 지역 수출기업 등의 유동성과 금융비용 부담을 완화하기 위해 협약보증을 공급하고 있다.",
+          "claim_type": "FACT",
+          "status": "CONFIRMED_PRIMARY",
+          "source_ids": [
+            "source-4"
+          ],
+          "research_refs": [
+            "kodit-liquidity-support-20260711"
+          ],
+          "application_use": [
+            "자기소개서",
+            "면접"
+          ],
+          "allowed_outputs": [
+            "SELF_INTRO",
+            "INTERVIEW"
+          ],
+          "prohibited_uses": [],
+          "confidence": 0.95,
+          "requires_user_confirmation": false,
+          "interview_defense_status": "DEFENSIBLE",
+          "use_decision": "ALLOW"
+        },
+        {
+          "claim_id": "kodit-selection-criteria-20260713",
+          "claim": "신용보증기금 청년인턴 서류전형은 업무수행계획서와 약식논술의 충실도·논리력·혁신적 사고를 평가하고, 면접전형은 기본인성과 직무능력을 평가한다.",
+          "claim_type": "FACT",
+          "status": "CONFIRMED_PRIMARY",
+          "source_ids": [
+            "source-5"
+          ],
+          "research_refs": [
+            "kodit-selection-criteria-20260713"
+          ],
+          "application_use": [
+            "자기소개서",
+            "면접"
+          ],
+          "allowed_outputs": [
+            "SELF_INTRO",
+            "INTERVIEW"
+          ],
+          "prohibited_uses": [],
+          "confidence": 0.95,
+          "requires_user_confirmation": false,
+          "interview_defense_status": "DEFENSIBLE",
+          "use_decision": "ALLOW"
+        }
+      ],
+      "prohibited_claim_ids": []
+    },
+    "interview_defense": {
+      "defensible_experience_ids": [
+        "exp_151ae891bd2719ad",
+        "exp_22d1df6407915aa2",
+        "exp_638228200e37de69",
+        "exp_9e97f274590a323b"
+      ],
+      "experience_defense": [
+        {
+          "experience_id": "exp_151ae891bd2719ad",
+          "depth": "D3",
+          "claim_ids": [
+            "clm_1476776eb88306fe8fc1",
+            "clm_3e69991c9b56d728b429",
+            "clm_88cfeab230789e5b0d5f"
+          ],
+          "direct_actions": [
+            "특히, 3000페이지 분량의 자료를 체계적으로 분류하여 2일 만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다."
+          ],
+          "judgment_standards": [
+            "원자료와 처리 결과의 일치 여부",
+            "기한·정확성·보고 필요성을 함께 확인"
+          ],
+          "limitations": [
+            "최종 판단·승인 권한과 본인의 보조 행동을 구분해 설명"
+          ]
+        },
+        {
+          "experience_id": "exp_22d1df6407915aa2",
+          "depth": "D3",
+          "claim_ids": [
+            "clm_1476776eb88306fe8fc1",
+            "clm_3e69991c9b56d728b429",
+            "clm_88cfeab230789e5b0d5f"
+          ],
+          "direct_actions": [
+            "예를 들어, 학업이나 업무가 주어졌을 때 마감 기한을 정해놓고 남은 날짜를 디데이 설정하거나 일일계획 목표를 설정하고 컴퓨터나 핸드폰 달력, 노트에 기재하여 최소한 목표달성도 70% 달성하기 위해 노력합니다."
+          ],
+          "judgment_standards": [
+            "원자료와 처리 결과의 일치 여부",
+            "기한·정확성·보고 필요성을 함께 확인"
+          ],
+          "limitations": [
+            "최종 판단·승인 권한과 본인의 보조 행동을 구분해 설명"
+          ]
+        },
+        {
+          "experience_id": "exp_638228200e37de69",
+          "depth": "D3",
+          "claim_ids": [
+            "clm_2bfba21afb61776d752b"
+          ],
+          "direct_actions": [
+            "과거 데이터(2040대 신청자 0명)를 분석하여 주 타겟을 지역 기반이 탄탄한 **5070대 중장년층**으로 재설정함."
+          ],
+          "judgment_standards": [
+            "원자료와 처리 결과의 일치 여부",
+            "기한·정확성·보고 필요성을 함께 확인"
+          ],
+          "limitations": [
+            "최종 판단·승인 권한과 본인의 보조 행동을 구분해 설명"
+          ]
+        },
+        {
+          "experience_id": "exp_9e97f274590a323b",
+          "depth": "D3",
+          "claim_ids": [
+            "clm_1476776eb88306fe8fc1",
+            "clm_3e69991c9b56d728b429",
+            "clm_88cfeab230789e5b0d5f"
+          ],
+          "direct_actions": [
+            "기존 엑셀 수식과 외주 프로그램에 동일한 데이터를 넣고 돌린 '결과 비교 분석 보고서'를 작성하여 팀장에게 보고함."
+          ],
+          "judgment_standards": [
+            "원자료와 처리 결과의 일치 여부",
+            "기한·정확성·보고 필요성을 함께 확인"
+          ],
+          "limitations": [
+            "최종 판단·승인 권한과 본인의 보조 행동을 구분해 설명"
+          ]
+        }
+      ],
+      "submitted_claims": [
+        {
+          "question_index": 1,
+          "experience_ids": [
+            "exp_151ae891bd2719ad",
+            "exp_9e97f274590a323b"
+          ],
+          "experience_claim_ids": [
+            "clm_3e69991c9b56d728b429",
+            "clm_88cfeab230789e5b0d5f"
+          ],
+          "research_claim_ids": [
+            "kodit-intern-duty-20260711",
+            "kodit-role-20260711"
+          ],
+          "status": "CONFIRMED"
+        },
+        {
+          "question_index": 2,
+          "experience_ids": [
+            "exp_22d1df6407915aa2",
+            "exp_9e97f274590a323b"
+          ],
+          "experience_claim_ids": [
+            "clm_1476776eb88306fe8fc1",
+            "clm_3e69991c9b56d728b429"
+          ],
+          "research_claim_ids": [],
+          "status": "CONFIRMED"
+        },
+        {
+          "question_index": 3,
+          "experience_ids": [
+            "exp_151ae891bd2719ad",
+            "exp_22d1df6407915aa2",
+            "exp_9e97f274590a323b"
+          ],
+          "experience_claim_ids": [
+            "clm_1476776eb88306fe8fc1",
+            "clm_3e69991c9b56d728b429",
+            "clm_88cfeab230789e5b0d5f"
+          ],
+          "research_claim_ids": [
+            "kodit-intern-duty-20260711"
+          ],
+          "status": "CONFIRMED"
+        },
+        {
+          "question_index": 4,
+          "experience_ids": [],
+          "experience_claim_ids": [],
+          "research_claim_ids": [
+            "bok-fx-risk-20260711",
+            "kodit-liquidity-support-20260711"
+          ],
+          "status": "CONFIRMED"
+        }
+      ]
+    }
+  }
+}

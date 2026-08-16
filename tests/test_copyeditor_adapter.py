@@ -31,6 +31,8 @@ def test_copyeditor_uses_integrated_prompt_and_accepts_conservative_edit():
     assert result.status == "copyedited"
     assert "Correct spelling and grammar" in captured["input"]
     assert "Use the installed im-ai-copyeditor skill" not in captured["input"]
+    assert "저자의 목소리 보존" in captured["input"]
+    assert "승인 경험 원장의 confirmed claim" in captured["input"]
     assert "--output-schema" in captured["command"]
 
 

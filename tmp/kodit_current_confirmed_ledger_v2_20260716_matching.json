@@ -1,0 +1,308 @@
+{
+  "schema_version": 2,
+  "generated_at": "2026-07-10T08:27:05+09:00",
+  "workspace_root": "C:/Users/ehddk/OneDrive/문서/취업",
+  "experiences": [
+    {
+      "experience_id": "exp_a07fd710e2b7c0c2",
+      "title": "경험정리 문단 129",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "✅ 50명 상인 인터뷰 & 5개 타 시장 비교 분석 → 문제점 및 개선 방안 도출",
+      "actions": [
+        "✅ 50명 상인 인터뷰 & 5개 타 시장 비교 분석 → 문제점 및 개선 방안 도출"
+      ],
+      "outcomes": [],
+      "competencies": [
+        "문제 해결",
+        "분석력",
+        "책임감"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "✅  상인 인터뷰 & 5개 타 시장 비교 분석 → 문제점 및 개선 방안 도출 ✅  상인 인터뷰 & 5개 타 시장 비교 분석 → 문제점 및 개선 방안 도출",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 128,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "e7146b4701aca38067b93c674b0175dee27d29580d239002aa46fcbbc0411456"
+            }
+          ],
+          "claim_id": "clm_abaa19a532d1aabc9140",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-11T08:46:26+09:00"
+    },
+    {
+      "experience_id": "exp_a521c3024abae521",
+      "title": "경험정리 문단 197",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "시스템 도입 → 업무 속도 30% 향상 & 예산 절감 효과",
+      "actions": [
+        "시스템 도입 → 업무 속도 30% 향상 & 예산 절감 효과"
+      ],
+      "outcomes": [
+        "시스템 도입 → 업무 속도 30% 향상 & 예산 절감 효과"
+      ],
+      "competencies": [
+        "문제 해결"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "시스템 도입 → 업무 속도  향상 & 예산 절감 효과 시스템 도입 → 업무 속도  향상 & 예산 절감 효과 시스템 도입 → 업무 속도  향상 & 예산 절감 효과",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 196,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "5f221fe2889b7f37e64e4b25c301081c7f472c6a162847a37fa04062f4dde182"
+            }
+          ],
+          "claim_id": "clm_6602f28d7f4b4c31895a",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-11T08:46:26+09:00"
+    },
+    {
+      "experience_id": "exp_2fe7474d7367a89c",
+      "title": "경험정리 문단 234",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "30% 증가했고, 조직 내 협업 문화가 개선되었습니다.",
+      "actions": [
+        "30% 증가했고, 조직 내 협업 문화가 개선되었습니다."
+      ],
+      "outcomes": [
+        "30% 증가했고, 조직 내 협업 문화가 개선되었습니다."
+      ],
+      "competencies": [
+        "문제 해결",
+        "협업"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "증가했고, 조직 내 협업 문화가 개선되었습니다. 증가했고, 조직 내 협업 문화가 개선되었습니다. 증가했고, 조직 내 협업 문화가 개선되었습니다.",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 233,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "2309d36af392f9f613f9ce1596f30b79530a8098c2756e0b564002883023663a"
+            }
+          ],
+          "claim_id": "clm_d96a20fc7a1e1a3caad6",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-11T08:46:26+09:00"
+    },
+    {
+      "experience_id": "exp_2df35f8fca5e30b8",
+      "title": "경험정리 문단 290",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "급여 지급 프로세스를 개선하여 업무 속도를 30% 향상시켰으며, 제기동 약령시장에서는 SNS 홍보 전략을 도입하여 젊은 층 방문객",
+      "actions": [
+        "급여 지급 프로세스를 개선하여 업무 속도를 30% 향상시켰으며, 제기동 약령시장에서는 SNS 홍보 전략을 도입하여 젊은 층 방문객"
+      ],
+      "outcomes": [],
+      "competencies": [
+        "문제 해결"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "급여 지급 프로세스를 개선하여 업무 속도를  향상시켰으며, 제기동 약령시장에서는 SNS 홍보 전략을 도입하여 젊은 층 방문객 급여 지급 프로세스를 개선하여 업무 속도를  향상시켰으며, 제기동 약령시장에서는 SNS 홍보 전략을 도입하여 젊은 층 방문객",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 289,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "b32c1e0dfbef88e1cd5a88356a1efb4e29eb7faa54784472228d7c5616987665"
+            }
+          ],
+          "claim_id": "clm_732a31834ac4cb075533",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-11T08:46:26+09:00"
+    },
+    {
+      "experience_id": "exp_2e966c8ac3146a5b",
+      "title": "경험정리 문단 335",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "3000페이지에 달하는 방대한 서류 정리 업무를 2일 만에 완료하며 연금 지급 절차가 차질",
+      "actions": [
+        "3000페이지에 달하는 방대한 서류 정리 업무를 2일 만에 완료하며 연금 지급 절차가 차질"
+      ],
+      "outcomes": [
+        "3000페이지에 달하는 방대한 서류 정리 업무를 2일 만에 완료하며 연금 지급 절차가 차질"
+      ],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "에 달하는 방대한 서류 정리 업무를  만에 완료하며 연금 지급 절차가 차질 에 달하는 방대한 서류 정리 업무를  만에 완료하며 연금 지급 절차가 차질 에 달하는 방대한 서류 정리 업무를  만에 완료하며 연금 지급 절차가 차질",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 334,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "eda171525d36007692c7a24efdccc956780d732e10e0d6736794e8c591d96b70"
+            }
+          ],
+          "claim_id": "clm_41fbcc79285f9a15295d",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-11T08:46:26+09:00"
+    },
+    {
+      "experience_id": "exp_151ae891bd2719ad",
+      "title": "경험정리 문단 406",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "특히, 3000페이지 분량의 자료를 체계적으로 분류하여 2일 만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다.",
+      "actions": [
+        "특히, 3000페이지 분량의 자료를 체계적으로 분류하여 2일 만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다."
+      ],
+      "outcomes": [],
+      "competencies": [
+        "분석력"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "특히,  분량의 자료를 체계적으로 분류하여  만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다. 특히,  분량의 자료를 체계적으로 분류하여  만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다.",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 405,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "3dbb4141798e73cdf2e16111b6ae9e90bc11ccbca3244047835be6a8dbfbeace"
+            }
+          ],
+          "claim_id": "clm_88cfeab230789e5b0d5f",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-11T08:46:26+09:00"
+    },
+    {
+      "experience_id": "exp_5381f510b1fba9e1",
+      "title": "경험정리 문단 506",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "엑셀 자동화 도입 → 급여 산정 속도 30% 향상",
+      "actions": [
+        "엑셀 자동화 도입 → 급여 산정 속도 30% 향상"
+      ],
+      "outcomes": [],
+      "competencies": [
+        "문제 해결"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "엑셀 자동화 도입 → 급여 산정 속도  향상 엑셀 자동화 도입 → 급여 산정 속도  향상",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 505,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "8b5a061f3f4dc250fcbf1797e3fc639e992280c57e8c7a83e0662e7c50104e19"
+            }
+          ],
+          "claim_id": "clm_353c575898c6254492e8",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-11T08:46:26+09:00"
+    }
+  ]
+}

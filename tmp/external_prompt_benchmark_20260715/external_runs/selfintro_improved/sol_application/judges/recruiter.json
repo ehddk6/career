@@ -1,0 +1,194 @@
+{
+  "data_package_id": "SOL-DATA-EXT-001",
+  "data_package_version": "1.0",
+  "judge_mode": "RECRUITER",
+  "evaluations": [
+    {
+      "candidate_id": "M7",
+      "judge_mode": "RECRUITER",
+      "hard_fail_status": "REVIEW_REQUIRED",
+      "hard_fail_type": null,
+      "hard_fail_reasons": [],
+      "review_required": [
+        "Q1의 비교 과정은 F01보다 구체적이므로 당시 실제 절차로 확대하지 않아야 한다.",
+        "Q2의 계획 운영과 목표 달성 인과는 면접 전 원문 확인이 필요하다."
+      ],
+      "scores": {
+        "question_fidelity": 20,
+        "fact_accuracy": 17,
+        "job_relevance": 15,
+        "action_specificity": 15,
+        "experience_allocation": 10,
+        "interview_defensibility": 7,
+        "korean_readability": 4,
+        "applicant_distinctiveness": 3,
+        "length_and_format": 2
+      },
+      "total": 93,
+      "strongest_point": "Q1·Q2·Q3의 경험을 분리했고 Q3은 인턴 권한을 넘지 않는다.",
+      "largest_risk": "Q2의 목표 조정 행동과 달성 사이 인과가 frozen 근거보다 넓다.",
+      "question_notes": {
+        "q1": "기관 역할과 비교·보고 경험 연결은 좋지만 세부 비교 과정은 확인 범위보다 넓다.",
+        "q2": "자료 기반 계획 조정 태도는 선명하나 실행 범위를 추가 확인해야 한다.",
+        "q3": "기한·대조·보고·인계가 직무 성공 조건과 잘 맞는다.",
+        "q4": "기업별 환율 노출과 선별·사후관리를 균형 있게 제시했다."
+      },
+      "transferable_elements": [
+        {
+          "question": "q1",
+          "element_type": "fact_grounded_experience",
+          "exact_element": "동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 입력해 결과 비교 분석 보고서를 작성하고 팀장에게 보고한 경험",
+          "reason": "자료 대조와 보고 역량을 직접 보여 준다.",
+          "fact_ids": ["F01"]
+        },
+        {
+          "question": "q3",
+          "element_type": "authority_boundary",
+          "exact_element": "제 판단을 보태지 않은 채 근거와 함께 담당자에게 보고하겠습니다",
+          "reason": "인턴 권한 경계를 지킨다.",
+          "fact_ids": ["F03", "F04"]
+        }
+      ]
+    },
+    {
+      "candidate_id": "R8",
+      "judge_mode": "RECRUITER",
+      "hard_fail_status": "REVIEW_REQUIRED",
+      "hard_fail_type": null,
+      "hard_fail_reasons": [],
+      "review_required": [
+        "Q1의 비교 기준·확인 지점은 당시 보고서의 실제 구조로 확대하지 않아야 한다."
+      ],
+      "scores": {
+        "question_fidelity": 20,
+        "fact_accuracy": 18,
+        "job_relevance": 15,
+        "action_specificity": 15,
+        "experience_allocation": 10,
+        "interview_defensibility": 8,
+        "korean_readability": 5,
+        "applicant_distinctiveness": 3,
+        "length_and_format": 2
+      },
+      "total": 96,
+      "strongest_point": "Q1=비교·보고, Q2=경청·비교, Q3=대량자료 분류로 경험 배분이 가장 안정적이다.",
+      "largest_risk": "Q1의 실제 비교·정리 방식은 면접에서 추정으로 답하면 안 된다.",
+      "question_notes": {
+        "q1": "지원동기·기관 역할·경험·기여가 모두 갖춰져 있다.",
+        "q2": "상인 인터뷰와 시장 비교를 경청 태도에 연결한 방식이 설득력 있다.",
+        "q3": "자료 확인·보고·인계에 머물러 면접 방어성이 높다.",
+        "q4": "환율 영향의 비대칭성과 선별·사후관리 원칙이 명료하다."
+      },
+      "transferable_elements": [
+        {
+          "question": "q2",
+          "element_type": "experience_selection",
+          "exact_element": "상인 50명을 인터뷰하고 5개 다른 시장을 비교해 문제점과 개선 방안을 도출한 경험",
+          "reason": "확인된 관찰·비교 행동으로 적응 태도를 뒷받침한다.",
+          "fact_ids": ["F08"]
+        },
+        {
+          "question": "q3",
+          "element_type": "authority_boundary",
+          "exact_element": "확인한 사실-근거 자료-문의할 내용 순서로 정리해 보고하겠습니다",
+          "reason": "판단과 보고의 경계를 분명히 한다.",
+          "fact_ids": ["F13"]
+        }
+      ]
+    },
+    {
+      "candidate_id": "P2",
+      "judge_mode": "RECRUITER",
+      "hard_fail_status": "REVIEW_REQUIRED",
+      "hard_fail_type": null,
+      "hard_fail_reasons": [],
+      "review_required": [
+        "Q1은 실제 결과 차이를 전제하므로 비교·보고 사실만 남겨야 한다.",
+        "Q2의 프로젝트명은 F08에 직접 연결되지 않아 삭제해야 한다."
+      ],
+      "scores": {
+        "question_fidelity": 20,
+        "fact_accuracy": 15,
+        "job_relevance": 15,
+        "action_specificity": 15,
+        "experience_allocation": 10,
+        "interview_defensibility": 7,
+        "korean_readability": 5,
+        "applicant_distinctiveness": 3,
+        "length_and_format": 2
+      },
+      "total": 92,
+      "strongest_point": "Q3의 대량자료 경험과 Q4의 기업별 충격 분석이 선명하다.",
+      "largest_risk": "Q1의 결과 불일치 전제와 Q2의 프로젝트명이 frozen 사실보다 구체적이다.",
+      "question_notes": {
+        "q1": "도입은 인상적이지만 결과 불일치 전제는 삭제해야 한다.",
+        "q2": "태도와 실천 계획은 좋으나 특정 프로젝트명은 근거 추적성이 없다.",
+        "q3": "우선순위·보고·인계 계획이 구체적이고 권한을 넘지 않는다.",
+        "q4": "기업별 영향과 지원 기준을 충분히 설명한다."
+      },
+      "transferable_elements": [
+        {
+          "question": "q3",
+          "element_type": "experience_selection",
+          "exact_element": "지급결정서·추납·분납 자료 3,000쪽을 이틀 안에 정리하는 과제를 기한 내 마치고 불필요한 전화 업무를 줄인 경험",
+          "reason": "대량자료 처리 경험을 직무계획과 직접 연결한다.",
+          "fact_ids": ["F03", "F04"]
+        },
+        {
+          "question": "q4",
+          "element_type": "issue_boundary",
+          "exact_element": "수입 투입 비중, 결제 통화, 대금 회수 시점에 따라 같은 업종에서도 영향은 달라집니다",
+          "reason": "고환율의 영향을 과잉 일반화하지 않는다.",
+          "fact_ids": []
+        }
+      ]
+    },
+    {
+      "candidate_id": "C3",
+      "judge_mode": "RECRUITER",
+      "hard_fail_status": "REVIEW_REQUIRED",
+      "hard_fail_type": null,
+      "hard_fail_reasons": [],
+      "review_required": [
+        "Q1의 비교 과정과 상시관리 목적은 실제 내부 절차로 단정하지 않아야 한다."
+      ],
+      "scores": {
+        "question_fidelity": 20,
+        "fact_accuracy": 17,
+        "job_relevance": 15,
+        "action_specificity": 15,
+        "experience_allocation": 10,
+        "interview_defensibility": 8,
+        "korean_readability": 5,
+        "applicant_distinctiveness": 3,
+        "length_and_format": 2
+      },
+      "total": 95,
+      "strongest_point": "Q3이 직무명·자료 대조·보고·인계를 묶고 권한 경계를 명시했다.",
+      "largest_risk": "Q1의 비교 과정과 직무 목적이 공식 근거보다 구체적이다.",
+      "question_notes": {
+        "q1": "직무 적합성은 높지만 내부 목적을 단정하면 안 된다.",
+        "q2": "관찰·질문·기록의 실천 계획이 현실적이다.",
+        "q3": "대량자료 분류 경험과 접수·대조·인계 계획의 연결이 강하다.",
+        "q4": "선별지원과 사후관리를 충실히 설명한다."
+      },
+      "transferable_elements": [
+        {
+          "question": "q3",
+          "element_type": "authority_boundary",
+          "exact_element": "보증 여부나 기업 신용을 판단하지 않겠습니다",
+          "reason": "보증 판단 권한을 주장하지 않는다.",
+          "fact_ids": ["F13"]
+        },
+        {
+          "question": "q2",
+          "element_type": "experience_selection",
+          "exact_element": "상인 50명을 인터뷰하고 5개 다른 시장을 비교해 문제점과 개선 방안을 도출한 경험",
+          "reason": "경청과 비교 태도를 뒷받침한다.",
+          "fact_ids": ["F08"]
+        }
+      ]
+    }
+  ]
+}
+

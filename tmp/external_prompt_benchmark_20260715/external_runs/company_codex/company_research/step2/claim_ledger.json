@@ -1,0 +1,462 @@
+{
+    "schema_version":  1,
+    "step":  "STEP_2",
+    "run_id":  "CR-20260715-1539",
+    "company_data_package_id":  "CR-DATA-001",
+    "research_cutoff_date":  "2026-07-15",
+    "claim_count":  25,
+    "status_vocabulary":  [
+                              "CONFIRMED_PRIMARY",
+                              "CONFIRMED_LOCAL",
+                              "PARTIAL_LOCAL",
+                              "UNVERIFIED",
+                              "BLOCKED_MISSING_SOURCE",
+                              "BLOCKED_SOURCE_NOT_EXTRACTED",
+                              "NOT_READY"
+                          ],
+    "claims":  [
+                   {
+                       "claim_id":  "CLM-COMP-001",
+                       "rq_ids":  [
+                                      "RQ-01"
+                                  ],
+                       "domain":  "ENTITY",
+                       "claim":  "신용보증기금은 신용보증기금법에 따라 기업의 자금융통과 건전한 신용질서 확립을 통해 국민경제 발전에 기여하도록 설립된 기금이다.",
+                       "verification_status":  "CONFIRMED_PRIMARY",
+                       "confidence":  "HIGH",
+                       "source_ids":  [
+                                          "SRC-001"
+                                      ],
+                       "evidence_locator":  "신용보증기금법 제1조",
+                       "counterevidence_or_limit":  "법률상 목적은 개별 사업의 실제 성과를 뜻하지 않는다.",
+                       "application_use":  "기관 역할과 지원동기의 사실 기반",
+                       "usage_restriction":  "법률 목적을 성과 실적으로 바꾸어 표현하지 말 것"
+                   },
+                   {
+                       "claim_id":  "CLM-COMP-002",
+                       "rq_ids":  [
+                                      "RQ-01",
+                                      "RQ-02"
+                                  ],
+                       "domain":  "BUSINESS_MODEL",
+                       "claim":  "법정 목적 범위에는 기업 채무보증, 회사채 등 유동화, 신용정보의 관리·운용이 포함된다.",
+                       "verification_status":  "CONFIRMED_PRIMARY",
+                       "confidence":  "HIGH",
+                       "source_ids":  [
+                                          "SRC-001"
+                                      ],
+                       "evidence_locator":  "제1조·제2조",
+                       "counterevidence_or_limit":  "세부 사업별 2026년 집행 실적은 별도 검증이 필요하다.",
+                       "application_use":  "기관 사업 범위 설명",
+                       "usage_restriction":  "사업 규모 수치를 임의 결합하지 말 것"
+                   },
+                   {
+                       "claim_id":  "CLM-COMP-003",
+                       "rq_ids":  [
+                                      "RQ-02",
+                                      "RQ-04"
+                                  ],
+                       "domain":  "VALUE_CHAIN",
+                       "claim":  "일반적인 신용보증 흐름은 신청·상담, 자료수집·신용조사, 보증심사·승인, 약정·보증서 발급으로 이어진다.",
+                       "verification_status":  "CONFIRMED_PRIMARY",
+                       "confidence":  "HIGH",
+                       "source_ids":  [
+                                          "SRC-002",
+                                          "SRC-003",
+                                          "SRC-004",
+                                          "SRC-005"
+                                      ],
+                       "evidence_locator":  "각 공식 업무안내의 단계",
+                       "counterevidence_or_limit":  "공고상 인턴이 이 모든 단계를 독립 수행한다는 근거는 없다.",
+                       "application_use":  "기한연장·상시관리 업무의 전후 맥락",
+                       "usage_restriction":  "인턴의 심사·승인 권한으로 확대 금지"
+                   },
+                   {
+                       "claim_id":  "CLM-COMP-004",
+                       "rq_ids":  [
+                                      "RQ-03"
+                                  ],
+                       "domain":  "CUSTOMER",
+                       "claim":  "보증대상은 일정 요건을 갖춘 개인기업·법인기업·기업단체이며 대기업·상장기업은 특정자금에 한해 제한적으로 허용된다.",
+                       "verification_status":  "CONFIRMED_PRIMARY",
+                       "confidence":  "HIGH",
+                       "source_ids":  [
+                                          "SRC-006"
+                                      ],
+                       "evidence_locator":  "보증대상기업",
+                       "counterevidence_or_limit":  "개별 신청기업의 지원 가능 여부는 심사 전 확정할 수 없다.",
+                       "application_use":  "고객군 설명",
+                       "usage_restriction":  "모든 중소기업이 자동 지원대상이라는 표현 금지"
+                   },
+                   {
+                       "claim_id":  "CLM-COMP-005",
+                       "rq_ids":  [
+                                      "RQ-04",
+                                      "RQ-10",
+                                      "RQ-12"
+                                  ],
+                       "domain":  "OPERATIONS",
+                       "claim":  "신용조사에는 등기·행정·금융거래·국세·세무회계 자료가 사용되고, 최근 3년 재무제표 등도 수집 대상이다.",
+                       "verification_status":  "CONFIRMED_PRIMARY",
+                       "confidence":  "HIGH",
+                       "source_ids":  [
+                                          "SRC-004"
+                                      ],
+                       "evidence_locator":  "수집자료 표",
+                       "counterevidence_or_limit":  "자료 접근 권한과 인턴의 실제 취급 범위는 확인되지 않았다.",
+                       "application_use":  "정확한 자료 확인·개인정보 주의의 직무 맥락",
+                       "usage_restriction":  "인턴이 모든 민감자료를 조회한다고 단정 금지"
+                   },
+                   {
+                       "claim_id":  "CLM-COMP-006",
+                       "rq_ids":  [
+                                      "RQ-04",
+                                      "RQ-10"
+                                  ],
+                       "domain":  "RISK_CONTROL",
+                       "claim":  "보증심사는 사업성·미래성장성·기업가치·기술력·기업가 정신 등을 고려하고 보증금액에 따라 심사 수준이 구분된다.",
+                       "verification_status":  "CONFIRMED_PRIMARY",
+                       "confidence":  "HIGH",
+                       "source_ids":  [
+                                          "SRC-005"
+                                      ],
+                       "evidence_locator":  "보증심사 및 심사방법",
+                       "counterevidence_or_limit":  "내부 세부 기준과 개별 평가 결과는 공개 근거로 확인하지 못했다.",
+                       "application_use":  "오류 예방과 판단 근거의 중요성 설명",
+                       "usage_restriction":  "비공개 평가모형 추정 금지"
+                   },
+                   {
+                       "claim_id":  "CLM-COMP-007",
+                       "rq_ids":  [
+                                      "RQ-07"
+                                  ],
+                       "domain":  "PROGRAM",
+                       "claim":  "신용보증기금은 2026년 유동화보증 신규자금 지원규모를 2.8조원으로 안내한다.",
+                       "verification_status":  "CONFIRMED_PRIMARY",
+                       "confidence":  "HIGH",
+                       "source_ids":  [
+                                          "SRC-007"
+                                      ],
+                       "evidence_locator":  "2026년 지원규모",
+                       "counterevidence_or_limit":  "계획 수치이며 실제 집행액이 아니다.",
+                       "application_use":  "기관 사업 다각화의 최신 사례",
+                       "usage_restriction":  "실적 또는 달성액으로 표현 금지"
+                   },
+                   {
+                       "claim_id":  "CLM-COMP-008",
+                       "rq_ids":  [
+                                      "RQ-07"
+                                  ],
+                       "domain":  "PROGRAM",
+                       "claim":  "2026년 보증연계투자 지원규모는 673억원으로 안내되며, 신용보증과 투자를 연계해 중소기업 자금조달·재무구조 개선을 지원한다.",
+                       "verification_status":  "CONFIRMED_PRIMARY",
+                       "confidence":  "HIGH",
+                       "source_ids":  [
+                                          "SRC-008"
+                                      ],
+                       "evidence_locator":  "개요·지원규모",
+                       "counterevidence_or_limit":  "계획 수치이며 실제 집행액이 아니다.",
+                       "application_use":  "보증 외 복합금융 이해",
+                       "usage_restriction":  "체험형 인턴의 직접 업무로 연결 금지"
+                   },
+                   {
+                       "claim_id":  "CLM-COMP-009",
+                       "rq_ids":  [
+                                      "RQ-11"
+                                  ],
+                       "domain":  "CULTURE",
+                       "claim":  "공식 인재상은 기본인품과 성장자질을 축으로 책임감·열정, 혁신·소통, 논리적 사고, 문제해결 등을 제시한다.",
+                       "verification_status":  "CONFIRMED_PRIMARY",
+                       "confidence":  "HIGH",
+                       "source_ids":  [
+                                          "SRC-009"
+                                      ],
+                       "evidence_locator":  "인재상 항목",
+                       "counterevidence_or_limit":  "공식 가치 문구만으로 실제 조직문화를 확정할 수 없다.",
+                       "application_use":  "지원서 행동 기준과 면접 답변 점검",
+                       "usage_restriction":  "실제 문화가 동일하다고 단정 금지"
+                   },
+                   {
+                       "claim_id":  "CLM-COMP-010",
+                       "rq_ids":  [
+                                      "RQ-07",
+                                      "RQ-10"
+                                  ],
+                       "domain":  "GOVERNANCE",
+                       "claim":  "공식 경영환경 모니터링 체계에는 거시경제·중소기업·정책·내부환경과 VOC, 고객자문단, 리스크준법실, 성과관리시스템 등이 제시된다.",
+                       "verification_status":  "CONFIRMED_PRIMARY",
+                       "confidence":  "MEDIUM_HIGH",
+                       "source_ids":  [
+                                          "SRC-010"
+                                      ],
+                       "evidence_locator":  "모니터링 채널",
+                       "counterevidence_or_limit":  "채널의 운영 빈도·효과·2026 성과는 확인되지 않았다.",
+                       "application_use":  "상시관리와 피드백 체계 이해",
+                       "usage_restriction":  "통제 효과를 수치화하지 말 것"
+                   },
+                   {
+                       "claim_id":  "CLM-JOB-001",
+                       "rq_ids":  [
+                                      "RQ-12",
+                                      "RQ-13"
+                                  ],
+                       "domain":  "JOB_POSTING",
+                       "claim":  "체험형 청년인턴1(보증)은 140명을 모집하며 약 3개월 동안 전국 영업점 100개에서 신용보증 기한연장과 기업신용 상시관리 등을 수행한다.",
+                       "verification_status":  "CONFIRMED_PRIMARY",
+                       "confidence":  "HIGH",
+                       "source_ids":  [
+                                          "SRC-011",
+                                          "SRC-012"
+                                      ],
+                       "evidence_locator":  "채용분야 및 채용단위 운영현황",
+                       "counterevidence_or_limit":  "\u0027등\u0027의 세부업무와 개별 배치 부점은 미확정이다.",
+                       "application_use":  "직무 선택 및 수행계획",
+                       "usage_restriction":  "심사·승인·독립판단 업무로 확대 금지"
+                   },
+                   {
+                       "claim_id":  "CLM-JOB-002",
+                       "rq_ids":  [
+                                      "RQ-13"
+                                  ],
+                       "domain":  "EMPLOYMENT_TERMS",
+                       "claim":  "근무기간은 2026-09-17부터 2026-12-16까지이고, 주 5일·1일 8시간, 월 225만원 수준(세전)이다.",
+                       "verification_status":  "CONFIRMED_PRIMARY",
+                       "confidence":  "HIGH",
+                       "source_ids":  [
+                                          "SRC-011"
+                                      ],
+                       "evidence_locator":  "근무조건",
+                       "counterevidence_or_limit":  "세후 실수령액과 개별 근무시간 선택 결과는 확정할 수 없다.",
+                       "application_use":  "지원 가능성 판단",
+                       "usage_restriction":  "세후 금액 추정 금지"
+                   },
+                   {
+                       "claim_id":  "CLM-JOB-003",
+                       "rq_ids":  [
+                                      "RQ-13"
+                                  ],
+                       "domain":  "APPLICATION",
+                       "claim":  "접수기간은 2026-07-09부터 2026-07-23 16:00까지이며 채용홈페이지 온라인 접수만 허용된다.",
+                       "verification_status":  "CONFIRMED_PRIMARY",
+                       "confidence":  "HIGH",
+                       "source_ids":  [
+                                          "SRC-011"
+                                      ],
+                       "evidence_locator":  "원서접수",
+                       "counterevidence_or_limit":  "사이트 장애 가능성이 안내되어 있고 최종 제출 완료가 필요하다.",
+                       "application_use":  "제출 일정 관리",
+                       "usage_restriction":  "임시저장을 제출 완료로 간주 금지"
+                   },
+                   {
+                       "claim_id":  "CLM-JOB-004",
+                       "rq_ids":  [
+                                      "RQ-13"
+                                  ],
+                       "domain":  "ELIGIBILITY",
+                       "claim":  "학력·성별·전공 제한은 없지만 신용보증기금 청년인턴 근무경험자는 지원할 수 없고, 마감일 기준 만 18~34세 및 채용일부터 출퇴근 가능 요건이 있다.",
+                       "verification_status":  "CONFIRMED_PRIMARY",
+                       "confidence":  "HIGH",
+                       "source_ids":  [
+                                          "SRC-011"
+                                      ],
+                       "evidence_locator":  "지원자격",
+                       "counterevidence_or_limit":  "지원자의 생년월일·과거 근무 여부·출퇴근 가능성은 이 조사에서 확인하지 않았다.",
+                       "application_use":  "자가 자격 점검",
+                       "usage_restriction":  "지원자 개인정보를 추정하지 말 것"
+                   },
+                   {
+                       "claim_id":  "CLM-JOB-005",
+                       "rq_ids":  [
+                                      "RQ-13"
+                                  ],
+                       "domain":  "SELECTION",
+                       "claim":  "서류는 업무수행계획서와 약식논술의 충실도·논리력·혁신적 사고를 평가하고, 면접은 기본인성과 직무능력을 평가한다.",
+                       "verification_status":  "CONFIRMED_PRIMARY",
+                       "confidence":  "HIGH",
+                       "source_ids":  [
+                                          "SRC-011"
+                                      ],
+                       "evidence_locator":  "전형절차 및 방법",
+                       "counterevidence_or_limit":  "내부 배점표와 합격 가능성은 공개되지 않았다.",
+                       "application_use":  "작성·면접 검토 기준",
+                       "usage_restriction":  "내부 품질점수를 공식 전형점수로 표현 금지"
+                   },
+                   {
+                       "claim_id":  "CLM-JOB-006",
+                       "rq_ids":  [
+                                      "RQ-13"
+                                  ],
+                       "domain":  "BLIND_RECRUITMENT",
+                       "claim":  "업무수행계획서와 약식논술에는 이름·나이·출신지·가족관계·학교명·성별 등 블라인드 위반 정보를 기재하면 안 된다.",
+                       "verification_status":  "CONFIRMED_PRIMARY",
+                       "confidence":  "HIGH",
+                       "source_ids":  [
+                                          "SRC-011",
+                                          "SRC-014"
+                                      ],
+                       "evidence_locator":  "기타사항 및 붙임3",
+                       "counterevidence_or_limit":  "기업명·기관명은 직무 관련 경력 확인을 위해 허용되지만 학교·지역 식별 표현은 금지된다.",
+                       "application_use":  "최종 원고 블라인드 점검",
+                       "usage_restriction":  "군경험 등 간접 성별 식별도 주의"
+                   },
+                   {
+                       "claim_id":  "CLM-JOB-007",
+                       "rq_ids":  [
+                                      "RQ-12"
+                                  ],
+                       "domain":  "PLACEMENT",
+                       "claim":  "복수 근무부점 채용단위는 희망 순위를 참고하되 희망 외 부점 배치가 가능하고, 배치 후 같은 채용단위 내 타 부점 이동도 가능하다.",
+                       "verification_status":  "CONFIRMED_PRIMARY",
+                       "confidence":  "HIGH",
+                       "source_ids":  [
+                                          "SRC-011",
+                                          "SRC-012"
+                                      ],
+                       "evidence_locator":  "붙임1 안내 및 기타사항",
+                       "counterevidence_or_limit":  "정확한 배치 지점·팀·보고선은 합격 전 확정되지 않는다.",
+                       "application_use":  "근무지 유연성 판단",
+                       "usage_restriction":  "특정 영업점 배치를 전제로 쓰지 말 것"
+                   },
+                   {
+                       "claim_id":  "CLM-APP-001",
+                       "rq_ids":  [
+                                      "RQ-14"
+                                  ],
+                       "domain":  "APPLICANT_EVIDENCE",
+                       "claim":  "지원자는 3,000페이지 규모 자료를 분류해 2일 만에 정리했다는 경험 문장을 현재 포함된 원문에서 확인할 수 있다.",
+                       "verification_status":  "CONFIRMED_LOCAL",
+                       "confidence":  "MEDIUM_HIGH",
+                       "source_ids":  [
+                                          "SRC-016",
+                                          "SRC-017"
+                                      ],
+                       "evidence_locator":  "clm_88cfeab230789e5b0d5f; XML 검색 문단 456",
+                       "counterevidence_or_limit":  "자료량·기간의 외부 기록이나 산식은 별도로 확인되지 않았다.",
+                       "application_use":  "자료 분류·마감 준수 브리지",
+                       "usage_restriction":  "객관적 외부 검증 수치처럼 표현 금지"
+                   },
+                   {
+                       "claim_id":  "CLM-APP-002",
+                       "rq_ids":  [
+                                      "RQ-14"
+                                  ],
+                       "domain":  "APPLICANT_EVIDENCE",
+                       "claim":  "지원자는 상인 50명 인터뷰와 5개 시장 비교분석 경험 문장을 현재 포함된 원문에서 확인할 수 있다.",
+                       "verification_status":  "CONFIRMED_LOCAL",
+                       "confidence":  "MEDIUM_HIGH",
+                       "source_ids":  [
+                                          "SRC-016",
+                                          "SRC-017"
+                                      ],
+                       "evidence_locator":  "clm_abaa19a532d1aabc9140; XML 검색 문단 152",
+                       "counterevidence_or_limit":  "인터뷰 명단·비교표 등 별도 산출물은 현재 입력에 없다.",
+                       "application_use":  "고객 관점·비교분석 브리지",
+                       "usage_restriction":  "조사 품질이나 성과를 과장하지 말 것"
+                   },
+                   {
+                       "claim_id":  "CLM-APP-003",
+                       "rq_ids":  [
+                                      "RQ-14"
+                                  ],
+                       "domain":  "APPLICANT_EVIDENCE",
+                       "claim":  "지원자는 엑셀 자동화로 급여 산정 속도를 30% 향상했다는 경험 문장을 현재 포함된 원문에서 확인할 수 있다.",
+                       "verification_status":  "PARTIAL_LOCAL",
+                       "confidence":  "MEDIUM",
+                       "source_ids":  [
+                                          "SRC-016",
+                                          "SRC-017"
+                                      ],
+                       "evidence_locator":  "clm_353c575898c6254492e8; XML 검색 문단 570",
+                       "counterevidence_or_limit":  "30%의 기준선·측정기간·산식이 원장과 원문에 없다.",
+                       "application_use":  "결과 대조·업무개선 브리지",
+                       "usage_restriction":  "30% 수치는 검증방법 질문에 답할 수 있을 때만 제한적으로 사용"
+                   },
+                   {
+                       "claim_id":  "CLM-APP-004",
+                       "rq_ids":  [
+                                      "RQ-14"
+                                  ],
+                       "domain":  "LINEAGE_GAP",
+                       "claim":  "승인 경험원장 20개 claim 중 13개는 현재 input에 없는 경험요약정리.docx 또는 인생기술서.docx를 상위 원문으로 참조한다.",
+                       "verification_status":  "BLOCKED_MISSING_SOURCE",
+                       "confidence":  "HIGH",
+                       "source_ids":  [
+                                          "SRC-016"
+                                      ],
+                       "evidence_locator":  "frozen manifest missing_upstream_sources",
+                       "counterevidence_or_limit":  "승인 상태는 보존되지만 이번 패키지에서 독립 재검증할 수 없다.",
+                       "application_use":  "사용 가능한 경험 범위 제한",
+                       "usage_restriction":  "해당 13개 claim을 신규 검증 완료로 표시 금지"
+                   },
+                   {
+                       "claim_id":  "CLM-FIN-001",
+                       "rq_ids":  [
+                                      "RQ-05",
+                                      "RQ-06"
+                                  ],
+                       "domain":  "FINANCIALS",
+                       "claim":  "최근 3개 공시연도 및 2026 최신 가용 시점의 보증공급·보증잔액·대위변제·회수·사고율 추세는 이번 단계에서 확정하지 못했다.",
+                       "verification_status":  "BLOCKED_SOURCE_NOT_EXTRACTED",
+                       "confidence":  "HIGH",
+                       "source_ids":  [
+                                          "SRC-015"
+                                      ],
+                       "evidence_locator":  "ALIO 색인만 확인",
+                       "counterevidence_or_limit":  "첨부 재무관리계획·감사보고서의 동일 범위 수치를 추출·대조해야 한다.",
+                       "application_use":  "재무 결론 보류",
+                       "usage_restriction":  "추세·증감률·건전성 결론 사용 금지"
+                   },
+                   {
+                       "claim_id":  "CLM-ROLE-001",
+                       "rq_ids":  [
+                                      "RQ-12"
+                                  ],
+                       "domain":  "JOB_REALITY",
+                       "claim":  "인턴이 실제로 사용하는 시스템, 고객 접점 빈도, 보고선, 자료 접근권한, 오류 KPI는 공식 공고에서 확인되지 않았다.",
+                       "verification_status":  "UNVERIFIED",
+                       "confidence":  "HIGH",
+                       "source_ids":  [
+                                          "SRC-011"
+                                      ],
+                       "evidence_locator":  "공고 기재 범위와 공백",
+                       "counterevidence_or_limit":  "공식 FAQ·직무설명·현장 근거가 필요하다.",
+                       "application_use":  "면접 질문 및 온보딩 확인 항목",
+                       "usage_restriction":  "구체 시스템명·권한·KPI 추정 금지"
+                   },
+                   {
+                       "claim_id":  "CLM-COMPARE-001",
+                       "rq_ids":  [
+                                      "RQ-09"
+                                  ],
+                       "domain":  "COMPARISON",
+                       "claim":  "기술보증기금·지역신보·무역보험공사·기업은행과의 법적 역할·고객·재원·성과 비교는 이번 단계에서 검증 완료되지 않았다.",
+                       "verification_status":  "UNVERIFIED",
+                       "confidence":  "HIGH",
+                       "source_ids":  [
+
+                                      ],
+                       "evidence_locator":  "비교기관별 공식 1차 출처 미수집",
+                       "counterevidence_or_limit":  "동일 기준일·동일 단위의 비교 원장이 필요하다.",
+                       "application_use":  "기관 선택 이유 보류",
+                       "usage_restriction":  "차별점 단정 및 순위화 금지"
+                   },
+                   {
+                       "claim_id":  "CLM-DECISION-001",
+                       "rq_ids":  [
+                                      "RQ-15"
+                                  ],
+                       "domain":  "DECISION_GATE",
+                       "claim":  "채용 기본조건과 직무 표면은 확인됐지만 재무·실제 직무 권한·현장문화·비교기관 근거가 남아 있어 최종 지원 우선순위는 아직 확정할 수 없다.",
+                       "verification_status":  "NOT_READY",
+                       "confidence":  "HIGH",
+                       "source_ids":  [
+                                          "SRC-011",
+                                          "SRC-015"
+                                      ],
+                       "evidence_locator":  "STEP 2 게이트",
+                       "counterevidence_or_limit":  "지원자 본인의 자격·희망 근무지·기회비용도 별도 확인이 필요하다.",
+                       "application_use":  "후속 조사 우선순위 설정",
+                       "usage_restriction":  "최종 지원 권고로 사용 금지"
+                   }
+               ]
+}

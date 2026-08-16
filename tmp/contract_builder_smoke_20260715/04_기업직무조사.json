@@ -1,0 +1,392 @@
+{
+  "schema_version": 2,
+  "contract_version": "2026-07-15",
+  "data_package_id": "CAREER-DATA-585CEFB0E812",
+  "data_package_version": "2.0",
+  "target": "신용보증기금 체험형 청년인턴1(보증)",
+  "research_cutoff_date": "2026-07-13",
+  "entity": {
+    "legal_entity_name": "신용보증기금",
+    "brand_name": "신용보증기금",
+    "target_business_unit": "체험형 청년인턴1(보증)",
+    "status": "CONFIRMED"
+  },
+  "source_manifest": [
+    {
+      "source_id": "source-1",
+      "source_level": 2,
+      "url": "https://www.kodit.co.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11064&mi=2521",
+      "checked_at": "2026-07-13",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-2",
+      "source_level": 2,
+      "url": "https://kodit2.saramin.co.kr/service/kodit2/3872/applicant/apply/recruit_default.asp",
+      "checked_at": "2026-07-13",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-3",
+      "source_level": 2,
+      "url": "https://www.bok.or.kr/portal/bbs/B0000156/view.do?depth=200067&menuNo=200067&nttId=10096935&programType=newsData&relate=Y",
+      "checked_at": "2026-07-13",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-4",
+      "source_level": 2,
+      "url": "https://www.kodit.co.kr/kodit/na/ntt/selectNttInfo.do?bbsId=47&mi=2639&nttSn=4429533",
+      "checked_at": "2026-07-13",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-5",
+      "source_level": 2,
+      "url": "https://kodit2.saramin.co.kr/service/kodit2/3872/applicant/apply/recruit_default.asp",
+      "checked_at": "2026-07-13",
+      "target_entity": "신용보증기금"
+    }
+  ],
+  "claim_ledger": [
+    {
+      "claim_id": "kodit-role-20260711",
+      "claim": "신용보증기금은 기업이 부담하는 채무를 보증해 성장유망기업을 지원하며, 보증신청 뒤 신용조사와 보증심사를 수행한다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-1"
+      ],
+      "research_refs": [
+        "kodit-role-20260711"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE"
+    },
+    {
+      "claim_id": "kodit-intern-duty-20260711",
+      "claim": "보증 분야 체험형 청년인턴의 주요업무는 신용보증 기한연장과 기업신용 상시관리다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-2"
+      ],
+      "research_refs": [
+        "kodit-intern-duty-20260711"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE"
+    },
+    {
+      "claim_id": "bok-fx-risk-20260711",
+      "claim": "한국은행은 높은 환율 변동성과 중동지역 리스크를 점검하면서 14조원 한도의 중소기업 한시 특별지원 운용기간을 재연장했다.",
+      "claim_type": "EXTERNAL_CLAIM",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-3"
+      ],
+      "research_refs": [
+        "bok-fx-risk-20260711"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE"
+    },
+    {
+      "claim_id": "kodit-liquidity-support-20260711",
+      "claim": "신용보증기금은 지역 수출기업 등의 유동성과 금융비용 부담을 완화하기 위해 협약보증을 공급하고 있다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-4"
+      ],
+      "research_refs": [
+        "kodit-liquidity-support-20260711"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE"
+    },
+    {
+      "claim_id": "kodit-selection-criteria-20260713",
+      "claim": "신용보증기금 청년인턴 서류전형은 업무수행계획서와 약식논술의 충실도·논리력·혁신적 사고를 평가하고, 면접전형은 기본인성과 직무능력을 평가한다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-5"
+      ],
+      "research_refs": [
+        "kodit-selection-criteria-20260713"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE"
+    }
+  ],
+  "business_model": {
+    "core_customers": [
+      "공식 근거에 명시된 정책금융 지원 대상"
+    ],
+    "customer_problem": "공식 근거에 명시된 자금 접근·신용관리 문제",
+    "value_proposition": "공식 기준과 심사를 통한 금융 접근 지원",
+    "revenue_logic": "공공기관의 정책 목적과 법정·공식 사업 구조에 따른 업무 수행",
+    "major_costs": [
+      "심사·관리 인력",
+      "업무 시스템과 리스크 관리"
+    ],
+    "critical_risks": [
+      "자료 오류와 누락",
+      "지원 필요성과 위험의 오판"
+    ]
+  },
+  "strategy_execution": [
+    {
+      "strategy_id": "strategy-1",
+      "stage": "OPERATING",
+      "claim_ids": [
+        "kodit-role-20260711",
+        "kodit-intern-duty-20260711",
+        "bok-fx-risk-20260711",
+        "kodit-liquidity-support-20260711",
+        "kodit-selection-criteria-20260713"
+      ],
+      "success_conditions": [
+        "공식 사업이 확인된 대상에게 기준대로 집행됨"
+      ],
+      "failure_signals": [
+        "반복 누락 또는 근거 없는 예외 처리"
+      ],
+      "job_implications": [
+        "신용보증 기한연장, 기업신용 상시관리 등"
+      ]
+    }
+  ],
+  "financial_analysis": {
+    "status": "INSUFFICIENT_EVIDENCE",
+    "reason": "동결된 공식 근거만으로 기간·단위가 일치하는 재무 시계열을 구성할 수 없습니다.",
+    "metrics": []
+  },
+  "competitor_analysis": {
+    "status": "INSUFFICIENT_EVIDENCE",
+    "reason": "동일 고객 문제와 기능을 기준으로 비교할 공식 자료가 충분하지 않습니다.",
+    "selection": [],
+    "comparisons": []
+  },
+  "culture_analysis": {
+    "status": "INSUFFICIENT_EVIDENCE",
+    "reason": "공개 자료만으로 특정 팀의 실제 문화를 확정할 수 없습니다.",
+    "evidence": [],
+    "unknowns": [
+      "배치 부서별 업무 방식",
+      "피드백과 보고 주기"
+    ]
+  },
+  "market_position": {
+    "target_market": "공식 근거에 명시된 지원 대상과 정책금융 수요",
+    "customer_alternatives": [
+      "민간 금융",
+      "다른 정책금융 지원",
+      "자체 자금 조달"
+    ],
+    "competitor_selection_basis": "동일 고객 문제와 제공 기능",
+    "differentiators": [
+      "공식 근거로 확인된 기관 역할과 사업"
+    ],
+    "uncertainties": [
+      "공개 자료로 확인되지 않은 내부 자원 배분과 성과"
+    ]
+  },
+  "recent_performance": [
+    {
+      "observation": "신용보증기금은 기업이 부담하는 채무를 보증해 성장유망기업을 지원하며, 보증신청 뒤 신용조사와 보증심사를 수행한다.",
+      "interpretation": "공식 근거로 확인된 범위 안에서 지원 판단과 면접 질문에 사용한다.",
+      "status": "CONFIRMED_PRIMARY",
+      "claim_ids": [
+        "kodit-role-20260711"
+      ]
+    },
+    {
+      "observation": "보증 분야 체험형 청년인턴의 주요업무는 신용보증 기한연장과 기업신용 상시관리다.",
+      "interpretation": "공식 근거로 확인된 범위 안에서 지원 판단과 면접 질문에 사용한다.",
+      "status": "CONFIRMED_PRIMARY",
+      "claim_ids": [
+        "kodit-intern-duty-20260711"
+      ]
+    },
+    {
+      "observation": "한국은행은 높은 환율 변동성과 중동지역 리스크를 점검하면서 14조원 한도의 중소기업 한시 특별지원 운용기간을 재연장했다.",
+      "interpretation": "공식 근거로 확인된 범위 안에서 지원 판단과 면접 질문에 사용한다.",
+      "status": "CONFIRMED_PRIMARY",
+      "claim_ids": [
+        "bok-fx-risk-20260711"
+      ]
+    },
+    {
+      "observation": "신용보증기금은 지역 수출기업 등의 유동성과 금융비용 부담을 완화하기 위해 협약보증을 공급하고 있다.",
+      "interpretation": "공식 근거로 확인된 범위 안에서 지원 판단과 면접 질문에 사용한다.",
+      "status": "CONFIRMED_PRIMARY",
+      "claim_ids": [
+        "kodit-liquidity-support-20260711"
+      ]
+    },
+    {
+      "observation": "신용보증기금 청년인턴 서류전형은 업무수행계획서와 약식논술의 충실도·논리력·혁신적 사고를 평가하고, 면접전형은 기본인성과 직무능력을 평가한다.",
+      "interpretation": "공식 근거로 확인된 범위 안에서 지원 판단과 면접 질문에 사용한다.",
+      "status": "CONFIRMED_PRIMARY",
+      "claim_ids": [
+        "kodit-selection-criteria-20260713"
+      ]
+    }
+  ],
+  "research_completeness": {
+    "answered_questions": [
+      "법인과 직무",
+      "공식 사업·역할",
+      "지원서에 사용할 수 있는 주장"
+    ],
+    "unresolved_questions": [
+      "최근 3개년 비교 가능한 재무·성과",
+      "실제 인턴 권한과 팀별 KPI",
+      "내부 자원 배분"
+    ],
+    "stopping_reason": "동결된 공식 근거에서 지원서와 면접에 필요한 안전한 주장 범위를 확정했습니다."
+  },
+  "interview_implications": {
+    "expected_questions": [
+      "신용보증기금의 역할과 체험형 청년인턴1(보증) 업무를 어떻게 이해하고 있습니까?",
+      "공식 자료와 실제 고객 자료가 다를 때 어떻게 확인하겠습니까?"
+    ],
+    "reverse_questions": [
+      "입사 초기 가장 먼저 익혀야 할 업무 기준은 무엇입니까?",
+      "반복적으로 발생하는 예외와 보고 기준은 무엇입니까?"
+    ],
+    "prohibited_talking_points": [
+      "확인되지 않은 내부 성과·문화·권한을 사실처럼 단정하는 표현"
+    ]
+  },
+  "role_value_map": [
+    {
+      "company_issue": "공식 기준에 따른 정확한 업무 수행과 예외 관리",
+      "role_actions": [
+        "신용보증 기한연장, 기업신용 상시관리 등"
+      ],
+      "claim_ids": [
+        "kodit-role-20260711",
+        "kodit-intern-duty-20260711",
+        "bok-fx-risk-20260711",
+        "kodit-liquidity-support-20260711",
+        "kodit-selection-criteria-20260713"
+      ],
+      "certainty": "POSTING_CONFIRMED"
+    }
+  ],
+  "applicant_bridge": [
+    {
+      "requirement": "신용보증기금 청년인턴에 지원하게 된 동기와 신용보증기금의 역할에 대한 본인의 이해를 바탕으로 인턴 근무 중 배우고, 기여하고 싶은 부분을 기술하여 주십시오.",
+      "experience_id": "exp_151ae891bd2719ad",
+      "experience_claim_ids": [
+        "clm_88cfeab230789e5b0d5f"
+      ],
+      "fit_state": "TRANSFERABLE"
+    },
+    {
+      "requirement": "지원자가 새로운 조직에 적응하기 위해 중요하게 생각하는 태도가 무엇이며, 그 태도를 실제 근무과정에서 실천하기 위해 어떤 노력을 할 것인지 기술하여 주십시오.",
+      "experience_id": "exp_638228200e37de69",
+      "experience_claim_ids": [
+        "clm_2bfba21afb61776d752b"
+      ],
+      "fit_state": "TRANSFERABLE"
+    },
+    {
+      "requirement": "신용보증기금의 청년인턴으로 근무한다고 가정할 때, 실제 근무 시 지원자의 업무수행계획을 기술하여 주십시오.",
+      "experience_id": "exp_2df35f8fca5e30b8",
+      "experience_claim_ids": [
+        "clm_732a31834ac4cb075533"
+      ],
+      "fit_state": "TRANSFERABLE"
+    },
+    {
+      "requirement": "최근 중소기업에 큰 영향을 미치는 경제·사회 이슈를 하나 선택하여 그 이유를 서술하여 주시기 바랍니다. 또한, 해당 이슈와 관련하여 영향을 받는 중소기업을 정책 금융기관이 지원할 수 있는 방안과 지원 과정에서 유의할 점을 서술하여 주시기 바랍니다.",
+      "experience_id": "exp_2e966c8ac3146a5b",
+      "experience_claim_ids": [
+        "clm_41fbcc79285f9a15295d"
+      ],
+      "fit_state": "TRANSFERABLE"
+    }
+  ],
+  "red_team": {
+    "strongest_counterargument": "공개된 기관 역할이 실제 배치 부서의 일상 업무와 완전히 같다고 단정할 수 없습니다.",
+    "critical_unknowns": [
+      "실제 인턴의 시스템 권한",
+      "팀별 업무량과 성과 기준"
+    ]
+  },
+  "first_90_days": {
+    "days_0_30": [
+      "업무 기준·용어·보고 경로를 확인하고 체크리스트로 정리"
+    ],
+    "days_31_60": [
+      "원자료와 처리 결과를 대조하고 예외를 근거와 함께 보고"
+    ],
+    "days_61_90": [
+      "반복 오류와 문의 유형을 기록해 담당자 검토 후 개선 제안"
+    ]
+  },
+  "decision": {
+    "status": "APPLY_WITH_CONDITIONS",
+    "main_reason": "공식 근거로 확인된 기관 역할과 공고 업무가 확정 경험의 확인·대조·기록 행동과 연결됩니다.",
+    "strongest_support": "공고 및 공식 근거의 역할·업무 claim",
+    "strongest_counterargument": "실제 배치와 권한은 공개 자료만으로 확인되지 않습니다.",
+    "conditions_that_would_change_decision": [
+      "실제 배치 업무가 공고와 크게 다른 경우",
+      "지원 자격 또는 근무 조건이 달라지는 경우"
+    ]
+  }
+}

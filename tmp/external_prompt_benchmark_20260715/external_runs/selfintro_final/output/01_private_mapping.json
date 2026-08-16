@@ -1,0 +1,25 @@
+{
+  "data_package_id": "SOL-DATA-608228643DF2-REFINAL",
+  "mapping": {
+    "R8": {
+      "source_file": "work/candidate_fact_first.json",
+      "source_candidate_id": "FACT_FIRST",
+      "strategy": "확정 경험원장의 CONFIRMED 근거를 문항별로 분리하고, 검증된 공식 근거로 직무·이슈 설명을 보완한 초안"
+    },
+    "C3": {
+      "source_file": "work/candidate_question_first.json",
+      "source_candidate_id": "QUESTION_FIRST",
+      "strategy": "QUESTION_FIRST"
+    },
+    "M7": {
+      "source_file": "work/candidate_natural_voice.json",
+      "source_candidate_id": "C_NATURAL_VOICE",
+      "strategy": "NATURAL_VOICE"
+    },
+    "P2": {
+      "source_file": "work/candidate_job_relevance.json",
+      "source_candidate_id": "D_JOB_RELEVANCE",
+      "strategy": "JOB_RELEVANCE"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "data_package_id": "CAREER-DATA-F9C8B89D27FE",
+  "data_package_version": "2.0",
+  "frozen_data_sha256": "f9c8b89d27fea65eb83a08f9ba0aa156686b499100609c1b2fb451ecdf941425",
+  "count_mode": "spaces_included",
+  "candidate_count": 7,
+  "judge_count": 4,
+  "quality_profile": "max_quality"
+}

@@ -1,0 +1,561 @@
+{
+  "status": "complete",
+  "quality_mode": "v2",
+  "strict_quality": true,
+  "run_dir": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\career_runs\\kodit-2026-h2-rigorous-20260714-v22",
+  "root": "C:\\Users\\ehddk\\OneDrive\\문서\\취업",
+  "target": "신용보증기금 체험형 청년인턴1(보증)",
+  "draft": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\output\\doc\\신용보증기금_2026하반기_청년인턴_업무수행계획서.docx",
+  "posting": "career_runs\\kodit-2026-h2-official-questions.docx",
+  "profile": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\.career_profile\\experience_ledger_v2_proposed_20260714.json",
+  "posting_snapshot_id": "5b6f69118ca1eece39f284fb26c18e42422ba01088f978b9829c0501bc456779",
+  "official_research_domains": [
+    "bok.or.kr",
+    "kodit.co.kr",
+    "saramin.co.kr"
+  ],
+  "research_policy": "evidence-first",
+  "research_method_default": "evidence-first-research",
+  "research_method_enforced": false,
+  "questions": [
+    {
+      "index": 1,
+      "prompt": "신용보증기금 청년인턴에 지원하게 된 동기와 신용보증기금의 역할에 대한 본인의 이해를 바탕으로 인턴 근무 중 배우고, 기여하고 싶은 부분을 기술하여 주십시오.",
+      "character_limit": 600,
+      "count_mode": "spaces_included",
+      "minimum_character_limit": 400
+    },
+    {
+      "index": 2,
+      "prompt": "지원자가 새로운 조직에 적응하기 위해 중요하게 생각하는 태도가 무엇이며, 그 태도를 실제 근무과정에서 실천하기 위해 어떤 노력을 할 것인지 기술하여 주십시오.",
+      "character_limit": 600,
+      "count_mode": "spaces_included",
+      "minimum_character_limit": 400
+    },
+    {
+      "index": 3,
+      "prompt": "신용보증기금의 청년인턴으로 근무한다고 가정할 때, 실제 근무 시 지원자의 업무수행계획을 기술하여 주십시오.",
+      "character_limit": 600,
+      "count_mode": "spaces_included",
+      "minimum_character_limit": 400
+    },
+    {
+      "index": 4,
+      "prompt": "최근 중소기업에 큰 영향을 미치는 경제·사회 이슈를 하나 선택하여 그 이유를 서술하여 주시기 바랍니다. 또한, 해당 이슈와 관련하여 영향을 받는 중소기업을 정책 금융기관이 지원할 수 있는 방안과 지원 과정에서 유의할 점을 서술하여 주시기 바랍니다.",
+      "character_limit": 1500,
+      "count_mode": "spaces_included",
+      "minimum_character_limit": null
+    }
+  ],
+  "selected_experience_ids": [
+    "exp_151ae891bd2719ad",
+    "exp_638228200e37de69",
+    "exp_2df35f8fca5e30b8",
+    "exp_2e966c8ac3146a5b"
+  ],
+  "conflict_count": 0,
+  "writing_guidance": {
+    "status": "available",
+    "kind": "youtube_frame_strategy",
+    "use_policy": "strategy_only_not_factual_evidence",
+    "source_dir": "자료조사/자소서_유튜브_프레임분석_2026-07-03",
+    "artifact": "career_runs/kodit-2026-h2-rigorous-20260714-v6-20260714-073101-316342/05_작성가이드_유튜브프레임.md",
+    "source_files": [
+      {
+        "name": "00_읽어주세요_활용법.md",
+        "path": "자료조사/자소서_유튜브_프레임분석_2026-07-03/00_읽어주세요_활용법.md",
+        "role": "활용법"
+      },
+      {
+        "name": "01_자소서_작성원칙_요약.md",
+        "path": "자료조사/자소서_유튜브_프레임분석_2026-07-03/01_자소서_작성원칙_요약.md",
+        "role": "전체 작성 원칙"
+      },
+      {
+        "name": "02_문항유형별_전략.md",
+        "path": "자료조사/자소서_유튜브_프레임분석_2026-07-03/02_문항유형별_전략.md",
+        "role": "문항 유형별 전략"
+      },
+      {
+        "name": "03_기관별_적용노트.md",
+        "path": "자료조사/자소서_유튜브_프레임분석_2026-07-03/03_기관별_적용노트.md",
+        "role": "기관별 적용 노트"
+      },
+      {
+        "name": "04_프레임_근거색인.csv",
+        "path": "자료조사/자소서_유튜브_프레임분석_2026-07-03/04_프레임_근거색인.csv",
+        "role": "캡처 프레임 원문 색인"
+      },
+      {
+        "name": "05_문장_근거색인.csv",
+        "path": "자료조사/자소서_유튜브_프레임분석_2026-07-03/05_문장_근거색인.csv",
+        "role": "문장 단위 원문 색인"
+      },
+      {
+        "name": "06_영상별_요약.md",
+        "path": "자료조사/자소서_유튜브_프레임분석_2026-07-03/06_영상별_요약.md",
+        "role": "영상별 요약"
+      },
+      {
+        "name": "07_전체프레임_OCR.jsonl",
+        "path": "자료조사/자소서_유튜브_프레임분석_2026-07-03/07_전체프레임_OCR.jsonl",
+        "role": "전체 OCR 원문"
+      },
+      {
+        "name": "run_summary.json",
+        "path": "자료조사/자소서_유튜브_프레임분석_2026-07-03/run_summary.json",
+        "role": "분석 실행 요약"
+      }
+    ],
+    "missing_files": [],
+    "generated_at": "2026-07-14T07:32:08.548582",
+    "freshness": {
+      "status": "fresh",
+      "external_source_latest_at": "2026-07-02T23:16:47.628036+09:00",
+      "imported_snapshot_latest_at": "2026-07-03T08:12:41.581765+09:00"
+    }
+  },
+  "started_at": "2026-07-14T07:32:08.555578",
+  "state_history": [
+    {
+      "recorded_at": "2026-07-14T07:32:08.555578",
+      "status": "ready_for_research",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-14T08:01:11.790288",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-14T08:01:11.864305",
+      "status": "blocked_validation",
+      "blocked_stage": "finalize"
+    },
+    {
+      "recorded_at": "2026-07-14T08:04:40.315306",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-14T08:04:40.362303",
+      "status": "blocked_validation",
+      "blocked_stage": "finalize"
+    },
+    {
+      "recorded_at": "2026-07-14T08:05:32.743242",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-14T08:06:32.182768",
+      "status": "blocked_selection",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-14T08:10:28.450658",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-14T08:10:28.760208",
+      "status": "complete",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-14T20:19:01.376893",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-14T20:38:24.580993",
+      "status": "complete",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-15T16:05:42.196584",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-15T16:26:48.865931",
+      "status": "blocked_selection",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-15T16:35:13.567389",
+      "status": "finalizing",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-15T16:35:14.077456",
+      "status": "blocked_selection",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-15T16:40:18.051612",
+      "status": "finalizing",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-15T16:41:05.819643",
+      "status": "complete",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-15T16:43:15.543227",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-15T16:44:18.234916",
+      "status": "complete",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-15T16:44:39.446028",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-15T16:45:35.611766",
+      "status": "complete",
+      "blocked_stage": null
+    }
+  ],
+  "selection_mode": "rigorous",
+  "postprocess_policy": "never",
+  "max_model_calls": 13,
+  "max_postprocess_calls": 1,
+  "max_stage_seconds": null,
+  "legacy_patina": false,
+  "patina_attempted": false,
+  "patina_score_attempted": false,
+  "patina_applied": false,
+  "patina_status": "disabled",
+  "patina_score_enabled": false,
+  "patina_voice_sample_used": null,
+  "incumbent_preflight_issues": [
+    {
+      "code": "missing_job_connection",
+      "question_index": 2,
+      "message": "답변이 공고의 업무·역량과 연결되지 않습니다."
+    },
+    {
+      "code": "missing_target_specificity",
+      "question_index": 3,
+      "message": "지원 기관 또는 사업을 선택한 이유가 답변에 드러나지 않습니다."
+    },
+    {
+      "code": "low_quality_score",
+      "question_index": 3,
+      "message": "품질 점수 80/100점으로 기준 85점에 미달합니다."
+    },
+    {
+      "code": "underfilled_answer",
+      "question_index": 4,
+      "message": "답변이 충분히 구체적이지 않습니다: 932/1500자 (최소 1200자, spaces_included)"
+    },
+    {
+      "code": "reused_experience",
+      "question_index": 2,
+      "message": "문항 1과 같은 경험(exp_9e97f274590a323b)을 재사용했습니다."
+    },
+    {
+      "code": "reused_experience",
+      "question_index": 3,
+      "message": "문항 1과 같은 경험(exp_151ae891bd2719ad)을 재사용했습니다."
+    }
+  ],
+  "copyeditor_attempted": false,
+  "copyeditor_applied": false,
+  "copyeditor_status": "disabled",
+  "postprocess_attempted": false,
+  "postprocess_applied": false,
+  "postprocess_status": "disabled",
+  "model_calls": {
+    "budget": 13,
+    "max_model_calls": 13,
+    "calls": {},
+    "total": 0,
+    "remaining": 13,
+    "max_postprocess_calls": 1,
+    "events": []
+  },
+  "final_artifact": {
+    "schema_version": 1,
+    "generated_at": "2026-07-15T16:45:35.521558",
+    "selected_source": "rigorous",
+    "answer_json_path": "draft_final.json",
+    "markdown_path": "06_자기소개서.md",
+    "docx_path": "06_자기소개서.docx",
+    "sha256": {
+      "answer_json": "65fef76d4afbe943db641b7d26d2baf8fbb945ae7509f141d3a64b3253b1d4c9",
+      "markdown": "da20e91c95fa616fab72bcf3bd8cb6f40f5d9dd54a12632fa49bbda9a035eb27",
+      "docx": "2b2f57c4edcfc6f357d8511ce7859f822b281f172c22b69259f46a9368bfb608"
+    },
+    "postprocess_attempted": false,
+    "postprocess_applied": false,
+    "model_tier": null,
+    "model_id": null,
+    "validation": {
+      "status": "passed",
+      "issues": []
+    },
+    "selection": {
+      "status": "passed",
+      "selection_mode": "rigorous",
+      "model_id": "gpt-5.6-sol",
+      "quality_profile": "max_quality",
+      "stage_models": {
+        "generation": "gpt-5.6-sol",
+        "judge": "gpt-5.6-sol",
+        "synthesis": "gpt-5.6-sol",
+        "comparison": "gpt-5.6-sol"
+      },
+      "call_count": 13,
+      "calls": [
+        {
+          "stage": "candidate_1",
+          "model_id": "gpt-5.6-sol",
+          "role": "generation"
+        },
+        {
+          "stage": "candidate_repair_1",
+          "model_id": "gpt-5.6-sol",
+          "role": "generation"
+        },
+        {
+          "stage": "candidate_2",
+          "model_id": "gpt-5.6-sol",
+          "role": "generation"
+        },
+        {
+          "stage": "candidate_3",
+          "model_id": "gpt-5.6-sol",
+          "role": "generation"
+        },
+        {
+          "stage": "candidate_4",
+          "model_id": "gpt-5.6-sol",
+          "role": "generation"
+        },
+        {
+          "stage": "candidate_5",
+          "model_id": "gpt-5.6-sol",
+          "role": "generation"
+        },
+        {
+          "stage": "candidate_6",
+          "model_id": "gpt-5.6-sol",
+          "role": "generation"
+        },
+        {
+          "stage": "judge_recruiter",
+          "model_id": "gpt-5.6-sol",
+          "role": "judge"
+        },
+        {
+          "stage": "judge_job_fact_auditor",
+          "model_id": "gpt-5.6-sol",
+          "role": "judge"
+        },
+        {
+          "stage": "judge_korean_editor",
+          "model_id": "gpt-5.6-sol",
+          "role": "judge"
+        },
+        {
+          "stage": "judge_interview_coach",
+          "model_id": "gpt-5.6-sol",
+          "role": "judge"
+        },
+        {
+          "stage": "synthesis",
+          "model_id": "gpt-5.6-sol",
+          "role": "synthesis"
+        },
+        {
+          "stage": "final_comparison",
+          "model_id": "gpt-5.6-sol",
+          "role": "comparison"
+        }
+      ],
+      "winner_candidate_id": "C71941425",
+      "final_choice": "X",
+      "final_reason": "X와 Y는 문항별 답변, 근거 참조 및 표현이 모두 동일해 품질상 우열이 없다. 두 버전 모두 필수 질문 요소와 글자 수 범위를 충족하므로 맹목 선택 원칙에 따라 X를 완성본으로 선택한다.",
+      "hard_fail": false,
+      "data_package": {
+        "data_package_id": "CAREER-DATA-3B03F55784A4",
+        "data_package_version": "2.0",
+        "frozen_data_sha256": "3b03f55784a44b10c9d9f1bcec328183407e116015c456e7034f5c6f74dd590b",
+        "count_mode": "spaces_included",
+        "candidate_count": 7,
+        "judge_count": 4,
+        "quality_profile": "max_quality"
+      },
+      "candidate_count": 3,
+      "judge_count": 4,
+      "review_required_candidates": [
+        "C29D6F72B",
+        "C71941425",
+        "C8DBD9F67"
+      ],
+      "artifact_sha256": {
+        "rigorous\\aggregate.json": "bf6761b120dd71f3fe884937b9f7b74326459b3d306abf945f35e600cbc05324",
+        "rigorous\\blind_candidates.json": "9ab8b6ef491752fe9e9323aa392599c28b85db5800ad0b0b4ae01f06bea32c57",
+        "rigorous\\candidate_failures.json": "8a06724599c6890c89dbeb5b8924deb833769f542b0227ae1cd631cb119faeb8",
+        "rigorous\\candidates\\generated_1.json": "65fef76d4afbe943db641b7d26d2baf8fbb945ae7509f141d3a64b3253b1d4c9",
+        "rigorous\\candidates\\generated_1_raw.json": "3f3356e92f8a40a10eb7c0ecf5342d60d0b9f4a65905b65af69a84dc24fa6d3f",
+        "rigorous\\candidates\\generated_2.json": "eaaabeb6635c3626a3af4adf489aa871be9038df849c63428a66e5a10c3c7c1d",
+        "rigorous\\candidates\\generated_2_raw.json": "557d3c45d98e6f123d0b705f33013b5971b5b8f93fe95b22b8cc028eb3a36182",
+        "rigorous\\candidates\\generated_3_raw.json": "4507343e664908e512102c42eb41d010f2fec5a5dc778c2ce353292662a1bca8",
+        "rigorous\\candidates\\generated_4_raw.json": "19f2751b2e2af7430f349e288d9f85e9c3c515c8f440280f40b850ffc0a916d6",
+        "rigorous\\candidates\\generated_5_raw.json": "0357c9cfdaa5e5ea068507c4c8ec9ba1535eda33163b0a2846b267b0e3fcdd5f",
+        "rigorous\\candidates\\generated_6_raw.json": "807d32efc101588c2837b5819ae1ed975d78fa3474665fa0f7d038a740a5ae17",
+        "rigorous\\data_package.json": "e748497264c5c374e2c999c83f781da372187bf026d9a454aeca02ebb1fe695c",
+        "rigorous\\final_comparison.json": "10cf26f6a143aa964e30146ca8bed4a5307db799fc8cd65b5fa47af6f8abb49d",
+        "rigorous\\judges\\interview_coach.json": "47017e54f048c2c619caabf8bfeb695b33e19377614b917ea108d1aad76f474f",
+        "rigorous\\judges\\interview_coach_raw.json": "47017e54f048c2c619caabf8bfeb695b33e19377614b917ea108d1aad76f474f",
+        "rigorous\\judges\\job_fact_auditor.json": "d71475eb2385fb0af822e6244815d7b21b5314c3d53032e7a2dfc3da651fe9bd",
+        "rigorous\\judges\\job_fact_auditor_raw.json": "d71475eb2385fb0af822e6244815d7b21b5314c3d53032e7a2dfc3da651fe9bd",
+        "rigorous\\judges\\korean_editor.json": "b071d7ec1ce4fc499d11777670ad4788848e54186d951d20993c86e717d65522",
+        "rigorous\\judges\\korean_editor_raw.json": "b071d7ec1ce4fc499d11777670ad4788848e54186d951d20993c86e717d65522",
+        "rigorous\\judges\\recruiter.json": "84c6b6a122338f99fc772b4032adc96e77de6121c949add250cf739047b7e58c",
+        "rigorous\\judges\\recruiter_raw.json": "84c6b6a122338f99fc772b4032adc96e77de6121c949add250cf739047b7e58c",
+        "rigorous\\manifest.json": "c4553d44c8d975b50ab7d4ed7b20082ab19d495ba5ff34e8ba021d046699fa9c",
+        "rigorous\\selected.json": "65fef76d4afbe943db641b7d26d2baf8fbb945ae7509f141d3a64b3253b1d4c9",
+        "rigorous\\synthesis.json": "65fef76d4afbe943db641b7d26d2baf8fbb945ae7509f141d3a64b3253b1d4c9"
+      }
+    }
+  },
+  "rigorous_selection": {
+    "status": "passed",
+    "selection_mode": "rigorous",
+    "model_id": "gpt-5.6-sol",
+    "quality_profile": "max_quality",
+    "stage_models": {
+      "generation": "gpt-5.6-sol",
+      "judge": "gpt-5.6-sol",
+      "synthesis": "gpt-5.6-sol",
+      "comparison": "gpt-5.6-sol"
+    },
+    "call_count": 13,
+    "calls": [
+      {
+        "stage": "candidate_1",
+        "model_id": "gpt-5.6-sol",
+        "role": "generation"
+      },
+      {
+        "stage": "candidate_repair_1",
+        "model_id": "gpt-5.6-sol",
+        "role": "generation"
+      },
+      {
+        "stage": "candidate_2",
+        "model_id": "gpt-5.6-sol",
+        "role": "generation"
+      },
+      {
+        "stage": "candidate_3",
+        "model_id": "gpt-5.6-sol",
+        "role": "generation"
+      },
+      {
+        "stage": "candidate_4",
+        "model_id": "gpt-5.6-sol",
+        "role": "generation"
+      },
+      {
+        "stage": "candidate_5",
+        "model_id": "gpt-5.6-sol",
+        "role": "generation"
+      },
+      {
+        "stage": "candidate_6",
+        "model_id": "gpt-5.6-sol",
+        "role": "generation"
+      },
+      {
+        "stage": "judge_recruiter",
+        "model_id": "gpt-5.6-sol",
+        "role": "judge"
+      },
+      {
+        "stage": "judge_job_fact_auditor",
+        "model_id": "gpt-5.6-sol",
+        "role": "judge"
+      },
+      {
+        "stage": "judge_korean_editor",
+        "model_id": "gpt-5.6-sol",
+        "role": "judge"
+      },
+      {
+        "stage": "judge_interview_coach",
+        "model_id": "gpt-5.6-sol",
+        "role": "judge"
+      },
+      {
+        "stage": "synthesis",
+        "model_id": "gpt-5.6-sol",
+        "role": "synthesis"
+      },
+      {
+        "stage": "final_comparison",
+        "model_id": "gpt-5.6-sol",
+        "role": "comparison"
+      }
+    ],
+    "winner_candidate_id": "C71941425",
+    "final_choice": "X",
+    "final_reason": "X와 Y는 문항별 답변, 근거 참조 및 표현이 모두 동일해 품질상 우열이 없다. 두 버전 모두 필수 질문 요소와 글자 수 범위를 충족하므로 맹목 선택 원칙에 따라 X를 완성본으로 선택한다.",
+    "hard_fail": false,
+    "data_package": {
+      "data_package_id": "CAREER-DATA-3B03F55784A4",
+      "data_package_version": "2.0",
+      "frozen_data_sha256": "3b03f55784a44b10c9d9f1bcec328183407e116015c456e7034f5c6f74dd590b",
+      "count_mode": "spaces_included",
+      "candidate_count": 7,
+      "judge_count": 4,
+      "quality_profile": "max_quality"
+    },
+    "candidate_count": 3,
+    "judge_count": 4,
+    "review_required_candidates": [
+      "C29D6F72B",
+      "C71941425",
+      "C8DBD9F67"
+    ],
+    "artifact_sha256": {
+      "rigorous\\aggregate.json": "bf6761b120dd71f3fe884937b9f7b74326459b3d306abf945f35e600cbc05324",
+      "rigorous\\blind_candidates.json": "9ab8b6ef491752fe9e9323aa392599c28b85db5800ad0b0b4ae01f06bea32c57",
+      "rigorous\\candidate_failures.json": "8a06724599c6890c89dbeb5b8924deb833769f542b0227ae1cd631cb119faeb8",
+      "rigorous\\candidates\\generated_1.json": "65fef76d4afbe943db641b7d26d2baf8fbb945ae7509f141d3a64b3253b1d4c9",
+      "rigorous\\candidates\\generated_1_raw.json": "3f3356e92f8a40a10eb7c0ecf5342d60d0b9f4a65905b65af69a84dc24fa6d3f",
+      "rigorous\\candidates\\generated_2.json": "eaaabeb6635c3626a3af4adf489aa871be9038df849c63428a66e5a10c3c7c1d",
+      "rigorous\\candidates\\generated_2_raw.json": "557d3c45d98e6f123d0b705f33013b5971b5b8f93fe95b22b8cc028eb3a36182",
+      "rigorous\\candidates\\generated_3_raw.json": "4507343e664908e512102c42eb41d010f2fec5a5dc778c2ce353292662a1bca8",
+      "rigorous\\candidates\\generated_4_raw.json": "19f2751b2e2af7430f349e288d9f85e9c3c515c8f440280f40b850ffc0a916d6",
+      "rigorous\\candidates\\generated_5_raw.json": "0357c9cfdaa5e5ea068507c4c8ec9ba1535eda33163b0a2846b267b0e3fcdd5f",
+      "rigorous\\candidates\\generated_6_raw.json": "807d32efc101588c2837b5819ae1ed975d78fa3474665fa0f7d038a740a5ae17",
+      "rigorous\\data_package.json": "e748497264c5c374e2c999c83f781da372187bf026d9a454aeca02ebb1fe695c",
+      "rigorous\\final_comparison.json": "10cf26f6a143aa964e30146ca8bed4a5307db799fc8cd65b5fa47af6f8abb49d",
+      "rigorous\\judges\\interview_coach.json": "47017e54f048c2c619caabf8bfeb695b33e19377614b917ea108d1aad76f474f",
+      "rigorous\\judges\\interview_coach_raw.json": "47017e54f048c2c619caabf8bfeb695b33e19377614b917ea108d1aad76f474f",
+      "rigorous\\judges\\job_fact_auditor.json": "d71475eb2385fb0af822e6244815d7b21b5314c3d53032e7a2dfc3da651fe9bd",
+      "rigorous\\judges\\job_fact_auditor_raw.json": "d71475eb2385fb0af822e6244815d7b21b5314c3d53032e7a2dfc3da651fe9bd",
+      "rigorous\\judges\\korean_editor.json": "b071d7ec1ce4fc499d11777670ad4788848e54186d951d20993c86e717d65522",
+      "rigorous\\judges\\korean_editor_raw.json": "b071d7ec1ce4fc499d11777670ad4788848e54186d951d20993c86e717d65522",
+      "rigorous\\judges\\recruiter.json": "84c6b6a122338f99fc772b4032adc96e77de6121c949add250cf739047b7e58c",
+      "rigorous\\judges\\recruiter_raw.json": "84c6b6a122338f99fc772b4032adc96e77de6121c949add250cf739047b7e58c",
+      "rigorous\\manifest.json": "c4553d44c8d975b50ab7d4ed7b20082ab19d495ba5ff34e8ba021d046699fa9c",
+      "rigorous\\selected.json": "65fef76d4afbe943db641b7d26d2baf8fbb945ae7509f141d3a64b3253b1d4c9",
+      "rigorous\\synthesis.json": "65fef76d4afbe943db641b7d26d2baf8fbb945ae7509f141d3a64b3253b1d4c9"
+    }
+  },
+  "finished_at": "2026-07-15T16:45:35.520376",
+  "run_duration_seconds": 119606.96,
+  "quality_profile": "max_quality"
+}

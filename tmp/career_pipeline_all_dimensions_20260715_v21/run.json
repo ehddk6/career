@@ -1,0 +1,626 @@
+{
+  "status": "complete",
+  "quality_mode": "v2",
+  "strict_quality": true,
+  "run_dir": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\career_runs\\kodit-2026-h2-rigorous-20260714-v22",
+  "root": "C:\\Users\\ehddk\\OneDrive\\문서\\취업",
+  "target": "신용보증기금 체험형 청년인턴1(보증)",
+  "draft": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\output\\doc\\신용보증기금_2026하반기_청년인턴_업무수행계획서.docx",
+  "posting": "career_runs\\kodit-2026-h2-official-questions.docx",
+  "profile": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\.career_profile\\experience_ledger_v2_proposed_20260714.json",
+  "posting_snapshot_id": "5b6f69118ca1eece39f284fb26c18e42422ba01088f978b9829c0501bc456779",
+  "official_research_domains": [
+    "bok.or.kr",
+    "kodit.co.kr",
+    "saramin.co.kr"
+  ],
+  "research_policy": "evidence-first",
+  "research_method_default": "evidence-first-research",
+  "research_method_enforced": false,
+  "questions": [
+    {
+      "index": 1,
+      "prompt": "신용보증기금 청년인턴에 지원하게 된 동기와 신용보증기금의 역할에 대한 본인의 이해를 바탕으로 인턴 근무 중 배우고, 기여하고 싶은 부분을 기술하여 주십시오.",
+      "character_limit": 600,
+      "count_mode": "spaces_included",
+      "minimum_character_limit": 400
+    },
+    {
+      "index": 2,
+      "prompt": "지원자가 새로운 조직에 적응하기 위해 중요하게 생각하는 태도가 무엇이며, 그 태도를 실제 근무과정에서 실천하기 위해 어떤 노력을 할 것인지 기술하여 주십시오.",
+      "character_limit": 600,
+      "count_mode": "spaces_included",
+      "minimum_character_limit": 400
+    },
+    {
+      "index": 3,
+      "prompt": "신용보증기금의 청년인턴으로 근무한다고 가정할 때, 실제 근무 시 지원자의 업무수행계획을 기술하여 주십시오.",
+      "character_limit": 600,
+      "count_mode": "spaces_included",
+      "minimum_character_limit": 400
+    },
+    {
+      "index": 4,
+      "prompt": "최근 중소기업에 큰 영향을 미치는 경제·사회 이슈를 하나 선택하여 그 이유를 서술하여 주시기 바랍니다. 또한, 해당 이슈와 관련하여 영향을 받는 중소기업을 정책 금융기관이 지원할 수 있는 방안과 지원 과정에서 유의할 점을 서술하여 주시기 바랍니다.",
+      "character_limit": 1500,
+      "count_mode": "spaces_included",
+      "minimum_character_limit": null
+    }
+  ],
+  "selected_experience_ids": [
+    "exp_151ae891bd2719ad",
+    "exp_638228200e37de69",
+    "exp_2df35f8fca5e30b8",
+    "exp_2e966c8ac3146a5b"
+  ],
+  "conflict_count": 0,
+  "writing_guidance": {
+    "status": "available",
+    "kind": "youtube_frame_strategy",
+    "use_policy": "strategy_only_not_factual_evidence",
+    "source_dir": "자료조사/자소서_유튜브_프레임분석_2026-07-03",
+    "artifact": "career_runs/kodit-2026-h2-rigorous-20260714-v6-20260714-073101-316342/05_작성가이드_유튜브프레임.md",
+    "source_files": [
+      {
+        "name": "00_읽어주세요_활용법.md",
+        "path": "자료조사/자소서_유튜브_프레임분석_2026-07-03/00_읽어주세요_활용법.md",
+        "role": "활용법"
+      },
+      {
+        "name": "01_자소서_작성원칙_요약.md",
+        "path": "자료조사/자소서_유튜브_프레임분석_2026-07-03/01_자소서_작성원칙_요약.md",
+        "role": "전체 작성 원칙"
+      },
+      {
+        "name": "02_문항유형별_전략.md",
+        "path": "자료조사/자소서_유튜브_프레임분석_2026-07-03/02_문항유형별_전략.md",
+        "role": "문항 유형별 전략"
+      },
+      {
+        "name": "03_기관별_적용노트.md",
+        "path": "자료조사/자소서_유튜브_프레임분석_2026-07-03/03_기관별_적용노트.md",
+        "role": "기관별 적용 노트"
+      },
+      {
+        "name": "04_프레임_근거색인.csv",
+        "path": "자료조사/자소서_유튜브_프레임분석_2026-07-03/04_프레임_근거색인.csv",
+        "role": "캡처 프레임 원문 색인"
+      },
+      {
+        "name": "05_문장_근거색인.csv",
+        "path": "자료조사/자소서_유튜브_프레임분석_2026-07-03/05_문장_근거색인.csv",
+        "role": "문장 단위 원문 색인"
+      },
+      {
+        "name": "06_영상별_요약.md",
+        "path": "자료조사/자소서_유튜브_프레임분석_2026-07-03/06_영상별_요약.md",
+        "role": "영상별 요약"
+      },
+      {
+        "name": "07_전체프레임_OCR.jsonl",
+        "path": "자료조사/자소서_유튜브_프레임분석_2026-07-03/07_전체프레임_OCR.jsonl",
+        "role": "전체 OCR 원문"
+      },
+      {
+        "name": "run_summary.json",
+        "path": "자료조사/자소서_유튜브_프레임분석_2026-07-03/run_summary.json",
+        "role": "분석 실행 요약"
+      }
+    ],
+    "missing_files": [],
+    "generated_at": "2026-07-14T07:32:08.548582",
+    "freshness": {
+      "status": "fresh",
+      "external_source_latest_at": "2026-07-02T23:16:47.628036+09:00",
+      "imported_snapshot_latest_at": "2026-07-03T08:12:41.581765+09:00"
+    }
+  },
+  "started_at": "2026-07-14T07:32:08.555578",
+  "state_history": [
+    {
+      "recorded_at": "2026-07-14T07:32:08.555578",
+      "status": "ready_for_research",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-14T08:01:11.790288",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-14T08:01:11.864305",
+      "status": "blocked_validation",
+      "blocked_stage": "finalize"
+    },
+    {
+      "recorded_at": "2026-07-14T08:04:40.315306",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-14T08:04:40.362303",
+      "status": "blocked_validation",
+      "blocked_stage": "finalize"
+    },
+    {
+      "recorded_at": "2026-07-14T08:05:32.743242",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-14T08:06:32.182768",
+      "status": "blocked_selection",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-14T08:10:28.450658",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-14T08:10:28.760208",
+      "status": "complete",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-14T20:19:01.376893",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-14T20:38:24.580993",
+      "status": "complete",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-15T16:05:42.196584",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-15T16:26:48.865931",
+      "status": "blocked_selection",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-15T16:35:13.567389",
+      "status": "finalizing",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-15T16:35:14.077456",
+      "status": "blocked_selection",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-15T16:40:18.051612",
+      "status": "finalizing",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-15T16:41:05.819643",
+      "status": "complete",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-15T16:43:15.543227",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-15T16:44:18.234916",
+      "status": "complete",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-15T16:44:39.446028",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-15T16:45:35.611766",
+      "status": "complete",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-15T23:45:50.986000",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-15T23:55:50.122409",
+      "status": "blocked_selection",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-16T17:23:37.219159",
+      "status": "finalizing",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-16T17:25:58.244712",
+      "status": "blocked_selection",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-16T17:27:59.813350",
+      "status": "finalizing",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-16T17:28:08.418014",
+      "status": "blocked_selection",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-16T17:31:18.699216",
+      "status": "finalizing",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-16T17:34:03.270241",
+      "status": "blocked_selection",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-16T17:36:08.506959",
+      "status": "finalizing",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-16T17:40:59.616928",
+      "status": "blocked_selection",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-16T17:43:25.208846",
+      "status": "finalizing",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-16T17:46:02.055975",
+      "status": "blocked_selection",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-16T17:48:29.653498",
+      "status": "finalizing",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-16T17:50:21.295353",
+      "status": "blocked_selection",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-16T17:54:05.108601",
+      "status": "finalizing",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-16T17:58:18.871371",
+      "status": "blocked_selection",
+      "blocked_stage": "prompt_contracts"
+    },
+    {
+      "recorded_at": "2026-07-16T18:02:51.786298",
+      "status": "finalizing",
+      "blocked_stage": "prompt_contracts"
+    },
+    {
+      "recorded_at": "2026-07-16T18:03:43.842095",
+      "status": "complete",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T18:08:05.531461",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T18:08:06.191190",
+      "status": "complete",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T19:13:55.663148",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T19:39:58.776630",
+      "status": "blocked_selection",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-16T19:40:48.614824",
+      "status": "finalizing",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-16T19:44:41.835450",
+      "status": "blocked_selection",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-16T19:46:52.843784",
+      "status": "finalizing",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-16T20:03:13.356036",
+      "status": "complete",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T20:15:15.538687",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T20:15:15.606933",
+      "status": "blocked_validation",
+      "blocked_stage": "finalize"
+    },
+    {
+      "recorded_at": "2026-07-16T20:16:50.901515",
+      "status": "finalizing",
+      "blocked_stage": "finalize"
+    },
+    {
+      "recorded_at": "2026-07-16T20:16:50.971778",
+      "status": "blocked_validation",
+      "blocked_stage": "finalize"
+    },
+    {
+      "recorded_at": "2026-07-16T20:18:02.681437",
+      "status": "finalizing",
+      "blocked_stage": "finalize"
+    },
+    {
+      "recorded_at": "2026-07-16T20:18:02.860192",
+      "status": "complete",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T20:19:40.214102",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T20:19:40.363753",
+      "status": "complete",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T20:20:51.487449",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T20:20:51.637188",
+      "status": "complete",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T20:21:56.684881",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T20:22:49.119237",
+      "status": "complete",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T20:23:53.854989",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T20:26:26.732880",
+      "status": "complete",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T20:28:05.103287",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T20:28:05.180186",
+      "status": "blocked_validation",
+      "blocked_stage": "finalize"
+    },
+    {
+      "recorded_at": "2026-07-16T20:29:44.293346",
+      "status": "finalizing",
+      "blocked_stage": "finalize"
+    },
+    {
+      "recorded_at": "2026-07-16T20:29:44.517493",
+      "status": "complete",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T20:31:25.808508",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T20:31:25.882867",
+      "status": "blocked_validation",
+      "blocked_stage": "finalize"
+    },
+    {
+      "recorded_at": "2026-07-16T20:32:35.450009",
+      "status": "finalizing",
+      "blocked_stage": "finalize"
+    },
+    {
+      "recorded_at": "2026-07-16T20:32:35.739840",
+      "status": "complete",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T21:12:19.902035",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T21:12:20.210491",
+      "status": "complete",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T21:13:34.302333",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T21:13:34.572760",
+      "status": "complete",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T21:19:32.990231",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T21:19:33.215202",
+      "status": "complete",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T21:26:25.200968",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T21:27:18.334387",
+      "status": "complete",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T21:28:21.449931",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-16T21:28:21.682276",
+      "status": "complete",
+      "blocked_stage": null
+    }
+  ],
+  "selection_mode": "single",
+  "postprocess_policy": "never",
+  "max_model_calls": 0,
+  "max_postprocess_calls": 1,
+  "max_stage_seconds": null,
+  "legacy_patina": false,
+  "patina_attempted": false,
+  "patina_score_attempted": false,
+  "patina_applied": false,
+  "patina_status": "disabled",
+  "patina_score_enabled": false,
+  "patina_voice_sample_used": null,
+  "incumbent_preflight_issues": [
+    {
+      "code": "missing_job_connection",
+      "question_index": 2,
+      "message": "답변이 공고의 업무·역량과 연결되지 않습니다."
+    },
+    {
+      "code": "missing_target_specificity",
+      "question_index": 3,
+      "message": "지원 기관 또는 사업을 선택한 이유가 답변에 드러나지 않습니다."
+    },
+    {
+      "code": "low_quality_score",
+      "question_index": 3,
+      "message": "품질 점수 80/100점으로 기준 85점에 미달합니다."
+    },
+    {
+      "code": "underfilled_answer",
+      "question_index": 4,
+      "message": "답변이 충분히 구체적이지 않습니다: 932/1500자 (최소 1200자, spaces_included)"
+    },
+    {
+      "code": "reused_experience",
+      "question_index": 2,
+      "message": "문항 1과 같은 경험(exp_9e97f274590a323b)을 재사용했습니다."
+    },
+    {
+      "code": "reused_experience",
+      "question_index": 3,
+      "message": "문항 1과 같은 경험(exp_151ae891bd2719ad)을 재사용했습니다."
+    }
+  ],
+  "copyeditor_attempted": false,
+  "copyeditor_applied": false,
+  "copyeditor_status": "disabled",
+  "postprocess_attempted": false,
+  "postprocess_applied": false,
+  "postprocess_status": "disabled",
+  "model_calls": {
+    "budget": 0,
+    "max_model_calls": 0,
+    "calls": {},
+    "total": 0,
+    "remaining": 0,
+    "max_postprocess_calls": 1,
+    "events": []
+  },
+  "rigorous_selection": {
+    "status": "not_run",
+    "selection_mode": "single",
+    "hard_fail": false
+  },
+  "finished_at": "2026-07-16T21:28:21.642452",
+  "run_duration_seconds": 222973.09,
+  "quality_profile": "legacy_single",
+  "prompt_contracts": {
+    "enabled": true,
+    "validation_scope": "PROMPT_CONTRACT_INTEGRITY",
+    "submission_readiness_assessed": false,
+    "actual_mock_interview_assessed": false,
+    "scope_note": "hard_fail과 review_required는 두 계약 파일의 구조·근거·상호 일치만 판정하며, 실제 음성 모의면접 완료나 최종 제출 준비 완료를 뜻하지 않습니다.",
+    "contract_version": "2026-07-15",
+    "data_package_id": "CAREER-DATA-02B036CBE425",
+    "data_package_version": "2.0",
+    "company_path": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\career_pipeline_all_dimensions_20260715_v21\\04_기업직무조사.json",
+    "interview_path": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\career_pipeline_all_dimensions_20260715_v21\\08_면접대비팩.json",
+    "hard_fail": false,
+    "review_required": false,
+    "issues": []
+  },
+  "final_artifact": {
+    "schema_version": 1,
+    "generated_at": "2026-07-16T21:28:21.643459",
+    "selected_source": "draft",
+    "answer_json_path": "draft_final.json",
+    "markdown_path": "06_자기소개서.md",
+    "docx_path": "06_자기소개서.docx",
+    "sha256": {
+      "answer_json": "5fbb50b8407dc258802215d4c22accb902110a805e9e71b8a98bef95a2d9a3d7",
+      "markdown": "70e5e25c18f6a4a6043edd4ce76e4ccdd412483ff96c30958f104ab431b22fe4",
+      "docx": "8d7d92b17833d41fb0b6b0805e9be1cb9c6ad2cab9e93b337f8f6749bb6fc04d"
+    },
+    "postprocess_attempted": false,
+    "postprocess_applied": false,
+    "model_tier": "sol",
+    "model_id": "gpt-5.5",
+    "validation": {
+      "status": "passed",
+      "issues": []
+    },
+    "selection": {
+      "status": "not_run",
+      "selection_mode": "single",
+      "hard_fail": false
+    }
+  },
+  "postprocess_tier": "sol",
+  "postprocess_model_id": "gpt-5.5"
+}

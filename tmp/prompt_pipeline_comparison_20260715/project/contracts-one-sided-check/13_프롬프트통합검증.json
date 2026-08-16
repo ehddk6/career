@@ -1,0 +1,18 @@
+{
+  "enabled": true,
+  "contract_version": "2026-07-15",
+  "data_package_id": null,
+  "data_package_version": null,
+  "company_path": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\project\\contracts-one-sided-check\\04_기업직무조사.json",
+  "interview_path": null,
+  "hard_fail": true,
+  "review_required": false,
+  "issues": [
+    {
+      "code": "incomplete_prompt_contract_pair",
+      "severity": "HARD_FAIL",
+      "artifact": "08_면접대비팩.json",
+      "message": "통합 계약은 두 JSON 사이드카가 모두 필요합니다: 08_면접대비팩.json"
+    }
+  ]
+}

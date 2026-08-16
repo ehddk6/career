@@ -1,0 +1,26 @@
+run_id: CR-20260715-0935
+company_data_package_id: CR-DATA-001
+company_data_package_version: "1.0"
+package_id_source: assigned_for_this_frozen_execution
+frozen_at: 2026-07-15T09:35:22+09:00
+research_cutoff_date: 2026-07-13
+financial_cutoff_period: UNVERIFIED
+news_search_start_date: NOT_APPLICABLE_NO_NETWORK
+job_posting_date: 2026-07-09
+application_deadline: UNVERIFIED
+company_name: 신용보증기금
+legal_entity_name: 신용보증기금
+legal_entity_status_scope: name_and_recruiting_subject_only
+brand_name: UNVERIFIED
+target_business_unit: 보증 분야
+target_job: 체험형 청년인턴1(보증)
+target_team: UNVERIFIED
+job_posting_url: https://kodit2.saramin.co.kr/service/kodit2/3872/applicant/apply/recruit_default.asp
+country: 대한민국
+reporting_currency: UNVERIFIED
+comparison_period: UNVERIFIED
+competitor_set_version: NONE-1.0
+preferred_competitor_count: 4
+source_count: 11
+output_language: Korean
+network_access_used: false

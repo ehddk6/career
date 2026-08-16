@@ -1,0 +1,111 @@
+{
+  "judge_mode": "KOREAN_EDITOR",
+  "evaluations": [
+    {
+      "candidate_id": "R8",
+      "hard_fail": true,
+      "hard_fail_reasons": [
+        "Q4에서 근거(RF-04)의 '협약보증'을 '특례보증'으로 바꾸어 공식 지원제도 사실을 왜곡했습니다."
+      ],
+      "scores": {
+        "question_fidelity": 19,
+        "fact_accuracy": 15,
+        "job_relevance": 15,
+        "action_specificity": 14,
+        "experience_allocation": 7,
+        "interview_defensibility": 9,
+        "korean_readability": 3,
+        "applicant_distinctiveness": 2,
+        "length_and_format": 2
+      },
+      "total": 86,
+      "strongest_point": "Q1~Q3가 기관 역할과 인턴의 보조 범위를 연결하고, 추정하지 않고 담당자에게 확인한다는 경계를 지켰습니다.",
+      "largest_risk": "Q4의 제도 명칭 왜곡에 더해, 정책 분석 문항에 개인 경험을 불필요하게 삽입해 경험 배정의 선명성이 떨어집니다.",
+      "question_notes": {
+        "q1": "지원 동기, 역할 이해, 학습·기여 계획이 모두 있으며 PF-01의 수치도 원장 범위 안입니다. 다만 동기 문장이 직무 적합성보다 일반적 공익성에 머뭅니다.",
+        "q2": "PF-03의 민원 30% 감소를 이용자 관점과 자연스럽게 연결했습니다. 후반의 '기록-확인-제안'은 적절하나 다소 절차 나열식입니다.",
+        "q3": "접수-대조-보고를 구체적으로 제시하고 인턴 권한을 넘지 않습니다. '첫째·둘째·셋째'와 반복되는 '확인'이 문장을 매뉴얼처럼 보이게 하며, 주 경험도 배정된 PF-02가 아닌 PF-06입니다.",
+        "q4": "환율 영향의 기업별 차이를 설명하고 유의점도 답했습니다. 그러나 협약보증을 특례보증으로 바꾼 사실 오류가 있으며, PF-02 경험의 삽입은 정책 분석의 밀도를 낮춥니다."
+      }
+    },
+    {
+      "candidate_id": "C3",
+      "hard_fail": true,
+      "hard_fail_reasons": [
+        "Q4에서 근거(RF-04)에 없는 '우대보증과 보증료 지원'을 신용보증기금의 제공 사실로 단정해 원장 밖 사실을 추가했습니다."
+      ],
+      "scores": {
+        "question_fidelity": 19,
+        "fact_accuracy": 14,
+        "job_relevance": 14,
+        "action_specificity": 13,
+        "experience_allocation": 8,
+        "interview_defensibility": 8,
+        "korean_readability": 3,
+        "applicant_distinctiveness": 2,
+        "length_and_format": 2
+      },
+      "total": 83,
+      "strongest_point": "Q2에서 이용자 관점의 개선 경험을 새 조직 적응 행동으로 옮긴 흐름이 가장 분명합니다.",
+      "largest_risk": "Q4의 확인되지 않은 제도·지원 내용을 사실처럼 쓴 점이 치명적이며, 전반적으로 '확인-정리-공유'가 반복돼 지원자 고유성이 약합니다.",
+      "question_notes": {
+        "q1": "기관 역할, PF-01 경험, 기여 계획은 충족합니다. 다만 '대조·확인·공유'의 반복으로 동기와 배움의 내용이 평면적으로 들립니다.",
+        "q2": "민원 30% 감소 경험과 실제 적응 계획이 맞물립니다. 마지막의 '이 원칙을 지키겠습니다'는 앞 문장을 되풀이해 여운이 약하고, '관찰·확인·공유' 병렬도 다소 기계적입니다.",
+        "q3": "인턴 권한을 과장하지 않고 대조·보고·인계를 구체화했습니다. 그러나 배정된 PF-02 대신 PF-06을 써 경험 배정의 직접성이 낮고, 체크리스트·기록 설명이 나열됩니다.",
+        "q4": "환율 영향, 선별 지원, 사후관리의 질문 요소는 모두 다룹니다. 다만 우대보증·보증료 지원은 제공 근거와 불일치하고, PF-02 개인 경험까지 넣어 공식 근거 중심의 정책 분석이 흐려집니다."
+      }
+    },
+    {
+      "candidate_id": "M7",
+      "hard_fail": true,
+      "hard_fail_reasons": [
+        "Q4에서 근거(RF-04)가 확인한 '협약보증'을 '우대보증과 보증료 지원'으로 바꾸어 공식 지원 사실을 왜곡했습니다."
+      ],
+      "scores": {
+        "question_fidelity": 18,
+        "fact_accuracy": 14,
+        "job_relevance": 14,
+        "action_specificity": 14,
+        "experience_allocation": 8,
+        "interview_defensibility": 9,
+        "korean_readability": 4,
+        "applicant_distinctiveness": 2,
+        "length_and_format": 2
+      },
+      "total": 85,
+      "strongest_point": "Q2는 개선 경험에서 얻은 태도와 새 조직에서의 확인·질문·피드백 행동이 자연스럽게 이어져 읽기 좋습니다.",
+      "largest_risk": "Q4의 지원제도 사실 오류가 hard fail 사유이며, Q1의 지원 동기는 직무에 대한 개인적 선택 이유보다 일반론에 가깝습니다.",
+      "question_notes": {
+        "q1": "PF-01을 정확성과 인계의 중요성에 연결한 문장은 자연스럽습니다. 다만 첫 문장이 보편적 가치 선언으로 시작해 지원 동기와 배우고 싶은 점이 상대적으로 약합니다.",
+        "q2": "PF-03의 변화 과정과 민원 30% 감소를 무리 없이 제시했습니다. '팀의 기준에 맞춰 정확히 일하는 사람'이라는 결말도 과장 없이 적절합니다.",
+        "q3": "대조, 보고, 기록, 마감 점검이 실제 보조 업무의 행동으로 제시되고 권한 경계도 지켰습니다. 다만 배정된 PF-02 대신 PF-06을 사용해 경험-직무 연결의 설계는 한 단계 약합니다.",
+        "q4": "환율 노출을 기업별로 구분하고 지원 전후 유의점을 폭넓게 답했습니다. 그러나 우대보증·보증료 지원의 사실 단정은 근거와 맞지 않으며, 이 오류가 내용의 신뢰를 무너뜨립니다."
+      }
+    },
+    {
+      "candidate_id": "P2",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "scores": {
+        "question_fidelity": 20,
+        "fact_accuracy": 19,
+        "job_relevance": 15,
+        "action_specificity": 15,
+        "experience_allocation": 10,
+        "interview_defensibility": 10,
+        "korean_readability": 4,
+        "applicant_distinctiveness": 3,
+        "length_and_format": 2
+      },
+      "total": 98,
+      "strongest_point": "Q1~Q3에 PF-01·PF-03·PF-02를 각각 배정하고 Q4는 공식 근거와 정책 제안으로만 구성해 질문별 역할이 가장 선명합니다.",
+      "largest_risk": "Q3의 세부 절차와 Q4의 지원 방안이 촘촘해 일부 문장이 내부 매뉴얼처럼 읽힐 수 있으므로, 실제 제출 전에는 핵심 행동만 남기는 압축 여지가 있습니다.",
+      "question_notes": {
+        "q1": "지원 동기, 기관 역할, 배울 점과 기여 방법을 빠짐없이 답했습니다. PF-01의 분량·기간·기여 표현도 원장 범위를 벗어나지 않고, '판단은 보고'로 인턴 권한을 절제했습니다.",
+        "q2": "PF-03의 이용자 관점 개선을 조직 적응의 태도와 구체 행동으로 전환했습니다. 질문·업무노트·피드백 반영의 순서가 자연스럽고, 과장된 개선 성과를 더하지 않았습니다.",
+        "q3": "PF-02의 이중 대조·팀장 보고 경험을 기한연장·상시관리 계획에 가장 직접적으로 연결했습니다. 대조·보고·인계가 구체적이면서도 최종 판단을 담당자에게 두어 방어력이 높습니다.",
+        "q4": "RF-03과 RF-04의 환율 이슈 및 협약보증을 정확히 사용했습니다. 기업별 노출 구분, 선별 지원, 사후관리의 인과가 명확하며 제도 운영 사실과 지원자 제안을 구분합니다."
+      }
+    }
+  ]
+}

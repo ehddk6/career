@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-16T22:03:20.890529",
+  "selected_source": "draft",
+  "answer_json_path": "draft_final.json",
+  "markdown_path": "06_자기소개서.md",
+  "docx_path": "06_자기소개서.docx",
+  "sha256": {
+    "answer_json": "b559760ad115b6109eb419b1decb43fc2a2ca02e47732ff5aab0201fb484cc91",
+    "markdown": "93df2fd196ff4d1421b2f9756eec1e63c0d1fe7b71b9a91290f62aa40a0aa16f",
+    "docx": "da003818178e3272b057749dfc3ba7176adaca33f64dd6862d3893815bf1368f"
+  },
+  "postprocess_attempted": false,
+  "postprocess_applied": false,
+  "model_tier": "sol",
+  "model_id": "gpt-5.5",
+  "validation": {
+    "status": "passed",
+    "issues": []
+  },
+  "selection": {
+    "status": "not_run",
+    "selection_mode": "single",
+    "hard_fail": false
+  }
+}

@@ -3,6 +3,8 @@ from pathlib import Path
 
 from career_pipeline.inventory import digest_path
 from career_pipeline.profile_builder import excerpt_sha256
+from career_pipeline.models import ExtractedDocument, SourceRecord
+from career_pipeline.profile_builder import build_proposed_ledger
 from career_pipeline.profile_refresh import (
     refresh_profile,
     render_profile_review,
@@ -141,3 +143,39 @@ def test_render_and_write_refresh_outputs(tmp_path: Path):
         (profile_dir / "experience_ledger.proposed.json").read_text(encoding="utf-8")
     )
     assert payload["experiences"][0]["experience_id"] == "exp_1"
+
+
+def test_refresh_validates_every_reference_in_a_multi_paragraph_block(tmp_path: Path):
+    source = tmp_path / "경험정리" / "career.txt"
+    source.parent.mkdir()
+    paragraphs = (
+        "2️⃣ 공공기관 자료 검증",
+        "✅ Situation (상황):",
+        "증빙 금액이 서로 다른 문제를 발견했습니다.",
+        "✅ Action (실행):",
+        "원자료를 대조하고 불일치 건을 분류했습니다.",
+        "📌 어필",
+    )
+    source.write_text("\n".join(paragraphs), encoding="utf-8")
+    record = SourceRecord(
+        path=source,
+        relative_path="경험정리/career.txt",
+        extension=".txt",
+        size=source.stat().st_size,
+        sha256=digest_path(source),
+        status="use",
+    )
+    ledger = build_proposed_ledger(
+        tmp_path,
+        [ExtractedDocument(record, "\n".join(paragraphs), paragraphs)],
+    )
+
+    review = refresh_profile(tmp_path, ledger)
+
+    summary = next(
+        claim
+        for claim in ledger.experiences[0].claims
+        if claim.field == "experience_summary"
+    )
+    assert len(review.items) == len(summary.evidence)
+    assert {item.status for item in review.items} == {"unchanged"}

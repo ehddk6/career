@@ -1,0 +1,177 @@
+{
+  "generated_at": "2026-07-15",
+  "new_prompt_files": [
+    {
+      "path": "C:\\Users\\ehddk\\OneDrive\\Desktop\\KakaoTalk_Longtxt_20260715_1350_17_049.txt",
+      "name": "KakaoTalk_Longtxt_20260715_1350_17_049.txt",
+      "bytes": 15061,
+      "chars": 6693,
+      "lines": 402,
+      "sha256": "b1c0210c5540ebbdb8eb04df117ac9d47eaaba2aaa89652730b6f735b56686fa",
+      "kind": "self_intro"
+    },
+    {
+      "path": "C:\\Users\\ehddk\\OneDrive\\Desktop\\KakaoTalk_Longtxt_20260715_1350_26_592.txt",
+      "name": "KakaoTalk_Longtxt_20260715_1350_26_592.txt",
+      "bytes": 13417,
+      "chars": 6151,
+      "lines": 438,
+      "sha256": "04e258f0caee9b2e9cdf51f00138aa7a53fb7c4efeefd6d897f9ad4319a5cc9f",
+      "kind": "company_research"
+    }
+  ],
+  "previous_prompt_metadata": {
+    "Codex_면접_프롬프트.md": {
+      "name": "Codex_면접_프롬프트.md",
+      "source_path": "C:\\Users\\ehddk\\Downloads\\회사조사_면접_프롬프트_묶음\\Codex_면접_프롬프트.md",
+      "isolated_copy": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\prompts\\Codex_면접_프롬프트.md",
+      "sha256": "dd705cfe29f16a4635492fdcc661444d23c32b707000b8729d1f70a872e1604c",
+      "copy_sha256": "dd705cfe29f16a4635492fdcc661444d23c32b707000b8729d1f70a872e1604c",
+      "copy_matches": true,
+      "line_count": 1440,
+      "char_count": 18637
+    },
+    "Codex_회사조사_프롬프트.md": {
+      "name": "Codex_회사조사_프롬프트.md",
+      "source_path": "C:\\Users\\ehddk\\Downloads\\회사조사_면접_프롬프트_묶음\\Codex_회사조사_프롬프트.md",
+      "isolated_copy": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\prompts\\Codex_회사조사_프롬프트.md",
+      "sha256": "9e0b35fc4c195f97b662666e6a7af8697ade5ed3ffc7fdf63ddc763c4d067747",
+      "copy_sha256": "9e0b35fc4c195f97b662666e6a7af8697ade5ed3ffc7fdf63ddc763c4d067747",
+      "copy_matches": true,
+      "line_count": 1177,
+      "char_count": 18221
+    },
+    "GPT-5.6_Sol_자기소개서_Codex용_개선본.md": {
+      "name": "GPT-5.6_Sol_자기소개서_Codex용_개선본.md",
+      "source_path": "C:\\Users\\ehddk\\Downloads\\회사조사_면접_프롬프트_묶음\\GPT-5.6_Sol_자기소개서_Codex용_개선본.md",
+      "isolated_copy": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\prompts\\GPT-5.6_Sol_자기소개서_Codex용_개선본.md",
+      "sha256": "49d470dbea33bc48f06d60fcd9c8931f38242715ef321fb379a9ba62bd42f97d",
+      "copy_sha256": "49d470dbea33bc48f06d60fcd9c8931f38242715ef321fb379a9ba62bd42f97d",
+      "copy_matches": true,
+      "line_count": 630,
+      "char_count": 11342
+    },
+    "GPT-5.6_Sol_자기소개서_최종_통합_프롬프트.md": {
+      "name": "GPT-5.6_Sol_자기소개서_최종_통합_프롬프트.md",
+      "source_path": "C:\\Users\\ehddk\\Downloads\\회사조사_면접_프롬프트_묶음\\GPT-5.6_Sol_자기소개서_최종_통합_프롬프트.md",
+      "isolated_copy": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\prompts\\GPT-5.6_Sol_자기소개서_최종_통합_프롬프트.md",
+      "sha256": "3fa25d3e416f17acdb88ee5b78fb8d3f269478aa4220e0aa6e19ff783f95f77d",
+      "copy_sha256": "3fa25d3e416f17acdb88ee5b78fb8d3f269478aa4220e0aa6e19ff783f95f77d",
+      "copy_matches": true,
+      "line_count": 1185,
+      "char_count": 19215
+    }
+  },
+  "current_v22": {
+    "run": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\career_runs\\kodit-2026-h2-rigorous-20260714-v22",
+    "audit_score": 93,
+    "quality_gate": "pass",
+    "audit_issues": [
+      {
+        "category": "cover_letter",
+        "code": "missing_job_connection",
+        "severity": "medium",
+        "message": "답변이 공고의 업무·역량과 연결되지 않습니다.",
+        "question_index": 2
+      },
+      {
+        "category": "cover_letter",
+        "code": "missing_target_specificity",
+        "severity": "medium",
+        "message": "지원 기관 또는 사업을 선택한 이유가 답변에 드러나지 않습니다.",
+        "question_index": 3
+      },
+      {
+        "category": "cover_letter",
+        "code": "low_quality_score",
+        "severity": "medium",
+        "message": "품질 점수 80/100점으로 기준 85점에 미달합니다.",
+        "question_index": 3
+      },
+      {
+        "category": "style",
+        "code": "style_risk_detected",
+        "severity": "medium",
+        "message": "교열 기준을 넘는 문체 위험이 3개 문항에서 발견되었습니다.",
+        "question_index": 0
+      }
+    ],
+    "comparison_note": "The two new txt files are prompt sources only; no executed output was attached, so this is a prompt-design comparison, not a new output-quality score."
+  },
+  "feature_coverage_review": [
+    {
+      "dimension": "evidence_traceability",
+      "new_company": "medium",
+      "new_selfintro": "low",
+      "previous_contract_prompts": "high",
+      "career_pipeline": "high_when_sidecars_present",
+      "note": "New prompts request sources/evidence in prose but do not define package IDs, claim IDs, statuses, or machine-readable references."
+    },
+    {
+      "dimension": "business_model_market_competition",
+      "new_company": "high",
+      "new_selfintro": "not_applicable",
+      "previous_contract_prompts": "high",
+      "career_pipeline_v22_markdown": "medium",
+      "note": "New company prompt explicitly covers customers, value, revenue/performance, substitutes, competitors, strategy, risks, culture and job bridge."
+    },
+    {
+      "dimension": "entity_source_cutoff_control",
+      "new_company": "medium",
+      "new_selfintro": "low",
+      "previous_contract_prompts": "high",
+      "career_pipeline": "high",
+      "note": "New company prompt asks for current dates and source priority, but not legal-entity fields, frozen manifest, data package, or hard-fail statuses."
+    },
+    {
+      "dimension": "claim_and_contribution_safety",
+      "new_company": "medium",
+      "new_selfintro": "high",
+      "previous_contract_prompts": "high",
+      "career_pipeline": "high",
+      "note": "New self-intro prompt strongly separates personal action, team result, authority and unsupported numbers; it still lacks deterministic claim validation."
+    },
+    {
+      "dimension": "rigorous_candidate_selection",
+      "new_company": "not_applicable",
+      "new_selfintro": "low",
+      "previous_final_integration_prompt": "high",
+      "career_pipeline": "high",
+      "note": "New self-intro prompt has no four-candidate, three-judge, synthesis, or actual-question-set X/Y protocol."
+    },
+    {
+      "dimension": "natural_korean_and_sentence_quality",
+      "new_company": "high",
+      "new_selfintro": "high",
+      "previous_final_integration_prompt": "medium_high",
+      "career_pipeline_v22": "medium_high",
+      "note": "New self-intro prompt has detailed sentence-object agreement, noun-list reduction, abstract-word replacement, repetition and read-aloud checks."
+    },
+    {
+      "dimension": "interview_defense",
+      "new_company": "high",
+      "new_selfintro": "medium",
+      "previous_interview_prompt": "high",
+      "career_pipeline_v22_packet": "medium",
+      "note": "New company prompt produces expected questions and reverse questions; new self-intro prompt supports defensible prose but does not define D3/D4, cards, probes or a final packet."
+    },
+    {
+      "dimension": "output_contract",
+      "new_company": "low",
+      "new_selfintro": "medium",
+      "previous_contract_prompts": "high",
+      "career_pipeline": "high",
+      "note": "New self-intro has output modes and character-count reporting, but both new files remain freeform text prompts without a JSON schema."
+    }
+  ],
+  "recommendation": {
+    "new_company_prompt": "Use as a research-content brief before/alongside 04_기업직무조사.json. Add its business-model, customer/market, substitute, recent-performance, strategy-success-condition, risk, expected-question and stopping criteria fields to the structured contract; do not let its prose output bypass claim/source validation.",
+    "new_selfintro_prompt": "Use as a natural-Korean and contribution-boundary post-editor on a rigorously selected candidate. Run it after candidate selection, then re-run validate_draft, validate_research_evidence, contract validation and audit; do not use it as a replacement for candidate generation/judging/X-Y.",
+    "best_combination": "Existing Career Pipeline contracts + previous rigorous selection + new company research rubric + new self-intro prose rubric + final deterministic revalidation."
+  },
+  "prior_result_context": {
+    "provisional_external_raw_quality_winner": "external prior selfintro candidate, prior median 98",
+    "submission_safety_winner": "Career Pipeline v22",
+    "caveat": "prior packages differ; do not attribute the 98 score to the newly provided txt files"
+  }
+}

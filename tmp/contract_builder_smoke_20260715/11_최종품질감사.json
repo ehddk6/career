@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-15T16:46:38.892560",
+  "run_dir": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\external_prompt_benchmark_20260715\\career_pipeline_max_quality_retry",
+  "score": 97,
+  "internal_validation_score": 97,
+  "quality_gate": "pass",
+  "human_review_recommended": true,
+  "recommendation": "내부검증 우수",
+  "sections": {
+    "cover_letter": {
+      "score": 40,
+      "max": 40
+    },
+    "research": {
+      "score": 25,
+      "max": 25
+    },
+    "interview": {
+      "score": 20,
+      "max": 20
+    },
+    "style_safety": {
+      "score": 12,
+      "max": 15,
+      "voice_sample_status": "valid",
+      "style_warning_score": 7,
+      "actionable_style_items": 3
+    }
+  },
+  "question_scores": [
+    {
+      "question_index": 1,
+      "score": {
+        "total": 100,
+        "factuality": 25,
+        "target_specificity": 20,
+        "action_result": 20,
+        "job_fit": 15,
+        "distinctiveness": 10,
+        "naturalness": 10,
+        "issues": []
+      }
+    },
+    {
+      "question_index": 2,
+      "score": {
+        "total": 100,
+        "factuality": 25,
+        "target_specificity": 20,
+        "action_result": 20,
+        "job_fit": 15,
+        "distinctiveness": 10,
+        "naturalness": 10,
+        "issues": []
+      }
+    },
+    {
+      "question_index": 3,
+      "score": {
+        "total": 100,
+        "factuality": 25,
+        "target_specificity": 20,
+        "action_result": 20,
+        "job_fit": 15,
+        "distinctiveness": 10,
+        "naturalness": 10,
+        "issues": []
+      }
+    },
+    {
+      "question_index": 4,
+      "score": {
+        "total": 100,
+        "factuality": 25,
+        "target_specificity": 20,
+        "action_result": 20,
+        "job_fit": 15,
+        "distinctiveness": 10,
+        "naturalness": 10,
+        "issues": []
+      }
+    }
+  ],
+  "issues": [
+    {
+      "category": "cover_letter",
+      "code": "underfilled_answer",
+      "severity": "medium",
+      "message": "답변이 충분히 구체적이지 않습니다: 1167/1500자 (최소 1200자, spaces_included)",
+      "question_index": 4
+    },
+    {
+      "category": "style",
+      "code": "style_risk_detected",
+      "severity": "medium",
+      "message": "교열 기준을 넘는 문체 위험이 3개 문항에서 발견되었습니다.",
+      "question_index": 0
+    }
+  ]
+}

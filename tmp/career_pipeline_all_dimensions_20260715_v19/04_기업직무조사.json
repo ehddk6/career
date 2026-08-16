@@ -1,0 +1,1475 @@
+{
+  "schema_version": 2,
+  "contract_version": "2026-07-15",
+  "data_package_id": "CAREER-DATA-02B036CBE425",
+  "data_package_version": "2.0",
+  "target": "신용보증기금 체험형 청년인턴1(보증)",
+  "research_cutoff_date": "2026-07-15",
+  "entity": {
+    "legal_entity_name": "신용보증기금",
+    "brand_name": "신용보증기금",
+    "target_business_unit": "체험형 청년인턴1(보증)",
+    "status": "CONFIRMED"
+  },
+  "source_manifest": [
+    {
+      "source_id": "source-1-1",
+      "source_level": 1,
+      "source_type": "OFFICIAL",
+      "publisher": "",
+      "title": "",
+      "url": "https://www.kodit.co.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11064&mi=2521",
+      "published_or_effective_at": "",
+      "checked_at": "2026-07-13",
+      "evidence_locator": "",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-2-1",
+      "source_level": 1,
+      "source_type": "OFFICIAL",
+      "publisher": "",
+      "title": "",
+      "url": "https://kodit2.saramin.co.kr/service/kodit2/3872/applicant/apply/recruit_default.asp",
+      "published_or_effective_at": "",
+      "checked_at": "2026-07-13",
+      "evidence_locator": "",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-3-1",
+      "source_level": 1,
+      "source_type": "OFFICIAL",
+      "publisher": "",
+      "title": "",
+      "url": "https://www.bok.or.kr/portal/bbs/B0000156/view.do?depth=200067&menuNo=200067&nttId=10096935&programType=newsData&relate=Y",
+      "published_or_effective_at": "",
+      "checked_at": "2026-07-13",
+      "evidence_locator": "",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-4-1",
+      "source_level": 1,
+      "source_type": "OFFICIAL",
+      "publisher": "",
+      "title": "",
+      "url": "https://www.kodit.co.kr/kodit/na/ntt/selectNttInfo.do?bbsId=47&mi=2639&nttSn=4429533",
+      "published_or_effective_at": "",
+      "checked_at": "2026-07-13",
+      "evidence_locator": "",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-5-1",
+      "source_level": 1,
+      "source_type": "OFFICIAL_POSTING",
+      "publisher": "",
+      "title": "",
+      "url": "https://kodit2.saramin.co.kr/service/kodit2/3872/applicant/apply/recruit_default.asp",
+      "published_or_effective_at": "",
+      "checked_at": "2026-07-13",
+      "evidence_locator": "",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-6-1",
+      "source_level": 1,
+      "source_type": "STATUTE",
+      "publisher": "국가법령정보센터",
+      "title": "신용보증기금법",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?ancYnChk=0&chrClsCd=010202&efYd=20260102&lsiSeq=277263&urlMode=lsInfoP",
+      "published_or_effective_at": "2026-01-02",
+      "checked_at": "2026-07-15",
+      "evidence_locator": "제1조 및 제2조",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-7-1",
+      "source_level": 1,
+      "source_type": "STATUTE",
+      "publisher": "국가법령정보센터",
+      "title": "신용보증기금법",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?ancYnChk=0&chrClsCd=010202&efYd=20260102&lsiSeq=277263&urlMode=lsInfoP",
+      "published_or_effective_at": "2026-01-02",
+      "checked_at": "2026-07-15",
+      "evidence_locator": "제1조 및 제2조",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-8-1",
+      "source_level": 1,
+      "source_type": "OFFICIAL_WEB",
+      "publisher": "신용보증기금",
+      "title": "신용보증제도 개요",
+      "url": "https://www.kodit.or.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11064&mi=2521",
+      "published_or_effective_at": "CURRENT_AT_ACCESS",
+      "checked_at": "2026-07-15",
+      "evidence_locator": "기본구조 및 보증운영 체계",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-8-2",
+      "source_level": 1,
+      "source_type": "OFFICIAL_WEB",
+      "publisher": "신용보증기금",
+      "title": "보증이용 절차 - 업무흐름도",
+      "url": "https://www.kodit.or.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11066&mi=2525",
+      "published_or_effective_at": "CURRENT_AT_ACCESS",
+      "checked_at": "2026-07-15",
+      "evidence_locator": "STEP 01~보증서 발급",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-8-3",
+      "source_level": 1,
+      "source_type": "OFFICIAL_WEB",
+      "publisher": "신용보증기금",
+      "title": "자료 수집 및 신용조사",
+      "url": "https://www.kodit.or.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11068&mi=2527",
+      "published_or_effective_at": "CURRENT_AT_ACCESS",
+      "checked_at": "2026-07-15",
+      "evidence_locator": "수집자료 및 신용조사",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-8-4",
+      "source_level": 1,
+      "source_type": "OFFICIAL_WEB",
+      "publisher": "신용보증기금",
+      "title": "보증심사 및 승인",
+      "url": "https://www.kodit.or.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11069&mi=2528",
+      "published_or_effective_at": "CURRENT_AT_ACCESS",
+      "checked_at": "2026-07-15",
+      "evidence_locator": "보증심사 및 심사방법",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-9-1",
+      "source_level": 1,
+      "source_type": "OFFICIAL_WEB",
+      "publisher": "신용보증기금",
+      "title": "신용보증 대상기업",
+      "url": "https://www.kodit.or.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11065&mi=2523",
+      "published_or_effective_at": "CURRENT_AT_ACCESS",
+      "checked_at": "2026-07-15",
+      "evidence_locator": "보증대상기업 및 업종",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-10-1",
+      "source_level": 1,
+      "source_type": "OFFICIAL_WEB",
+      "publisher": "신용보증기금",
+      "title": "자료 수집 및 신용조사",
+      "url": "https://www.kodit.or.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11068&mi=2527",
+      "published_or_effective_at": "CURRENT_AT_ACCESS",
+      "checked_at": "2026-07-15",
+      "evidence_locator": "수집자료 및 신용조사",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-11-1",
+      "source_level": 1,
+      "source_type": "OFFICIAL_WEB",
+      "publisher": "신용보증기금",
+      "title": "보증심사 및 승인",
+      "url": "https://www.kodit.or.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11069&mi=2528",
+      "published_or_effective_at": "CURRENT_AT_ACCESS",
+      "checked_at": "2026-07-15",
+      "evidence_locator": "보증심사 및 심사방법",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-12-1",
+      "source_level": 1,
+      "source_type": "OFFICIAL_WEB",
+      "publisher": "신용보증기금",
+      "title": "유동화보증 지원계획 및 담당조직",
+      "url": "https://www.kodit.or.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11078&mi=2539",
+      "published_or_effective_at": "2026",
+      "checked_at": "2026-07-15",
+      "evidence_locator": "2026년 지원규모",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-13-1",
+      "source_level": 1,
+      "source_type": "OFFICIAL_WEB",
+      "publisher": "신용보증기금",
+      "title": "보증연계투자",
+      "url": "https://www.kodit.or.kr/kodit/cm/cntnts/cntntsView.do?mi=2541&cntntsId=11079",
+      "published_or_effective_at": "2026",
+      "checked_at": "2026-07-15",
+      "evidence_locator": "개요·지원규모·지원대상",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-14-1",
+      "source_level": 1,
+      "source_type": "OFFICIAL_WEB",
+      "publisher": "신용보증기금",
+      "title": "KODIT 인재상",
+      "url": "https://www.kodit.or.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11180&mi=2513",
+      "published_or_effective_at": "CURRENT_AT_ACCESS",
+      "checked_at": "2026-07-15",
+      "evidence_locator": "기본인품 및 성장자질",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-15-1",
+      "source_level": 1,
+      "source_type": "OFFICIAL_WEB",
+      "publisher": "신용보증기금",
+      "title": "경영환경 모니터링",
+      "url": "https://www.kodit.or.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11157&mi=2468",
+      "published_or_effective_at": "CURRENT_AT_ACCESS",
+      "checked_at": "2026-07-15",
+      "evidence_locator": "모니터링 채널",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-16-1",
+      "source_level": 1,
+      "source_type": "STATUTE",
+      "publisher": "국가법령정보센터",
+      "title": "신용보증기금법",
+      "url": "https://www.law.go.kr/LSW/lsInfoP.do?ancYnChk=0&chrClsCd=010202&efYd=20260102&lsiSeq=277263&urlMode=lsInfoP",
+      "published_or_effective_at": "2026-01-02",
+      "checked_at": "2026-07-15",
+      "evidence_locator": "제1조 및 제2조",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-16-2",
+      "source_level": 1,
+      "source_type": "OFFICIAL_WEB",
+      "publisher": "신용보증기금",
+      "title": "보증서 발급",
+      "url": "https://www.kodit.or.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11070&mi=2529",
+      "published_or_effective_at": "",
+      "checked_at": "2026-07-15",
+      "evidence_locator": "약정체결과 보증서 발급·보증료",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-17-1",
+      "source_level": 1,
+      "source_type": "OFFICIAL_WEB",
+      "publisher": "신용보증기금",
+      "title": "신용보증제도 개요",
+      "url": "https://www.kodit.or.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11064&mi=2521",
+      "published_or_effective_at": "CURRENT_AT_ACCESS",
+      "checked_at": "2026-07-15",
+      "evidence_locator": "기본구조 및 보증운영 체계",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-17-2",
+      "source_level": 1,
+      "source_type": "OFFICIAL_WEB",
+      "publisher": "신용보증기금",
+      "title": "보증이용 절차 - 업무흐름도",
+      "url": "https://www.kodit.or.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11066&mi=2525",
+      "published_or_effective_at": "CURRENT_AT_ACCESS",
+      "checked_at": "2026-07-15",
+      "evidence_locator": "STEP 01~보증서 발급",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-17-3",
+      "source_level": 1,
+      "source_type": "OFFICIAL_WEB",
+      "publisher": "신용보증기금",
+      "title": "보증심사 및 승인",
+      "url": "https://www.kodit.or.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11069&mi=2528",
+      "published_or_effective_at": "CURRENT_AT_ACCESS",
+      "checked_at": "2026-07-15",
+      "evidence_locator": "보증심사 및 심사방법",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-18-1",
+      "source_level": 1,
+      "source_type": "OFFICIAL_WEB",
+      "publisher": "신용보증기금",
+      "title": "조직 안내",
+      "url": "https://www.kodit.or.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11149&mi=2456",
+      "published_or_effective_at": "",
+      "checked_at": "2026-07-15",
+      "evidence_locator": "조직도 및 조직·직원안내",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-19-1",
+      "source_level": 1,
+      "source_type": "OFFICIAL_WEB",
+      "publisher": "신용보증기금",
+      "title": "신용보증제도 개요",
+      "url": "https://www.kodit.or.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11064&mi=2521",
+      "published_or_effective_at": "CURRENT_AT_ACCESS",
+      "checked_at": "2026-07-15",
+      "evidence_locator": "기본구조 및 보증운영 체계",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-20-1",
+      "source_level": 1,
+      "source_type": "OFFICIAL_DISCLOSURE",
+      "publisher": "신용보증기금·ALIO",
+      "title": "중장기 경영목표(2025~2029년)",
+      "url": "https://www.alio.go.kr/upload/disclosure/2024/11/11/2024111102898479/doc.html",
+      "published_or_effective_at": "",
+      "checked_at": "2026-07-15",
+      "evidence_locator": "경영목표 및 전략",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-21-1",
+      "source_level": 1,
+      "source_type": "OFFICIAL_DISCLOSURE",
+      "publisher": "신용보증기금",
+      "title": "신용보증현황",
+      "url": "https://www.kodit.or.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11264&mi=2896",
+      "published_or_effective_at": "",
+      "checked_at": "2026-07-15",
+      "evidence_locator": "2026-03-31 기준 보증잔액·공급현황",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-22-1",
+      "source_level": 1,
+      "source_type": "OFFICIAL_PRESS_RELEASE",
+      "publisher": "신용보증기금",
+      "title": "2,690억 원 규모 유동화수익증권 첫 직접 발행",
+      "url": "https://www.kodit.or.kr/kodit/na/ntt/selectNttInfo.do?bbsId=47&mi=2639&nttSn=4899880",
+      "published_or_effective_at": "",
+      "checked_at": "2026-07-15",
+      "evidence_locator": "2026-07-02 보도자료",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-23-1",
+      "source_level": 1,
+      "source_type": "OFFICIAL_PRESS_RELEASE",
+      "publisher": "신용보증기금",
+      "title": "ETRI 사업화 유망기술 설명회",
+      "url": "https://www.kodit.or.kr/kodit/na/ntt/selectNttInfo.do?bbsId=47&mi=2639&nttSn=4899954",
+      "published_or_effective_at": "",
+      "checked_at": "2026-07-15",
+      "evidence_locator": "2026-07-02 보도자료",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-24-1",
+      "source_level": 1,
+      "source_type": "OFFICIAL_PRESS_RELEASE",
+      "publisher": "신용보증기금",
+      "title": "서울대학교 AI연구원 업무협약",
+      "url": "https://www.kodit.or.kr/kodit/na/ntt/selectNttInfo.do?bbsId=47&mi=2639&nttSn=4886656",
+      "published_or_effective_at": "",
+      "checked_at": "2026-07-15",
+      "evidence_locator": "2026-06-29 보도자료",
+      "target_entity": "신용보증기금"
+    },
+    {
+      "source_id": "source-25-1",
+      "source_level": 1,
+      "source_type": "OFFICIAL_DISCLOSURE",
+      "publisher": "신용보증기금",
+      "title": "산업기반신용보증 2025 실적 및 2026 계획",
+      "url": "https://www.kodit.or.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11370&mi=2806",
+      "published_or_effective_at": "",
+      "checked_at": "2026-07-15",
+      "evidence_locator": "2025 실적·2026 보증공급 목표",
+      "target_entity": "신용보증기금"
+    }
+  ],
+  "claim_ledger": [
+    {
+      "claim_id": "kodit-role-20260711",
+      "claim": "신용보증기금은 기업이 부담하는 채무를 보증해 성장유망기업을 지원하며, 보증신청 뒤 신용조사와 보증심사를 수행한다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-1-1"
+      ],
+      "research_refs": [
+        "kodit-role-20260711"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE",
+      "usage_restriction": "",
+      "domain": "ORGANIZATION_ROLE"
+    },
+    {
+      "claim_id": "kodit-intern-duty-20260711",
+      "claim": "보증 분야 체험형 청년인턴의 주요업무는 신용보증 기한연장과 기업신용 상시관리다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-2-1"
+      ],
+      "research_refs": [
+        "kodit-intern-duty-20260711"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE",
+      "usage_restriction": "",
+      "domain": "JOB_DUTY"
+    },
+    {
+      "claim_id": "bok-fx-risk-20260711",
+      "claim": "한국은행은 높은 환율 변동성과 중동지역 리스크를 점검하면서 14조원 한도의 중소기업 한시 특별지원 운용기간을 재연장했다.",
+      "claim_type": "EXTERNAL_CLAIM",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-3-1"
+      ],
+      "research_refs": [
+        "bok-fx-risk-20260711"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE",
+      "usage_restriction": "",
+      "domain": "INDUSTRY_ISSUE"
+    },
+    {
+      "claim_id": "kodit-liquidity-support-20260711",
+      "claim": "신용보증기금은 지역 수출기업 등의 유동성과 금융비용 부담을 완화하기 위해 협약보증을 공급하고 있다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-4-1"
+      ],
+      "research_refs": [
+        "kodit-liquidity-support-20260711"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE",
+      "usage_restriction": "",
+      "domain": "PROGRAM_OR_SERVICE"
+    },
+    {
+      "claim_id": "kodit-selection-criteria-20260713",
+      "claim": "신용보증기금 청년인턴 서류전형은 업무수행계획서와 약식논술의 충실도·논리력·혁신적 사고를 평가하고, 면접전형은 기본인성과 직무능력을 평가한다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-5-1"
+      ],
+      "research_refs": [
+        "kodit-selection-criteria-20260713"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE",
+      "usage_restriction": "",
+      "domain": "SELECTION_CRITERIA"
+    },
+    {
+      "claim_id": "CLM-COMP-001",
+      "claim": "신용보증기금은 신용보증기금법에 따라 기업의 자금융통과 건전한 신용질서 확립을 통해 국민경제 발전에 기여하도록 설립된 기금이다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-6-1"
+      ],
+      "research_refs": [
+        "CLM-COMP-001"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE",
+      "usage_restriction": "법률 목적을 성과 실적으로 바꾸어 표현하지 말 것",
+      "domain": "ENTITY"
+    },
+    {
+      "claim_id": "CLM-COMP-002",
+      "claim": "법정 목적 범위에는 기업 채무보증, 회사채 등 유동화, 신용정보의 관리·운용이 포함된다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-7-1"
+      ],
+      "research_refs": [
+        "CLM-COMP-002"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE",
+      "usage_restriction": "사업 규모 수치를 임의 결합하지 말 것",
+      "domain": "BUSINESS_MODEL"
+    },
+    {
+      "claim_id": "CLM-COMP-003",
+      "claim": "일반적인 신용보증 흐름은 신청·상담, 자료수집·신용조사, 보증심사·승인, 약정·보증서 발급으로 이어진다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-8-1",
+        "source-8-2",
+        "source-8-3",
+        "source-8-4"
+      ],
+      "research_refs": [
+        "CLM-COMP-003"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE",
+      "usage_restriction": "인턴의 심사·승인 권한으로 확대 금지",
+      "domain": "VALUE_CHAIN"
+    },
+    {
+      "claim_id": "CLM-COMP-004",
+      "claim": "보증대상은 일정 요건을 갖춘 개인기업·법인기업·기업단체이며 대기업·상장기업은 특정자금에 한해 제한적으로 허용된다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-9-1"
+      ],
+      "research_refs": [
+        "CLM-COMP-004"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE",
+      "usage_restriction": "모든 중소기업이 자동 지원대상이라는 표현 금지",
+      "domain": "CUSTOMER"
+    },
+    {
+      "claim_id": "CLM-COMP-005",
+      "claim": "신용조사에는 등기·행정·금융거래·국세·세무회계 자료가 사용되고, 최근 3년 재무제표 등도 수집 대상이다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-10-1"
+      ],
+      "research_refs": [
+        "CLM-COMP-005"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE",
+      "usage_restriction": "인턴이 모든 민감자료를 조회한다고 단정 금지",
+      "domain": "OPERATIONS"
+    },
+    {
+      "claim_id": "CLM-COMP-006",
+      "claim": "보증심사는 사업성·미래성장성·기업가치·기술력·기업가 정신 등을 고려하고 보증금액에 따라 심사 수준이 구분된다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-11-1"
+      ],
+      "research_refs": [
+        "CLM-COMP-006"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE",
+      "usage_restriction": "비공개 평가모형 추정 금지",
+      "domain": "RISK_CONTROL"
+    },
+    {
+      "claim_id": "CLM-COMP-007",
+      "claim": "신용보증기금은 2026년 유동화보증 신규자금 지원규모를 2.8조원으로 안내한다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-12-1"
+      ],
+      "research_refs": [
+        "CLM-COMP-007"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE",
+      "usage_restriction": "실적 또는 달성액으로 표현 금지",
+      "domain": "PROGRAM"
+    },
+    {
+      "claim_id": "CLM-COMP-008",
+      "claim": "2026년 보증연계투자 지원규모는 673억원으로 안내되며, 신용보증과 투자를 연계해 중소기업 자금조달·재무구조 개선을 지원한다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-13-1"
+      ],
+      "research_refs": [
+        "CLM-COMP-008"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE",
+      "usage_restriction": "체험형 인턴의 직접 업무로 연결 금지",
+      "domain": "PROGRAM"
+    },
+    {
+      "claim_id": "CLM-COMP-009",
+      "claim": "공식 인재상은 기본인품과 성장자질을 축으로 책임감·열정, 혁신·소통, 논리적 사고, 문제해결 등을 제시한다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-14-1"
+      ],
+      "research_refs": [
+        "CLM-COMP-009"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE",
+      "usage_restriction": "실제 문화가 동일하다고 단정 금지",
+      "domain": "CULTURE"
+    },
+    {
+      "claim_id": "CLM-COMP-010",
+      "claim": "공식 경영환경 모니터링 체계에는 거시경제·중소기업·정책·내부환경과 VOC, 고객자문단, 리스크준법실, 성과관리시스템 등이 제시된다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-15-1"
+      ],
+      "research_refs": [
+        "CLM-COMP-010"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE",
+      "usage_restriction": "통제 효과를 수치화하지 말 것",
+      "domain": "GOVERNANCE"
+    },
+    {
+      "claim_id": "CLM-COMP-011",
+      "claim": "신용보증기금의 보증 운용은 기본재산을 재산적 기초로 삼고 승인 보증에 보증료를 부과하는 구조다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-16-1",
+        "source-16-2"
+      ],
+      "research_refs": [
+        "CLM-COMP-011"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE",
+      "usage_restriction": "보증료율을 평균 수익률로 사용 금지",
+      "domain": "FUNDING_LOGIC"
+    },
+    {
+      "claim_id": "CLM-COMP-012",
+      "claim": "보증은 신청기업을 조사·심사한 뒤 채권자에게 보증서를 발급해 기업의 자금조달을 돕고 채권자의 신용위험 일부를 기금으로 이전하는 구조다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-17-1",
+        "source-17-2",
+        "source-17-3"
+      ],
+      "research_refs": [
+        "CLM-COMP-012"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE",
+      "usage_restriction": "기금이 위험 전부를 부담한다고 표현 금지",
+      "domain": "RISK_SHARING"
+    },
+    {
+      "claim_id": "CLM-COMP-013",
+      "claim": "공식 조직안내는 4부문 16부 6실과 9영업본부·110영업점·15재기지원단·11채권관리단을 제시한다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-18-1"
+      ],
+      "research_refs": [
+        "CLM-COMP-013"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE",
+      "usage_restriction": "인턴의 실제 팀·보고선으로 치환 금지",
+      "domain": "ORGANIZATION"
+    },
+    {
+      "claim_id": "CLM-COMP-014",
+      "claim": "공식 안내는 보증 이용 가치로 담보문제 해소, 비용절감, 대외신용도 제고, 기업경영 부담 완화를 제시한다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-19-1"
+      ],
+      "research_refs": [
+        "CLM-COMP-014"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE",
+      "usage_restriction": "모든 고객에게 동일 효과가 발생한다고 단정 금지",
+      "domain": "CUSTOMER_VALUE"
+    },
+    {
+      "claim_id": "CLM-STRAT-001",
+      "claim": "2025~2029 중장기 전략은 미래 성장동력 확충, 금융서비스 혁신 선도, 지속가능경영 기반 조성을 3대 전략목표로 두고 9개 전략과제를 제시한다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-20-1"
+      ],
+      "research_refs": [
+        "CLM-STRAT-001"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE",
+      "usage_restriction": "전략 발표를 실행 완료로 표현 금지",
+      "domain": "STRATEGY"
+    },
+    {
+      "claim_id": "CLM-EXEC-001",
+      "claim": "2026년 3월 말 신용보증 잔액은 75조 6,515억원이고, 2026년 1분기 경제활력·경제기반 분야 공급 합계는 15조 8,342억원으로 공시됐다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-21-1"
+      ],
+      "research_refs": [
+        "CLM-EXEC-001"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE",
+      "usage_restriction": "연간 목표 달성률·건전성 결론 산출 금지",
+      "domain": "OPERATING_RESULT"
+    },
+    {
+      "claim_id": "CLM-EXEC-002",
+      "claim": "신용보증기금은 2026년 6월 30일 2,690억원 규모의 유동화수익증권을 처음 직접 발행했고, 기존 SPC 방식보다 편입기업의 3년간 평균 금융비용을 111bp 낮췄다고 밝혔다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-22-1"
+      ],
+      "research_refs": [
+        "CLM-EXEC-002"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE",
+      "usage_restriction": "모든 유동화보증에 동일 절감효과가 발생한다고 일반화 금지",
+      "domain": "EXECUTION_RESULT"
+    },
+    {
+      "claim_id": "CLM-EXEC-003",
+      "claim": "신용보증기금과 ETRI는 2026년 6월 30일 설명회를 열어 약 150명에게 기술이전 정보, 금융지원 안내, IP·데이터 사업화 컨설팅과 1대1 금융상담을 제공했다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-23-1"
+      ],
+      "research_refs": [
+        "CLM-EXEC-003"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE",
+      "usage_restriction": "행사 개최를 사업화 성과로 치환 금지",
+      "domain": "PARTNERSHIP_EXECUTION"
+    },
+    {
+      "claim_id": "CLM-EXEC-004",
+      "claim": "신용보증기금은 2026년 6월 26일 서울대학교 AI연구원과 협약을 체결해 BASA, NEST AI-Lab 데이터, AI 스타트업 지원, AX 전략·AI 거버넌스 자문을 협력 범위로 정했다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-24-1"
+      ],
+      "research_refs": [
+        "CLM-EXEC-004"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE",
+      "usage_restriction": "협약 체결을 운영성과 또는 결과 관찰로 표현 금지",
+      "domain": "DIGITAL_EXECUTION"
+    },
+    {
+      "claim_id": "CLM-EXEC-005",
+      "claim": "산업기반신용보증은 2025년 승인잔액 16조 4,707억원과 기본재산 1조 1,246억원을 공시했고, 2026년 보증공급 목표를 3조원으로 제시했다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-25-1"
+      ],
+      "research_refs": [
+        "CLM-EXEC-005"
+      ],
+      "application_use": [
+        "자기소개서",
+        "면접"
+      ],
+      "allowed_outputs": [
+        "SELF_INTRO",
+        "INTERVIEW"
+      ],
+      "prohibited_uses": [],
+      "confidence": 0.95,
+      "requires_user_confirmation": false,
+      "interview_defense_status": "DEFENSIBLE",
+      "usage_restriction": "3조원을 달성 실적으로 표현 금지",
+      "domain": "PLAN_AND_RESOURCE"
+    }
+  ],
+  "business_model": {
+    "core_customers": [
+      "보증대상은 일정 요건을 갖춘 개인기업·법인기업·기업단체이며 대기업·상장기업은 특정자금에 한해 제한적으로 허용된다."
+    ],
+    "customer_problem": "신용보증기금은 신용보증기금법에 따라 기업의 자금융통과 건전한 신용질서 확립을 통해 국민경제 발전에 기여하도록 설립된 기금이다.",
+    "value_proposition": "일반적인 신용보증 흐름은 신청·상담, 자료수집·신용조사, 보증심사·승인, 약정·보증서 발급으로 이어진다.",
+    "revenue_logic": "법정 목적 범위에는 기업 채무보증, 회사채 등 유동화, 신용정보의 관리·운용이 포함된다.",
+    "major_costs": [
+      "심사·관리 인력",
+      "업무 시스템과 리스크 관리"
+    ],
+    "critical_risks": [
+      "보증심사는 사업성·미래성장성·기업가치·기술력·기업가 정신 등을 고려하고 보증금액에 따라 심사 수준이 구분된다."
+    ],
+    "value_chain": [
+      "일반적인 신용보증 흐름은 신청·상담, 자료수집·신용조사, 보증심사·승인, 약정·보증서 발급으로 이어진다.",
+      "신용조사에는 등기·행정·금융거래·국세·세무회계 자료가 사용되고, 최근 3년 재무제표 등도 수집 대상이다."
+    ],
+    "counterparties": [
+      "보증 신청기업",
+      "채권자인 금융회사",
+      "정책·협력기관"
+    ],
+    "risk_transfer_logic": "보증은 신청기업을 조사·심사한 뒤 채권자에게 보증서를 발급해 기업의 자금조달을 돕고 채권자의 신용위험 일부를 기금으로 이전하는 구조다.",
+    "funding_and_fee_logic": "신용보증기금의 보증 운용은 기본재산을 재산적 기초로 삼고 승인 보증에 보증료를 부과하는 구조다.",
+    "customer_value": [
+      "공식 안내는 보증 이용 가치로 담보문제 해소, 비용절감, 대외신용도 제고, 기업경영 부담 완화를 제시한다."
+    ],
+    "operating_resources": [
+      "공식 조직안내는 4부문 16부 6실과 9영업본부·110영업점·15재기지원단·11채권관리단을 제시한다."
+    ],
+    "limits": [
+      "보증은 기업의 상환의무를 없애지 않음",
+      "공개 자료만으로 내부 심사모형·팀별 권한·KPI를 확정할 수 없음"
+    ]
+  },
+  "strategy_execution": [
+    {
+      "strategy_id": "strategy-program",
+      "stage": "ANNOUNCED",
+      "claim_ids": [
+        "CLM-COMP-007",
+        "CLM-COMP-008"
+      ],
+      "success_conditions": [
+        "공식 지원 프로그램의 계획과 집행가 공식 기준과 확인 가능한 자료에 따라 수행됨"
+      ],
+      "failure_signals": [
+        "공식 범위를 실적·권한으로 과장하거나 근거 없이 확대함"
+      ],
+      "job_implications": [
+        "신용보증 기한연장, 기업신용 상시관리 등"
+      ],
+      "evidence_strength": "DIRECTION_ONLY",
+      "observed_vs_plan": "PLAN_ONLY",
+      "interpretation_limit": "공시된 수치·행사·협약의 발생만 확인하며, 개별 전략의 인과 성과나 완료를 단정하지 않습니다."
+    },
+    {
+      "strategy_id": "strategy-direction",
+      "stage": "ANNOUNCED",
+      "claim_ids": [
+        "CLM-STRAT-001"
+      ],
+      "success_conditions": [
+        "중장기 전략목표와 과제가 공식 기준과 확인 가능한 자료에 따라 수행됨"
+      ],
+      "failure_signals": [
+        "공식 범위를 실적·권한으로 과장하거나 근거 없이 확대함"
+      ],
+      "job_implications": [
+        "신용보증 기한연장, 기업신용 상시관리 등"
+      ],
+      "evidence_strength": "DIRECTION_ONLY",
+      "observed_vs_plan": "PLAN_ONLY",
+      "interpretation_limit": "공시된 수치·행사·협약의 발생만 확인하며, 개별 전략의 인과 성과나 완료를 단정하지 않습니다."
+    },
+    {
+      "strategy_id": "strategy-result",
+      "stage": "RESULT_OBSERVED",
+      "claim_ids": [
+        "CLM-EXEC-001",
+        "CLM-EXEC-002"
+      ],
+      "success_conditions": [
+        "공시된 운영·실행 결과가 공식 기준과 확인 가능한 자료에 따라 수행됨"
+      ],
+      "failure_signals": [
+        "공식 범위를 실적·권한으로 과장하거나 근거 없이 확대함"
+      ],
+      "job_implications": [
+        "신용보증 기한연장, 기업신용 상시관리 등"
+      ],
+      "evidence_strength": "HIGH",
+      "observed_vs_plan": "OBSERVED_RESULT",
+      "interpretation_limit": "공시된 수치·행사·협약의 발생만 확인하며, 개별 전략의 인과 성과나 완료를 단정하지 않습니다."
+    },
+    {
+      "strategy_id": "strategy-partnership",
+      "stage": "STARTED",
+      "claim_ids": [
+        "CLM-EXEC-003",
+        "CLM-EXEC-004"
+      ],
+      "success_conditions": [
+        "협약·상담·디지털 협력 실행가 공식 기준과 확인 가능한 자료에 따라 수행됨"
+      ],
+      "failure_signals": [
+        "공식 범위를 실적·권한으로 과장하거나 근거 없이 확대함"
+      ],
+      "job_implications": [
+        "신용보증 기한연장, 기업신용 상시관리 등"
+      ],
+      "evidence_strength": "MEDIUM",
+      "observed_vs_plan": "EXECUTION_SIGNAL",
+      "interpretation_limit": "공시된 수치·행사·협약의 발생만 확인하며, 개별 전략의 인과 성과나 완료를 단정하지 않습니다."
+    },
+    {
+      "strategy_id": "strategy-resource",
+      "stage": "FUNDED",
+      "claim_ids": [
+        "CLM-EXEC-005"
+      ],
+      "success_conditions": [
+        "기본재산·공급목표·인력 자원 투입가 공식 기준과 확인 가능한 자료에 따라 수행됨"
+      ],
+      "failure_signals": [
+        "공식 범위를 실적·권한으로 과장하거나 근거 없이 확대함"
+      ],
+      "job_implications": [
+        "신용보증 기한연장, 기업신용 상시관리 등"
+      ],
+      "evidence_strength": "MEDIUM",
+      "observed_vs_plan": "EXECUTION_SIGNAL",
+      "interpretation_limit": "공시된 수치·행사·협약의 발생만 확인하며, 개별 전략의 인과 성과나 완료를 단정하지 않습니다."
+    },
+    {
+      "strategy_id": "strategy-governance",
+      "stage": "OPERATING",
+      "claim_ids": [
+        "CLM-COMP-010",
+        "CLM-COMP-013"
+      ],
+      "success_conditions": [
+        "환경·고객·리스크 모니터링가 공식 기준과 확인 가능한 자료에 따라 수행됨"
+      ],
+      "failure_signals": [
+        "공식 범위를 실적·권한으로 과장하거나 근거 없이 확대함"
+      ],
+      "job_implications": [
+        "신용보증 기한연장, 기업신용 상시관리 등"
+      ],
+      "evidence_strength": "MEDIUM",
+      "observed_vs_plan": "EXECUTION_SIGNAL",
+      "interpretation_limit": "공시된 수치·행사·협약의 발생만 확인하며, 개별 전략의 인과 성과나 완료를 단정하지 않습니다."
+    },
+    {
+      "strategy_id": "strategy-process",
+      "stage": "OPERATING",
+      "claim_ids": [
+        "CLM-COMP-003",
+        "CLM-COMP-005",
+        "CLM-COMP-006"
+      ],
+      "success_conditions": [
+        "신용조사·심사 절차와 위험 통제가 공식 기준과 확인 가능한 자료에 따라 수행됨"
+      ],
+      "failure_signals": [
+        "공식 범위를 실적·권한으로 과장하거나 근거 없이 확대함"
+      ],
+      "job_implications": [
+        "신용보증 기한연장, 기업신용 상시관리 등"
+      ],
+      "evidence_strength": "MEDIUM",
+      "observed_vs_plan": "EXECUTION_SIGNAL",
+      "interpretation_limit": "공시된 수치·행사·협약의 발생만 확인하며, 개별 전략의 인과 성과나 완료를 단정하지 않습니다."
+    }
+  ],
+  "financial_analysis": {
+    "status": "INSUFFICIENT_EVIDENCE",
+    "reason": "동결된 공식 근거만으로 기간·단위가 일치하는 재무 시계열을 구성할 수 없습니다.",
+    "metrics": []
+  },
+  "competitor_analysis": {
+    "status": "INSUFFICIENT_EVIDENCE",
+    "reason": "동일 고객 문제와 기능을 기준으로 비교할 공식 자료가 충분하지 않습니다.",
+    "selection": [],
+    "comparisons": []
+  },
+  "culture_analysis": {
+    "status": "INSUFFICIENT_EVIDENCE",
+    "reason": "공개 자료만으로 특정 팀의 실제 문화를 확정할 수 없습니다.",
+    "evidence": [],
+    "unknowns": [
+      "배치 부서별 업무 방식",
+      "피드백과 보고 주기"
+    ]
+  },
+  "market_position": {
+    "target_market": "보증대상은 일정 요건을 갖춘 개인기업·법인기업·기업단체이며 대기업·상장기업은 특정자금에 한해 제한적으로 허용된다.",
+    "customer_alternatives": [
+      "민간 금융",
+      "다른 정책금융 지원",
+      "자체 자금 조달"
+    ],
+    "competitor_selection_basis": "동일 고객 문제와 제공 기능",
+    "differentiators": [
+      "신용보증기금은 신용보증기금법에 따라 기업의 자금융통과 건전한 신용질서 확립을 통해 국민경제 발전에 기여하도록 설립된 기금이다.",
+      "법정 목적 범위에는 기업 채무보증, 회사채 등 유동화, 신용정보의 관리·운용이 포함된다.",
+      "신용보증기금의 보증 운용은 기본재산을 재산적 기초로 삼고 승인 보증에 보증료를 부과하는 구조다.",
+      "보증은 신청기업을 조사·심사한 뒤 채권자에게 보증서를 발급해 기업의 자금조달을 돕고 채권자의 신용위험 일부를 기금으로 이전하는 구조다."
+    ],
+    "uncertainties": [
+      "공개 자료로 확인되지 않은 내부 자원 배분과 성과",
+      "비교기관을 같은 기준으로 검증한 자료"
+    ]
+  },
+  "recent_performance": [
+    {
+      "observation": "신용보증기금은 기업이 부담하는 채무를 보증해 성장유망기업을 지원하며, 보증신청 뒤 신용조사와 보증심사를 수행한다.",
+      "interpretation": "공식 근거로 확인된 범위 안에서 지원 판단과 면접 질문에 사용한다.",
+      "status": "CONFIRMED_PRIMARY",
+      "claim_ids": [
+        "kodit-role-20260711"
+      ]
+    },
+    {
+      "observation": "보증 분야 체험형 청년인턴의 주요업무는 신용보증 기한연장과 기업신용 상시관리다.",
+      "interpretation": "공식 근거로 확인된 범위 안에서 지원 판단과 면접 질문에 사용한다.",
+      "status": "CONFIRMED_PRIMARY",
+      "claim_ids": [
+        "kodit-intern-duty-20260711"
+      ]
+    },
+    {
+      "observation": "한국은행은 높은 환율 변동성과 중동지역 리스크를 점검하면서 14조원 한도의 중소기업 한시 특별지원 운용기간을 재연장했다.",
+      "interpretation": "공식 근거로 확인된 범위 안에서 지원 판단과 면접 질문에 사용한다.",
+      "status": "CONFIRMED_PRIMARY",
+      "claim_ids": [
+        "bok-fx-risk-20260711"
+      ]
+    },
+    {
+      "observation": "신용보증기금은 지역 수출기업 등의 유동성과 금융비용 부담을 완화하기 위해 협약보증을 공급하고 있다.",
+      "interpretation": "공식 근거로 확인된 범위 안에서 지원 판단과 면접 질문에 사용한다.",
+      "status": "CONFIRMED_PRIMARY",
+      "claim_ids": [
+        "kodit-liquidity-support-20260711"
+      ]
+    },
+    {
+      "observation": "신용보증기금 청년인턴 서류전형은 업무수행계획서와 약식논술의 충실도·논리력·혁신적 사고를 평가하고, 면접전형은 기본인성과 직무능력을 평가한다.",
+      "interpretation": "공식 근거로 확인된 범위 안에서 지원 판단과 면접 질문에 사용한다.",
+      "status": "CONFIRMED_PRIMARY",
+      "claim_ids": [
+        "kodit-selection-criteria-20260713"
+      ]
+    }
+  ],
+  "research_completeness": {
+    "answered_questions": [
+      "법인과 직무",
+      "공식 사업·역할",
+      "지원서에 사용할 수 있는 주장"
+    ],
+    "unresolved_questions": [
+      "최근 3개년 비교 가능한 재무·성과",
+      "실제 인턴 권한과 팀별 KPI",
+      "내부 자원 배분"
+    ],
+    "stopping_reason": "동결된 공식 근거에서 지원서와 면접에 필요한 안전한 주장 범위를 확정했습니다."
+  },
+  "interview_implications": {
+    "expected_questions": [
+      "신용보증기금의 역할과 체험형 청년인턴1(보증) 업무를 어떻게 이해하고 있습니까?",
+      "공식 자료와 실제 고객 자료가 다를 때 어떻게 확인하겠습니까?",
+      "기관의 지원 필요성과 위험 통제를 어떻게 함께 이해하고 있습니까?"
+    ],
+    "reverse_questions": [
+      "입사 초기 가장 먼저 익혀야 할 업무 기준은 무엇입니까?",
+      "반복적으로 발생하는 예외와 보고 기준은 무엇입니까?"
+    ],
+    "prohibited_talking_points": [
+      "3조원을 달성 실적으로 표현 금지",
+      "기금이 위험 전부를 부담한다고 표현 금지",
+      "모든 고객에게 동일 효과가 발생한다고 단정 금지",
+      "모든 유동화보증에 동일 절감효과가 발생한다고 일반화 금지",
+      "모든 중소기업이 자동 지원대상이라는 표현 금지",
+      "법률 목적을 성과 실적으로 바꾸어 표현하지 말 것",
+      "보증료율을 평균 수익률로 사용 금지",
+      "비공개 평가모형 추정 금지"
+    ]
+  },
+  "role_value_map": [
+    {
+      "company_issue": "신용보증기금은 기업이 부담하는 채무를 보증해 성장유망기업을 지원하며, 보증신청 뒤 신용조사와 보증심사를 수행한다.",
+      "role_actions": [
+        "신용보증 기한연장, 기업신용 상시관리 등",
+        "원자료와 전산값 대조",
+        "변동·누락·예외 기록",
+        "판단이 필요한 사항을 근거와 함께 보고"
+      ],
+      "claim_ids": [
+        "kodit-role-20260711"
+      ],
+      "certainty": "ORGANIZATION_SUPPORTED"
+    },
+    {
+      "company_issue": "보증 분야 체험형 청년인턴의 주요업무는 신용보증 기한연장과 기업신용 상시관리다.",
+      "role_actions": [
+        "신용보증 기한연장, 기업신용 상시관리 등",
+        "원자료와 전산값 대조",
+        "변동·누락·예외 기록",
+        "판단이 필요한 사항을 근거와 함께 보고"
+      ],
+      "claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "certainty": "ORGANIZATION_SUPPORTED"
+    }
+  ],
+  "motivation_bridges": [
+    {
+      "company_fact": "신용보증기금은 신용보증기금법에 따라 기업의 자금융통과 건전한 신용질서 확립을 통해 국민경제 발전에 기여하도록 설립된 기금이다.",
+      "claim_ids": [
+        "CLM-COMP-001"
+      ],
+      "applicant_action": "확정 경험의 대조·정리·보고 행동",
+      "realistic_contribution": "기한연장·상시관리 자료의 누락과 변동을 기준에 따라 확인하고 담당자 판단을 보조",
+      "boundary": "법률 목적을 성과 실적으로 바꾸어 표현하지 말 것"
+    },
+    {
+      "company_fact": "법정 목적 범위에는 기업 채무보증, 회사채 등 유동화, 신용정보의 관리·운용이 포함된다.",
+      "claim_ids": [
+        "CLM-COMP-002"
+      ],
+      "applicant_action": "확정 경험의 대조·정리·보고 행동",
+      "realistic_contribution": "기한연장·상시관리 자료의 누락과 변동을 기준에 따라 확인하고 담당자 판단을 보조",
+      "boundary": "사업 규모 수치를 임의 결합하지 말 것"
+    },
+    {
+      "company_fact": "신용보증기금의 보증 운용은 기본재산을 재산적 기초로 삼고 승인 보증에 보증료를 부과하는 구조다.",
+      "claim_ids": [
+        "CLM-COMP-011"
+      ],
+      "applicant_action": "확정 경험의 대조·정리·보고 행동",
+      "realistic_contribution": "기한연장·상시관리 자료의 누락과 변동을 기준에 따라 확인하고 담당자 판단을 보조",
+      "boundary": "보증료율을 평균 수익률로 사용 금지"
+    },
+    {
+      "company_fact": "보증은 신청기업을 조사·심사한 뒤 채권자에게 보증서를 발급해 기업의 자금조달을 돕고 채권자의 신용위험 일부를 기금으로 이전하는 구조다.",
+      "claim_ids": [
+        "CLM-COMP-012"
+      ],
+      "applicant_action": "확정 경험의 대조·정리·보고 행동",
+      "realistic_contribution": "기한연장·상시관리 자료의 누락과 변동을 기준에 따라 확인하고 담당자 판단을 보조",
+      "boundary": "기금이 위험 전부를 부담한다고 표현 금지"
+    },
+    {
+      "company_fact": "공식 안내는 보증 이용 가치로 담보문제 해소, 비용절감, 대외신용도 제고, 기업경영 부담 완화를 제시한다.",
+      "claim_ids": [
+        "CLM-COMP-014"
+      ],
+      "applicant_action": "확정 경험의 대조·정리·보고 행동",
+      "realistic_contribution": "기한연장·상시관리 자료의 누락과 변동을 기준에 따라 확인하고 담당자 판단을 보조",
+      "boundary": "모든 고객에게 동일 효과가 발생한다고 단정 금지"
+    }
+  ],
+  "applicant_bridge": [
+    {
+      "requirement": "신용보증기금 청년인턴에 지원하게 된 동기와 신용보증기금의 역할에 대한 본인의 이해를 바탕으로 인턴 근무 중 배우고, 기여하고 싶은 부분을 기술하여 주십시오.",
+      "experience_id": "exp_151ae891bd2719ad",
+      "experience_claim_ids": [
+        "clm_88cfeab230789e5b0d5f"
+      ],
+      "fit_state": "TRANSFERABLE"
+    },
+    {
+      "requirement": "지원자가 새로운 조직에 적응하기 위해 중요하게 생각하는 태도가 무엇이며, 그 태도를 실제 근무과정에서 실천하기 위해 어떤 노력을 할 것인지 기술하여 주십시오.",
+      "experience_id": "exp_638228200e37de69",
+      "experience_claim_ids": [
+        "clm_2bfba21afb61776d752b"
+      ],
+      "fit_state": "TRANSFERABLE"
+    },
+    {
+      "requirement": "신용보증기금의 청년인턴으로 근무한다고 가정할 때, 실제 근무 시 지원자의 업무수행계획을 기술하여 주십시오.",
+      "experience_id": "exp_2df35f8fca5e30b8",
+      "experience_claim_ids": [
+        "clm_732a31834ac4cb075533"
+      ],
+      "fit_state": "TRANSFERABLE"
+    },
+    {
+      "requirement": "최근 중소기업에 큰 영향을 미치는 경제·사회 이슈를 하나 선택하여 그 이유를 서술하여 주시기 바랍니다. 또한, 해당 이슈와 관련하여 영향을 받는 중소기업을 정책 금융기관이 지원할 수 있는 방안과 지원 과정에서 유의할 점을 서술하여 주시기 바랍니다.",
+      "experience_id": "exp_2e966c8ac3146a5b",
+      "experience_claim_ids": [
+        "clm_41fbcc79285f9a15295d"
+      ],
+      "fit_state": "TRANSFERABLE"
+    }
+  ],
+  "red_team": {
+    "strongest_counterargument": "공개된 기관 역할이 실제 배치 부서의 일상 업무와 완전히 같다고 단정할 수 없습니다.",
+    "critical_unknowns": [
+      "실제 인턴의 시스템 권한",
+      "팀별 업무량과 성과 기준"
+    ]
+  },
+  "first_90_days": {
+    "days_0_30": [
+      "업무 기준·용어·보고 경로를 확인하고 체크리스트로 정리"
+    ],
+    "days_31_60": [
+      "원자료와 처리 결과를 대조하고 예외를 근거와 함께 보고"
+    ],
+    "days_61_90": [
+      "반복 오류와 문의 유형을 기록해 담당자 검토 후 개선 제안"
+    ]
+  },
+  "decision": {
+    "status": "APPLY_WITH_CONDITIONS",
+    "main_reason": "공식 근거로 확인된 기관 역할과 공고 업무가 확정 경험의 확인·대조·기록 행동과 연결됩니다.",
+    "strongest_support": "공고 및 공식 근거의 역할·업무 claim",
+    "strongest_counterargument": "실제 배치와 권한은 공개 자료만으로 확인되지 않습니다.",
+    "conditions_that_would_change_decision": [
+      "실제 배치 업무가 공고와 크게 다른 경우",
+      "지원 자격 또는 근무 조건이 달라지는 경우"
+    ]
+  }
+}

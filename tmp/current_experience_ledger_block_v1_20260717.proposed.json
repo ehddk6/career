@@ -1,0 +1,4002 @@
+{
+  "schema_version": 2,
+  "generated_at": "2026-07-17T00:18:33+09:00",
+  "workspace_root": "C:/Users/ehddk/OneDrive/문서/취업",
+  "experiences": [
+    {
+      "experience_id": "exp_c2d754c1ee4083ab",
+      "title": "경험정리 문단 20",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "위치 관련 문의 30% 감소",
+      "actions": [],
+      "outcomes": [
+        "위치 관련 문의 30% 감소"
+      ],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "metric:percentage",
+          "normalized_value": "30%",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 19,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "62c2bd3a7d320b70542f23ab52e5be28d9e8dc4393624d5d37a720f2f1346738"
+            }
+          ],
+          "claim_id": "clm_9b57030857bb3ae35d18",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_3b93d54da4e06882",
+      "title": "경험정리 문단 22",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "건수 20% 증가",
+      "actions": [],
+      "outcomes": [
+        "건수 20% 증가"
+      ],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "metric:percentage",
+          "normalized_value": "20%",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 21,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "06756bd2fbf062e4b6d8e7a475949e6534bff621ed531fdff08f0b9a2226c828"
+            }
+          ],
+          "claim_id": "clm_43b192d543b5035dd3ec",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_41223e54120aa428",
+      "title": "2️⃣ 서울시청 코로나19 지원 → 데이터 분석을 활용한 청렴 행정",
+      "organization_alias": "",
+      "period": null,
+      "role": "서울시청 코로나19 지원과에서 의료 인력의 급여 산정 업무를 담당하던 중, 숙박비 지원 증빙의 신뢰성이 부족하다는 문제를 발견했습니다.",
+      "situation": "긴급.",
+      "actions": [
+        "필터 기능을 활용해 평균값을 벗어나는 청구 건 자동 분류.",
+        "앱을 활용해 숙박비 시세 검증 절차 추가."
+      ],
+      "outcomes": [
+        "서울시청 코로나19 지원과에서 의료 인력의 급여 산정 업무를 담당하던 중, 숙박비 지원 증빙의 신뢰성이 부족하다는 문제를 발견했습니다.",
+        "숙박비 청구 건의 신뢰성을 높이고, 부정수급을 방지할 수 있는 검증 시스템을 구축해야 했습니다.",
+        "부정수급 적발 → 공적 예산 낭비 방지."
+      ],
+      "competencies": [
+        "정확성",
+        "문제 해결",
+        "신뢰"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "서울시청 코로나19 지원과에서 의료 인력의 급여 산정 업무를 담당하던 중, 숙박비 지원 증빙의 신뢰성이 부족하다는 문제를 발견했습니다. 긴급. 지원이 이루어지는 상황에서 일부 허위 신고 가능성이 제기되었습니다. 숙박비 청구 건의 신뢰성을 높이고, 부정수급을 방지할 수 있는 검증 시스템을 구축해야 했습니다. 엑셀. 필터 기능을 활용해 평균값을 벗어나는 청구 건 자동 분류. 숙박비. 영수증과 실제 임대인의 증빙 금액이 다른 사례를 발견 → 허위 신고 가능성 인지. 부동산. 앱을 활용해 숙박비 시세 검증 절차 추가. 부정수급 적발 → 공적 예산 낭비 방지. 업무. 속도 기존보다 단축.",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 29,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "1df314440c2fa39bfbba83dfb23df3c74915b9471ec3882d3235e0356ca6f0cf"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 30,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "542d2b212edddf535cf28066d737a09c3ae14ea0aa4393d84feff358265bb9a3"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 31,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "760be0bd9ca12a3c323558c5ecdaa209af1beb192c231b48f341f17c51c5f52d"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 33,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "b8adabde7734da95528fe5947dadaaf40cd31c69620c6b9837aaae0c8debab18"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 35,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "f29daeba6ff134ac50daa123180a38a47d4ce72e812604a3ca06b6a3cbdf952b"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 36,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "a65399e1192380bf6a00ac8148292514aa571869e26bd91c5137f61c2352790f"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 37,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "b844d31fad2e109ede087bd66d0fd656df30f245f80001feb5884afd1db20f89"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 38,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "20d3e12790c55560c13e01c13cf51e1f954979ebb6cd801b7dfcf24596ef646a"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 39,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "94a50d40a977f2418c4e8b0acfc5fc983a2e8c9686f6c670a91df8cd1a95d566"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 40,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "342eb5baffdc424deb356ae5c04fe660820920efdc7c2d1f0ba80565cbbe62b6"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 42,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "e4f63ef17182d5f81eda177107b26f9019901a0f7dd14e25611c263f59824c87"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 43,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "1377bb69d5f7d43cea776ccb1e5593c703eba17f47e18ab628cbdccba7c4521b"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 44,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "7c673f56bffaf6d4a8111a907755f110325bc87e08f81b7d80893cd947a56dff"
+            }
+          ],
+          "claim_id": "clm_dc763e2a899b71b29666",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        },
+        {
+          "field": "case_count",
+          "normalized_value": "20건",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 42,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "e4f63ef17182d5f81eda177107b26f9019901a0f7dd14e25611c263f59824c87"
+            }
+          ],
+          "claim_id": "clm_d3b25db618e154c0a32b",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "metric:주",
+          "normalized_value": "1주",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 44,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "7c673f56bffaf6d4a8111a907755f110325bc87e08f81b7d80893cd947a56dff"
+            }
+          ],
+          "claim_id": "clm_8bcf4f6724143003d665",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_d5ef585ca8817f00",
+      "title": "3️⃣ 국민연금공단 인턴 → 데이터 기반 행정 혁신",
+      "organization_alias": "",
+      "period": null,
+      "role": "국민연금공단에서 기초연금 수급 대상자를 발굴하는 업무를 담당하면서, 기존 방식이 비효율적이라는.",
+      "situation": "국민연금공단에서 기초연금 수급 대상자를 발굴하는 업무를 담당하면서, 기존 방식이 비효율적이라는.",
+      "actions": [
+        "단순 연금액 기준 필터링 후 개별 전화로 확인했지만, 부동산 자산이나 추가 소득으로 인해 수급 대상이 아닌 경우가 많았습니다.",
+        "보다 정확한 필터링 방식을 도입해, 불필요한 전화 업무를 줄이고 실질적으로 도움이 필요한.",
+        "VLOOKUP 함수를 활용해 연금액, 부동산 공시지가, 소득을 함께 반영하는 필터링 시스템 구축.",
+        "높은 대상자를 자동 분류하는 방식으로 개선."
+      ],
+      "outcomes": [
+        "전화 업무 대폭 감소."
+      ],
+      "competencies": [
+        "정확성",
+        "문제 해결"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "국민연금공단에서 기초연금 수급 대상자를 발굴하는 업무를 담당하면서, 기존 방식이 비효율적이라는. 문제를 발견했습니다. 단순 연금액 기준 필터링 후 개별 전화로 확인했지만, 부동산 자산이나 추가 소득으로 인해 수급 대상이 아닌 경우가 많았습니다. 보다 정확한 필터링 방식을 도입해, 불필요한 전화 업무를 줄이고 실질적으로 도움이 필요한. 대상자들을 신속하게 찾아야 했습니다. VLOOKUP 함수를 활용해 연금액, 부동산 공시지가, 소득을 함께 반영하는 필터링 시스템 구축. 우선순위가. 높은 대상자를 자동 분류하는 방식으로 개선. 불필요한. 전화 업무 대폭 감소. 업무. 속도 단축. 실제. 수급 가능성이 높은 대상자에게 우선 연락 가능.",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 49,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "c0616b4fc834c998b1b02a4e95876720661887dc9ee89ced0ee6c7c3cd107ebd"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 50,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "f526ca300fe79e1f449fe38f65900a5e7de62cd9c42e209d0194f64f84e22f8a"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 51,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "39a49b9ff2b2511c98e56012af0765bed5b3a82cc661c638b3db685c8541a1bd"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 53,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "4055ff4eb842b8d61de9860e2f6491131c2d6f3e7956984e54bdc2d372c147f8"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 54,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "23d32c2691265e5e583b43990758d5dfe7213e5669ca276b3df69fbef0136435"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 56,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "03ae595141beaa6aa017542766d7d34599d656e48ed596913dabf4cca0e14f3d"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 57,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "51407a3f46c663cc771e5168513dfb3184c2d06cf9c25592be5fb743c2dbd926"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 58,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "c32fdbe15ae3963a6938e698a709f3da835d87a948317743a9c9929813bdb11f"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 60,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "777b4ed1c67545e7425786d25433b8481bf6836e65977f5232e166434e62e2ad"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 61,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "dec1a704c96171fed0bb6d7c8201f5c22d2c1e7e609cc1e8b7241373a059bfe4"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 62,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "1377bb69d5f7d43cea776ccb1e5593c703eba17f47e18ab628cbdccba7c4521b"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 63,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "ef1d3f45d194ac74d9a399c94d8062ac4d6a3e359f11456d387f273b459f05d9"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 64,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "674150f61887a603ffc51d6ddbf725c5a17899b9b31021c365d54158694a2369"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 65,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "f5d40703bb94a4c7cba82d720d3fd6e2cca3602dc373e09c7af4da31997975ac"
+            }
+          ],
+          "claim_id": "clm_81b86f2f6db2652c1355",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        },
+        {
+          "field": "metric:주",
+          "normalized_value": "1주",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 63,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "ef1d3f45d194ac74d9a399c94d8062ac4d6a3e359f11456d387f273b459f05d9"
+            }
+          ],
+          "claim_id": "clm_ff529b180623f5baabf4",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_196858201aa9d88c",
+      "title": "4️⃣ 은행 아르바이트 → 맞춤형 행정 서비스 & 고객 중심 소통 능력",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "은행에서 아르바이트를 하던 중, 고객님께서 시각·청각.",
+      "actions": [
+        "긴장하지 않도록 스몰토크 활용하여 편안한 분위기 조성.",
+        "디지털 취약 계층 응대 시 눈높이 맞춘 안내 방식 적용."
+      ],
+      "outcomes": [
+        "불안감 없이 서명 절차 완료."
+      ],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "은행에서 아르바이트를 하던 중, 고객님께서 시각·청각. 장애로 인해 태블릿 서명 절차에 어려움을 겪는 상황이 있었습니다. 디지털 취약 계층이 불편 없이 서명할 수 있도록 도와야 했습니다. 큰. 소리로 천천히 또박또박 말하며 행동을 직접 보여주면서 유도. 고객이. 긴장하지 않도록 스몰토크 활용하여 편안한 분위기 조성. 고객이. 불안감 없이 서명 절차 완료. 이후. 디지털 취약 계층 응대 시 눈높이 맞춘 안내 방식 적용.",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 70,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "b31adbbebe9fc246a610e876cc68962178b45fb90661340b614ae1ccbb7f019c"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 71,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "e96cdc7dc4492915152411e12141b25a08a2bd6af038de9363cad48bade47c23"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 73,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "98e73a7a24d41c2bc8671bd54354f530ce17bea15c5c14ec97592cce811ad8b6"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 75,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "697674905873e8eb4c587dd82867507f279b3143398de596ddea1c926f2c2139"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 76,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "791070dc7e439b656480d8527e2303c5e0d39ec62f1316cedd6e114858457aea"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 77,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "99fd4db86b4c57a74fd87c90f552dcefe7bca6aba80e06665665ba21ac876e85"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 78,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "b940e2920074adcb80fb0c085a6d57919c10091abbee1f7f6caa3836e41e8e9b"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 80,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "99fd4db86b4c57a74fd87c90f552dcefe7bca6aba80e06665665ba21ac876e85"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 81,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "f49d1e3a88c70c965defeef00fb70281527db7e9ceb040963f3c161a86ed09b1"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 82,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "ee1d8655d66d382b52a56d371294dee72b10a4bb089b9d96b448422ce6a64049"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 83,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "e1cd4ab9ab755d3dc5f93a87d31f019fd49d19941d511f9468c7abda8569bcd0"
+            }
+          ],
+          "claim_id": "clm_3d0733cd373cfb8da5e6",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_0fba68713f0e3151",
+      "title": "🔹 3. 성북구청 (목표 설정, 전략적 홍보, 영업 및 설득, 데이터 기반 마케팅)",
+      "organization_alias": "",
+      "period": null,
+      "role": "팀원 과 역할 분담 → 효율적 홍보 진행.",
+      "situation": "자치회의 참여.",
+      "actions": [
+        "전략 → 유동 인구 많은 장소 (지하철역, 백화점 등) 활용."
+      ],
+      "outcomes": [
+        "( 앞당겨 달성)."
+      ],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "자치회의 참여. 홍보 → 목표 모집. ( 앞당겨 달성). 중장년층 타겟팅. 전략 → 유동 인구 많은 장소 (지하철역, 백화점 등) 활용. 팀원 과 역할 분담 → 효율적 홍보 진행.",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 89,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "2b3446b6c5720f9609b16ace97098c3d0a915746cc526997b432d4a413d86ead"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 90,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "86f6fadb6db2b0ba7dc59fc1cc14ebf9a61b6da18e87d750932e5c5dc9a543d9"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 91,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "228f0cf26c02fbeba9a963f3ef0e5ed432d504e41ca64f38527abe8395ce6503"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 92,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "f602d4968c8976ce10f94f46b3c5e96824679bba911cf74ad2c0518f16f9a4fa"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 93,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "cc61433a30a1ce417cb38ed619c75d69b906b5bc5a3f3012aa25fe99a72514a6"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 94,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "71f200ae4bdb16aafd568e9f9a3c988fbbc7519c8168a94c8a99433a5a1c0816"
+            }
+          ],
+          "claim_id": "clm_f4acb29517b6812c2e50",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        },
+        {
+          "field": "metric:명",
+          "normalized_value": "20명",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 90,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "86f6fadb6db2b0ba7dc59fc1cc14ebf9a61b6da18e87d750932e5c5dc9a543d9"
+            }
+          ],
+          "claim_id": "clm_4124682b288df94b4068",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "metric:주",
+          "normalized_value": "3주",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 91,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "228f0cf26c02fbeba9a963f3ef0e5ed432d504e41ca64f38527abe8395ce6503"
+            }
+          ],
+          "claim_id": "clm_66b0cdfd90722d74b88c",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "metric:명",
+          "normalized_value": "3명",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 94,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "71f200ae4bdb16aafd568e9f9a3c988fbbc7519c8168a94c8a99433a5a1c0816"
+            }
+          ],
+          "claim_id": "clm_e1c424804644b73be020",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_a783c9434ccd19e3",
+      "title": "경험정리 문단 103",
+      "organization_alias": "",
+      "period": null,
+      "role": "조직관리/협업 → 팀워크, 역할 분담, 목표 달성 능력 부각",
+      "situation": "조직관리/협업 → 팀워크, 역할 분담, 목표 달성 능력 부각",
+      "actions": [
+        "조직관리/협업 → 팀워크, 역할 분담, 목표 달성 능력 부각"
+      ],
+      "outcomes": [
+        "조직관리/협업 → 팀워크, 역할 분담, 목표 달성 능력 부각"
+      ],
+      "competencies": [
+        "협업"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "조직관리/협업 → 팀워크, 역할 분담, 목표 달성 능력 부각",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 102,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "eba4d35cbd970e3c1ae6fa677e2269b726c426c02f56d8c9892952a3d746577a"
+            }
+          ],
+          "claim_id": "clm_e10d726724371eaad392",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_cc49cbad1ed46e45",
+      "title": "🔹 4. 반포한강공원 (프로세스 개선, 행사 운영, 협업 및 갈등 해결)",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "별보기 행사 운영.",
+      "actions": [
+        "지원 → 출석부 미기재, 물품 혼선, 지연 문제 분석 & 개선.",
+        "제출 도입 → 행사 진행 속도 향상 & 실적 처리.",
+        "조정 프로세스 개선 → 효율적인 인력 관리 달성.",
+        "보안관 갈등 분석 → 소통 문제 파악 & 해결 제안."
+      ],
+      "outcomes": [
+        "조정 프로세스 개선 → 효율적인 인력 관리 달성."
+      ],
+      "competencies": [
+        "분석력",
+        "문제 해결",
+        "협업"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "별보기 행사 운영. 지원 → 출석부 미기재, 물품 혼선, 지연 문제 분석 & 개선. 온라인 출석부. 제출 도입 → 행사 진행 속도 향상 & 실적 처리. 시간 단축. 자원봉사자 일정. 조정 프로세스 개선 → 효율적인 인력 관리 달성. 행정 공무원 vs. 한강 지킴이 vs. 보안관 갈등 분석 → 소통 문제 파악 & 해결 제안.",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 106,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "3e77bb4abdea7a250d666c96052b0a874ed341169e114071a1c070651b7b2ab2"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 107,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "10a205313f123d7ac1d8fbba6a056af7697e536754f47d30eea16a4563a7256c"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 108,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "4a71256b7a163be56766cca5b1627bd1dc8b02a5404ebb3688c91e01308ba832"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 109,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "38a5d18feb2db05d4817c410a0f9aed5d582f5c60d32d30c61a5fbd34dfbf92f"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 110,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "cde334e7818c48e692b666aafe036bd2d2fd4397abf507f29cea918046ad7bb2"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 111,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "34abcdcd4443f0470d5f5cc8b552a26f6e0ef09886a7d67bd6a329e7cd675c47"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 112,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "b92868651e2373b222b4b552774ef98d5a3a305be8c484b670f3ed341d0d6df5"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 113,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "9f2b4e719992850146d16924b5a4d5422ea7d14702caa88cf5ce998ebfeda410"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 114,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "fb8b7454aaa606003ad4133089fbc4b03d0fd3a2eb6c4e77e07dcad58fff6763"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 115,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "5c5376be3845aecb0d0bc232b1fea299d8408be61fb59a405cc9348d98642958"
+            }
+          ],
+          "claim_id": "clm_1bd278f97d141f4d120d",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_7e6ffe60580ca5ee",
+      "title": "🔹 7. 제기동 약령시장 활성화 프로젝트 (시장 조사, 기획 및 마케팅, 문제 해결)",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "젊은 세대 방문.",
+      "actions": [
+        "감소 원인 분석 → SNS 홍보 전략 기획.",
+        "상인 인터뷰 & 타 시장 비교 분석 → 문제점 및 개선 방안 도출.",
+        "SNS 활용 & 체험 프로그램 제안 → 방문객 수 증가 기대 효과 창출."
+      ],
+      "outcomes": [
+        "감소 원인 분석 → SNS 홍보 전략 기획.",
+        "SNS 활용 & 체험 프로그램 제안 → 방문객 수 증가 기대 효과 창출."
+      ],
+      "competencies": [
+        "분석력",
+        "문제 해결"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "젊은 세대 방문. 감소 원인 분석 → SNS 홍보 전략 기획. 상인 인터뷰 & 타 시장 비교 분석 → 문제점 및 개선 방안 도출. SNS 활용 & 체험 프로그램 제안 → 방문객 수 증가 기대 효과 창출.",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 126,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "ac4102d8108dce8f4fae73f25a017d2ed52b5e8baaa9ee1a1378868427a503e3"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 127,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "e3b5f4d803604f42ce2cd97a72ae4c3de2224530fc60e943158bbaa795aa2515"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 128,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "e7146b4701aca38067b93c674b0175dee27d29580d239002aa46fcbbc0411456"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 129,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "97ecaf5467d86e413ccb5645415448a8b2cbcd0996da5c49bacfe219d90f6b03"
+            }
+          ],
+          "claim_id": "clm_2b1d70bff6113c8b6b82",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        },
+        {
+          "field": "metric:명",
+          "normalized_value": "50명",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 128,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "e7146b4701aca38067b93c674b0175dee27d29580d239002aa46fcbbc0411456"
+            }
+          ],
+          "claim_id": "clm_ceaf32cc602de8db2e55",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_dfcee4de26a3caab",
+      "title": "2️⃣ 데이터 분석 (엑셀 기반 데이터 정리 및 최적화 강조) 📌 지원 포인트: 엑셀 및 데이터 분석 활용 능력 데이터 정리 및 자동화 프로세스 구축 데이터 기반 문제 해결 역량",
+      "organization_alias": "",
+      "period": null,
+      "role": "효율적으로 정리하고, 데이터 기반 의사결정을 지원하는 역할을 수행할 수 있습니다.\".",
+      "situation": "❓ Q2.",
+      "actions": [
+        "경험 활용.",
+        "\"의 기초연금 수급자 데이터를 분석하며, 엑셀 필터링 및 함수(TEXT, CONCATENATE) 활용하여.",
+        "연락처 데이터 정리 및 표준화 작업을 수행했습니다.",
+        "이 과정에서 엑셀을 활용한 데이터 정리 및 자동화 프로세스 구축 경험을 쌓았으며, 이를 통해 행정 업무의 효율성을 이상 향상시켰습니다.",
+        "이러한 경험을 바탕으로, 저는 데이터 분석 직무에서 방대한 데이터를.",
+        "효율적으로 정리하고, 데이터 기반 의사결정을 지원하는 역할을 수행할 수 있습니다.\".",
+        "\"이 경험을 통해 저는 시장 조사, 데이터 기반 홍보 전략 수립, 협업을 통한 문제 해결 능력을 길렀습니다.",
+        "역량을 활용할 수 있습니다.",
+        "직무에 맞춰 경험을 최적화하여 활용하면 끝.",
+        "혹시 추가로 조정하고 싶은 부분이 있으면 알려주세요.",
+        "자기소개서에서 활용할 수 있는 핵심 경험."
+      ],
+      "outcomes": [],
+      "competencies": [
+        "분석력",
+        "문제 해결",
+        "협업"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "경험 활용. \"의 기초연금 수급자 데이터를 분석하며, 엑셀 필터링 및 함수(TEXT, CONCATENATE) 활용하여. 연락처 데이터 정리 및 표준화 작업을 수행했습니다. 이 과정에서 엑셀을 활용한 데이터 정리 및 자동화 프로세스 구축 경험을 쌓았으며, 이를 통해 행정 업무의 효율성을 이상 향상시켰습니다. 이러한 경험을 바탕으로, 저는 데이터 분석 직무에서 방대한 데이터를. 효율적으로 정리하고, 데이터 기반 의사결정을 지원하는 역할을 수행할 수 있습니다.\". ❓ Q2. 제기동. 약령시장 경험이 지원 직무와 어떻게 연결될 수 있나요. A. \"이 경험을 통해 저는 시장 조사, 데이터 기반 홍보 전략 수립, 협업을 통한 문제 해결 능력을 길렀습니다. 예를 들어, 마케팅 직무에서는 고객 타겟팅 및 홍보 전략을 기획하는. 역량을 활용할 수 있습니다. 또한, 사업 개발 직무에서는 시장 조사 및 기획 역량을 바탕으로. 새로운 프로젝트를 성공적으로 수행할 수 있습니다. 즉, 제기동 약령시장 프로젝트 경험을 바탕으로, [지원 직무]에서 데이터 기반의 기획 및 실행을 통해 성과를 창출하겠습니다.\". 🚀 이제. 직무에 맞춰 경험을 최적화하여 활용하면 끝. 혹시 추가로 조정하고 싶은 부분이 있으면 알려주세요. 😊. 자기소개서에서 활용할 수 있는 핵심 경험.",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 171,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "241552e0c5f6d1735becebabd9878ce8efbef86d31f38dd3bb12b39c6da23891"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 172,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "228bab9be21a40332f711e26d92ca3cf5bd9ad7e70c2a0efec6f0ed330518be7"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 173,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "3ce6de0f37299b52545d6078cde76bd11110350c9750bb5d57c0123175896a9c"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 174,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "982ef6d097279625afb30901cae8c4fea80490888e1f23bd66b4853aa4ade78f"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 175,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "ce3e20b0db903f9b3bf9b3e9e1e33da70763f8d7d67a7c606312161a43a060f3"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 176,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "f39c63e880a87cc74b64ea72c3ad3bbc34d99ad87fece989b10685a99504256a"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 177,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "dd248a1cec9a452d6875f18b327e185523d217dd9ef7936d3c25be722b06e958"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 178,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "82abaed9ff832022efbf65a10ede484eeac0edf2fc0cd238ab1ee17a698ee05a"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 179,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "ae3725cf74a4cf2db311ab9973a4b1e6351ca735f9b6d1d8883dc30304bcbcb3"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 180,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "2848b87101d9577d6d13c379d71e3b01fbeee02f654faefdc368262ae76220cf"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 181,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "d08718434fa1eb6f3bfb09b43a079210ab3be01c73a6ef2a1e255efd0de72119"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 182,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "bcb20493e1bfc44562d2f3ff56117545736f16ddf5fcd97f2c9874b4597959e4"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 183,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "cd640cdf19b8458d18dfb9595841271ac30fb6c048df66f572cc5ab2e85e8ce8"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 184,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "71685cd1bcd7ba6b34f25750c7617a83131cc83423a0d94f8305a7e6c36704f1"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 185,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "305a93ae7d00b8fbbc55754e7b315e0f1fc920e701ef38b821ce59f6b0e718dc"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 186,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "7dd4972f995bb81e5d3cc7c25051353a5f7795f3035790884d8bb0d5b6d3c565"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 187,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "7ed448cf44563472516897abdbe81324fe57bf4041e49167b5628ed3cf612428"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 188,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "82f9060aefb96f1b5c504ecf19c535df672d6f518d239d10d9206c30547d5ac3"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 189,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "1fa64d476e765214699df1d6f999b0ae375267521b959b99222f6f082a5bee73"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 190,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "08081c499cdeab015ad5c888c4aac3e8a4ba2333be9862f69482732bd817411d"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 191,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "666e59c33aa5529b830c376a0856c913799dfbf86549c7628531c9ac3448d679"
+            }
+          ],
+          "claim_id": "clm_ea655f736f2ddbdf5c76",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        },
+        {
+          "field": "metric:건",
+          "normalized_value": "333건",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 172,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "228bab9be21a40332f711e26d92ca3cf5bd9ad7e70c2a0efec6f0ed330518be7"
+            }
+          ],
+          "claim_id": "clm_41eadbecec26b4c8d789",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "metric:percentage",
+          "normalized_value": "30%",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 174,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "982ef6d097279625afb30901cae8c4fea80490888e1f23bd66b4853aa4ade78f"
+            }
+          ],
+          "claim_id": "clm_0a4a43efa3fee19013b3",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_bf460c4eddcb23c7",
+      "title": "1️⃣ 데이터 분석 & 업무 프로세스 개선 (경영기획/총무, 데이터 분석, 기획 직무 활용 가능)",
+      "organization_alias": "",
+      "period": null,
+      "role": "*\"서울시청에서 코로나19 파견 의료 인력 급여 지급 업무를 맡으며, 기존 프로세스의 비효율성을.",
+      "situation": "엑셀 자동 필터링.",
+      "actions": [
+        "서울시청 코로나19 지원팀 근무 → 급여 지급 프로세스 비효율성 발견 & 개선.",
+        "시스템 도입 → 업무 속도 향상 & 예산 절감 효과.",
+        "도입 반대 → 비용 절감 및 데이터 처리 속도 개선.",
+        "🔹 활용.",
+        "📍 경영기획 / 총무 / 데이터 분석 / 영업.",
+        "활용 예시.",
+        "발견하고 개선한 경험이 있습니다.",
+        "자동 필터링 시스템을 도입하여 업무 속도를 향상시켰습니다.",
+        "또한, 외주 급여 시스템 도입을 검토하던 과정에서 비용 대비.",
+        "효율성이 낮다는 점을 데이터 분석을 통해 입증하고.",
+        "대체 방안을 제안하여 1억 원의 예산을 절감하는 성과를 냈습니다."
+      ],
+      "outcomes": [
+        "시스템 도입 → 업무 속도 향상 & 예산 절감 효과.",
+        "도입 반대 → 비용 절감 및 데이터 처리 속도 개선.",
+        "대체 방안을 제안하여 1억 원의 예산을 절감하는 성과를 냈습니다."
+      ],
+      "competencies": [
+        "분석력",
+        "문제 해결"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "서울시청 코로나19 지원팀 근무 → 급여 지급 프로세스 비효율성 발견 & 개선. 엑셀 자동 필터링. 시스템 도입 → 업무 속도 향상 & 예산 절감 효과. 외주 급여 시스템. 도입 반대 → 비용 절감 및 데이터 처리 속도 개선. 🔹 활용. 가능 직무. 📍 경영기획 / 총무 / 데이터 분석 / 영업. 관리 / 운영 기획. 활용 예시. *\"서울시청에서 코로나19 파견 의료 인력 급여 지급 업무를 맡으며, 기존 프로세스의 비효율성을. 발견하고 개선한 경험이 있습니다. 급여 서류 검토 시간이 과도하게 소요되는 문제를 해결하기 위해, 엑셀. 자동 필터링 시스템을 도입하여 업무 속도를 향상시켰습니다. 또한, 외주 급여 시스템 도입을 검토하던 과정에서 비용 대비. 효율성이 낮다는 점을 데이터 분석을 통해 입증하고. 대체 방안을 제안하여 1억 원의 예산을 절감하는 성과를 냈습니다. 이 경험을 바탕으로, 저는 [지원. 직무]에서 업무 프로세스를 최적화하고, 데이터 기반의 의사결정을. 통해 조직의 성과를 극대화하는 역할을 수행하겠습니다.\"*.",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 194,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "bf946c875b99886469f4602aeb29050840598a647ff72b89557773461038353a"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 195,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "d397b3ebdf3407116b91529d328ce03485f4867af5ea77ba9fe06b738a2c3d5a"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 196,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "5f221fe2889b7f37e64e4b25c301081c7f472c6a162847a37fa04062f4dde182"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 197,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "ac46b5478c4f507561db78fb3bb38f4a96a37b491618c866f11e6ee41f4d0cfb"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 198,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "7bb7e59d964e9f14c5e0cd1592162f8818a1df099f73772fb0f987de54e2e57f"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 199,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "d5bdff8ded38c64ec2707d8bd468e390d3198ee617fb38c33b7b03cc21297f5c"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 200,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "53f1e8b50f7feeae17b67dea182fadd7954c6e13f317644b528c9cdcf988fb78"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 201,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "c34b7e78a957be2646a92c1a643fc199185916b0678d115f1c5e4868d86cb3ed"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 202,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "a9676caa0c49d0f0a3890a5b33f3a32a3f396587a89a453d08c46c80087294fe"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 203,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "a033dc34934993b5ee1fc5ce52938c13440ca009987f846e8b5404222f435fc6"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 204,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "3c83e7142a3c68d69907b52e3c405d16c5393e4a20ab84646cc7515805a3e338"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 205,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "ede928fde6fbec3d4f171dafa57b1e1aef82d707338ba5002dc7d432b94340d0"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 206,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "14d650170f3b73e57b32ba943aed786e7aab99a8b67a2d064ad4b23de24ea5a0"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 207,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "10fb96d7e76d8f060ef60cd72b2f97c97fdb69038ed0f09be5e8336e9e774f40"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 208,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "d925547b25b31d8a81765688856498799ae0a47e9f6b08a2035d851b92eda75b"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 209,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "3395976859507faeaaa0571c76ad0a40ad3e23af4e0395566e4b59271e246b08"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 210,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "867ddc075bbdc92f4d6cb9c65366ab228d8b03c3cea46e7e318fc7a8612df250"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 211,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "9ce6ed1c0817df607583c75cffde90ffe1c92b19df268f719bee2d71ddb132c5"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 212,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "ecd31d62a075c1cbcaf00c5cfd2417d63ebf05330b3024999203da767e06a34a"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 213,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "29a4b736397046b2488bf78a7a62b8624941332d9f488e7a0c3cd90b301054db"
+            }
+          ],
+          "claim_id": "clm_2e7a3e3011e372dc8adf",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        },
+        {
+          "field": "metric:percentage",
+          "normalized_value": "30%",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 196,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "5f221fe2889b7f37e64e4b25c301081c7f472c6a162847a37fa04062f4dde182"
+            }
+          ],
+          "claim_id": "clm_d4ef7a65177a42a9734c",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "metric:percentage",
+          "normalized_value": "30%",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 207,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "10fb96d7e76d8f060ef60cd72b2f97c97fdb69038ed0f09be5e8336e9e774f40"
+            }
+          ],
+          "claim_id": "clm_5c3543c738bd2c3d4a95",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "budget_savings",
+          "normalized_value": "100000000원",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 210,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "867ddc075bbdc92f4d6cb9c65366ab228d8b03c3cea46e7e318fc7a8612df250"
+            }
+          ],
+          "claim_id": "clm_57aea4de17fbc9d674fb",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_d6382b495317c11f",
+      "title": "2️⃣ 갈등 해결 & 협업 (조직관리, CS, 인사/HR 직무 활용 가능)",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "엑셀 업무 방식.",
+      "actions": [
+        "기존 직원 & 신규 직원 간의 원활한 협업 문화 조성.",
+        "🔹 활용.",
+        "서비스 / HR / 조직문화 / 교육 기획 / 협업 관리.",
+        "활용 예시.",
+        "또한, 두 방식을 병행하는 절충안을 제안하여 자연스럽게 변화에."
+      ],
+      "outcomes": [
+        "존중하면서 새로운 방식의 장점 설득 → 업무 효율성 증가.",
+        "그 결과, 업무 효율성이."
+      ],
+      "competencies": [
+        "문제 해결",
+        "협업"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "엑셀 업무 방식. 차이로 세대 간 갈등 발생 → 중재 및 설득을 통해 협력 유도. 상대방의 경험을. 존중하면서 새로운 방식의 장점 설득 → 업무 효율성 증가. 기존 직원 & 신규 직원 간의 원활한 협업 문화 조성. 🔹 활용. 가능 직무. 📍 CS / 고객. 서비스 / HR / 조직문화 / 교육 기획 / 협업 관리. 활용 예시. *\"서울시청에서 근무하며, 세대 간 엑셀 업무 방식 차이로 갈등이 발생하는 상황을 경험했습니다. 기존 직원들은 수동 계산 방식을 선호했고, 새로운 직원들은 자동화된. 방식의 효율성을 강조하며 의견 충돌이 있었습니다. 저는 기존 직원들의 경험을 존중하면서도, 새로운 방식의 장점을. 단계적으로 설명하는 방식을 택했습니다. 또한, 두 방식을 병행하는 절충안을 제안하여 자연스럽게 변화에. 적응할 수 있도록 도왔습니다. 그 결과, 업무 효율성이.",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 215,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "c1a1bb5749a675f0bb0c11fbc554a667b00ea02eef615493c371394ef7cfd84d"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 216,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "c2c24fec1263a817defd316328d5774d9d99786b6aa101d1278ad6bfd9717ff1"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 217,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "3409d7d9a52b53b1657b73d564ff55327af58e62655b790f2b48e2d44568542a"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 218,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "5234abd2095f83c0012a96adeeafd3899d32d86b280da60bbf0eceb7a27dab8a"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 219,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "4af4ea2ec2a0327fa942ccdb33c71a22c439df6efd033c2d7ab6abcaaa8fb749"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 220,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "d5bdff8ded38c64ec2707d8bd468e390d3198ee617fb38c33b7b03cc21297f5c"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 221,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "53f1e8b50f7feeae17b67dea182fadd7954c6e13f317644b528c9cdcf988fb78"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 222,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "4c1ddbb4aeeb81a605e2275c5a303f5ce7e6b77dbfa303719a9737b4ba82aab7"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 223,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "cf448b0a77ccd7fa2fe2dd1cd9c2679db66398e0a82750c20fd79f3fd70c7973"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 224,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "a033dc34934993b5ee1fc5ce52938c13440ca009987f846e8b5404222f435fc6"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 225,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "b630707604bf85d75d96dba1c51932a0d98dfd492330e9e9385bfc9b95b4b03d"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 226,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "4f5645facec16e233500804c40b0016420c638a8f06dcd459254ecc8947188de"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 227,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "8da4d2a083de52dd943004b5751ce86112f5701357ea67de4def70362d80443b"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 228,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "c91834c6bd7582fb0349e01da19ea019ccf9a104cbc6a26b917b8b162e10cd5b"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 229,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "273c77d1210cae339d14f6429b1484321e78f967ec259931603da7208a055da4"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 230,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "1f823e8a0a0922d6e922d21cac23c024733de3b2dad12a9986adbac7f8283112"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 231,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "1f97316c742d999d0da58a3f3fcdd8f976cac0acc59df5cebe61ef98965e6238"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 232,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "a7128d85b91234368a9a77365164f2c87a7bc47b6293d68a455721371c4abcd5"
+            }
+          ],
+          "claim_id": "clm_741aa6e7296b6a0e1c72",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        },
+        {
+          "field": "metric:percentage",
+          "normalized_value": "30%",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 218,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "5234abd2095f83c0012a96adeeafd3899d32d86b280da60bbf0eceb7a27dab8a"
+            }
+          ],
+          "claim_id": "clm_80eb5c2c23ffe406f6fd",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_2fe7474d7367a89c",
+      "title": "경험정리 문단 234",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "30% 증가했고, 조직 내 협업 문화가 개선되었습니다.",
+      "actions": [
+        "30% 증가했고, 조직 내 협업 문화가 개선되었습니다."
+      ],
+      "outcomes": [
+        "30% 증가했고, 조직 내 협업 문화가 개선되었습니다."
+      ],
+      "competencies": [
+        "문제 해결",
+        "협업"
+      ],
+      "claims": [
+        {
+          "field": "metric:percentage",
+          "normalized_value": "30%",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 233,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "2309d36af392f9f613f9ce1596f30b79530a8098c2756e0b564002883023663a"
+            }
+          ],
+          "claim_id": "clm_ac878752b9e92ecfc80b",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_e8d2c44b293ae913",
+      "title": "3️⃣ 문제 해결 & 위기 대응 (영업, 기획, 고객 서비스, 경영지원 직무 활용 가능)",
+      "organization_alias": "",
+      "period": null,
+      "role": "담당자가 부재한.",
+      "situation": "중수본에서 갑작스럽게.",
+      "actions": [
+        "공문 분석 → 병원 & 군의관 대상 지침 정리 및 대응 매뉴얼 제작.",
+        "🔹 활용.",
+        "활용 예시.",
+        "담당자가 부재한 상태에서도, 저는 공문을 빠르게 분석하고, 병원과 군의관들에게 필요한 정보를 정리한 지침을 배포하여 혼란을 최소화했습니다.",
+        "프로세스 구축을 제안했습니다.",
+        "상황 분석과 해결책 마련 능력을 길렀습니다.",
+        "위기 상황에서도 침착하게 문제를 해결하고, 업무 프로세스를 개선하는 역할을 수행하겠습니다.\"*."
+      ],
+      "outcomes": [],
+      "competencies": [
+        "분석력",
+        "문제 해결",
+        "협업"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "중수본에서 갑작스럽게. 군의관 배정 공문 발송 → 사전 협의 없이 진행되어 병원과 군의관 혼란 발생. 담당자가 부재한. 상황에서도 문제를 신속하게 파악 & 해결책 마련. 공문 분석 → 병원 & 군의관 대상 지침 정리 및 대응 매뉴얼 제작. 🔹 활용. 가능 직무. 📍 영업 / 기획 / 고객 서비스 / 위기. 대응 / 운영 관리 / 프로젝트 매니지먼트. 활용 예시. *\"서울시청 근무 당시, 중수본에서 사전 협의 없이 군의관 배정 공문을 일방적으로 발송하며 병원과 군의관들이 혼란에 빠진 상황을 경험했습니다. 담당자가 부재한 상태에서도, 저는 공문을 빠르게 분석하고, 병원과 군의관들에게 필요한 정보를 정리한 지침을 배포하여 혼란을 최소화했습니다. 또한, 향후 유사한 문제가 발생하지 않도록 중수본과의 사전 협의. 프로세스 구축을 제안했습니다. 이러한 경험을 통해, 저는 예상치 못한 문제 발생 시 신속한. 상황 분석과 해결책 마련 능력을 길렀습니다. 이를 바탕으로, [지원 직무]에서. 위기 상황에서도 침착하게 문제를 해결하고, 업무 프로세스를 개선하는 역할을 수행하겠습니다.\"*.",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 239,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "7a064ca0d5c1c070910a0b2e9d4bb07060a22d6ff4b41ffefc766c22e27a5bff"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 240,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "a4c2bb22ae5870607550e38eedd9fb331344a9aec2610c5eefa179963e807d41"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 241,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "aac0e6ee9adc369d360ae8fd704c9ba8260ebeeebf00dfaa564527e10405c1e6"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 242,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "d9eedef8976a3c222222e8c20699f4f887b667cd986ee1edea8534a8c2322c3f"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 243,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "046088e6b7388b9fe0636d41f9e3d04d8039c18960a6af8058e198131ad78c22"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 244,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "d5bdff8ded38c64ec2707d8bd468e390d3198ee617fb38c33b7b03cc21297f5c"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 245,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "53f1e8b50f7feeae17b67dea182fadd7954c6e13f317644b528c9cdcf988fb78"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 246,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "1b6d2f3e5c15482258f2dab15a9b194d0275b144843e10c29634b2fdbe3ae800"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 247,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "afa3ea55d8169f81dc18d39dc46914a702f64cd2a914c4831bdba08ef9dbf086"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 248,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "a033dc34934993b5ee1fc5ce52938c13440ca009987f846e8b5404222f435fc6"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 249,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "e1b1bbd9c4cdc972936a45a6ed6a74e48d136bf32087f1c47dacb62bbd683661"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 250,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "721a40ce7a8cef331373130a3577cf7317270183517dc8ce1fb0f877cfc847f2"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 251,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "a45824a0e9bd471089f345bb1f76cf49cb217d8dc292aa27052a7f98588de2a7"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 252,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "4eef5f47f9a8521dc15610a280afdaec3e8264c045c53262ffe89c5c6862ece8"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 253,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "aed9ba030e388a75581e0c34a50468c23db53725a9af3eb707ef119b50f393dd"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 254,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "311e0c155b2a503075c3e5bf8d99a649571885aab26eaaa3ca9aea8ed2cb989a"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 255,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "4c9289dcaac64c0a41b2166568d353bf674175d7875b026b4cb7169d5e3ac5f3"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 256,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "b5a2440b299a5fd5538e1b505b6aa1496231e5a53413fa8f0e0c4c5eafa7fe82"
+            }
+          ],
+          "claim_id": "clm_3b967becdf57c72a13b8",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_a1251038ea3ce964",
+      "title": "4️⃣ 마케팅 & 브랜딩 (SNS 홍보, 시장 조사, 고객 분석 경험 활용)",
+      "organization_alias": "",
+      "period": null,
+      "role": "직무]에서 고객 분석과 데이터 기반의 마케팅 전략을 수립하여 브랜드 성장을 이끄는 역할을 수행하겠습니다.\"*.",
+      "situation": "제기동 약령시장.",
+      "actions": [
+        "활성화 프로젝트 → 젊은 세대 방문 감소 문제 분석.",
+        "SNS 활용, 관광 연계 프로그램 기획 → 맞춤형 홍보 전략 수립.",
+        "🔹 활용.",
+        "조사 / 리서치 분석.",
+        "활용 예시.",
+        "*\"제기동 약령시장 활성화 프로젝트에서, 젊은 세대 방문 감소로 인해 시장이 쇠퇴하는 문제를 분석했습니다.",
+        "이를 해결하기 위해, SNS 마케팅 전략을 활용하고, 주변 관광지와 연계한 체험 프로그램을 기획했습니다.",
+        "인터뷰를 진행하고, 타 시장 사례를 분석하며 맞춤형 홍보 전략을 수립했습니다.",
+        "직무]에서 고객 분석과 데이터 기반의 마케팅 전략을 수립하여 브랜드 성장을 이끄는 역할을 수행하겠습니다.\"*.",
+        "자기소개서에서 추출한 핵심 역량 정리.",
+        "활용할 수 있는.",
+        "데이터 분석 & 프로세스 개선 → 경영기획 / 데이터 분석 / 총무 / 운영 관리.",
+        "갈등 해결 & 협업 역량 → HR / 조직문화 / 교육 기획.",
+        "/ 협업 관리.",
+        "분석, 문제 해결, 협업을 통한 성과 창출 경험을 쌓았습니다.",
+        "급여 지급 프로세스를 개선하여 업무 속도를 향상시켰으며, 제기동 약령시장에서는 SNS 홍보 전략을 도입하여 젊은 층 방문객.",
+        "직무에 맞춰 활용하면 끝.",
+        "혹시 추가로 조정하고 싶은 부분이 있으면 알려주세요.",
+        "(1) 도입부의 간결화.",
+        "도입부에서 지나치게 많은 배경 설명이 포함되어 있어 글이 다소 길게 느껴질 수 있습니다.",
+        "핵심 내용을 간결하게 정리하면 더 효과적입니다.수정 예시.",
+        "분량의 서류를 내에 정리해야 하는 업무를 맡았습니다."
+      ],
+      "outcomes": [
+        "활성화 프로젝트 → 젊은 세대 방문 감소 문제 분석.",
+        "시장 조사 (상인 인터뷰 & 타 시장 벤치마킹) → 방문객 증가 성과 창출.",
+        "*\"제기동 약령시장 활성화 프로젝트에서, 젊은 세대 방문 감소로 인해 시장이 쇠퇴하는 문제를 분석했습니다.",
+        "그 결과, 젊은 층 방문객 증가 및 시장 인지도 향상에 기여할.",
+        "증가에 기여했습니다.",
+        "(3) 결과(Result) 부분의.",
+        "결과 부분은 성과를 잘 전달했지만, 담당 직원의 칭찬 외에도.",
+        "결과적으로 저는 만에."
+      ],
+      "competencies": [
+        "정확성",
+        "분석력",
+        "문제 해결",
+        "협업"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "제기동 약령시장. 활성화 프로젝트 → 젊은 세대 방문 감소 문제 분석. SNS 활용, 관광 연계 프로그램 기획 → 맞춤형 홍보 전략 수립. 시장 조사 (상인 인터뷰 & 타 시장 벤치마킹) → 방문객 증가 성과 창출. 🔹 활용. 가능 직무. 📍 마케팅 / 브랜드 전략 / 홍보 기획 / 시장. 조사 / 리서치 분석. 활용 예시. *\"제기동 약령시장 활성화 프로젝트에서, 젊은 세대 방문 감소로 인해 시장이 쇠퇴하는 문제를 분석했습니다. 이를 해결하기 위해, SNS 마케팅 전략을 활용하고, 주변 관광지와 연계한 체험 프로그램을 기획했습니다. 특히, 상인 과. 인터뷰를 진행하고, 타 시장 사례를 분석하며 맞춤형 홍보 전략을 수립했습니다. 그 결과, 젊은 층 방문객 증가 및 시장 인지도 향상에 기여할. 수 있었습니다. 이 경험을 바탕으로, 저는 [지원. 직무]에서 고객 분석과 데이터 기반의 마케팅 전략을 수립하여 브랜드 성장을 이끄는 역할을 수행하겠습니다.\"*. 📌 퀵실버. 자기소개서에서 추출한 핵심 역량 정리. 활용할 수 있는. 핵심 경험 & 역량. 데이터 분석 & 프로세스 개선 → 경영기획 / 데이터 분석 / 총무 / 운영 관리. 갈등 해결 & 협업 역량 → HR / 조직문화 / 교육 기획. / 협업 관리. 문제 해결 & 위기 대응 → 영업 / 프로젝트 매니지먼트 / 고객. 서비스 / 운영 기획. 마케팅 & 브랜딩 →. SNS 홍보 / 시장 조사 / 브랜드 전략 / 리서치. 🔥 최적화된 1분 자기소개 (면접 대비 예시). *\"저는 서울시청과 제기동 약령시장 프로젝트에서 데이터. 분석, 문제 해결, 협업을 통한 성과 창출 경험을 쌓았습니다. 급여 지급 프로세스를 개선하여 업무 속도를 향상시켰으며, 제기동 약령시장에서는 SNS 홍보 전략을 도입하여 젊은 층 방문객. 증가에 기여했습니다. 또한, 예상치 못한 문제 발생 시 빠르게 대응하여 위기 해결. 능력을 입증한 경험도 있습니다. 이러한 경험을 바탕으로, 저는. [지원 직무]에서 데이터 기반의 의사결정과 전략적 실행을 통해 조직의 성과를 극대화하는. 역할을 수행하겠습니다.\"*. 🚀 이제. 직무에 맞춰 활용하면 끝. 혹시 추가로 조정하고 싶은 부분이 있으면 알려주세요. 😊. 나의 말. (1) 도입부의 간결화. 도입부에서 지나치게 많은 배경 설명이 포함되어 있어 글이 다소 길게 느껴질 수 있습니다. 핵심 내용을 간결하게 정리하면 더 효과적입니다.수정 예시. 국민연금공단 인턴으로 근무하던 중, 지급 결정서, 추납, 분납 자료 등. 분량의 서류를 내에 정리해야 하는 업무를 맡았습니다. 자료의. 정확성과 신속성이 중요한 과제였기에 부담감이 컸지만, 이를 통해 제 업무 처리 능력을 입증하고자 했습니다. (2) 행동(Action) 부분의. 구체성 추가. 행동 부분에서 계획 수립과 실행 과정은 잘 설명되었으나, \"전략적. 접근\"이나 \"특징 파악\" 등의 표현이 다소 추상적입니다. 실제로 어떤 방식으로 자료를. 분류했는지 구체적인 예시를 추가하면 더 설득력이 높아집니다.수정 예시. 지급 결정서, 추납, 분납. 자료를 각기 다른 색상의 폴더로 구분하고, 우선순위에 따라 처리 순서를 정했습니다. 예를 들어, 지급 결정서는 가장 시급한 문서로 판단하여 먼저 처리했고, 이후 추납 및 분납 자료를 검토했습니다. 이러한 방식으로 업무 효율성을. 극대화했습니다. (3) 결과(Result) 부분의. 임팩트 강화. 결과 부분은 성과를 잘 전달했지만, 담당 직원의 칭찬 외에도. 업무가 조직에 어떤 긍정적인 영향을 미쳤는지 추가하면 더 강렬한 인상을 줄 수 있습니다.수정 예시. 결과적으로 저는 만에.",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 258,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "76b51a2860bd303c9efe13957c60442372c15c1c73b580a152c37633a4d69e43"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 259,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "e9eb492a86cfa8257b1ca04c9e576f76812f9160cd62dbb6c9178487811a5682"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 260,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "7a92ccb8d322169616ec1a92b041f60ef0042ba28c971fc34c3fe6c0a05e8283"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 261,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "be9406315ee650aa8c285d5ec6147563402af1d70faeb3d845b3150c30a52dbc"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 262,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "d5bdff8ded38c64ec2707d8bd468e390d3198ee617fb38c33b7b03cc21297f5c"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 263,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "53f1e8b50f7feeae17b67dea182fadd7954c6e13f317644b528c9cdcf988fb78"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 264,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "acf92cf3d65c0bc74c38d474bb763a10a64ec0c7784f67d4173014f9bef644c8"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 265,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "787215600d4f8f8e99d4d140c8bfdf7ecf3e4e3b6f6db7141ebc90933700b098"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 266,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "a033dc34934993b5ee1fc5ce52938c13440ca009987f846e8b5404222f435fc6"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 267,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "d65a56a22d535ecc5575a10571bebbc244422e51c25cba17c1b936df1a1b6e32"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 268,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "e3a3c1cc106b065396e70eac8853f7e9a132f59045dd1658dc72a5e32f3a53f9"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 269,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "96e70da1127c8bf7fcb1f9788695c0f89b7bca76c228fc47b27772319a56a4e1"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 270,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "48603d24f3a7ab1198ed27a4ca5576b9c646a5d8152fdde408c222e9385ec5db"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 271,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "b859c2ae8bec3b3490e3d5cf8852f69d088b21d40fc809e8edead1eaee54dbc2"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 272,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "3a9257f1682948538f2f4255c2046f596ffd4a168862452fd98d167fecb7d193"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 273,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "9ce6ed1c0817df607583c75cffde90ffe1c92b19df268f719bee2d71ddb132c5"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 274,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "9fdef297012dfb27dfe120965e7cabc524df7dab65b8065c026cbf1e69184b41"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 275,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "16273455bddf0366d38edc81ed65c4773922fb546b255ad91025a5604aef39f3"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 276,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "acc43233576aa94040894857845245143a1a06c8ee26c1e0aaa6379eb7fef330"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 277,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "496d64db18df7653068b24337df0816e0ee4135e68513576bc83677c963ab1f3"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 278,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "9f4c344d7c9f34b300f54a08343405325fa8c542b8003f3c306e79cc7cf9018b"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 279,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "e6f148c0298033c4796173a013cfecdfc77baeb6a16cf9721a0523dd95424d50"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 280,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "ec2113df2b098f0fbaa96b9e4ee45a43956dc1bf2a8c9210c0227394e8e8d244"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 281,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "70298553585b17fbce1ec96bcfb51abcb6e46d21c3cf79d45161830e84185c45"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 282,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "bcb077c80f33df7e0266eabcd3465f45aa4e03e8d9e052df0647ea115e64f6b9"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 283,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "6683ec60345aa0e891f405784555a369efd7d43e057e3b01082bc9d57320d61e"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 284,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "d75f9af8414fe7e6b6d8b6c1fdfced6356bb91029732b47895f69a8090d82315"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 285,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "420077213a3508899d0ca6b7ed366eb8157678779006548f5cfbecdd7c7968e1"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 286,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "3aed0c73a5bce601331fe6d63c5d5acba9f47041917ea5d7555d5e797e6b0e4d"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 287,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "acd4fa69c424ed82392809e4df941decee50314f70b0101f1f0fdf498ca403af"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 288,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "87b46c15007efc9e35a8e461ebdf8e26db909ac12562d186e5b30a80d8317d0a"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 289,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "b32c1e0dfbef88e1cd5a88356a1efb4e29eb7faa54784472228d7c5616987665"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 290,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "9f614e0ba4aa6bdd5d264dd16864db2a6dce1f5f3919900b8d318a7493af93f6"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 291,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "f910faeca3d8cdad928ac970c4b5c75964daf12ecb43c2891505c519e34e45ab"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 292,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "8e286b6a48fb93e2718e5d935b97d6362e9930b7c720a15b52afc7837c5d948d"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 293,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "bf0ac24efa1f4b46061062d42ceb4da898821152ee36f308940953b0d6c77714"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 294,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "825ebc1420f034b6f81eb4d6dd5d82b87f24d0340ac894857136761a269775bc"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 295,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "b70b40227cf7b2afb9005ee37747efbf020eb44f52e91f570233df6ff17829a4"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 296,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "7ed448cf44563472516897abdbe81324fe57bf4041e49167b5628ed3cf612428"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 297,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "a8082b2c5d7e0b3f448eda4e216034928de0d76ef74ac9e597fa615e3c5db884"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 298,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "1fa64d476e765214699df1d6f999b0ae375267521b959b99222f6f082a5bee73"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 299,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "08081c499cdeab015ad5c888c4aac3e8a4ba2333be9862f69482732bd817411d"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 300,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "a01bf188040861dc3bae6c0e9bdb704425a231522254314f3e168b89a149c419"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 301,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "d7e39e0c865b79fbec49216b883352a745bf312ee3ac940958de9b787a6df0a9"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 302,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "f1ccd83259158bdf5977129583790b3e8f7f651631c2548896975cddf6665d79"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 303,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "4670329588f00a7642939c168a2619c381021bfdec25d5a1ee3e2aa9b09e9a59"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 304,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "a07d0bbe7bdcf096a66b029ee277ad67c78f7606b7c97fe7b293a67b56fd4b19"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 305,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "5a84df105aa8244d76d0d2da6eb7055a72a21405f5c0c0d44e274214605d49dd"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 306,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "eb7e2e7660d6ec3f9d8e4e62497f278d7146e36bf3792f1f42807aae1ce7b3a6"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 307,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "7a5ba74ebc1349fb4acc553d430cab0065672251ad226f86031c0c67b59726d3"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 308,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "e2ab9304ead9552023efc9d46fb0727e5154b2ae92afda498c5f909d79de88a9"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 309,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "c2623b2e65e9f9661226478710e9be2a8d89091097bb5a648d5235ecd753c508"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 310,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "664773264b434169077c0f1dfa92944a7b3b1308c6e25a35f2f2a1def48a0d2b"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 311,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "109ed789f3db4dce5a04615ac6235bc13d6a747d0e630f1d0b35f9ebe91ffe92"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 312,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "3c7d2ad972c12ac0398420c705e50e3db4e17173d0d229a033723386623134b1"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 313,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "f394d480b4aa2ca0a9d3469b8912fca14e942534126fc35fc03611bf742beec5"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 314,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "ec2edbfaa2cd40f3145af22c36a8dbda27bdced27179245f284bd5385f0225b6"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 315,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "133918d60639950b497626f6315e4c5ec2cfb2a7e596b96c2fe552db7f002b99"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 316,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "4383c895ae4dfb5be558b15c0e66af75fd659deb00b0f5cb232a3dd5343857b1"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 317,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "b349e71c2bdeebbc59833ad918c9257e2d9d02b877d4b49a73c79b4646fcfb23"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 318,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "ea53c0b8243672a78d3c26fcf16b8fe6244d6030b083807ebb1a5d301de92382"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 319,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "4d0a77e9c14df11dbbac9c4944d7670a67519162270e574b51dedce95027fa04"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 320,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "5cc62042aed618c9e922af7bc162a5718f5d0775b564b659a9951cba9a8e9cef"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 321,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "fd791b3f26dd27b89b62409beb0b626bd93197629e14a2e92ce8891d92cf06b2"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 322,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "04a5d795a6b69421bcd62b89f79eb76e95d1d8deb83708fdf12110c2d000c2e1"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 323,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "ec1d78e6e5cdca9f778fb99217db378cdf90c80d7a564eeb56a6d5589b492941"
+            }
+          ],
+          "claim_id": "clm_c2f31c559ed16dea27a9",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        },
+        {
+          "field": "metric:명",
+          "normalized_value": "50명",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 269,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "96e70da1127c8bf7fcb1f9788695c0f89b7bca76c228fc47b27772319a56a4e1"
+            }
+          ],
+          "claim_id": "clm_baea766ebc078a2e4741",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "metric:percentage",
+          "normalized_value": "30%",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 289,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "b32c1e0dfbef88e1cd5a88356a1efb4e29eb7faa54784472228d7c5616987665"
+            }
+          ],
+          "claim_id": "clm_17a7c55f12555c29b9c8",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "metric:페이지",
+          "normalized_value": "3000페이지",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 304,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "a07d0bbe7bdcf096a66b029ee277ad67c78f7606b7c97fe7b293a67b56fd4b19"
+            }
+          ],
+          "claim_id": "clm_38c995f4331e8a5569f2",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "metric:일",
+          "normalized_value": "2일",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 305,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "5a84df105aa8244d76d0d2da6eb7055a72a21405f5c0c0d44e274214605d49dd"
+            }
+          ],
+          "claim_id": "clm_ef2e29de3bd4e7ad9a11",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "metric:일",
+          "normalized_value": "2일",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 323,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "ec1d78e6e5cdca9f778fb99217db378cdf90c80d7a564eeb56a6d5589b492941"
+            }
+          ],
+          "claim_id": "clm_8e0cca328835863496d1",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_1ed7b9b2bb66f6d1",
+      "title": "경험정리 문단 325",
+      "organization_alias": "",
+      "period": null,
+      "role": "3000페이지 분량의 서류를 정확히 처리하여 담당 직원에게 제출했습니다.",
+      "situation": "3000페이지 분량의 서류를 정확히 처리하여 담당 직원에게 제출했습니다.",
+      "actions": [],
+      "outcomes": [],
+      "competencies": [
+        "정확성"
+      ],
+      "claims": [
+        {
+          "field": "metric:페이지",
+          "normalized_value": "3000페이지",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 324,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "f68fcdf82ae526bff995b724c87c174bdc9d5a71ec49811b81536701e355ca9d"
+            }
+          ],
+          "claim_id": "clm_588484213568a9a8ec67",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_17856c04f325852f",
+      "title": "경험정리 문단 328",
+      "organization_alias": "",
+      "period": null,
+      "role": "담당 직원은 저의 속도와 정확성을 칭찬하며 신뢰감을 표하셨습니다.",
+      "situation": "담당 직원은 저의 속도와 정확성을 칭찬하며 신뢰감을 표하셨습니다.",
+      "actions": [],
+      "outcomes": [
+        "담당 직원은 저의 속도와 정확성을 칭찬하며 신뢰감을 표하셨습니다."
+      ],
+      "competencies": [
+        "정확성",
+        "신뢰"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "담당 직원은 저의 속도와 정확성을 칭찬하며 신뢰감을 표하셨습니다.",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 327,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "2a20875cd99f49fb216ba86a6c46864357965e84912877b2e083b0959292ce11"
+            }
+          ],
+          "claim_id": "clm_fcf3b1703e339074eed3",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_2e966c8ac3146a5b",
+      "title": "경험정리 문단 335",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "3000페이지에 달하는 방대한 서류 정리 업무를 2일 만에 완료하며 연금 지급 절차가 차질",
+      "actions": [
+        "3000페이지에 달하는 방대한 서류 정리 업무를 2일 만에 완료하며 연금 지급 절차가 차질"
+      ],
+      "outcomes": [
+        "3000페이지에 달하는 방대한 서류 정리 업무를 2일 만에 완료하며 연금 지급 절차가 차질"
+      ],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "metric:페이지",
+          "normalized_value": "3000페이지",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 334,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "eda171525d36007692c7a24efdccc956780d732e10e0d6736794e8c591d96b70"
+            }
+          ],
+          "claim_id": "clm_06621750f03b00d148ab",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "metric:일",
+          "normalized_value": "2일",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 334,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "eda171525d36007692c7a24efdccc956780d732e10e0d6736794e8c591d96b70"
+            }
+          ],
+          "claim_id": "clm_edb5f42bbdcf4ea55fda",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_05862fb235f2d64c",
+      "title": "3. 전반적인 조언 • 문장 간결화: 일부 문장이 길고 복잡하여 가독성이 떨어질 수 있습니다. 문장을 짧고 간결하게 다듬으면 더 효과적입니다. • 숫자 활용 강화: \"3000페이지\"라는 숫자는 효과적으로 사용되었으나, 추가로 \"하루 평균 몇 페이지를 처리했는지\" 등의 세부 데이터를 포함하면 더욱 구체적이고 설득력 있는 사례가 됩니다. • 지원 직무와의 연결성 강조: 자기소개서 활용 문장에서 지원하는 직무와 연관 지어 작성하면 더욱 강렬한 인상을 줄 수 있습니다. 최종 평가 작성된 내용은 매우 탄탄하며 STAR 기법을 잘 활용해 경험을 효과적으로 풀어냈습니다. 다만 일부 표현의 구체성과 직무 연계성을 보강하면 더욱 완성도 높은 자기소개서로 발전할 수 있습니다. 📌 국민연금공단 경험 최적화 (※ 지원 직무에 맞춰 강조할 부분을 조정할 수 있음) 🔹 핵심 경험 요약",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "국민연금공단 강남역삼지사.",
+      "actions": [
+        "인턴 근무 → 기초연금 수급자 발굴 및 데이터 정리 업무 수행.",
+        "분량의 서류를 만에 정리 → 체계적인 분류 시스템 활용하여.",
+        "정비 & 필터링 시스템 도입 → 업무 효율성 증대 & 연금 지급 절차 원활화.",
+        "데이터 분석 및 체계적 업무 관리 능력.",
+        "최적화 활용 예시."
+      ],
+      "outcomes": [
+        "달성 → 체계적인 계획 수립 및 문제 해결 역량 입증."
+      ],
+      "competencies": [
+        "분석력",
+        "문제 해결"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "국민연금공단 강남역삼지사. 인턴 근무 → 기초연금 수급자 발굴 및 데이터 정리 업무 수행. 분량의 서류를 만에 정리 → 체계적인 분류 시스템 활용하여. 업무 속도 향상. 연락처 데이터. 정비 & 필터링 시스템 도입 → 업무 효율성 증대 & 연금 지급 절차 원활화. 목표 대비 초과. 달성 → 체계적인 계획 수립 및 문제 해결 역량 입증. 📌 핵심. 역량. 데이터 분석 및 체계적 업무 관리 능력. 업무 프로세스 최적화 및 효율성 증대 경험. 문제 해결 및 신속한 업무 처리 능력. 행정 및 공공 서비스 운영 이해도. 🎯 직무별. 최적화 활용 예시.",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 362,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "57789cdf2eda387db9c107442ee879008912ae405580dde138d8d7693d8308eb"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 363,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "36ff5af40e8c427810d1becd12093ad12192c84ae093a28329186a1caa63fdd3"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 365,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "bc36cf78a42f11b67d3a7a90ff4158ad97a487f4e4bf3311eb0fbda74c50fa3e"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 366,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "1ee4f0767cb6cc06e10e66c3a343721186b9cd6bf7cca1328ac2f2fd6c8a825b"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 367,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "bbac81f40b71d4b6669a3e3da1fef5ed66967fa4b106a5db9174bfcdb21d1878"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 368,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "8f6dc6ce37b949fa7e134a4ab5f802dd6b18691600052e9f30097fbf29fabe4e"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 369,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "9e3b2a368d07abea4150c814b51d80f4fca8f9aef123399183ec17111929b0bf"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 370,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "47192875f5b798bd3b472b563b240679f1e9e5c4025b1e02efc4b974f928d3aa"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 371,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "61500030a62a2424eabf244849a38301c8ba844999639ee01980d54577675ca0"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 372,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "3f2af3cc686bab72c5267c2a79e5541970618e440a4d22395e4d1f95bc2c1f2d"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 373,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "13a27cbf9ea6e03ce0dbcdcef06b74c55a45d79a1c2f304726282ae6c9ff93f9"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 374,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "b216870c6d4c60ea7fbe38734d9e64c33ea8de0d5b416ef9d45f80b65f189d1e"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 375,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "cd6d69a59df48130dec8c89bd5083701b352fe1c7069749369a29df9d64b6a9f"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 376,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "8636552702d2c27fe4684017672d26504a90615aff1aae1e7cae40d5c243d7da"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 377,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "21f15644ec21b988ebbfa7be9f6cd289a709725e67a07a2e16821bad036218dd"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 378,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "3eca64e405cabc0f9a6260584f114d8d4239c533dc22817f7388e1130a2f09b1"
+            }
+          ],
+          "claim_id": "clm_1c1ce48ecd14846fe050",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        },
+        {
+          "field": "metric:일",
+          "normalized_value": "2일",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 365,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "bc36cf78a42f11b67d3a7a90ff4158ad97a487f4e4bf3311eb0fbda74c50fa3e"
+            }
+          ],
+          "claim_id": "clm_0aa0eb9e9ec58845426e",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_f0872a6d517ca3ef",
+      "title": "경험정리 문단 347",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "활용 강화: \"3000페이지\"라는 숫자는",
+      "actions": [
+        "활용 강화: \"3000페이지\"라는 숫자는"
+      ],
+      "outcomes": [],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "metric:페이지",
+          "normalized_value": "3000페이지",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 346,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "7d3b66fb78dc984f369e674fb86e7a189bdf905c5e1e87a06b2efc90d05afd13"
+            }
+          ],
+          "claim_id": "clm_08891db42497173bae97",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_eaf2de5c13b584ea",
+      "title": "경험정리 문단 365",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "✅ 3000페이지",
+      "actions": [],
+      "outcomes": [],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "metric:페이지",
+          "normalized_value": "3000페이지",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 364,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "f974185326ff986cf849bf05eef32738b5a81867321172c2947727be33f4241b"
+            }
+          ],
+          "claim_id": "clm_ebe598801f536e674097",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_96c1fafbcf2b3cc9",
+      "title": "1️⃣ 데이터 분석 / 경영기획 / 총무 (데이터 정리 및 프로세스 개선 강조) 📌 지원 포인트: 대량의 데이터를 체계적으로 분류 & 정리한 경험 비효율적인 데이터 관리 프로세스를 개선한 사례 체계적인 업무 처리 및 문제 해결 능력",
+      "organization_alias": "",
+      "period": null,
+      "role": "하는 업무를 맡았습니다.",
+      "situation": "하는 업무를 맡았습니다.",
+      "actions": [
+        "경험 활용.",
+        "*\"국민연금공단 강남역삼지사 인턴으로 근무하며, 분량의 방대한 기초연금 서류를 만에 정리해야.",
+        "데이터 분류 및 업무 효율화 전략을 도입했습니다.",
+        "또한, 엑셀을 활용한 필터링 시스템을 구축하여 기초연금 지급.",
+        "그 결과, 주어진 기한 내에 모든 서류를 정확하게 정리하고, 연금 지급 절차가 차질 없이 진행되도록 기여할 수 있었습니다.",
+        "직무]에서 데이터 기반의 업무 최적화 및 프로세스 개선을 통해 조직의 운영 효율성을 높이는 역할을 수행하겠습니다.\"*."
+      ],
+      "outcomes": [
+        "그 결과, 주어진 기한 내에 모든 서류를 정확하게 정리하고, 연금 지급 절차가 차질 없이 진행되도록 기여할 수 있었습니다."
+      ],
+      "competencies": [
+        "정확성",
+        "분석력",
+        "문제 해결"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "경험 활용. *\"국민연금공단 강남역삼지사 인턴으로 근무하며, 분량의 방대한 기초연금 서류를 만에 정리해야. 하는 업무를 맡았습니다. 연금 지급 절차의 정확성과 신속성이 중요한 과제였기에, 체계적인. 데이터 분류 및 업무 효율화 전략을 도입했습니다. 먼저, 지급 결정서, 추납, 분납 자료를 각각 다른 색상의 폴더로 구분하여 우선순위에 따라 업무를 배치했습니다. 또한, 엑셀을 활용한 필터링 시스템을 구축하여 기초연금 지급. 대상자 선별 과정을 자동화함으로써 업무 시간을 단축했습니다. 그 결과, 주어진 기한 내에 모든 서류를 정확하게 정리하고, 연금 지급 절차가 차질 없이 진행되도록 기여할 수 있었습니다. 이 경험을 바탕으로, 저는 [지원. 직무]에서 데이터 기반의 업무 최적화 및 프로세스 개선을 통해 조직의 운영 효율성을 높이는 역할을 수행하겠습니다.\"*.",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 385,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "241552e0c5f6d1735becebabd9878ce8efbef86d31f38dd3bb12b39c6da23891"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 386,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "8fa577f9817344288bc95f90fd04e49003d3a448d9a17285f80e91eec5ad8927"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 387,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "dc9f0d97eef82332b8e8807f012961afaa9fea9369df3e2cb645fc612c248b0f"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 388,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "095fc0eff155558c9a53de59c1d79bd52ed59c8f1908d702a20009ed23d2d1e8"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 389,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "afbf8c68eaa58859da262a648260dff6ee9f960ae69abce76c60faa67628e11f"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 390,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "cf013dbbb88231435bd93ec39773dd2ff619ba10c56ecbb027b89282adae20f6"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 391,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "71e3a7fccfd01d54c99752f7de513bc5ba3683a6d7a20280e5df36dcdbde20e2"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 392,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "5c3f7685e7280d2c7ad5de7fdda8451e7ec639330ab800833f772af6a8dbe76d"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 393,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "5d86a8b7dfd7d2165754807f9be9189fff50c10576d7927daea76a1a45394b45"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 394,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "9ce6ed1c0817df607583c75cffde90ffe1c92b19df268f719bee2d71ddb132c5"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 395,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "89138e977cb0a4a6109c612a4ce2d2ec9fd96b310f528385deb656a88401b8d8"
+            }
+          ],
+          "claim_id": "clm_7275600214c7006c6663",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        },
+        {
+          "field": "metric:페이지",
+          "normalized_value": "3000페이지",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 386,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "8fa577f9817344288bc95f90fd04e49003d3a448d9a17285f80e91eec5ad8927"
+            }
+          ],
+          "claim_id": "clm_b6c9debc021a1527d1a5",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "employment_period",
+          "normalized_value": "2일",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 386,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "8fa577f9817344288bc95f90fd04e49003d3a448d9a17285f80e91eec5ad8927"
+            }
+          ],
+          "claim_id": "clm_082ec8159117bf160182",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_b7fd3b6f2d2733c8",
+      "title": "2️⃣ 행정 / 공공기관 / 사회복지 (공공 서비스 운영 및 정확성 강조) 📌 지원 포인트: 공공 데이터 관리 및 행정 업무 수행 경험 기초연금 수급자 발굴 및 사회복지 행정 이해도 신속하고 정확한 업무 처리 역량",
+      "organization_alias": "",
+      "period": null,
+      "role": "및 데이터 정리 업무를 담당하며, 방대한 양의 행정 서류를 신속하고 정확하게 처리한 경험이 있습니다.",
+      "situation": "*\"국민연금공단 강남역삼지사에서 기초연금 수급자 발굴.",
+      "actions": [
+        "경험 활용.",
+        "및 데이터 정리 업무를 담당하며, 방대한 양의 행정 서류를 신속하고 정확하게 처리한 경험이 있습니다.",
+        "특히, 분량의 자료를 체계적으로 분류하여 만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다."
+      ],
+      "outcomes": [],
+      "competencies": [
+        "정확성",
+        "분석력",
+        "문제 해결"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "경험 활용. *\"국민연금공단 강남역삼지사에서 기초연금 수급자 발굴. 및 데이터 정리 업무를 담당하며, 방대한 양의 행정 서류를 신속하고 정확하게 처리한 경험이 있습니다. 특히, 분량의 자료를 체계적으로 분류하여 만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다. 또한, 수급 대상자의 연락처 데이터가 비효율적으로 관리되고 있다는. 문제를 발견하고, 표준화 작업을 통해 데이터 정합성을 확보했습니다. 이 경험을 통해 공공 행정 업무에서의 데이터 관리 및 프로세스 최적화의 중요성을 체득했으며. [지원 직무]에서도. 정확한 데이터 처리와 효율적인 행정 운영을 통해 조직의 서비스 품질을 향상시키겠습니다.\"*.",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 402,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "241552e0c5f6d1735becebabd9878ce8efbef86d31f38dd3bb12b39c6da23891"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 403,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "ae34a84df8890a67588821aac71a998e542f41d94414af2fc45d943cc2882e8a"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 404,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "17bd099ee8468b8d5e487729f8d33f69d21b957081e47b8b5818b98cd71b331c"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 405,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "3dbb4141798e73cdf2e16111b6ae9e90bc11ccbca3244047835be6a8dbfbeace"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 406,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "6512cd03da3f7b90e77b037614c8f38ecef2490343fc4e1d94976f2c986343c4"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 407,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "c2d8127e210f45d03b355783b05b3c2b7c9d0aea83ab8a733ba684c70e26b732"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 408,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "866a25f6e4d5c0809f0e30eaa02bd1306267fc4c5a16bb03f9108e5621a7686a"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 409,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "ead12f39cd8f030a174c3d7d4dd3037a5fd178bf9983ac60522a9d8658e00302"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 410,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "87090ad1121aecd46d439f934d0e1436a69fa03cf12fc95d863ed92dd7702f0e"
+            }
+          ],
+          "claim_id": "clm_b4dd8d1a846c5c4d6fdb",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        },
+        {
+          "field": "metric:페이지",
+          "normalized_value": "3000페이지",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 405,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "3dbb4141798e73cdf2e16111b6ae9e90bc11ccbca3244047835be6a8dbfbeace"
+            }
+          ],
+          "claim_id": "clm_8461773fa2d133a90af0",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "metric:일",
+          "normalized_value": "2일",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 405,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "3dbb4141798e73cdf2e16111b6ae9e90bc11ccbca3244047835be6a8dbfbeace"
+            }
+          ],
+          "claim_id": "clm_4695cca31931d8601682",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_d6eda233a3c7b9c0",
+      "title": "3️⃣ CS / 고객 서비스 / 운영 관리 (업무 정확성 및 고객 중심 서비스 강조) 📌 지원 포인트: 정확한 정보 관리 및 고객 서비스 품질 향상 경험 연금 수급 대상자 데이터 정비 → 원활한 연금 지급 기여 신속하고 체계적인 업무 처리 역량",
+      "organization_alias": "",
+      "period": null,
+      "role": "직무]에서 정확한 데이터 분석 및 프로세스 개선을 통해 조직의 업무 효율성을 높이는 역할을 수행할 수.",
+      "situation": "업무를 수행했습니다.",
+      "actions": [
+        "경험 활용.",
+        "*\"국민연금공단 강남역삼지사에서 인턴으로 근무하며, 기초연금 수급 대상자의 데이터를 정리하고, 원활한 지급을 지원하는.",
+        "정리하는 시스템을 도입하여.",
+        "또한, 수급자 연락처 데이터가 정리되지 않아 업무 비효율성이.",
+        "엑셀을 활용한 데이터 정비 작업을 수행하여 행정 서비스 품질을 향상시켰습니다.",
+        "*\"가장 기억에 남는 성과는 분량의 기초연금 지급 서류를 만에 정리하여, 연금 지급 절차가 원활하게 진행될 수 있도록 기여한 경험입니다.",
+        "또한, 엑셀을 활용하여 연락처 데이터를 표준화하여 행정 절차의.",
+        "정리 업무를 수행하며, 대량의 데이터를 효율적으로 관리하는 방법을 익혔습니다.",
+        "특히, 방대한 서류를 체계적으로 분류하고, 엑셀을 활용한 필터링 시스템을 도입하여 업무 속도를 향상시켰습니다.",
+        "직무]에서 정확한 데이터 분석 및 프로세스 개선을 통해 조직의 업무 효율성을 높이는 역할을 수행할 수.",
+        "특히, *대량의 정보를 빠르고 정확하게 처리하는 능력, 문제를 발견하고 해결하는 역량을 적극적으로 활용하여 조직의 성과를 극대화하겠습니다.\".",
+        "직무에 맞춰 활용하면 끝.",
+        "혹시 추가로 조정하고 싶은 부분이 있으면 알려주세요.",
+        "지금까지 정리된 내용을 바탕으로 보완하면 더 강력해질 부분을 정리해볼게요."
+      ],
+      "outcomes": [],
+      "competencies": [
+        "정확성",
+        "분석력",
+        "문제 해결",
+        "협업"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "경험 활용. *\"국민연금공단 강남역삼지사에서 인턴으로 근무하며, 기초연금 수급 대상자의 데이터를 정리하고, 원활한 지급을 지원하는. 업무를 수행했습니다. 특히, 분량의 방대한 서류를 체계적으로 분류하고. 정리하는 시스템을 도입하여. 연금 지급 절차가 차질 없이 진행되도록 기여했습니다. 또한, 수급자 연락처 데이터가 정리되지 않아 업무 비효율성이. 발생하는 문제를 해결하기 위해. 엑셀을 활용한 데이터 정비 작업을 수행하여 행정 서비스 품질을 향상시켰습니다. 이 경험을 통해, 저는 정확한 데이터 관리와 고객 중심의 서비스. 운영 역량을 함양했으며. [지원 직무]에서. 고객의 불편을 최소화하고 원활한 서비스 제공을 위한 체계적인 업무 프로세스를 구축하겠습니다.\"*. 📌 면접. 예상 질문 & 답변 예시. ❓ Q1. 국민연금공단. 인턴 근무 중 가장 기억에 남는 성과는. A. *\"가장 기억에 남는 성과는 분량의 기초연금 지급 서류를 만에 정리하여, 연금 지급 절차가 원활하게 진행될 수 있도록 기여한 경험입니다. 서류의 양이 방대하여 단순한 분류 작업만으로는 시간이 부족했기 때문에, 지급. 결정서, 추납, 분납 자료를 카테고리별로 구분하고. 우선순위를 설정하여 업무를 효율적으로 배치했습니다. 또한, 엑셀을 활용하여 연락처 데이터를 표준화하여 행정 절차의. 정확성을 높였고, 이를 통해 수급 대상자와의 원활한 소통을 지원했습니다. 이 경험을 통해, 저는 체계적인 데이터 관리와 업무 최적화가. 조직 운영에 미치는 영향을 직접 경험할 수 있었습니다.\"*. ❓ Q2. 국민연금공단. 경험이 지원 직무와 어떻게 연결될 수 있나요. A. *\"국민연금공단에서 기초연금 수급자 발굴 및 데이터. 정리 업무를 수행하며, 대량의 데이터를 효율적으로 관리하는 방법을 익혔습니다. 특히, 방대한 서류를 체계적으로 분류하고, 엑셀을 활용한 필터링 시스템을 도입하여 업무 속도를 향상시켰습니다. 이 경험을 바탕으로, 저는 [지원. 직무]에서 정확한 데이터 분석 및 프로세스 개선을 통해 조직의 업무 효율성을 높이는 역할을 수행할 수. 있습니다. 특히, *대량의 정보를 빠르고 정확하게 처리하는 능력, 문제를 발견하고 해결하는 역량을 적극적으로 활용하여 조직의 성과를 극대화하겠습니다.\". 🚀 이제. 직무에 맞춰 활용하면 끝. 혹시 추가로 조정하고 싶은 부분이 있으면 알려주세요. 😊. 나의 말. 지금까지 대화를 통해 보완할부분. ChatGPT의 말. 지금까지 정리된 내용을 바탕으로 보완하면 더 강력해질 부분을 정리해볼게요. 보완할 부분 & 최적화 방향.",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 418,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "241552e0c5f6d1735becebabd9878ce8efbef86d31f38dd3bb12b39c6da23891"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 419,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "e32032286ce8b8f96754e3276a43ae1c888f309fe3d74cf5337581929309c472"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 420,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "61e4490663347d00dae80e706e5a6dcd2d305d561e6d38cf56f60d58b8ac92ca"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 421,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "dbf76da47b79eeda06930ca780fb973c5d0f2a82f7397cd52c1a548ca010c500"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 422,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "d1242c30822ec083ff30c60cb0d302f4618b0371750f81e46dac093f0d5b8610"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 423,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "591170dbeeefa3f51aea8c4d21f02643c804aa6ec253bd7683ab7c9ca96be2f0"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 424,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "1ae54e35be575ce88433935c9e7e8efa6332002b9657f89f2ac127fcd9276465"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 425,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "5d0bac8e9a0bb919d803f7f19a9e4151900b4f1c2eccae5d68a618345ed87de1"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 426,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "16efff1568a6f3b80cead079dfc48d650330059a34dc38108b49878b42b8f4a1"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 427,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "ee9a0e855b6cf2499554b7912e8340b61b09ac5012c71445144b824190f00f8e"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 428,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "f562437cc09ebf4d9c8d0c8624dc3ac95f02081d75388a5836e4856fd5900e09"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 429,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "84ac0d9a76f46921d7e6a324adccd92c1fe66fa67391dc270cc62981aa1bb91d"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 430,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "8502790849b6982e1ffa8286d7b0e792bb6bb7cb7a580b6b970df73c9baf6375"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 431,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "b1a30e942ee88d0abc5fc9bccba0305932e6229270170882c80fb900cb1d1f93"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 432,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "c473d48ffdf75564ad98c3fe4ffe154bec55be86cd4206d2661bea68f3cba076"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 433,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "e9c423dea69c0a894a7303e5ef10ec4160dc9fc30b002aab80aa659090628899"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 434,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "68699e3bd1fb4e82da58b33138151df10f4dc26437afee842f48f6d57b436ebe"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 435,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "245186236449b7ed247968bdb46b399b58b305c62e7375a6464288a728285e85"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 436,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "2848b87101d9577d6d13c379d71e3b01fbeee02f654faefdc368262ae76220cf"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 437,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "76434717c048ea88be25fb87989968b5f0726c09a85c50ce4574a41ca407bd77"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 438,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "b109dba7c80b327480b4d91abc5642b02f8caf03c49cf3dd69ebe2c3d1e6075e"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 439,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "fc1700d10faa5185721cd05909c12148dd02bce166c367f228c0cd1347e54ee6"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 440,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "6799442b7c01c309d7dd40246a5ef8ba57ff620f673b084f51bfec020e838c4b"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 441,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "ee6b0867089db4956298ce5a472728c9cfb8c5bca588944737ac6af88dcfa794"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 442,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "06a818a4f5caaa6ce84b22ef8244144212418874e6dd4c2e282d490fc853b226"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 443,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "b43e2f0ec5c24c755e635678c2796f907a8fcce3ed49ca8edf68806460dbe3be"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 444,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "13687503e33084aa3eb832d8fc0c847a7b76590d47ff1b3e84f5c4ba07817bdf"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 445,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "dd248a1cec9a452d6875f18b327e185523d217dd9ef7936d3c25be722b06e958"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 446,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "68699e3bd1fb4e82da58b33138151df10f4dc26437afee842f48f6d57b436ebe"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 447,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "367d7dddcc113cce1b862056c49a494cbb35da24b36680a15eb75a2424a3f919"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 448,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "2848b87101d9577d6d13c379d71e3b01fbeee02f654faefdc368262ae76220cf"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 449,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "40ca23e16b3c3d02b310e533555f6856f9eaf6311bcfeba958530a62584dacaf"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 450,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "403584232bd96b9b672d4880d0f42b37dd4c9f8f2fd9d5f903208b6c0dc2372e"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 451,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "f2d9a39b82f07d61339e459c68e45520d7d2f58630826312ae61b27b05cf507a"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 452,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "9ce6ed1c0817df607583c75cffde90ffe1c92b19df268f719bee2d71ddb132c5"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 453,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "bb763fe574b20c1b5b79fb6204f2810474d1db20e4bd05657544ab1fa75079b8"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 454,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "443610d54f41e13cabfc40141a0270e54d2af23eed97af34c9fd5aa3ab95c008"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 455,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "77199197058068b7cc95199b673f6d6c7ec49deab22e357c970677ed76f0872f"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 456,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "7ed448cf44563472516897abdbe81324fe57bf4041e49167b5628ed3cf612428"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 457,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "a8082b2c5d7e0b3f448eda4e216034928de0d76ef74ac9e597fa615e3c5db884"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 458,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "1fa64d476e765214699df1d6f999b0ae375267521b959b99222f6f082a5bee73"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 459,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "08081c499cdeab015ad5c888c4aac3e8a4ba2333be9862f69482732bd817411d"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 460,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "a01bf188040861dc3bae6c0e9bdb704425a231522254314f3e168b89a149c419"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 461,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "335c1937a37350d9b58e1488b928115a37ee12ad6e6c6ee5cf0a801ee676857b"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 462,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "8c75b75c27a57b4ba573625714ac171230a4a0a2d77b28e17b6d4cfe25c91987"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 463,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "942f5be1af78b3c54babd6296197ae4959552fdda784f13f2130682986128538"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 464,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "de0711c70e8808ef5c5a9546b9fb7302295335a2b31e9fb246e4646d4e6e5de0"
+            }
+          ],
+          "claim_id": "clm_29220c79bac55445836d",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        },
+        {
+          "field": "metric:페이지",
+          "normalized_value": "3000페이지",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 421,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "dbf76da47b79eeda06930ca780fb973c5d0f2a82f7397cd52c1a548ca010c500"
+            }
+          ],
+          "claim_id": "clm_9cf307d66be8625e2a44",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "metric:페이지",
+          "normalized_value": "3000페이지",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 437,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "76434717c048ea88be25fb87989968b5f0726c09a85c50ce4574a41ca407bd77"
+            }
+          ],
+          "claim_id": "clm_eb94010b731cf6ef2cb3",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "metric:일",
+          "normalized_value": "2일",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 437,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "76434717c048ea88be25fb87989968b5f0726c09a85c50ce4574a41ca407bd77"
+            }
+          ],
+          "claim_id": "clm_60a00df917316128f319",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_abe3b16479c49c61",
+      "title": "2️⃣ 숫자 & 성과 지표 보완 (임팩트 강화) 📌 문제점: 일부 경험에서 성과가 수치로 표현되지 않음 → 강점이 덜 강조됨. 예를 들어, \"업무 속도를 향상시켰다\" → \"30% 단축했다\" \"참여율을 높였다\" → \"20명 목표를 3주 앞당겨 모집 완료\" \"매출이 증가했다\" → \"전년 대비 XX% 상승\" 📌 보완 방향:",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "가능한 모든 경험에서.",
+      "actions": [
+        "엑셀 자동화 도입 → 급여 산정 속도 향상."
+      ],
+      "outcomes": [
+        "부정수급 적발 → 1억 원 예산 절감 효과.",
+        "주민 자치회 참여 홍보 → 목표 대비 모집 달성.",
+        "기초연금 수급 대상자 발굴 → 목표 초과 달성.",
+        "들어가면 신뢰도 & 성과 어필 효과가 극대화됨."
+      ],
+      "competencies": [
+        "문제 해결",
+        "신뢰"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "가능한 모든 경험에서. 성과 수치를 반영. 엑셀 자동화 도입 → 급여 산정 속도 향상. 부정수급 적발 → 1억 원 예산 절감 효과. 주민 자치회 참여 홍보 → 목표 대비 모집 달성. 기초연금 수급 대상자 발굴 → 목표 초과 달성. 💡 숫자가. 들어가면 신뢰도 & 성과 어필 효과가 극대화됨.",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 503,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "2d56343ddd64304f33dee9cba0b1c021044fe68dafe924292c0535b100fd046b"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 504,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "41d751795e48735374d2a8248c3c7e74fe4683bc9730a36d408aed5995ff7a8b"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 505,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "8b5a061f3f4dc250fcbf1797e3fc639e992280c57e8c7a83e0662e7c50104e19"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 506,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "90d41336960a274ac143ea4594894a0e96ac7e06d7ef01ea17a71bc119412619"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 507,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "335b55701f54878052c05196650eefc711ec1b037f212af671961ad51402675a"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 508,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "b82feb225974e3835da4d38ce0e301164f862c4c418d58af1f839f991ea57eac"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 509,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "735f818f05e893213c3203dd5bc9eef4d8fe09ad839c2025369aeaa7d5f4e55c"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 510,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "ccbc34821b4c17eba5ab908bf829e11bee225b7ec514c8b4009212ada68ba2fd"
+            }
+          ],
+          "claim_id": "clm_d714f0dc82394975f5e0",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        },
+        {
+          "field": "metric:percentage",
+          "normalized_value": "30%",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 505,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "8b5a061f3f4dc250fcbf1797e3fc639e992280c57e8c7a83e0662e7c50104e19"
+            }
+          ],
+          "claim_id": "clm_6122801065d696df2bb3",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "budget_savings",
+          "normalized_value": "100000000원",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 506,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "90d41336960a274ac143ea4594894a0e96ac7e06d7ef01ea17a71bc119412619"
+            }
+          ],
+          "claim_id": "clm_6f498c21c2467841c4e4",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "metric:percentage",
+          "normalized_value": "150%",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 507,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "335b55701f54878052c05196650eefc711ec1b037f212af671961ad51402675a"
+            }
+          ],
+          "claim_id": "clm_ea5ba7877c5e5e46d2fb",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "metric:건",
+          "normalized_value": "150건",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 508,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "b82feb225974e3835da4d38ce0e301164f862c4c418d58af1f839f991ea57eac"
+            }
+          ],
+          "claim_id": "clm_17c1ca4804cb2558bb4c",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_bf29887865c3bf9b",
+      "title": "경험정리 문단 497",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "\"업무 속도를 향상시켰다\" → \"30% 단축했다\"",
+      "actions": [],
+      "outcomes": [],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "metric:percentage",
+          "normalized_value": "30%",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 496,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "3764943ea34c0c9ea17859d4862203380dd7b015ee367cc79f9e6f07232bc631"
+            }
+          ],
+          "claim_id": "clm_1f18bf61b841b8539c91",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_8add34c40d35983a",
+      "title": "경험정리 문단 499",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "→ \"20명 목표를 3주 앞당겨 모집 완료\"",
+      "actions": [],
+      "outcomes": [
+        "→ \"20명 목표를 3주 앞당겨 모집 완료\""
+      ],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "metric:명",
+          "normalized_value": "20명",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 498,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "43080ea03bb9e9930500553b7dd37b0802ce81fef2b1ced8d80868ab78e6fcb7"
+            }
+          ],
+          "claim_id": "clm_8f7d99c12a7564949767",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "metric:주",
+          "normalized_value": "3주",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 498,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "43080ea03bb9e9930500553b7dd37b0802ce81fef2b1ced8d80868ab78e6fcb7"
+            }
+          ],
+          "claim_id": "clm_c06e79beb58b21ea579a",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_7439ee3a004df016",
+      "title": "3️⃣ \"입사 후 기여 방안\" 추가 (지원 직무와 연계 강화) 📌 문제점: 현재 경험들은 아주 구체적이고 강력하지만, 직접적으로 입사 후 어떤 기여를 할 것인지에 대한 연결고리가 부족함. 면접에서는 **\"이 경험을 우리 회사에서 어떻게 활용할 건가요?\"**라는 질문이 나올 가능성이 큼. 📌 보완 방향:",
+      "organization_alias": "",
+      "period": null,
+      "role": "이를 바탕으로, *입사 후에도 데이터 기반의 의사결정을 강화하고, 프로세스 혁신을 주도하는 역할을 하겠습니다.\".",
+      "situation": "각 직무별로 ‘입사 후 기여 방안’을 명확히 제시.",
+      "actions": [
+        "개선을 경험하며, 업무 효율성을 높이는 전략적 사고를 길렀습니다.",
+        "입사 후에도 데이터 분석 및 자동화 도입을 통해 비용 절감과 업무 최적화에 기여하겠습니다.\".",
+        "▶ 데이터 분석 / IT 직무 지원 시."
+      ],
+      "outcomes": [
+        "입사 후에도 데이터 분석 및 자동화 도입을 통해 비용 절감과 업무 최적화에 기여하겠습니다.\"."
+      ],
+      "competencies": [
+        "분석력",
+        "문제 해결"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "각 직무별로 ‘입사 후 기여 방안’을 명확히 제시. ▶ 경영기획 / 총무 지원 시. \"서울시청과 국민연금공단에서 데이터 기반의 프로세스. 개선을 경험하며, 업무 효율성을 높이는 전략적 사고를 길렀습니다. 입사 후에도 데이터 분석 및 자동화 도입을 통해 비용 절감과 업무 최적화에 기여하겠습니다.\". ▶ 마케팅 / 영업 지원 시. \"성북구청과 제기동 약령시장 프로젝트에서 고객 타겟팅과. 오프라인 홍보 전략을 실행하며 마케팅 경험을 쌓았습니다. 이 경험을 바탕으로, 입사 후 지역별 맞춤형 영업 전략을 기획하고, 브랜드 인지도를 강화하는 마케팅을 실행하겠습니다.\". ▶ 데이터 분석 / IT 직무 지원 시. *\"서울시청과 국민연금공단에서 엑셀 자동화 및 데이터. 필터링 시스템을 구축하여 업무 효율성을 극대화한 경험이 있습니다. 이를 바탕으로, *입사 후에도 데이터 기반의 의사결정을 강화하고, 프로세스 혁신을 주도하는 역할을 하겠습니다.\". 💡 즉, \"이 경험이 왜 직무에 적합한지\"를 더 강조해야. 함.",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 519,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "3121fd79e57d784d012f18b83cda94d646c4f75b80a293de6badc8d39a7b9e1a"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 520,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "6fdf2549215d33cba7f2707697008e5f0c1459bb9e63bbb1129c32aa0c29f9c3"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 521,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "c98345ee529d6cffa6afc844241835f3f8c530ff15c6723bdbbd9b28bf8db62b"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 522,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "f1cb99d8be28c69597cc59b1bb0886155f2512b8375647280ebc9a4b8c448fc6"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 523,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "cd31a4b1b339b30a908f8c88cce10fa72d885ffd9acd23d0b3b309a79304f30e"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 524,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "d070a8ccf1ebc61085d189f6b9bddc8505b60bfadaba8a8d2a40044ce2709abd"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 525,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "46ba340e9b6d72a36b01842d13467889e5786e8fe7783eb928ceb282d120e9f7"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 526,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "e320d461d241e8e6ee81b01532e5ca26136cfd65f324f90ba169f7d922050b8f"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 527,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "479e06e379d12811f34a9499f170e9c82ff229941265d7bcd071b744684f069f"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 528,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "247050bebb6ffad2c9730f50343274599c8512d600802fea368554d4a28fbc42"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 529,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "a8c3b7257638f336f42e9a3c751a3e88bcbcb4fafffd08e64fd4227e7b7532e9"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 530,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "3cc32d8d62a1c076ac474da407e10cbc9a5597e7ae110eb389cbea0f2ef62fba"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 531,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "a70f00251615f94a3cdc6e29e01d6e9a9ffd8b80a3a95ad70c137c903e4f2939"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 532,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "29f3274fe6149d475fdb34e3df833615c70d5754173999732604848022ac15bd"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 533,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "d3447f1fab29eb5f0517f54c984ca2dcf133b15cd9d1ba54380ccd1b1c5bd93b"
+            }
+          ],
+          "claim_id": "clm_59c3a42cfac461734deb",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_bf709e793cc0fca0",
+      "title": "4️⃣ 자소서 & 면접 답변의 자연스러운 연결 📌 문제점: 현재 정리된 내용들은 서류 작성에는 완벽하지만, 면접에서 자연스럽게 말하기에는 약간 문어체 느낌이 있음. **STAR 기법(상황-과제-행동-결과)**은 좋지만, 말할 때는 좀 더 직관적이고 자연스럽게 정리할 필요가 있음. 📌 보완 방향:",
+      "organization_alias": "",
+      "period": null,
+      "role": "\"국민연금공단에서 기초연금 수급자 발굴을 담당했는데, 가장 기억에 남는 건 분량의 서류를 만에 정리한 경험이에요.",
+      "situation": "면접에서는 '문장 단위'가 아니라 '키워드.",
+      "actions": [
+        "\"국민연금공단에서 기초연금 수급자 발굴을 담당했는데, 가장 기억에 남는 건 분량의 서류를 만에 정리한 경험이에요.",
+        "단순히 정리하는 게 아니라, 엑셀 필터링을 활용해 우선순위를.",
+        "프로세스 개선을 통해 조직에 기여하고 싶습니다.\"."
+      ],
+      "outcomes": [
+        "그 결과, 목표를 초과 달성했고, 연금 지급 절차가 원활하게 진행되도록 기여할 수 있었습니다."
+      ],
+      "competencies": [
+        "문제 해결"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "면접에서는 '문장 단위'가 아니라 '키워드. 중심'으로 말하기. ▶ 면접용 답변 예시 (국민연금공단 경험). \"국민연금공단에서 기초연금 수급자 발굴을 담당했는데, 가장 기억에 남는 건 분량의 서류를 만에 정리한 경험이에요. 단순히 정리하는 게 아니라, 엑셀 필터링을 활용해 우선순위를. 설정하고, 연락처 데이터를 표준화해서 업무 속도를 단축했어요. 그 결과, 목표를 초과 달성했고, 연금 지급 절차가 원활하게 진행되도록 기여할 수 있었습니다. 이 경험을 바탕으로, 입사 후에도 데이터 기반의 업무 최적화와. 프로세스 개선을 통해 조직에 기여하고 싶습니다.\".",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 542,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "41a897b676f304a2c10345daa41e39ebed87c8d04e735e1d7a967f1fbedfaa0b"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 543,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "ee2558a5315151f245a7599ec1378c3732d19128ddedc197d449cf76d80a58b8"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 544,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "3835a20f044c91e0a350ed904232b0f1437bf545cc77020ec7e8d0bca988a5aa"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 545,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "e4f2ac79aacf16defd436850c00a01ce17c4cc2f61ed59112c65d162138fb9d3"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 546,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "78d8a50fd5c71d59e0bfbbd7c7240aa1139de777b76466334db02770ccf18b4f"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 547,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "b213b5ab9c9ddbd3ce1c991762008bb1b23bc8e63ab1414bb35f9f43d3f6da31"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 548,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "b70841e327f51a9441ed85d38ed1dbe9ab30be47d8204f52ad3e069743c9b83c"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 549,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "599ca8838508d46b905c5c404e3ec3e997c385fe3a5cc33d86ef72a9fe08dd5e"
+            },
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 550,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "4533c7f9b12f2de43657b20b9a1a715be8ac187dc570d8f9ccec757dd065e2fc"
+            }
+          ],
+          "claim_id": "clm_317e5efa1d4b3cc79d5a",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        },
+        {
+          "field": "metric:페이지",
+          "normalized_value": "3000페이지",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 545,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "e4f2ac79aacf16defd436850c00a01ce17c4cc2f61ed59112c65d162138fb9d3"
+            }
+          ],
+          "claim_id": "clm_728510a9a12ba0923ba6",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "metric:일",
+          "normalized_value": "2일",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 545,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "e4f2ac79aacf16defd436850c00a01ce17c4cc2f61ed59112c65d162138fb9d3"
+            }
+          ],
+          "claim_id": "clm_160d9bebaaced3651a3f",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "metric:건",
+          "normalized_value": "150건",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 548,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "b70841e327f51a9441ed85d38ed1dbe9ab30be47d8204f52ad3e069743c9b83c"
+            }
+          ],
+          "claim_id": "clm_0683585798a0ca955342",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_d536de538c8a69e1",
+      "title": "경험정리 문단 539",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "**STAR 기법(상황-과제-행동-결과)**은 좋지만, 말할 때는 좀 더 직관적이고 자연스럽게 정리할 필요가",
+      "actions": [
+        "**STAR 기법(상황-과제-행동-결과)**은 좋지만, 말할 때는 좀 더 직관적이고 자연스럽게 정리할 필요가"
+      ],
+      "outcomes": [
+        "**STAR 기법(상황-과제-행동-결과)**은 좋지만, 말할 때는 좀 더 직관적이고 자연스럽게 정리할 필요가"
+      ],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "**STAR 기법(상황-과제-행동-결과)**은 좋지만, 말할 때는 좀 더 직관적이고 자연스럽게 정리할 필요가",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 538,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "63cd1357f4df3c57e995b82d8d3a2e7e33dc5bcfdc49f72eefa462cd86ed66af"
+            }
+          ],
+          "claim_id": "clm_82338eb9b9b76d866bf0",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    }
+  ]
+}

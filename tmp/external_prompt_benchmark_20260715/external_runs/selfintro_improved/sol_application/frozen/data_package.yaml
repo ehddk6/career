@@ -1,0 +1,13 @@
+run_id: SOL-20260715-1537
+data_package_id: SOL-DATA-EXT-001
+data_package_version: "1.0"
+frozen_at: "2026-07-15T15:37:00+09:00"
+job_posting_date: NEEDS_VERIFICATION
+research_cutoff_date: "2026-07-13"
+count_mode: UNVERIFIED
+candidate_count: 4
+manifest_sha256: eca64f8519b65c030e1e2cbeaa1933cf47e4d2767b6d60859b2fe5c34e7906fd
+input_scope: input/
+external_research_performed: false
+original_input_modified: false
+

@@ -1,0 +1,328 @@
+{
+  "status": "finalizing",
+  "quality_mode": "v2",
+  "strict_quality": true,
+  "run_dir": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\career_runs\\kodit-2026-h2-rigorous-20260714-v22",
+  "root": "C:\\Users\\ehddk\\OneDrive\\문서\\취업",
+  "target": "신용보증기금 체험형 청년인턴1(보증)",
+  "draft": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\output\\doc\\신용보증기금_2026하반기_청년인턴_업무수행계획서.docx",
+  "posting": "career_runs\\kodit-2026-h2-official-questions.docx",
+  "profile": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\.career_profile\\experience_ledger_v2_proposed_20260714.json",
+  "posting_snapshot_id": "5b6f69118ca1eece39f284fb26c18e42422ba01088f978b9829c0501bc456779",
+  "official_research_domains": [
+    "bok.or.kr",
+    "kodit.co.kr",
+    "saramin.co.kr"
+  ],
+  "research_policy": "evidence-first",
+  "research_method_default": "evidence-first-research",
+  "research_method_enforced": false,
+  "questions": [
+    {
+      "index": 1,
+      "prompt": "신용보증기금 청년인턴에 지원하게 된 동기와 신용보증기금의 역할에 대한 본인의 이해를 바탕으로 인턴 근무 중 배우고, 기여하고 싶은 부분을 기술하여 주십시오.",
+      "character_limit": 600,
+      "count_mode": "spaces_included",
+      "minimum_character_limit": 400
+    },
+    {
+      "index": 2,
+      "prompt": "지원자가 새로운 조직에 적응하기 위해 중요하게 생각하는 태도가 무엇이며, 그 태도를 실제 근무과정에서 실천하기 위해 어떤 노력을 할 것인지 기술하여 주십시오.",
+      "character_limit": 600,
+      "count_mode": "spaces_included",
+      "minimum_character_limit": 400
+    },
+    {
+      "index": 3,
+      "prompt": "신용보증기금의 청년인턴으로 근무한다고 가정할 때, 실제 근무 시 지원자의 업무수행계획을 기술하여 주십시오.",
+      "character_limit": 600,
+      "count_mode": "spaces_included",
+      "minimum_character_limit": 400
+    },
+    {
+      "index": 4,
+      "prompt": "최근 중소기업에 큰 영향을 미치는 경제·사회 이슈를 하나 선택하여 그 이유를 서술하여 주시기 바랍니다. 또한, 해당 이슈와 관련하여 영향을 받는 중소기업을 정책 금융기관이 지원할 수 있는 방안과 지원 과정에서 유의할 점을 서술하여 주시기 바랍니다.",
+      "character_limit": 1500,
+      "count_mode": "spaces_included",
+      "minimum_character_limit": null
+    }
+  ],
+  "selected_experience_ids": [
+    "exp_151ae891bd2719ad",
+    "exp_638228200e37de69",
+    "exp_2df35f8fca5e30b8",
+    "exp_2e966c8ac3146a5b"
+  ],
+  "conflict_count": 0,
+  "writing_guidance": {
+    "status": "available",
+    "kind": "youtube_frame_strategy",
+    "use_policy": "strategy_only_not_factual_evidence",
+    "source_dir": "자료조사/자소서_유튜브_프레임분석_2026-07-03",
+    "artifact": "career_runs/kodit-2026-h2-rigorous-20260714-v6-20260714-073101-316342/05_작성가이드_유튜브프레임.md",
+    "source_files": [
+      {
+        "name": "00_읽어주세요_활용법.md",
+        "path": "자료조사/자소서_유튜브_프레임분석_2026-07-03/00_읽어주세요_활용법.md",
+        "role": "활용법"
+      },
+      {
+        "name": "01_자소서_작성원칙_요약.md",
+        "path": "자료조사/자소서_유튜브_프레임분석_2026-07-03/01_자소서_작성원칙_요약.md",
+        "role": "전체 작성 원칙"
+      },
+      {
+        "name": "02_문항유형별_전략.md",
+        "path": "자료조사/자소서_유튜브_프레임분석_2026-07-03/02_문항유형별_전략.md",
+        "role": "문항 유형별 전략"
+      },
+      {
+        "name": "03_기관별_적용노트.md",
+        "path": "자료조사/자소서_유튜브_프레임분석_2026-07-03/03_기관별_적용노트.md",
+        "role": "기관별 적용 노트"
+      },
+      {
+        "name": "04_프레임_근거색인.csv",
+        "path": "자료조사/자소서_유튜브_프레임분석_2026-07-03/04_프레임_근거색인.csv",
+        "role": "캡처 프레임 원문 색인"
+      },
+      {
+        "name": "05_문장_근거색인.csv",
+        "path": "자료조사/자소서_유튜브_프레임분석_2026-07-03/05_문장_근거색인.csv",
+        "role": "문장 단위 원문 색인"
+      },
+      {
+        "name": "06_영상별_요약.md",
+        "path": "자료조사/자소서_유튜브_프레임분석_2026-07-03/06_영상별_요약.md",
+        "role": "영상별 요약"
+      },
+      {
+        "name": "07_전체프레임_OCR.jsonl",
+        "path": "자료조사/자소서_유튜브_프레임분석_2026-07-03/07_전체프레임_OCR.jsonl",
+        "role": "전체 OCR 원문"
+      },
+      {
+        "name": "run_summary.json",
+        "path": "자료조사/자소서_유튜브_프레임분석_2026-07-03/run_summary.json",
+        "role": "분석 실행 요약"
+      }
+    ],
+    "missing_files": [],
+    "generated_at": "2026-07-14T07:32:08.548582",
+    "freshness": {
+      "status": "fresh",
+      "external_source_latest_at": "2026-07-02T23:16:47.628036+09:00",
+      "imported_snapshot_latest_at": "2026-07-03T08:12:41.581765+09:00"
+    }
+  },
+  "started_at": "2026-07-14T07:32:08.555578",
+  "state_history": [
+    {
+      "recorded_at": "2026-07-14T07:32:08.555578",
+      "status": "ready_for_research",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-14T08:01:11.790288",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-14T08:01:11.864305",
+      "status": "blocked_validation",
+      "blocked_stage": "finalize"
+    },
+    {
+      "recorded_at": "2026-07-14T08:04:40.315306",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-14T08:04:40.362303",
+      "status": "blocked_validation",
+      "blocked_stage": "finalize"
+    },
+    {
+      "recorded_at": "2026-07-14T08:05:32.743242",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-14T08:06:32.182768",
+      "status": "blocked_selection",
+      "blocked_stage": "rigorous"
+    },
+    {
+      "recorded_at": "2026-07-14T08:10:28.450658",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-14T08:10:28.760208",
+      "status": "complete",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-14T20:19:01.376893",
+      "status": "finalizing",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-14T20:38:24.580993",
+      "status": "complete",
+      "blocked_stage": null
+    },
+    {
+      "recorded_at": "2026-07-15T15:32:08.076688",
+      "status": "finalizing",
+      "blocked_stage": null
+    }
+  ],
+  "selection_mode": "rigorous",
+  "postprocess_policy": "never",
+  "max_model_calls": 13,
+  "max_postprocess_calls": 1,
+  "max_stage_seconds": null,
+  "legacy_patina": false,
+  "patina_attempted": false,
+  "patina_score_attempted": false,
+  "patina_applied": false,
+  "patina_status": "disabled",
+  "patina_score_enabled": false,
+  "patina_voice_sample_used": null,
+  "incumbent_preflight_issues": [
+    {
+      "code": "missing_job_connection",
+      "question_index": 2,
+      "message": "답변이 공고의 업무·역량과 연결되지 않습니다."
+    },
+    {
+      "code": "missing_target_specificity",
+      "question_index": 3,
+      "message": "지원 기관 또는 사업을 선택한 이유가 답변에 드러나지 않습니다."
+    },
+    {
+      "code": "low_quality_score",
+      "question_index": 3,
+      "message": "품질 점수 80/100점으로 기준 85점에 미달합니다."
+    },
+    {
+      "code": "underfilled_answer",
+      "question_index": 4,
+      "message": "답변이 충분히 구체적이지 않습니다: 932/1500자 (최소 1200자, spaces_included)"
+    },
+    {
+      "code": "reused_experience",
+      "question_index": 2,
+      "message": "문항 1과 같은 경험(exp_9e97f274590a323b)을 재사용했습니다."
+    },
+    {
+      "code": "reused_experience",
+      "question_index": 3,
+      "message": "문항 1과 같은 경험(exp_151ae891bd2719ad)을 재사용했습니다."
+    }
+  ],
+  "copyeditor_attempted": false,
+  "copyeditor_applied": false,
+  "copyeditor_status": "disabled",
+  "postprocess_attempted": false,
+  "postprocess_applied": false,
+  "postprocess_status": "disabled",
+  "model_calls": {
+    "budget": 9,
+    "max_model_calls": 9,
+    "calls": {},
+    "total": 0,
+    "remaining": 9,
+    "max_postprocess_calls": 1,
+    "events": []
+  },
+  "final_artifact": null,
+  "rigorous_selection": {
+    "status": "passed",
+    "selection_mode": "rigorous",
+    "model_id": "gpt-5.6-sol",
+    "call_count": 9,
+    "calls": [
+      {
+        "stage": "candidate_1",
+        "model_id": "gpt-5.6-sol"
+      },
+      {
+        "stage": "candidate_2",
+        "model_id": "gpt-5.6-sol"
+      },
+      {
+        "stage": "candidate_3",
+        "model_id": "gpt-5.6-sol"
+      },
+      {
+        "stage": "candidate_4",
+        "model_id": "gpt-5.6-sol"
+      },
+      {
+        "stage": "judge_recruiter",
+        "model_id": "gpt-5.6-sol"
+      },
+      {
+        "stage": "judge_job_fact_auditor",
+        "model_id": "gpt-5.6-sol"
+      },
+      {
+        "stage": "judge_korean_editor",
+        "model_id": "gpt-5.6-sol"
+      },
+      {
+        "stage": "synthesis",
+        "model_id": "gpt-5.6-sol"
+      },
+      {
+        "stage": "final_comparison",
+        "model_id": "gpt-5.6-sol"
+      }
+    ],
+    "winner_candidate_id": "C210847FD",
+    "final_choice": "X",
+    "final_reason": "Y는 네 문항 모두 질문 요소와 근거를 유지하면서 X보다 반복과 기계적 나열이 적고 문장이 간결하다. 새로운 사실이나 인과관계 약화, 질문 누락, 분량 위반은 확인되지 않았다. Deterministic safety guard retained X because the synthesis dropped explicit duty linkage.",
+    "hard_fail": false,
+    "data_package": {
+      "data_package_id": "SOL-DATA-608228643DF2",
+      "data_package_version": "1.1",
+      "frozen_data_sha256": "608228643df29ad9deab874e72e9842e247fa54c0c80d2316fd43674077b81c7",
+      "count_mode": "spaces_included",
+      "candidate_count": 5,
+      "judge_count": 3
+    },
+    "candidate_count": 5,
+    "judge_count": 3,
+    "review_required_candidates": [
+      "C98D4E6E5"
+    ],
+    "artifact_sha256": {
+      "rigorous\\aggregate.json": "a0d6f6fcc66e772644003e7deaac11285a2a217e38344df53896f7b992d0cb6e",
+      "rigorous\\blind_candidates.json": "df0ee4085c429926872b67feec9d0ecd0e83af9605750347f8834955bad09524",
+      "rigorous\\candidates\\generated_1.json": "91457deb88d5e275ce6aa7116573704864e1e25427f89c3951461e8b0cfdeae3",
+      "rigorous\\candidates\\generated_1_raw.json": "5a3305fb807074fa61a18f6f5de1e4a36b03ef473d0dd88bc9876cf0a80d7a77",
+      "rigorous\\candidates\\generated_2.json": "0cfbb1567196033217211e71e45ab2ce3bf4bbb2cde333971148e0130f4eba84",
+      "rigorous\\candidates\\generated_2_raw.json": "101ea579ec2bcd16a1736dfef5a0f462878bc59fedd3e0b1ccbf1d54179224a5",
+      "rigorous\\candidates\\generated_3.json": "70ee1bcb1128b5756f38c148acbbb5b4e66a60df1bcc6cb59783c541c3d5e3f0",
+      "rigorous\\candidates\\generated_3_raw.json": "af9a7be0936bfc2a41345dab04ecff31e6e69c554c45249c3f60e88a9a53c4eb",
+      "rigorous\\candidates\\generated_4.json": "519785e436d9d45a429020e3c35289d96eff738c400cacf4f3cdb1f057ef4589",
+      "rigorous\\candidates\\generated_4_raw.json": "a06e407173f4d0fdfbd857f0fafa9b274097be5d90a6d17953a92e8361d1354a",
+      "rigorous\\data_package.json": "e52854b5a6d9614c64c8ff6028f9a0c40a1b63901bde2d0ab9227cacf1a3a27e",
+      "rigorous\\final_comparison.json": "1322fcaddc6e8ac76492e93658b55435278678822af3a1527b5a5a2e032cb6ab",
+      "rigorous\\judges\\job_fact_auditor.json": "df7c94eb41bd4433b9abbcb6f8636c9b498d1faa8930ca76e38d2e267f35b796",
+      "rigorous\\judges\\job_fact_auditor_raw.json": "df7c94eb41bd4433b9abbcb6f8636c9b498d1faa8930ca76e38d2e267f35b796",
+      "rigorous\\judges\\korean_editor.json": "1c803aef2898adb99d6b376433ceb3e977edb643aae660e6e2fa6ac1552a7a3c",
+      "rigorous\\judges\\korean_editor_raw.json": "1c803aef2898adb99d6b376433ceb3e977edb643aae660e6e2fa6ac1552a7a3c",
+      "rigorous\\judges\\recruiter.json": "be02a1bcb10cfb387a4d7ce6cafb3f281fed430b54beded3267fcdc174846966",
+      "rigorous\\judges\\recruiter_raw.json": "be02a1bcb10cfb387a4d7ce6cafb3f281fed430b54beded3267fcdc174846966",
+      "rigorous\\manifest.json": "646a4156e2486cd0c6621f4b9f737abf0e1eeeddea33f91473f3b3a20ccc6311",
+      "rigorous\\selected.json": "de94aed7e0cdaaf22607bd4afbf649d63e91861f18d3dc94c899b655590da50b",
+      "rigorous\\synthesis.json": "3bd0343f0f1c1d9f66f62ef2ce4179e88e7ffd6475ec24de984eb90f37520f4d"
+    }
+  },
+  "finished_at": "2026-07-14T20:38:24.545549",
+  "run_duration_seconds": 47175.99,
+  "quality_profile": "max_quality"
+}

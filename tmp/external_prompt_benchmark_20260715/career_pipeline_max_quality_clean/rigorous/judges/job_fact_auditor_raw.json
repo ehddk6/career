@@ -1,0 +1,245 @@
+{
+  "data_package_id": "CAREER-DATA-3B03F55784A4",
+  "data_package_version": "2.0",
+  "judge_mode": "JOB_FACT_AUDITOR",
+  "evaluations": [
+    {
+      "candidate_id": "C29D6F72B",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 17,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 3,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 4,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 5,
+        "length_and_format": 2
+      },
+      "total": 92,
+      "weakness_codes": [
+        "experience_overlap",
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "company_role_connection",
+          "exact_element": "기업이 부담하는 채무를 보증해 성장유망기업의 자금 조달을 돕고, 보증신청 이후 신용조사와 보증심사를 수행하는 정책금융기관",
+          "reason": "지원 동기와 기관 역할을 검증된 기관 역할에 직접 연결한다.",
+          "fact_ids": [
+            "kodit-role-20260711"
+          ]
+        },
+        {
+          "question": "1",
+          "element_type": "evidence_based_action",
+          "exact_element": "같은 데이터를 기존 엑셀 수식과 외주 프로그램에 각각 입력해 결과를 비교한 뒤 분석 보고서를 작성",
+          "reason": "자료 대조와 보고 역량이 확인된 경험에 근거한다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "balanced_issue_analysis",
+          "exact_element": "반면 수출기업은 가격경쟁력이나 원화 환산 수익 측면에서 유리할 수 있으므로 ‘고환율이면 모든 중소기업이 피해를 본다’고 단정해서는 안 됩니다.",
+          "reason": "공식 자료의 환율 위험과 명시된 상반 효과를 함께 반영한다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "C3CCC735A",
+      "hard_fail": true,
+      "hard_fail_reasons": [
+        "문항 4 답변이 공백 포함 최대 1500자 제한을 초과한다."
+      ],
+      "hard_fail_status": "CONFIRMED",
+      "hard_fail_type": "DETERMINISTIC_FORMAT",
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 17,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 10,
+        "experience_allocation": 6,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 4,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 0
+      },
+      "total": 95,
+      "weakness_codes": [
+        "format_risk",
+        "spoken_answer_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "evidence_based_action",
+          "exact_element": "동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 입력해 결과 비교 분석 보고서를 작성하고 팀장에게 보고한 경험",
+          "reason": "비교·검증·보고 행동이 확인된 경험과 일치한다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "adaptation_evidence",
+          "exact_element": "상인 인터뷰와 타 시장 비교 분석을 거쳐 문제점과 개선방안을 도출한 경험",
+          "reason": "낯선 환경에서 관찰하고 근거를 수집한 행동이 확인된 경험에 근거한다.",
+          "fact_ids": [
+            "clm_abaa19a532d1aabc9140"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "policy_support_connection",
+          "exact_element": "신용보증기금은 지역 수출기업 등의 유동성과 금융비용 부담을 완화하기 위해 협약보증을 공급하고 있습니다.",
+          "reason": "정책지원 방안을 공식적으로 확인된 협약보증 사례와 연결한다.",
+          "fact_ids": [
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "CB8294BFB",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 17,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 6,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 4,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 2
+      },
+      "total": 96,
+      "weakness_codes": [
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "company_job_connection",
+          "exact_element": "보증 분야 체험형 청년인턴의 주요업무는 신용보증 기한연장과 기업신용 상시관리입니다.",
+          "reason": "지원 직무의 주요업무를 공식 공고 근거에 맞게 특정한다.",
+          "fact_ids": [
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "adaptation_evidence",
+          "exact_element": "상인 인터뷰와 타 시장 비교 분석을 거쳐 문제점과 개선 방안을 도출한 경험",
+          "reason": "경청과 비교 분석이라는 적응 태도를 확인된 경험으로 뒷받침한다.",
+          "fact_ids": [
+            "clm_abaa19a532d1aabc9140"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "classification_method",
+          "exact_element": "자료의 성격을 먼저 나눈 뒤 판단에 필요한 항목을 표시하겠습니다.",
+          "reason": "대량 자료를 정리하고 수급 대상자를 선별해야 했던 확인된 과제와 연결된다.",
+          "fact_ids": [
+            "clm_5e91929d8d87322e2c70"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "issue_evidence",
+          "exact_element": "한국은행은 높은 환율 변동성과 중동지역 리스크를 점검하면서 14조원 한도의 중소기업 한시 특별지원 운용기간을 재연장했습니다.",
+          "reason": "이슈의 시의성과 중소기업 자금 영향을 공식 자료로 뒷받침한다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "CE0E2F416",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 17,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 6,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 4,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 5,
+        "length_and_format": 2
+      },
+      "total": 95,
+      "weakness_codes": [
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "evidence_based_action",
+          "exact_element": "기존 엑셀 수식과 외주 프로그램에 같은 데이터를 입력한 결과를 대조해 비교 분석 보고서를 작성하고 팀장에게 보고한 경험",
+          "reason": "대조와 보고 역량이 확인된 직접 경험에 근거한다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "adaptation_evidence",
+          "exact_element": "상인 인터뷰와 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험",
+          "reason": "관찰·경청·비교라는 적응 태도를 확인된 경험으로 설명한다.",
+          "fact_ids": [
+            "clm_abaa19a532d1aabc9140"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "work_management_method",
+          "exact_element": "마감 기한을 정하고 남은 날짜를 디데이로 설정하며 일일 목표를 달력과 노트에 기록",
+          "reason": "구체적인 일정관리 방식이 확인된 경험 원장과 일치한다.",
+          "fact_ids": [
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "realistic_policy_connection",
+          "exact_element": "새로운 제도를 넓게 만들기보다 이미 운용되는 수단을 기업별 피해 양상에 맞게 연결하는 편이 현실적입니다.",
+          "reason": "공식적으로 확인된 협약보증을 근거로 현실적인 지원 방향을 제시한다.",
+          "fact_ids": [
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ]
+    }
+  ]
+}

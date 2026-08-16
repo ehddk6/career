@@ -1,0 +1,41 @@
+run_id: CR-20260715-1539
+company_data_package_id: CR-DATA-001
+company_data_package_version: "1.0"
+step: STEP_1
+step_status: COMPLETED_WITH_GAPS
+frozen_at: 2026-07-15T16:00:22+09:00
+research_cutoff_date: 2026-07-15
+financial_cutoff_period: UNVERIFIED
+news_search_start_date: UNVERIFIED
+job_posting_date: 2026-07-09
+target_job: "체험형 청년인턴1(보증)"
+competitor_set_version: UNVERIFIED
+source_count: 66
+local_input_file_count: 62
+external_source_lead_count: 4
+input_snapshot_sha256: "ba71a9931e821184bbb932a5a9c1dd12c48cef0a145db79d9729902ab35d7ca2"
+artifacts:
+  research_questions:
+    path: company_research/frozen/research_questions.md
+    status: FROZEN_STEP_0
+  manifest:
+    path: company_research/frozen/manifest.json
+    sha256: "d09f845393cb17f4f9ed2bb468852cc75d111f67f2359f020da8b94828bf8ae8"
+  entity_map:
+    path: company_research/frozen/entity_map.md
+    sha256: "f6d14e5194d86ff0119b264107c693f3ab9d79563ec7eabe203c1fb71055b93b"
+  input_inventory:
+    path: company_research/frozen/input_inventory.md
+    sha256: "ff5ba98a4f8cb6557ac022c7c7a67ae77a373af33d32d2293e46d559e2e4b3b5"
+scope:
+  allowed_local_root: input/
+  external_access_performed: false
+  prior_run_claims_auto_promoted: false
+  target_legal_entity_status: NEEDS_VERIFICATION
+gates:
+  missing_upstream_sources: 2
+  affected_applicant_claims: 13
+  out_of_scope_entity_files: 6
+  prohibited_pii_files: 1
+  hard_fail_status: NOT_EVALUATED_AT_STEP_1
+next_step: STEP_2_SOURCE_COLLECTION_AND_CLAIM_LEDGER

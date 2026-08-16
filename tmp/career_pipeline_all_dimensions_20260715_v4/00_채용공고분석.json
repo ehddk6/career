@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "target": "신용보증기금 체험형 청년인턴1(보증)",
+  "source": {
+    "kind": "docx",
+    "location": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\career_runs\\kodit-2026-h2-official-questions.docx",
+    "retrieved_at": "2026-07-14T07:32:08+09:00",
+    "content_sha256": "5b6f69118ca1eece39f284fb26c18e42422ba01088f978b9829c0501bc456779",
+    "official_status": "user_attested",
+    "content_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  "organization": "신용보증기금",
+  "role": "체험형 청년인턴1(보증)",
+  "locations": [],
+  "duties": [
+    "신용보증 기한연장, 기업신용 상시관리 등"
+  ],
+  "competencies": [],
+  "requirements": [
+    "채용공고문에 따른 지원자격을 충족한 자"
+  ],
+  "preferences": [],
+  "questions": [
+    {
+      "index": 1,
+      "prompt": "신용보증기금 청년인턴에 지원하게 된 동기와 신용보증기금의 역할에 대한 본인의 이해를 바탕으로 인턴 근무 중 배우고, 기여하고 싶은 부분을 기술하여 주십시오.",
+      "character_limit": 600,
+      "count_mode": "spaces_included",
+      "minimum_character_limit": 400
+    },
+    {
+      "index": 2,
+      "prompt": "지원자가 새로운 조직에 적응하기 위해 중요하게 생각하는 태도가 무엇이며, 그 태도를 실제 근무과정에서 실천하기 위해 어떤 노력을 할 것인지 기술하여 주십시오.",
+      "character_limit": 600,
+      "count_mode": "spaces_included",
+      "minimum_character_limit": 400
+    },
+    {
+      "index": 3,
+      "prompt": "신용보증기금의 청년인턴으로 근무한다고 가정할 때, 실제 근무 시 지원자의 업무수행계획을 기술하여 주십시오.",
+      "character_limit": 600,
+      "count_mode": "spaces_included",
+      "minimum_character_limit": 400
+    },
+    {
+      "index": 4,
+      "prompt": "최근 중소기업에 큰 영향을 미치는 경제·사회 이슈를 하나 선택하여 그 이유를 서술하여 주시기 바랍니다. 또한, 해당 이슈와 관련하여 영향을 받는 중소기업을 정책 금융기관이 지원할 수 있는 방안과 지원 과정에서 유의할 점을 서술하여 주시기 바랍니다.",
+      "character_limit": 1500,
+      "count_mode": "spaces_included",
+      "minimum_character_limit": null
+    }
+  ],
+  "constraints": [
+    "성명, 연령, 성별, 출신지, 가족관계, 학교, 학력, 신체조건 등 채용의 공정성을 해칠 수 있는 사항은 기재하지 않는다."
+  ],
+  "uncertainties": []
+}

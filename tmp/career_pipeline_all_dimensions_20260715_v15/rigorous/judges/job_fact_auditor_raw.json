@@ -1,0 +1,382 @@
+{
+  "data_package_id": "CAREER-DATA-F9C8B89D27FE",
+  "data_package_version": "2.0",
+  "judge_mode": "JOB_FACT_AUDITOR",
+  "evaluations": [
+    {
+      "candidate_id": "C20ACF614",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 15,
+        "job_relevance": 11,
+        "company_specificity": 10,
+        "action_specificity": 12,
+        "experience_allocation": 8,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 5,
+        "korean_readability": 7,
+        "applicant_distinctiveness": 7,
+        "length_and_format": 1
+      },
+      "total": 98,
+      "weakness_codes": [],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "company_role_to_action",
+          "exact_element": "기업이 부담하는 채무를 보증해 성장유망기업을 지원하고, 보증신청 뒤 신용조사와 보증심사를 수행하는 기관으로 이해했습니다.",
+          "reason": "safe_claims에 있는 기관 역할 claim을 지원동기와 연결했다.",
+          "fact_ids": [
+            "kodit-role-20260711"
+          ]
+        },
+        {
+          "question": "1",
+          "element_type": "experience_action",
+          "exact_element": "같은 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과를 비교하고 분석 보고서를 작성해 보고한 경험",
+          "reason": "원자료와 처리값 대조 행동이 보증 자료 확인 업무로 전이 가능하다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "role_boundary",
+          "exact_element": "제 역할을 독립 판단이 아니라 확인·기록·보고에 두겠습니다.",
+          "reason": "인턴 권한을 심사·승인이 아닌 보조 행동으로 제한해 면접 방어성이 높다.",
+          "fact_ids": [
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "issue_reasoning",
+          "exact_element": "환율 변동은 기업마다 방향이 다르게 나타납니다.",
+          "reason": "고환율 영향의 기업별 차이를 conflict_note와 맞게 구분했다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "C6CA936D6",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "Q2 uses exp_a07fd710e2b7c0c2 with quantified interview and market comparison; it is defensible only with qualification, so interview follow-up may require exact scope and contribution explanation."
+      ],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 14,
+        "job_relevance": 11,
+        "company_specificity": 10,
+        "action_specificity": 11,
+        "experience_allocation": 7,
+        "interview_defensibility": 7,
+        "spoken_defensibility": 4,
+        "korean_readability": 7,
+        "applicant_distinctiveness": 7,
+        "length_and_format": 1
+      },
+      "total": 93,
+      "weakness_codes": [
+        "interview_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience_action",
+          "exact_element": "동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과 비교 분석 보고서를 작성해 보고한 경험",
+          "reason": "자료 대조와 보고 행동이 공고 업무의 확인·기록 보조와 맞다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "experience_action",
+          "exact_element": "상인 인터뷰와 타 시장 비교 분석을 통해 문제점과 개선 방안을 도출한 경험",
+          "reason": "확인한 내용과 판단한 내용을 구분하는 태도 설명에 활용 가능하지만 수치·범위 방어가 필요하다.",
+          "fact_ids": [
+            "clm_abaa19a532d1aabc9140"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "support_method",
+          "exact_element": "매출 구조, 원가 구조, 결제 통화, 납품 계약 조건을 함께 확인해야 합니다.",
+          "reason": "환율 영향의 기업별 차이를 선별 지원 논리로 구체화했다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711",
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "C9B78287C",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 15,
+        "job_relevance": 11,
+        "company_specificity": 10,
+        "action_specificity": 11,
+        "experience_allocation": 8,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 5,
+        "korean_readability": 7,
+        "applicant_distinctiveness": 7,
+        "length_and_format": 1
+      },
+      "total": 97,
+      "weakness_codes": [],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience_action",
+          "exact_element": "확인·분류·보고 방식",
+          "reason": "자료 분류와 결과 비교 보고 경험을 공고 업무의 확인·보고 행동으로 전환했다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429",
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "execution_sequence",
+          "exact_element": "기준 확인, 자료 대조, 예외 보고의 순서",
+          "reason": "문항 3의 실행 순서 요구를 공고 업무에 맞춰 직접 제시했다.",
+          "fact_ids": [
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "risk_boundary",
+          "exact_element": "보증이 위험을 모두 없애는 것은 아닙니다.",
+          "reason": "보증의 위험 이전 범위를 과장하지 않고 제한했다.",
+          "fact_ids": [
+            "CLM-COMP-012"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "CB1811FBF",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "Q1 says the applicant learned that the same source data can differ by input method and formula; the ledger supports comparison/reporting but not the full causal lesson, so interview defense should keep it as observation rather than proven result.",
+        "Q4 mentions condition adjustment or additional counseling after support; this is a plausible policy-finance suggestion, but not directly grounded in the provided safe_claims."
+      ],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 13,
+        "job_relevance": 11,
+        "company_specificity": 10,
+        "action_specificity": 11,
+        "experience_allocation": 8,
+        "interview_defensibility": 7,
+        "spoken_defensibility": 4,
+        "korean_readability": 7,
+        "applicant_distinctiveness": 7,
+        "length_and_format": 1
+      },
+      "total": 93,
+      "weakness_codes": [
+        "fact_risk",
+        "interview_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "company_role_to_action",
+          "exact_element": "기업의 자금융통을 돕는 보증 업무가 확인과 책임감이 필요한 공적 업무",
+          "reason": "법정 목적과 보증 역할을 확인·기록 태도로 연결했다.",
+          "fact_ids": [
+            "CLM-COMP-001",
+            "kodit-role-20260711"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "experience_action",
+          "exact_element": "마감 기한을 정하고, 남은 일정을 달력과 노트에 적어 목표 달성을 관리",
+          "reason": "새 조직 적응 태도인 기준 확인과 기록 습관에 맞게 활용했다.",
+          "fact_ids": [
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "role_boundary",
+          "exact_element": "건별로 확인 근거와 판단이 필요한 지점을 구분해 남기겠습니다.",
+          "reason": "인턴의 판단 권한을 넘지 않는 실행 방식이다.",
+          "fact_ids": [
+            "kodit-intern-duty-20260711",
+            "clm_3e69991c9b56d728b429"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "CB8809BC9",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "Q1 says existing guarantee conditions will be checked in extension work; this is semantically plausible from 기한연장 but should not be defended as a confirmed intern authority beyond 자료 확인."
+      ],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 14,
+        "job_relevance": 11,
+        "company_specificity": 10,
+        "action_specificity": 11,
+        "experience_allocation": 8,
+        "interview_defensibility": 7,
+        "spoken_defensibility": 4,
+        "korean_readability": 7,
+        "applicant_distinctiveness": 7,
+        "length_and_format": 1
+      },
+      "total": 94,
+      "weakness_codes": [
+        "interview_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience_action",
+          "exact_element": "같은 데이터를 넣어 결과 비교 분석 보고서를 작성해 보고한 경험",
+          "reason": "숫자와 항목 대조 행동이 기한연장·상시관리 보조 업무와 연결된다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429",
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "adaptation_method",
+          "exact_element": "업무 흐름을 배운 뒤 제 방식으로 바꾸기보다 조직의 기준에 맞춰 기록하고 질문",
+          "reason": "새 조직 적응 태도와 실제 실천 계획에 직접 답한다.",
+          "fact_ids": [
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "risk_boundary",
+          "exact_element": "보증은 신용위험 일부를 공적 기반으로 나누는 구조",
+          "reason": "보증의 위험 분담 구조를 safe_claim 범위 안에서 설명했다.",
+          "fact_ids": [
+            "CLM-COMP-012"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "CCE73192B",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "Q4 expands 중동지역 리스크 into transport, payment terms, delivery delay, and customer trust effects. The BOK claim supports existence of Middle East risk but not these specific causal effects, so these should be treated as unsupported inference.",
+        "Q3 repeats similar ending about recurring omissions and inquiries, weakening compactness and spoken defensibility."
+      ],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 12,
+        "job_relevance": 11,
+        "company_specificity": 9,
+        "action_specificity": 11,
+        "experience_allocation": 8,
+        "interview_defensibility": 7,
+        "spoken_defensibility": 4,
+        "korean_readability": 7,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 1
+      },
+      "total": 90,
+      "weakness_codes": [
+        "fact_risk",
+        "spoken_answer_risk",
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience_action",
+          "exact_element": "결과를 비교하고, 그 내용을 분석 보고서로 정리해 팀장에게 보고한 경험",
+          "reason": "자료 확인·보고의 전이 가능성이 분명하다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "experience_action",
+          "exact_element": "마감 기한을 정하고 남은 일정을 디데이로 관리하며, 일일계획을 달력과 노트에 적어 진행 상태를 점검",
+          "reason": "적응 태도인 기준 학습과 반복 실행을 뒷받침한다.",
+          "fact_ids": [
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "experience_action",
+          "exact_element": "기초연금 관련 자료를 체계적으로 분류한 경험",
+          "reason": "자료 출처와 처리 상태 기록 계획에 맞는 확인된 경험이다.",
+          "fact_ids": [
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "C6CA936D6",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "Duplicate candidate_id detected in source list position is not present; scoring retained for the single C6CA936D6 entry only."
+      ],
+      "scores": {
+        "question_fidelity": 0,
+        "fact_accuracy": 0,
+        "job_relevance": 0,
+        "company_specificity": 0,
+        "action_specificity": 0,
+        "experience_allocation": 0,
+        "interview_defensibility": 0,
+        "spoken_defensibility": 0,
+        "korean_readability": 0,
+        "applicant_distinctiveness": 0,
+        "length_and_format": 0
+      },
+      "total": 0,
+      "weakness_codes": [
+        "format_risk"
+      ],
+      "transferable_elements": []
+    }
+  ]
+}

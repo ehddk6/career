@@ -1,0 +1,200 @@
+{
+  "data_package_id": "CAREER-DATA-3B03F55784A4",
+  "data_package_version": "2.0",
+  "judge_mode": "RECRUITER",
+  "evaluations": [
+    {
+      "candidate_id": "C29D6F72B",
+      "hard_fail": true,
+      "hard_fail_reasons": [
+        "문항 3이 공백 포함 600자 상한을 초과한 것으로 확인된다."
+      ],
+      "hard_fail_status": "CONFIRMED",
+      "hard_fail_type": "DETERMINISTIC",
+      "review_required": [
+        "문항 1과 3에서 동일 데이터 비교·자료 분류 경험과 확인·기록·보고 행동이 반복되어 경험 배분의 효율성이 낮다.",
+        "문항 2의 태도 표현은 명확하지만 실제 조직 적응 경험보다 향후 실천계획 중심이어서 면접에서 행동 근거를 보강할 필요가 있다."
+      ],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 17,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 10,
+        "experience_allocation": 3,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 4,
+        "korean_readability": 8,
+        "applicant_distinctiveness": 5,
+        "length_and_format": 0
+      },
+      "total": 90,
+      "weakness_codes": [
+        "format_risk",
+        "experience_overlap",
+        "spoken_answer_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "evidence_linked_action",
+          "exact_element": "같은 데이터를 기존 엑셀 수식과 외주 프로그램에 각각 입력해 결과를 비교한 뒤 분석 보고서를 작성한 경험을 자료 간 불일치 확인과 근거 중심 보고로 연결한 부분",
+          "reason": "검증 가능한 경험을 보증 실무의 정확한 대조·보고 행동으로 전환해 직무 활용성이 높다.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "adaptation_routine",
+          "exact_element": "마감일을 기준으로 기간을 나누고 일일 목표를 달력과 노트에 기록하는 습관을 초기 업무 정리와 피드백 체크리스트로 확장한 부분",
+          "reason": "추상적인 책임감을 반복 가능한 적응 행동으로 구체화했다.",
+          "fact_ids": [
+            "exp_22d1df6407915aa2",
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "document_control",
+          "exact_element": "자료마다 출처와 처리 단계를 표시하겠다는 계획",
+          "reason": "방대한 자료를 체계적으로 분류한 경험에 근거하며 기한연장·상시관리 보조업무에 직접 적용할 수 있다.",
+          "fact_ids": [
+            "exp_151ae891bd2719ad",
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        }
+      ],
+      "judge_mode": "RECRUITER"
+    },
+    {
+      "candidate_id": "C71941425",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "문항 1의 상인 인터뷰·타 시장 비교 경험은 구체적이지만 고객 제출정보와 전산자료 대조 역량으로 이어지는 과정이 다소 간접적이다.",
+        "문항 2와 3이 확인·대조·기록·질문이라는 동일 행동군에 집중되어 답변 간 차별성이 약하다.",
+        "문항 4는 논리와 균형감이 좋지만 다른 지원자도 제시하기 쉬운 정책금융 원칙이 많아 지원자 고유성은 제한적이다."
+      ],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 17,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 5,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 5,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 5,
+        "length_and_format": 2
+      },
+      "total": 95,
+      "weakness_codes": [
+        "experience_overlap",
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "field_analysis",
+          "exact_element": "상인 인터뷰와 타 시장 비교 분석 경험을 현장의 말과 자료를 함께 살피는 태도로 연결한 부분",
+          "reason": "현장 의견과 비교자료를 결합한 행동이 확인된 경험에 근거해 지원자의 분석 방식을 보여준다.",
+          "fact_ids": [
+            "exp_62e53382afe2a2b7",
+            "clm_0ab71c1aab141b099564"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "verification_routine",
+          "exact_element": "같은 데이터를 두 방식으로 처리한 결과를 비교하고 보고서로 작성한 경험을 원자료·처리결과 재대조 계획으로 연결한 부분",
+          "reason": "정확성을 말로만 주장하지 않고 실제 검증 행동으로 뒷받침한다.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "execution_sequence",
+          "exact_element": "접수 내용 확인, 원자료와 전산 정보 대조, 누락·변동 사항 기록, 담당자 보고 순서",
+          "reason": "자료 분류 경험에 기반한 명료한 수행 순서로서 실제 업무 배치 시 활용하기 쉽다.",
+          "fact_ids": [
+            "exp_151ae891bd2719ad",
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        }
+      ],
+      "judge_mode": "RECRUITER"
+    },
+    {
+      "candidate_id": "C8DBD9F67",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "REVIEW_REQUIRED",
+      "hard_fail_type": null,
+      "review_required": [
+        "문항 4가 공백 포함 1500자 상한에 근접해 제출 시스템 기준의 실제 글자 수 확인이 필요하다.",
+        "문항 1부터 3까지 확인·기록·질문·체크리스트가 반복되어 경험 배분과 지원자 고유성이 약하다.",
+        "문항 4의 환위험 관리 정보 및 거래은행 상담 연결 제안은 제시된 research claim에 직접 포함되지 않으므로 회사의 현행 제도로 오인되지 않게 면접에서 제안임을 구분해야 한다."
+      ],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 16,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 10,
+        "experience_allocation": 4,
+        "interview_defensibility": 7,
+        "spoken_defensibility": 4,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 5,
+        "length_and_format": 1
+      },
+      "total": 91,
+      "weakness_codes": [
+        "format_risk",
+        "experience_overlap",
+        "interview_risk",
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "evidence_linked_action",
+          "exact_element": "동일 데이터를 엑셀 수식과 외주 프로그램에 입력해 결과를 비교하고 보고한 경험을 서류·전산자료 대조 행동으로 연결한 부분",
+          "reason": "확인과 보고 역량이 명시된 경험 및 claim에 직접 근거한다.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "self_management",
+          "exact_element": "마감기한과 남은 날짜, 일일계획을 달력과 노트에 기록해 관리한 습관",
+          "reason": "조직 적응 계획을 검증 가능한 기존 행동으로 뒷받침한다.",
+          "fact_ids": [
+            "exp_22d1df6407915aa2",
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "classification_method",
+          "exact_element": "자료가 많을수록 기준을 먼저 세우고 기업별·기한별로 분류하겠다는 부분",
+          "reason": "대량 자료를 체계적으로 분류한 경험에 근거해 업무수행 방식의 기억 가능성을 높인다.",
+          "fact_ids": [
+            "exp_151ae891bd2719ad",
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        }
+      ],
+      "judge_mode": "RECRUITER"
+    }
+  ]
+}

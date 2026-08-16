@@ -1,0 +1,32 @@
+[
+  {
+    "question_index": 1,
+    "answer": "첫 답변",
+    "evidence_paths": [],
+    "experience_refs": [
+      {
+        "experience_id": "exp-1",
+        "claim_ids": [
+          "clm-1"
+        ]
+      }
+    ],
+    "research_refs": [
+      "research-1"
+    ]
+  },
+  {
+    "question_index": 2,
+    "answer": "둘째 답변",
+    "evidence_paths": [],
+    "experience_refs": [
+      {
+        "experience_id": "exp-2",
+        "claim_ids": [
+          "clm-2"
+        ]
+      }
+    ],
+    "research_refs": []
+  }
+]

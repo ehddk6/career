@@ -49,6 +49,55 @@ _CLICHES = (
     "적극적으로 기여하겠습니다",
     "성장하는 인재",
 )
+_AI_FORMULA = (
+    "체화하겠습니다",
+    "체화했습니다",
+    "핵심 교량",
+    "다수 포진",
+    "탄탄한 기반",
+    "든든한 조력자",
+    "실질적인 개선",
+    "선제적으로",
+    "체계적으로",
+    "책임감을 갖고",
+    "신뢰받는 인턴",
+)
+_CONTROL_FORMULA = (
+    "근거와 함께 보고",
+    "임의로 판단하지 않",
+    "확인한 사실과",
+    "추가 확인 사항",
+    "업무 흐름",
+    "업무별 점검표",
+    "반복되는 오류",
+    "처리 결과",
+)
+_PROCEDURAL_TEMPLATE = (
+    "초기 학습, 실행, 점검",
+    "첫째",
+    "둘째",
+    "셋째",
+    "입사 초기에는",
+    "이후에는",
+    "처리 후에는",
+    "먼저 익히고",
+)
+_COMMON_FORMULA = (
+    "이를 통해",
+    "바탕으로",
+    "입사 후에는",
+    "기여하겠습니다",
+    "중요하다고 생각합니다",
+)
+_HUMAN_SCENE = re.compile(
+    r"처음에는|그때|당시|그 뒤|그러자|그제야|오히려|직접|한참|머뭇|표정|목소리|대화|"
+    r"긴장을|손을 움직|하나씩|막막|현장에서|만났|발견했|느꼈|알게 (?:됐|되었)|"
+    r"모습을 보|말씀드|여쭤|들었습니다"
+)
+_CONTROL_VERBS = re.compile(r"확인|정리|구분|기록|보고|점검|대조|숙지")
+_NOMINAL_VOCAB = re.compile(
+    r"(?:과정|부분|사항|측면|역량|태도|방식|체계|수행|실현|제고|강화|확립|도출|마련)"
+)
 
 
 @dataclass(frozen=True)
@@ -61,6 +110,112 @@ class StyleDiagnostics:
 
     def to_dict(self) -> dict[str, object]:
         return asdict(self)
+
+
+def editor_axis_scores(text: str) -> dict[str, float]:
+    """Score six editor-contract axes without claiming to detect authorship.
+
+    Scores are deterministic writing-risk indicators. They deliberately reward
+    readable variation and penalize repeated control language that can make a
+    verified self-introduction sound like a procedure manual.
+    """
+
+    sentences = _sentences(text)
+    sentence_count = max(1, len(sentences))
+    lengths = [len(sentence.replace(" ", "")) for sentence in sentences]
+    deviation = pstdev(lengths) if len(lengths) >= 3 else 0.0
+    average = mean(lengths) if lengths else 0.0
+    cv = deviation / average if average else 0.0
+
+    endings = [
+        matches[-1] if (matches := _CLOSING.findall(sentence)) else None
+        for sentence in sentences
+    ]
+    ending_counts = Counter(item for item in endings if item)
+    dominant_ending_ratio = (
+        max(ending_counts.values()) / max(1, sum(ending_counts.values()))
+        if ending_counts
+        else 0.0
+    )
+    ending_run = _has_consecutive_repeat(endings)
+
+    repeated_common = sum(max(0, text.count(phrase) - 1) for phrase in _COMMON_FORMULA)
+    ai_formula_hits = sum(text.count(phrase) for phrase in _AI_FORMULA)
+    control_hits = sum(text.count(phrase) for phrase in _CONTROL_FORMULA)
+    procedural_template_hits = sum(
+        text.count(phrase) for phrase in _PROCEDURAL_TEMPLATE
+    )
+    control_verb_hits = len(_CONTROL_VERBS.findall(text))
+    scene_hits = len(_HUMAN_SCENE.findall(text))
+    nominal_hits = len(_NOMINAL.findall(text)) + len(_NOMINAL_VOCAB.findall(text))
+    passive_hits = len(_PASSIVE.findall(text))
+
+    naturalness = 84 + min(16, scene_hits * 3)
+    naturalness -= min(30, ai_formula_hits * 7)
+    naturalness -= min(20, repeated_common * 5)
+    naturalness -= min(16, control_hits * 3)
+    naturalness -= min(18, max(0.0, control_verb_hits / sentence_count - 0.8) * 10)
+    naturalness -= min(14, max(0, procedural_template_hits - 1) * 3)
+
+    sentence_rhythm = 92.0
+    if len(lengths) >= 5:
+        if cv < 0.18:
+            sentence_rhythm -= 32
+        elif cv < 0.25:
+            sentence_rhythm -= 18
+        elif cv > 0.9:
+            sentence_rhythm -= 12
+        long_ratio = sum(length >= 85 for length in lengths) / len(lengths)
+        sentence_rhythm -= max(0.0, long_ratio - 0.35) * 40
+    if ending_run:
+        sentence_rhythm -= 15
+
+    ending_variety = 94.0
+    if ending_run:
+        ending_variety -= 35
+    if len(sentences) >= 4 and dominant_ending_ratio >= 0.75:
+        ending_variety -= 25
+    elif len(sentences) >= 4 and dominant_ending_ratio >= 0.6:
+        ending_variety -= 12
+
+    length_balance = 92.0
+    if len(lengths) >= 5:
+        if not any(length <= 30 for length in lengths):
+            length_balance -= 14
+        if not any(length >= 55 for length in lengths):
+            length_balance -= 14
+        if cv < 0.2:
+            length_balance -= 20
+
+    translationese_ai = 96.0
+    translationese_ai -= min(42, ai_formula_hits * 9)
+    translationese_ai -= min(25, repeated_common * 6)
+    translationese_ai -= min(20, max(0, control_hits - 1) * 4)
+    translationese_ai -= min(12, passive_hits * 3)
+
+    nominalization = 96.0 - min(48, max(0.0, nominal_hits / sentence_count - 0.7) * 16)
+
+    axes = {
+        "naturalness": naturalness,
+        "sentence_rhythm": sentence_rhythm,
+        "ending_variety": ending_variety,
+        "sentence_length_balance": length_balance,
+        "translationese_ai_safety": translationese_ai,
+        "nominalization_control": nominalization,
+    }
+    normalized = {key: round(max(0.0, min(100.0, value)), 2) for key, value in axes.items()}
+    weights = {
+        "naturalness": 0.45,
+        "sentence_rhythm": 0.10,
+        "ending_variety": 0.10,
+        "sentence_length_balance": 0.05,
+        "translationese_ai_safety": 0.25,
+        "nominalization_control": 0.05,
+    }
+    normalized["editor_total"] = round(
+        sum(normalized[axis] * weight for axis, weight in weights.items()), 2
+    )
+    return normalized
 
 
 def _sentences(text: str) -> list[str]:
@@ -124,6 +279,7 @@ def diagnose_text(
     reasons: list[str] = []
     score = 0
     formal_document = document_type in _FORMAL_DOCUMENT_TYPES
+    editor_axes = editor_axis_scores(text)
 
     if _has_consecutive_repeat(endings):
         reasons.append("같은 종결 표현 3회 이상 반복")
@@ -163,6 +319,13 @@ def diagnose_text(
     if repeated_connectors:
         reasons.append("연결어 반복: " + ", ".join(repeated_connectors))
         score += 2 if len(repeated_connectors) >= 2 else 1
+
+    procedural_template_hits = sum(
+        text.count(phrase) for phrase in _PROCEDURAL_TEMPLATE
+    )
+    if procedural_template_hits >= 3:
+        reasons.append("초기학습·실행·점검 절차 템플릿 과다")
+        score += 1
 
     ability_hits = len(_ABILITY.findall(text))
     if ability_hits >= 2:
@@ -221,11 +384,39 @@ def diagnose_text(
         reasons.append("과도한 목록 구성")
         score += 1 if document_type in {"report", "public_report"} else 2
 
+    axis_labels = {
+        "naturalness": "자연스러운 지원자 목소리 부족",
+        "sentence_rhythm": "문장 호흡과 리듬 단조",
+        "ending_variety": "종결 표현 다양성 부족",
+        "sentence_length_balance": "장단문 균형 부족",
+        "translationese_ai_safety": "번역투·AI 관용구 위험",
+        "nominalization_control": "명사화 통제 부족",
+    }
+    for axis, label in axis_labels.items():
+        if editor_axes[axis] < 72 and label not in reasons:
+            reasons.append(label)
+            score += 1
+
+    rewrite_required = (
+        score >= 2
+        or editor_axes["editor_total"] < 80
+        or min(editor_axes[axis] for axis in axis_labels) < 65
+    )
+    if (
+        document_type == "self_introduction"
+        and reasons
+        and all("종결" in reason for reason in reasons)
+    ):
+        # Formal Korean applications naturally repeat polite declarative
+        # endings. Keep the axis and warning visible, but do not spend a model
+        # call when it is the only issue.
+        rewrite_required = False
+
     return StyleDiagnostics(
         question_index=question_index,
         style_risk_score=min(10, score),
         style_reasons=tuple(reasons),
-        should_rewrite=score >= 2,
+        should_rewrite=rewrite_required,
         metrics={
             "sentence_count": len(sentences),
             "sentence_length_variance": round(variance, 3),
@@ -233,6 +424,7 @@ def diagnose_text(
             "passive_ratio": round(passive_ratio, 3),
             "nominal_ratio": round(nominal_ratio, 3),
             "repeated_connector_count": len(repeated_connectors),
+            "procedural_template_count": procedural_template_hits,
             "ability_phrase_count": ability_hits,
             "conclusion_cliche_count": conclusion_hits,
             "abstract_noun_count": abstract_noun_hits,
@@ -241,6 +433,7 @@ def diagnose_text(
             "long_relative_sentence_count": long_relative_hits,
             "semantic_repeat": int(semantic_repeat),
             "excessive_list": int(excessive_list),
+            **editor_axes,
         },
     )
 
@@ -258,6 +451,30 @@ def diagnose_responses(
         )
         for response in responses
     ]
+    repeated_formulas = {
+        phrase
+        for phrase in (*_CONTROL_FORMULA, *_COMMON_FORMULA)
+        if sum(phrase in response.answer for response in responses) >= 2
+    }
+    if repeated_formulas:
+        for index, response in enumerate(responses):
+            local = sorted(phrase for phrase in repeated_formulas if phrase in response.answer)
+            if not local:
+                continue
+            item = diagnostics[index]
+            metrics = dict(item.metrics)
+            metrics["cross_question_formula_count"] = len(local)
+            for axis in ("naturalness", "translationese_ai_safety", "editor_total"):
+                metrics[axis] = round(max(0.0, float(metrics.get(axis, 0.0)) - 8), 2)
+            diagnostics[index] = StyleDiagnostics(
+                item.question_index,
+                min(10, item.style_risk_score + 2),
+                item.style_reasons + (
+                    "문항 간 통제·상투 문구 반복: " + ", ".join(local),
+                ),
+                True,
+                metrics,
+            )
     normalized = [re.sub(r"\s+", "", response.answer) for response in responses]
     for index, value in enumerate(normalized):
         if not value:

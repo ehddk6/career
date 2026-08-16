@@ -1,0 +1,57 @@
+{
+  "ranking": [
+    {
+      "candidate_id": "C23F25003",
+      "hard_fail": false,
+      "review_required": true,
+      "median_total": 96.0,
+      "minimum_total": 93,
+      "median_core": 39.5,
+      "judge_spread": 5
+    },
+    {
+      "candidate_id": "C63FA4540",
+      "hard_fail": false,
+      "review_required": true,
+      "median_total": 95.0,
+      "minimum_total": 90,
+      "median_core": 39.0,
+      "judge_spread": 7
+    },
+    {
+      "candidate_id": "CA61EE459",
+      "hard_fail": false,
+      "review_required": true,
+      "median_total": 90.5,
+      "minimum_total": 88,
+      "median_core": 37.0,
+      "judge_spread": 4
+    },
+    {
+      "candidate_id": "C326E9A26",
+      "hard_fail": false,
+      "review_required": true,
+      "median_total": 90.5,
+      "minimum_total": 84,
+      "median_core": 36.5,
+      "judge_spread": 10
+    }
+  ],
+  "agreed_weaknesses": [
+    "spoken_answer_risk"
+  ],
+  "agreed_transferable_elements": [
+    {
+      "question": "1",
+      "element_type": "experience_action",
+      "exact_element": "같은 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과를 비교하고 분석 보고서를 작성해 팀장에게 보고",
+      "reason": "자료 확인과 설명 책임을 보증 업무의 원자료·전산값 차이, 누락, 예외 보고로 연결함.",
+      "fact_ids": [
+        "clm_3e69991c9b56d728b429",
+        "exp_9e97f274590a323b",
+        "kodit-intern-duty-20260711"
+      ],
+      "judge_count": 2
+    }
+  ]
+}

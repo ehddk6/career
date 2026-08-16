@@ -1,0 +1,16 @@
+# Value Chain Map
+
+- 데이터 패키지: `CR-DATA-001` v1.0
+- 조사 기준일: 2026-07-15
+- 외부 네트워크 사용: 없음
+
+| 단계 | 입력 | 담당 조직 | 결과물 | 오류 가능성 | 성과 기준 | 지원 직무 접점 |
+|---|---|---|---|---|---|---|
+| 원재료·데이터·고객 요청 | UNVERIFIED | UNVERIFIED | UNVERIFIED | UNVERIFIED | UNVERIFIED | UNVERIFIED |
+| 조달·입력 | UNVERIFIED | UNVERIFIED | UNVERIFIED | UNVERIFIED | UNVERIFIED | UNVERIFIED |
+| 개발·생산·심사·처리 | UNVERIFIED | UNVERIFIED | UNVERIFIED | UNVERIFIED | UNVERIFIED | UNVERIFIED |
+| 품질·위험 관리 | UNVERIFIED | UNVERIFIED | UNVERIFIED | UNVERIFIED | UNVERIFIED | UNVERIFIED |
+| 판매·제공·고객 사용 | UNVERIFIED | UNVERIFIED | UNVERIFIED | UNVERIFIED | UNVERIFIED | UNVERIFIED |
+| 사후관리·매출·평판 | UNVERIFIED | UNVERIFIED | UNVERIFIED | UNVERIFIED | UNVERIFIED | UNVERIFIED |
+
+일반적인 플랫폼 가치사슬을 카카오 사실로 전환하지 않았다.

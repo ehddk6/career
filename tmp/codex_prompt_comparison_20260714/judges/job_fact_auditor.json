@@ -1,0 +1,112 @@
+{
+  "data_package_id": "SOL-DATA-ACB9EA4AEAAC",
+  "data_package_version": "1.1",
+  "judge_mode": "JOB_FACT_AUDITOR",
+  "evaluations": [
+    {
+      "candidate_id": "CEXT",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 20,
+        "fact_accuracy": 20,
+        "job_relevance": 15,
+        "action_specificity": 15,
+        "experience_allocation": 10,
+        "interview_defensibility": 10,
+        "korean_readability": 4,
+        "applicant_distinctiveness": 3,
+        "length_and_format": 2
+      },
+      "total": 99,
+      "weakness_codes": [
+        "korean_style"
+      ],
+      "transferable_elements": [
+        {
+          "question": "문항 1",
+          "element_type": "검증 경험과 직무의 연결",
+          "exact_element": "저는 기존 엑셀 수식과 외주 프로그램에 같은 데이터를 입력해 결과를 비교한 보고서를 작성하고 팀장에게 보고한 경험이 있습니다.",
+          "reason": "검증 가능한 경험을 자료 대조와 오류 확인이라는 보증 업무 보조 방식으로 자연스럽게 연결한다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "문항 3",
+          "element_type": "자료 관리 경험",
+          "exact_element": "저는 자료를 체계적으로 분류해 지급 절차가 원활히 진행되도록 기여한 경험이 있습니다.",
+          "reason": "업무수행계획의 분류·대조·인계 절차를 뒷받침하는 직접적인 경험 근거다.",
+          "fact_ids": [
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        },
+        {
+          "question": "문항 4",
+          "element_type": "이슈 선정 근거",
+          "exact_element": "한국은행은 높은 환율 변동성과 중동지역 리스크를 점검하면서 중소기업 한시 특별지원의 운용기간을 재연장했습니다.",
+          "reason": "이슈의 시의성과 중소기업 자금 사정에 미치는 영향을 공식 근거로 제시한다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "CPROJ",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 20,
+        "fact_accuracy": 20,
+        "job_relevance": 15,
+        "action_specificity": 14,
+        "experience_allocation": 5,
+        "interview_defensibility": 9,
+        "korean_readability": 5,
+        "applicant_distinctiveness": 2,
+        "length_and_format": 2
+      },
+      "total": 92,
+      "weakness_codes": [
+        "experience_overlap",
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "문항 1",
+          "element_type": "기관 역할 이해",
+          "exact_element": "신용보증기금은 기업이 부담하는 채무를 보증해 성장유망기업의 자금 조달을 돕고, 보증신청 이후 신용조사와 보증심사를 수행하는 정책금융기관으로 이해하고 있습니다.",
+          "reason": "지원 동기를 기관의 보증·신용조사·보증심사 기능과 정확히 연결한다.",
+          "fact_ids": [
+            "kodit-role-20260711"
+          ]
+        },
+        {
+          "question": "문항 2",
+          "element_type": "검증 행동",
+          "exact_element": "또한 동일 데이터를 두 방식으로 처리해 결과를 비교한 경험처럼, 자료를 입력하거나 정리한 뒤에는 원자료와 결과를 대조하겠습니다.",
+          "reason": "추상적인 적응 태도를 실제 검증 행동과 확인된 경험으로 구체화한다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "문항 4",
+          "element_type": "정책지원 사례",
+          "exact_element": "신용보증기금이 지역 수출기업 등을 대상으로 우대보증과 보증료 지원을 제공하는 방식처럼, 보증 한도·보증료·만기를 기업의 거래 구조와 자금 공백 기간에 맞춰 설계할 수 있습니다.",
+          "reason": "공식 지원 사례를 활용해 환율 충격에 대한 정책금융 방안을 구체화한다.",
+          "fact_ids": [
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ]
+    }
+  ]
+}

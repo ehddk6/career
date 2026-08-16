@@ -30,6 +30,12 @@ from .copyeditor_adapter import copyedit_responses
 from .contract_builder import refresh_run_interview_contract
 from .cost_limit import CostLimitExceeded, CostTracker
 from .model_policy import ModelTier, choose_tier, resolve_model, resolve_role_model
+from .outcome_feedback import (
+    OutcomeFeedbackError,
+    build_outcome_feedback_context,
+    load_outcome_ledger,
+    merge_outcome_feedback,
+)
 from .rigorous_selection import (
     RigorousSelectionError,
     run_rigorous_selection,
@@ -87,6 +93,7 @@ from .style_diagnostics import diagnose_responses
 from .source_policy import is_evidence_path
 from .validation import referenced_claim_values, validate_draft
 from .writing_guidance import attach_writing_guidance
+from .youtube_patterns import phrase_overlap_report
 
 
 def _inventory_markdown(records) -> str:
@@ -618,6 +625,44 @@ def _prepare_v2(
         posting=asdict(analysis),
         matches=matches,
     )
+    outcome_ledger_path = root / ".career_profile" / "application_outcomes.json"
+    if outcome_ledger_path.is_file():
+        try:
+            outcome_ledger = load_outcome_ledger(outcome_ledger_path, root=root)
+            outcome_feedback = build_outcome_feedback_context(
+                outcome_ledger,
+                target=target,
+            )
+            outcome_feedback["ledger_path"] = outcome_ledger_path.relative_to(root).as_posix()
+            outcome_feedback["manual_review_required"] = bool(
+                outcome_feedback.get("review_required_count")
+            )
+        except OutcomeFeedbackError:
+            outcome_feedback = {
+                "schema_version": 1,
+                "status": "invalid",
+                "target": target,
+                "active_case_count": 0,
+                "requirements": [],
+                "manual_review_required": True,
+                "error_code": "INVALID_OUTCOME_LEDGER",
+                "metric_semantics": "historical outcomes, not hire probability",
+            }
+    else:
+        outcome_feedback = {
+            "schema_version": 1,
+            "status": "not_available",
+            "target": target,
+            "active_case_count": 0,
+            "requirements": [],
+            "manual_review_required": False,
+            "metric_semantics": "historical outcomes, not hire probability",
+        }
+    write_json(run_dir / "05_전형결과피드백.json", outcome_feedback)
+    question_requirement_map = merge_outcome_feedback(
+        question_requirement_map,
+        outcome_feedback,
+    )
     write_json(run_dir / "05_문항전략.json", question_requirement_map)
     matching_issues = validate_matching_gate(matches)
     if matching_issues:
@@ -656,6 +701,14 @@ def _prepare_v2(
         "research_method_enforced": False,
         "questions": [asdict(question) for question in reconciliation.questions],
         "question_requirement_map": "05_문항전략.json",
+        "outcome_feedback": {
+            "status": outcome_feedback["status"],
+            "artifact": "05_전형결과피드백.json",
+            "active_case_count": outcome_feedback.get("active_case_count", 0),
+            "hard_requirement_count": outcome_feedback.get("hard_requirement_count", 0),
+            "review_required_count": outcome_feedback.get("review_required_count", 0),
+            "manual_review_required": outcome_feedback.get("manual_review_required", False),
+        },
         "selected_experience_ids": [
             item.recommended.experience_id
             for item in matches
@@ -887,6 +940,38 @@ def _incumbent_from_markdown(
     ]
 
 
+def _write_youtube_phrase_overlap_report(
+    run_dir: Path,
+    state: dict,
+    responses: list[DraftResponse],
+) -> dict[str, object]:
+    """Record a bounded YouTube phrase-overlap warning for final review."""
+
+    guidance = state.get("writing_guidance") or {}
+    root_value = state.get("root")
+    source_relative = guidance.get("source_dir")
+    if not root_value or not source_relative:
+        report = {
+            "status": "not_requested",
+            "use_policy": "strategy_only_not_factual_evidence",
+            "manual_review_required": False,
+            "matches": [],
+        }
+    else:
+        source_dir = Path(str(root_value)) / str(source_relative)
+        report = phrase_overlap_report(responses, source_dir)
+    write_json(run_dir / "09_youtube_phrase_overlap_report.json", report)
+    if isinstance(guidance, dict):
+        guidance["phrase_overlap_report"] = {
+            "status": report.get("status"),
+            "artifact": "09_youtube_phrase_overlap_report.json",
+            "match_count": report.get("match_count", 0),
+            "manual_review_required": report.get("manual_review_required", False),
+        }
+        state["writing_guidance"] = guidance
+    return report
+
+
 def finalize_run(
     run_dir: Path,
     *,
@@ -1009,6 +1094,18 @@ def finalize_run(
 
     questions = [Question(**item) for item in state["questions"]]
     responses, draft_issues = _load_draft_responses(run_dir / "draft.json")
+    if (
+        selection_mode == "rigorous"
+        and previous_status
+        in {"blocked_selection", "blocked_validation", "complete", "finalizing"}
+        and (run_dir / "draft_final.json").is_file()
+    ):
+        resumed_responses, resumed_issues = _load_draft_responses(
+            run_dir / "draft_final.json"
+        )
+        if not resumed_issues:
+            responses = resumed_responses
+            draft_issues = []
     if draft_issues:
         _write_review_report(run_dir, questions, responses, v2=v2, issues=draft_issues)
         state.update(
@@ -1183,11 +1280,36 @@ def finalize_run(
                 )
             )
 
-    if previous_status in {"blocked_selection", "complete"} and selection_mode == "rigorous":
+    if previous_status in {
+        "blocked_selection",
+        "blocked_validation",
+        "complete",
+        "finalizing",
+    } and selection_mode == "rigorous":
         # A failed final contract revalidation may have left the sidecar linked
-        # to the attempted selection. Restore the incumbent contract before
-        # preflight; the selected candidate replaces it atomically later.
-        _replace_interview_contract_claims(run_dir, responses)
+        # to the attempted selection. Rebuild the complete incumbent contract
+        # before preflight; replacing only submitted_claims leaves tier-1
+        # questions and answer cards pointing at stale selected experiences.
+        refresh_run_interview_contract(
+            run_dir,
+            [
+                {
+                    "question_index": response.question_index,
+                    "answer": response.answer,
+                    "evidence_paths": list(response.evidence_paths),
+                    "experience_refs": [
+                        {
+                            "experience_id": reference.experience_id,
+                            "claim_fields": list(reference.claim_fields),
+                            "claim_ids": list(reference.claim_ids),
+                        }
+                        for reference in response.experience_refs
+                    ],
+                    "research_refs": list(response.research_refs),
+                }
+                for response in responses
+            ],
+        )
     contract_report = validate_run_prompt_contracts(
         run_dir,
         target=state["target"],
@@ -1858,7 +1980,7 @@ def finalize_run(
                 quality_profile=rigorous_profile,
                 stage_models=role_models,
                 resume_from_checkpoint=(
-                    previous_status in {"blocked_selection", "complete"}
+                    previous_status in {"blocked_selection", "complete", "finalizing"}
                 ),
             )
         except (OSError, ValueError, RigorousSelectionError) as error:
@@ -1951,6 +2073,7 @@ def finalize_run(
             "status": "not_run", "selection_mode": "single", "hard_fail": False,
         }
 
+    _write_youtube_phrase_overlap_report(run_dir, state, responses)
     final_diagnostics = diagnose_responses(responses)
     write_json(
         run_dir / "09_style_diagnostics.json",

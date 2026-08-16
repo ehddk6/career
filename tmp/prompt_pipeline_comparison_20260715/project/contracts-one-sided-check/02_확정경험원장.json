@@ -1,0 +1,29 @@
+{
+  "schema_version": 2,
+  "generated_at": "2026-07-15",
+  "workspace_root": ".",
+  "experiences": [
+    {
+      "experience_id": "exp-1",
+      "status": "confirmed",
+      "claims": [
+        {
+          "claim_id": "clm-1",
+          "status": "confirmed",
+          "normalized_value": "처리시간 30% 감소"
+        }
+      ]
+    },
+    {
+      "experience_id": "exp-2",
+      "status": "confirmed",
+      "claims": [
+        {
+          "claim_id": "clm-2",
+          "status": "confirmed",
+          "normalized_value": "대조 기준 정리"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,168 @@
+{
+  "data_package_id": "SOL-DATA-EXT-001",
+  "data_package_version": "1.0",
+  "source": "input/career_run/02_확정경험원장.json",
+  "facts": [
+    {
+      "id": "F01",
+      "source_experience_id": "exp_9e97f274590a323b",
+      "source_claim_id": "clm_3e69991c9b56d728b429",
+      "claim": "기존 엑셀 수식과 외주 프로그램에 동일한 데이터를 입력해 결과 비교 분석 보고서를 작성하고 팀장에게 보고했다.",
+      "status": "CONFIRMED",
+      "use_policy": "직접 사용 가능"
+    },
+    {
+      "id": "F02",
+      "source_experience_id": "exp_530ddb15c51ca202",
+      "source_claim_id": "clm_efe62832626946699c6f",
+      "claim": "새 수식 도입 뒤 업무 효율성이 30% 증가했다.",
+      "status": "NEEDS_VERIFICATION",
+      "use_policy": "상황·측정 기준이 없어 사용 금지"
+    },
+    {
+      "id": "F03",
+      "source_experience_id": "exp_3279ca654f7e0e37",
+      "source_claim_id": "clm_5e91929d8d87322e2c70",
+      "claim": "지급결정서·추납·분납 자료 3,000쪽을 이틀 안에 정리하고 수급 대상자를 선별해야 하는 과제를 맡았다.",
+      "status": "CONFIRMED",
+      "use_policy": "과제 범위로 사용 가능"
+    },
+    {
+      "id": "F04",
+      "source_experience_id": "exp_fb458d8d4b556666",
+      "source_claim_id": "clm_1a7d08d990eceb48dfe0",
+      "claim": "3,000쪽 정리를 이틀 만에 완료하고 불필요한 전화 업무를 줄였다.",
+      "status": "CONFIRMED",
+      "use_policy": "결과 범위로 사용 가능"
+    },
+    {
+      "id": "F05",
+      "source_experience_id": "exp_638228200e37de69",
+      "source_claim_id": "clm_2bfba21afb61776d752b",
+      "claim": "과거 신청 자료에서 20~40대 신청자가 없음을 확인하고 주요 대상을 50~70대로 다시 설정했다.",
+      "status": "CONFIRMED",
+      "use_policy": "분석·대상 재설정 행동으로 사용 가능"
+    },
+    {
+      "id": "F06",
+      "source_experience_id": "exp_62e53382afe2a2b7",
+      "source_claim_id": "clm_0ab71c1aab141b099564",
+      "claim": "상인 50명 인터뷰, 타 시장 비교, SNS 마케팅과 제기 야시장 기획을 수행했다.",
+      "status": "CONFIRMED",
+      "use_policy": "행동만 사용 가능; 성과 확대 금지"
+    },
+    {
+      "id": "F07",
+      "source_experience_id": "exp_953388b8c6e81104",
+      "source_claim_id": "clm_bdbd0d8bf79f5b7efce0",
+      "claim": "도서 정렬을 이용자 친화적으로 개선해 위치 문의를 30% 줄였다.",
+      "status": "CONFIRMED",
+      "use_policy": "직접 사용 가능"
+    },
+    {
+      "id": "F08",
+      "source_experience_id": "exp_a07fd710e2b7c0c2",
+      "source_claim_id": "clm_abaa19a532d1aabc9140",
+      "claim": "상인 50명을 인터뷰하고 5개 다른 시장을 비교해 문제점과 개선 방안을 도출했다.",
+      "status": "CONFIRMED",
+      "use_policy": "직접 사용 가능; 실행 성과 추가 금지"
+    },
+    {
+      "id": "F09",
+      "source_experience_id": "exp_a521c3024abae521",
+      "source_claim_id": "clm_6602f28d7f4b4c31895a",
+      "claim": "시스템 도입으로 업무 속도를 30% 높이고 예산 절감 효과를 냈다.",
+      "status": "NEEDS_VERIFICATION",
+      "use_policy": "시스템·예산의 맥락이 없어 사용 금지"
+    },
+    {
+      "id": "F10",
+      "source_experience_id": "exp_2fe7474d7367a89c",
+      "source_claim_id": "clm_d96a20fc7a1e1a3caad6",
+      "claim": "어떤 지표가 30% 증가했고 협업 문화가 개선됐다.",
+      "status": "NEEDS_VERIFICATION",
+      "use_policy": "지표·행동이 불명확해 사용 금지"
+    },
+    {
+      "id": "F11",
+      "source_experience_id": "exp_2df35f8fca5e30b8",
+      "source_claim_id": "clm_732a31834ac4cb075533",
+      "claim": "급여 지급 프로세스를 개선해 속도를 30% 높였다는 문장과 시장 경험이 한 문장에 섞여 있다.",
+      "status": "NEEDS_VERIFICATION",
+      "use_policy": "원문이 잘려 있어 사용 금지"
+    },
+    {
+      "id": "F12",
+      "source_experience_id": "exp_2e966c8ac3146a5b",
+      "source_claim_id": "clm_41fbcc79285f9a15295d",
+      "claim": "3,000쪽 자료를 이틀 만에 처리했다는 문장이 중간에서 끊겨 있다.",
+      "status": "NEEDS_VERIFICATION",
+      "use_policy": "F03·F04로만 대체 사용"
+    },
+    {
+      "id": "F13",
+      "source_experience_id": "exp_151ae891bd2719ad",
+      "source_claim_id": "clm_88cfeab230789e5b0d5f",
+      "claim": "3,000쪽 자료를 체계적으로 분류해 이틀 만에 정리하고 기초연금 지급 절차가 원활히 진행되도록 기여했다.",
+      "status": "CONFIRMED",
+      "use_policy": "직접 사용 가능"
+    },
+    {
+      "id": "F14",
+      "source_experience_id": "exp_5381f510b1fba9e1",
+      "source_claim_id": "clm_353c575898c6254492e8",
+      "claim": "엑셀 자동화 도입으로 급여 산정 속도를 30% 높였다.",
+      "status": "NEEDS_VERIFICATION",
+      "use_policy": "측정 기준이 없어 사용 금지"
+    },
+    {
+      "id": "F15",
+      "source_experience_id": "exp_6841c9278134a4c9",
+      "source_claim_id": "clm_ee52e4b4eb158c123a20",
+      "claim": "업무 7일 동안 모집인원이 10명 미만이었고 담당 공무원에게 더 나은 제안을 요청받아 의견을 제시했다.",
+      "status": "CONFIRMED",
+      "use_policy": "의견 제시까지만 사용; 채택·성과 주장 금지"
+    },
+    {
+      "id": "F16",
+      "source_experience_id": "exp_5f5d07c267cd544e",
+      "source_claim_id": "clm_659f6c459feaf6614272",
+      "claim": "20명 목표를 달성했다.",
+      "status": "CONFIRMED",
+      "use_policy": "맥락을 F05·F17과 함께 설명할 때만 사용"
+    },
+    {
+      "id": "F17",
+      "source_experience_id": "exp_97584147111c511b",
+      "source_claim_id": "clm_1733610563a37a4780e0",
+      "claim": "20명 모집을 목표로 5일·7일 단위 전단 배포량을 계획했다.",
+      "status": "CONFIRMED",
+      "use_policy": "계획 행동으로 사용 가능"
+    },
+    {
+      "id": "F18",
+      "source_experience_id": "exp_15de74c62f22355b",
+      "source_claim_id": "clm_8857e4948ec099d1bbda",
+      "claim": "숙박비를 지급할 수 없음을 설명해 최소 40% 예산을 절감했다.",
+      "status": "NEEDS_VERIFICATION",
+      "use_policy": "분모·권한·상황이 불명확해 사용 금지"
+    },
+    {
+      "id": "F19",
+      "source_experience_id": "exp_2f3b01de2f27fa49",
+      "source_claim_id": "clm_54db4e5cfcd51ba5de60",
+      "claim": "시간과 인력을 약 50% 절약하고 오류율을 약 90% 줄였다.",
+      "status": "NEEDS_VERIFICATION",
+      "use_policy": "대상·측정 기준이 없어 사용 금지"
+    },
+    {
+      "id": "F20",
+      "source_experience_id": "exp_22d1df6407915aa2",
+      "source_claim_id": "clm_1476776eb88306fe8fc1",
+      "claim": "일정을 디데이와 일일계획으로 관리하며 목표달성도 70%를 지향한다.",
+      "status": "NEEDS_VERIFICATION",
+      "use_policy": "성과 사실이 아닌 자기진술이므로 수치 사용 금지"
+    }
+  ]
+}
+

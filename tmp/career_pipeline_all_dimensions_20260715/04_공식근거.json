@@ -1,0 +1,72 @@
+[
+  {
+    "claim_id": "kodit-role-20260711",
+    "claim": "신용보증기금은 기업이 부담하는 채무를 보증해 성장유망기업을 지원하며, 보증신청 뒤 신용조사와 보증심사를 수행한다.",
+    "source_url": "https://www.kodit.co.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11064&mi=2521",
+    "checked_at": "2026-07-13",
+    "evidence_excerpt": "신청기업의 요청에 따라 기업이 부담하는 각종 채무를 보증해 성장유망기업을 지원하며, 보증신청 뒤 신용조사와 보증심사를 수행한다.",
+    "source_type": "official",
+    "published_at": "",
+    "basis_date": "2026-07-13",
+    "verification_status": "verified",
+    "conflict_note": "",
+    "claim_type": "organization_role",
+    "application_use": "문항 1에서 신용보증기금의 역할과 지원 동기를 연결하고 1분 자기소개 근거로 사용"
+  },
+  {
+    "claim_id": "kodit-intern-duty-20260711",
+    "claim": "보증 분야 체험형 청년인턴의 주요업무는 신용보증 기한연장과 기업신용 상시관리다.",
+    "source_url": "https://kodit2.saramin.co.kr/service/kodit2/3872/applicant/apply/recruit_default.asp",
+    "checked_at": "2026-07-13",
+    "evidence_excerpt": "체험형 청년인턴1 보증 분야의 주요업무는 신용보증 기한연장과 기업신용 상시관리다.",
+    "source_type": "official",
+    "published_at": "2026-07-09",
+    "basis_date": "2026-07-09",
+    "verification_status": "verified",
+    "conflict_note": "",
+    "claim_type": "job_duty",
+    "application_use": "문항 1·2·3에서 보증 기한연장·기업신용 상시관리 업무와 근무 태도·수행계획을 구체화"
+  },
+  {
+    "claim_id": "bok-fx-risk-20260711",
+    "claim": "한국은행은 높은 환율 변동성과 중동지역 리스크를 점검하면서 14조원 한도의 중소기업 한시 특별지원 운용기간을 재연장했다.",
+    "source_url": "https://www.bok.or.kr/portal/bbs/B0000156/view.do?depth=200067&menuNo=200067&nttId=10096935&programType=newsData&relate=Y",
+    "checked_at": "2026-07-13",
+    "evidence_excerpt": "높은 환율 변동성에 유의하고, 14조원 한도의 중소기업 한시 특별지원 운용기간을 6개월 재연장했다.",
+    "source_type": "official",
+    "published_at": "2026-03-12",
+    "basis_date": "2026-03",
+    "verification_status": "verified",
+    "conflict_note": "고환율은 수출 가격경쟁력에는 긍정적일 수 있어 기업별 영향 구분이 필요하다.",
+    "claim_type": "industry_issue",
+    "application_use": "문항 4에서 고환율의 기업별 영향과 정책금융 대응을 구분하는 근거로 사용"
+  },
+  {
+    "claim_id": "kodit-liquidity-support-20260711",
+    "claim": "신용보증기금은 지역 수출기업 등의 유동성과 금융비용 부담을 완화하기 위해 협약보증을 공급하고 있다.",
+    "source_url": "https://www.kodit.co.kr/kodit/na/ntt/selectNttInfo.do?bbsId=47&mi=2639&nttSn=4429533",
+    "checked_at": "2026-07-13",
+    "evidence_excerpt": "지역 소재 수출기업 등을 대상으로 우대보증과 보증료 지원을 제공한다.",
+    "source_type": "official",
+    "published_at": "2026-03-24",
+    "basis_date": "2026-03-24",
+    "verification_status": "verified",
+    "conflict_note": "",
+    "claim_type": "program_or_service",
+    "application_use": "문항 4에서 유동성·금융비용 부담에 대한 선별 지원과 사후관리 방안을 연결"
+  },
+  {
+    "claim_id": "kodit-selection-criteria-20260713",
+    "claim": "신용보증기금 청년인턴 서류전형은 업무수행계획서와 약식논술의 충실도·논리력·혁신적 사고를 평가하고, 면접전형은 기본인성과 직무능력을 평가한다.",
+    "source_url": "https://kodit2.saramin.co.kr/service/kodit2/3872/applicant/apply/recruit_default.asp",
+    "checked_at": "2026-07-13",
+    "evidence_excerpt": "서류는 충실도·논리력·혁신적 사고를 종합 평가하며 면접은 기본인성 및 직무능력을 평가한다.",
+    "source_type": "official_posting",
+    "published_at": "2026-07-09",
+    "basis_date": "2026-07-09",
+    "verification_status": "verified",
+    "conflict_note": "내부 품질 점수는 공식 선발 점수나 합격 가능성을 의미하지 않는다.",
+    "claim_type": "selection_criteria",
+    "application_use": "전체 문항의 충실도·논리성 점검과 면접팩의 기본인성·직무능력 평가 기준에 활용"
+  }
+]

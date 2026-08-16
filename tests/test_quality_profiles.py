@@ -9,9 +9,9 @@ def test_quality_profiles_have_bounded_cost_and_mandatory_rigorous_roles():
     assert get_quality_profile("balanced").max_selection_calls == 6
     assert get_quality_profile("high_quality").max_selection_calls == 9
     maximum = get_quality_profile("max_quality")
-    assert maximum.max_selection_calls == 31
+    assert maximum.max_selection_calls == 40
     assert maximum.candidate_repair_attempts == 2
-    assert maximum.synthesis_repair_attempts == 7
+    assert maximum.synthesis_repair_attempts == 16
     assert "NATURAL_VOICE" in maximum.strategies
     assert "INTERVIEW_DEFENSE" in maximum.strategies
     assert "INTERVIEW_COACH" in maximum.judges

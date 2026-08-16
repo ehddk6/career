@@ -1,0 +1,45 @@
+{
+  "policy": "evidence-first",
+  "skill_name": "evidence-first-research",
+  "mode": "ordinary-online",
+  "searched_at": "2026-07-13T14:56:01+09:00",
+  "status": "verified",
+  "queries": [
+    "신용보증기금 2026 하반기 체험형 청년인턴 공식",
+    "한국은행 2026 환율 중소기업 금융지원",
+    "신용보증기금 중소기업 유동성 보증료 지원 2026"
+  ],
+  "source_families": [
+    "central-bank",
+    "official",
+    "official_organization_web",
+    "statute"
+  ],
+  "verified_claim_ids": [
+    "CLM-COMP-001",
+    "CLM-COMP-002",
+    "CLM-COMP-003",
+    "CLM-COMP-004",
+    "CLM-COMP-005",
+    "CLM-COMP-006",
+    "CLM-COMP-007",
+    "CLM-COMP-008",
+    "CLM-COMP-009",
+    "CLM-COMP-010",
+    "CLM-COMP-011",
+    "CLM-COMP-012",
+    "CLM-COMP-013",
+    "CLM-COMP-014",
+    "CLM-EXEC-001",
+    "CLM-EXEC-002",
+    "CLM-EXEC-003",
+    "CLM-EXEC-004",
+    "CLM-EXEC-005",
+    "CLM-STRAT-001",
+    "bok-fx-risk-20260711",
+    "kodit-intern-duty-20260711",
+    "kodit-liquidity-support-20260711",
+    "kodit-role-20260711",
+    "kodit-selection-criteria-20260713"
+  ]
+}

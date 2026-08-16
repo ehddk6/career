@@ -1,0 +1,115 @@
+{
+  "data_package_id": "SOL-DATA-ACB9EA4AEAAC",
+  "data_package_version": "1.1",
+  "judge_mode": "RECRUITER",
+  "evaluations": [
+    {
+      "candidate_id": "CEXT",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 19,
+        "fact_accuracy": 20,
+        "job_relevance": 15,
+        "action_specificity": 14,
+        "experience_allocation": 10,
+        "interview_defensibility": 9,
+        "korean_readability": 4,
+        "applicant_distinctiveness": 2,
+        "length_and_format": 2
+      },
+      "total": 95,
+      "weakness_codes": [
+        "generic_voice",
+        "korean_style"
+      ],
+      "transferable_elements": [
+        {
+          "question": "Q1",
+          "element_type": "evidence_to_job_transfer",
+          "exact_element": "이때 활용한 동일 조건 대조와 차이 기록 방식을 기업자료 확인과 업무 보조에 적용하겠습니다.",
+          "reason": "검증된 비교분석 경험을 보증업무의 자료 대조 방식으로 구체적으로 전환한다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "Q3",
+          "element_type": "authority_boundary",
+          "exact_element": "값이 다르거나 자료가 빠진 경우 임의로 보완하지 않고 원자료 위치와 확인이 필요한 내용을 표시해 담당자에게 보고하겠습니다.",
+          "reason": "인턴의 보조 역할과 판단 권한의 경계를 실행 가능한 행동으로 제시한다.",
+          "fact_ids": [
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "Q4",
+          "element_type": "risk_segmentation",
+          "exact_element": "반면 수출 비중, 결제통화, 환헤지 여부와 수입 원재료 의존도에 따라 영향의 방향과 크기가 달라질 수 있으므로 고환율 피해기업을 일률적으로 판단해서는 안 됩니다.",
+          "reason": "공식 근거의 기업별 영향 차이를 선별지원 논리로 연결한다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "CPROJ",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 20,
+        "fact_accuracy": 20,
+        "job_relevance": 15,
+        "action_specificity": 14,
+        "experience_allocation": 6,
+        "interview_defensibility": 8,
+        "korean_readability": 4,
+        "applicant_distinctiveness": 2,
+        "length_and_format": 2
+      },
+      "total": 91,
+      "weakness_codes": [
+        "experience_overlap",
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "Q2",
+          "element_type": "attitude_definition",
+          "exact_element": "새로운 조직에 적응할 때 가장 중요한 태도는 ‘확인하고 공유하는 겸손한 책임감’이라고 생각합니다.",
+          "reason": "적응 태도를 기억하기 쉬운 표현으로 정의하고 이후의 일정관리와 검증 행동을 묶는다.",
+          "fact_ids": [
+            "clm_1476776eb88306fe8fc1",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "Q3",
+          "element_type": "comparison_protocol",
+          "exact_element": "기업신용 상시관리에서는 새로 들어온 정보와 기존 정보를 같은 기준으로 비교해 변화가 있는 항목을 표시하고, 판단이 필요한 사항은 원자료 위치와 확인 경로를 함께 남기겠습니다.",
+          "reason": "상시관리 업무를 비교, 표시, 근거 보존의 순서로 구체화한다.",
+          "fact_ids": [
+            "kodit-intern-duty-20260711",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "Q4",
+          "element_type": "support_design",
+          "exact_element": "보증 한도·보증료·만기를 기업의 거래 구조와 자금 공백 기간에 맞춰 설계할 수 있습니다.",
+          "reason": "공식적으로 확인된 우대보증과 보증료 지원을 기업별 맞춤지원 논리로 확장한다.",
+          "fact_ids": [
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ]
+    }
+  ]
+}

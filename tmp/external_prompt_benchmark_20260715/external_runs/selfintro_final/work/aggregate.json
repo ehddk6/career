@@ -1,0 +1,42 @@
+{
+  "aggregation_rule": "median_total, median_core, minimum_total descending; any hard fail excludes",
+  "ranking": [],
+  "excluded": [
+    {
+      "candidate_id": "R8",
+      "hard_fail": true,
+      "median_total": 82,
+      "median_core": 44,
+      "minimum_total": 79,
+      "maximum_total": 86,
+      "judge_spread": 7
+    },
+    {
+      "candidate_id": "C3",
+      "hard_fail": true,
+      "median_total": 91,
+      "median_core": 52,
+      "minimum_total": 83,
+      "maximum_total": 94,
+      "judge_spread": 11
+    },
+    {
+      "candidate_id": "M7",
+      "hard_fail": true,
+      "median_total": 92,
+      "median_core": 52,
+      "minimum_total": 85,
+      "maximum_total": 96,
+      "judge_spread": 11
+    },
+    {
+      "candidate_id": "P2",
+      "hard_fail": true,
+      "median_total": 94,
+      "median_core": 53,
+      "minimum_total": 94,
+      "maximum_total": 98,
+      "judge_spread": 4
+    }
+  ]
+}

@@ -13,6 +13,7 @@ import tempfile
 from typing import Any, Callable
 
 from .copyeditor_adapter import _resolved_codex_command
+from .editor_contract import load_editor_contract
 from .models import DraftResponse, ExperienceClaimRef, Question
 from .prompt_contracts import validate_blind_comparison_payload
 from .quality_profiles import QualityProfile, legacy_rigorous_profile
@@ -21,18 +22,21 @@ from .style_diagnostics import diagnose_responses, style_repair_details
 
 
 WEIGHTS = {
-    "question_fidelity": 14,
-    "fact_accuracy": 15,
-    "job_relevance": 11,
-    "company_specificity": 10,
-    "action_specificity": 12,
-    "experience_allocation": 8,
-    "interview_defensibility": 8,
-    "spoken_defensibility": 5,
-    "korean_readability": 8,
-    "applicant_distinctiveness": 8,
+    "question_fidelity": 13,
+    "fact_accuracy": 12,
+    "job_relevance": 10,
+    "company_specificity": 8,
+    "action_specificity": 11,
+    "experience_allocation": 7,
+    "interview_defensibility": 7,
+    "spoken_defensibility": 6,
+    "korean_readability": 13,
+    "applicant_distinctiveness": 12,
     "length_and_format": 1,
 }
+RIGOROUS_MIN_MEDIAN_TOTAL = 85
+RIGOROUS_MIN_MINIMUM_TOTAL = 70
+RIGOROUS_MIN_MEDIAN_CORE = 28
 STRATEGIES = (
     "FACT_QUESTION_SAFE",
     "FACT_FIRST",
@@ -92,8 +96,10 @@ JUDGE_INSTRUCTIONS = {
         "원장·공고·회사 claim·수치·기여 범위·인과관계와 직무 권한을 대조한다. 의심을 사실처럼 확정하지 않는다."
     ),
     "KOREAN_EDITOR": (
-        "소리 내어 읽었을 때의 자연스러움, 문장 호응, 장단문 리듬, 추상명사·상투어·기계적 병렬을 본다. "
-        "단순히 화려하거나 긴 문장에 점수를 주지 않는다."
+        "프로젝트 에디터 계약을 그대로 적용한다. 자연스러움, 문장 리듬, 종결 반복, 문장 길이 균형, "
+        "번역투·AI 관용구, 과도한 명사화를 서로 독립적으로 평가한다. 소리 내어 읽었을 때 지원자가 "
+        "실제로 말할 법한지, 장면·행동·관찰 뒤에 생각의 변화가 남는지 본다. 사실을 안전하게 통제한다는 "
+        "이유로 업무 매뉴얼 같은 문장을 높게 평가하지 않으며, 단순히 화려하거나 긴 문장에도 점수를 주지 않는다."
     ),
     "INTERVIEW_COACH": (
         "핵심 주장별 추가질문 방어, 말하기 용이성, 수치 산출·개인 기여·한계 설명, 모르는 범위 인정 가능성을 본다."
@@ -134,13 +140,31 @@ def _normalized_hard_fail_type(value: Any) -> Any:
 
 
 def _reset_rigorous_directory(run_dir: Path, rigorous_dir: Path) -> None:
-    """Remove only the derived rigorous artifact directory before a rerun."""
+    """Clear only derived rigorous artifacts before a rerun.
+
+    OneDrive may deny deleting synced directories while still allowing files
+    inside them to be replaced. Keep such directories and remove their files;
+    this also avoids treating a cloud-placeholder ACL as a selection failure.
+    """
     resolved_run = run_dir.resolve()
     resolved_rigorous = rigorous_dir.resolve()
     if resolved_rigorous.parent != resolved_run or resolved_rigorous.name != "rigorous":
         raise RigorousSelectionError("unsafe rigorous artifact directory")
     if resolved_rigorous.exists():
-        shutil.rmtree(resolved_rigorous)
+        for path in sorted(
+            resolved_rigorous.rglob("*"),
+            key=lambda item: len(item.parts),
+            reverse=True,
+        ):
+            if path.is_file() or path.is_symlink():
+                path.unlink()
+                continue
+            try:
+                path.rmdir()
+            except OSError:
+                # Synced folders can carry an explicit delete-directory deny.
+                # They are safe to reuse after every contained file is gone.
+                pass
 
 
 def _read_json_object(path: Path) -> dict[str, Any] | None:
@@ -415,10 +439,19 @@ def subprocess_model_runner(stage: str, prompt: str, model_id: str, timeout_ms: 
         schema = temp_path / "schema.json"
         schema.write_text(json.dumps(_json_schema(stage), ensure_ascii=False), encoding="utf-8")
         command = _resolved_codex_command(temp_path, schema, resolve=True, model_id=model_id)
-        completed = subprocess.run(
-            command, input=prompt, text=True, encoding="utf-8", errors="strict",
-            capture_output=True, timeout=max(1, timeout_ms // 1000 + 30),
-        )
+        try:
+            completed = subprocess.run(
+                command, input=prompt, text=True, encoding="utf-8", errors="strict",
+                capture_output=True, timeout=max(1, timeout_ms // 1000 + 30),
+            )
+        except subprocess.TimeoutExpired as error:
+            raise RigorousSelectionError(
+                f"model call timed out at {stage} after {timeout_ms}ms"
+            ) from error
+        except OSError as error:
+            raise RigorousSelectionError(
+                f"model call could not start at {stage}: {error}"
+            ) from error
         if completed.returncode != 0:
             detail = (completed.stderr or completed.stdout or "").strip()
             if len(detail) > 2000:
@@ -511,6 +544,124 @@ def _style_report(responses: tuple[DraftResponse, ...]) -> list[dict[str, Any]]:
 
 def _style_risk_total(responses: tuple[DraftResponse, ...]) -> int:
     return sum(item.style_risk_score for item in diagnose_responses(responses))
+
+
+def _editor_quality_total(responses: tuple[DraftResponse, ...]) -> float:
+    diagnostics = diagnose_responses(responses)
+    if not diagnostics:
+        return 0.0
+    return round(
+        sum(float(item.metrics.get("editor_total", 0.0)) for item in diagnostics)
+        / len(diagnostics),
+        2,
+    )
+
+
+def _human_editor_floor_failures(
+    responses: tuple[DraftResponse, ...],
+) -> list[dict[str, Any]]:
+    """Catch fact-safe procedure prose without demanding identical voices.
+
+    A complete set may contain a more analytical answer, so the strongest
+    requirement is applied to the set average. Per-question floors only stop a
+    conspicuously mechanical outlier. This mirrors a human editor's comparison
+    better than requiring every answer to hit the same arbitrary number.
+    """
+
+    diagnostics = {
+        item.question_index: item for item in diagnose_responses(responses)
+    }
+    failures: list[dict[str, Any]] = []
+    for response in responses:
+        item = diagnostics[response.question_index]
+        naturalness = float(item.metrics.get("naturalness", 0.0))
+        editor_total = float(item.metrics.get("editor_total", 0.0))
+        is_experience_answer = bool(response.experience_refs)
+        required_naturalness = 80.0
+        required_total = 82.0
+        reasons: list[str] = []
+        if naturalness < required_naturalness:
+            reasons.append(f"naturalness {naturalness} < {required_naturalness}")
+        if editor_total < required_total:
+            reasons.append(f"editor_total {editor_total} < {required_total}")
+        if reasons:
+            failures.append(
+                {
+                    "question_index": response.question_index,
+                    "experience_answer": is_experience_answer,
+                    "reasons": reasons,
+                    "required_revision": (
+                        "Replace procedure/control-verb sequences with one concrete "
+                        "scene, observation, hesitation, surprise, or changed judgment. "
+                        "Keep future-work plans to at most two or three sentences."
+                    ),
+                }
+            )
+    if diagnostics:
+        average_naturalness = round(
+            sum(float(item.metrics.get("naturalness", 0.0)) for item in diagnostics.values())
+            / len(diagnostics),
+            2,
+        )
+        average_total = round(
+            sum(float(item.metrics.get("editor_total", 0.0)) for item in diagnostics.values())
+            / len(diagnostics),
+            2,
+        )
+        set_reasons: list[str] = []
+        if average_naturalness < 85.0:
+            set_reasons.append(f"average naturalness {average_naturalness} < 85.0")
+        if average_total < 84.0:
+            set_reasons.append(f"average editor_total {average_total} < 84.0")
+        if set_reasons:
+            failures.append(
+                {
+                    "question_index": 0,
+                    "experience_answer": False,
+                    "reasons": set_reasons,
+                    "required_revision": (
+                        "Improve the weakest applicant-voice answers without making "
+                        "every question use the same rhythm or narrative structure."
+                    ),
+                }
+            )
+    return failures
+
+
+def _has_actionable_editor_violation(
+    responses: tuple[DraftResponse, ...],
+) -> bool:
+    """Treat repeated formal endings as an independent advisory signal.
+
+    Korean self-introductions naturally use formal endings. Repetition remains
+    visible to judges, but it is not a hard failure when every other editor axis
+    and the human-voice floor pass.
+    """
+
+    for item in diagnose_responses(responses):
+        if not item.should_rewrite:
+            continue
+        non_ending_reasons = [
+            reason for reason in item.style_reasons if "종결" not in reason
+        ]
+        advisory_reasons = {"문장 호흡과 리듬 단조", "긴 관형절이 겹친 문장"}
+        if (
+            set(non_ending_reasons).issubset(advisory_reasons)
+            and float(item.metrics.get("naturalness", 0.0)) >= 82.0
+            and float(item.metrics.get("editor_total", 0.0)) >= 84.0
+        ):
+            continue
+        if non_ending_reasons:
+            return True
+    return False
+
+
+def _editor_contract_block() -> str:
+    return (
+        "\nPROJECT_WRITING_EDITOR_CONTRACT (policy only; never factual evidence)\n"
+        + load_editor_contract()
+        + "\nEND_PROJECT_WRITING_EDITOR_CONTRACT\n"
+    )
 
 
 def _compact_judge_packet(
@@ -724,6 +875,14 @@ def _validate_judge(
         if isinstance(fail_type, str):
             fail_type = _normalized_hard_fail_type(fail_type)
             row["hard_fail_type"] = fail_type
+        if fail_type in JUDGES and (
+            not row.get("hard_fail") or status != "CONFIRMED"
+        ):
+            # Some judge models echo their role in the classification field.
+            # When no hard failure is confirmed, retain the review text but do
+            # not turn that role label into an invalid failure category.
+            fail_type = None
+            row["hard_fail_type"] = None
         if fail_type is not None and fail_type not in {"DETERMINISTIC", "SEMANTIC"}:
             raise RigorousSelectionError(f"hard fail type mismatch: {judge}")
         if not isinstance(row["review_required"], list):
@@ -811,6 +970,34 @@ def _candidate_hard_fail(rows: list[dict[str, Any]]) -> tuple[bool, bool]:
         for row in rows
     )
     return deterministic or semantic_confirmed, review_required
+
+
+def _absolute_quality_gate(row: dict[str, Any]) -> dict[str, Any]:
+    reasons: list[str] = []
+    if float(row.get("median_total", 0)) < RIGOROUS_MIN_MEDIAN_TOTAL:
+        reasons.append("JUDGE_MEDIAN_TOTAL_BELOW_FLOOR")
+    if float(row.get("minimum_total", 0)) < RIGOROUS_MIN_MINIMUM_TOTAL:
+        reasons.append("JUDGE_MINIMUM_TOTAL_BELOW_FLOOR")
+    if float(row.get("median_core", 0)) < RIGOROUS_MIN_MEDIAN_CORE:
+        reasons.append("JUDGE_MEDIAN_CORE_BELOW_FLOOR")
+    if row.get("review_required"):
+        reasons.append("SEMANTIC_REVIEW_UNRESOLVED")
+    return {
+        "metric": "internal_selection_floor_not_hire_probability",
+        "passed": not reasons,
+        "thresholds": {
+            "median_total": RIGOROUS_MIN_MEDIAN_TOTAL,
+            "minimum_total": RIGOROUS_MIN_MINIMUM_TOTAL,
+            "median_core": RIGOROUS_MIN_MEDIAN_CORE,
+        },
+        "observed": {
+            "median_total": row.get("median_total"),
+            "minimum_total": row.get("minimum_total"),
+            "median_core": row.get("median_core"),
+            "review_required": bool(row.get("review_required")),
+        },
+        "reason_codes": reasons,
+    }
 
 
 def _agreed_transferable_elements(
@@ -1084,6 +1271,9 @@ def run_rigorous_selection(
             "never as an established objective result. "
             "Use the question_requirement_map as the authoritative per-question content contract. Answer every "
             "hard requirement and stay inside each question's actual character limit and preferred range. "
+            "When historical_outcome_feedback is present, satisfy hard_requirement items, explicitly review "
+            "review_required items, and preserve preserve_strength items. Treat these as writing constraints "
+            "derived from prior outcomes, never as facts to quote or as a probability of being hired. "
             "If a prompt asks for one issue, name exactly one issue in the selection sentence; other risks from a "
             "cited source may appear only as context and must not be framed as a second selected issue. "
             "Avoid repeating an experience when a confirmed alternative satisfies the question as well. "
@@ -1094,6 +1284,7 @@ def run_rigorous_selection(
             "opening, vary short and long sentences, use '할 수 있습니다' at most once per answer, and split a long "
             "sentence when three or more adnominal clauses stack together. "
             "Private strategy: " + strategy + " — " + STRATEGY_INSTRUCTIONS[strategy] + "\n"
+            + _editor_contract_block()
             + json.dumps(package_meta, ensure_ascii=False)
             + "\nQUESTION_REQUIREMENT_MAP\n"
             + json.dumps(question_contract, ensure_ascii=False)
@@ -1195,8 +1386,12 @@ def run_rigorous_selection(
             "Do not invent or translate code names. "
             "When prompt contracts are present, mark company claims outside safe_claims or experiences outside "
             "defensible_experience_ids as fact_risk or interview_risk. "
+            "Apply historical_outcome_feedback from the question requirement map: an unmet hard_requirement is "
+            "a question_gap or job_gap, review_required remains semantic REVIEW_REQUIRED, and prior outcome data "
+            "must never be interpreted as a hiring probability. "
             "Judge instruction: " + JUDGE_INSTRUCTIONS[judge] + " "
             "Do not reward verbosity, polish unsupported by evidence, or generic company praise. Do not rewrite.\n"
+            + _editor_contract_block()
             + json.dumps({"judge_mode": judge, "weights": WEIGHTS, "data_package": package_meta, "data": judge_packet, "questions": [asdict(q) for q in questions], "candidates": blind_payload}, ensure_ascii=False)
         )
         checkpoint_paths = (
@@ -1296,7 +1491,13 @@ def run_rigorous_selection(
     if not eligible:
         raise RigorousSelectionError("every candidate received HARD FAIL")
     eligible.sort(key=lambda row: (row["median_total"], row["median_core"], row["minimum_total"]), reverse=True)
-    winner_id = eligible[0]["candidate_id"]
+    auto_pass_candidates = [
+        row for row in eligible if _absolute_quality_gate(row)["passed"]
+    ]
+    selection_pool = auto_pass_candidates or eligible
+    winner_row = selection_pool[0]
+    winner_id = winner_row["candidate_id"]
+    absolute_quality_gate = _absolute_quality_gate(winner_row)
     weakness_counts = {code: 0 for code in WEAKNESS_CODES}
     for rows in judge_rows:
         winner_row = next(row for row in rows if row["candidate_id"] == winner_id)
@@ -1308,6 +1509,8 @@ def run_rigorous_selection(
         rigorous_dir / "aggregate.json",
         {
             "ranking": eligible,
+            "auto_pass_ranking": auto_pass_candidates,
+            "winner_quality_gate": absolute_quality_gate,
             "agreed_weaknesses": agreed,
             "agreed_transferable_elements": agreed_transferable,
         },
@@ -1316,10 +1519,11 @@ def run_rigorous_selection(
     baseline = blinded[winner_id]
     synthesis_seed_id = winner_id
     synthesis = baseline
+    synthesis_changed_since_checkpoint = False
     if profile.name == "max_quality":
         near_winners = [
-            row for row in eligible
-            if float(row["median_total"]) >= float(eligible[0]["median_total"]) - 5
+            row for row in selection_pool
+            if float(row["median_total"]) >= float(selection_pool[0]["median_total"]) - 5
         ]
         diverse = max(
             near_winners,
@@ -1361,10 +1565,17 @@ def run_rigorous_selection(
             "treat any other source risk only as background context. "
             "remove every should_rewrite condition without changing facts or references. Vary consecutive endings and "
             "sentence lengths, remove repeated openings and ability phrases, and split stacked adnominal clauses. "
-            "Preserve facts, claim IDs, "
+            "For every experience answer, make the applicant visible in at least one concrete scene, observation, "
+            "hesitation, surprise, or changed judgment. A verified sequence of checking, sorting, recording and "
+            "reporting is still a procedure manual and cannot pass. Do not use the same 'learn rules -> check -> "
+            "record -> report' structure across questions. Keep future-work plans to at most two or three sentences "
+            "per answer and let the lived experience carry the argument. Preserve facts, claim IDs, "
             "experience allocation and limits. Preserve the strongest natural sentence rhythm and applicant voice. "
+            "Preserve every satisfied historical outcome requirement and repair any agreed violation without "
+            "copying prior-case wording or treating past outcomes as facts about the current employer. "
             "Do not add an experience merely to increase length or replace concrete language with polished abstractions. "
             "Return JSON only.\n"
+            + _editor_contract_block()
             + json.dumps({"data_package": package_meta, "weaknesses": agreed, "transferable_elements": agreed_transferable, "style_diagnostics": _style_report(synthesis), "winner": _candidate_payload(synthesis), "frozen_packet": frozen_packet, "questions": [asdict(q) for q in questions]}, ensure_ascii=False)
         )
         repair_number = 0
@@ -1407,16 +1618,45 @@ def run_rigorous_selection(
             write_json(rigorous_dir / "synthesis.json", _candidate_payload(synthesis))
 
         synthesis_style = _style_report(synthesis)
+        human_floor_failures = _human_editor_floor_failures(synthesis)
+        benchmark_writing_feedback = _read_json_object(
+            run_dir / "benchmark_writing_feedback.json"
+        )
+        benchmark_feedback_pending = bool(benchmark_writing_feedback) and not (
+            rigorous_dir / "benchmark_feedback_applied.json"
+        ).is_file()
         last_repair_issues: list[dict[str, Any]] = []
+        last_rejected_style_candidate: list[dict[str, Any]] | None = None
+        if resume_from_checkpoint and repair_number:
+            prior_raw = _read_json_object(
+                rigorous_dir / f"synthesis_repair_{repair_number}_raw.json"
+            )
+            if prior_raw is not None:
+                try:
+                    prior_rejected = _responses(
+                        prior_raw, questions, f"resume_synthesis_repair_{repair_number}_raw"
+                    )
+                except RigorousSelectionError:
+                    prior_rejected = ()
+                if (
+                    prior_rejected
+                    and not _has_actionable_editor_violation(prior_rejected)
+                    and not _human_editor_floor_failures(prior_rejected)
+                ):
+                    last_rejected_style_candidate = _candidate_payload(prior_rejected)
         while (
             profile.name == "max_quality"
-            and any(bool(item.get("should_rewrite")) for item in synthesis_style)
+            and (
+                _has_actionable_editor_violation(synthesis)
+                or bool(human_floor_failures)
+                or benchmark_feedback_pending
+            )
             and repair_number < profile.synthesis_repair_attempts
         ):
             repair_number += 1
             repair_stage = f"synthesis_repair_{repair_number}"
             repair_prompt = (
-                "Repair only the listed deterministic Korean style risks in the complete winning set. "
+                "Repair the listed Korean style risks and human-editor-floor failures in the complete winning set. "
                 "Preserve every fact, claim ID, research reference, experience allocation, question requirement and "
                 "character range. Do not add polish for its own sake. You may split, merge, shorten or reorder sentences "
                 "inside the same answer when meaning and causality stay identical. For repeated openings, give each "
@@ -1425,13 +1665,34 @@ def run_rigorous_selection(
                 "sentence and a materially longer evidence sentence. For repeated endings, vary declarative, past-action "
                 "and future-plan endings without changing time; never leave three consecutive sentences in the same "
                 "ending class. Remove repeated '할 수 있습니다' and formulaic conclusions. Change only questions whose "
-                "diagnostic has should_rewrite=true; keep already-passing questions byte-for-byte unchanged. "
+                "diagnostic has should_rewrite=true or appears in human_editor_floor_failures; keep all other "
+                "questions byte-for-byte unchanged. For an experience answer, replace procedural sequences with "
+                "one human scene, observation, hesitation, unexpected detail, or change of judgment already "
+                "supported by its claims. Do not invent dialogue or emotion. Do not reuse the same structure across "
+                "questions. Limit future-work plans to two or three sentences; cut control verbs and let the past "
+                "experience do most of the persuasion. "
+                "Every revised answer must remain at or above its preferred_minimum character count. If a procedural "
+                "sentence is cut, replace its length with claim-supported scene detail or reasoning, not another future plan. "
+                "If rejected_style_candidate_to_expand is present, it already passed the human-voice floor but failed "
+                "deterministic validation. Preserve its voice and expand only the questions named in previous_validation_issues "
+                "until every preferred_minimum is met; do not fall back to the older procedural candidate. "
+                "benchmark_writing_feedback, when present, is style-comparison evidence only. Use it to improve flow, "
+                "voice and rhythm, but never copy its numbers, personal facts, outcomes, organization names or claims. "
                 "Return the complete JSON set.\n"
+                + _editor_contract_block()
                 + json.dumps(
                     {
                         "data_package": package_meta,
                         "style_diagnostics": synthesis_style,
+                        "human_editor_floor_failures": human_floor_failures,
+                        "character_quality_contract": _question_quality_contract(questions),
+                        "current_character_counts": {
+                            str(item.question_index): len(item.answer)
+                            for item in synthesis
+                        },
                         "previous_validation_issues": last_repair_issues,
+                        "rejected_style_candidate_to_expand": last_rejected_style_candidate,
+                        "benchmark_writing_feedback": benchmark_writing_feedback,
                         "candidate": _candidate_payload(synthesis),
                         "questions": [asdict(q) for q in questions],
                     },
@@ -1452,7 +1713,26 @@ def run_rigorous_selection(
             if not repair_issues:
                 synthesis = repaired
                 synthesis_style = _style_report(synthesis)
+                human_floor_failures = _human_editor_floor_failures(synthesis)
+                synthesis_changed_since_checkpoint = True
+                if benchmark_feedback_pending:
+                    benchmark_feedback_pending = False
+                    write_json(
+                        rigorous_dir / "benchmark_feedback_applied.json",
+                        {
+                            "repair_stage": repair_stage,
+                            "candidate_sha256": sha256(
+                                json.dumps(
+                                    _candidate_payload(synthesis),
+                                    ensure_ascii=False,
+                                    sort_keys=True,
+                                ).encode("utf-8")
+                            ).hexdigest(),
+                            "feedback_sha256": _sha(run_dir / "benchmark_writing_feedback.json"),
+                        },
+                    )
                 last_repair_issues = []
+                last_rejected_style_candidate = None
             else:
                 last_repair_issues = [
                     {
@@ -1462,6 +1742,11 @@ def run_rigorous_selection(
                     }
                     for issue in repair_issues
                 ]
+                if (
+                    not _has_actionable_editor_violation(repaired)
+                    and not _human_editor_floor_failures(repaired)
+                ):
+                    last_rejected_style_candidate = _candidate_payload(repaired)
             calls.append(
                 {"stage": repair_stage, "model_id": synthesis_model, "role": "synthesis"}
             )
@@ -1470,8 +1755,9 @@ def run_rigorous_selection(
                 _candidate_payload(synthesis),
             )
 
-        if profile.name == "max_quality" and any(
-            bool(item.get("should_rewrite")) for item in _style_report(synthesis)
+        if profile.name == "max_quality" and (
+            _has_actionable_editor_violation(synthesis)
+            or bool(_human_editor_floor_failures(synthesis))
         ):
             raise RigorousSelectionError("final Korean style quality floor failed")
 
@@ -1481,7 +1767,9 @@ def run_rigorous_selection(
         "Choose one complete version; do not create a mixed version. Record question-level choices and "
         "remaining fact, interview, spoken-answer, company-specificity, applicant-voice, duplication and style "
         "risks. Prefer the version that is both safer and more concrete; do not choose generic polish over a "
-        "defensible applicant-specific answer. Return JSON only.\n"
+        "defensible applicant-specific answer. Prefer the version that satisfies more applicable historical "
+        "outcome requirements without inventing facts. Return JSON only.\n"
+        + _editor_contract_block()
         + json.dumps({"data_package": package_meta, "frozen_packet": frozen_packet, "questions": [asdict(q) for q in questions], "style_diagnostics": {"X": baseline_style, "Y": _style_report(synthesis)}, "X": _candidate_payload(baseline), "Y": _candidate_payload(synthesis)}, ensure_ascii=False)
     )
     comparison_model = _stage_model(
@@ -1489,7 +1777,7 @@ def run_rigorous_selection(
     )
     comparison = (
         _read_json_object(rigorous_dir / "final_comparison.json")
-        if resume_from_checkpoint
+        if resume_from_checkpoint and not synthesis_changed_since_checkpoint
         else None
     )
     if comparison is not None:
@@ -1522,7 +1810,7 @@ def run_rigorous_selection(
     if comparison["choice"] == "Y":
         baseline_fit = _candidate_job_fit_score(baseline, frozen_packet)
         synthesis_fit = _candidate_job_fit_score(synthesis, frozen_packet)
-        style_improves = _style_risk_total(synthesis) < _style_risk_total(baseline)
+        style_improves = _editor_quality_total(synthesis) > _editor_quality_total(baseline)
         if synthesis_fit < baseline_fit and not (
             profile.name == "max_quality" and style_improves
         ):
@@ -1535,18 +1823,28 @@ def run_rigorous_selection(
             selected = baseline
     baseline_style_risk = _style_risk_total(baseline)
     synthesis_style_risk = _style_risk_total(synthesis)
+    baseline_editor_quality = _editor_quality_total(baseline)
+    synthesis_editor_quality = _editor_quality_total(synthesis)
     if (
         profile.name == "max_quality"
-        and synthesis_style_risk < baseline_style_risk
+        and synthesis_editor_quality > baseline_editor_quality
+        and not _has_actionable_editor_violation(synthesis)
+        and not _human_editor_floor_failures(synthesis)
     ):
         comparison["choice"] = "Y"
         comparison["reason"] = (
             str(comparison.get("reason", ""))
-            + f" Deterministic style guard selected Y because its style risk "
-            f"{synthesis_style_risk} was below X's {baseline_style_risk}; Y already passed the "
+            + f" Deterministic editor guard selected Y because its editor score "
+            f"{synthesis_editor_quality} exceeded X's {baseline_editor_quality} and its style risk "
+            f"{synthesis_style_risk} did not contain an actionable editor-contract violation; Y already passed the "
             "authoritative question, job-linkage, evidence and contract validators."
         ).strip()
         selected = synthesis
+    if profile.name == "max_quality" and (
+        _has_actionable_editor_violation(selected)
+        or bool(_human_editor_floor_failures(selected))
+    ):
+        raise RigorousSelectionError("final editor-contract quality floor failed")
     issues = validate_candidate(list(selected))
     if issues:
         raise RigorousSelectionError(f"final deterministic validation failed: {issues[0].code}")
@@ -1558,8 +1856,9 @@ def run_rigorous_selection(
         path for path in rigorous_dir.rglob("*.json")
         if path.name != "private_mapping.json"
     ]
+    selection_status = "passed" if absolute_quality_gate["passed"] else "review_required"
     metadata = {
-        "status": "passed", "selection_mode": "rigorous", "model_id": model_id,
+        "status": selection_status, "selection_mode": "rigorous", "model_id": model_id,
         "quality_profile": profile.name,
         "stage_models": {
             role: (stage_models or {}).get(role) or model_id
@@ -1569,7 +1868,14 @@ def run_rigorous_selection(
         "resumed_stages": resumed_stages,
         "final_choice": comparison["choice"], "final_reason": comparison.get("reason", ""),
         "hard_fail": False,
+        "review_required": not absolute_quality_gate["passed"],
+        "quality_floor": absolute_quality_gate,
         "data_package": package_meta,
+        "benchmark_writing_feedback_sha256": (
+            _sha(run_dir / "benchmark_writing_feedback.json")
+            if (run_dir / "benchmark_writing_feedback.json").is_file()
+            else None
+        ),
         "candidate_count": len(blinded),
         "judge_count": len(judges),
         "review_required_candidates": [row["candidate_id"] for row in aggregate if row.get("review_required")],

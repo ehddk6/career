@@ -1,0 +1,6 @@
+[
+  {
+    "stage": "judge_job_fact_auditor",
+    "error": "hard fail type mismatch: JOB_FACT_AUDITOR"
+  }
+]

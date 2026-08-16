@@ -1,0 +1,304 @@
+{
+  "run_id": "SOL-20260715-1537",
+  "data_package_id": "SOL-DATA-EXT-001",
+  "data_package_version": "1.0",
+  "count_mode": "UNVERIFIED",
+  "count_policy": "Proxy enforcement uses WITH_SPACES_WITHOUT_LINEBREAKS; all modes are reported.",
+  "status": "PASS",
+  "overall_errors": [],
+  "duplicate_candidates": [],
+  "candidates": [
+    {
+      "candidate_file": "candidate_A.md",
+      "strategy": "FACT_FIRST",
+      "status": "PASS",
+      "errors": [],
+      "warnings": [],
+      "answer_sha256": "b1be0f48ead6731b4fcccf9abfe021ccc5afd9886c43adc150afe2eb640ba8d4",
+      "questions": {
+        "q1": {
+          "counts": {
+            "with_spaces_without_linebreaks": 540,
+            "without_spaces": 420,
+            "with_linebreaks": 542,
+            "utf8_bytes_without_linebreaks": 1354
+          },
+          "fact_ids": [
+            "F01"
+          ],
+          "research_ids": [
+            "R01",
+            "R02"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        "q2": {
+          "counts": {
+            "with_spaces_without_linebreaks": 527,
+            "without_spaces": 403,
+            "with_linebreaks": 527,
+            "utf8_bytes_without_linebreaks": 1281
+          },
+          "fact_ids": [
+            "F05",
+            "F16",
+            "F17"
+          ],
+          "research_ids": [],
+          "errors": [],
+          "warnings": []
+        },
+        "q3": {
+          "counts": {
+            "with_spaces_without_linebreaks": 536,
+            "without_spaces": 416,
+            "with_linebreaks": 538,
+            "utf8_bytes_without_linebreaks": 1326
+          },
+          "fact_ids": [
+            "F03",
+            "F04"
+          ],
+          "research_ids": [
+            "R02"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        "q4": {
+          "counts": {
+            "with_spaces_without_linebreaks": 951,
+            "without_spaces": 720,
+            "with_linebreaks": 957,
+            "utf8_bytes_without_linebreaks": 2329
+          },
+          "fact_ids": [],
+          "research_ids": [
+            "R03",
+            "R04"
+          ],
+          "errors": [],
+          "warnings": []
+        }
+      }
+    },
+    {
+      "candidate_file": "candidate_B.md",
+      "strategy": "QUESTION_FIRST",
+      "status": "PASS",
+      "errors": [],
+      "warnings": [],
+      "answer_sha256": "36e2e17d6590209f304ac20c0359f415a0cf7739358c1072d190996bfc8714e0",
+      "questions": {
+        "q1": {
+          "counts": {
+            "with_spaces_without_linebreaks": 537,
+            "without_spaces": 415,
+            "with_linebreaks": 539,
+            "utf8_bytes_without_linebreaks": 1345
+          },
+          "fact_ids": [
+            "F01"
+          ],
+          "research_ids": [
+            "R01",
+            "R02"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        "q2": {
+          "counts": {
+            "with_spaces_without_linebreaks": 550,
+            "without_spaces": 419,
+            "with_linebreaks": 552,
+            "utf8_bytes_without_linebreaks": 1344
+          },
+          "fact_ids": [
+            "F08"
+          ],
+          "research_ids": [],
+          "errors": [],
+          "warnings": []
+        },
+        "q3": {
+          "counts": {
+            "with_spaces_without_linebreaks": 536,
+            "without_spaces": 416,
+            "with_linebreaks": 538,
+            "utf8_bytes_without_linebreaks": 1322
+          },
+          "fact_ids": [
+            "F13"
+          ],
+          "research_ids": [
+            "R02"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        "q4": {
+          "counts": {
+            "with_spaces_without_linebreaks": 1024,
+            "without_spaces": 785,
+            "with_linebreaks": 1028,
+            "utf8_bytes_without_linebreaks": 2531
+          },
+          "fact_ids": [],
+          "research_ids": [
+            "R03",
+            "R04"
+          ],
+          "errors": [],
+          "warnings": []
+        }
+      }
+    },
+    {
+      "candidate_file": "candidate_C.md",
+      "strategy": "EXPERIENCE_DIVERSITY",
+      "status": "PASS",
+      "errors": [],
+      "warnings": [],
+      "answer_sha256": "35aa553599440df145a725cfa6109331f5b3313906dbddaceadc91a55eae4ada",
+      "questions": {
+        "q1": {
+          "counts": {
+            "with_spaces_without_linebreaks": 522,
+            "without_spaces": 405,
+            "with_linebreaks": 524,
+            "utf8_bytes_without_linebreaks": 1307
+          },
+          "fact_ids": [
+            "F01"
+          ],
+          "research_ids": [
+            "R01",
+            "R02"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        "q2": {
+          "counts": {
+            "with_spaces_without_linebreaks": 538,
+            "without_spaces": 411,
+            "with_linebreaks": 540,
+            "utf8_bytes_without_linebreaks": 1322
+          },
+          "fact_ids": [
+            "F08"
+          ],
+          "research_ids": [],
+          "errors": [],
+          "warnings": []
+        },
+        "q3": {
+          "counts": {
+            "with_spaces_without_linebreaks": 533,
+            "without_spaces": 409,
+            "with_linebreaks": 535,
+            "utf8_bytes_without_linebreaks": 1307
+          },
+          "fact_ids": [
+            "F03",
+            "F04"
+          ],
+          "research_ids": [
+            "R02"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        "q4": {
+          "counts": {
+            "with_spaces_without_linebreaks": 1046,
+            "without_spaces": 793,
+            "with_linebreaks": 1050,
+            "utf8_bytes_without_linebreaks": 2564
+          },
+          "fact_ids": [],
+          "research_ids": [
+            "R03",
+            "R04"
+          ],
+          "errors": [],
+          "warnings": []
+        }
+      }
+    },
+    {
+      "candidate_file": "candidate_D.md",
+      "strategy": "JOB_RELEVANCE",
+      "status": "PASS",
+      "errors": [],
+      "warnings": [],
+      "answer_sha256": "760bb364395d640a70ae12c573d12e7b7143451872ddf46d2205bd64d2a4230d",
+      "questions": {
+        "q1": {
+          "counts": {
+            "with_spaces_without_linebreaks": 531,
+            "without_spaces": 418,
+            "with_linebreaks": 533,
+            "utf8_bytes_without_linebreaks": 1343
+          },
+          "fact_ids": [
+            "F01"
+          ],
+          "research_ids": [
+            "R01",
+            "R02"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        "q2": {
+          "counts": {
+            "with_spaces_without_linebreaks": 550,
+            "without_spaces": 419,
+            "with_linebreaks": 552,
+            "utf8_bytes_without_linebreaks": 1350
+          },
+          "fact_ids": [
+            "F08"
+          ],
+          "research_ids": [],
+          "errors": [],
+          "warnings": []
+        },
+        "q3": {
+          "counts": {
+            "with_spaces_without_linebreaks": 531,
+            "without_spaces": 413,
+            "with_linebreaks": 533,
+            "utf8_bytes_without_linebreaks": 1307
+          },
+          "fact_ids": [
+            "F13"
+          ],
+          "research_ids": [
+            "R02"
+          ],
+          "errors": [],
+          "warnings": []
+        },
+        "q4": {
+          "counts": {
+            "with_spaces_without_linebreaks": 1063,
+            "without_spaces": 813,
+            "with_linebreaks": 1067,
+            "utf8_bytes_without_linebreaks": 2630
+          },
+          "fact_ids": [],
+          "research_ids": [
+            "R03",
+            "R04"
+          ],
+          "errors": [],
+          "warnings": []
+        }
+      }
+    }
+  ]
+}

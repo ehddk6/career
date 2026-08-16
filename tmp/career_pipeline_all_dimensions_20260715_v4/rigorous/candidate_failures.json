@@ -1,0 +1,13 @@
+[
+  {
+    "stage": "candidate_3",
+    "repair_attempted": true,
+    "repair_attempts": 1,
+    "codes": [
+      "under_preferred_minimum"
+    ],
+    "question_indexes": [
+      1
+    ]
+  }
+]

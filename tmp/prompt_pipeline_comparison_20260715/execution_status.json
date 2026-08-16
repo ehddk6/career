@@ -1,0 +1,115 @@
+{
+  "external_company_prompt": {
+    "status": "partial_runtime_blocked",
+    "output_dir": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\external\\company",
+    "package": {
+      "company_data_package_id": "CR-DATA-001",
+      "company_data_package_version": "1.0",
+      "research_cutoff_date": "2026-07-13",
+      "company_name": "신용보증기금",
+      "target_job": "체험형 청년인턴1(보증)"
+    },
+    "files_written": 49,
+    "final_dir_has_files": false,
+    "judges_dir_has_files": false,
+    "manifest_exists": false,
+    "hard_fail_report": {
+      "company_data_package_id": "CR-DATA-001",
+      "company_data_package_version": "1.0",
+      "status": "PASS",
+      "active_hard_fail_count": 0,
+      "deterministic_checks": {
+        "entity_name_error": false,
+        "period_currency_unit_error": false,
+        "consolidated_separate_mixing": false,
+        "nonexistent_source": false,
+        "source_number_mismatch": false,
+        "publication_basis_date_confusion": false,
+        "post_cutoff_mixing": false,
+        "quote_distortion": false,
+        "nonexistent_product_business_role": false
+      },
+      "semantic_checks": {
+        "company_claim_as_objective_fact": false,
+        "announcement_as_result": false,
+        "correlation_as_causation": false,
+        "industry_growth_as_company_growth": false,
+        "affiliate_result_as_target_result": false,
+        "review_overgeneralization": false,
+        "applicant_authority_exaggeration": false,
+        "unverified_culture_reputation": false,
+        "counterevidence_omitted": false
+      },
+      "prevented_risks": [
+        "한국도로공사서비스 직무기술서 6개를 KODIT 근거에서 제외",
+        "한국은행 14조원 지원 한도를 KODIT 재무 수치에서 제외",
+        "KODIT 협약보증 발표를 독립 검증된 성과로 전환하지 않음"
+      ],
+      "unresolved_verification_count": 24,
+      "final_effect": "지원 직무 논리는 생성하되 회사 품질 판정은 INSUFFICIENT_EVIDENCE로 제한"
+    },
+    "retries": [
+      {
+        "dir": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\external\\company_retry",
+        "status": "failed_model_version",
+        "evidence": "codex_exec.log"
+      },
+      {
+        "dir": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\external\\company_retry2",
+        "status": "partial_runtime_hook_loop",
+        "evidence": "codex_exec.log"
+      }
+    ]
+  },
+  "external_selfintro_improved_artifact": {
+    "status": "completed_prior_artifact_but_not_same_package",
+    "artifact": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\codex_prompt_comparison_20260714\\external_candidate.json",
+    "source_prompt_recorded": "C:\\Users\\ehddk\\Downloads\\GPT-5.6_Sol_자기소개서_Codex용_개선본.md",
+    "source_prompt_is_one_of_current_four": false,
+    "package": {
+      "data_package_id": "SOL-DATA-ACB9EA4AEAAC",
+      "data_package_version": "1.1",
+      "frozen_data_sha256": "acb9ea4aeaac1bf0febc89ca5865317094711e85549394bbe072ef49c0c3fac3",
+      "count_mode": "spaces_included",
+      "candidate_count": 5,
+      "judge_count": 3
+    },
+    "deterministic_validation": "blocked;blocked"
+  },
+  "external_selfintro_final_integration_prompt": {
+    "status": "not_traceable_completed_artifact",
+    "prompt_path": "C:\\Users\\ehddk\\Downloads\\회사조사_면접_프롬프트_묶음\\GPT-5.6_Sol_자기소개서_최종_통합_프롬프트.md",
+    "reason": "isolated run has no independent candidate/judge/final packet bundle for this prompt"
+  },
+  "external_interview_prompt": {
+    "status": "not_executed_traceable_output",
+    "prompt_path": "C:\\Users\\ehddk\\Downloads\\회사조사_면접_프롬프트_묶음\\Codex_면접_프롬프트.md",
+    "reason": "no traceable final packet from external CLI execution"
+  },
+  "career_pipeline_v22": {
+    "status": "complete_existing_baseline",
+    "run": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\career_runs\\kodit-2026-h2-rigorous-20260714-v22",
+    "selection_mode": "rigorous",
+    "model_calls": 9,
+    "winner_candidate_id": "C210847FD",
+    "final_choice": "X",
+    "audit_score": 93,
+    "audit_quality_gate": "pass",
+    "contract_validation": {
+      "enabled": false,
+      "hard_fail": false,
+      "source": "contracts validate on isolated v22 copy (no sidecars)"
+    }
+  },
+  "career_pipeline_v22_isolated_rerun": {
+    "status": "partial_model_calls",
+    "run": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\project\\kodit-v22-rerun",
+    "observed_generated_candidates": [
+      "generated_1.json",
+      "generated_2.json",
+      "generated_3.json"
+    ],
+    "reason": "Sol calls took several minutes each; full 9-call finalize was stopped before completion and did not replace v22 baseline",
+    "note": "generated_4.json remained from the copied baseline and was not counted as a new model result"
+  }
+}

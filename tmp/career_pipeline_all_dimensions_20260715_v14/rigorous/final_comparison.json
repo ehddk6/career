@@ -1,0 +1,108 @@
+{
+  "data_package_id": "CAREER-DATA-F9C8B89D27FE",
+  "data_package_version": "2.0",
+  "choice": "Y",
+  "hard_fail": {
+    "X": [],
+    "Y": [
+      "Q4 weakens causality and overstates the support channel by changing cautious phrasing such as '영향을 줄 수 있음' and '통로를 이미 운영하고 있는 것으로 볼 수 있습니다' into firmer conclusions like '영향을 준다는 점' and '해당 제도는 ... 통로입니다'."
+    ]
+  },
+  "reason": "X is the safer complete version because it preserves cautious causality and avoids turning confirmed policy support facts into stronger operational conclusions. Y has better style diagnostics, especially in Q1 and Q4, but the Q4 wording is less defensible under the frozen evidence. No length or question-coverage hard fail was identified for X. Deterministic style guard selected Y because its style risk 3 was below X's 8; Y already passed the authoritative question, job-linkage, evidence and contract validators.",
+  "comparison_ready": true,
+  "question_choices": {
+    "q1": {
+      "choice": "Y",
+      "reason": "Y improves style by removing repeated starts and adds a clearer boundary sentence about 담당자 판단 영역 without introducing an unsupported fact.",
+      "decisive_difference": "Y has lower style risk while preserving the same research and experience basis."
+    },
+    "q2": {
+      "choice": "X",
+      "reason": "X and Y are identical for Q2, so either is acceptable; X is recorded for complete-version consistency.",
+      "decisive_difference": "No substantive difference."
+    },
+    "q3": {
+      "choice": "X",
+      "reason": "X and Y are identical for Q3, so either is acceptable; X is recorded for complete-version consistency.",
+      "decisive_difference": "No substantive difference."
+    },
+    "q4": {
+      "choice": "X",
+      "reason": "X keeps causal language more qualified and avoids presenting the 협약보증 channel as a direct, settled support mechanism for all 환율 영향 기업.",
+      "decisive_difference": "Y strengthens causality and company-program linkage beyond the safer evidence boundary."
+    }
+  },
+  "risk_audit": {
+    "remaining_fact_risks": {
+      "X": [
+        "Q4 relies on verified March 2026 BOK and KODIT claims; it should not be presented as newly checked after the frozen packet.",
+        "Q4's '운전자금 성격의 보증 지원을 검토할 수 있습니다' is a policy-support inference, not a quoted product rule."
+      ],
+      "Y": [
+        "Q4 states '해당 제도는 환율 변동의 영향을 받는 기업을 선별 지원하는 통로입니다', which is stronger than the frozen evidence supports.",
+        "Q4 says the BOK action '영향을 준다는 점을 보여줍니다', which is less cautious than '영향을 줄 수 있음'."
+      ]
+    },
+    "interview_defense_risks": {
+      "X": [
+        "Q1 and Q3 applicant experiences are defensible but interview answers should separate direct assistant work from final judgment authority.",
+        "Q4 may invite follow-up on how 환율 impact differs by import/export structure; applicant must stay within general reasoning and verified claims."
+      ],
+      "Y": [
+        "Q4 may be harder to defend if asked whether KODIT 협약보증 specifically targets all 환율 피해기업.",
+        "Q4's firmer causal wording creates a higher burden to prove direct policy rationale."
+      ]
+    },
+    "spoken_answer_risks": {
+      "X": [
+        "Q1 is slightly repetitive and may sound scripted due to repeated '-습니다' endings.",
+        "Q4 is long and may need compression for spoken delivery."
+      ],
+      "Y": [
+        "Q4 is smoother but the stronger assertions may be repeated confidently in interview without necessary qualification."
+      ]
+    },
+    "company_specificity_regression": {
+      "X": [
+        "No major regression; Q1, Q3 and Q4 directly reference KODIT role, intern duties, and verified support claims."
+      ],
+      "Y": [
+        "No generic regression in Q1-Q3, but Q4 converts company specificity into a stronger program claim than the evidence boundary permits."
+      ]
+    },
+    "applicant_voice_regression": {
+      "X": [
+        "Q1 contains more mechanical phrasing and repeated starts, but retains applicant-specific data comparison/reporting experience.",
+        "Q4 is policy-heavy and has little applicant voice, though this matches the issue essay prompt."
+      ],
+      "Y": [
+        "Q1 applicant voice is more natural.",
+        "Q4 polish improves readability but risks sounding more conclusive than the applicant can defend."
+      ]
+    },
+    "experience_duplication": {
+      "X": [
+        "Q1-Q3 reuse the same 엑셀 대조·보고 experience and 기초연금 자료 분류 experience, but they are applied to different prompt angles.",
+        "Q4 has no applicant experience, which is acceptable for the issue essay."
+      ],
+      "Y": [
+        "Same duplication profile as X for Q1-Q3.",
+        "Q4 has no applicant experience, which is acceptable for the issue essay."
+      ]
+    },
+    "style_regression": {
+      "X": [
+        "Q1 style_risk_score 3 due repeated starts and repeated endings.",
+        "Q4 style_risk_score 3 due repeated '할 수 있습니다' and long modifier-heavy sentences."
+      ],
+      "Y": [
+        "Q1 and Q4 style risks are materially reduced.",
+        "Q2 and Q3 retain minor style risks but no hard style failure."
+      ]
+    }
+  },
+  "remaining_risks": [
+    "Chosen complete version X sacrifices some style quality to preserve safer causal boundaries.",
+    "If final submission editing is allowed later, the best next step is to rewrite X's Q1 and Q4 style without importing Y's stronger Q4 claims."
+  ]
+}

@@ -1,0 +1,454 @@
+{
+  "schema_version": 1,
+  "data_package_id": "CAREER-DATA-02B036CBE425",
+  "systems": {
+    "A": "external-six-best-same-input",
+    "B": "career-pipeline-v22b"
+  },
+  "blind_protocol": {
+    "system_labels_hidden": true,
+    "strategy_metadata_removed": true,
+    "file_order_randomized": true,
+    "assignment_sha256": "d8673fa636deadfc27ba6ce5a4db3ced3f42c5837bfd188f3f21fa27b999ec0c"
+  },
+  "hard_fail": {
+    "A": [
+      "Y submitted answers use numeric personal experiences without D4 defense: B5 Q2 uses '상인 50명' and '5개 시장' while B14 EX03 marks defense depth D3; B5 Q3 uses '3,000쪽' and '이틀' while B14 EX04 marks defense depth D3.",
+      "Y alternate final JSON also uses numeric personal experiences without D4 defense: B7 answers.q1 uses '3,000페이지' and '2일', and B7 answers.q2 uses '민원을 30% 줄였습니다' while B14 EX04 is D3 and EX05 is D2."
+    ],
+    "B": []
+  },
+  "sections": {
+    "company_research": {
+      "business_model_depth": {
+        "choice": "B",
+        "reason": "X gives a fuller defensible business model map including customers, value chain, risk transfer, funding and fee logic, customer value, operating resources, and limits. Y has a good map but less complete on funding/risk-transfer mechanics.",
+        "decisive_difference": "X separates risk-sharing and funding logic as explicit fields; Y mainly presents a table narrative.",
+        "evidence_refs": [
+          "C1.content.business_model.risk_transfer_logic",
+          "C1.content.business_model.funding_and_fee_logic",
+          "B2.content#BUSINESS MODEL MAP"
+        ]
+      },
+      "strategy_execution_evidence": {
+        "choice": "B",
+        "reason": "X classifies strategy evidence by stage, evidence strength, observed-vs-plan status, and interpretation limits. Y also separates plan/start/result, but X is more systematic and traceable.",
+        "decisive_difference": "X has structured strategy_execution entries with stage and observed_vs_plan for each signal.",
+        "evidence_refs": [
+          "C1.content.strategy_execution",
+          "B3.content#STRATEGY EXECUTION STATUS"
+        ]
+      },
+      "recency": {
+        "choice": "TIE",
+        "reason": "Both sides use a 2026-07-15 research cutoff and include 2026 execution or program evidence. No defensible recency advantage remains.",
+        "decisive_difference": "No material difference in cutoff date.",
+        "evidence_refs": [
+          "C1.content.research_cutoff_date",
+          "B1.content.research_cutoff_date",
+          "B3.content#결론"
+        ]
+      },
+      "source_traceability": {
+        "choice": "B",
+        "reason": "X provides source_manifest entries with source ids, source type, URLs, checked_at dates, and evidence locators. Y has claim source ids and locators, but the actual source manifest is not as fully exposed in the provided artifacts.",
+        "decisive_difference": "X lets claims be traced directly to URL-level source records inside the artifact.",
+        "evidence_refs": [
+          "C1.content.source_manifest",
+          "C1.content.claim_ledger",
+          "B1.content.claims"
+        ]
+      },
+      "role_connection": {
+        "choice": "B",
+        "reason": "X ties company facts to role actions through role_value_map and job_implications. Y connects the role in narrative form, but X is more reusable and explicit.",
+        "decisive_difference": "X maps organization-supported facts to concrete intern actions such as 대조, 기록, 보고.",
+        "evidence_refs": [
+          "C1.content.role_value_map",
+          "C1.content.strategy_execution[].job_implications",
+          "B2.content#직무 연결",
+          "B3.content#직무 연결"
+        ]
+      },
+      "motivation_reusability": {
+        "choice": "B",
+        "reason": "X provides reusable motivation bridges that combine company fact, applicant action, realistic contribution, and boundary. Y has usable facts but fewer ready-to-use motivation structures.",
+        "decisive_difference": "X has explicit motivation_bridges with boundaries for safe reuse.",
+        "evidence_refs": [
+          "C1.content.motivation_bridges",
+          "B1.content.claims[].application_use",
+          "B2.content#직무 연결"
+        ]
+      },
+      "prohibited_claim_control": {
+        "choice": "B",
+        "reason": "X consistently carries prohibited uses and usage restrictions across claim_ledger and interview_implications. Y also records restrictions, but X integrates them into later interview and motivation artifacts more thoroughly.",
+        "decisive_difference": "X propagates claim restrictions into prohibited_talking_points and pressure boundaries.",
+        "evidence_refs": [
+          "C1.content.claim_ledger[].usage_restriction",
+          "C1.content.interview_implications.prohibited_talking_points",
+          "B1.content.claims[].usage_restriction"
+        ]
+      },
+      "specificity_without_generalities": {
+        "choice": "B",
+        "reason": "X is more specific in structured fields without relying on broad institutional praise. Y is specific too, but some final writing uses unsupported numeric personal examples that cannot earn an advantage.",
+        "decisive_difference": "X's company specificity comes from traceable official facts rather than hard-fail-dependent personal numerics.",
+        "evidence_refs": [
+          "C1.content.business_model",
+          "C1.content.strategy_execution",
+          "B5.content#자기소개서"
+        ]
+      }
+    },
+    "self_intro": {
+      "question_fidelity": {
+        "choice": "B",
+        "reason": "X answers all four required questions and its audit confirms the required components by question. Y also covers the questions, but Y's submitted texts include hard-fail numeric experience claims.",
+        "decisive_difference": "X maintains question coverage without relying on disqualifying numeric personal claims.",
+        "evidence_refs": [
+          "C4.content[0].answer",
+          "C4.content[1].answer",
+          "C4.content[2].answer",
+          "C4.content[3].answer",
+          "C3.content#자기소개서 검토보고서",
+          "B5.content#자기소개서"
+        ]
+      },
+      "fact_accuracy": {
+        "choice": "B",
+        "reason": "X's submitted-claim ledger marks each submitted answer as confirmed and avoids unsupported numeric personal metrics in the final draft. Y's submitted answer uses numeric personal experiences defended only at D3 or D2.",
+        "decisive_difference": "Y has hard-fail numeric claims; X's submitted_claims are confirmed and its D4 numeric case covers the 50/5 claim.",
+        "evidence_refs": [
+          "C5.content.submitted_claims",
+          "C5.content.experience_defense",
+          "B5.content## 2",
+          "B5.content## 3",
+          "B14.content## EX03. 상인 50명·5개 시장 비교",
+          "B14.content## EX04. 3,000페이지·2일 자료 정리"
+        ]
+      },
+      "contribution_boundary": {
+        "choice": "B",
+        "reason": "X repeatedly separates applicant action from final judgment and says the role is 확인·기록·보고, not independent judgment. Y does this in places too, but hard-fail numeric contribution claims weaken the boundary.",
+        "decisive_difference": "X's boundary control is explicit in C4 Q3 and C5 answer_boundary fields.",
+        "evidence_refs": [
+          "C4.content[2].answer",
+          "C5.content.questions[3].answer_boundary",
+          "C5.content.pressure_boundaries",
+          "B5.content## 3"
+        ]
+      },
+      "action_and_judgment_specificity": {
+        "choice": "B",
+        "reason": "X describes concrete actions such as 원자료 대조, 누락·변동 기록, 담당자 보고, and 인계. Y also has concrete action, but the strongest distinctive examples depend on hard-fail numeric evidence and cannot earn advantage.",
+        "decisive_difference": "X's concrete actions remain defensible after excluding unsupported numbers.",
+        "evidence_refs": [
+          "C4.content[0].answer",
+          "C4.content[2].answer",
+          "C5.content.answer_cards[5].direct_actions",
+          "B5.content## 3"
+        ]
+      },
+      "experience_allocation": {
+        "choice": "B",
+        "reason": "X allocates distinct experiences across Q1-Q3 and leaves Q4 research-based, with a submitted_claims ledger. Y uses multiple experiences but includes numeric experiences below the required D4 defense level.",
+        "decisive_difference": "X's allocation is traceable and does not depend on hard-fail personal numerics.",
+        "evidence_refs": [
+          "C5.content.submitted_claims",
+          "C4.content",
+          "B5.content#자기소개서",
+          "B6.content#사실·근거 감사"
+        ]
+      },
+      "job_relevance": {
+        "choice": "B",
+        "reason": "X closely links each answer to 신용보증 기한연장 and 기업신용 상시관리. Y is also job-relevant, but X maintains this link more consistently in both draft and traceability artifacts.",
+        "decisive_difference": "X repeats the job boundary and actions in each answer card and submitted-answer ledger.",
+        "evidence_refs": [
+          "C4.content[0].research_refs",
+          "C4.content[2].answer",
+          "C5.content.answer_cards[].job_connection",
+          "B5.content## 1",
+          "B5.content## 3"
+        ]
+      },
+      "company_specificity": {
+        "choice": "B",
+        "reason": "X uses specific KODIT role facts, official duty claims, and policy issue facts inside the answers and ledgers. Y is company-specific too, but X's traceability is stronger.",
+        "decisive_difference": "X's answers cite kodit-role, kodit-intern-duty, bok-fx-risk, and kodit-liquidity-support directly.",
+        "evidence_refs": [
+          "C4.content[0].research_refs",
+          "C4.content[3].research_refs",
+          "C5.content.submitted_claims",
+          "B7.content.fact_ids"
+        ]
+      },
+      "applicant_distinctiveness": {
+        "choice": "B",
+        "reason": "Y's distinctive personal numerics such as 3,000 pages, 2 days, 50 interviews, and 30% reduction cannot earn advantage due to hard fail. X still has defensible distinctiveness through comparison-report behavior and structured 확인·기록·보고 actions.",
+        "decisive_difference": "X's distinctiveness does not rely on unsupported numeric personal metrics.",
+        "evidence_refs": [
+          "C4.content[0].answer",
+          "C5.content.experience_defense[1]",
+          "B5.content## 2",
+          "B5.content## 3",
+          "B7.content.answers.q2",
+          "B14.content## EX05. 도서관 개선"
+        ]
+      },
+      "natural_korean": {
+        "choice": "A",
+        "reason": "Y's final prose in B5 is generally more natural and less mechanical than X's C4, especially in Q1-Q3. This advantage is based on style only, not on the hard-fail numeric claims.",
+        "decisive_difference": "Y has smoother sentence flow and less schema-like repetition in the submitted prose.",
+        "evidence_refs": [
+          "B5.content#자기소개서",
+          "C4.content",
+          "C6.content"
+        ]
+      },
+      "length_and_format": {
+        "choice": "B",
+        "reason": "X provides clear per-question counts and stays within limits. Y also validates counts, but B5 includes repeated extra closing sentences in Q1 and Q3 that look like formatting leftovers.",
+        "decisive_difference": "X's C3/C4 format is cleaner; Y B5 has duplicate add-on lines after Q1 and Q3.",
+        "evidence_refs": [
+          "C3.content#자기소개서 검토보고서",
+          "C4.content",
+          "B5.content## 1",
+          "B5.content## 3",
+          "B8.content#글자 수 검증"
+        ]
+      },
+      "interview_defensibility": {
+        "choice": "B",
+        "reason": "X links submitted claims to interview questions, answer cards, probes, and pressure boundaries. Y has useful defense notes, but admits several core experiences are D3/D2 and those numerics are used in submitted answers.",
+        "decisive_difference": "X's submitted numeric personal experience requiring D4 is marked D4, while Y's numeric submitted claims are D3 or D2.",
+        "evidence_refs": [
+          "C5.content.experience_defense",
+          "C5.content.probes",
+          "C5.content.pressure_boundaries",
+          "B11.content.primary_experiences",
+          "B14.content## EX03. 상인 50명·5개 시장 비교",
+          "B14.content## EX04. 3,000페이지·2일 자료 정리"
+        ]
+      }
+    },
+    "interview": {
+      "question_relevance": {
+        "choice": "A",
+        "reason": "Y's core question set is more interview-realistic and covers recruiter, job manager, fact auditor, situational, executive, and red-team questions. X is relevant but more templated.",
+        "decisive_difference": "Y's question labels and anchors are richer for likely interview flow.",
+        "evidence_refs": [
+          "B12.content#CORE QUESTION SET",
+          "C5.content.questions",
+          "C5.content.priority_question_set"
+        ]
+      },
+      "probe_depth": {
+        "choice": "B",
+        "reason": "X generates systematic probes across fact, judgment, contribution, alternative, and job transfer for each core answer. Y's probe defense notes are useful but narrower.",
+        "decisive_difference": "X has 60 structured probes with status, safe boundary, red flag, and retry goal.",
+        "evidence_refs": [
+          "C5.content.probes",
+          "B14.content#PROBE DEFENSE NOTES"
+        ]
+      },
+      "submitted_claim_traceability": {
+        "choice": "B",
+        "reason": "X maps submitted questions to experience_claim_ids and research_claim_ids, then carries them into answer cards and probes. Y has a submitted claim ledger and notes, but hard-fail numeric experience claims weaken the chain.",
+        "decisive_difference": "X has direct submitted_claims plus answer_cards claim ids for each relevant question.",
+        "evidence_refs": [
+          "C5.content.submitted_claims",
+          "C5.content.answer_cards",
+          "B11.content.submitted_claim_ids",
+          "B14.content#PROBE DEFENSE NOTES"
+        ]
+      },
+      "spoken_answer_quality": {
+        "choice": "B",
+        "reason": "X provides brief, standard, and detailed spoken versions with timing audits. Y's answer cards are more polished in places, but several strong spoken examples use unsupported numeric personal claims below D4, which cannot earn advantage.",
+        "decisive_difference": "X's spoken versions are auditable and mostly safe; Y's spoken quality is entangled with D3/D2 numeric examples.",
+        "evidence_refs": [
+          "C5.content.answer_cards[].spoken_versions",
+          "C5.content.answer_cards[].spoken_timing_audit",
+          "B13.content#CORE ANSWER CARDS",
+          "B14.content## EX03. 상인 50명·5개 시장 비교",
+          "B14.content## EX04. 3,000페이지·2일 자료 정리"
+        ]
+      },
+      "unknown_question_response": {
+        "choice": "B",
+        "reason": "X includes a clear unknown_answer_policy with validity check, confirmed fact, boundary statement, reasoning bridge, verification commitment, and job link. Y has a pressure response formula but less complete unknown-answer protocol.",
+        "decisive_difference": "X gives a reusable stepwise policy for unknown questions.",
+        "evidence_refs": [
+          "C5.content.unknown_answer_policy",
+          "B14.content#압박질문 응답 공식"
+        ]
+      },
+      "fact_boundary_under_pressure": {
+        "choice": "B",
+        "reason": "X explicitly defines pressure boundaries and safe responses for unsupported metrics, team contribution, approval authority, and unknown facts. Y also has good pressure notes but its own submitted outputs violate the numeric-defense rule.",
+        "decisive_difference": "X's pressure safeguards are consistent with the submitted-answer evidence.",
+        "evidence_refs": [
+          "C5.content.pressure_boundaries",
+          "C5.content.pressure_response_examples",
+          "B14.content#압박질문 응답 공식",
+          "B15.content#남은 의미 검증"
+        ]
+      },
+      "retry_goal_specificity": {
+        "choice": "B",
+        "reason": "X assigns retry_goal for each probe and defines a retry_rule in the simulation policy. Y mentions recommended mock-interview gates but has less per-question retry specificity.",
+        "decisive_difference": "X provides concrete retry goals at probe level.",
+        "evidence_refs": [
+          "C5.content.probes[].retry_goal",
+          "C5.content.simulation_policy.retry_rule",
+          "B15.content#다음 게이트"
+        ]
+      }
+    }
+  },
+  "judge_model_id": "gpt-5.5",
+  "artifact_manifest": {
+    "A": [
+      {
+        "artifact_id": "B1",
+        "content_sha256": "98aaa34b4d681e4b41376517b50b5ace7a989d836f4eb7fe36e6ce46e197ea2b",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "B2",
+        "content_sha256": "f8ac207baa552ec619a200ff1c1dd75510f7fddc47a85e78840761a0bba504f4",
+        "content_type": "text"
+      },
+      {
+        "artifact_id": "B3",
+        "content_sha256": "f10b5b812d0a904c6b8740a260b2020c2fe928ce7c5742a98750f93c036d564e",
+        "content_type": "text"
+      },
+      {
+        "artifact_id": "B4",
+        "content_sha256": "0ede10d140fd9cc62a40278613bdc3750d1f7bdb435cef777bd8735bd8801ba5",
+        "content_type": "text"
+      },
+      {
+        "artifact_id": "B5",
+        "content_sha256": "11c6fc89388560dc0515d6f27d7148140d5b6269e869ebb79727984d423a6592",
+        "content_type": "text"
+      },
+      {
+        "artifact_id": "B6",
+        "content_sha256": "2e99b12bba9bf45976f1325197235b6b24272f1d3f224e7098ba530f672fc56f",
+        "content_type": "text"
+      },
+      {
+        "artifact_id": "B7",
+        "content_sha256": "a6d54a2c9a5304bb9f8454d2ce75da05618437e2f11fd69be7f14b188bebdbb2",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "B8",
+        "content_sha256": "3d8d956d840d9d9cf77c12d246fce176a2fbc29b1942ecf15698a2cefab9e937",
+        "content_type": "text"
+      },
+      {
+        "artifact_id": "B9",
+        "content_sha256": "e41a9779cbda3dc6b95c6ae18b1fe47f310fc841055b2895f066cfa056c6f97f",
+        "content_type": "text"
+      },
+      {
+        "artifact_id": "B10",
+        "content_sha256": "3b1b939361a9a244eced0b4a435b2dc61787e6715387e18bef8b6b8d89d56d1e",
+        "content_type": "text"
+      },
+      {
+        "artifact_id": "B11",
+        "content_sha256": "6fcaad8ae6ab4c50353fbe6d0fa59b1d9a0d712f473eb0745f1b6a2da6a7e2da",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "B12",
+        "content_sha256": "6587d14aa02d2f0dd9d191b39b526311d915bee0b87d843014a6b930f66c843c",
+        "content_type": "text"
+      },
+      {
+        "artifact_id": "B13",
+        "content_sha256": "cda603c1fe5d89f44d1b574199a27be46cc022e60ac7e66f2d0262b3464334aa",
+        "content_type": "text"
+      },
+      {
+        "artifact_id": "B14",
+        "content_sha256": "66f292ae48fface3d723d568afe8dba6763911ca38659ae5c8eacf34278a88a8",
+        "content_type": "text"
+      },
+      {
+        "artifact_id": "B15",
+        "content_sha256": "7e7e50c44c3627a614d40b5aace31edfa2431b8be9eaf3d0d5bd48a147a12ce3",
+        "content_type": "text"
+      }
+    ],
+    "B": [
+      {
+        "artifact_id": "C1",
+        "content_sha256": "b6f01edceb84cc07ec0605aee565dbe7701e1cf9f7b7d980ec3bd4b6ee8cff5e",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "C2",
+        "content_sha256": "38880080d04469ceee8a25744ac5a190ae96ef2797d995670dd4a2c7c4b642aa",
+        "content_type": "text"
+      },
+      {
+        "artifact_id": "C3",
+        "content_sha256": "eab5362582d9ed4f91bb7026dfd5934b5295952d456c0de1e758395f810d0ef7",
+        "content_type": "text"
+      },
+      {
+        "artifact_id": "C4",
+        "content_sha256": "46aad55141a3a090a80a58435b8fc2531e7275d9d822b37a2c37fcf9645702b5",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "C5",
+        "content_sha256": "55fbdd417a51a53e2d011503a26ffe63b39e7ba7631f63d2d6fd7e47b429446d",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "C6",
+        "content_sha256": "a587eec35488bcea4ed204a6541c37d09732fbca7651bf2e4e959b175a7e1858",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "C7",
+        "content_sha256": "5ea0b334826dd2325afa6c3a90dea0075100521ac614d85d372803a21f763333",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "C8",
+        "content_sha256": "30a790801c46a3feda387de88b3c172858fe1f3bab81ec2782377d899d12e122",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "C9",
+        "content_sha256": "2ffb9c433a9934df656fca53ae877a5bcdacf43d3e96cae936f31fecdef543eb",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "C10",
+        "content_sha256": "56e5800a9753a76f705988fca3329f0b3cb3caf60242c3c1b1b3f6a6fb85a8e0",
+        "content_type": "json"
+      }
+    ]
+  },
+  "result": {
+    "verdict": "IMPROVED",
+    "baseline_wins": 2,
+    "challenger_wins": 23,
+    "ties": 1,
+    "section_results": {
+      "company_research": "B",
+      "self_intro": "B",
+      "interview": "B"
+    }
+  }
+}

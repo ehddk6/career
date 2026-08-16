@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-16T18:29:50.024155",
+  "run_dir": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\career_pipeline_all_dimensions_20260715_v9",
+  "score": 100,
+  "internal_validation_score": 100,
+  "quality_gate": "pass",
+  "human_review_recommended": false,
+  "recommendation": "내부검증 우수",
+  "sections": {
+    "cover_letter": {
+      "score": 40,
+      "max": 40
+    },
+    "research": {
+      "score": 25,
+      "max": 25
+    },
+    "interview": {
+      "score": 20,
+      "max": 20
+    },
+    "style_safety": {
+      "score": 15,
+      "max": 15,
+      "voice_sample_status": "valid",
+      "style_warning_score": 4,
+      "actionable_style_items": 0
+    }
+  },
+  "question_scores": [
+    {
+      "question_index": 1,
+      "score": {
+        "total": 100,
+        "factuality": 25,
+        "target_specificity": 20,
+        "action_result": 20,
+        "job_fit": 15,
+        "distinctiveness": 10,
+        "naturalness": 10,
+        "issues": []
+      }
+    },
+    {
+      "question_index": 2,
+      "score": {
+        "total": 100,
+        "factuality": 25,
+        "target_specificity": 20,
+        "action_result": 20,
+        "job_fit": 15,
+        "distinctiveness": 10,
+        "naturalness": 10,
+        "issues": []
+      }
+    },
+    {
+      "question_index": 3,
+      "score": {
+        "total": 100,
+        "factuality": 25,
+        "target_specificity": 20,
+        "action_result": 20,
+        "job_fit": 15,
+        "distinctiveness": 10,
+        "naturalness": 10,
+        "issues": []
+      }
+    },
+    {
+      "question_index": 4,
+      "score": {
+        "total": 100,
+        "factuality": 25,
+        "target_specificity": 20,
+        "action_result": 20,
+        "job_fit": 15,
+        "distinctiveness": 10,
+        "naturalness": 10,
+        "issues": []
+      }
+    }
+  ],
+  "issues": []
+}

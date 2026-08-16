@@ -1,0 +1,330 @@
+{
+    "schema_version":  1,
+    "run_id":  "SOL-20260715-1537",
+    "data_package_id":  "SOL-DATA-EXT-001",
+    "data_package_version":  "1.0",
+    "frozen_at":  "2026-07-15T15:37:00+09:00",
+    "scope":  {
+                  "included_root":  "input/",
+                  "excluded":  [
+                                   "career_pipeline_max_quality/",
+                                   "parent OneDrive paths",
+                                   "Downloads",
+                                   "internet"
+                               ],
+                  "original_files_modified":  false
+              },
+    "file_count":  62,
+    "files":  [
+                  {
+                      "path":  "input/career_run/00_채용공고분석.json",
+                      "bytes":  2626,
+                      "sha256":  "ba3bcd6961bc22ff875d537399004b7d6f9e305dacffb533d0944617eac05d3b"
+                  },
+                  {
+                      "path":  "input/career_run/00_채용공고분석.md",
+                      "bytes":  1841,
+                      "sha256":  "85aa9f620e96c408b24a6a340448c8a1a3ba0ee365acefadce2136f776138480"
+                  },
+                  {
+                      "path":  "input/career_run/00_채용공고원문/source.docx",
+                      "bytes":  37387,
+                      "sha256":  "5b6f69118ca1eece39f284fb26c18e42422ba01088f978b9829c0501bc456779"
+                  },
+                  {
+                      "path":  "input/career_run/01_자료목록.md",
+                      "bytes":  151737,
+                      "sha256":  "75a427a9be3fdbf0bedd3f07578624ce4754fb625e63a164a211b982503a7f59"
+                  },
+                  {
+                      "path":  "input/career_run/02_확정경험원장.json",
+                      "bytes":  36586,
+                      "sha256":  "485c2fad17ec5cddf117b884e0baf61d4aa9bcfdc9c5b1cc96ab1435e2d3f2c4"
+                  },
+                  {
+                      "path":  "input/career_run/03_경험직무매칭.json",
+                      "bytes":  13191,
+                      "sha256":  "f3fa46c805196366e87b6af4315cd92997bd0e420d1e85e2ff0c8c8ef0246061"
+                  },
+                  {
+                      "path":  "input/career_run/03_경험직무매칭.md",
+                      "bytes":  7840,
+                      "sha256":  "8db5eb0f2ed59d0cde56272e2061d5e6116d436651b8ad6a1e5cf87daf9135a3"
+                  },
+                  {
+                      "path":  "input/career_run/04_공식근거.json",
+                      "bytes":  4522,
+                      "sha256":  "4956a70618e06435f17e122eaa31fd1cb33abe00df425fd468302df46b88bcf0"
+                  },
+                  {
+                      "path":  "input/career_run/04_기업직무조사.md",
+                      "bytes":  3930,
+                      "sha256":  "c7046db516f3cb2f2a659b79d3cdaee4ce843ebe2afdc33557207dc60aaafe54"
+                  },
+                  {
+                      "path":  "input/career_run/04_리서치실행.json",
+                      "bytes":  645,
+                      "sha256":  "21bea36e9de3893045b614ec7626e894c51080bf42f7041075f5024fcb9e9450"
+                  },
+                  {
+                      "path":  "input/career_run/05_문항전략.md",
+                      "bytes":  776,
+                      "sha256":  "38880080d04469ceee8a25744ac5a190ae96ef2797d995670dd4a2c7c4b642aa"
+                  },
+                  {
+                      "path":  "input/career_run/05_작성가이드_유튜브프레임.md",
+                      "bytes":  2810,
+                      "sha256":  "12d9f07df5ed449ff1e06f8d3beef43ac635fc5b3e729f018b65a26a05c72987"
+                  },
+                  {
+                      "path":  "input/career_run/06_자기소개서.docx",
+                      "bytes":  40309,
+                      "sha256":  "fb267d56de4c9becd9bbcdb33207fcb60327b4268c163d41f5df9c141f3b46eb"
+                  },
+                  {
+                      "path":  "input/career_run/06_자기소개서.md",
+                      "bytes":  8251,
+                      "sha256":  "92a0117dabdce2cfa1971f96c196c42b89a00aec20d49d10b49a4f6cef6536f0"
+                  },
+                  {
+                      "path":  "input/career_run/08_면접대비팩.md",
+                      "bytes":  11081,
+                      "sha256":  "4e901dc22f7137616ff6be935a861704b6d8ae437b949e6df3eca3b0e1109068"
+                  },
+                  {
+                      "path":  "input/career_run/09_copyeditor_report.json",
+                      "bytes":  733,
+                      "sha256":  "47c9585bbe34f399b26fa8babf3f3dad95c2430c6a0f25281729476dfbf389f2"
+                  },
+                  {
+                      "path":  "input/career_run/09_style_diagnostics.json",
+                      "bytes":  2670,
+                      "sha256":  "61b55f2b0a07d46f0345d6e16cc10dfadb1456a77c2998b19d895043af8459f9"
+                  },
+                  {
+                      "path":  "input/career_run/10_품질점수.json",
+                      "bytes":  1076,
+                      "sha256":  "6191e7036b07ca26905448a64f9e507386321288abfbd70d965be5b19c6caa1e"
+                  },
+                  {
+                      "path":  "input/career_run/11_최종품질감사.json",
+                      "bytes":  2873,
+                      "sha256":  "db55f368cb825bf72f93f65a318a5f719dddedfedd4abd1cf6dca6c6d95ed48a"
+                  },
+                  {
+                      "path":  "input/career_run/11_최종품질감사.md",
+                      "bytes":  766,
+                      "sha256":  "bad5daf84252c35a275d4f74d594233aa0feb4c2be697c3c20e451a1b061ea1f"
+                  },
+                  {
+                      "path":  "input/career_run/12_최종산출물.json",
+                      "bytes":  4848,
+                      "sha256":  "32adf25c653e09d89ebf95fec255ce5f47922449d96c1659f277fe013cce9beb"
+                  },
+                  {
+                      "path":  "input/career_run/draft.json",
+                      "bytes":  8036,
+                      "sha256":  "f228314386577909d8485eb5290483b3829d8a42e3d7ba4c18a15d5a74d0975b"
+                  },
+                  {
+                      "path":  "input/career_run/draft_final.json",
+                      "bytes":  8392,
+                      "sha256":  "de94aed7e0cdaaf22607bd4afbf649d63e91861f18d3dc94c899b655590da50b"
+                  },
+                  {
+                      "path":  "input/career_run/rendered_docx_final/06_자기소개서.pdf",
+                      "bytes":  154695,
+                      "sha256":  "3487189c37aa88e119cf29d59c4a3e7906dad73538ab378c42347d28f9c14d27"
+                  },
+                  {
+                      "path":  "input/career_run/rendered_docx_final/page-1.jpg",
+                      "bytes":  257137,
+                      "sha256":  "783669cdb80e05cfc2845d1fc1de73fee9f206afbdb3a840562b575a8e18407b"
+                  },
+                  {
+                      "path":  "input/career_run/rendered_docx_final/page-2.jpg",
+                      "bytes":  270622,
+                      "sha256":  "e02e6d805f313626d89d3b759697b5a1784e6bb65cf98dae7b262de5c8eb2770"
+                  },
+                  {
+                      "path":  "input/career_run/rendered_docx_final/page-3.jpg",
+                      "bytes":  239240,
+                      "sha256":  "0a0ae2e0715de10f4010ed3aa9bdbc7b6d453002bd4acc75fb9deb9cb3a8e411"
+                  },
+                  {
+                      "path":  "input/career_run/rendered_docx/06_자기소개서.pdf",
+                      "bytes":  150953,
+                      "sha256":  "cca69196ff83bb0908aaac9687ba168537bac96d807f90072525923a8f205e28"
+                  },
+                  {
+                      "path":  "input/career_run/rendered_docx/page-1.png",
+                      "bytes":  312847,
+                      "sha256":  "0929f70f82bdefd536e201a2cfffd825eef6ae76c75c1db69c81f38bf4d10319"
+                  },
+                  {
+                      "path":  "input/career_run/rendered_docx/page-2.png",
+                      "bytes":  326443,
+                      "sha256":  "f2eeab3b40f03179fff896bda7a7a4b118b17689ec07102f59f986f746175ec3"
+                  },
+                  {
+                      "path":  "input/career_run/rendered_docx/page-3.png",
+                      "bytes":  174789,
+                      "sha256":  "cd0b88b595ef5448b04a5a417f4bcc4b11571bfccc8e0bb729bf19afd3c7bbf4"
+                  },
+                  {
+                      "path":  "input/career_run/rigorous/aggregate.json",
+                      "bytes":  1149,
+                      "sha256":  "a0d6f6fcc66e772644003e7deaac11285a2a217e38344df53896f7b992d0cb6e"
+                  },
+                  {
+                      "path":  "input/career_run/rigorous/blind_candidates.json",
+                      "bytes":  42610,
+                      "sha256":  "df0ee4085c429926872b67feec9d0ecd0e83af9605750347f8834955bad09524"
+                  },
+                  {
+                      "path":  "input/career_run/rigorous/candidates/generated_1.json",
+                      "bytes":  8895,
+                      "sha256":  "91457deb88d5e275ce6aa7116573704864e1e25427f89c3951461e8b0cfdeae3"
+                  },
+                  {
+                      "path":  "input/career_run/rigorous/candidates/generated_1_raw.json",
+                      "bytes":  9049,
+                      "sha256":  "5a3305fb807074fa61a18f6f5de1e4a36b03ef473d0dd88bc9876cf0a80d7a77"
+                  },
+                  {
+                      "path":  "input/career_run/rigorous/candidates/generated_2.json",
+                      "bytes":  8286,
+                      "sha256":  "0cfbb1567196033217211e71e45ab2ce3bf4bbb2cde333971148e0130f4eba84"
+                  },
+                  {
+                      "path":  "input/career_run/rigorous/candidates/generated_2_raw.json",
+                      "bytes":  8428,
+                      "sha256":  "101ea579ec2bcd16a1736dfef5a0f462878bc59fedd3e0b1ccbf1d54179224a5"
+                  },
+                  {
+                      "path":  "input/career_run/rigorous/candidates/generated_3.json",
+                      "bytes":  8072,
+                      "sha256":  "70ee1bcb1128b5756f38c148acbbb5b4e66a60df1bcc6cb59783c541c3d5e3f0"
+                  },
+                  {
+                      "path":  "input/career_run/rigorous/candidates/generated_3_raw.json",
+                      "bytes":  8214,
+                      "sha256":  "af9a7be0936bfc2a41345dab04ecff31e6e69c554c45249c3f60e88a9a53c4eb"
+                  },
+                  {
+                      "path":  "input/career_run/rigorous/candidates/generated_4.json",
+                      "bytes":  8387,
+                      "sha256":  "519785e436d9d45a429020e3c35289d96eff738c400cacf4f3cdb1f057ef4589"
+                  },
+                  {
+                      "path":  "input/career_run/rigorous/candidates/generated_4_raw.json",
+                      "bytes":  8529,
+                      "sha256":  "a06e407173f4d0fdfbd857f0fafa9b274097be5d90a6d17953a92e8361d1354a"
+                  },
+                  {
+                      "path":  "input/career_run/rigorous/data_package.json",
+                      "bytes":  253,
+                      "sha256":  "e52854b5a6d9614c64c8ff6028f9a0c40a1b63901bde2d0ab9227cacf1a3a27e"
+                  },
+                  {
+                      "path":  "input/career_run/rigorous/final_comparison.json",
+                      "bytes":  2594,
+                      "sha256":  "1322fcaddc6e8ac76492e93658b55435278678822af3a1527b5a5a2e032cb6ab"
+                  },
+                  {
+                      "path":  "input/career_run/rigorous/judges/job_fact_auditor.json",
+                      "bytes":  13201,
+                      "sha256":  "df7c94eb41bd4433b9abbcb6f8636c9b498d1faa8930ca76e38d2e267f35b796"
+                  },
+                  {
+                      "path":  "input/career_run/rigorous/judges/job_fact_auditor_raw.json",
+                      "bytes":  13201,
+                      "sha256":  "df7c94eb41bd4433b9abbcb6f8636c9b498d1faa8930ca76e38d2e267f35b796"
+                  },
+                  {
+                      "path":  "input/career_run/rigorous/judges/korean_editor.json",
+                      "bytes":  12733,
+                      "sha256":  "1c803aef2898adb99d6b376433ceb3e977edb643aae660e6e2fa6ac1552a7a3c"
+                  },
+                  {
+                      "path":  "input/career_run/rigorous/judges/korean_editor_raw.json",
+                      "bytes":  12733,
+                      "sha256":  "1c803aef2898adb99d6b376433ceb3e977edb643aae660e6e2fa6ac1552a7a3c"
+                  },
+                  {
+                      "path":  "input/career_run/rigorous/judges/recruiter.json",
+                      "bytes":  11834,
+                      "sha256":  "be02a1bcb10cfb387a4d7ce6cafb3f281fed430b54beded3267fcdc174846966"
+                  },
+                  {
+                      "path":  "input/career_run/rigorous/judges/recruiter_raw.json",
+                      "bytes":  11834,
+                      "sha256":  "be02a1bcb10cfb387a4d7ce6cafb3f281fed430b54beded3267fcdc174846966"
+                  },
+                  {
+                      "path":  "input/career_run/rigorous/manifest.json",
+                      "bytes":  3990,
+                      "sha256":  "cfda42d6e983d9314d1df91c58d6e9529fe71ef3bef1192c34ea0029ba092cb1"
+                  },
+                  {
+                      "path":  "input/career_run/rigorous/private_mapping.json",
+                      "bytes":  144,
+                      "sha256":  "b391075fa4d6fd7027c07e78b296661a8a92dcb324588fd3d871cf8f053b161b"
+                  },
+                  {
+                      "path":  "input/career_run/rigorous/selected.json",
+                      "bytes":  8392,
+                      "sha256":  "de94aed7e0cdaaf22607bd4afbf649d63e91861f18d3dc94c899b655590da50b"
+                  },
+                  {
+                      "path":  "input/career_run/rigorous/synthesis.json",
+                      "bytes":  8344,
+                      "sha256":  "3bd0343f0f1c1d9f66f62ef2ce4179e88e7ffd6475ec24de984eb90f37520f4d"
+                  },
+                  {
+                      "path":  "input/career_run/run.json",
+                      "bytes":  17874,
+                      "sha256":  "86652102a62cdd506417a9e4b4158c314c5a3fe4ec13a8263aef7cb0a3e6e63d"
+                  },
+                  {
+                      "path":  "input/경험정리/0113_dl_51_sb (1) (1).jpg",
+                      "bytes":  149053,
+                      "sha256":  "d65f8ae2d6d6360b39d0e07ec8cf41c1272e9908fe1c90b7d0e4a0be9f6cf414"
+                  },
+                  {
+                      "path":  "input/경험정리/경험정리.docx",
+                      "bytes":  34095,
+                      "sha256":  "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1"
+                  },
+                  {
+                      "path":  "input/직무기술서/직무기술서_상담직.pdf",
+                      "bytes":  109879,
+                      "sha256":  "c085653246cb209d0db93ae981babe6c92e88dbee01b4212db6a328fbc52e509"
+                  },
+                  {
+                      "path":  "input/직무기술서/직무기술서_영업직(보훈).pdf",
+                      "bytes":  110564,
+                      "sha256":  "646cab9a010221089b8e0237c8407cc391754ef1926b78870826d02c80a71881"
+                  },
+                  {
+                      "path":  "input/직무기술서/직무기술서_영업직(사무영업).pdf",
+                      "bytes":  110127,
+                      "sha256":  "fb6f312f73fa836818743f1d3a0770508bb54f6a6989ae56ef67289e5ae3724f"
+                  },
+                  {
+                      "path":  "input/직무기술서/직무기술서_영업직(사회형평).pdf",
+                      "bytes":  111096,
+                      "sha256":  "41bd180560657128783299056e52465d00a0f77d1594e125cc94543bfcd06c6e"
+                  },
+                  {
+                      "path":  "input/직무기술서/직무기술서_영업직(안전).pdf",
+                      "bytes":  161438,
+                      "sha256":  "4b63a0416ce924da02f8002117bd9beb58500db361bf0468c10467db53bc3bbd"
+                  },
+                  {
+                      "path":  "input/직무기술서/직무기술서_영업직(정보통신).pdf",
+                      "bytes":  137426,
+                      "sha256":  "1b4318e4d1d29f1ca125a47d9ed71e040e9715190b556112498383fc88ac509e"
+                  }
+              ]
+}

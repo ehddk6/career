@@ -1,0 +1,33 @@
+[
+  {
+    "stage": "candidate_3",
+    "repair_attempted": false,
+    "codes": [
+      "missing_research_reference",
+      "missing_target_specificity"
+    ],
+    "question_indexes": [
+      3
+    ]
+  },
+  {
+    "stage": "candidate_4",
+    "repair_attempted": false,
+    "codes": [
+      "missing_target_specificity"
+    ],
+    "question_indexes": [
+      3
+    ]
+  },
+  {
+    "stage": "candidate_6",
+    "repair_attempted": false,
+    "codes": [
+      "missing_target_specificity"
+    ],
+    "question_indexes": [
+      3
+    ]
+  }
+]

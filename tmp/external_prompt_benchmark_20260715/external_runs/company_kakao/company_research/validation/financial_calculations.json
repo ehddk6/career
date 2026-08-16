@@ -1,0 +1,78 @@
+{
+  "company_data_package_id": "CR-DATA-001",
+  "company_data_package_version": "1.0",
+  "status": "NOT_CALCULATED",
+  "reason_code": "NO_ELIGIBLE_TARGET_FINANCIAL_SOURCE",
+  "eligible_source_count": 0,
+  "calculation_count": 0,
+  "reporting_currency": "UNVERIFIED",
+  "financial_cutoff_period": "UNVERIFIED",
+  "consolidation_scope": "UNVERIFIED",
+  "requested_metrics": [
+    {
+      "metric": "revenue_growth",
+      "status": "NEEDS_VERIFICATION",
+      "value": null
+    },
+    {
+      "metric": "operating_margin",
+      "status": "NEEDS_VERIFICATION",
+      "value": null
+    },
+    {
+      "metric": "net_margin",
+      "status": "NEEDS_VERIFICATION",
+      "value": null
+    },
+    {
+      "metric": "segment_or_region_mix",
+      "status": "NEEDS_VERIFICATION",
+      "value": null
+    },
+    {
+      "metric": "rd_to_revenue",
+      "status": "NEEDS_VERIFICATION",
+      "value": null
+    },
+    {
+      "metric": "capex_change",
+      "status": "NEEDS_VERIFICATION",
+      "value": null
+    },
+    {
+      "metric": "operating_cash_flow",
+      "status": "NEEDS_VERIFICATION",
+      "value": null
+    },
+    {
+      "metric": "free_cash_flow",
+      "status": "NEEDS_VERIFICATION",
+      "value": null
+    },
+    {
+      "metric": "cash_and_debt_change",
+      "status": "NEEDS_VERIFICATION",
+      "value": null
+    },
+    {
+      "metric": "inventory_and_receivables_change",
+      "status": "NEEDS_VERIFICATION",
+      "value": null
+    },
+    {
+      "metric": "employee_change_and_revenue_per_employee",
+      "status": "NEEDS_VERIFICATION",
+      "value": null
+    },
+    {
+      "metric": "customer_product_region_concentration",
+      "status": "NEEDS_VERIFICATION",
+      "value": null
+    }
+  ],
+  "excluded_sources": [
+    "input/career_run: KODIT target mismatch",
+    "input/직무기술서: Korea Expressway Service target mismatch"
+  ],
+  "hard_fail": false
+}

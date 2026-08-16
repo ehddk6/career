@@ -1,0 +1,24 @@
+{
+  "d4_numeric_contract": {
+    "status": "passed",
+    "hard_fail": false,
+    "report": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\smoke\\d4-pass\\13_프롬프트통합검증.json"
+  },
+  "d3_numeric_contract": {
+    "status": "blocked_as_expected",
+    "hard_fail": true,
+    "issue_codes": [
+      "insufficient_defense_depth"
+    ]
+  },
+  "xy_actual_question_sets": [
+    {
+      "questions": 3,
+      "status": "passed"
+    },
+    {
+      "questions": 5,
+      "status": "passed"
+    }
+  ]
+}

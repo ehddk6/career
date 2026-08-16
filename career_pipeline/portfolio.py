@@ -10,6 +10,9 @@ from pathlib import Path
 from typing import Any
 
 from .application_quality import assess_application_quality
+from .profile_refresh import refresh_profile
+from .profile_schema import ProfileValidationError, load_ledger
+from .quality import validate_profile_gate
 
 
 EVALUATION_FILES = (
@@ -61,6 +64,23 @@ def _target_overrides(root: Path) -> dict[str, dict[str, Any]]:
     }
 
 
+def _confirmed_profile_ready(root: Path) -> bool:
+    path = root / ".career_profile" / "experience_ledger.json"
+    try:
+        ledger = load_ledger(path)
+        confirmed_ids = {
+            item.experience_id for item in ledger.experiences if item.status == "confirmed"
+        }
+        if not confirmed_ids or validate_profile_gate(
+            ledger, selected_experience_ids=confirmed_ids
+        ):
+            return False
+        refresh = refresh_profile(root, ledger)
+    except (OSError, ProfileValidationError, ValueError):
+        return False
+    return all(item.status == "unchanged" for item in refresh.items)
+
+
 def build_portfolio(root: Path) -> dict[str, Any]:
     review = root / "jasoseo_all_review_20260705"
     grouped: dict[str, list[dict[str, Any]]] = defaultdict(list)
@@ -76,7 +96,7 @@ def build_portfolio(root: Path) -> dict[str, Any]:
                 }
             )
             legacy_by_org[organization].append(item)
-    confirmed_profile = (root / ".career_profile" / "experience_ledger.json").exists()
+    confirmed_profile = _confirmed_profile_ready(root)
     overrides = _target_overrides(root)
     applications: list[dict[str, Any]] = []
     for organization, items in sorted(grouped.items()):

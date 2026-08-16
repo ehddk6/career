@@ -1,0 +1,450 @@
+{
+  "data_package_id": "CAREER-DATA-B0F5D1A8FD48",
+  "data_package_version": "2.0",
+  "judge_mode": "JOB_FACT_AUDITOR",
+  "evaluations": [
+    {
+      "candidate_id": "C1EFC7E1F",
+      "hard_fail": true,
+      "hard_fail_reasons": [
+        "문항 1·2·3 답변이 각각 600자 상한을 초과한 것으로 판정됨."
+      ],
+      "hard_fail_status": "CONFIRMED",
+      "hard_fail_type": "FORMAT_LIMIT_EXCEEDED",
+      "review_required": [
+        "문항 4의 '정책적으로 살필 필요가 있다는 근거'는 공식 조치로부터의 해석이므로 사실 주장과 구분해 확인할 필요가 있음.",
+        "문항 3의 자료 분류 경험은 원장에 확인되지만 구체적인 분류 방식은 제시되지 않아 행동 깊이는 면접 확인이 필요함."
+      ],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 16,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 6,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 4,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 0
+      },
+      "total": 93,
+      "weakness_codes": [
+        "format_risk",
+        "spoken_answer_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience_action",
+          "exact_element": "기존 엑셀 수식과 외주 프로그램에 같은 데이터를 입력한 뒤 결과 비교 분석 보고서를 작성해 팀장에게 보고한 경험",
+          "reason": "동일 데이터 대조와 보고 행동이 원장에 직접 확인되며 보증 업무의 자료 확인 행동으로 전이 가능함.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "work_habit",
+          "exact_element": "마감 기한을 정하고 남은 일정을 달력과 노트에 기록하며 일일 목표를 관리",
+          "reason": "계획·기록 습관이 원장에 확인되며 조직 적응 노력으로 구체화됨.",
+          "fact_ids": [
+            "exp_22d1df6407915aa2",
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "experience_action",
+          "exact_element": "자료를 체계적으로 분류해 정리한 경험",
+          "reason": "자료 분류·정리 경험이 원장에 확인되며 접수 자료 관리 행동과 연결됨.",
+          "fact_ids": [
+            "exp_151ae891bd2719ad",
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "company_claim",
+          "exact_element": "높은 환율 변동성과 중동지역 리스크 점검, 14조원 한시 특별지원 재연장 및 협약보증 공급",
+          "reason": "공식 확인된 외부 이슈와 기관 지원 수단에 근거함.",
+          "fact_ids": [
+            "bok-fx-risk-20260711",
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "C29D6F72B",
+      "hard_fail": true,
+      "hard_fail_reasons": [
+        "문항 3 답변이 600자 상한을 초과한 것으로 판정됨."
+      ],
+      "hard_fail_status": "CONFIRMED",
+      "hard_fail_type": "FORMAT_LIMIT_EXCEEDED",
+      "review_required": [
+        "문항 4의 '보증 한도·보증료·만기를 기업 구조에 맞춰 설계'는 일반적 정책 제안이며 인턴 또는 기관의 실제 재량 범위로 단정해서는 안 됨.",
+        "문항 1의 '기업의 상태를 놓치지 않도록 기여'는 인턴의 자료 확인 기여로 한정해 설명할 필요가 있음."
+      ],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 15,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 5,
+        "interview_defensibility": 7,
+        "spoken_defensibility": 4,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 1
+      },
+      "total": 91,
+      "weakness_codes": [
+        "format_risk",
+        "interview_risk",
+        "experience_overlap"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience_action",
+          "exact_element": "동일 데이터를 두 처리 방식에 입력해 결과를 비교하고 분석 보고서를 작성",
+          "reason": "원자료 대조와 보고 행동이 직접 확인됨.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "1",
+          "element_type": "experience_action",
+          "exact_element": "기초연금 관련 자료를 체계적으로 분류",
+          "reason": "자료 분류 경험이 원장에 확인됨.",
+          "fact_ids": [
+            "exp_151ae891bd2719ad",
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "work_habit",
+          "exact_element": "마감일을 기준으로 일일 목표를 달력과 노트에 기록",
+          "reason": "계획 관리 습관이 원장에 직접 확인됨.",
+          "fact_ids": [
+            "exp_22d1df6407915aa2",
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "issue_analysis",
+          "exact_element": "고환율의 수입기업 부담과 수출기업의 잠재적 편익을 구분",
+          "reason": "공식 claim의 conflict_note와 일치하는 균형 잡힌 구분임.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "C2B37DB36",
+      "hard_fail": true,
+      "hard_fail_reasons": [
+        "문항 1·2·3 답변이 각각 600자 상한을 초과한 것으로 판정됨."
+      ],
+      "hard_fail_status": "CONFIRMED",
+      "hard_fail_type": "FORMAT_LIMIT_EXCEEDED",
+      "review_required": [
+        "문항 4의 '서류가 익숙하지 않은 소규모 기업에 쉬운 말로 안내'는 합리적 제안이나 공고상 인턴 권한·업무로 확인되지 않아 면접에서 역할 경계를 설명해야 함.",
+        "문항 4의 한국은행 조치가 환율 변동의 유동성 압박을 '보여 준다'는 표현은 정책 조치에 대한 해석임."
+      ],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 15,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 6,
+        "interview_defensibility": 7,
+        "spoken_defensibility": 4,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 0
+      },
+      "total": 91,
+      "weakness_codes": [
+        "format_risk",
+        "interview_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience_action",
+          "exact_element": "동일 데이터를 입력해 결과를 비교하고 분석 보고서를 작성하여 팀장에게 보고",
+          "reason": "확인·대조·보고 행동이 원장에 직접 확인됨.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "work_habit",
+          "exact_element": "마감일까지 남은 기간을 확인하고 일일 목표를 세워 달력과 노트로 관리",
+          "reason": "조직 적응 계획을 뒷받침하는 확인된 습관임.",
+          "fact_ids": [
+            "exp_22d1df6407915aa2",
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "experience_action",
+          "exact_element": "기초연금 지급 관련 자료를 체계적으로 분류",
+          "reason": "원장에 확인된 자료 정리 경험임.",
+          "fact_ids": [
+            "exp_151ae891bd2719ad",
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "company_claim",
+          "exact_element": "지역 수출기업 등의 유동성과 금융비용 부담 완화를 위한 협약보증",
+          "reason": "안전한 공식 기관 claim에 해당함.",
+          "fact_ids": [
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "C55A264C7",
+      "hard_fail": true,
+      "hard_fail_reasons": [
+        "문항 1·2·3 답변이 각각 600자 상한을 초과한 것으로 판정됨."
+      ],
+      "hard_fail_status": "CONFIRMED",
+      "hard_fail_type": "FORMAT_LIMIT_EXCEEDED",
+      "review_required": [
+        "문항 1의 '당시 결과를 임의로 해석하기보다 차이를 확인해 판단권자에게 전달하는 데 집중'은 원장에 동일 데이터 비교·보고는 확인되지만 당시 판단 동기와 집중 범위는 추가 확인이 필요함.",
+        "문항 4의 환율 위험관리 안내 제공은 정책 제안으로서 가능하나 확인된 기관 사업 또는 인턴 권한으로 단정하지 않아야 함."
+      ],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 15,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 6,
+        "interview_defensibility": 7,
+        "spoken_defensibility": 4,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 0
+      },
+      "total": 91,
+      "weakness_codes": [
+        "format_risk",
+        "interview_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience_action",
+          "exact_element": "동일 데이터를 두 방식으로 처리해 결과를 비교하고 분석 보고서를 작성해 팀장에게 보고",
+          "reason": "원장에 직접 확인된 구체적 행동임.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "work_habit",
+          "exact_element": "마감 기한과 남은 일정을 달력과 노트에 기록하며 일일 목표를 관리",
+          "reason": "확인된 계획 관리 습관으로 조직 적응 노력에 전이 가능함.",
+          "fact_ids": [
+            "exp_22d1df6407915aa2",
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "experience_action",
+          "exact_element": "자료를 체계적으로 분류해 정리",
+          "reason": "자료 정돈 경험이 원장에 확인됨.",
+          "fact_ids": [
+            "exp_151ae891bd2719ad",
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "issue_analysis",
+          "exact_element": "수입 비중, 환헤지 여부, 결제 시점에 따라 기업별 실제 영향이 달라진다는 구분",
+          "reason": "고환율의 기업별 영향 구분 필요성과 부합함.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "C6CF36413",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "문항 2의 타깃 재설정 경험은 과거 데이터 분석과 재설정 사실은 확인되지만, 그것이 새로운 조직 적응 상황이었는지는 원장에서 확인되지 않아 질문 적합성은 의미 판단이 필요함.",
+        "문항 4의 '기한연장 검토'를 환율 지원 방안과 직접 연결한 부분은 공고상 업무와 정책 제안을 결합한 것으로 실제 인턴 권한과 구분해야 함."
+      ],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 15,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 8,
+        "experience_allocation": 6,
+        "interview_defensibility": 7,
+        "spoken_defensibility": 4,
+        "korean_readability": 8,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 2
+      },
+      "total": 90,
+      "weakness_codes": [
+        "question_gap",
+        "interview_risk",
+        "spoken_answer_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience_action",
+          "exact_element": "동일 데이터를 입력한 뒤 결과 비교 분석 보고서를 작성해 팀장에게 보고",
+          "reason": "원장에 직접 확인된 대조·보고 행동임.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "experience_action",
+          "exact_element": "과거 데이터를 분석해 주된 대상을 중장년층으로 재설정",
+          "reason": "데이터에 따라 방향을 조정한 사실이 원장에 확인됨.",
+          "fact_ids": [
+            "exp_638228200e37de69",
+            "clm_2bfba21afb61776d752b"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "work_habit",
+          "exact_element": "마감 기한과 남은 일정을 달력이나 노트에 기록하고 일일 목표를 관리",
+          "reason": "확인된 일정 관리 습관임.",
+          "fact_ids": [
+            "exp_22d1df6407915aa2",
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "company_claim",
+          "exact_element": "협약보증을 통한 유동성 및 금융비용 부담 완화",
+          "reason": "안전한 공식 기관 claim에 근거함.",
+          "fact_ids": [
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "CB5DA9EDE",
+      "hard_fail": true,
+      "hard_fail_reasons": [
+        "문항 1·2·3 답변이 각각 600자 상한을 초과하고, 문항 4 답변도 1500자 상한을 초과한 것으로 판정됨."
+      ],
+      "hard_fail_status": "CONFIRMED",
+      "hard_fail_type": "FORMAT_LIMIT_EXCEEDED",
+      "review_required": [
+        "문항 1의 '반복 문의와 누락 유형을 정리해 고객 안내의 일관성을 돕겠다'는 계획은 합리적이나 실제 고객 안내 권한은 확인되지 않음.",
+        "문항 4의 계약서·세금계산서·통화별 매출·매입 자료 확인은 정책 제안으로는 구체적이지만 실제 기관 심사 항목 또는 인턴 수행 범위로 확인되지 않음."
+      ],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 15,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 10,
+        "experience_allocation": 6,
+        "interview_defensibility": 7,
+        "spoken_defensibility": 3,
+        "korean_readability": 8,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 0
+      },
+      "total": 90,
+      "weakness_codes": [
+        "format_risk",
+        "interview_risk",
+        "spoken_answer_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience_action",
+          "exact_element": "동일 데이터를 엑셀 수식과 외주 프로그램에 넣어 결과를 비교한 분석 보고서를 작성해 팀장에게 보고",
+          "reason": "원장에 직접 확인된 대조와 보고 행동임.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "work_habit",
+          "exact_element": "마감 기한과 남은 일정을 확인하고 일일 계획을 달력과 노트에 기록",
+          "reason": "확인된 일정 관리 행동임.",
+          "fact_ids": [
+            "exp_22d1df6407915aa2",
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "experience_action",
+          "exact_element": "자료를 체계적으로 분류해 정리",
+          "reason": "자료 정리 경험이 원장에 확인됨.",
+          "fact_ids": [
+            "exp_151ae891bd2719ad",
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "issue_analysis",
+          "exact_element": "고환율의 영향을 수출기업과 수입기업에 일률적으로 적용하지 않고 환노출 구조와 현금흐름으로 구분",
+          "reason": "공식 claim의 유의사항과 부합하며 과도한 단정을 피함.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "company_claim",
+          "exact_element": "지역 수출기업 등의 유동성과 금융비용 부담 완화를 위한 협약보증 공급",
+          "reason": "안전한 공식 기관 claim에 직접 근거함.",
+          "fact_ids": [
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ]
+    }
+  ]
+}

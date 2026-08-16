@@ -1,0 +1,353 @@
+{
+  "data_package_id": "CAREER-DATA-F9C8B89D27FE",
+  "data_package_version": "2.0",
+  "judge_mode": "INTERVIEW_COACH",
+  "evaluations": [
+    {
+      "candidate_id": "C20ACF614",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 15,
+        "job_relevance": 11,
+        "company_specificity": 10,
+        "action_specificity": 12,
+        "experience_allocation": 7,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 5,
+        "korean_readability": 7,
+        "applicant_distinctiveness": 7,
+        "length_and_format": 1
+      },
+      "total": 97,
+      "weakness_codes": [],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "company_role_to_action",
+          "exact_element": "기업이 부담하는 채무를 보증해 성장유망기업을 지원하고, 보증신청 뒤 신용조사와 보증심사를 수행",
+          "reason": "기관 역할을 확인·대조·보고 행동으로 연결했다.",
+          "fact_ids": [
+            "kodit-role-20260711",
+            "kodit-intern-duty-20260711",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "scope_control",
+          "exact_element": "제 역할을 독립 판단이 아니라 확인·기록·보고에 두겠습니다",
+          "reason": "인턴 권한의 한계를 인정해 면접 방어성이 높다.",
+          "fact_ids": [
+            "kodit-intern-duty-20260711",
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "issue_segmentation",
+          "exact_element": "매출 구조, 원가 구조, 외화 결제 조건, 납품 계약의 전가 가능성을 나누어 보는 방식",
+          "reason": "고환율 영향을 기업별로 구분하고 지원 유의점까지 연결했다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711",
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "C6CA936D6",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "semantic REVIEW_REQUIRED: question 2 uses exp_a07fd710e2b7c0c2, which is defensible only with qualification because metric-heavy interview follow-up may ask for 기준값·측정기간·개인 기여."
+      ],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 14,
+        "job_relevance": 11,
+        "company_specificity": 10,
+        "action_specificity": 11,
+        "experience_allocation": 6,
+        "interview_defensibility": 7,
+        "spoken_defensibility": 5,
+        "korean_readability": 8,
+        "applicant_distinctiveness": 7,
+        "length_and_format": 1
+      },
+      "total": 94,
+      "weakness_codes": [
+        "interview_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "direct_motivation",
+          "exact_element": "신용조사와 보증심사를 거쳐 신뢰를 세우는 일",
+          "reason": "기관 역할 이해와 지원 동기가 첫 문장에 직접 연결된다.",
+          "fact_ids": [
+            "kodit-role-20260711",
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "execution_sequence",
+          "exact_element": "먼저 신용보증 기한연장과 기업신용 상시관리의 처리 흐름을 익히고, 이후 자료 확인·기록·보고",
+          "reason": "초기 학습, 실행, 점검 순서가 명확하다.",
+          "fact_ids": [
+            "kodit-intern-duty-20260711",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "risk_balance",
+          "exact_element": "지원 필요성과 신용위험을 함께 보는 것",
+          "reason": "정책금융 지원과 보증 위험 관리를 함께 설명한다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711",
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "C9B78287C",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 15,
+        "job_relevance": 11,
+        "company_specificity": 10,
+        "action_specificity": 11,
+        "experience_allocation": 8,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 5,
+        "korean_readability": 7,
+        "applicant_distinctiveness": 7,
+        "length_and_format": 1
+      },
+      "total": 97,
+      "weakness_codes": [],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience_bridge",
+          "exact_element": "확인·분류·보고 방식이 가장 현실적으로 쓰일 수 있다고 보았습니다",
+          "reason": "두 방어 가능한 경험을 보증 인턴 업무에 자연스럽게 배치했다.",
+          "fact_ids": [
+            "kodit-intern-duty-20260711",
+            "clm_3e69991c9b56d728b429",
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "adaptation_method",
+          "exact_element": "기준을 확인하고, 그 기준을 반복 행동으로 바꾸는 태도",
+          "reason": "조직 적응 태도와 실천 방법이 말하기 쉽고 구체적이다.",
+          "fact_ids": [
+            "clm_1476776eb88306fe8fc1",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "intern_role_limit",
+          "exact_element": "인턴은 자료 누락과 변동 사항을 정확히 기록해 판단자가 위험을 놓치지 않도록 보조",
+          "reason": "이슈 분석을 실제 인턴 역할로 연결하면서 판단 권한을 넘지 않는다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711",
+            "kodit-liquidity-support-20260711",
+            "kodit-intern-duty-20260711"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "CB1811FBF",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 15,
+        "job_relevance": 11,
+        "company_specificity": 10,
+        "action_specificity": 11,
+        "experience_allocation": 7,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 5,
+        "korean_readability": 8,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 1
+      },
+      "total": 96,
+      "weakness_codes": [
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "metric_caution",
+          "exact_element": "같은 원자료라도 입력 방식과 산식에 따라 결과가 달라질 수 있음을 확인",
+          "reason": "비교 보고 경험을 확인·대조 업무 역량으로 방어 가능하게 연결했다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429",
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "process_detail",
+          "exact_element": "원자료와 전산 입력값, 변경 이력, 누락 여부를 분리해 확인",
+          "reason": "업무수행계획의 행동 단위가 구체적이다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429",
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "support_condition",
+          "exact_element": "자료로 확인되지 않은 전망은 별도 표시",
+          "reason": "정책금융 지원 시 확인 가능한 자료와 미확인 전망을 구분한다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711",
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "CB8809BC9",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 15,
+        "job_relevance": 11,
+        "company_specificity": 10,
+        "action_specificity": 11,
+        "experience_allocation": 7,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 5,
+        "korean_readability": 8,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 1
+      },
+      "total": 96,
+      "weakness_codes": [
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "learning_contribution_pair",
+          "exact_element": "업무 용어와 처리 기준을 배우고 담당자 피드백을 체크리스트로 남기겠습니다",
+          "reason": "배우고 기여할 부분이 실제 인턴 업무 행동으로 표현됐다.",
+          "fact_ids": [
+            "kodit-role-20260711",
+            "kodit-intern-duty-20260711",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "organization_fit",
+          "exact_element": "제 방식으로 바꾸기보다 조직의 기준에 맞춰 기록하고 질문",
+          "reason": "새 조직 적응 태도가 명확하고 방어 가능하다.",
+          "fact_ids": [
+            "clm_1476776eb88306fe8fc1",
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "risk_sharing_understanding",
+          "exact_element": "보증은 신용위험 일부를 공적 기반으로 나누는 구조",
+          "reason": "보증의 한계와 정책금융의 위험관리 필요성을 안전한 주장으로 설명한다.",
+          "fact_ids": [
+            "CLM-COMP-012",
+            "bok-fx-risk-20260711",
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "CCE73192B",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 15,
+        "job_relevance": 11,
+        "company_specificity": 9,
+        "action_specificity": 11,
+        "experience_allocation": 7,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 5,
+        "korean_readability": 8,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 1
+      },
+      "total": 95,
+      "weakness_codes": [
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "scope_control",
+          "exact_element": "제가 할 수 있는 일의 범위를 지키며 정확성을 높이겠습니다",
+          "reason": "인턴 역할의 범위를 넘지 않아 추가질문 방어가 쉽다.",
+          "fact_ids": [
+            "kodit-intern-duty-20260711",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "execution_sequence",
+          "exact_element": "업무 흐름을 익히고, 이후에는 자료 확인·예외 기록·보고를 반복",
+          "reason": "초기 학습과 반복 수행 계획이 직접 답변으로 제시됐다.",
+          "fact_ids": [
+            "kodit-intern-duty-20260711",
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "issue_to_role",
+          "exact_element": "자료의 누락과 변동을 정확히 정리하고, 기업별 영향이 다르게 나타날 수 있다는 점을 근거와 함께 보고",
+          "reason": "경제 이슈 분석을 인턴 보조 역할까지 연결했다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711",
+            "kodit-liquidity-support-20260711",
+            "kodit-intern-duty-20260711"
+          ]
+        }
+      ]
+    }
+  ]
+}

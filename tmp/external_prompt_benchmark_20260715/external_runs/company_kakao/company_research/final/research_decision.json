@@ -1,0 +1,30 @@
+{
+  "run_id": "CR-20260715-1601",
+  "company_data_package_id": "CR-DATA-001",
+  "company_data_package_version": "1.0",
+  "research_cutoff_date": "2026-07-15",
+  "company_name": "카카오",
+  "legal_entity_name": "UNVERIFIED",
+  "target_job": "UNVERIFIED",
+  "decision": "INSUFFICIENT_EVIDENCE",
+  "main_reason": "카카오 대상 법인·공고·공시·IR 자료가 frozen input에 0개라 회사·직무·지원 가치를 검증할 수 없음",
+  "strongest_support": "지원자 confirmed 경험 5개는 존재하며 공고 확보 후 재매칭 가능",
+  "strongest_counterargument": "카카오는 널리 알려진 회사이므로 공개 상식으로 분석할 수 있다는 주장",
+  "counterargument_resolution": "외부 네트워크와 무출처 기억 사용 금지, 법인·사업부 혼동 위험 때문에 기각",
+  "critical_unknowns": [
+    "정확한 법인·브랜드·계열 범위",
+    "공식 공고·사업부·팀·직무·마감일",
+    "사업모델·전략·재무·경쟁·문화",
+    "지원자 경험과 직무 요구의 직접 연결"
+  ],
+  "conditions_that_would_change_decision": [
+    "공식 공고와 채용 법인 확인",
+    "대상 법인의 최신 공시·IR·회사 자료 확보",
+    "공고 업무·역량과 confirmed 경험 재매칭",
+    "반대 근거를 포함한 HARD_FAIL 재감사 통과"
+  ],
+  "hard_fail_status": "NOT_TRIGGERED",
+  "hard_fail_active_count": 0,
+  "completion_status": "COMPLETE_WITH_EVIDENCE_BLOCKERS",
+  "network_access_used": false
+}

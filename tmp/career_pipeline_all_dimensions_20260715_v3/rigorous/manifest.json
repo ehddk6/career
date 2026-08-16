@@ -1,0 +1,157 @@
+{
+  "status": "passed",
+  "selection_mode": "rigorous",
+  "model_id": "gpt-5.6-sol",
+  "quality_profile": "max_quality",
+  "stage_models": {
+    "generation": "gpt-5.6-sol",
+    "judge": "gpt-5.6-sol",
+    "synthesis": "gpt-5.6-sol",
+    "comparison": "gpt-5.6-sol"
+  },
+  "call_count": 18,
+  "calls": [
+    {
+      "stage": "candidate_1",
+      "model_id": "gpt-5.6-sol",
+      "role": "generation"
+    },
+    {
+      "stage": "candidate_repair_1_1",
+      "model_id": "gpt-5.6-sol",
+      "role": "generation"
+    },
+    {
+      "stage": "candidate_2",
+      "model_id": "gpt-5.6-sol",
+      "role": "generation"
+    },
+    {
+      "stage": "candidate_repair_2_1",
+      "model_id": "gpt-5.6-sol",
+      "role": "generation"
+    },
+    {
+      "stage": "candidate_3",
+      "model_id": "gpt-5.6-sol",
+      "role": "generation"
+    },
+    {
+      "stage": "candidate_repair_3_1",
+      "model_id": "gpt-5.6-sol",
+      "role": "generation"
+    },
+    {
+      "stage": "candidate_4",
+      "model_id": "gpt-5.6-sol",
+      "role": "generation"
+    },
+    {
+      "stage": "candidate_repair_4_1",
+      "model_id": "gpt-5.6-sol",
+      "role": "generation"
+    },
+    {
+      "stage": "candidate_5",
+      "model_id": "gpt-5.6-sol",
+      "role": "generation"
+    },
+    {
+      "stage": "candidate_repair_5_1",
+      "model_id": "gpt-5.6-sol",
+      "role": "generation"
+    },
+    {
+      "stage": "candidate_6",
+      "model_id": "gpt-5.6-sol",
+      "role": "generation"
+    },
+    {
+      "stage": "candidate_repair_6_1",
+      "model_id": "gpt-5.6-sol",
+      "role": "generation"
+    },
+    {
+      "stage": "judge_recruiter",
+      "model_id": "gpt-5.6-sol",
+      "role": "judge"
+    },
+    {
+      "stage": "judge_job_fact_auditor",
+      "model_id": "gpt-5.6-sol",
+      "role": "judge"
+    },
+    {
+      "stage": "judge_korean_editor",
+      "model_id": "gpt-5.6-sol",
+      "role": "judge"
+    },
+    {
+      "stage": "judge_interview_coach",
+      "model_id": "gpt-5.6-sol",
+      "role": "judge"
+    },
+    {
+      "stage": "synthesis",
+      "model_id": "gpt-5.6-sol",
+      "role": "synthesis"
+    },
+    {
+      "stage": "final_comparison",
+      "model_id": "gpt-5.6-sol",
+      "role": "comparison"
+    }
+  ],
+  "winner_candidate_id": "CCE1CD29C",
+  "final_choice": "X",
+  "final_reason": "X와 Y는 문항별 답변, 근거 참조 및 표현이 모두 동일하여 품질상 우열이 없다. 완전한 한 버전을 선택해야 하므로 X를 선택한다.",
+  "hard_fail": false,
+  "data_package": {
+    "data_package_id": "CAREER-DATA-B0F5D1A8FD48",
+    "data_package_version": "2.0",
+    "frozen_data_sha256": "b0f5d1a8fd48f9f4b58abf416079fc176e9a585c88c5f1f7e1c0840b9d11f32b",
+    "count_mode": "spaces_included",
+    "candidate_count": 7,
+    "judge_count": 4,
+    "quality_profile": "max_quality"
+  },
+  "candidate_count": 7,
+  "judge_count": 4,
+  "review_required_candidates": [
+    "C29D6F72B",
+    "CF76B2F9F",
+    "CCE1CD29C",
+    "C9A701820",
+    "CAF93067D",
+    "C062DAE59",
+    "C08CB7011"
+  ],
+  "artifact_sha256": {
+    "rigorous\\aggregate.json": "e97920eade162c5f97202c2a352f6e144ecba607bee4d5fd5db916d059d0b4ed",
+    "rigorous\\blind_candidates.json": "ce2182608ea9bdf3892678de9c4f0e242ab3e60da2141a3d965fe2a8c83a1bd1",
+    "rigorous\\candidates\\generated_1.json": "83ad9c290abe5fefa7e733b2e1a4cf190b6d83319e10fdfbb5b5d9aa056ed047",
+    "rigorous\\candidates\\generated_1_raw.json": "e309aec7e1acaec1d3cfb39b2fea2b081bce32437b2fca11731dca515778fc78",
+    "rigorous\\candidates\\generated_2.json": "951f2996b030cf7ad8b0d1e8c8a305f7e0454549d0f6c2f56e6b3dfba9dce2dd",
+    "rigorous\\candidates\\generated_2_raw.json": "6c8ae86a56adc31c4a466eedd703b3993589656562d533ca18a614e3b2ffad8c",
+    "rigorous\\candidates\\generated_3.json": "68b0abad3ff2c52b3b96f871cec6c395f759f9498e550f70c27dea0dfbfd0898",
+    "rigorous\\candidates\\generated_3_raw.json": "b3d57cc7e0f5950011bb927c03ce99929ee496a61fb3d14801f8b503697090ba",
+    "rigorous\\candidates\\generated_4.json": "0f045b6530733363215fab883ec55a02f6ddfcd0dc49520d1f936245916bcac6",
+    "rigorous\\candidates\\generated_4_raw.json": "d0ac2e8468ef9c5b0fa14aa51d4dbcd1668cf7296e35ff884e242f61973ae274",
+    "rigorous\\candidates\\generated_5.json": "c0740b2cd841b77f5cef2451bb5ed31f9f0c25075774247212fab990fa4f9fe9",
+    "rigorous\\candidates\\generated_5_raw.json": "cdcb391ebe187519a254f939dbe52f841d7438c174c5d11ed0cc8da2ab596b2d",
+    "rigorous\\candidates\\generated_6.json": "b65ceef99cc5c7d168310b64e74b14d4e40b6d3d715b6ecbce4d46f424556416",
+    "rigorous\\candidates\\generated_6_raw.json": "bbe52d48d039697578f2187ddbb6f28ca624e62db4fbf671fa971c692b7d0386",
+    "rigorous\\data_package.json": "4eeec1e678594659185d1852c2e529fc255ad2a13308a2c700e8582e0e579618",
+    "rigorous\\final_comparison.json": "3517f79528293d43e379d1b6989ad90a91f40e305ca5f72792ff08e0c6748644",
+    "rigorous\\judges\\interview_coach.json": "702e095629d75dc9bc3b87226b5c2fc98d0b27fe5895107f6a3473a9aa62940a",
+    "rigorous\\judges\\interview_coach_raw.json": "2a6c3c213f901f1833b1801194b4d847ef1918b562289eb396de79b21162af92",
+    "rigorous\\judges\\job_fact_auditor.json": "6bb095e29c02fd89aaafe4ecb86beed8e99c6146afca77c995be498edce20e3f",
+    "rigorous\\judges\\job_fact_auditor_raw.json": "2cb8c103cd86c3c33c0d5d3b928094c08f2e11291700b57631f9c438af6da0f1",
+    "rigorous\\judges\\korean_editor.json": "3410bb3090ccafbd4574979a4aa5c2e22d5fb2ec2f73e149159544b1e60241ee",
+    "rigorous\\judges\\korean_editor_raw.json": "3a361029db8a40e4a3ca03c2da3758a590943c98fbd80f3e2b669f58baa24e54",
+    "rigorous\\judges\\recruiter.json": "578a57ae3372087de96fca38e2de9ebe80c6ed9861f1d583838000e6a4fa79ce",
+    "rigorous\\judges\\recruiter_raw.json": "c096a685eca8640c94c0887345af4cfd37f1a364399581a62d861cd579b0648d",
+    "rigorous\\selected.json": "951f2996b030cf7ad8b0d1e8c8a305f7e0454549d0f6c2f56e6b3dfba9dce2dd",
+    "rigorous\\synthesis.json": "951f2996b030cf7ad8b0d1e8c8a305f7e0454549d0f6c2f56e6b3dfba9dce2dd"
+  }
+}

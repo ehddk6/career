@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "contract_version": "2026-07-15",
+  "data_package_id": "CAREER-DATA-ABCDEF123456",
+  "data_package_version": "1.0",
+  "target": "테스트기관 사무",
+  "research_cutoff_date": "2026-07-15",
+  "entity": {
+    "legal_entity_name": "테스트기관",
+    "brand_name": "테스트",
+    "target_business_unit": "사무부",
+    "status": "CONFIRMED"
+  },
+  "source_manifest": [
+    {
+      "source_id": "source-1",
+      "source_level": 2,
+      "url": "https://example.org/official",
+      "checked_at": "2026-07-15",
+      "target_entity": "테스트기관"
+    }
+  ],
+  "claim_ledger": [
+    {
+      "claim_id": "company-1",
+      "claim": "테스트기관은 고객 자료를 심사한다.",
+      "claim_type": "FACT",
+      "status": "CONFIRMED_PRIMARY",
+      "source_ids": [
+        "source-1"
+      ],
+      "research_refs": [
+        "research-1"
+      ],
+      "application_use": [
+        "문항 1",
+        "면접"
+      ]
+    }
+  ],
+  "business_model": {
+    "core_customers": [
+      "고객"
+    ],
+    "customer_problem": "자료의 정확한 심사가 필요하다.",
+    "value_proposition": "기준에 따른 심사",
+    "revenue_logic": "공공 업무 수행",
+    "major_costs": [
+      "인력",
+      "시스템"
+    ],
+    "critical_risks": [
+      "자료 오류"
+    ]
+  },
+  "strategy_execution": [
+    {
+      "strategy_id": "strategy-1",
+      "stage": "OPERATING",
+      "claim_ids": [
+        "company-1"
+      ]
+    }
+  ],
+  "financial_analysis": {
+    "status": "NOT_APPLICABLE",
+    "reason": "공공기관 지원 판단에서 수익성 계산을 사용하지 않는다.",
+    "metrics": []
+  },
+  "competitor_analysis": {
+    "status": "INSUFFICIENT_EVIDENCE",
+    "reason": "동일 기능 기관의 비교 기준이 공개 자료만으로 부족하다.",
+    "selection": [],
+    "comparisons": []
+  },
+  "culture_analysis": {
+    "status": "INSUFFICIENT_EVIDENCE",
+    "reason": "특정 팀의 실제 문화를 확정할 근거가 부족하다.",
+    "evidence": [],
+    "unknowns": [
+      "팀별 차이"
+    ]
+  },
+  "role_value_map": [
+    {
+      "company_issue": "자료 오류 방지",
+      "role_actions": [
+        "자료 대조",
+        "예외 보고"
+      ],
+      "claim_ids": [
+        "company-1"
+      ],
+      "certainty": "POSTING_CONFIRMED"
+    }
+  ],
+  "applicant_bridge": [
+    {
+      "requirement": "자료 대조",
+      "experience_id": "exp-1",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "fit_state": "TRANSFERABLE"
+    }
+  ],
+  "red_team": {
+    "strongest_counterargument": "공개 자료만으로 실제 팀 업무를 확정할 수 없다.",
+    "critical_unknowns": [
+      "입사 초기 배치 업무"
+    ]
+  },
+  "first_90_days": {
+    "days_0_30": [
+      "업무 기준 학습"
+    ],
+    "days_31_60": [
+      "반복 업무 독립 수행"
+    ],
+    "days_61_90": [
+      "반복 오류 정리"
+    ]
+  },
+  "decision": {
+    "status": "APPLY_WITH_CONDITIONS",
+    "main_reason": "자료 대조 경험을 활용할 수 있다.",
+    "strongest_support": "공고상 자료 심사 업무가 확인됐다.",
+    "strongest_counterargument": "구체적인 팀 배치는 확인되지 않았다.",
+    "conditions_that_would_change_decision": [
+      "실제 업무 범위 확인"
+    ]
+  }
+}

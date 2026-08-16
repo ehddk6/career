@@ -1,0 +1,411 @@
+{
+  "schema_version": 1,
+  "data_package_id": "CAREER-DATA-585CEFB0E812",
+  "systems": {
+    "A": "external-six-best-same-input",
+    "B": "career-pipeline-v5"
+  },
+  "blind_protocol": {
+    "system_labels_hidden": true,
+    "strategy_metadata_removed": true,
+    "file_order_randomized": true,
+    "assignment_sha256": "f4bc667c718309b70f5c33c3f24afed0361e764def3b429a5f0878536b9f322a"
+  },
+  "hard_fail": {
+    "A": [],
+    "B": [
+      "C3 answer_cards: Q2/Q4/Q6/Q7/Q9/Q10 등에서 질문과 무관한 개인 성과·수치(예: '최소 40% 예산 절감', '업무 속도 30% 향상', '오류율 90% 감소')를 답변 카드에 삽입해 claim-defense mismatch 및 unverified metrics 위험이 큼.",
+      "C3 questions/answer_cards: Q1~Q12의 one_sentence_answer가 자기소개·지원동기·경제이슈 문장으로 반복 매핑되어 실제 면접 질문 대응이 깨짐.",
+      "C6 quality_gate/score: 내부검증 100점, human_review_recommended false라고 단정하지만 C3의 답변 불일치와 미검증 수치가 남아 있어 검증 결론 자체가 근거와 충돌함."
+    ]
+  },
+  "sections": {
+    "company_research": {
+      "business_model_depth": {
+        "choice": "A",
+        "reason": "Y는 법정 목적, 고객, 상대방, 가치제안, 신용조사·심사 흐름, 재원·위험 인수와 제한을 분해한다. X는 사업모델을 일반 문장과 추상 항목으로 축약한다.",
+        "decisive_difference": "Y는 업무흐름과 위험·재원·고객을 표로 구조화했고 제한까지 붙였지만 X는 공식 근거 5개 중심의 안전 주장에 머문다.",
+        "evidence_refs": [
+          "B2 BUSINESS MODEL MAP/핵심 구조",
+          "B1 claims CLM-COMP-001~006",
+          "C1 business_model"
+        ]
+      },
+      "strategy_execution_evidence": {
+        "choice": "A",
+        "reason": "Y는 전략을 계획·착수·운영·결과로 나누고 직접 발행, AI 협약, 인턴 채용, 산업기반보증의 증거 강도를 구분한다. X는 strategy_execution이 단일 OPERATING 항목에 가깝다.",
+        "decisive_difference": "Y는 관찰 결과와 미확인 영역을 분리하지만 X는 실행 증거를 실제 사건 단위로 충분히 제시하지 않는다.",
+        "evidence_refs": [
+          "B3 STRATEGY EXECUTION STATUS/실행 증거 강도",
+          "B4 STEP 4 EVENT AND EXECUTION ANALYSIS REPORT/완료 범위",
+          "C1 strategy_execution"
+        ]
+      },
+      "recency": {
+        "choice": "A",
+        "reason": "Y는 research_cutoff_date 2026-07-15와 2026년 계획·채용·지원규모를 포함한다. X는 cutoff가 2026-07-13이고 공식 근거 5개 중심이다.",
+        "decisive_difference": "Y가 더 최신 기준일과 2026년 구체 프로그램 정보를 제시한다.",
+        "evidence_refs": [
+          "B1 research_cutoff_date",
+          "B1 claims CLM-COMP-007~008, CLM-JOB-001~003",
+          "C1 research_cutoff_date"
+        ]
+      },
+      "source_traceability": {
+        "choice": "A",
+        "reason": "Y는 claim_id, source_ids, evidence_locator, counterevidence_or_limit, usage_restriction까지 원장화했다. X도 source_manifest와 claim_ledger는 있으나 범위가 좁다.",
+        "decisive_difference": "Y는 각 주장마다 출처 위치와 사용 제한을 더 촘촘히 기록한다.",
+        "evidence_refs": [
+          "B1 claims fields source_ids/evidence_locator/usage_restriction",
+          "C1 source_manifest",
+          "C1 claim_ledger"
+        ]
+      },
+      "role_connection": {
+        "choice": "A",
+        "reason": "Y는 기한연장·상시관리의 전후 업무 맥락과 인턴 권한 제한을 구체화한다. X도 role_value_map이 있으나 추상적이다.",
+        "decisive_difference": "Y는 실제 직무에서 확인·기록·보고로 연결되는 업무 가설과 미확인 권한을 함께 제시한다.",
+        "evidence_refs": [
+          "B2 직무 연결",
+          "B3 직무 연결",
+          "B1 claims CLM-JOB-001, CLM-ROLE-001",
+          "C1 role_value_map"
+        ]
+      },
+      "motivation_reusability": {
+        "choice": "A",
+        "reason": "Y는 지원동기 작성에 바로 쓸 수 있는 기관 역할, 보증 흐름, 직무 경계, 인재상, 채용평가 기준을 제공한다. X도 사용 가능하지만 재사용 소재가 제한적이다.",
+        "decisive_difference": "Y는 자소서·면접 모두에 쓸 수 있는 주장과 금지 확장을 함께 제공한다.",
+        "evidence_refs": [
+          "B1 application_use fields",
+          "B1 claims CLM-COMP-009, CLM-JOB-005~006",
+          "C1 interview_implications"
+        ]
+      },
+      "prohibited_claim_control": {
+        "choice": "A",
+        "reason": "Y는 비공개 평가모형, 인턴 심사·승인 권한, 실적 수치화, 비교기관 단정 등을 명시적으로 금지한다. X도 금지 표현은 있으나 범위가 좁다.",
+        "decisive_difference": "Y의 usage_restriction과 counterevidence_or_limit가 더 촘촘하다.",
+        "evidence_refs": [
+          "B1 claims CLM-COMP-003, CLM-COMP-006, CLM-FIN-001, CLM-COMPARE-001",
+          "B3 반대 증거와 해석 제한",
+          "C1 interview_implications.prohibited_talking_points"
+        ]
+      },
+      "specificity_without_generalities": {
+        "choice": "A",
+        "reason": "Y는 140명, 100개 영업점, 근무기간, 접수기간, 2.8조원, 673억원 등 구체 정보와 제한을 함께 제시한다. X는 안전하지만 일반화가 많다.",
+        "decisive_difference": "Y가 구체 사실을 더 많이 제공하면서도 계획·실적 구분을 둔다.",
+        "evidence_refs": [
+          "B1 claims CLM-COMP-007~008, CLM-JOB-001~003",
+          "C1 recent_performance"
+        ]
+      }
+    },
+    "self_intro": {
+      "question_fidelity": {
+        "choice": "B",
+        "reason": "X의 C2는 Q1~Q4 질문 요구를 빠짐없이 직접 답하고 Q4도 단일 이슈로 고정한다. Y의 B5는 Q1·Q3에 불필요한 추가 반복 문장이 붙고 B9는 Q4에서 '높은 환율 변동성과 중동지역 리스크'를 함께 꼽아 단일 이슈 요구가 흔들린다.",
+        "decisive_difference": "X 최종 답변은 질문별 요구사항을 더 안정적으로 충족한다.",
+        "evidence_refs": [
+          "C2 question_index 1~4 answer",
+          "B5 Q1/Q3 마지막 추가 문장",
+          "B9 Q4 첫 문장"
+        ]
+      },
+      "fact_accuracy": {
+        "choice": "B",
+        "reason": "X C2는 research_refs와 experience_refs를 각 문항에 붙여 확인된 범위를 유지한다. Y B5도 대체로 안전하지만 B9 Q1의 '담보가 부족하다는 이유'는 B8 위험 감사에서 삭제 대상이었다.",
+        "decisive_difference": "X 최종본은 감사에서 지적된 담보 부족 단정을 피한다.",
+        "evidence_refs": [
+          "C2 question_index 1~4 research_refs/experience_refs",
+          "B8 위험 감사/담보 부족",
+          "B9 Q1 첫 문장"
+        ]
+      },
+      "contribution_boundary": {
+        "choice": "B",
+        "reason": "X C2는 '판단 권한을 넘지 않되', '최종 판단과 승인 권한은 담당자에게'처럼 경계를 명시한다. Y도 경계를 두지만 B5에는 일부 기여 표현이 반복·강조되어 다소 덜 정돈됐다.",
+        "decisive_difference": "X가 인턴 보조 역할과 담당자 권한을 더 명확히 분리한다.",
+        "evidence_refs": [
+          "C2 question_index 1 answer",
+          "C2 question_index 3 answer",
+          "B5 Q3"
+        ]
+      },
+      "action_and_judgment_specificity": {
+        "choice": "B",
+        "reason": "X는 Q1~Q3에서 대조, 기록, 보고, 체크리스트, 원자료·전산 입력값 대조 등 행동 순서가 분명하다. Y도 구체적이나 일부 문장이 중복되어 초점이 흐린다.",
+        "decisive_difference": "X가 실제 수행 동작을 더 간결하게 연결한다.",
+        "evidence_refs": [
+          "C2 question_index 1~3 answer",
+          "B5 Q1/Q3"
+        ]
+      },
+      "experience_allocation": {
+        "choice": "B",
+        "reason": "X는 Q1 비교보고, Q2 마감·노트 관리, Q3 3,000페이지 정리로 경험을 분산한다. Y B5는 Q1 비교보고, Q2 시장 인터뷰, Q3 3,000페이지로 나쁘지 않지만 일부 최종 감사와 선택본 간 흔들림이 있다.",
+        "decisive_difference": "X는 최종 JSON 내 경험 배치와 추적 ID가 일관된다.",
+        "evidence_refs": [
+          "C2 question_index 1~3 experience_refs",
+          "B5 Q1~Q3",
+          "B6 사실·근거 감사"
+        ]
+      },
+      "job_relevance": {
+        "choice": "B",
+        "reason": "X는 모든 문항에서 신용보증 기한연장·기업신용 상시관리와 확인·기록·보고를 반복 연결한다. Y도 관련성은 높지만 B5 Q2의 조직적응 경험은 직무 연결이 상대적으로 약하다.",
+        "decisive_difference": "X가 직무명과 실제 보조 업무를 더 꾸준히 붙인다.",
+        "evidence_refs": [
+          "C2 question_index 1~4 answer",
+          "B5 Q2"
+        ]
+      },
+      "company_specificity": {
+        "choice": "A",
+        "reason": "Y B5/B9는 신용조사, 보증심사, 기한연장, 상시관리, 협약보증, 한국은행 이슈 등 회사·정책 맥락이 풍부하다. X도 특정성이 있지만 표현이 더 절제되어 회사 이해의 밀도는 Y가 높다.",
+        "decisive_difference": "Y는 기관 역할과 정책금융 지원 방안을 더 넓게 설명한다.",
+        "evidence_refs": [
+          "B5 Q1/Q4",
+          "B9 Q4",
+          "C2 question_index 4 answer"
+        ]
+      },
+      "applicant_distinctiveness": {
+        "choice": "A",
+        "reason": "Y는 비교보고, 상인 50명·5개 시장, 3,000페이지·2일 등 서로 다른 경험이 더 선명하다. X는 안전하지만 Q2의 달력·노트 관리는 차별성이 낮다.",
+        "decisive_difference": "Y가 지원자의 고유 경험을 더 기억하기 쉽게 제시한다.",
+        "evidence_refs": [
+          "B5 Q1~Q3",
+          "C2 question_index 2 answer"
+        ]
+      },
+      "natural_korean": {
+        "choice": "B",
+        "reason": "X C2는 전체적으로 문장 흐름이 안정적이고 중복이 적다. Y B5는 Q1과 Q3 끝에 별도 반복 문장이 붙어 제출본 완성도가 떨어진다.",
+        "decisive_difference": "X가 더 자연스럽고 편집 흔적이 적다.",
+        "evidence_refs": [
+          "C2 question_index 1~4 answer",
+          "B5 Q1/Q3"
+        ]
+      },
+      "length_and_format": {
+        "choice": "B",
+        "reason": "X는 C2가 JSON 배열로 문항별 답변을 명확히 제공하고 C2/C4/C5/C6에서 점검값이 붙어 있다. Y는 B5 텍스트 답변이 중복 문장을 포함하고 B6/B8의 선택본 표기가 서로 다르다.",
+        "decisive_difference": "X의 최종 제출 구조가 더 일관적이다.",
+        "evidence_refs": [
+          "C2 question_index 1~4",
+          "C4 question_index metrics",
+          "B5 자기소개서",
+          "B6 선택본",
+          "B8 최종 선택"
+        ]
+      },
+      "interview_defensibility": {
+        "choice": "B",
+        "reason": "자기소개서만 놓고 보면 X는 문항별 evidence_refs와 research_refs가 직접 붙어 방어하기 쉽다. 다만 X의 별도 면접팩 C3는 hard fail이므로 이 평가는 C2 제출문 방어성에 한정된다.",
+        "decisive_difference": "C2 자체의 문항별 trace가 B5 텍스트보다 직접적이다.",
+        "evidence_refs": [
+          "C2 question_index 1~4 experience_refs/research_refs",
+          "B5 Q1~Q4"
+        ]
+      }
+    },
+    "interview": {
+      "question_relevance": {
+        "choice": "A",
+        "reason": "Y의 B12는 기관 역할, 보증 인턴 업무, 자료 불일치, 환율 이슈, 신속성·건전성 등 실제 제출본과 직무에 맞춘 질문 35개를 구성한다. X C3는 질문 수는 있으나 Q1~Q12 매핑이 일반적이고 일부 질문-경험 연결이 비논리적이다.",
+        "decisive_difference": "Y는 질문이 제출 자소서와 직무 맥락을 직접 찌른다.",
+        "evidence_refs": [
+          "B12 TIER 1 Q001~Q012",
+          "C3 questions Q1~Q12"
+        ]
+      },
+      "probe_depth": {
+        "choice": "A",
+        "reason": "Y는 EX01~EX05별 확정·미확인·방어 깊이와 압박 대응을 정리한다. X C3 probes는 형식적으로 반복되며 실제 질문별 차이가 거의 없다.",
+        "decisive_difference": "Y는 꼬리질문에서 무엇을 말하고 말하지 않을지 구체화한다.",
+        "evidence_refs": [
+          "B14 EX01~EX05",
+          "B14 RED TEAM 10문항",
+          "C3 probes P1~P60"
+        ]
+      },
+      "submitted_claim_traceability": {
+        "choice": "A",
+        "reason": "Y는 submitted_claim_ids, evidence/submitted_claim_ledger, document_consistency_table, 답변 카드 근거를 분리해 둔다. X도 C3 submitted_claims가 있으나 answer_cards와 질문 매핑이 깨져 추적성이 실전 답변으로 이어지지 않는다.",
+        "decisive_difference": "Y는 제출 주장과 면접 답변의 연결이 실제로 사용 가능하다.",
+        "evidence_refs": [
+          "B11 submitted_claim_ids",
+          "B15 완료된 항목 4~6",
+          "C3 submitted_claims",
+          "C3 answer_cards"
+        ]
+      },
+      "spoken_answer_quality": {
+        "choice": "A",
+        "reason": "Y B13은 20초·60초·120초 답변이 자연스럽고 질문별로 내용이 다르다. X C3 answer_cards는 '해당 수치', 잘린 문장, 무관 성과 삽입이 많다.",
+        "decisive_difference": "Y의 구두 답변은 바로 연습 가능하지만 X는 답변 카드 자체가 파손되어 있다.",
+        "evidence_refs": [
+          "B13 Q001~Q012",
+          "C3 answer_cards Q1~Q12"
+        ]
+      },
+      "unknown_question_response": {
+        "choice": "A",
+        "reason": "Y는 공통 답변 규칙과 압박질문 응답 공식에서 확인 범위와 한계를 말하는 방식을 제공한다. X도 unknown_answer_policy가 있으나 깨진 answer_cards와 함께 있어 실제 적용성이 낮다.",
+        "decisive_difference": "Y는 모르는 질문 대응을 개별 경험 방어노트와 연결한다.",
+        "evidence_refs": [
+          "B13 공통 답변 규칙",
+          "B14 압박질문 응답 공식",
+          "C3 unknown_answer_policy"
+        ]
+      },
+      "fact_boundary_under_pressure": {
+        "choice": "A",
+        "reason": "Y는 각 경험의 미확인 항목을 면접에서 만들지 말라고 반복한다. X C3는 미검증 수치와 unsupported direct_actions를 다수 답변에 투입해 압박 상황에서 사실 경계가 무너진다.",
+        "decisive_difference": "X는 이 항목에서 hard fail에 해당하는 claim-defense mismatch가 있다.",
+        "evidence_refs": [
+          "B14 EX01~EX05 미확인/압박 대응",
+          "C3 answer_cards Q2/Q4/Q6/Q7/Q9/Q10",
+          "C3 experience_defense"
+        ]
+      },
+      "retry_goal_specificity": {
+        "choice": "A",
+        "reason": "Y는 P0/P1 확인, STANDARD→FACT_CHECK→PRESSURE 모의면접 3회, 경험별 복원 필요사항 등 다음 훈련 목표가 구체적이다. X는 실제 음성 모의면접과 공고 갱신 확인 정도로 남긴다.",
+        "decisive_difference": "Y가 재시도·보완 과제를 더 실행 가능한 순서로 제시한다.",
+        "evidence_refs": [
+          "B15 다음 게이트",
+          "B15 남은 의미 검증",
+          "B14 RED TEAM 10문항",
+          "C3 final_audit.priority_revisions"
+        ]
+      }
+    }
+  },
+  "judge_model_id": "gpt-5.5",
+  "artifact_manifest": {
+    "A": [
+      {
+        "artifact_id": "B1",
+        "content_sha256": "98aaa34b4d681e4b41376517b50b5ace7a989d836f4eb7fe36e6ce46e197ea2b",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "B2",
+        "content_sha256": "f8ac207baa552ec619a200ff1c1dd75510f7fddc47a85e78840761a0bba504f4",
+        "content_type": "text"
+      },
+      {
+        "artifact_id": "B3",
+        "content_sha256": "f10b5b812d0a904c6b8740a260b2020c2fe928ce7c5742a98750f93c036d564e",
+        "content_type": "text"
+      },
+      {
+        "artifact_id": "B4",
+        "content_sha256": "0ede10d140fd9cc62a40278613bdc3750d1f7bdb435cef777bd8735bd8801ba5",
+        "content_type": "text"
+      },
+      {
+        "artifact_id": "B5",
+        "content_sha256": "11c6fc89388560dc0515d6f27d7148140d5b6269e869ebb79727984d423a6592",
+        "content_type": "text"
+      },
+      {
+        "artifact_id": "B6",
+        "content_sha256": "2e99b12bba9bf45976f1325197235b6b24272f1d3f224e7098ba530f672fc56f",
+        "content_type": "text"
+      },
+      {
+        "artifact_id": "B7",
+        "content_sha256": "a6d54a2c9a5304bb9f8454d2ce75da05618437e2f11fd69be7f14b188bebdbb2",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "B8",
+        "content_sha256": "3d8d956d840d9d9cf77c12d246fce176a2fbc29b1942ecf15698a2cefab9e937",
+        "content_type": "text"
+      },
+      {
+        "artifact_id": "B9",
+        "content_sha256": "e41a9779cbda3dc6b95c6ae18b1fe47f310fc841055b2895f066cfa056c6f97f",
+        "content_type": "text"
+      },
+      {
+        "artifact_id": "B10",
+        "content_sha256": "3b1b939361a9a244eced0b4a435b2dc61787e6715387e18bef8b6b8d89d56d1e",
+        "content_type": "text"
+      },
+      {
+        "artifact_id": "B11",
+        "content_sha256": "6fcaad8ae6ab4c50353fbe6d0fa59b1d9a0d712f473eb0745f1b6a2da6a7e2da",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "B12",
+        "content_sha256": "6587d14aa02d2f0dd9d191b39b526311d915bee0b87d843014a6b930f66c843c",
+        "content_type": "text"
+      },
+      {
+        "artifact_id": "B13",
+        "content_sha256": "cda603c1fe5d89f44d1b574199a27be46cc022e60ac7e66f2d0262b3464334aa",
+        "content_type": "text"
+      },
+      {
+        "artifact_id": "B14",
+        "content_sha256": "66f292ae48fface3d723d568afe8dba6763911ca38659ae5c8eacf34278a88a8",
+        "content_type": "text"
+      },
+      {
+        "artifact_id": "B15",
+        "content_sha256": "7e7e50c44c3627a614d40b5aace31edfa2431b8be9eaf3d0d5bd48a147a12ce3",
+        "content_type": "text"
+      }
+    ],
+    "B": [
+      {
+        "artifact_id": "C1",
+        "content_sha256": "c6e18f6ae41ec96d91cc5eeefbca554647233b4cb8197d81c5b42c3c497b0ab6",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "C2",
+        "content_sha256": "9c64127276e5a85263ffb28fec8b3e7efab74d887fb397d0fb5723644176f647",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "C3",
+        "content_sha256": "fb8449343ebe02e7b57a842b735905d1901271034532830c0b24d81f535a5fa1",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "C4",
+        "content_sha256": "8dec1d6ca7c08d59e72391120d986927dc8fd69e08f3fcb733d4172c33a94539",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "C5",
+        "content_sha256": "1b2b218a37468d179c83a03535311428c5b9c4f31744a7bb1c65504f8704aeab",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "C6",
+        "content_sha256": "12777b15968c1a7f7fea97dc08598721ecfaf927b5a35fcaa8bc6a7a2e8e3d82",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "C7",
+        "content_sha256": "33fc4091de3ce8ac4abc7f3215c2904693fbaf9fe7d9f65fbcb47098d2db43ae",
+        "content_type": "json"
+      }
+    ]
+  },
+  "result": {
+    "verdict": "HARD_FAIL",
+    "baseline_wins": 0,
+    "challenger_wins": 0,
+    "ties": 0,
+    "section_results": {}
+  }
+}

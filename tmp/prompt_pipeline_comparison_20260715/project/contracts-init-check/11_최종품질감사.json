@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-15T10:10:50.356512",
+  "run_dir": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\career_runs\\kodit-2026-h2-rigorous-20260714-v22",
+  "score": 93,
+  "internal_validation_score": 93,
+  "quality_gate": "pass",
+  "human_review_recommended": true,
+  "recommendation": "내부검증 통과",
+  "sections": {
+    "cover_letter": {
+      "score": 36,
+      "max": 40
+    },
+    "research": {
+      "score": 25,
+      "max": 25
+    },
+    "interview": {
+      "score": 20,
+      "max": 20
+    },
+    "style_safety": {
+      "score": 12,
+      "max": 15,
+      "voice_sample_status": "valid",
+      "style_warning_score": 7,
+      "actionable_style_items": 3
+    }
+  },
+  "question_scores": [
+    {
+      "question_index": 1,
+      "score": {
+        "total": 97,
+        "factuality": 25,
+        "target_specificity": 20,
+        "action_result": 20,
+        "job_fit": 15,
+        "distinctiveness": 8,
+        "naturalness": 9,
+        "issues": []
+      }
+    },
+    {
+      "question_index": 2,
+      "score": {
+        "total": 85,
+        "factuality": 25,
+        "target_specificity": 20,
+        "action_result": 20,
+        "job_fit": 0,
+        "distinctiveness": 10,
+        "naturalness": 10,
+        "issues": [
+          "missing_job_connection"
+        ]
+      }
+    },
+    {
+      "question_index": 3,
+      "score": {
+        "total": 80,
+        "factuality": 25,
+        "target_specificity": 0,
+        "action_result": 20,
+        "job_fit": 15,
+        "distinctiveness": 10,
+        "naturalness": 10,
+        "issues": [
+          "missing_target"
+        ]
+      }
+    },
+    {
+      "question_index": 4,
+      "score": {
+        "total": 100,
+        "factuality": 25,
+        "target_specificity": 20,
+        "action_result": 20,
+        "job_fit": 15,
+        "distinctiveness": 10,
+        "naturalness": 10,
+        "issues": []
+      }
+    }
+  ],
+  "issues": [
+    {
+      "category": "cover_letter",
+      "code": "missing_job_connection",
+      "severity": "medium",
+      "message": "답변이 공고의 업무·역량과 연결되지 않습니다.",
+      "question_index": 2
+    },
+    {
+      "category": "cover_letter",
+      "code": "missing_target_specificity",
+      "severity": "medium",
+      "message": "지원 기관 또는 사업을 선택한 이유가 답변에 드러나지 않습니다.",
+      "question_index": 3
+    },
+    {
+      "category": "cover_letter",
+      "code": "low_quality_score",
+      "severity": "medium",
+      "message": "품질 점수 80/100점으로 기준 85점에 미달합니다.",
+      "question_index": 3
+    },
+    {
+      "category": "style",
+      "code": "style_risk_detected",
+      "severity": "medium",
+      "message": "교열 기준을 넘는 문체 위험이 3개 문항에서 발견되었습니다.",
+      "question_index": 0
+    }
+  ]
+}

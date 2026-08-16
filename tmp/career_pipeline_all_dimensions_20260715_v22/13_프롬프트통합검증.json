@@ -1,0 +1,15 @@
+{
+  "enabled": true,
+  "validation_scope": "PROMPT_CONTRACT_INTEGRITY",
+  "submission_readiness_assessed": false,
+  "actual_mock_interview_assessed": false,
+  "scope_note": "hard_fail과 review_required는 두 계약 파일의 구조·근거·상호 일치만 판정하며, 실제 음성 모의면접 완료나 최종 제출 준비 완료를 뜻하지 않습니다.",
+  "contract_version": "2026-07-15",
+  "data_package_id": "CAREER-DATA-02B036CBE425",
+  "data_package_version": "2.0",
+  "company_path": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\career_pipeline_all_dimensions_20260715_v22\\04_기업직무조사.json",
+  "interview_path": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\career_pipeline_all_dimensions_20260715_v22\\08_면접대비팩.json",
+  "hard_fail": false,
+  "review_required": false,
+  "issues": []
+}

@@ -1,0 +1,1545 @@
+{
+  "schema_version": 2,
+  "generated_at": "2026-07-19T00:46:53+09:00",
+  "workspace_root": "C:/Users/ehddk/OneDrive/문서/취업",
+  "experiences": [
+    {
+      "experience_id": "exp_rebuild_library_20260718",
+      "title": "해맞이 도서관 서가 개선",
+      "organization_alias": "해맞이 도서관",
+      "period": null,
+      "role": "이용자 문의를 바탕으로 재분류와 안내 표시를 제안하고, 채택 후 직접 실행한 참여자",
+      "situation": "반복되는 이용자 문의가 있었고 장르별 분류와 안내 표시가 이용자에게 직관적이지 않았다.",
+      "actions": [
+        "서가의 분류 방식과 안내 표시를 살폈다.",
+        "키워드·주제 중심 재분류와 안내 표시 추가를 담당자에게 제안했다.",
+        "채택 후 책을 주제별로 재분류하고 안내 표시를 부착했으며 동료와 서가를 이동했다."
+      ],
+      "outcomes": [
+        "이용자가 책을 더 쉽게 찾는 모습을 관찰했다.",
+        "문의가 줄었다는 피드백을 들었으나 전후 집계 수치는 없다."
+      ],
+      "competencies": [
+        "이용자 관점",
+        "문제 발견",
+        "개선 제안",
+        "실행",
+        "협업"
+      ],
+      "claims": [
+        {
+          "field": "situation",
+          "normalized_value": "장르별 분류가 이용자에게 직관적이지 않았고 안내 표시가 부족함",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/01_도서관_경험카드.md",
+              "paragraph_index": 12,
+              "source_sha256": "d69dee1aa64dfe58adde79771fbf5a15c8ab9c079b6eb475631395355c08e923",
+              "excerpt_sha256": "1f8d3dba4c2625f4fd983b94829226158eb4993a29073ec8d705d89ec7cdc825"
+            }
+          ],
+          "claim_id": "clm_c037542ad91bba2a3543",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "observed"
+          }
+        },
+        {
+          "field": "action:proposal",
+          "normalized_value": "키워드·주제 중심 재분류와 안내 표시 추가를 제안함",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/01_도서관_경험카드.md",
+              "paragraph_index": 14,
+              "source_sha256": "d69dee1aa64dfe58adde79771fbf5a15c8ab9c079b6eb475631395355c08e923",
+              "excerpt_sha256": "97031ec7afb200fa0247cb2ce932d4a071765b99251a8e8c08a529c4fd29bc70"
+            }
+          ],
+          "claim_id": "clm_d6ee1a830e18d66223bf",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "contributed"
+          }
+        },
+        {
+          "field": "action:execution",
+          "normalized_value": "책을 주제별로 재분류하고 안내 표시를 직접 부착함",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/01_도서관_경험카드.md",
+              "paragraph_index": 16,
+              "source_sha256": "d69dee1aa64dfe58adde79771fbf5a15c8ab9c079b6eb475631395355c08e923",
+              "excerpt_sha256": "ee00a4ed8d4c4b701ff201cd4538f27a8d98872abd96a1b03cbbc11ad75d68a1"
+            }
+          ],
+          "claim_id": "clm_c2cccabbe486e696ae4e",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "contributed"
+          }
+        },
+        {
+          "field": "outcome:observation",
+          "normalized_value": "이용자가 책을 더 쉽게 찾음",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/01_도서관_경험카드.md",
+              "paragraph_index": 18,
+              "source_sha256": "d69dee1aa64dfe58adde79771fbf5a15c8ab9c079b6eb475631395355c08e923",
+              "excerpt_sha256": "c0683e129316914a96d8ba18a90690cee854334716bbc3afc9272e2600f678a4"
+            }
+          ],
+          "claim_id": "clm_1ef22a64692b32351335",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "observed"
+          }
+        },
+        {
+          "field": "outcome:feedback",
+          "normalized_value": "문의가 줄었다는 피드백을 들었으나 집계 수치는 없음",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/01_도서관_경험카드.md",
+              "paragraph_index": 19,
+              "source_sha256": "d69dee1aa64dfe58adde79771fbf5a15c8ab9c079b6eb475631395355c08e923",
+              "excerpt_sha256": "fbfa4e841743a4af7fbff084fd7164e2f5e28dbb67216026a886aa33d02c527d"
+            }
+          ],
+          "claim_id": "clm_7b18cab6c2e94569daa0",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-18T23:59:00+09:00"
+    },
+    {
+      "experience_id": "exp_rebuild_seoul_support_review_20260718",
+      "title": "서울시청 코로나19 지원비 검토",
+      "organization_alias": "서울시청",
+      "period": null,
+      "role": "엑셀 선별, 시세 확인, 증빙 대조와 팀장 보고를 수행하고 팀 공동 검토에 참여한 지원 인력",
+      "situation": "의료 인력 숙박비 청구에서 영수증 금액과 지역 시세가 다른 건을 발견했다.",
+      "actions": [
+        "평균 금액 이탈, 지역 시세 초과, 증빙 누락을 기준으로 엑셀에서 이상 건을 선별했다.",
+        "부동산 앱의 시세와 임대인 증빙을 대조하고 불일치 건을 팀장에게 보고했다.",
+        "두 기준 이상 겹친 건을 팀원들과 집중 검토했다."
+      ],
+      "outcomes": [
+        "팀 검토에서 부정수급 20건이 확정되었다.",
+        "팀 전체 숙박비 검토·급여 업무 기간이 3주에서 2주로 단축되었다.",
+        "추가자료 요청과 지급 보류 결정 권한은 팀장에게 있었고 개인 기여 비율은 확인되지 않았다."
+      ],
+      "competencies": [
+        "데이터 선별",
+        "교차 검증",
+        "증빙 확인",
+        "보고",
+        "협업"
+      ],
+      "claims": [
+        {
+          "field": "judgment:selection_criteria",
+          "normalized_value": "평균 금액 이탈·지역 시세 초과·증빙 누락 중 두 기준 이상 겹친 건을 집중 검토함",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/02_서울시청_경험카드.md",
+              "paragraph_index": 15,
+              "source_sha256": "1d61b5dad6cf3510b84c5f6066ac220dec7b633cfc5f1210900b6ef17881f5e3",
+              "excerpt_sha256": "e9d4a9196fa8c0f6d67bf0062e61c01e9b776342fe3d1309d1f7f7a3209f7f92"
+            }
+          ],
+          "claim_id": "clm_3db6228172f82d596e58",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "contributed"
+          }
+        },
+        {
+          "field": "action:personal_role",
+          "normalized_value": "증빙 대조와 지역 시세 확인",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/02_서울시청_경험카드.md",
+              "paragraph_index": 20,
+              "source_sha256": "1d61b5dad6cf3510b84c5f6066ac220dec7b633cfc5f1210900b6ef17881f5e3",
+              "excerpt_sha256": "a4efb63cec99f3c547e30274c6db260eeb6ed67380c8f1d3971538a07ed50acc"
+            }
+          ],
+          "claim_id": "clm_e8a03c20e2ee3779cd9e",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "contributed"
+          }
+        },
+        {
+          "field": "authority:manager",
+          "normalized_value": "추가자료 요청과 지급 보류는 팀장이 결정함",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/02_서울시청_경험카드.md",
+              "paragraph_index": 18,
+              "source_sha256": "1d61b5dad6cf3510b84c5f6066ac220dec7b633cfc5f1210900b6ef17881f5e3",
+              "excerpt_sha256": "da16697614ee9396977f88720a76c853ada3a97e592389f5bed850bf68322152"
+            }
+          ],
+          "claim_id": "clm_551673328bb6cd3a1020",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "observed"
+          }
+        },
+        {
+          "field": "metric:team_confirmed_cases",
+          "normalized_value": "20건",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/02_서울시청_경험카드.md",
+              "paragraph_index": 21,
+              "source_sha256": "1d61b5dad6cf3510b84c5f6066ac220dec7b633cfc5f1210900b6ef17881f5e3",
+              "excerpt_sha256": "a716f656fff7181d61c9486af88a4c501515c2cac06cf564924923a73e74c937"
+            }
+          ],
+          "claim_id": "clm_55374091775226f78144",
+          "verification": {
+            "method": "documented_total",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "팀 공동 검토에서 확정된 부정수급 사례",
+            "contribution": "contributed"
+          }
+        },
+        {
+          "field": "metric:team_work_duration",
+          "normalized_value": "3주에서 2주",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/02_서울시청_경험카드.md",
+              "paragraph_index": 22,
+              "source_sha256": "1d61b5dad6cf3510b84c5f6066ac220dec7b633cfc5f1210900b6ef17881f5e3",
+              "excerpt_sha256": "638aaaf737305af14556e72fbc5dcaedf79407e39fdff5c615ca46e49ece6a9a"
+            }
+          ],
+          "claim_id": "clm_d0e4616b21247977db3f",
+          "verification": {
+            "method": "before_after",
+            "baseline": "3주",
+            "result": "2주",
+            "formula": null,
+            "measurement_period": null,
+            "scope": "팀 전체 숙박비 검토·급여 업무",
+            "contribution": "contributed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-18T23:59:00+09:00"
+    },
+    {
+      "experience_id": "exp_rebuild_nps_target_selection_20260718",
+      "title": "국민연금공단 기초연금 안내 대상 선별",
+      "organization_alias": "국민연금공단 강남역삼지사 연금지급부",
+      "period": {
+        "start_month": "2024-10",
+        "end_month": "2024-12"
+      },
+      "role": "담당 직원에게 처리 방법과 업무 방향을 안내받은 뒤 대상 선별·전화 안내·전산 입력을 거의 전담한 인턴",
+      "situation": "기존에는 이번 달과 비슷한 규모의 기초연금 예상 데이터 전체에 일일이 연락했다.",
+      "actions": [
+        "공문에 제시된 연금액·부동산 공시지가·소득 조건을 기준으로 정했다.",
+        "VLOOKUP으로 자료를 통합하고 필터와 IF/AND 계열 수식으로 조건 충족 여부를 표시한 뒤 행별로 대조했다.",
+        "담당 직원의 사전 확인 후 세 조건을 모두 충족한 대상에게만 전화해 신청을 안내하고 전산에 입력했다."
+      ],
+      "outcomes": [
+        "이번 달 예상 데이터 333명 중 180명에게 연락해 180명 모두의 신청 안내 데이터를 전산 입력했다.",
+        "이전 달에는 전체 연락 후 150명을 전산 입력했다.",
+        "나머지 153명에게는 전화하지 않았지만 전체 대상에게 우편물이 발송되었다.",
+        "실제 신청 접수나 수급 여부는 확인하지 않았다."
+      ],
+      "competencies": [
+        "엑셀",
+        "데이터 통합",
+        "조건 설계",
+        "정확성",
+        "업무 효율화"
+      ],
+      "claims": [
+        {
+          "field": "metric:current_month_total",
+          "normalized_value": "333명",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/03_국민연금_데이터선별_경험카드.md",
+              "paragraph_index": 14,
+              "source_sha256": "9af8b0e175dbeb6ecfce30773e8122f2fd390ef5c13b28ebbc812792f7d0d75a",
+              "excerpt_sha256": "00a543df62aa1e7c8facc8c24b7aa3853cb4a320c9be1eec502756bad9e9240d"
+            }
+          ],
+          "claim_id": "clm_a1a26c45eaabafc18370",
+          "verification": {
+            "method": "documented_total",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": "이번 달",
+            "scope": "이번 달 예상 전체 데이터",
+            "contribution": "observed"
+          }
+        },
+        {
+          "field": "metric:previous_month_system_entries",
+          "normalized_value": "150명",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/03_국민연금_데이터선별_경험카드.md",
+              "paragraph_index": 15,
+              "source_sha256": "9af8b0e175dbeb6ecfce30773e8122f2fd390ef5c13b28ebbc812792f7d0d75a",
+              "excerpt_sha256": "449d2f8d48460564394a9a115d71f67f553a7b718dedc2721b11a7d59607a56c"
+            }
+          ],
+          "claim_id": "clm_41750e3f4e956f1b50cf",
+          "verification": {
+            "method": "system_record",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": "이전 달",
+            "scope": "이전 달 신청 안내 전산 입력 인원",
+            "contribution": "observed"
+          }
+        },
+        {
+          "field": "judgment:priority_rule",
+          "normalized_value": "공문 조건 세 가지를 모두 충족한 대상만 우선 연락함",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/03_국민연금_데이터선별_경험카드.md",
+              "paragraph_index": 17,
+              "source_sha256": "9af8b0e175dbeb6ecfce30773e8122f2fd390ef5c13b28ebbc812792f7d0d75a",
+              "excerpt_sha256": "ad162388d1412c0b4328570272be6e00c9964680da32659a99a1a06e13ec6134"
+            }
+          ],
+          "claim_id": "clm_d8de995cc81137b88977",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "contributed"
+          }
+        },
+        {
+          "field": "action:excel_processing",
+          "normalized_value": "VLOOKUP 통합·필터·IF/AND 계열 수식 표시·행별 대조",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/03_국민연금_데이터선별_경험카드.md",
+              "paragraph_index": 18,
+              "source_sha256": "9af8b0e175dbeb6ecfce30773e8122f2fd390ef5c13b28ebbc812792f7d0d75a",
+              "excerpt_sha256": "c285964439554f9160acd14c9038e95cda06452e4ae163278a6c18628a72d26b"
+            }
+          ],
+          "claim_id": "clm_63f596705b8c8ecc3220",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "contributed"
+          }
+        },
+        {
+          "field": "metric:current_month_contacts_and_entries",
+          "normalized_value": "180명",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/03_국민연금_데이터선별_경험카드.md",
+              "paragraph_index": 19,
+              "source_sha256": "9af8b0e175dbeb6ecfce30773e8122f2fd390ef5c13b28ebbc812792f7d0d75a",
+              "excerpt_sha256": "a0c73a88fcb4440b2c3b4f455854f7f7a09be6b839e056e51cc49e15c430acc9"
+            }
+          ],
+          "claim_id": "clm_110af8194b3a0bdfa37f",
+          "verification": {
+            "method": "system_record",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": "이번 달",
+            "scope": "본인이 전화 안내하고 전산 입력한 인원",
+            "contribution": "caused"
+          }
+        },
+        {
+          "field": "limit:downstream_result",
+          "normalized_value": "신청 접수·수급 여부는 확인하지 않고 전산 입력 단계에서 마무리함",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/03_국민연금_데이터선별_경험카드.md",
+              "paragraph_index": 22,
+              "source_sha256": "9af8b0e175dbeb6ecfce30773e8122f2fd390ef5c13b28ebbc812792f7d0d75a",
+              "excerpt_sha256": "5d1e0a610957c59793e4660ba22b34a29d80b1a553bdc3b70aa2cc23a4523579"
+            }
+          ],
+          "claim_id": "clm_251098eb5fd53b89d19f",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-18T23:59:00+09:00"
+    },
+    {
+      "experience_id": "exp_rebuild_bank_accessible_guidance_20260718",
+      "title": "은행 아르바이트 고객 맞춤 서명 안내",
+      "organization_alias": "은행",
+      "period": null,
+      "role": "고객의 시각·청각 제약에 맞춰 태블릿 서명 방법을 안내한 아르바이트 직원",
+      "situation": "90대 시각·청각 장애 고객이 태블릿 서명 절차에 어려움을 겪었다.",
+      "actions": [
+        "큰 소리로 천천히 설명했다.",
+        "서명 동작을 직접 보여 주고 고객이 따라 할 수 있는 속도로 안내했다.",
+        "고객의 긴장이 낮아지는지 살피며 필요한 절차를 마무리했다."
+      ],
+      "outcomes": [
+        "고객이 안내 동작을 따라 서명을 완료했다.",
+        "고객의 표정과 긴장이 완화되었다.",
+        "서명 소요 시간과 이후 거래 결과는 확인되지 않았다."
+      ],
+      "competencies": [
+        "고객 응대",
+        "접근성",
+        "눈높이 설명",
+        "관찰",
+        "배려"
+      ],
+      "claims": [
+        {
+          "field": "metric:customer_age_group",
+          "normalized_value": "90대",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/04_은행_고객안내_경험카드.md",
+              "paragraph_index": 10,
+              "source_sha256": "8acc9fcaedf7bab8d4031268a0d8849c2e1af8ce2cb20064af056c5cbe6d3688",
+              "excerpt_sha256": "98ad5c4d5c5d684708e16618876f758e2cef75500c757db26501f333ece6c515"
+            }
+          ],
+          "claim_id": "clm_49619fde7ebfd8641c60",
+          "verification": {
+            "method": "documented_total",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "안내한 고객의 연령대",
+            "contribution": "observed"
+          }
+        },
+        {
+          "field": "action:guidance",
+          "normalized_value": "큰 소리로 천천히 설명하고 서명 동작을 직접 보여 줌",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/04_은행_고객안내_경험카드.md",
+              "paragraph_index": 12,
+              "source_sha256": "8acc9fcaedf7bab8d4031268a0d8849c2e1af8ce2cb20064af056c5cbe6d3688",
+              "excerpt_sha256": "37c89e09f78522ff901cac9c9c36c830ec64c647aacbc98fa662cfca01fd243a"
+            }
+          ],
+          "claim_id": "clm_59c16abbb57bd4d028bd",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "caused"
+          }
+        },
+        {
+          "field": "outcome:signature",
+          "normalized_value": "고객이 안내 동작을 따라 서명을 완료함",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/04_은행_고객안내_경험카드.md",
+              "paragraph_index": 14,
+              "source_sha256": "8acc9fcaedf7bab8d4031268a0d8849c2e1af8ce2cb20064af056c5cbe6d3688",
+              "excerpt_sha256": "2a9290c0568e0653c0f243b22345381660049238b3be9256cab6c99a57f8093e"
+            }
+          ],
+          "claim_id": "clm_c48363b63af4dc63b072",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "caused"
+          }
+        },
+        {
+          "field": "outcome:emotional_response",
+          "normalized_value": "고객의 표정과 긴장이 완화됨",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/04_은행_고객안내_경험카드.md",
+              "paragraph_index": 15,
+              "source_sha256": "8acc9fcaedf7bab8d4031268a0d8849c2e1af8ce2cb20064af056c5cbe6d3688",
+              "excerpt_sha256": "c65c5d524fed32e54a7c66a20cf74847266c5333561d4a495e13ebd43a194726"
+            }
+          ],
+          "claim_id": "clm_dd78de05bf82fb56da75",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-18T23:59:00+09:00"
+    },
+    {
+      "experience_id": "exp_rebuild_seongbuk_residents_council_20260718",
+      "title": "성북구청 주민자치회 참여자 모집 홍보",
+      "organization_alias": "성북구청",
+      "period": null,
+      "role": "본인 포함 3인 홍보팀의 일원으로 대상층·시간·장소 전략과 참여 이유 설명에 참여한 인력",
+      "situation": "주민자치회 참여자 20명을 모집해야 했다.",
+      "actions": [
+        "중장년층·고령층이 많이 모이는 시간과 장소를 홍보 대상으로 정했다.",
+        "세금이 쓰이는 지역 문제에 직접 의견을 낼 수 있다는 점을 설명했다.",
+        "3인 팀의 모집 활동에 참여했다."
+      ],
+      "outcomes": [
+        "3인 팀이 실제 신청서 제출 20명을 확보해 목표를 3주 앞서 달성했다.",
+        "개인별 담당 구간과 기여 비율은 확인되지 않았다."
+      ],
+      "competencies": [
+        "대상 분석",
+        "현장 홍보",
+        "공공가치 설명",
+        "협업"
+      ],
+      "claims": [
+        {
+          "field": "metric:team_size",
+          "normalized_value": "3명",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/05_성북구청_주민자치회_경험카드.md",
+              "paragraph_index": 13,
+              "source_sha256": "2695e157cd7b323c2c100eab78ec1febba7bc73a7d4399c1cdf10584378678b5",
+              "excerpt_sha256": "b390ad4081629eaaa3bf3046467d939ab8fbbbe3275c9d1c89e634e99d5b920b"
+            }
+          ],
+          "claim_id": "clm_11cda12d4a66b7228c17",
+          "verification": {
+            "method": "documented_total",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "본인을 포함한 홍보팀 인원",
+            "contribution": "observed"
+          }
+        },
+        {
+          "field": "judgment:targeting",
+          "normalized_value": "중장년층·고령층이 많이 모이는 시간과 장소를 선택함",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/05_성북구청_주민자치회_경험카드.md",
+              "paragraph_index": 14,
+              "source_sha256": "2695e157cd7b323c2c100eab78ec1febba7bc73a7d4399c1cdf10584378678b5",
+              "excerpt_sha256": "c3735652fde60a7dafccfbac83c2333c123dc10494fea9e5eea704dd75417c78"
+            }
+          ],
+          "claim_id": "clm_269fa1d862f4d654a2f0",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "contributed"
+          }
+        },
+        {
+          "field": "action:value_explanation",
+          "normalized_value": "세금이 쓰이는 지역 문제에 직접 의견을 낼 수 있다는 점을 강조함",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/05_성북구청_주민자치회_경험카드.md",
+              "paragraph_index": 15,
+              "source_sha256": "2695e157cd7b323c2c100eab78ec1febba7bc73a7d4399c1cdf10584378678b5",
+              "excerpt_sha256": "37da21b63240d7ea0f7db1a4d0e4d192b7f878b1d325c2a0e1849b8e7c5bb3a9"
+            }
+          ],
+          "claim_id": "clm_ba8f8ee8b26b79f81154",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "contributed"
+          }
+        },
+        {
+          "field": "metric:team_applications",
+          "normalized_value": "20명",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/05_성북구청_주민자치회_경험카드.md",
+              "paragraph_index": 16,
+              "source_sha256": "2695e157cd7b323c2c100eab78ec1febba7bc73a7d4399c1cdf10584378678b5",
+              "excerpt_sha256": "d57dfe1fcbdf38fb6482dd5527db3502d19a739cc59a7aa09557bd83ac418067"
+            }
+          ],
+          "claim_id": "clm_22ad54f42d96038042a1",
+          "verification": {
+            "method": "documented_total",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "3인 팀의 실제 신청서 제출 인원",
+            "contribution": "contributed"
+          }
+        },
+        {
+          "field": "metric:team_early_completion",
+          "normalized_value": "3주 조기",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/05_성북구청_주민자치회_경험카드.md",
+              "paragraph_index": 17,
+              "source_sha256": "2695e157cd7b323c2c100eab78ec1febba7bc73a7d4399c1cdf10584378678b5",
+              "excerpt_sha256": "13ddf7025e09d1c6a6677c890284ad756d479d76efd0e199b5d4c389ed30e9f7"
+            }
+          ],
+          "claim_id": "clm_fc1e0b78010e5aa347c8",
+          "verification": {
+            "method": "documented_total",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "3인 팀의 모집 목표 조기 달성 기간",
+            "contribution": "contributed"
+          }
+        },
+        {
+          "field": "limit:personal_contribution",
+          "normalized_value": "개인 담당 구간과 기여 비율은 확인되지 않음",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/05_성북구청_주민자치회_경험카드.md",
+              "paragraph_index": 18,
+              "source_sha256": "2695e157cd7b323c2c100eab78ec1febba7bc73a7d4399c1cdf10584378678b5",
+              "excerpt_sha256": "4b336edeeafa2f27952a550b2d7a244f7cffec54ba7fd93fb6c4abdd6bf40313"
+            }
+          ],
+          "claim_id": "clm_81ad5587eb9d1b7a7a1e",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-18T23:59:00+09:00"
+    },
+    {
+      "experience_id": "exp_rebuild_jegidong_sns_proposal_20260718",
+      "title": "제기동 약령시장 활성화를 위한 SNS 홍보 제안",
+      "organization_alias": "동대문구 협업 정책사례연구 캡스톤디자인",
+      "period": {
+        "start_month": "2018-09",
+        "end_month": "2018-12"
+      },
+      "role": "시장 문제 조사와 비교 분석에 참여하고 SNS 홍보 방안을 직접 제안한 팀원",
+      "situation": "제기동 약령시장의 젊은층 방문과 매출 감소, 한약 수요·신뢰 문제를 분석하는 팀 과제를 수행했다.",
+      "actions": [
+        "팀 조사로 상인 10명을 인터뷰하고 타 시장 5곳을 비교했다.",
+        "젊은층 유입, 홍보 방식, 야시장·체험 콘텐츠, 상인 운영 방식을 비교 기준으로 살폈다.",
+        "동묘시장 등 다른 시장의 SNS 활성화 사례에서 착안해 SNS 홍보를 제안했다."
+      ],
+      "outcomes": [
+        "SNS 홍보 방안이 활성화 제안서에 반영되었다.",
+        "실제 SNS 운영, 방문객 증가와 매출 변화는 확인되지 않았다."
+      ],
+      "competencies": [
+        "현장 조사",
+        "벤치마킹",
+        "문제 분석",
+        "아이디어 제안"
+      ],
+      "claims": [
+        {
+          "field": "metric:team_merchant_interviews",
+          "normalized_value": "10명",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/06_제기동약령시장_SNS제안_경험카드.md",
+              "paragraph_index": 13,
+              "source_sha256": "2f7df6a98eccce55cbe5c765a750b6d34d337641208277774f27434a00c6abb2",
+              "excerpt_sha256": "f02bc730b7d6c48a735b9406dee11b610a7f8e017fdecc5ccb6739b2cf2f5557"
+            }
+          ],
+          "claim_id": "clm_6f9738e83b3560684414",
+          "verification": {
+            "method": "documented_total",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "팀 조사에서 완료한 상인 인터뷰 인원",
+            "contribution": "contributed"
+          }
+        },
+        {
+          "field": "metric:team_benchmark_markets",
+          "normalized_value": "5곳",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/06_제기동약령시장_SNS제안_경험카드.md",
+              "paragraph_index": 13,
+              "source_sha256": "2f7df6a98eccce55cbe5c765a750b6d34d337641208277774f27434a00c6abb2",
+              "excerpt_sha256": "f02bc730b7d6c48a735b9406dee11b610a7f8e017fdecc5ccb6739b2cf2f5557"
+            }
+          ],
+          "claim_id": "clm_ef3f9827108514e39633",
+          "verification": {
+            "method": "documented_total",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "팀 조사에서 비교한 타 시장 수",
+            "contribution": "contributed"
+          }
+        },
+        {
+          "field": "action:personal_proposal",
+          "normalized_value": "다른 시장의 SNS 활성화 사례를 보고 SNS 홍보를 제안함",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/06_제기동약령시장_SNS제안_경험카드.md",
+              "paragraph_index": 15,
+              "source_sha256": "2f7df6a98eccce55cbe5c765a750b6d34d337641208277774f27434a00c6abb2",
+              "excerpt_sha256": "47164ee9e26f66defa958f26c12c1796e67b20b71a97656aeddf18ad42ff9a9d"
+            }
+          ],
+          "claim_id": "clm_53dcd52f8a2fe2221698",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "caused"
+          }
+        },
+        {
+          "field": "outcome:proposal_document",
+          "normalized_value": "활성화 방안으로 제안서에 반영됨",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/06_제기동약령시장_SNS제안_경험카드.md",
+              "paragraph_index": 17,
+              "source_sha256": "2f7df6a98eccce55cbe5c765a750b6d34d337641208277774f27434a00c6abb2",
+              "excerpt_sha256": "1b8a5b89b5ec9a3728151855fb9f797cc13c0985fec510fdc796c8610005ba70"
+            }
+          ],
+          "claim_id": "clm_fda4e268032ea9aaa556",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "contributed"
+          }
+        },
+        {
+          "field": "limit:implementation",
+          "normalized_value": "실제 SNS 채널 운영·방문객 증가·매출 변화는 확인되지 않음",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/06_제기동약령시장_SNS제안_경험카드.md",
+              "paragraph_index": 18,
+              "source_sha256": "2f7df6a98eccce55cbe5c765a750b6d34d337641208277774f27434a00c6abb2",
+              "excerpt_sha256": "1b0eeb27a93836e73100103c8893658f3eb112f1d964b1641b15b4783aa34590"
+            }
+          ],
+          "claim_id": "clm_873b06d6bf30ffb97710",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-18T23:59:00+09:00"
+    },
+    {
+      "experience_id": "exp_rebuild_nps_document_sorting_20260718",
+      "title": "국민연금공단 대량 서류 정리",
+      "organization_alias": "국민연금공단 강남역삼지사 연금지급부",
+      "period": {
+        "start_month": "2024-10",
+        "end_month": "2024-12"
+      },
+      "role": "색상별 분류 방식을 정하고 대량 서류 정리를 수행한 인턴",
+      "situation": "3,000페이지의 기초연금 관련 서류를 2일 안에 정리해야 했다.",
+      "actions": [
+        "지급결정서·추납·분납 자료를 색상별 폴더로 구분했다.",
+        "자료를 유형별로 분류해 정리했다."
+      ],
+      "outcomes": [
+        "3,000페이지의 서류 정리를 2일 안에 완료했다.",
+        "색상 분류의 당시 목적, 분류 후 오류율, 직원 검토와 실제 지급 여부는 확인되지 않았다."
+      ],
+      "competencies": [
+        "문서 관리",
+        "분류 체계화",
+        "집중력",
+        "기한 준수"
+      ],
+      "claims": [
+        {
+          "field": "metric:document_volume",
+          "normalized_value": "3,000페이지",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/07_국민연금_서류정리_경험카드.md",
+              "paragraph_index": 11,
+              "source_sha256": "9824d239aeb666caab2649e504722efcf8278d64702e0464673ebe79864cb02d",
+              "excerpt_sha256": "3cfb7d191350f11b7525ca633f9787f6ba57276faab83b99abfe1002c473162d"
+            }
+          ],
+          "claim_id": "clm_f11a447479ac6b473f0f",
+          "verification": {
+            "method": "documented_total",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "정리 대상 기초연금 관련 서류 분량",
+            "contribution": "observed"
+          }
+        },
+        {
+          "field": "metric:deadline",
+          "normalized_value": "2일",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/07_국민연금_서류정리_경험카드.md",
+              "paragraph_index": 12,
+              "source_sha256": "9824d239aeb666caab2649e504722efcf8278d64702e0464673ebe79864cb02d",
+              "excerpt_sha256": "9acc1e3ae2fca061f3a29a76be3f681f5e1ea3b9ec3fbeee737ac986c561e6f7"
+            }
+          ],
+          "claim_id": "clm_28e1156f4662f3f7004a",
+          "verification": {
+            "method": "documented_total",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "서류 정리 기한",
+            "contribution": "observed"
+          }
+        },
+        {
+          "field": "action:classification",
+          "normalized_value": "지급결정서·추납·분납 자료를 색상별 폴더로 분류함",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/07_국민연금_서류정리_경험카드.md",
+              "paragraph_index": 13,
+              "source_sha256": "9824d239aeb666caab2649e504722efcf8278d64702e0464673ebe79864cb02d",
+              "excerpt_sha256": "1a1b1021c9eed642dd354bc4ca168799c322f4d0e33da0de66eabc77c5316458"
+            }
+          ],
+          "claim_id": "clm_66e6055b4293f012dd60",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "caused"
+          }
+        },
+        {
+          "field": "metric:completion_time",
+          "normalized_value": "2일",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/07_국민연금_서류정리_경험카드.md",
+              "paragraph_index": 15,
+              "source_sha256": "9824d239aeb666caab2649e504722efcf8278d64702e0464673ebe79864cb02d",
+              "excerpt_sha256": "bdbd262d7514148e5bceb00f75f18d89fc2b72f7f14dcc6d5ce1a314f188271b"
+            }
+          ],
+          "claim_id": "clm_fb321d98e02f3c6b8531",
+          "verification": {
+            "method": "documented_total",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "3,000페이지 서류 정리 완료 기간",
+            "contribution": "caused"
+          }
+        },
+        {
+          "field": "inference:classification_purpose",
+          "normalized_value": "빠른 식별과 혼입 방지를 위한 방식으로 잠정 해석",
+          "status": "needs_verification",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/07_국민연금_서류정리_경험카드.md",
+              "paragraph_index": 14,
+              "source_sha256": "9824d239aeb666caab2649e504722efcf8278d64702e0464673ebe79864cb02d",
+              "excerpt_sha256": "20e413c8d7948e477179574ea2ea771599dfd7c5ceb82aa5531aabdd49142e05"
+            }
+          ],
+          "claim_id": "clm_00c888276637fcc3b8cd",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "사후 해석",
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "limit:downstream_result",
+          "normalized_value": "분류 후 오류율·직원 검토·실제 지급 완료 여부는 확인되지 않음",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-rebuild-20260718-1/confirmed_cards/07_국민연금_서류정리_경험카드.md",
+              "paragraph_index": 16,
+              "source_sha256": "9824d239aeb666caab2649e504722efcf8278d64702e0464673ebe79864cb02d",
+              "excerpt_sha256": "9f9286063cc338c2987edbee4c9874ffb11a8556e2d76056af528df584c71b21"
+            }
+          ],
+          "claim_id": "clm_e65ecf33f227be7c3dcc",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-18T23:59:00+09:00"
+    },
+    {
+      "experience_id": "exp_candidate_seoul_military_notice_20260719",
+      "title": "서울시청 군의관 배정 공문 대응",
+      "organization_alias": "서울시청",
+      "period": {
+        "start_month": "2021-07",
+        "end_month": "2021-12"
+      },
+      "role": "병원·군의관 문의를 정리하고 대상별 안내 초안을 작성해 담당자 검토를 요청한 지원 인력",
+      "situation": "군의관 배정 공문 전달 후 병원과 군의관 측에서 배정 업무와 지원사항을 문의했다.",
+      "actions": [
+        "전화 문의를 공통 질문별로 정리했다.",
+        "공문과 관련 지침을 대조했다.",
+        "병원용·군의관용 안내 초안을 나누어 작성하고 미확정 사항은 담당자에게 확인을 요청했다."
+      ],
+      "outcomes": [
+        "담당자가 내용을 확인·보완한 뒤 다른 담당자가 최종 안내문을 발송했다는 대화 기록이 있다.",
+        "정확한 공문명·일자·공식 담당 범위와 안내 후 변화는 추가 확인이 필요하다."
+      ],
+      "competencies": [
+        "공문 해석",
+        "정보 구조화",
+        "이해관계자별 안내",
+        "권한 경계"
+      ],
+      "claims": [
+        {
+          "field": "situation",
+          "normalized_value": "군의관 배정 공문 후 병원과 군의관 측의 문의가 발생함",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-integration-20260719-1/00_GPT경험대화_원문스냅샷.txt",
+              "paragraph_index": 4960,
+              "source_sha256": "a92bf9d027b7ed577c98eb618e6d22ff6f84dfd3179ac6dd636f70a5947cb104",
+              "excerpt_sha256": "028eb594a22ee8c347a04a40b4ac2fa0bd1bd8930f2b994d2e9d4cccebc61fc7"
+            }
+          ],
+          "claim_id": "clm_3a1ad1f6cdda680000f1",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "첨부 GPT 경험 대화의 통합 후보",
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "action:question_structuring",
+          "normalized_value": "전화 문의를 메모하고 공통 질문별로 분류함",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-integration-20260719-1/00_GPT경험대화_원문스냅샷.txt",
+              "paragraph_index": 4965,
+              "source_sha256": "a92bf9d027b7ed577c98eb618e6d22ff6f84dfd3179ac6dd636f70a5947cb104",
+              "excerpt_sha256": "2dbd6d021562d9d6f5f029711920ddf9153c1c43567b68317291f6d73fe410d9"
+            }
+          ],
+          "claim_id": "clm_715acf6c925bb6095591",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "첨부 GPT 경험 대화의 통합 후보",
+            "contribution": "contributed"
+          }
+        },
+        {
+          "field": "action:audience_specific_drafts",
+          "normalized_value": "병원용·군의관용 안내 초안을 각각 작성하고 미확정 사항은 검토 요청함",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-integration-20260719-1/00_GPT경험대화_원문스냅샷.txt",
+              "paragraph_index": 4967,
+              "source_sha256": "a92bf9d027b7ed577c98eb618e6d22ff6f84dfd3179ac6dd636f70a5947cb104",
+              "excerpt_sha256": "5d448827343b41ce30fb3f629d1a4f6158fea13cc30eaaee23c65367c2f033d9"
+            }
+          ],
+          "claim_id": "clm_27ad2c88fdb5eb085ccf",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "첨부 GPT 경험 대화의 통합 후보",
+            "contribution": "contributed"
+          }
+        },
+        {
+          "field": "authority:final_send",
+          "normalized_value": "담당자가 확인·보완하고 다른 담당자가 최종 발송함",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-integration-20260719-1/00_GPT경험대화_원문스냅샷.txt",
+              "paragraph_index": 4972,
+              "source_sha256": "a92bf9d027b7ed577c98eb618e6d22ff6f84dfd3179ac6dd636f70a5947cb104",
+              "excerpt_sha256": "2b48944e8949ca81ab727af6bf2fd24dffbac6404d68fc62311e6bef6041a1ca"
+            }
+          ],
+          "claim_id": "clm_36fc47f99fea006d97d8",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "첨부 GPT 경험 대화의 통합 후보",
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-19T00:00:00+09:00"
+    },
+    {
+      "experience_id": "exp_candidate_nps_contact_standardization_20260719",
+      "title": "국민연금공단 연락처 데이터 표준화",
+      "organization_alias": "국민연금공단",
+      "period": {
+        "start_month": "2024-10",
+        "end_month": "2024-12"
+      },
+      "role": "엑셀 함수로 연락처 형식을 통일하고 예외 자료를 원본과 대조한 인턴",
+      "situation": "연락처 입력 형식이 일정하지 않아 검색과 대조에 불편이 있었다.",
+      "actions": [
+        "엑셀 함수를 활용해 연락처 형식을 통일했다.",
+        "변환 과정에서 발생한 예외 자료는 원본과 다시 대조했다."
+      ],
+      "outcomes": [
+        "표준화된 연락처 자료를 만들었다는 대화 기록이 있다.",
+        "업무 효율 30%·150건 목표 초과·자동화 시스템 구축은 제외한다."
+      ],
+      "competencies": [
+        "엑셀",
+        "데이터 정제",
+        "예외 검증",
+        "정확성"
+      ],
+      "claims": [
+        {
+          "field": "situation",
+          "normalized_value": "연락처 입력 형식이 일정하지 않아 검색과 대조가 불편함",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-integration-20260719-1/00_GPT경험대화_원문스냅샷.txt",
+              "paragraph_index": 5097,
+              "source_sha256": "a92bf9d027b7ed577c98eb618e6d22ff6f84dfd3179ac6dd636f70a5947cb104",
+              "excerpt_sha256": "7b997cbb8eb95be15d434f63b1a3999cb6229f2e6ab8fb9f0c183539192905be"
+            }
+          ],
+          "claim_id": "clm_465abf8f89565d9bc2d0",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "첨부 GPT 경험 대화의 통합 후보",
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "action:standardization",
+          "normalized_value": "엑셀 함수로 연락처 형식을 통일함",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-integration-20260719-1/00_GPT경험대화_원문스냅샷.txt",
+              "paragraph_index": 5099,
+              "source_sha256": "a92bf9d027b7ed577c98eb618e6d22ff6f84dfd3179ac6dd636f70a5947cb104",
+              "excerpt_sha256": "d1ee64ca854f7b3098a3b90f5381c4c4f927d99c92d6dc5e442f73c07e4c2a15"
+            }
+          ],
+          "claim_id": "clm_1b7216fd98fa340aba30",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "첨부 GPT 경험 대화의 통합 후보",
+            "contribution": "contributed"
+          }
+        },
+        {
+          "field": "action:exception_check",
+          "normalized_value": "예외 자료를 원본과 다시 대조함",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-integration-20260719-1/00_GPT경험대화_원문스냅샷.txt",
+              "paragraph_index": 5100,
+              "source_sha256": "a92bf9d027b7ed577c98eb618e6d22ff6f84dfd3179ac6dd636f70a5947cb104",
+              "excerpt_sha256": "aaa89360e3e435ec91d85e6be2b0eadc2104098c6b911aba5b2581eeda0aebe3"
+            }
+          ],
+          "claim_id": "clm_8804e70017557d8cd6d6",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "첨부 GPT 경험 대화의 통합 후보",
+            "contribution": "contributed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-19T00:00:00+09:00"
+    },
+    {
+      "experience_id": "exp_candidate_banpo_attendance_materials_20260719",
+      "title": "반포한강공원 별보기 행사 출석·물품 관리 개선",
+      "organization_alias": "반포한강공원",
+      "period": null,
+      "role": "출석 누락과 물품 관리 혼선을 발견하고 확인 절차와 온라인 출석 활용을 제안한 운영 지원 인력",
+      "situation": "별보기 행사에서 출석 누락과 물품 관리 혼선이 있었다.",
+      "actions": [
+        "출석 확인 방식과 담당 역할을 정리했다.",
+        "온라인 출석 방식의 활용을 제안했다."
+      ],
+      "outcomes": [
+        "제안 단계까지만 대화 기록으로 남아 있다.",
+        "정식 도입·진행시간 단축·실적처리 단축·후속 재사용은 확인되지 않았다."
+      ],
+      "competencies": [
+        "행사 운영",
+        "현장 문제 발견",
+        "절차 정리",
+        "개선 제안"
+      ],
+      "claims": [
+        {
+          "field": "situation",
+          "normalized_value": "별보기 행사에서 출석 누락과 물품 관리 혼선을 발견함",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-integration-20260719-1/00_GPT경험대화_원문스냅샷.txt",
+              "paragraph_index": 5146,
+              "source_sha256": "a92bf9d027b7ed577c98eb618e6d22ff6f84dfd3179ac6dd636f70a5947cb104",
+              "excerpt_sha256": "6bed17103277ba66539494f48127a92b4071495baded0431535c5a62dfaf2426"
+            }
+          ],
+          "claim_id": "clm_28e832f2e1edc14a37f5",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "첨부 GPT 경험 대화의 통합 후보",
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "action:process_clarification",
+          "normalized_value": "출석 확인 방식과 담당 역할을 정리함",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-integration-20260719-1/00_GPT경험대화_원문스냅샷.txt",
+              "paragraph_index": 5147,
+              "source_sha256": "a92bf9d027b7ed577c98eb618e6d22ff6f84dfd3179ac6dd636f70a5947cb104",
+              "excerpt_sha256": "927eeb1a2feff8920907dc637ba8963a7675e7db9eb9dcc5fb30a717bc9a147b"
+            }
+          ],
+          "claim_id": "clm_15c254f238c8a7d5334d",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "첨부 GPT 경험 대화의 통합 후보",
+            "contribution": "contributed"
+          }
+        },
+        {
+          "field": "action:online_attendance_proposal",
+          "normalized_value": "온라인 출석 방식 활용을 제안함",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-integration-20260719-1/00_GPT경험대화_원문스냅샷.txt",
+              "paragraph_index": 5148,
+              "source_sha256": "a92bf9d027b7ed577c98eb618e6d22ff6f84dfd3179ac6dd636f70a5947cb104",
+              "excerpt_sha256": "87f1f707b7d3ddd00ba9dd6458f6d970173ca0ecdb75e90b7bf4b508849b374e"
+            }
+          ],
+          "claim_id": "clm_66b68752edba6d5e86d7",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "첨부 GPT 경험 대화의 통합 후보",
+            "contribution": "contributed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-19T00:00:00+09:00"
+    },
+    {
+      "experience_id": "exp_candidate_banpo_volunteer_schedule_20260719",
+      "title": "반포한강공원 자원봉사자 일정·배치 정리",
+      "organization_alias": "반포한강공원",
+      "period": null,
+      "role": "자원봉사자의 가능 일정과 행사별 필요 인원·역할을 비교해 일정표와 배치안을 정리한 운영 지원 인력",
+      "situation": "행사별 필요한 인원과 역할에 맞춰 자원봉사자 일정을 정리해야 했다.",
+      "actions": [
+        "자원봉사자의 가능한 날짜와 시간을 확인했다.",
+        "행사별 필요한 인원·역할과 비교해 일정표 또는 배치안을 정리했다."
+      ],
+      "outcomes": [
+        "일정표와 배치안을 정리한 단계까지만 대화 기록으로 남아 있다.",
+        "인력 운영 총괄·최종 배치 결정·효율 수치 향상은 확인되지 않았다."
+      ],
+      "competencies": [
+        "일정 관리",
+        "정보 정리",
+        "인력 배치 지원",
+        "운영"
+      ],
+      "claims": [
+        {
+          "field": "action:availability_check",
+          "normalized_value": "자원봉사자별 가능한 날짜와 시간을 확인함",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-integration-20260719-1/00_GPT경험대화_원문스냅샷.txt",
+              "paragraph_index": 5158,
+              "source_sha256": "a92bf9d027b7ed577c98eb618e6d22ff6f84dfd3179ac6dd636f70a5947cb104",
+              "excerpt_sha256": "09d07a5cf6f659b0fbe7e657a0d2f21e9363234786ea179b7952204b62858605"
+            }
+          ],
+          "claim_id": "clm_3cdb52258a94da0c6491",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "첨부 GPT 경험 대화의 통합 후보",
+            "contribution": "contributed"
+          }
+        },
+        {
+          "field": "action:schedule_draft",
+          "normalized_value": "행사별 필요 인원·역할에 맞춰 일정표 또는 배치안을 정리함",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-integration-20260719-1/00_GPT경험대화_원문스냅샷.txt",
+              "paragraph_index": 5159,
+              "source_sha256": "a92bf9d027b7ed577c98eb618e6d22ff6f84dfd3179ac6dd636f70a5947cb104",
+              "excerpt_sha256": "5fb1c26815ea41019de1a2f5ddd50b927f44a942014263a0233b23a20be87b57"
+            }
+          ],
+          "claim_id": "clm_4bd6efcbeeaff761e8ac",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "첨부 GPT 경험 대화의 통합 후보",
+            "contribution": "contributed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-19T00:00:00+09:00"
+    },
+    {
+      "experience_id": "exp_candidate_seoul_payroll_excel_20260719",
+      "title": "서울시청 급여 자료 엑셀 정리",
+      "organization_alias": "서울시청",
+      "period": null,
+      "role": "급여자료의 반복 확인 항목을 엑셀로 정리해 담당자와 동료의 검토를 지원한 인력",
+      "situation": "급여 관련 자료에서 반복 확인해야 할 항목을 더 빠르게 검토할 필요가 있었다.",
+      "actions": [
+        "엑셀 정렬·필터·함수로 반복 확인 항목을 정리했다.",
+        "담당자와 동료가 실제 검토 업무에서 사용할 수 있도록 했다."
+      ],
+      "outcomes": [
+        "기존 방식보다 자료 확인 속도가 빨라졌다는 대화 기록이 있다.",
+        "30% 향상·자동화 시스템·외주 대체·도입 저지·1억 절감은 제외한다."
+      ],
+      "competencies": [
+        "엑셀",
+        "급여자료 검토",
+        "업무 정리",
+        "동료 지원"
+      ],
+      "claims": [
+        {
+          "field": "action:excel_review",
+          "normalized_value": "급여자료 반복 확인 항목을 엑셀 정렬·필터·함수로 정리함",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-integration-20260719-1/00_GPT경험대화_원문스냅샷.txt",
+              "paragraph_index": 5169,
+              "source_sha256": "a92bf9d027b7ed577c98eb618e6d22ff6f84dfd3179ac6dd636f70a5947cb104",
+              "excerpt_sha256": "5d2e6d0f1638d7a9b60e10831c2fd8693bd303ee5352daf34c7af6fe9a60612b"
+            }
+          ],
+          "claim_id": "clm_8dad8df10a37ff420aed",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "첨부 GPT 경험 대화의 통합 후보",
+            "contribution": "contributed"
+          }
+        },
+        {
+          "field": "outcome:team_use",
+          "normalized_value": "담당자와 동료가 실제 검토 업무에 사용함",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-integration-20260719-1/00_GPT경험대화_원문스냅샷.txt",
+              "paragraph_index": 5170,
+              "source_sha256": "a92bf9d027b7ed577c98eb618e6d22ff6f84dfd3179ac6dd636f70a5947cb104",
+              "excerpt_sha256": "0d4b53d8b28f62058db6a5dc74bac977b5189d00302676661b4ea5bf08e4eef0"
+            }
+          ],
+          "claim_id": "clm_143748d09cff58e39686",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "첨부 GPT 경험 대화의 통합 후보",
+            "contribution": "contributed"
+          }
+        },
+        {
+          "field": "outcome:qualitative_speed",
+          "normalized_value": "기존 방식보다 처리 속도가 빨라짐",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "career_runs/experience-integration-20260719-1/00_GPT경험대화_원문스냅샷.txt",
+              "paragraph_index": 5176,
+              "source_sha256": "a92bf9d027b7ed577c98eb618e6d22ff6f84dfd3179ac6dd636f70a5947cb104",
+              "excerpt_sha256": "f8287a814e39b2dd29211fa82629c313e546a2850306bf3a16889d44a1dbece2"
+            }
+          ],
+          "claim_id": "clm_a0a1b09c8eb2882f9c55",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "첨부 GPT 경험 대화의 통합 후보",
+            "contribution": "contributed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-19T00:00:00+09:00"
+    }
+  ]
+}

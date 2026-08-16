@@ -1,0 +1,11 @@
+{
+  "run_id": "SOL-20260715-1537",
+  "data_package_id": "SOL-DATA-EXT-001",
+  "data_package_version": "1.0",
+  "mapping": {
+    "X": "R8/candidate_B.md",
+    "Y": "synthesis/version_S.md"
+  },
+  "disclosure_policy": "비교 완료 전 comparator에 공개하지 않는다."
+}
+

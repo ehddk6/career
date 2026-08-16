@@ -1,0 +1,290 @@
+[
+  {
+    "question": {
+      "index": 1,
+      "prompt": "신용보증기금 청년인턴에 지원하게 된 동기와 신용보증기금의 역할에 대한 본인의 이해를 바탕으로 인턴 근무 중 배우고, 기여하고 싶은 부분을 기술하여 주십시오.",
+      "character_limit": 600,
+      "count_mode": "spaces_included",
+      "minimum_character_limit": 400
+    },
+    "question_type": "motivation",
+    "candidates": [
+      {
+        "experience_id": "exp_151ae891bd2719ad",
+        "total_score": 55,
+        "evidence_score": 40,
+        "duty_score": 0,
+        "competency_score": 0,
+        "question_fit_score": 15,
+        "reuse_penalty": 0,
+        "matched_duties": [],
+        "matched_competencies": [],
+        "allowed_claims": [
+          "experience_summary=특히,  분량의 자료를 체계적으로 분류하여  만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다. 특히,  분량의 자료를 체계적으로 분류하여  만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다."
+        ],
+        "blocked_claims": []
+      },
+      {
+        "experience_id": "exp_3279ca654f7e0e37",
+        "total_score": 55,
+        "evidence_score": 40,
+        "duty_score": 0,
+        "competency_score": 0,
+        "question_fit_score": 15,
+        "reuse_penalty": 0,
+        "matched_duties": [],
+        "matched_competencies": [],
+        "allowed_claims": [
+          "experience_summary=과제(Task):  분량의 서류(지급 결정서, 추납, 분납 자료)를  내에 정리하고 실질적 수급 대상자를 정확히 선별해야 함. 과제(Task):  분량의 서류(지급 결정서, 추납, 분납 자료)를  내에 정리하고 실질적 수급 대상자를 정확히 선별해야 함."
+        ],
+        "blocked_claims": []
+      },
+      {
+        "experience_id": "exp_15de74c62f22355b",
+        "total_score": 40,
+        "evidence_score": 40,
+        "duty_score": 0,
+        "competency_score": 0,
+        "question_fit_score": 0,
+        "reuse_penalty": 0,
+        "matched_duties": [],
+        "matched_competencies": [],
+        "allowed_claims": [
+          "experience_summary=의료진에게 모든 상황을 설명하여 숙박비를 제공할 수 없다고 통보하여 최소  예산 절감을 했습니다. 의료진에게 모든 상황을 설명하여 숙박비를 제공할 수 없다고 통보하여 최소  예산 절감을 했습니다."
+        ],
+        "blocked_claims": []
+      }
+    ],
+    "recommended": {
+      "experience_id": "exp_151ae891bd2719ad",
+      "total_score": 55,
+      "evidence_score": 40,
+      "duty_score": 0,
+      "competency_score": 0,
+      "question_fit_score": 15,
+      "reuse_penalty": 0,
+      "matched_duties": [],
+      "matched_competencies": [],
+      "allowed_claims": [
+        "experience_summary=특히,  분량의 자료를 체계적으로 분류하여  만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다. 특히,  분량의 자료를 체계적으로 분류하여  만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다."
+      ],
+      "blocked_claims": []
+    }
+  },
+  {
+    "question": {
+      "index": 2,
+      "prompt": "지원자가 새로운 조직에 적응하기 위해 중요하게 생각하는 태도가 무엇이며, 그 태도를 실제 근무과정에서 실천하기 위해 어떤 노력을 할 것인지 기술하여 주십시오.",
+      "character_limit": 600,
+      "count_mode": "spaces_included",
+      "minimum_character_limit": 400
+    },
+    "question_type": "value_role",
+    "candidates": [
+      {
+        "experience_id": "exp_638228200e37de69",
+        "total_score": 55,
+        "evidence_score": 40,
+        "duty_score": 0,
+        "competency_score": 0,
+        "question_fit_score": 15,
+        "reuse_penalty": 0,
+        "matched_duties": [],
+        "matched_competencies": [],
+        "allowed_claims": [
+          "experience_summary=과거 데이터(2040대 신청자 )를 분석하여 주 타겟을 지역 기반이 탄탄한 **5070대 중장년층**으로 재설정함. 과거 데이터(2040대 신청자 )를 분석하여 주 타겟을 지역 기반이 탄탄한 **5070대 중장년층**으로 재설정함."
+        ],
+        "blocked_claims": []
+      },
+      {
+        "experience_id": "exp_151ae891bd2719ad",
+        "total_score": 40,
+        "evidence_score": 40,
+        "duty_score": 0,
+        "competency_score": 0,
+        "question_fit_score": 0,
+        "reuse_penalty": 0,
+        "matched_duties": [],
+        "matched_competencies": [],
+        "allowed_claims": [
+          "experience_summary=특히,  분량의 자료를 체계적으로 분류하여  만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다. 특히,  분량의 자료를 체계적으로 분류하여  만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다."
+        ],
+        "blocked_claims": []
+      },
+      {
+        "experience_id": "exp_15de74c62f22355b",
+        "total_score": 40,
+        "evidence_score": 40,
+        "duty_score": 0,
+        "competency_score": 0,
+        "question_fit_score": 0,
+        "reuse_penalty": 0,
+        "matched_duties": [],
+        "matched_competencies": [],
+        "allowed_claims": [
+          "experience_summary=의료진에게 모든 상황을 설명하여 숙박비를 제공할 수 없다고 통보하여 최소  예산 절감을 했습니다. 의료진에게 모든 상황을 설명하여 숙박비를 제공할 수 없다고 통보하여 최소  예산 절감을 했습니다."
+        ],
+        "blocked_claims": []
+      }
+    ],
+    "recommended": {
+      "experience_id": "exp_638228200e37de69",
+      "total_score": 55,
+      "evidence_score": 40,
+      "duty_score": 0,
+      "competency_score": 0,
+      "question_fit_score": 15,
+      "reuse_penalty": 0,
+      "matched_duties": [],
+      "matched_competencies": [],
+      "allowed_claims": [
+        "experience_summary=과거 데이터(2040대 신청자 )를 분석하여 주 타겟을 지역 기반이 탄탄한 **5070대 중장년층**으로 재설정함. 과거 데이터(2040대 신청자 )를 분석하여 주 타겟을 지역 기반이 탄탄한 **5070대 중장년층**으로 재설정함."
+      ],
+      "blocked_claims": []
+    }
+  },
+  {
+    "question": {
+      "index": 3,
+      "prompt": "신용보증기금의 청년인턴으로 근무한다고 가정할 때, 실제 근무 시 지원자의 업무수행계획을 기술하여 주십시오.",
+      "character_limit": 600,
+      "count_mode": "spaces_included",
+      "minimum_character_limit": 400
+    },
+    "question_type": "general",
+    "candidates": [
+      {
+        "experience_id": "exp_151ae891bd2719ad",
+        "total_score": 55,
+        "evidence_score": 40,
+        "duty_score": 0,
+        "competency_score": 0,
+        "question_fit_score": 15,
+        "reuse_penalty": 0,
+        "matched_duties": [],
+        "matched_competencies": [],
+        "allowed_claims": [
+          "experience_summary=특히,  분량의 자료를 체계적으로 분류하여  만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다. 특히,  분량의 자료를 체계적으로 분류하여  만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다."
+        ],
+        "blocked_claims": []
+      },
+      {
+        "experience_id": "exp_2df35f8fca5e30b8",
+        "total_score": 55,
+        "evidence_score": 40,
+        "duty_score": 0,
+        "competency_score": 0,
+        "question_fit_score": 15,
+        "reuse_penalty": 0,
+        "matched_duties": [],
+        "matched_competencies": [],
+        "allowed_claims": [
+          "experience_summary=급여 지급 프로세스를 개선하여 업무 속도를  향상시켰으며, 제기동 약령시장에서는 SNS 홍보 전략을 도입하여 젊은 층 방문객 급여 지급 프로세스를 개선하여 업무 속도를  향상시켰으며, 제기동 약령시장에서는 SNS 홍보 전략을 도입하여 젊은 층 방문객"
+        ],
+        "blocked_claims": []
+      },
+      {
+        "experience_id": "exp_2e966c8ac3146a5b",
+        "total_score": 55,
+        "evidence_score": 40,
+        "duty_score": 0,
+        "competency_score": 0,
+        "question_fit_score": 15,
+        "reuse_penalty": 0,
+        "matched_duties": [],
+        "matched_competencies": [],
+        "allowed_claims": [
+          "experience_summary=에 달하는 방대한 서류 정리 업무를  만에 완료하며 연금 지급 절차가 차질 에 달하는 방대한 서류 정리 업무를  만에 완료하며 연금 지급 절차가 차질 에 달하는 방대한 서류 정리 업무를  만에 완료하며 연금 지급 절차가 차질"
+        ],
+        "blocked_claims": []
+      }
+    ],
+    "recommended": {
+      "experience_id": "exp_2df35f8fca5e30b8",
+      "total_score": 55,
+      "evidence_score": 40,
+      "duty_score": 0,
+      "competency_score": 0,
+      "question_fit_score": 15,
+      "reuse_penalty": 0,
+      "matched_duties": [],
+      "matched_competencies": [],
+      "allowed_claims": [
+        "experience_summary=급여 지급 프로세스를 개선하여 업무 속도를  향상시켰으며, 제기동 약령시장에서는 SNS 홍보 전략을 도입하여 젊은 층 방문객 급여 지급 프로세스를 개선하여 업무 속도를  향상시켰으며, 제기동 약령시장에서는 SNS 홍보 전략을 도입하여 젊은 층 방문객"
+      ],
+      "blocked_claims": []
+    }
+  },
+  {
+    "question": {
+      "index": 4,
+      "prompt": "최근 중소기업에 큰 영향을 미치는 경제·사회 이슈를 하나 선택하여 그 이유를 서술하여 주시기 바랍니다. 또한, 해당 이슈와 관련하여 영향을 받는 중소기업을 정책 금융기관이 지원할 수 있는 방안과 지원 과정에서 유의할 점을 서술하여 주시기 바랍니다.",
+      "character_limit": 1500,
+      "count_mode": "spaces_included",
+      "minimum_character_limit": null
+    },
+    "question_type": "general",
+    "candidates": [
+      {
+        "experience_id": "exp_151ae891bd2719ad",
+        "total_score": 55,
+        "evidence_score": 40,
+        "duty_score": 0,
+        "competency_score": 0,
+        "question_fit_score": 15,
+        "reuse_penalty": 0,
+        "matched_duties": [],
+        "matched_competencies": [],
+        "allowed_claims": [
+          "experience_summary=특히,  분량의 자료를 체계적으로 분류하여  만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다. 특히,  분량의 자료를 체계적으로 분류하여  만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다."
+        ],
+        "blocked_claims": []
+      },
+      {
+        "experience_id": "exp_2df35f8fca5e30b8",
+        "total_score": 55,
+        "evidence_score": 40,
+        "duty_score": 0,
+        "competency_score": 0,
+        "question_fit_score": 15,
+        "reuse_penalty": 0,
+        "matched_duties": [],
+        "matched_competencies": [],
+        "allowed_claims": [
+          "experience_summary=급여 지급 프로세스를 개선하여 업무 속도를  향상시켰으며, 제기동 약령시장에서는 SNS 홍보 전략을 도입하여 젊은 층 방문객 급여 지급 프로세스를 개선하여 업무 속도를  향상시켰으며, 제기동 약령시장에서는 SNS 홍보 전략을 도입하여 젊은 층 방문객"
+        ],
+        "blocked_claims": []
+      },
+      {
+        "experience_id": "exp_2e966c8ac3146a5b",
+        "total_score": 55,
+        "evidence_score": 40,
+        "duty_score": 0,
+        "competency_score": 0,
+        "question_fit_score": 15,
+        "reuse_penalty": 0,
+        "matched_duties": [],
+        "matched_competencies": [],
+        "allowed_claims": [
+          "experience_summary=에 달하는 방대한 서류 정리 업무를  만에 완료하며 연금 지급 절차가 차질 에 달하는 방대한 서류 정리 업무를  만에 완료하며 연금 지급 절차가 차질 에 달하는 방대한 서류 정리 업무를  만에 완료하며 연금 지급 절차가 차질"
+        ],
+        "blocked_claims": []
+      }
+    ],
+    "recommended": {
+      "experience_id": "exp_2e966c8ac3146a5b",
+      "total_score": 55,
+      "evidence_score": 40,
+      "duty_score": 0,
+      "competency_score": 0,
+      "question_fit_score": 15,
+      "reuse_penalty": 0,
+      "matched_duties": [],
+      "matched_competencies": [],
+      "allowed_claims": [
+        "experience_summary=에 달하는 방대한 서류 정리 업무를  만에 완료하며 연금 지급 절차가 차질 에 달하는 방대한 서류 정리 업무를  만에 완료하며 연금 지급 절차가 차질 에 달하는 방대한 서류 정리 업무를  만에 완료하며 연금 지급 절차가 차질"
+      ],
+      "blocked_claims": []
+    }
+  }
+]

@@ -1,0 +1,429 @@
+{
+  "data_package_id": "CAREER-DATA-B0F5D1A8FD48",
+  "data_package_version": "2.0",
+  "judge_mode": "JOB_FACT_AUDITOR",
+  "evaluations": [
+    {
+      "candidate_id": "C02ABDDFB",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "Q4 is strong but comparatively long and may approach or exceed the preferred range; verify final character count before submission.",
+        "Q1 and Q3 rely on defensible experience IDs and safe company claims, but contribution language should remain bounded to support work rather than institutional outcomes.",
+        "Duplicate candidate_id detected in source set if this entry is intended to be distinct; keep code name unchanged and resolve upstream package issue before final aggregation."
+      ],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 16,
+        "job_relevance": 11,
+        "company_specificity": 8,
+        "action_specificity": 10,
+        "experience_allocation": 6,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 5,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 1
+      },
+      "total": 94,
+      "weakness_codes": [
+        "format_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience",
+          "exact_element": "같은 데이터를 기존 엑셀 수식과 외주 프로그램에 각각 입력해 결과를 비교한 뒤, 결과 비교 분석 보고서를 작성해 팀장에게 보고한 경험",
+          "reason": "자료 대조, 오류 확인, 보고 행동이 보증 기한연장·상시관리 보조 업무와 전이 가능하다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429",
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "experience",
+          "exact_element": "마감 기한을 정하고 디데이와 일일계획을 달력과 노트에 기록하며 진행 상황을 관리",
+          "reason": "새 조직 적응에서 확인, 기록, 기한 관리 태도의 근거가 된다.",
+          "fact_ids": [
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "experience",
+          "exact_element": "많은 자료를 체계적으로 분류해 정리하고 기초연금 지급 절차를 보조한 경험",
+          "reason": "자료 분류와 처리 보조 행동이 기한연장·상시관리 자료 확인 계획과 연결된다.",
+          "fact_ids": [
+            "clm_88cfeab230789e5b0d5f",
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "research",
+          "exact_element": "높은 환율 변동성과 중소기업 한시 특별지원 운용기간 재연장, 지역 수출기업 협약보증 공급",
+          "reason": "선택 이슈와 정책금융 지원 방안이 검증된 공식 claim에 근거한다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711",
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "JOB_FACT_AUDITOR"
+    },
+    {
+      "candidate_id": "C1B9AC0C4",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "Q2의 5070대 중장년층 타겟 재설정 경험은 적응 태도와 연결되지만 보증 인턴 업무와의 직접성은 약간 낮다.",
+        "Q4의 '보증이나 만기 관련 지원'은 공고상 인턴 권한이 아니라 기관 차원의 지원 방안으로 읽어야 한다."
+      ],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 16,
+        "job_relevance": 11,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 6,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 5,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 2
+      },
+      "total": 94,
+      "weakness_codes": [
+        "job_gap"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience",
+          "exact_element": "기존 엑셀 수식과 외주 프로그램에 동일한 데이터를 넣어 결과를 비교한 분석 보고서를 작성하고 팀장에게 보고한 경험",
+          "reason": "대조, 누락 점검, 근거 보고가 보증 업무 보조와 직접 연결된다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429",
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "experience",
+          "exact_element": "과거 데이터를 분석해 지역 기반이 탄탄한 중장년층으로 주요 대상을 재설정한 경험",
+          "reason": "기존 가정을 자료로 점검하고 조직 기준에 맞추려는 태도 근거로 제한적으로 전이 가능하다.",
+          "fact_ids": [
+            "clm_2bfba21afb61776d752b"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "experience",
+          "exact_element": "마감까지 남은 기간을 표시하고 일일계획을 달력과 노트에 기록하며 목표 달성을 관리",
+          "reason": "업무수행계획의 기한 관리와 진행 상태 기록 행동을 뒷받침한다.",
+          "fact_ids": [
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "research",
+          "exact_element": "환율 변동성과 중동지역 리스크 점검, 14조원 한도 중소기업 한시 특별지원 운용기간 재연장, 협약보증 공급",
+          "reason": "이슈 선정, 지원 수단, 유의점이 확인된 외부·기관 claim에 기반한다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711",
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "JOB_FACT_AUDITOR"
+    },
+    {
+      "candidate_id": "C723BF51F",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "Q4는 지원 후 관리와 조건부 기록까지 언급해 논리는 좋지만 일부 문장이 일반 정책금융론으로 넓어진다.",
+        "Q2의 '동료가 안심하고 업무를 맡길 수 있는 구성원'은 결과 claim이 아니라 포부로만 방어해야 한다."
+      ],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 16,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 6,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 5,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 2
+      },
+      "total": 95,
+      "weakness_codes": [
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience",
+          "exact_element": "같은 데이터를 입력해 결과를 비교하고 보고서로 작성해 팀장에게 보고한 경험",
+          "reason": "확인, 기록, 보고 중심의 인턴 기여 계획을 뒷받침한다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429",
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "experience",
+          "exact_element": "마감일을 정하고 남은 기간을 표시한 뒤 일일 목표를 달력과 노트에 기록해 관리",
+          "reason": "조직 적응 태도인 확인과 반복 행동의 실천 근거다.",
+          "fact_ids": [
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "experience",
+          "exact_element": "기초연금 지급에 필요한 자료를 체계적으로 분류해 정리한 경험",
+          "reason": "자료 유형 구분, 처리 상태 기록, 담당자 보고 계획과 연결된다.",
+          "fact_ids": [
+            "clm_88cfeab230789e5b0d5f",
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "research",
+          "exact_element": "한국은행의 환율 변동성 점검과 신용보증기금 협약보증 공급",
+          "reason": "중소기업 이슈와 지원 방안이 safe_claims 안의 fact에 근거한다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711",
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "JOB_FACT_AUDITOR"
+    },
+    {
+      "candidate_id": "C82D3330D",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "Q3에서 '자료를 체계적으로 분류해 정리한 경험'은 claim ID상 3000페이지·2일 정리 경험에 근거하나 답변에서는 수치와 맥락을 생략해 차별성이 약해졌다.",
+        "Q4의 '만기 구조 조정'은 safe_claims에 직접 포함된 표현은 아니므로 기관 차원의 일반 지원 방안으로만 방어 가능하다."
+      ],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 15,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 6,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 5,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 2
+      },
+      "total": 94,
+      "weakness_codes": [
+        "fact_risk",
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience",
+          "exact_element": "동일한 데이터를 넣어 결과를 비교한 뒤 분석 보고서를 작성해 팀장에게 보고한 경험",
+          "reason": "자료 대조와 보고 행위가 보증 분야 인턴의 확인 업무와 연결된다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429",
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "experience",
+          "exact_element": "마감기한을 정하고 남은 일정을 표시하며 일일계획을 달력과 노트에 기록해 관리",
+          "reason": "적응 과정에서 기한, 진행 상태, 피드백 기록을 실천할 근거다.",
+          "fact_ids": [
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "experience",
+          "exact_element": "자료를 체계적으로 분류해 정리한 경험",
+          "reason": "자료 항목 구분과 처리 상태 기록 계획에 전이 가능하지만 구체성은 약하다.",
+          "fact_ids": [
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "research",
+          "exact_element": "14조원 한도 중소기업 한시 특별지원 운용기간 재연장과 협약보증 공급",
+          "reason": "환율 변동 이슈와 정책금융 대응의 근거로 사용할 수 있다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711",
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "JOB_FACT_AUDITOR"
+    },
+    {
+      "candidate_id": "C9236705E",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "Q1의 '기업이 필요한 지원을 제때 받도록 돕겠다'는 기관 결과로 확대되지 않게 인턴의 확인·보고 보조로 한정해 방어해야 한다.",
+        "Q4의 '만기 연장, 보증 연계, 보증료 부담 완화' 중 보증료 부담 완화는 협약보증 claim과 연결 가능하나 만기 연장은 제공 자료의 safe_claims에 직접 명시되어 있지 않다."
+      ],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 15,
+        "job_relevance": 11,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 6,
+        "interview_defensibility": 7,
+        "spoken_defensibility": 5,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 2
+      },
+      "total": 92,
+      "weakness_codes": [
+        "fact_risk",
+        "interview_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience",
+          "exact_element": "같은 데이터를 입력한 뒤 결과 비교 분석 보고서를 작성해 팀장에게 보고한 경험",
+          "reason": "결과 차이를 추정하지 않고 근거로 대조·공유한 행동이 보증 업무 보조에 적합하다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429",
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "experience",
+          "exact_element": "마감 기한을 정하고 디데이와 일일계획으로 진행 상황을 관리",
+          "reason": "조직 적응의 책임감과 반복 행동을 보여 주는 근거다.",
+          "fact_ids": [
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "experience",
+          "exact_element": "많은 자료를 체계적으로 분류해 정리한 경험",
+          "reason": "완료·보완 필요·담당자 판단 필요 상태를 나누는 업무수행계획과 연결된다.",
+          "fact_ids": [
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "research",
+          "exact_element": "한국은행의 중소기업 한시 특별지원 운용기간 재연장과 신용보증기금 협약보증 공급",
+          "reason": "환율 변동성의 정책금융 대응 논리를 뒷받침한다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711",
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "JOB_FACT_AUDITOR"
+    },
+    {
+      "candidate_id": "CC864EEB2",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "Q2는 research_refs가 비어 있지만 답변의 보증 기한연장·기업신용 상시관리 언급은 safe_claims에 존재하므로 사실 자체는 방어 가능하다.",
+        "Q3의 '근거와 예상 효과를 정리해 검토를 요청'은 개선 제안 권한을 넓게 보일 수 있어 보조적 제안으로만 방어해야 한다.",
+        "Q4의 '상환 구조 조정이나 경영 개선 연계'는 제공된 safe_claims 밖의 구체 지원 방안이므로 사실 claim처럼 단정하면 위험하다."
+      ],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 15,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 10,
+        "experience_allocation": 6,
+        "interview_defensibility": 7,
+        "spoken_defensibility": 5,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 2
+      },
+      "total": 94,
+      "weakness_codes": [
+        "fact_risk",
+        "interview_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience",
+          "exact_element": "동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 각각 입력해 결과를 비교하고 분석 보고서를 작성해 팀장에게 보고한 경험",
+          "reason": "원자료와 처리 결과 대조, 차이 기록, 담당자 보고 계획과 직접 연결된다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429",
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "experience",
+          "exact_element": "마감 기한을 정하고 남은 일정을 달력과 노트에 적어 일일계획으로 관리",
+          "reason": "조직 적응 태도인 기록, 확인, 재점검의 실제 근거다.",
+          "fact_ids": [
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "experience",
+          "exact_element": "자료를 체계적으로 분류해 정리한 경험",
+          "reason": "많은 문서를 항목별로 구분하고 처리 상태를 기록하는 계획을 뒷받침한다.",
+          "fact_ids": [
+            "clm_88cfeab230789e5b0d5f",
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "research",
+          "exact_element": "높은 환율 변동성과 중동지역 리스크 점검, 협약보증 공급",
+          "reason": "이슈 선정과 유동성·금융비용 부담 완화 방안이 검증 claim에 근거한다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711",
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "JOB_FACT_AUDITOR"
+    }
+  ]
+}

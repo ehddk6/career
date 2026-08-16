@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-07-16",
+  "method": "official_web_readback",
+  "claim_content_changed": false,
+  "entries": [
+    {
+      "url": "https://www.kodit.or.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11064&mi=2521",
+      "checked_at": "2026-07-16",
+      "status": "VERIFIED",
+      "verified_scope": "신용보증 기본구조와 신청·신용조사·보증심사·약정·보증서 발급 흐름"
+    },
+    {
+      "url": "https://www.bok.or.kr/portal/bbs/B0000156/view.do?depth=200067&menuNo=200067&nttId=10096935&programType=newsData&relate=Y",
+      "checked_at": "2026-07-16",
+      "status": "VERIFIED",
+      "verified_scope": "통화신용정책보고서 2026년 3월 공식 게시물 접근과 기준 자료"
+    }
+  ],
+  "unresolved": [
+    {
+      "scope": "일부 신용보증기금 보도자료 상세 URL",
+      "status": "NOT_PROMOTED",
+      "reason": "웹 재확인 과정에서 내부 오류가 반환되어 checked_at을 갱신하지 않음"
+    }
+  ]
+}

@@ -65,6 +65,13 @@ from .profile_builder import (
 )
 from .profile_confirmation import confirm_ledger, write_review_template
 from .portfolio import build_portfolio, write_portfolio
+from .outcome_feedback import (
+    OutcomeFeedbackError,
+    build_outcome_feedback_context,
+    load_outcome_ledger,
+    parse_feedback_signals,
+    record_outcome_case,
+)
 from .profile_refresh import refresh_profile, write_refresh_outputs
 from .profile_schema import (
     ProfileValidationError,
@@ -254,6 +261,40 @@ def build_parser() -> argparse.ArgumentParser:
     portfolio_build = portfolio_commands.add_parser("build")
     portfolio_build.add_argument("--root", required=True)
     portfolio_build.add_argument("--output-dir", required=True)
+
+    outcome = subparsers.add_parser("outcome")
+    outcome_commands = outcome.add_subparsers(dest="outcome_command", required=True)
+    outcome_record = outcome_commands.add_parser("record")
+    outcome_record.add_argument("--root", required=True)
+    outcome_record.add_argument(
+        "--ledger", default=".career_profile/application_outcomes.json"
+    )
+    outcome_record.add_argument("--case-id", required=True)
+    outcome_record.add_argument("--organization", required=True)
+    outcome_record.add_argument("--target-role", required=True)
+    outcome_record.add_argument("--decision", choices=("rejected", "advanced", "accepted", "withdrawn", "unknown"), required=True)
+    outcome_record.add_argument("--verification-status", choices=("confirmed", "proposed"), default="proposed")
+    outcome_record.add_argument("--feedback-source", choices=("official", "user_reported", "inferred"), required=True)
+    outcome_record.add_argument("--scope", choices=("target_only", "cross_target"), default="target_only")
+    outcome_record.add_argument("--recorded-at", required=True)
+    outcome_record.add_argument("--evidence-ref", action="append", required=True)
+    outcome_record.add_argument("--signal", action="append", required=True)
+    outcome_record.add_argument("--applicant-score", type=float)
+    outcome_record.add_argument("--cutoff-score", type=float)
+    outcome_record.add_argument("--rank", type=int)
+    outcome_record.add_argument("--pool-size", type=int)
+    outcome_validate = outcome_commands.add_parser("validate")
+    outcome_validate.add_argument("--root", required=True)
+    outcome_validate.add_argument(
+        "--ledger", default=".career_profile/application_outcomes.json"
+    )
+    outcome_summary = outcome_commands.add_parser("summary")
+    outcome_summary.add_argument("--root", required=True)
+    outcome_summary.add_argument(
+        "--ledger", default=".career_profile/application_outcomes.json"
+    )
+    outcome_summary.add_argument("--target", required=True)
+    outcome_summary.add_argument("--output")
 
     contracts = subparsers.add_parser("contracts")
     contract_commands = contracts.add_subparsers(
@@ -987,6 +1028,54 @@ def run_portfolio_build(args: argparse.Namespace) -> int:
     return 0
 
 
+def run_outcome_command(args: argparse.Namespace) -> int:
+    root = Path(args.root).resolve(strict=True)
+    ledger_path = _phase4_path(root, args.ledger, must_exist=args.outcome_command != "record")
+    if args.outcome_command == "record":
+        metrics = {
+            key: value
+            for key, value in {
+                "applicant_score": args.applicant_score,
+                "cutoff_score": args.cutoff_score,
+                "rank": args.rank,
+                "pool_size": args.pool_size,
+            }.items()
+            if value is not None
+        }
+        case = {
+            "case_id": args.case_id,
+            "organization": args.organization,
+            "target_role": args.target_role,
+            "decision": args.decision,
+            "verification_status": args.verification_status,
+            "feedback_source": args.feedback_source,
+            "scope": args.scope,
+            "recorded_at": args.recorded_at,
+            "evidence_refs": args.evidence_ref,
+            "signals": parse_feedback_signals(args.signal),
+        }
+        if metrics:
+            case["metrics"] = metrics
+        ledger = record_outcome_case(root, ledger_path, case)
+        print(json.dumps({"case_id": args.case_id, "case_count": len(ledger["cases"])}, ensure_ascii=False))
+        return 0
+    ledger = load_outcome_ledger(ledger_path, root=root)
+    if args.outcome_command == "validate":
+        confirmed = sum(
+            item["verification_status"] == "confirmed" for item in ledger["cases"]
+        )
+        print(json.dumps({"status": "valid", "case_count": len(ledger["cases"]), "confirmed_case_count": confirmed}, ensure_ascii=False))
+        return 0
+    context = build_outcome_feedback_context(ledger, target=args.target)
+    if args.output:
+        output = _phase4_path(root, args.output)
+        write_json(output, context)
+        print(output)
+    else:
+        print(json.dumps(context, ensure_ascii=False, indent=2))
+    return 0
+
+
 def run_contracts_command(args: argparse.Namespace) -> int:
     run_dir = Path(args.run).resolve()
     if args.contracts_command == "init":
@@ -1598,6 +1687,12 @@ def main(argv: Sequence[str] | None = None) -> int:
             return 4
     if args.command == "portfolio":
         return run_portfolio_build(args)
+    if args.command == "outcome":
+        try:
+            return run_outcome_command(args)
+        except (OSError, OutcomeFeedbackError, ApplicationPackageError, ValueError) as error:
+            print(error)
+            return 4
     if args.command == "contracts":
         try:
             return run_contracts_command(args)
@@ -1620,7 +1715,10 @@ def main(argv: Sequence[str] | None = None) -> int:
             f"내부검증 {audit['internal_validation_score']}/100 "
             f"{audit['recommendation']} · 제출 상태는 portfolio 품질 게이트에서 별도 확인"
         )
-        return 0 if int(audit["score"]) >= 90 else 2
+        return 0 if (
+            audit.get("quality_gate") == "pass"
+            and audit.get("human_review_recommended") is False
+        ) else 2
     if args.command == "profile":
         if args.profile_command == "build":
             return run_profile_build(args)

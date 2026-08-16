@@ -54,3 +54,16 @@ def test_extracts_minimum_and_maximum_character_limits():
 
     assert questions[0].minimum_character_limit == 400
     assert questions[0].character_limit == 600
+
+
+def test_extracts_five_digit_character_limit():
+    paragraphs = (
+        "1. 자기소개서 작성은 형식 없이 자율 기술하여 주시기 바랍니다. "
+        "(500자 이상 20000자 이내)",
+    )
+
+    questions = extract_questions(paragraphs)
+
+    assert len(questions) == 1
+    assert questions[0].minimum_character_limit == 500
+    assert questions[0].character_limit == 20000

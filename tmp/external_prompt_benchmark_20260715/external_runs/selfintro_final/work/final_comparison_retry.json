@@ -1,0 +1,63 @@
+{
+  "comparison_ready": false,
+  "hard_fail": {
+    "X": [],
+    "Y": [
+      "Q1: '자료의 이름과 목적을 먼저 살피고, 기준이 모호한 부분은 추측으로 넘기지 않는' 행동은 PF-01의 확인 범위를 넘는다. PF-01의 구체적 분류 방식은 NEEDS VERIFICATION이므로, 원장 밖 개인 행동을 사실로 사용한 HARD FAIL이다."
+    ]
+  },
+  "question_choices": {
+    "q1": {
+      "choice": null,
+      "reason": "Y에 HARD FAIL이 있어 문항별 우열 선택을 진행하지 않는다.",
+      "decisive_difference": null
+    },
+    "q2": {
+      "choice": null,
+      "reason": "Y에 HARD FAIL이 있어 문항별 우열 선택을 진행하지 않는다.",
+      "decisive_difference": null
+    },
+    "q3": {
+      "choice": null,
+      "reason": "Y에 HARD FAIL이 있어 문항별 우열 선택을 진행하지 않는다.",
+      "decisive_difference": null
+    },
+    "q4": {
+      "choice": null,
+      "reason": "Y에 HARD FAIL이 있어 문항별 우열 선택을 진행하지 않는다.",
+      "decisive_difference": null
+    }
+  },
+  "risk_audit": {
+    "remaining_fact_risks": {
+      "X": [
+        "Q4의 환율 노출·현금흐름별 선별 기준과 사후관리 방안은 공식 운영 절차가 아니라 지원자 제안으로만 설명해야 한다."
+      ],
+      "Y": [
+        "Q1의 원장 밖 구체적 분류 행동은 HARD FAIL로 이미 판정됐으며, 원장에 없는 세부 처리방식은 삭제 또는 검증이 필요하다."
+      ]
+    },
+    "interview_defense_risks": {
+      "X": [
+        "Q4의 운전자금 보증·만기 조정·점검 항목은 신용보증기금의 확정 내부 절차가 아니라 정책 제안임을 분명히 해야 한다."
+      ],
+      "Y": [
+        "Q1에서 자료 이름·목적 확인과 모호한 기준 처리 방식을 물으면 확정경험원장으로 방어할 수 없다."
+      ]
+    },
+    "experience_duplication": {
+      "X": [],
+      "Y": []
+    },
+    "style_regression": {
+      "X": [],
+      "Y": []
+    }
+  },
+  "overall_choice": null,
+  "overall_reason": "Y의 Q1에 NEEDS VERIFICATION인 구체적 분류 행동이 원장 밖 사실로 포함되어 있다. 한 버전에 HARD FAIL이 있으면 비교 선택을 하지 않는 규칙에 따라 comparison_ready=false로 판정한다.",
+  "remaining_risks": [
+    "Y는 Q1의 원장 밖 구체적 행동을 확인 가능한 사실 또는 미래의 업무 원칙으로 바꾸기 전에는 재비교 대상이 될 수 없다.",
+    "X의 Q4 정책 방안은 공식 제도 운영 사실과 구분해 지원자 제안으로 답변해야 한다."
+  ]
+}

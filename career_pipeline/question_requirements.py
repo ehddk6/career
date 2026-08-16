@@ -5,10 +5,24 @@ from __future__ import annotations
 from dataclasses import asdict
 from hashlib import sha256
 import json
+import re
 from typing import Any, Iterable
 
 from .character_count import count_characters
 from .models import DraftResponse, Question, ValidationIssue
+
+
+_SENTENCE_SPLIT = re.compile(r"(?<=[.!?。])\s+|\n+")
+_WORD = re.compile(r"[^\W_]+", re.UNICODE)
+_HISTORICAL_ACTION_CUES = (
+    "확인", "대조", "분석", "분류", "정리", "제안", "조정", "설명", "기록", "보고", "실행",
+)
+_HISTORICAL_RESULT_CUES = (
+    "완료", "처리", "전달", "발견", "감소", "줄", "늘", "개선", "방지", "안내", "입력", "마쳤",
+)
+_EDITING_ARTIFACT_CUES = (
+    "글자 수를", "자로 맞", "자에 맞", "편집 메모", "문자 단위로", "최종 검토 메모",
+)
 
 
 _REQUIREMENT_RULES: tuple[tuple[str, tuple[str, ...], tuple[str, ...], str], ...] = (
@@ -195,6 +209,10 @@ def validate_question_requirement_map(
         if response is None or not response.answer.strip():
             continue
         answer = response.answer.strip()
+        sentences = [
+            item.strip() for item in _SENTENCE_SPLIT.split(answer) if item.strip()
+        ]
+        first_two = " ".join(sentences[:2])
         if enforce_preferred_range:
             preferred = row.get("preferred_character_range")
             minimum = preferred.get("minimum") if isinstance(preferred, dict) else None
@@ -238,8 +256,27 @@ def validate_question_requirement_map(
                         "문항 계약이 요구한 공고 업무·역량과의 연결이 없습니다.",
                     )
                 )
-        for requirement in row.get("requirements", []):
-            if not isinstance(requirement, dict) or requirement.get("requirement_id") == "direct_answer":
+        requirements = [
+            item for item in row.get("requirements", []) if isinstance(item, dict)
+        ]
+        direct_answer_cues = [
+            str(cue)
+            for requirement in requirements
+            if requirement.get("requirement_id") != "direct_answer"
+            and requirement.get("hard_fail_if_missing") is True
+            for cue in requirement.get("answer_cues", [])
+            if str(cue)
+        ]
+        if direct_answer_cues and not any(cue in first_two for cue in direct_answer_cues):
+            issues.append(
+                ValidationIssue(
+                    "missing_direct_answer",
+                    index,
+                    "문항의 핵심 답이 첫 두 문장 안에 드러나지 않습니다.",
+                )
+            )
+        for requirement in requirements:
+            if requirement.get("requirement_id") == "direct_answer":
                 continue
             cues = [str(item) for item in requirement.get("answer_cues", []) if str(item)]
             if cues and not any(cue in answer for cue in cues):
@@ -248,6 +285,67 @@ def validate_question_requirement_map(
                         f"missing_requirement_{requirement.get('requirement_id', 'unknown')}",
                         index,
                         f"문항 하위 요구가 누락되었습니다: {requirement.get('description', '')}",
+                    )
+                )
+        hard_history = [
+            item
+            for item in row.get("historical_feedback_requirements", [])
+            if isinstance(item, dict)
+            and item.get("enforcement") == "hard_requirement"
+            and item.get("direction") == "weakness"
+        ]
+        for historical in hard_history:
+            dimension = str(historical.get("dimension", ""))
+            passed = True
+            if dimension == "job_competency":
+                answer_tokens = {
+                    token.casefold() for token in _WORD.findall(answer) if len(token) >= 2
+                }
+                job_tokens = {
+                    token.casefold()
+                    for key in ("job_duties", "job_competencies")
+                    for term in row.get(key, [])
+                    for token in _WORD.findall(str(term))
+                    if len(token) >= 2
+                }
+                passed = bool(
+                    response.experience_refs
+                    and any(cue in answer for cue in _HISTORICAL_ACTION_CUES)
+                    and any(cue in answer for cue in _HISTORICAL_RESULT_CUES)
+                    and (not job_tokens or answer_tokens.intersection(job_tokens))
+                )
+            elif dimension == "motivation":
+                passed = any(
+                    cue in first_two
+                    for cue in ("때문", "계기", "경험", "보았", "느꼈", "선택", "지원했")
+                )
+            elif dimension == "culture_fit":
+                passed = any(
+                    cue in answer
+                    for cue in ("조율", "합의", "분담", "경청", "공유", "설명", "의견")
+                ) and any(cue in answer for cue in _HISTORICAL_RESULT_CUES)
+            elif dimension == "document_hygiene":
+                passed = not (
+                    any(cue in answer for cue in _EDITING_ARTIFACT_CUES)
+                    or "**" in answer
+                    or "```" in answer
+                )
+            elif dimension == "fact_ownership":
+                passed = bool(
+                    response.experience_refs
+                    and any(cue in answer for cue in ("제가", "저는", "직접", "담당", "맡"))
+                )
+            elif dimension == "interview_defense":
+                passed = any(
+                    cue in answer
+                    for cue in ("기준", "예외", "범위", "담당자", "보고", "확인")
+                )
+            if not passed:
+                issues.append(
+                    ValidationIssue(
+                        f"historical_requirement_{dimension}",
+                        index,
+                        f"확정된 과거 전형 피드백 요구를 충족하지 못했습니다: {historical.get('description', '')}",
                     )
                 )
     return issues

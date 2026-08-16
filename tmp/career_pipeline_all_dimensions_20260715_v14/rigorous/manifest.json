@@ -1,0 +1,206 @@
+{
+  "status": "passed",
+  "selection_mode": "rigorous",
+  "model_id": "gpt-5.5",
+  "quality_profile": "max_quality",
+  "stage_models": {
+    "generation": "gpt-5.5",
+    "judge": "gpt-5.5",
+    "synthesis": "gpt-5.5",
+    "comparison": "gpt-5.5"
+  },
+  "call_count": 27,
+  "calls": [
+    {
+      "stage": "candidate_1",
+      "model_id": "gpt-5.5",
+      "role": "generation"
+    },
+    {
+      "stage": "candidate_repair_1_1",
+      "model_id": "gpt-5.5",
+      "role": "generation"
+    },
+    {
+      "stage": "candidate_repair_1_2",
+      "model_id": "gpt-5.5",
+      "role": "generation"
+    },
+    {
+      "stage": "candidate_2",
+      "model_id": "gpt-5.5",
+      "role": "generation"
+    },
+    {
+      "stage": "candidate_repair_2_1",
+      "model_id": "gpt-5.5",
+      "role": "generation"
+    },
+    {
+      "stage": "candidate_repair_2_2",
+      "model_id": "gpt-5.5",
+      "role": "generation"
+    },
+    {
+      "stage": "candidate_3",
+      "model_id": "gpt-5.5",
+      "role": "generation"
+    },
+    {
+      "stage": "candidate_repair_3_1",
+      "model_id": "gpt-5.5",
+      "role": "generation"
+    },
+    {
+      "stage": "candidate_4",
+      "model_id": "gpt-5.5",
+      "role": "generation"
+    },
+    {
+      "stage": "candidate_repair_4_1",
+      "model_id": "gpt-5.5",
+      "role": "generation"
+    },
+    {
+      "stage": "candidate_repair_4_2",
+      "model_id": "gpt-5.5",
+      "role": "generation"
+    },
+    {
+      "stage": "candidate_5",
+      "model_id": "gpt-5.5",
+      "role": "generation"
+    },
+    {
+      "stage": "candidate_repair_5_1",
+      "model_id": "gpt-5.5",
+      "role": "generation"
+    },
+    {
+      "stage": "candidate_6",
+      "model_id": "gpt-5.5",
+      "role": "generation"
+    },
+    {
+      "stage": "candidate_repair_6_1",
+      "model_id": "gpt-5.5",
+      "role": "generation"
+    },
+    {
+      "stage": "judge_recruiter",
+      "model_id": "gpt-5.5",
+      "role": "judge"
+    },
+    {
+      "stage": "judge_job_fact_auditor",
+      "model_id": "gpt-5.5",
+      "role": "judge"
+    },
+    {
+      "stage": "judge_korean_editor",
+      "model_id": "gpt-5.5",
+      "role": "judge"
+    },
+    {
+      "stage": "judge_interview_coach",
+      "model_id": "gpt-5.5",
+      "role": "judge"
+    },
+    {
+      "stage": "synthesis",
+      "model_id": "gpt-5.5",
+      "role": "synthesis"
+    },
+    {
+      "stage": "synthesis_repair_1",
+      "model_id": "gpt-5.5",
+      "role": "synthesis"
+    },
+    {
+      "stage": "synthesis_repair_2",
+      "model_id": "gpt-5.5",
+      "role": "synthesis"
+    },
+    {
+      "stage": "synthesis_repair_3",
+      "model_id": "gpt-5.5",
+      "role": "synthesis"
+    },
+    {
+      "stage": "synthesis_repair_4",
+      "model_id": "gpt-5.5",
+      "role": "synthesis"
+    },
+    {
+      "stage": "synthesis_repair_5",
+      "model_id": "gpt-5.5",
+      "role": "synthesis"
+    },
+    {
+      "stage": "synthesis_repair_6",
+      "model_id": "gpt-5.5",
+      "role": "synthesis"
+    },
+    {
+      "stage": "final_comparison",
+      "model_id": "gpt-5.5",
+      "role": "comparison"
+    }
+  ],
+  "winner_candidate_id": "C23F25003",
+  "resumed_stages": [],
+  "final_choice": "Y",
+  "final_reason": "X is the safer complete version because it preserves cautious causality and avoids turning confirmed policy support facts into stronger operational conclusions. Y has better style diagnostics, especially in Q1 and Q4, but the Q4 wording is less defensible under the frozen evidence. No length or question-coverage hard fail was identified for X. Deterministic style guard selected Y because its style risk 3 was below X's 8; Y already passed the authoritative question, job-linkage, evidence and contract validators.",
+  "hard_fail": false,
+  "data_package": {
+    "data_package_id": "CAREER-DATA-F9C8B89D27FE",
+    "data_package_version": "2.0",
+    "frozen_data_sha256": "f9c8b89d27fea65eb83a08f9ba0aa156686b499100609c1b2fb451ecdf941425",
+    "count_mode": "spaces_included",
+    "candidate_count": 7,
+    "judge_count": 4,
+    "quality_profile": "max_quality"
+  },
+  "candidate_count": 4,
+  "judge_count": 4,
+  "review_required_candidates": [
+    "C326E9A26",
+    "C23F25003",
+    "C63FA4540",
+    "CA61EE459"
+  ],
+  "artifact_sha256": {
+    "rigorous\\aggregate.json": "8859d8fd3afc2dfd900f3c2a904e7503d090efa99d013895f710daad0909cba6",
+    "rigorous\\blind_candidates.json": "eb89bbb3b2c4ef77e6912678cc5edd819a8bfde5f401c0be1460f637bee1fa65",
+    "rigorous\\candidate_failures.json": "22a32707e9c87e288ccf756c74d03d92d669186788b265a62df20e591e547408",
+    "rigorous\\candidates\\generated_6.json": "a620360780a2232d957f9c884d51157107d8abe41e453f442ebc7a6eb825f4b0",
+    "rigorous\\candidates\\generated_6_raw.json": "8599cd54d27ddfe223617029a4a9cf33b953d931970b811dcef2f64413c0dc65",
+    "rigorous\\candidates\\generated_6_repair_1.json": "63a29a8817f480f5a82352fbe43264e4b5ce1b089a58721832c52db1db3821ae",
+    "rigorous\\data_package.json": "52f7a4ffba62501b407f67aa99ee8b6bf1863e9b849474ab376b242a51f77aa7",
+    "rigorous\\final_comparison.json": "a9440f57e2ad44a83124c512ebcf3b704ecd7be40e5fc0798572b4b34659fd6f",
+    "rigorous\\judge_data_package.json": "e7547faa0e3c20849e44ac52957129063aa509778f766498736b53aff15a587d",
+    "rigorous\\judges\\interview_coach.json": "1c38caed1b4f94ca6f0228301ab9c14b3fce19312b1734237e332e119303cccc",
+    "rigorous\\judges\\interview_coach_raw.json": "24f38d95b0ab2b3dde60937e8e6a7670c7a24f94f6de8107458e23bb039ba75d",
+    "rigorous\\judges\\job_fact_auditor.json": "464b4381c0421caed696016d70c3c2a0ea1f6a5c3a6166abda63712579fa4266",
+    "rigorous\\judges\\job_fact_auditor_raw.json": "106ad63ddf0454a3b4d7366f846cbd49b105eb1f134e421b6e24bb7df3fe8f43",
+    "rigorous\\judges\\korean_editor.json": "d3d12e808d3305a1095ae604266bae81f5b8aff26625aa827f7cadc2783c194b",
+    "rigorous\\judges\\korean_editor_raw.json": "08cc66c8938028bb2a471b48441804adb7b56e0bd5ac19cc74b75e30789f1c4a",
+    "rigorous\\judges\\recruiter.json": "1147dd94403717fb5dcee20bb44e3918a0063b523974345f014a979a61a6d485",
+    "rigorous\\judges\\recruiter_raw.json": "1f0e86304e41b23a2d9a872408b03f2929894a91e31d22b2d87df6cedab14a19",
+    "rigorous\\manifest.json": "7bd4c0909d8af4c76fc3a0137ca0d38d9ea78f37f84981ec7a7bf664dac066a7",
+    "rigorous\\selected.json": "dc9d3890a63873a4487d373d454513a86a3436b22cf6bf1a015fa1352a2bc7dc",
+    "rigorous\\synthesis.json": "fbdfcbe534046a72868cdd18ecb344ead14f9bf3e593d02a89c1da4d30799825",
+    "rigorous\\synthesis_repair_1.json": "fbdfcbe534046a72868cdd18ecb344ead14f9bf3e593d02a89c1da4d30799825",
+    "rigorous\\synthesis_repair_1_raw.json": "7899aa49549ba880655c0313205162f7821ae4a9481e71d3c7f0bbe732682c1e",
+    "rigorous\\synthesis_repair_2.json": "fd020a3004973b84d28043df6ea5b7e879d98993d5230a67bb340adb7a73bf62",
+    "rigorous\\synthesis_repair_2_raw.json": "8d2a826b37d2f67855da74da506e1718fbb0b0edb16043ec484847f78f7e3b9d",
+    "rigorous\\synthesis_repair_3.json": "fd020a3004973b84d28043df6ea5b7e879d98993d5230a67bb340adb7a73bf62",
+    "rigorous\\synthesis_repair_3_raw.json": "94b6161ec927546e0fe7417257957b94d4ef99e85fccd7df5feeb0614fe69384",
+    "rigorous\\synthesis_repair_4.json": "fd020a3004973b84d28043df6ea5b7e879d98993d5230a67bb340adb7a73bf62",
+    "rigorous\\synthesis_repair_4_raw.json": "c4629b7f2c8ed6a925617c47f4499dfdf3720beb53480c10e2e84edb4db72577",
+    "rigorous\\synthesis_repair_5.json": "fd020a3004973b84d28043df6ea5b7e879d98993d5230a67bb340adb7a73bf62",
+    "rigorous\\synthesis_repair_5_raw.json": "818b2ee0516debcc48e2490f3cadb63d38e7b5745667b0298dd1d1c67e34dd86",
+    "rigorous\\synthesis_repair_6.json": "dc9d3890a63873a4487d373d454513a86a3436b22cf6bf1a015fa1352a2bc7dc",
+    "rigorous\\synthesis_repair_6_raw.json": "e5112b5cda674aedea2d8d9d99cee126c4ff0f8d4bbea377c1687e4b6ed78394"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "questions": [
+    {
+      "question_index": 1,
+      "old_length": 531,
+      "new_length": 518,
+      "change_ratio": 0.7579
+    },
+    {
+      "question_index": 2,
+      "old_length": 525,
+      "new_length": 531,
+      "change_ratio": 0.517
+    },
+    {
+      "question_index": 3,
+      "old_length": 514,
+      "new_length": 553,
+      "change_ratio": 0.7057
+    },
+    {
+      "question_index": 4,
+      "old_length": 1206,
+      "new_length": 1287,
+      "change_ratio": 0.5957
+    }
+  ],
+  "warning": "?? ??? ????? 30% ?? ??? ????? ???? ?? ??"
+}

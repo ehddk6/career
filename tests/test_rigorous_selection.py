@@ -1,5 +1,6 @@
 import json
 import re
+import subprocess
 from pathlib import Path
 
 import pytest
@@ -10,10 +11,12 @@ from career_pipeline.rigorous_selection import (
     WEIGHTS,
     RigorousSelectionError,
     _compact_judge_packet,
+    _reset_rigorous_directory,
     _deduplicate_judge_evaluations,
     _coerce_payload,
     _validate_judge,
     _candidate_hard_fail,
+    subprocess_model_runner,
     run_rigorous_selection,
 )
 from career_pipeline.quality_profiles import get_quality_profile
@@ -59,7 +62,14 @@ class FakeRunner:
                 } for candidate_id in ids],
             }
         if stage == "synthesis":
-            return {**package, **_candidate("합성 답변입니다.")}
+            return {
+                **package,
+                **_candidate(
+                    "현장에서 고객이 한참 머뭇거리는 모습을 보았습니다. "
+                    "처음에는 안내문만 건네면 된다고 생각했지만, 직접 동작을 보여 드리자 표정이 풀렸습니다. "
+                    "그때 설명은 전달보다 상대의 반응을 살피는 일임을 배웠습니다."
+                ),
+            }
         return {
             **package,
             "choice": "X", "hard_fail": {"X": [], "Y": []},
@@ -105,6 +115,38 @@ def test_rigorous_selection_hides_strategies_and_writes_hashes(tmp_path: Path):
     assert result.metadata["candidate_count"] == 5
     assert (tmp_path / "rigorous" / "private_mapping.json").exists()
     assert len([stage for stage, _ in runner.calls if stage.startswith("judge_")]) == 3
+
+
+def test_subprocess_model_timeout_becomes_resumable_selection_error(tmp_path: Path, monkeypatch):
+    def timeout(*args, **kwargs):
+        raise subprocess.TimeoutExpired(args[0], kwargs["timeout"])
+
+    monkeypatch.setattr("career_pipeline.rigorous_selection.subprocess.run", timeout)
+
+    with pytest.raises(RigorousSelectionError, match="timed out at candidate_2"):
+        subprocess_model_runner("candidate_2", "prompt", "model", 1234)
+
+
+def test_rigorous_reset_clears_stale_files_without_requiring_directory_deletion(
+    tmp_path: Path, monkeypatch
+):
+    rigorous = tmp_path / "rigorous"
+    candidates = rigorous / "candidates"
+    candidates.mkdir(parents=True)
+    stale = candidates / "stale.json"
+    stale.write_text("{}", encoding="utf-8")
+    original_rmdir = Path.rmdir
+
+    def deny_candidate_rmdir(path):
+        if path.name == "candidates":
+            raise PermissionError("synced directory delete denied")
+        return original_rmdir(path)
+
+    monkeypatch.setattr(Path, "rmdir", deny_candidate_rmdir)
+    _reset_rigorous_directory(tmp_path, rigorous)
+
+    assert not stale.exists()
+    assert candidates.exists()
 
 
 @pytest.mark.parametrize("runner", [FakeRunner(bad_total=True), FakeRunner(omit_candidate=True)])
@@ -483,7 +525,7 @@ def test_max_quality_adds_natural_voice_and_interview_defense_candidates(tmp_pat
         model_id="capability-based-model",
         validate_candidate=lambda _: [],
         runner=runner,
-        max_calls=31,
+        max_calls=40,
         quality_profile=get_quality_profile("max_quality"),
     )
 
@@ -495,6 +537,34 @@ def test_max_quality_adds_natural_voice_and_interview_defense_candidates(tmp_pat
     assert result.metadata["quality_profile"] == "max_quality"
     assert result.metadata["candidate_count"] == 7
     assert result.metadata["judge_count"] == 4
+
+
+def test_max_quality_applies_project_editor_contract_to_every_quality_stage(tmp_path: Path):
+    runner = FakeRunner()
+    run_rigorous_selection(
+        tmp_path,
+        questions=[Question(1, "지원동기를 작성해 주십시오.", 1000)],
+        incumbent=(DraftResponse(1, "기존 답변입니다.", ()),),
+        frozen_packet={},
+        model_id="capability-based-model",
+        validate_candidate=lambda _: [],
+        runner=runner,
+        max_calls=40,
+        quality_profile=get_quality_profile("max_quality"),
+    )
+
+    required_stages = [
+        prompt
+        for stage, prompt in runner.calls
+        if stage.startswith("candidate_")
+        or stage.startswith("judge_")
+        or stage == "synthesis"
+        or stage == "final_comparison"
+    ]
+    assert required_stages
+    assert all("PROJECT_WRITING_EDITOR_CONTRACT" in prompt for prompt in required_stages)
+    assert all("저자의 목소리 보존" in prompt for prompt in required_stages)
+    assert WEIGHTS["korean_readability"] + WEIGHTS["applicant_distinctiveness"] == 25
 
 
 def test_max_quality_repairs_deterministic_final_style_risks(tmp_path: Path):
@@ -523,8 +593,9 @@ def test_max_quality_repairs_deterministic_final_style_risks(tmp_path: Path):
                     "data_package_id": package_id,
                     "data_package_version": "2.0",
                     **_candidate(
-                        "원자료를 먼저 확인했습니다. 기준은 따로 정리합니다. "
-                        "불명확한 내용은 담당자에게 질문하겠습니다."
+                        "현장에서 고객이 한참 머뭇거리는 모습을 보았습니다. "
+                        "처음에는 안내문만 건네면 된다고 생각했지만, 직접 동작을 보여 드리자 표정이 풀렸습니다. "
+                        "그때 설명은 전달보다 상대의 반응을 살피는 일임을 배웠습니다."
                     ),
                 }
             return super().__call__(stage, prompt, model_id, timeout_ms)
@@ -538,8 +609,36 @@ def test_max_quality_repairs_deterministic_final_style_risks(tmp_path: Path):
         model_id="capability-based-model",
         validate_candidate=lambda _: [],
         runner=runner,
-        max_calls=31,
+        max_calls=40,
         quality_profile=get_quality_profile("max_quality"),
     )
 
     assert any(stage.startswith("synthesis_repair_") for stage, _ in runner.calls)
+
+
+def test_unconfirmed_judge_role_in_hard_fail_type_is_treated_as_review_metadata():
+    package = {"data_package_id": "CAREER-DATA-test", "data_package_version": "2.0"}
+    scores = {key: value for key, value in WEIGHTS.items()}
+    payload = {
+        **package,
+        "judge_mode": "KOREAN_EDITOR",
+        "evaluations": [
+            {
+                "candidate_id": "A",
+                "hard_fail": False,
+                "hard_fail_reasons": [],
+                "hard_fail_status": "REVIEW_REQUIRED",
+                "hard_fail_type": "KOREAN_EDITOR",
+                "review_required": ["사람다운 문체 보완"],
+                "scores": scores,
+                "total": sum(scores.values()),
+                "weakness_codes": ["korean_style"],
+                "transferable_elements": [],
+            }
+        ],
+    }
+
+    rows = _validate_judge(payload, "KOREAN_EDITOR", {"A"}, package)
+
+    assert rows[0]["hard_fail_type"] is None
+    assert rows[0]["review_required"] == ["사람다운 문체 보완"]

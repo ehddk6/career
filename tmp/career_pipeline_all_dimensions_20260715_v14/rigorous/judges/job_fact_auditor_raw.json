@@ -1,0 +1,354 @@
+{
+  "data_package_id": "CAREER-DATA-F9C8B89D27FE",
+  "data_package_version": "2.0",
+  "judge_mode": "JOB_FACT_AUDITOR",
+  "evaluations": [
+    {
+      "candidate_id": "C23F25003",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 15,
+        "job_relevance": 11,
+        "company_specificity": 10,
+        "action_specificity": 11,
+        "experience_allocation": 8,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 5,
+        "korean_readability": 8,
+        "applicant_distinctiveness": 7,
+        "length_and_format": 1
+      },
+      "total": 98,
+      "weakness_codes": [],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "company_role_understanding",
+          "exact_element": "신용보증기금은 기업이 부담하는 채무를 보증해 성장유망기업을 지원하고, 보증신청 뒤 신용조사와 보증심사를 수행하는 기관",
+          "reason": "safe_claims의 기관 역할 claim과 직접 일치한다.",
+          "fact_ids": [
+            "kodit-role-20260711"
+          ]
+        },
+        {
+          "question": "1",
+          "element_type": "job_duty_connection",
+          "exact_element": "신용보증 기한연장과 기업신용 상시관리",
+          "reason": "공고상 보증 분야 인턴 주요업무와 직접 일치한다.",
+          "fact_ids": [
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "1",
+          "element_type": "experience_bridge",
+          "exact_element": "기존 엑셀 수식과 외주 프로그램에 동일한 데이터를 넣어 결과를 비교하고 분석 보고서를 작성해 보고한 경험",
+          "reason": "원자료와 전산값 대조, 변동·누락·예외 기록이라는 기여 행동과 연결된다.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "execution_sequence",
+          "exact_element": "먼저 기준, 자료 흐름, 보고 체계를 익히고 그다음 대조·기록·보고 업무를 수행",
+          "reason": "문항 요구의 초기 학습·실행·점검 순서를 충족한다.",
+          "fact_ids": [
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "industry_issue_reasoning",
+          "exact_element": "높은 환율 변동성과 중동지역 리스크, 14조원 한도의 중소기업 한시 특별지원 운용기간 재연장",
+          "reason": "검증된 외부 claim을 근거로 이슈의 정책적 중요성을 설명한다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "policy_support_link",
+          "exact_element": "지역 수출기업 등의 유동성과 금융비용 부담을 완화하기 위한 협약보증",
+          "reason": "검증된 프로그램 claim을 바탕으로 지원 방안을 연결한다.",
+          "fact_ids": [
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "C326E9A26",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "Q4 일부 지원방안 표현이 safe_claim보다 넓다: 보증 연장이나 신규 유동성 지원을 직접 검토할 수 있다는 표현은 공개 claim상 협약보증 공급보다 넓어 fact_risk 검토 필요.",
+        "Q4 자료 항목 중 계약서, 고객 설명, 환헤지 여부는 일반적으로 타당하지만 제공된 fact ID로 직접 방어되지는 않아 interview_risk 검토 필요."
+      ],
+      "scores": {
+        "question_fidelity": 13,
+        "fact_accuracy": 12,
+        "job_relevance": 10,
+        "company_specificity": 9,
+        "action_specificity": 10,
+        "experience_allocation": 8,
+        "interview_defensibility": 6,
+        "spoken_defensibility": 4,
+        "korean_readability": 8,
+        "applicant_distinctiveness": 7,
+        "length_and_format": 1
+      },
+      "total": 88,
+      "weakness_codes": [
+        "fact_risk",
+        "interview_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "company_role_understanding",
+          "exact_element": "기업 채무를 보증해 성장유망기업을 지원하고, 보증신청 뒤 신용조사와 보증심사를 수행",
+          "reason": "safe_claims의 기관 역할 claim과 직접 일치한다.",
+          "fact_ids": [
+            "kodit-role-20260711"
+          ]
+        },
+        {
+          "question": "1",
+          "element_type": "job_duty_connection",
+          "exact_element": "신용보증 기한연장과 기업신용 상시관리",
+          "reason": "공고상 보증 분야 인턴 주요업무와 직접 일치한다.",
+          "fact_ids": [
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "1",
+          "element_type": "experience_bridge",
+          "exact_element": "동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과 비교 분석 보고서를 작성해 보고한 경험",
+          "reason": "확인·대조·보고 행동으로 전이 가능하다.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "process_understanding",
+          "exact_element": "신용보증 절차는 신청·상담, 자료수집·신용조사, 보증심사·승인, 약정·보증서 발급으로 이어진다",
+          "reason": "safe_claims의 보증 흐름 claim과 직접 일치하며 인턴 업무의 전후 절차 이해로 제한해 사용했다.",
+          "fact_ids": [
+            "CLM-COMP-003"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "industry_issue_reasoning",
+          "exact_element": "한국은행이 높은 환율 변동성과 중동지역 리스크를 점검하며 14조원 한도의 중소기업 한시 특별지원 운용기간을 재연장",
+          "reason": "검증된 외부 claim을 근거로 이슈의 정책적 중요성을 설명한다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "risk_control_frame",
+          "exact_element": "보증은 기업의 부담을 없애는 제도가 아니라 채권자의 신용위험 일부를 기금으로 이전해 자금조달을 돕는 구조",
+          "reason": "safe_claims의 보증 위험분담 구조 claim과 일치한다.",
+          "fact_ids": [
+            "CLM-COMP-012"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "C63FA4540",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "Q3 신용조사 자료 항목을 언급하면서 인턴이 체크표로 다룰 수 있다고 이어지는 부분은 실제 인턴 권한을 넓게 보일 수 있어 interview_risk 검토 필요."
+      ],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 14,
+        "job_relevance": 11,
+        "company_specificity": 10,
+        "action_specificity": 11,
+        "experience_allocation": 8,
+        "interview_defensibility": 7,
+        "spoken_defensibility": 4,
+        "korean_readability": 8,
+        "applicant_distinctiveness": 7,
+        "length_and_format": 1
+      },
+      "total": 95,
+      "weakness_codes": [
+        "interview_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "company_role_understanding",
+          "exact_element": "기업이 부담하는 채무를 보증해 성장유망기업을 지원하며, 보증신청 뒤 신용조사와 보증심사를 수행",
+          "reason": "safe_claims의 기관 역할 claim과 직접 일치한다.",
+          "fact_ids": [
+            "kodit-role-20260711"
+          ]
+        },
+        {
+          "question": "1",
+          "element_type": "job_duty_connection",
+          "exact_element": "보증 분야 청년인턴의 주요업무가 신용보증 기한연장과 기업신용 상시관리",
+          "reason": "공고상 보증 분야 인턴 주요업무와 직접 일치한다.",
+          "fact_ids": [
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "1",
+          "element_type": "experience_bridge",
+          "exact_element": "같은 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과를 비교한 뒤 보고서를 작성",
+          "reason": "자료 확인과 대조 중심의 인턴 기여 행동으로 전이 가능하다.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "operations_claim",
+          "exact_element": "신용조사에 여러 등기·행정·금융거래·국세·세무회계 자료와 재무제표 등이 활용",
+          "reason": "safe_claims의 신용조사 자료 claim과 일치한다.",
+          "fact_ids": [
+            "CLM-COMP-005"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "industry_issue_reasoning",
+          "exact_element": "높은 환율 변동성과 중동지역 리스크, 중소기업 한시 특별지원 운용기간 재연장",
+          "reason": "검증된 외부 claim을 근거로 이슈의 정책적 중요성을 설명한다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "policy_support_link",
+          "exact_element": "지역 수출기업 등의 유동성과 금융비용 부담을 완화하기 위해 협약보증을 공급",
+          "reason": "검증된 프로그램 claim을 바탕으로 지원 방안을 연결한다.",
+          "fact_ids": [
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "CA61EE459",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "Q2 exp_638228200e37de69는 DEFENSIBLE_WITH_QUALIFICATION이고 원장상 2040대 0명·5070대 재설정 수치가 포함된 경험이므로 면접에서 측정기간·기여 범위 질문 가능성이 있다.",
+        "Q4 기업신용 상시관리로 보증 이후 변동 사항을 살펴야 한다는 표현은 공고 직무와는 맞지만 정책 지원 사후관리 범위로 확장되어 interview_risk 검토 필요."
+      ],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 13,
+        "job_relevance": 11,
+        "company_specificity": 10,
+        "action_specificity": 11,
+        "experience_allocation": 7,
+        "interview_defensibility": 6,
+        "spoken_defensibility": 4,
+        "korean_readability": 8,
+        "applicant_distinctiveness": 7,
+        "length_and_format": 1
+      },
+      "total": 92,
+      "weakness_codes": [
+        "interview_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "company_role_understanding",
+          "exact_element": "기업의 채무를 보증하고 신용조사·보증심사를 거쳐 자금 조달의 신뢰를 세우는 일",
+          "reason": "safe_claims의 기관 역할과 보증 절차 claim에 근거한다.",
+          "fact_ids": [
+            "kodit-role-20260711",
+            "CLM-COMP-003"
+          ]
+        },
+        {
+          "question": "1",
+          "element_type": "job_duty_connection",
+          "exact_element": "보증 분야 인턴의 주요업무가 신용보증 기한연장과 기업신용 상시관리",
+          "reason": "공고상 보증 분야 인턴 주요업무와 직접 일치한다.",
+          "fact_ids": [
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "1",
+          "element_type": "experience_bridge",
+          "exact_element": "같은 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과를 비교하고 분석 보고서를 작성해 팀장에게 보고한 경험",
+          "reason": "확인·대조·보고 행동으로 전이 가능하다.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "experience_bridge",
+          "exact_element": "과거 데이터의 신청 흐름을 보고 주요 대상 설정을 다시 보게 된 경험",
+          "reason": "자료를 먼저 보고 근거 형태로 정리한다는 태도와 연결되지만 방어에는 수치·기여 범위 확인이 필요하다.",
+          "fact_ids": [
+            "exp_638228200e37de69",
+            "clm_2bfba21afb61776d752b"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "experience_bridge",
+          "exact_element": "기초연금 관련 자료를 체계적으로 분류해 지급 절차를 보조한 경험",
+          "reason": "자료 출처와 처리 단계 표시, 누락·변동·중복 확인 행동으로 전이 가능하다.",
+          "fact_ids": [
+            "exp_151ae891bd2719ad",
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "industry_issue_reasoning",
+          "exact_element": "높은 환율 변동성과 중동지역 리스크, 14조원 한도의 중소기업 한시 특별지원 운용기간 재연장",
+          "reason": "검증된 외부 claim을 근거로 이슈의 정책적 중요성을 설명한다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "policy_support_link",
+          "exact_element": "지역 수출기업 등의 유동성과 금융비용 부담을 완화하기 위해 협약보증을 공급",
+          "reason": "검증된 프로그램 claim을 바탕으로 지원 방안을 연결한다.",
+          "fact_ids": [
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ]
+    }
+  ]
+}

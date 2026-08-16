@@ -142,6 +142,33 @@ RESPONSE_CUES = (
     "사업",
 )
 
+# Broad words such as "정확" or "신뢰" are useful themes, but they do not
+# prove that an experience changed anything.  These cues are intentionally
+# narrower and are used only by the strict experience-result gate.
+OBSERVABLE_RESULT_CUES = (
+    "발견했",
+    "완료했",
+    "처리했",
+    "입력했",
+    "안내했",
+    "감소했",
+    "줄였",
+    "늘렸",
+    "높였",
+    "낮췄",
+    "단축했",
+    "해결했",
+    "방지했",
+    "막았",
+    "개선됐",
+    "개선했",
+    "제안이 받아들",
+    "마쳤",
+    "달성했",
+    "완성했",
+    "정리해 전달",
+)
+
 
 def _word_tokens(text: str) -> set[str]:
     return {
@@ -149,6 +176,17 @@ def _word_tokens(text: str) -> set[str]:
         for token in TEXT_TOKEN.findall(text)
         if len(_normalize_token(token)) >= 2
     }
+
+
+def _has_observable_result(text: str) -> bool:
+    """Return whether an answer states a visible change or completed output."""
+
+    if any(cue in text for cue in OBSERVABLE_RESULT_CUES):
+        return True
+    # A verified number is not sufficient on its own, but it is a useful
+    # signal when it is attached to an action/result sentence.
+    has_metric = bool(METRIC.search(text))
+    return has_metric and any(cue in text for cue in ACTION_CUES)
 
 
 def score_answer_quality(
@@ -160,6 +198,7 @@ def score_answer_quality(
     baseline_text: str | None = None,
     peer_answers: tuple[str, ...] = (),
     evidence_verified: bool | None = None,
+    experience_grounded: bool = False,
 ) -> AnswerQualityScore:
     issues: list[str] = []
     factuality = 25
@@ -195,6 +234,14 @@ def score_answer_quality(
         issues.append(missing_action_code)
     if not has_result:
         issues.append(missing_result_code)
+    if (
+        experience_grounded
+        and not is_research_only_prompt(question.prompt)
+        and "업무수행계획" not in question.prompt
+        and not _has_observable_result(answer)
+    ):
+        action_result = max(0, action_result - 5)
+        issues.append("weak_observable_result")
 
     answer_tokens = _word_tokens(answer)
     job_tokens = set().union(*(_word_tokens(term) for term in job_terms)) if job_terms else set()
@@ -296,6 +343,7 @@ def validate_answer_quality(
             evidence_verified=bool(
                 response.experience_refs or response.research_refs
             ),
+            experience_grounded=bool(response.experience_refs),
         )
         scores.append(score)
         if score.total < minimum_score:
@@ -384,6 +432,19 @@ def validate_answer_quality(
                     f"전체 평균 품질 점수 {average}/100점으로 기준 {average_minimum_score}점에 미달합니다.",
                 )
             )
+    if minimum_score >= STRICT_MIN_ANSWER_SCORE:
+        grounded_scores = zip(
+            (response for response in responses if response.answer.strip()), scores
+        )
+        for response, score in grounded_scores:
+            if "weak_observable_result" in score.issues:
+                issues.append(
+                    ValidationIssue(
+                        "weak_observable_result",
+                        response.question_index,
+                        "A grounded experience needs an observable output, change, or completed result.",
+                    )
+                )
     return issues
 
 
@@ -794,13 +855,13 @@ def _validate_prompt_requirements(
 
     if ("가치" in prompt or "원칙" in prompt) and "역할" in prompt:
         if not _has_any(answer, ("경험", "당시", "때", "과정")) or not _has_any(
-            answer, ("농협", "역할", "직원", "기여")
+            answer, ("역할", "직원", "기여", "인턴", "입사")
         ):
             issues.append(
                 ValidationIssue(
                     "missing_value_evidence",
                     question.index,
-                    "가치 문항에는 가치의 근거가 된 경험과 농협에서의 역할을 모두 제시해야 합니다.",
+                    "가치 문항에는 가치의 근거가 된 경험과 입사 후 역할을 모두 제시해야 합니다.",
                 )
             )
 
@@ -931,17 +992,34 @@ def validate_matching_gate(
                 )
             )
             continue
-        if not any(
+        has_relevant_match = any(
             candidate.duty_score
             + candidate.competency_score
             + candidate.question_fit_score
             >= 15
             for candidate in reliable
-        ):
+        )
+        if not has_relevant_match:
             issues.append(
                 QualityIssue(
                     "missing_relevant_match",
                     f"문항 {match.question.index}에 직무 또는 문항 관련성이 확인된 경험이 없습니다.",
+                    "03_경험직무매칭.md",
+                )
+            )
+            continue
+        # A question-fit label alone must not make an experience look
+        # job-relevant. Rejected applications showed that a polished answer
+        # can pass this gate while the selected story has no verified duty or
+        # competency connection.
+        if not any(
+            candidate.duty_score > 0 or candidate.competency_score > 0
+            for candidate in reliable
+        ):
+            issues.append(
+                QualityIssue(
+                    "missing_duty_or_competency_match",
+                    "A reliable experience matched the question wording but not a verified duty or competency.",
                     "03_경험직무매칭.md",
                 )
             )

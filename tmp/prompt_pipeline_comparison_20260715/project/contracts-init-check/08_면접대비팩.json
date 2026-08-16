@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "contract_version": "2026-07-15",
+  "data_package_id": "CAREER-DATA-585CEFB0E812",
+  "data_package_version": "1.0",
+  "submitted_claims": [
+    {
+      "question_index": 1,
+      "experience_ids": [
+        "exp_151ae891bd2719ad",
+        "exp_9e97f274590a323b"
+      ],
+      "experience_claim_ids": [
+        "clm_3e69991c9b56d728b429",
+        "clm_88cfeab230789e5b0d5f"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "question_index": 2,
+      "experience_ids": [
+        "exp_22d1df6407915aa2",
+        "exp_9e97f274590a323b"
+      ],
+      "experience_claim_ids": [
+        "clm_1476776eb88306fe8fc1",
+        "clm_3e69991c9b56d728b429"
+      ],
+      "research_claim_ids": [],
+      "status": "CONFIRMED"
+    },
+    {
+      "question_index": 3,
+      "experience_ids": [
+        "exp_151ae891bd2719ad",
+        "exp_22d1df6407915aa2",
+        "exp_9e97f274590a323b"
+      ],
+      "experience_claim_ids": [
+        "clm_1476776eb88306fe8fc1",
+        "clm_3e69991c9b56d728b429",
+        "clm_88cfeab230789e5b0d5f"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "question_index": 4,
+      "experience_ids": [],
+      "experience_claim_ids": [],
+      "research_claim_ids": [
+        "bok-fx-risk-20260711",
+        "kodit-liquidity-support-20260711"
+      ],
+      "status": "CONFIRMED"
+    }
+  ],
+  "document_consistency": [],
+  "interview_architecture": {
+    "stage": {
+      "value": "",
+      "status": "UNKNOWN",
+      "evidence": ""
+    },
+    "format": {
+      "value": "",
+      "status": "UNKNOWN",
+      "evidence": ""
+    },
+    "duration": {
+      "value": "",
+      "status": "UNKNOWN",
+      "evidence": ""
+    },
+    "panel": {
+      "value": "",
+      "status": "UNKNOWN",
+      "evidence": ""
+    },
+    "presentation": {
+      "value": "",
+      "status": "UNKNOWN",
+      "evidence": ""
+    },
+    "case": {
+      "value": "",
+      "status": "UNKNOWN",
+      "evidence": ""
+    },
+    "group_discussion": {
+      "value": "",
+      "status": "UNKNOWN",
+      "evidence": ""
+    }
+  },
+  "competencies": [],
+  "experience_defense": [
+    {
+      "experience_id": "exp_151ae891bd2719ad",
+      "depth": "D0",
+      "claim_ids": [
+        "clm_1476776eb88306fe8fc1",
+        "clm_3e69991c9b56d728b429",
+        "clm_88cfeab230789e5b0d5f"
+      ],
+      "direct_actions": [],
+      "judgment_standards": [],
+      "limitations": []
+    },
+    {
+      "experience_id": "exp_22d1df6407915aa2",
+      "depth": "D0",
+      "claim_ids": [
+        "clm_1476776eb88306fe8fc1",
+        "clm_3e69991c9b56d728b429",
+        "clm_88cfeab230789e5b0d5f"
+      ],
+      "direct_actions": [],
+      "judgment_standards": [],
+      "limitations": []
+    },
+    {
+      "experience_id": "exp_9e97f274590a323b",
+      "depth": "D0",
+      "claim_ids": [
+        "clm_1476776eb88306fe8fc1",
+        "clm_3e69991c9b56d728b429",
+        "clm_88cfeab230789e5b0d5f"
+      ],
+      "direct_actions": [],
+      "judgment_standards": [],
+      "limitations": []
+    }
+  ],
+  "questions": [],
+  "answer_cards": [],
+  "probes": [],
+  "reverse_questions": [],
+  "day_of_checklist": [],
+  "simulation_policy": {
+    "mode": "RANDOM_MIXED",
+    "feedback_timing": "AFTER_FULL_INTERVIEW",
+    "difficulty": "REALISTIC",
+    "one_question_at_a_time": true,
+    "wait_for_user_answer": true
+  },
+  "final_audit": {
+    "status": "PENDING",
+    "strongest_point": "",
+    "largest_risk": "",
+    "priority_revisions": []
+  }
+}

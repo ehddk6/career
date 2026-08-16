@@ -1,0 +1,209 @@
+{
+  "data_package_id": "CAREER-DATA-3B03F55784A4",
+  "data_package_version": "2.0",
+  "judge_mode": "JOB_FACT_AUDITOR",
+  "evaluations": [
+    {
+      "candidate_id": "C29D6F72B",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "문항 1의 ‘담당자가 기업의 상태를 놓치지 않도록 기여’는 인턴의 자료 확인·보고 권한보다 인과 범위가 넓어 실제 기여 범위를 면접에서 설명할 필요가 있음.",
+        "exp_9e97f274590a323b가 문항 1·2·3에 반복되고 exp_151ae891bd2719ad가 문항 1·3에 반복되어 문항별 경험 배분의 차별성이 낮음."
+      ],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 17,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 10,
+        "experience_allocation": 3,
+        "interview_defensibility": 7,
+        "spoken_defensibility": 4,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 5,
+        "length_and_format": 2
+      },
+      "total": 92,
+      "weakness_codes": [
+        "experience_overlap",
+        "interview_risk",
+        "spoken_answer_risk",
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "grounded_experience",
+          "exact_element": "저는 같은 데이터를 기존 엑셀 수식과 외주 프로그램에 각각 입력해 결과를 비교한 뒤 분석 보고서를 작성한 경험이 있습니다.",
+          "reason": "동일 데이터의 결과 비교와 보고서 작성 행동이 원장에 직접 확인되며 자료 대조 업무와 연결됨.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "grounded_work_habit",
+          "exact_element": "저는 업무나 학업이 주어지면 마감일을 기준으로 남은 기간을 나누고 일일 목표를 달력과 노트에 기록해 관리합니다.",
+          "reason": "일정과 일일 목표를 기록하는 습관이 원장에 근거하며 조직 적응 행동으로 구체화됨.",
+          "fact_ids": [
+            "exp_22d1df6407915aa2",
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "grounded_issue_analysis",
+          "exact_element": "반면 수출기업은 가격경쟁력이나 원화 환산 수익 측면에서 유리할 수 있으므로 ‘고환율이면 모든 중소기업이 피해를 본다’고 단정해서는 안 됩니다.",
+          "reason": "공식 근거의 conflict_note를 반영해 기업별 영향을 구분하고 과도한 일반화를 피함.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "JOB_FACT_AUDITOR"
+    },
+    {
+      "candidate_id": "C71941425",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 17,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 6,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 4,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 5,
+        "length_and_format": 2
+      },
+      "total": 95,
+      "weakness_codes": [
+        "spoken_answer_risk",
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "grounded_experience",
+          "exact_element": "상인 인터뷰와 타 시장 비교 분석을 진행하며 현장의 말을 자료와 함께 살펴본 경험이 있습니다.",
+          "reason": "상인 인터뷰와 시장 비교 분석이 원장에 확인되며 현장 정보와 자료를 함께 검토하는 강점을 보여 줌.",
+          "fact_ids": [
+            "exp_62e53382afe2a2b7",
+            "clm_0ab71c1aab141b099564"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "grounded_verification_action",
+          "exact_element": "저는 기존 엑셀 수식과 외주 프로그램에 같은 데이터를 입력한 결과를 비교하고, 그 내용을 보고서로 작성해 팀장에게 보고한 경험이 있습니다.",
+          "reason": "비교 검증과 보고 행동이 원장에 직접 근거하며 확인 중심의 적응 태도를 뒷받침함.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "grounded_work_method",
+          "exact_element": "저는 방대한 자료를 체계적으로 분류하고 정리한 경험이 있어, 서류의 성격과 처리 상태를 구분해 관리하는 방식에 익숙합니다.",
+          "reason": "대량 자료의 분류·정리 경험이 원장에 근거하며 서류 관리 계획과 직접 연결됨.",
+          "fact_ids": [
+            "exp_151ae891bd2719ad",
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "grounded_policy_analysis",
+          "exact_element": "다만 고환율은 모든 기업에 같은 결과를 만들지 않습니다. 수입 비중, 수출 여부, 결제 통화와 대금 회수 시점에 따라 부담과 기회가 달라질 수 있습니다.",
+          "reason": "공식 근거에 명시된 기업별 영향 차이를 반영해 일률적 피해 판단을 피함.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "JOB_FACT_AUDITOR"
+    },
+    {
+      "candidate_id": "C8DBD9F67",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "문항 1의 ‘기업과 기금 사이의 신뢰가 흔들리지 않도록 기여’는 자료 대조·보고라는 인턴 행동에서 기관 간 신뢰 유지로 인과 범위가 확대되어 면접에서 기여 범위를 제한적으로 설명할 필요가 있음."
+      ],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 17,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 6,
+        "interview_defensibility": 7,
+        "spoken_defensibility": 4,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 5,
+        "length_and_format": 2
+      },
+      "total": 94,
+      "weakness_codes": [
+        "interview_risk",
+        "spoken_answer_risk",
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "grounded_verification_action",
+          "exact_element": "저는 기존 엑셀 수식과 외주 프로그램에 동일한 데이터를 입력한 뒤 결과를 비교해 보고서를 작성하고 팀장에게 보고한 경험이 있습니다.",
+          "reason": "데이터 비교, 보고서 작성 및 보고가 원장에 직접 확인되어 정확성 중심의 기여 계획을 방어할 수 있음.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "grounded_work_habit",
+          "exact_element": "저는 업무가 주어지면 마감기한을 정하고 남은 날짜와 일일계획을 달력과 노트에 기록해 관리해 왔습니다.",
+          "reason": "기한과 일일계획을 기록하는 습관이 원장에 근거하며 적응 노력을 구체적으로 보여 줌.",
+          "fact_ids": [
+            "exp_22d1df6407915aa2",
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "grounded_work_method",
+          "exact_element": "저는 방대한 자료를 체계적으로 분류해 정리한 경험이 있어, 자료가 많을수록 기준을 먼저 세우는 태도의 중요성을 알고 있습니다.",
+          "reason": "대량 자료를 기준에 따라 분류한 경험이 원장에 근거하며 업무수행 순서와 연결됨.",
+          "fact_ids": [
+            "exp_151ae891bd2719ad",
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "grounded_policy_analysis",
+          "exact_element": "반면 수출기업도 환율 상승의 이익만 얻는 것은 아닙니다. 수입 원재료 비중, 외화부채, 결제통화와 결제시점에 따라 실제 영향이 달라지므로 업종이나 수출 여부만으로 지원 대상을 정해서는 안 됩니다.",
+          "reason": "공식 근거의 기업별 영향 구분을 구체적인 노출 요인으로 확장하면서 단정적 판단을 피함.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "JOB_FACT_AUDITOR"
+    }
+  ]
+}

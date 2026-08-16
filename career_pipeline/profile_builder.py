@@ -1,4 +1,5 @@
 from collections import defaultdict
+from dataclasses import dataclass
 from datetime import datetime
 from hashlib import sha256
 from pathlib import Path
@@ -18,12 +19,26 @@ from .source_policy import is_evidence_path
 
 
 ACTION_CUES = ("확인", "분석", "정리", "개선", "활용", "대조", "안내", "협업", "조정", "제안", "도입")
-OUTCOME_CUES = ("결과", "달성", "감소", "증가", "절감", "적발", "완료", "방지", "막", "신뢰", "통일")
+OUTCOME_CUES = (
+    "결과", "달성", "감소", "증가", "절감", "적발", "완료", "방지",
+    "막", "통일", "향상", "원활",
+)
 EXPERIENCE_CUES = ACTION_CUES + OUTCOME_CUES + ("담당", "역할", "맡", "문제", "실패", "오류")
 WORD = re.compile(r"[가-힣A-Za-z0-9]{2,}")
 SENTENCE = re.compile(r"(?<=[.!?。])\s+")
 EDITABLE_EVIDENCE_EXTENSIONS = {".docx", ".txt", ".md"}
 MAX_PROPOSED_EXPERIENCES_PER_SOURCE = 30
+MAX_EXPERIENCE_BLOCK_LENGTH = 3000
+BLOCK_PRIORITY_BONUS = 1000
+BLOCK_HEADING = re.compile(r"^(?:\d[\ufe0f\u20e3]*|🔹\s*\d+\.)")
+BLOCK_END = re.compile(r"^📌\s*(?:어필|활용)")
+BLOCK_SECTION = re.compile(
+    r"^✅\s*(?:Situation\s*\(상황\)|Task\s*\(과제\)|Action\s*\(실행\)|Result\s*\(결과\))\s*:?\s*",
+    re.IGNORECASE,
+)
+PERSONAL_METRIC = re.compile(
+    r"(?<![A-Za-z])\d[\d,.]*\s*(?:%|건|명|원|만원|억원|페이지|시간|일|주(?:일)?|개월|년|회|개|세|배)"
+)
 COMPETENCY_CUES = {
     "정확성": ("확인", "대조", "검증", "정확"),
     "분석력": ("분석", "자료", "원인"),
@@ -31,6 +46,17 @@ COMPETENCY_CUES = {
     "협업": ("협업", "조정", "담당자", "소통"),
     "신뢰": ("신뢰", "책임", "성실", "원칙"),
 }
+
+
+@dataclass(frozen=True)
+class _ExperienceCandidate:
+    source_path: str
+    paragraph_index: int
+    claims: tuple[FactClaim, ...]
+    context: str
+    evidence_contexts: tuple[tuple[int, str], ...]
+    title: str
+    priority: int
 
 
 def stable_experience_id(
@@ -77,8 +103,8 @@ def _sentences(context: str) -> tuple[str, ...]:
 
 def _qualitative_claim(
     source_path: str,
-    paragraph_index: int,
     context: str,
+    evidence_contexts: tuple[tuple[int, str], ...],
     source_sha256: str,
     experience_id: str,
 ) -> ProfileClaim:
@@ -86,13 +112,14 @@ def _qualitative_claim(
         field="experience_summary",
         normalized_value=" ".join(context.split()),
         status="proposed",
-        evidence=(
+        evidence=tuple(
             EvidenceRef(
                 source_path,
                 paragraph_index,
                 source_sha256,
-                excerpt_sha256(context),
-            ),
+                excerpt_sha256(evidence_context),
+            )
+            for paragraph_index, evidence_context in evidence_contexts
         ),
         verification=ClaimVerification(
             method="direct_source", scope="source excerpt", contribution="observed"
@@ -132,6 +159,110 @@ def _structured_fields(context: str) -> tuple[str, str, tuple[str, ...], tuple[s
     return role, situation, actions, outcomes, competencies
 
 
+def _strip_personal_metrics(text: str) -> str:
+    """Remove unverified personal metrics from qualitative block fields.
+
+    Numeric claims remain separate proposed claims and therefore cannot become
+    submission evidence without their own verification.  This also prevents a
+    confirmed qualitative summary from smuggling a D4-required number into the
+    rigorous frozen packet.
+    """
+    cleaned = PERSONAL_METRIC.sub("", text)
+    cleaned = re.sub(r"\s+([,.])", r"\1", cleaned)
+    return " ".join(cleaned.split()).strip(" ·,;:-")
+
+
+def _complete_block_sentence(text: str) -> bool:
+    return bool(re.search(r"[.!?。]$", text)) and not text.lower().endswith("vs.")
+
+
+def _reassemble_block_parts(
+    paragraphs: tuple[str, ...], body_start: int, end: int
+) -> tuple[tuple[tuple[int, str], ...], str]:
+    """Join layout-driven line wraps while preserving explicit bullet boundaries."""
+    evidence_contexts: list[tuple[int, str]] = []
+    sentences: list[str] = []
+    buffer = ""
+
+    def flush() -> None:
+        nonlocal buffer
+        if buffer:
+            sentences.append(buffer.rstrip(".!?。") + ".")
+            buffer = ""
+
+    for index in range(body_start, end):
+        original = " ".join(paragraphs[index].split())
+        if not original:
+            continue
+        section_match = BLOCK_SECTION.match(original)
+        explicit_bullet = original.startswith("✅") and section_match is None
+        if section_match or explicit_bullet:
+            flush()
+        cleaned = BLOCK_SECTION.sub("", original)
+        cleaned = re.sub(r"^✅\s*", "", cleaned).strip()
+        cleaned = _strip_personal_metrics(cleaned)
+        if not cleaned:
+            continue
+        evidence_contexts.append((index, original))
+        if buffer and _complete_block_sentence(buffer):
+            flush()
+        buffer = f"{buffer} {cleaned}".strip() if buffer else cleaned
+    flush()
+    return tuple(evidence_contexts), " ".join(sentences)
+
+
+def _experience_blocks(
+    paragraphs: tuple[str, ...],
+) -> tuple[tuple[int, str, tuple[tuple[int, str], ...], str], ...]:
+    """Recover authored experience sections split across DOCX paragraphs.
+
+    The source documents use headings such as ``2️⃣`` and ``🔹 4.`` followed by
+    STAR labels or bullet lines.  The general extractor deliberately preserves
+    those paragraph boundaries, so this builder layer groups only explicitly
+    marked sections and leaves ordinary adjacent paragraphs independent.
+    """
+    starts = [
+        index for index, paragraph in enumerate(paragraphs)
+        if BLOCK_HEADING.match(paragraph.strip())
+    ]
+    blocks: list[tuple[int, str, tuple[tuple[int, str], ...], str]] = []
+    for position, start in enumerate(starts):
+        hard_end = starts[position + 1] if position + 1 < len(starts) else len(paragraphs)
+        end = hard_end
+        for index in range(start + 1, hard_end):
+            if BLOCK_END.match(paragraphs[index].strip()):
+                end = index
+                break
+
+        title_parts: list[str] = []
+        body_start = start
+        for index in range(start, end):
+            text = " ".join(paragraphs[index].split())
+            if index > start and (text.startswith("✅") or BLOCK_SECTION.match(text)):
+                body_start = index
+                break
+            title_parts.append(text)
+            body_start = index + 1
+        title = " ".join(title_parts).strip()
+        body = paragraphs[body_start:end]
+        is_star = not title.startswith("🔹")
+        has_star_sections = any(BLOCK_SECTION.match(item.strip()) for item in body)
+        bullet_count = sum(item.strip().startswith("✅") for item in body)
+        if (is_star and not has_star_sections) or (not is_star and bullet_count < 2):
+            continue
+
+        evidence_contexts, context = _reassemble_block_parts(
+            paragraphs, body_start, end
+        )
+        if (
+            evidence_contexts
+            and 30 <= len(context) <= MAX_EXPERIENCE_BLOCK_LENGTH
+            and any(cue in context for cue in EXPERIENCE_CUES)
+        ):
+            blocks.append((start, title, tuple(evidence_contexts), context))
+    return tuple(blocks)
+
+
 def build_proposed_ledger(
     workspace_root: Path, documents: list[ExtractedDocument]
 ) -> ExperienceLedger:
@@ -166,9 +297,43 @@ def build_proposed_ledger(
         grouped[(claim.source_path, claim.paragraph_index)].append(claim)
 
     contexts: dict[tuple[str, int], str] = {}
+    block_candidates: list[_ExperienceCandidate] = []
+    covered: set[tuple[str, int]] = set()
     for document in evidence_documents:
+        claims_by_paragraph = {
+            paragraph_index: tuple(grouped.get((document.source.relative_path, paragraph_index), ()))
+            for paragraph_index in range(len(document.paragraphs))
+        }
+        for start, title, evidence_contexts, context in _experience_blocks(document.paragraphs):
+            indexes = {index for index, _ in evidence_contexts}
+            indexes.add(start)
+            covered.update((document.source.relative_path, index) for index in indexes)
+            block_claims = tuple(
+                claim
+                for index in sorted(indexes)
+                for claim in claims_by_paragraph.get(index, ())
+            )
+            role, _, actions, outcomes, _ = _structured_fields(context)
+            block_candidates.append(
+                _ExperienceCandidate(
+                    source_path=document.source.relative_path,
+                    paragraph_index=start,
+                    claims=block_claims,
+                    context=context,
+                    evidence_contexts=evidence_contexts,
+                    title=title or f"{Path(document.source.relative_path).stem} 경험",
+                    priority=(
+                        BLOCK_PRIORITY_BONUS
+                        + len(actions) * 3
+                        + len(outcomes) * 3
+                        + int(bool(role))
+                    ),
+                )
+            )
         for paragraph_index, paragraph in enumerate(document.paragraphs):
             context = " ".join(paragraph.split())
+            if (document.source.relative_path, paragraph_index) in covered:
+                continue
             if 30 <= len(context) <= 1000 and any(
                 cue in context for cue in EXPERIENCE_CUES
             ):
@@ -176,8 +341,12 @@ def build_proposed_ledger(
                 contexts[key] = context
                 grouped.setdefault(key, [])
 
-    candidates: dict[str, list[tuple[int, int, list[FactClaim], str]]] = defaultdict(list)
+    candidates: dict[str, list[_ExperienceCandidate]] = defaultdict(list)
+    for candidate in block_candidates:
+        candidates[candidate.source_path].append(candidate)
     for (source_path, paragraph_index), claims in grouped.items():
+        if (source_path, paragraph_index) in covered:
+            continue
         context = claims[0].context if claims else contexts[(source_path, paragraph_index)]
         role, situation, actions, outcomes, _ = _structured_fields(context)
         priority = (
@@ -187,19 +356,34 @@ def build_proposed_ledger(
             + int("했습니다" in context or "하였다" in context) * 2
             + int(bool(role))
         )
-        candidates[source_path].append((priority, paragraph_index, claims, context))
+        candidates[source_path].append(
+            _ExperienceCandidate(
+                source_path=source_path,
+                paragraph_index=paragraph_index,
+                claims=tuple(claims),
+                context=context,
+                evidence_contexts=((paragraph_index, context),),
+                title=f"{Path(source_path).stem} 문단 {paragraph_index + 1}",
+                priority=priority,
+            )
+        )
 
-    selected: list[tuple[str, int, list[FactClaim], str]] = []
+    selected: list[_ExperienceCandidate] = []
     for source_path, entries in candidates.items():
         selected.extend(
-            (source_path, paragraph_index, claims, context)
-            for _, paragraph_index, claims, context in sorted(
-                entries, key=lambda item: (-item[0], item[1])
+            sorted(
+                entries, key=lambda item: (-item.priority, item.paragraph_index)
             )[:MAX_PROPOSED_EXPERIENCES_PER_SOURCE]
         )
 
     experiences: list[Experience] = []
-    for source_path, paragraph_index, claims, context in sorted(selected):
+    for candidate in sorted(
+        selected, key=lambda item: (item.source_path, item.paragraph_index)
+    ):
+        source_path = candidate.source_path
+        paragraph_index = candidate.paragraph_index
+        claims = candidate.claims
+        context = candidate.context
         tokens = (
             frozenset().union(*(claim.tokens for claim in claims))
             if claims
@@ -207,26 +391,29 @@ def build_proposed_ledger(
         )
         role, situation, actions, outcomes, competencies = _structured_fields(context)
         experience_id = stable_experience_id(source_path, paragraph_index, tokens)
-        profile_claims = (
-            tuple(
-                _profile_claim(claim, source_hashes[source_path], experience_id)
-                for claim in claims
-            )
-            if claims
-            else (
+        is_block = len(candidate.evidence_contexts) > 1 or candidate.title != (
+            f"{Path(source_path).stem} 문단 {paragraph_index + 1}"
+        )
+        profile_claims = tuple(
+            [
                 _qualitative_claim(
                     source_path,
-                    paragraph_index,
                     context,
+                    candidate.evidence_contexts,
                     source_hashes[source_path],
                     experience_id,
-                ),
-            )
+                )
+            ]
+            if is_block or not claims
+            else []
+        ) + tuple(
+            _profile_claim(claim, source_hashes[source_path], experience_id)
+            for claim in claims
         )
         experiences.append(
             Experience(
                 experience_id=experience_id,
-                title=f"{Path(source_path).stem} 문단 {paragraph_index + 1}",
+                title=candidate.title,
                 organization_alias="",
                 period=None,
                 role=role,

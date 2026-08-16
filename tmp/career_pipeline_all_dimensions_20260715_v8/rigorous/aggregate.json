@@ -1,0 +1,192 @@
+{
+  "ranking": [
+    {
+      "candidate_id": "C723BF51F",
+      "hard_fail": false,
+      "review_required": true,
+      "median_total": 96.0,
+      "minimum_total": 95,
+      "median_core": 43.5,
+      "judge_spread": 3
+    },
+    {
+      "candidate_id": "CC864EEB2",
+      "hard_fail": false,
+      "review_required": true,
+      "median_total": 95.5,
+      "minimum_total": 94,
+      "median_core": 42.5,
+      "judge_spread": 3
+    },
+    {
+      "candidate_id": "C9236705E",
+      "hard_fail": false,
+      "review_required": true,
+      "median_total": 95.0,
+      "minimum_total": 92,
+      "median_core": 43.0,
+      "judge_spread": 4
+    },
+    {
+      "candidate_id": "C1B9AC0C4",
+      "hard_fail": false,
+      "review_required": true,
+      "median_total": 95.0,
+      "minimum_total": 93,
+      "median_core": 42.5,
+      "judge_spread": 5
+    },
+    {
+      "candidate_id": "C02ABDDFB",
+      "hard_fail": false,
+      "review_required": true,
+      "median_total": 94.0,
+      "minimum_total": 94,
+      "median_core": 43.0,
+      "judge_spread": 0
+    },
+    {
+      "candidate_id": "C82D3330D",
+      "hard_fail": false,
+      "review_required": true,
+      "median_total": 94.0,
+      "minimum_total": 92,
+      "median_core": 42.5,
+      "judge_spread": 3
+    }
+  ],
+  "agreed_weaknesses": [
+    "generic_voice"
+  ],
+  "agreed_transferable_elements": [
+    {
+      "question": "1",
+      "element_type": "experience",
+      "exact_element": "같은 데이터를 기존 엑셀 수식과 외주 프로그램에 각각 입력해 결과를 비교한 뒤, 결과 비교 분석 보고서를 작성해 팀장에게 보고한 경험",
+      "reason": "자료 대조, 오류 확인, 보고 행동이 보증 기한연장·상시관리 보조 업무와 전이 가능하다.",
+      "fact_ids": [
+        "clm_3e69991c9b56d728b429",
+        "exp_9e97f274590a323b",
+        "kodit-intern-duty-20260711"
+      ],
+      "judge_count": 3
+    },
+    {
+      "question": "1",
+      "element_type": "experience",
+      "exact_element": "같은 데이터를 입력한 뒤 결과 비교 분석 보고서를 작성해 팀장에게 보고한 경험",
+      "reason": "결과 차이를 추정하지 않고 근거로 대조·공유한 행동이 보증 업무 보조에 적합하다.",
+      "fact_ids": [
+        "clm_3e69991c9b56d728b429",
+        "exp_9e97f274590a323b",
+        "kodit-intern-duty-20260711"
+      ],
+      "judge_count": 2
+    },
+    {
+      "question": "1",
+      "element_type": "experience",
+      "exact_element": "기존 엑셀 수식과 외주 프로그램에 동일한 데이터를 넣어 결과를 비교한 분석 보고서를 작성하고 팀장에게 보고한 경험",
+      "reason": "대조, 누락 점검, 근거 보고가 보증 업무 보조와 직접 연결된다.",
+      "fact_ids": [
+        "clm_3e69991c9b56d728b429",
+        "exp_9e97f274590a323b",
+        "kodit-intern-duty-20260711"
+      ],
+      "judge_count": 3
+    },
+    {
+      "question": "1",
+      "element_type": "experience",
+      "exact_element": "동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 각각 입력해 결과를 비교하고 분석 보고서를 작성해 팀장에게 보고한 경험",
+      "reason": "원자료와 처리 결과 대조, 차이 기록, 담당자 보고 계획과 직접 연결된다.",
+      "fact_ids": [
+        "clm_3e69991c9b56d728b429",
+        "exp_9e97f274590a323b",
+        "kodit-intern-duty-20260711"
+      ],
+      "judge_count": 2
+    },
+    {
+      "question": "1",
+      "element_type": "experience",
+      "exact_element": "동일한 데이터를 넣어 결과를 비교한 뒤 분석 보고서를 작성해 팀장에게 보고한 경험",
+      "reason": "자료 대조와 보고 행위가 보증 분야 인턴의 확인 업무와 연결된다.",
+      "fact_ids": [
+        "clm_3e69991c9b56d728b429",
+        "exp_9e97f274590a323b",
+        "kodit-intern-duty-20260711"
+      ],
+      "judge_count": 2
+    },
+    {
+      "question": "2",
+      "element_type": "experience",
+      "exact_element": "과거 데이터를 분석해 지역 기반이 탄탄한 중장년층으로 주요 대상을 재설정한 경험",
+      "reason": "기존 가정을 자료로 점검하고 조직 기준에 맞추려는 태도 근거로 제한적으로 전이 가능하다.",
+      "fact_ids": [
+        "clm_2bfba21afb61776d752b",
+        "exp_638228200e37de69"
+      ],
+      "judge_count": 3
+    },
+    {
+      "question": "3",
+      "element_type": "experience",
+      "exact_element": "기초연금 지급에 필요한 자료를 체계적으로 분류해 정리한 경험",
+      "reason": "자료 유형 구분, 처리 상태 기록, 담당자 보고 계획과 연결된다.",
+      "fact_ids": [
+        "clm_88cfeab230789e5b0d5f",
+        "exp_151ae891bd2719ad",
+        "kodit-intern-duty-20260711"
+      ],
+      "judge_count": 2
+    },
+    {
+      "question": "3",
+      "element_type": "experience",
+      "exact_element": "많은 자료를 체계적으로 분류해 정리하고 기초연금 지급 절차를 보조한 경험",
+      "reason": "자료 분류와 처리 보조 행동이 기한연장·상시관리 자료 확인 계획과 연결된다.",
+      "fact_ids": [
+        "clm_88cfeab230789e5b0d5f",
+        "exp_151ae891bd2719ad",
+        "kodit-intern-duty-20260711"
+      ],
+      "judge_count": 3
+    },
+    {
+      "question": "3",
+      "element_type": "experience",
+      "exact_element": "많은 자료를 체계적으로 분류해 정리한 경험",
+      "reason": "완료·보완 필요·담당자 판단 필요 상태를 나누는 업무수행계획과 연결된다.",
+      "fact_ids": [
+        "clm_88cfeab230789e5b0d5f",
+        "exp_151ae891bd2719ad",
+        "kodit-intern-duty-20260711"
+      ],
+      "judge_count": 3
+    },
+    {
+      "question": "3",
+      "element_type": "experience",
+      "exact_element": "자료를 체계적으로 분류해 정리한 경험",
+      "reason": "자료 항목 구분과 처리 상태 기록 계획에 전이 가능하지만 구체성은 약하다.",
+      "fact_ids": [
+        "clm_88cfeab230789e5b0d5f",
+        "exp_151ae891bd2719ad",
+        "kodit-intern-duty-20260711"
+      ],
+      "judge_count": 2
+    },
+    {
+      "question": "4",
+      "element_type": "research_claim",
+      "exact_element": "높은 환율 변동성과 중동지역 리스크, 14조원 한도의 중소기업 한시 특별지원 운용기간 재연장",
+      "reason": "최근 이슈 선택의 근거가 확인된 공식 claim에 있다.",
+      "fact_ids": [
+        "bok-fx-risk-20260711"
+      ],
+      "judge_count": 2
+    }
+  ]
+}

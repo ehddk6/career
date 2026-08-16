@@ -1,0 +1,11 @@
+{
+  "enabled": true,
+  "contract_version": "2026-07-15",
+  "data_package_id": "CAREER-DATA-ABCDEF123456",
+  "data_package_version": "1.0",
+  "company_path": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\smoke\\d4-pass\\04_기업직무조사.json",
+  "interview_path": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\smoke\\d4-pass\\08_면접대비팩.json",
+  "hard_fail": false,
+  "review_required": false,
+  "issues": []
+}

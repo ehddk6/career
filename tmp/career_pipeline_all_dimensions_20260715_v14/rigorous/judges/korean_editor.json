@@ -1,0 +1,262 @@
+{
+  "data_package_id": "CAREER-DATA-F9C8B89D27FE",
+  "data_package_version": "2.0",
+  "judge_mode": "KOREAN_EDITOR",
+  "evaluations": [
+    {
+      "candidate_id": "C23F25003",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "semantic: 일부 문항에서 확인·기록·대조 표현이 반복되어 지원자 고유성이 약해질 수 있음",
+        "semantic: Q4는 논리와 근거는 충분하나 길이가 길고 후반부가 다소 반복적이라 구술 자연성이 일부 떨어짐"
+      ],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 15,
+        "job_relevance": 11,
+        "company_specificity": 9,
+        "action_specificity": 12,
+        "experience_allocation": 8,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 4,
+        "korean_readability": 7,
+        "applicant_distinctiveness": 7,
+        "length_and_format": 1
+      },
+      "total": 96,
+      "weakness_codes": [
+        "spoken_answer_risk",
+        "korean_style",
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience_to_role_bridge",
+          "exact_element": "기존 엑셀 수식과 외주 프로그램에 동일한 데이터를 넣어 결과를 비교하고 분석 보고서를 작성해 보고한 경험을 자료와 전산값 대조, 변동·누락·예외 기록으로 연결함",
+          "reason": "확인·대조·보고 행동이 보증 기한연장·기업신용 상시관리 보조 업무와 직접 연결됨",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429",
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "execution_sequence",
+          "exact_element": "기준·자료 흐름·보고 체계를 익힌 뒤 출처, 처리 단계, 확인 필요 사항을 표시하고 전산값과 원자료를 반복 점검하겠다는 계획",
+          "reason": "초기 학습, 실행, 점검 순서가 문항 요구와 공고 업무에 맞음",
+          "fact_ids": [
+            "kodit-intern-duty-20260711",
+            "clm_3e69991c9b56d728b429",
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "issue_reasoning",
+          "exact_element": "환율 변동의 영향을 수입기업과 수출기업으로 나누고, 유동성 압박과 상환 가능성을 함께 확인해야 한다고 설명함",
+          "reason": "검증된 환율 리스크와 협약보증 근거를 정책금융 지원 논리로 연결함",
+          "fact_ids": [
+            "bok-fx-risk-20260711",
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "KOREAN_EDITOR"
+    },
+    {
+      "candidate_id": "C326E9A26",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "semantic: Q4에서 safe_claims에는 있는 보증 구조·심사 요소·보증료 구조를 폭넓게 사용하지만 candidate research_refs에는 일부만 적혀 있어 근거 매핑 검토 필요",
+        "semantic: 전체적으로 안정적이나 Q1·Q3의 경험 서술이 압축되어 지원자 차별성이 다소 약함"
+      ],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 14,
+        "job_relevance": 11,
+        "company_specificity": 10,
+        "action_specificity": 11,
+        "experience_allocation": 7,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 4,
+        "korean_readability": 7,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 1
+      },
+      "total": 93,
+      "weakness_codes": [
+        "fact_risk",
+        "generic_voice",
+        "spoken_answer_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "role_understanding",
+          "exact_element": "보증이 기업의 자금융통을 돕는 동시에 신용질서를 지키는 일이라고 이해하고, 원자료·처리 결과·보고 내용 확인 태도로 연결함",
+          "reason": "기관 역할과 개인 경험의 확인 행동이 함께 제시됨",
+          "fact_ids": [
+            "CLM-COMP-001",
+            "kodit-role-20260711",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "adaptation_behavior",
+          "exact_element": "지시사항, 제출기한, 확인자료, 보고대상을 한 줄씩 정리하고 모호한 부분은 한꺼번에 질문하겠다는 방식",
+          "reason": "조직 적응 태도가 실제 근무 행동으로 구체화됨",
+          "fact_ids": [
+            "clm_1476776eb88306fe8fc1",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "risk_control_logic",
+          "exact_element": "보증은 기업의 부담을 없애는 제도가 아니라 채권자의 신용위험 일부를 기금으로 이전해 자금조달을 돕는 구조라고 설명함",
+          "reason": "정책금융 지원 방안과 유의점을 보증 구조의 한계와 연결함",
+          "fact_ids": [
+            "CLM-COMP-012",
+            "bok-fx-risk-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "KOREAN_EDITOR"
+    },
+    {
+      "candidate_id": "C63FA4540",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "semantic: Q3의 신용조사 자료 관련 회사 claim은 safe_claims에 있으나 candidate research_refs에는 직접 표시되지 않아 근거 표기 검토 필요",
+        "semantic: Q4는 안전하고 균형 잡혔지만 결론부가 다소 일반론적이며 개인 역할 연결이 약함"
+      ],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 14,
+        "job_relevance": 11,
+        "company_specificity": 10,
+        "action_specificity": 11,
+        "experience_allocation": 7,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 5,
+        "korean_readability": 8,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 1
+      },
+      "total": 95,
+      "weakness_codes": [
+        "fact_risk",
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "motivation_fit",
+          "exact_element": "자료 확인과 신용관리라는 실무의 정확성이 요구되는 역할에 관심이 있다고 지원 동기를 제시함",
+          "reason": "지원 동기가 기관 역할과 인턴 주요업무에 직접 연결됨",
+          "fact_ids": [
+            "kodit-role-20260711",
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "spoken_strength",
+          "exact_element": "빠르게 익숙해지는 것보다 잘못 익숙해지지 않는 것이 실제 근무에서는 더 중요하다고 봅니다.",
+          "reason": "조직 적응 태도가 짧고 자연스럽게 드러나며 면접 답변으로도 방어 가능함",
+          "fact_ids": [
+            "clm_1476776eb88306fe8fc1",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "work_plan",
+          "exact_element": "자료명, 기준일, 누락 여부, 전산 반영 상태를 체크하는 표를 만들겠다는 계획",
+          "reason": "인턴 권한을 넘지 않으면서 확인·대조 업무를 구체화함",
+          "fact_ids": [
+            "kodit-intern-duty-20260711",
+            "CLM-COMP-005",
+            "clm_3e69991c9b56d728b429"
+          ]
+        }
+      ],
+      "judge_mode": "KOREAN_EDITOR"
+    },
+    {
+      "candidate_id": "CA61EE459",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "semantic: Q2의 과거 데이터 경험은 defensible_with_qualification 성격이므로 면접에서 수치·기준값 질문이 나오면 방어 부담이 있음",
+        "semantic: Q4 후반의 '그 선이 핵심입니다'는 구술감은 있으나 자기소개서 문체에서는 다소 단정적이고 압축된 결말임"
+      ],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 15,
+        "job_relevance": 10,
+        "company_specificity": 9,
+        "action_specificity": 11,
+        "experience_allocation": 7,
+        "interview_defensibility": 7,
+        "spoken_defensibility": 4,
+        "korean_readability": 7,
+        "applicant_distinctiveness": 7,
+        "length_and_format": 1
+      },
+      "total": 92,
+      "weakness_codes": [
+        "interview_risk",
+        "spoken_answer_risk",
+        "korean_style",
+        "job_gap"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience_to_action",
+          "exact_element": "같은 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과를 비교하고 분석 보고서를 작성한 경험을 원자료와 전산값 차이·누락·예외 기록으로 연결함",
+          "reason": "확인·대조 경험이 인턴 보조 행동으로 무리 없이 전환됨",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429",
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "authority_boundary",
+          "exact_element": "최종 판단은 담당자의 권한임을 분명히 알고, 저는 정확한 확인과 전달로 업무 흐름을 늦추지 않는 인턴이 되겠습니다.",
+          "reason": "인턴 권한과 담당자 판단을 구분해 interview_defensibility가 높음",
+          "fact_ids": [
+            "kodit-intern-duty-20260711",
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "balanced_policy_view",
+          "exact_element": "지원 필요성과 신용위험을 함께 보고, 일시적 어려움과 구조적 상환능력 약화를 구분해야 한다고 설명함",
+          "reason": "환율 이슈와 정책금융의 지원·위험통제 균형을 제시함",
+          "fact_ids": [
+            "bok-fx-risk-20260711",
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "KOREAN_EDITOR"
+    }
+  ]
+}

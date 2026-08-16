@@ -1,0 +1,39 @@
+{
+    "schema_version":  1,
+    "step":  "STEP_3",
+    "run_id":  "CR-20260715-1539",
+    "company_data_package_id":  "CR-DATA-001",
+    "checked_at":  "2026-07-15T17:30:00+09:00",
+    "sources":  [
+                    {
+                        "source_id":  "SRC-018",
+                        "title":  "조직 안내",
+                        "publisher":  "신용보증기금",
+                        "source_type":  "OFFICIAL_WEB",
+                        "grade":  "A2",
+                        "url":  "https://www.kodit.or.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11149\u0026mi=2456",
+                        "access_status":  "VERIFIED",
+                        "evidence_locator":  "조직도 및 조직·직원안내"
+                    },
+                    {
+                        "source_id":  "SRC-019",
+                        "title":  "보증서 발급",
+                        "publisher":  "신용보증기금",
+                        "source_type":  "OFFICIAL_WEB",
+                        "grade":  "A2",
+                        "url":  "https://www.kodit.or.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11070\u0026mi=2529",
+                        "access_status":  "VERIFIED",
+                        "evidence_locator":  "약정체결과 보증서 발급·보증료"
+                    },
+                    {
+                        "source_id":  "SRC-020",
+                        "title":  "개요 및 연혁",
+                        "publisher":  "신용보증기금",
+                        "source_type":  "OFFICIAL_WEB",
+                        "grade":  "A2",
+                        "url":  "https://www.kodit.or.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11146\u0026mi=2450",
+                        "access_status":  "VERIFIED",
+                        "evidence_locator":  "주요 사업 및 연혁"
+                    }
+                ]
+}

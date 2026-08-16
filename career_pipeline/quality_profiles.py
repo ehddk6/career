@@ -68,11 +68,11 @@ QUALITY_PROFILES: dict[QualityProfileName, QualityProfile] = {
             "KOREAN_EDITOR",
             "INTERVIEW_COACH",
         ),
-        # 후보 6 + 후보별 복구 최대 12 + 심사 4 + 최종 정제·복구 8 + 비교 1
-        max_selection_calls=31,
+        # 후보 6 + 후보별 복구 최대 12 + 심사 4 + 최종 정제·복구 17 + 비교 1
+        max_selection_calls=40,
         selection_mode="rigorous",
         candidate_repair_attempts=2,
-        synthesis_repair_attempts=7,
+        synthesis_repair_attempts=16,
     ),
 }
 

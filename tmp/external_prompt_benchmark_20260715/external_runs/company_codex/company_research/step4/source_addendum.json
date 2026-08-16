@@ -1,0 +1,69 @@
+{
+    "schema_version":  1,
+    "step":  "STEP_4",
+    "run_id":  "CR-20260715-1539",
+    "company_data_package_id":  "CR-DATA-001",
+    "checked_at":  "2026-07-15T18:20:00+09:00",
+    "sources":  [
+                    {
+                        "source_id":  "SRC-021",
+                        "title":  "중장기 경영목표(2025~2029년)",
+                        "publisher":  "신용보증기금·ALIO",
+                        "source_type":  "OFFICIAL_DISCLOSURE",
+                        "grade":  "A1",
+                        "url":  "https://www.alio.go.kr/upload/disclosure/2024/11/11/2024111102898479/doc.html",
+                        "access_status":  "VERIFIED",
+                        "evidence_locator":  "경영목표 및 전략"
+                    },
+                    {
+                        "source_id":  "SRC-022",
+                        "title":  "신용보증현황",
+                        "publisher":  "신용보증기금",
+                        "source_type":  "OFFICIAL_DISCLOSURE",
+                        "grade":  "A2",
+                        "url":  "https://www.kodit.or.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11264\u0026mi=2896",
+                        "access_status":  "VERIFIED",
+                        "evidence_locator":  "2026-03-31 기준 보증잔액·공급현황"
+                    },
+                    {
+                        "source_id":  "SRC-023",
+                        "title":  "2,690억 원 규모 유동화수익증권 첫 직접 발행",
+                        "publisher":  "신용보증기금",
+                        "source_type":  "OFFICIAL_PRESS_RELEASE",
+                        "grade":  "A2",
+                        "url":  "https://www.kodit.or.kr/kodit/na/ntt/selectNttInfo.do?bbsId=47\u0026mi=2639\u0026nttSn=4899880",
+                        "access_status":  "VERIFIED",
+                        "evidence_locator":  "2026-07-02 보도자료"
+                    },
+                    {
+                        "source_id":  "SRC-024",
+                        "title":  "ETRI 사업화 유망기술 설명회",
+                        "publisher":  "신용보증기금",
+                        "source_type":  "OFFICIAL_PRESS_RELEASE",
+                        "grade":  "A2",
+                        "url":  "https://www.kodit.or.kr/kodit/na/ntt/selectNttInfo.do?bbsId=47\u0026mi=2639\u0026nttSn=4899954",
+                        "access_status":  "VERIFIED",
+                        "evidence_locator":  "2026-07-02 보도자료"
+                    },
+                    {
+                        "source_id":  "SRC-025",
+                        "title":  "서울대학교 AI연구원 업무협약",
+                        "publisher":  "신용보증기금",
+                        "source_type":  "OFFICIAL_PRESS_RELEASE",
+                        "grade":  "A2",
+                        "url":  "https://www.kodit.or.kr/kodit/na/ntt/selectNttInfo.do?bbsId=47\u0026mi=2639\u0026nttSn=4886656",
+                        "access_status":  "VERIFIED",
+                        "evidence_locator":  "2026-06-29 보도자료"
+                    },
+                    {
+                        "source_id":  "SRC-026",
+                        "title":  "산업기반신용보증 2025 실적 및 2026 계획",
+                        "publisher":  "신용보증기금",
+                        "source_type":  "OFFICIAL_DISCLOSURE",
+                        "grade":  "A2",
+                        "url":  "https://www.kodit.or.kr/kodit/cm/cntnts/cntntsView.do?cntntsId=11370\u0026mi=2806",
+                        "access_status":  "VERIFIED",
+                        "evidence_locator":  "2025 실적·2026 보증공급 목표"
+                    }
+                ]
+}

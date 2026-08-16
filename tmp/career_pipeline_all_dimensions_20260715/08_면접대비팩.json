@@ -1,0 +1,1962 @@
+{
+  "schema_version": 2,
+  "contract_version": "2026-07-15",
+  "data_package_id": "CAREER-DATA-585CEFB0E812",
+  "data_package_version": "2.0",
+  "submitted_claims": [
+    {
+      "question_index": 1,
+      "experience_ids": [
+        "exp_62e53382afe2a2b7"
+      ],
+      "experience_claim_ids": [
+        "clm_0ab71c1aab141b099564"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711",
+        "kodit-role-20260711"
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "question_index": 2,
+      "experience_ids": [
+        "exp_9e97f274590a323b"
+      ],
+      "experience_claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "research_claim_ids": [],
+      "status": "CONFIRMED"
+    },
+    {
+      "question_index": 3,
+      "experience_ids": [
+        "exp_151ae891bd2719ad"
+      ],
+      "experience_claim_ids": [
+        "clm_88cfeab230789e5b0d5f"
+      ],
+      "research_claim_ids": [
+        "kodit-intern-duty-20260711"
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "question_index": 4,
+      "experience_ids": [],
+      "experience_claim_ids": [],
+      "research_claim_ids": [
+        "bok-fx-risk-20260711",
+        "kodit-liquidity-support-20260711"
+      ],
+      "status": "CONFIRMED"
+    }
+  ],
+  "document_consistency": [
+    {
+      "item": "자기소개서 경험·수치·기관·직무 참조",
+      "status": "CONSISTENT",
+      "response_strategy": "최종 동결 draft와 경험·공식 근거 ID를 기준으로 답변한다."
+    }
+  ],
+  "interview_architecture": {
+    "stage": {
+      "value": "공식 공고에서 확인되지 않음",
+      "status": "UNKNOWN",
+      "evidence": "동결된 공고에 명시 없음"
+    },
+    "format": {
+      "value": "공식 공고에서 확인되지 않음",
+      "status": "UNKNOWN",
+      "evidence": "동결된 공고에 명시 없음"
+    },
+    "duration": {
+      "value": "공식 공고에서 확인되지 않음",
+      "status": "UNKNOWN",
+      "evidence": "동결된 공고에 명시 없음"
+    },
+    "panel": {
+      "value": "공식 공고에서 확인되지 않음",
+      "status": "UNKNOWN",
+      "evidence": "동결된 공고에 명시 없음"
+    },
+    "presentation": {
+      "value": "공식 공고에서 확인되지 않음",
+      "status": "UNKNOWN",
+      "evidence": "동결된 공고에 명시 없음"
+    },
+    "case": {
+      "value": "공식 공고에서 확인되지 않음",
+      "status": "UNKNOWN",
+      "evidence": "동결된 공고에 명시 없음"
+    },
+    "group_discussion": {
+      "value": "공식 공고에서 확인되지 않음",
+      "status": "UNKNOWN",
+      "evidence": "동결된 공고에 명시 없음"
+    }
+  },
+  "competencies": [
+    {
+      "competency_id": "accuracy",
+      "definition": "근거와 기준을 대조해 오류·누락을 줄이는 역량",
+      "observable_behaviors": [
+        "원자료 대조",
+        "예외 기록",
+        "재점검"
+      ]
+    },
+    {
+      "competency_id": "communication",
+      "definition": "진행 상태와 판단이 필요한 사항을 제때 공유하는 역량",
+      "observable_behaviors": [
+        "질문 묶음 정리",
+        "진행 보고",
+        "인계 기록"
+      ]
+    },
+    {
+      "competency_id": "boundary",
+      "definition": "권한과 확인되지 않은 범위를 구분하는 역량",
+      "observable_behaviors": [
+        "추정과 사실 구분",
+        "승인 요청",
+        "한계 설명"
+      ]
+    },
+    {
+      "competency_id": "adaptation",
+      "definition": "피드백을 업무 기준과 반복 행동으로 바꾸는 역량",
+      "observable_behaviors": [
+        "업무 용어 정리",
+        "피드백 체크리스트",
+        "재발 방지"
+      ]
+    }
+  ],
+  "experience_defense": [
+    {
+      "experience_id": "exp_151ae891bd2719ad",
+      "depth": "D3",
+      "claim_ids": [
+        "clm_88cfeab230789e5b0d5f"
+      ],
+      "direct_actions": [
+        "특히, 3000페이지 분량의 자료를 체계적으로 분류하여 2일 만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다."
+      ],
+      "judgment_standards": [
+        "원자료와 처리 결과의 일치 여부",
+        "기한·정확성·보고 필요성을 함께 확인"
+      ],
+      "limitations": [
+        "최종 판단·승인 권한과 본인의 보조 행동을 구분해 설명"
+      ]
+    },
+    {
+      "experience_id": "exp_15de74c62f22355b",
+      "depth": "D3",
+      "claim_ids": [
+        "clm_8857e4948ec099d1bbda"
+      ],
+      "direct_actions": [
+        "의료진에게 모든 상황을 설명하여 숙박비를 제공할 수 없다고 통보하여 최소 40% 예산 절감을 했습니다."
+      ],
+      "judgment_standards": [
+        "원자료와 처리 결과의 일치 여부",
+        "기한·정확성·보고 필요성을 함께 확인"
+      ],
+      "limitations": [
+        "최종 판단·승인 권한과 본인의 보조 행동을 구분해 설명"
+      ]
+    },
+    {
+      "experience_id": "exp_22d1df6407915aa2",
+      "depth": "D3",
+      "claim_ids": [
+        "clm_1476776eb88306fe8fc1"
+      ],
+      "direct_actions": [
+        "예를 들어, 학업이나 업무가 주어졌을 때 마감 기한을 정해놓고 남은 날짜를 디데이 설정하거나 일일계획 목표를 설정하고 컴퓨터나 핸드폰 달력, 노트에 기재하여 최소한 목표달성도 70% 달성하기 위해 노력합니다."
+      ],
+      "judgment_standards": [
+        "원자료와 처리 결과의 일치 여부",
+        "기한·정확성·보고 필요성을 함께 확인"
+      ],
+      "limitations": [
+        "최종 판단·승인 권한과 본인의 보조 행동을 구분해 설명"
+      ]
+    },
+    {
+      "experience_id": "exp_2df35f8fca5e30b8",
+      "depth": "D3",
+      "claim_ids": [
+        "clm_732a31834ac4cb075533"
+      ],
+      "direct_actions": [
+        "급여 지급 프로세스를 개선하여 업무 속도를 30% 향상시켰으며, 제기동 약령시장에서는 SNS 홍보 전략을 도입하여 젊은 층 방문객"
+      ],
+      "judgment_standards": [
+        "원자료와 처리 결과의 일치 여부",
+        "기한·정확성·보고 필요성을 함께 확인"
+      ],
+      "limitations": [
+        "최종 판단·승인 권한과 본인의 보조 행동을 구분해 설명"
+      ]
+    },
+    {
+      "experience_id": "exp_2e966c8ac3146a5b",
+      "depth": "D3",
+      "claim_ids": [
+        "clm_41fbcc79285f9a15295d"
+      ],
+      "direct_actions": [
+        "3000페이지에 달하는 방대한 서류 정리 업무를 2일 만에 완료하며 연금 지급 절차가 차질"
+      ],
+      "judgment_standards": [
+        "원자료와 처리 결과의 일치 여부",
+        "기한·정확성·보고 필요성을 함께 확인"
+      ],
+      "limitations": [
+        "최종 판단·승인 권한과 본인의 보조 행동을 구분해 설명"
+      ]
+    },
+    {
+      "experience_id": "exp_2f3b01de2f27fa49",
+      "depth": "D3",
+      "claim_ids": [
+        "clm_54db4e5cfcd51ba5de60"
+      ],
+      "direct_actions": [
+        "기존보다 50% 정도 시간과 인력을 절약할 수 있었으며, 오류율도 90% 정도 감소하였습니다."
+      ],
+      "judgment_standards": [
+        "원자료와 처리 결과의 일치 여부",
+        "기한·정확성·보고 필요성을 함께 확인"
+      ],
+      "limitations": [
+        "최종 판단·승인 권한과 본인의 보조 행동을 구분해 설명"
+      ]
+    },
+    {
+      "experience_id": "exp_2fe7474d7367a89c",
+      "depth": "D3",
+      "claim_ids": [
+        "clm_d96a20fc7a1e1a3caad6"
+      ],
+      "direct_actions": [
+        "30% 증가했고, 조직 내 협업 문화가 개선되었습니다."
+      ],
+      "judgment_standards": [
+        "원자료와 처리 결과의 일치 여부",
+        "기한·정확성·보고 필요성을 함께 확인"
+      ],
+      "limitations": [
+        "최종 판단·승인 권한과 본인의 보조 행동을 구분해 설명"
+      ]
+    },
+    {
+      "experience_id": "exp_3279ca654f7e0e37",
+      "depth": "D3",
+      "claim_ids": [
+        "clm_5e91929d8d87322e2c70"
+      ],
+      "direct_actions": [
+        "과제(Task): 3,000페이지 분량의 서류(지급 결정서, 추납, 분납 자료)를 2일 내에 정리하고 실질적 수급 대상자를 정확히 선별해야 함."
+      ],
+      "judgment_standards": [
+        "원자료와 처리 결과의 일치 여부",
+        "기한·정확성·보고 필요성을 함께 확인"
+      ],
+      "limitations": [
+        "최종 판단·승인 권한과 본인의 보조 행동을 구분해 설명"
+      ]
+    },
+    {
+      "experience_id": "exp_530ddb15c51ca202",
+      "depth": "D3",
+      "claim_ids": [
+        "clm_efe62832626946699c6f"
+      ],
+      "direct_actions": [
+        "결과(Result): 상호 사과와 함께 새로운 수식이 도입되었고, 업무 효율성이 30% 증가함."
+      ],
+      "judgment_standards": [
+        "원자료와 처리 결과의 일치 여부",
+        "기한·정확성·보고 필요성을 함께 확인"
+      ],
+      "limitations": [
+        "최종 판단·승인 권한과 본인의 보조 행동을 구분해 설명"
+      ]
+    },
+    {
+      "experience_id": "exp_5381f510b1fba9e1",
+      "depth": "D3",
+      "claim_ids": [
+        "clm_353c575898c6254492e8"
+      ],
+      "direct_actions": [
+        "엑셀 자동화 도입 → 급여 산정 속도 30% 향상"
+      ],
+      "judgment_standards": [
+        "원자료와 처리 결과의 일치 여부",
+        "기한·정확성·보고 필요성을 함께 확인"
+      ],
+      "limitations": [
+        "최종 판단·승인 권한과 본인의 보조 행동을 구분해 설명"
+      ]
+    },
+    {
+      "experience_id": "exp_5f5d07c267cd544e",
+      "depth": "D3",
+      "claim_ids": [
+        "clm_659f6c459feaf6614272"
+      ],
+      "direct_actions": [
+        "-> 20명 목표 달성 경험"
+      ],
+      "judgment_standards": [
+        "원자료와 처리 결과의 일치 여부",
+        "기한·정확성·보고 필요성을 함께 확인"
+      ],
+      "limitations": [
+        "최종 판단·승인 권한과 본인의 보조 행동을 구분해 설명"
+      ]
+    },
+    {
+      "experience_id": "exp_62e53382afe2a2b7",
+      "depth": "D3",
+      "claim_ids": [
+        "clm_0ab71c1aab141b099564"
+      ],
+      "direct_actions": [
+        "① 상인 50명 인터뷰, 타 시장 비교 분석, SNS 마케팅 및 '제기 야시장' 기획"
+      ],
+      "judgment_standards": [
+        "원자료와 처리 결과의 일치 여부",
+        "기한·정확성·보고 필요성을 함께 확인"
+      ],
+      "limitations": [
+        "최종 판단·승인 권한과 본인의 보조 행동을 구분해 설명"
+      ]
+    },
+    {
+      "experience_id": "exp_638228200e37de69",
+      "depth": "D3",
+      "claim_ids": [
+        "clm_2bfba21afb61776d752b"
+      ],
+      "direct_actions": [
+        "과거 데이터(2040대 신청자 0명)를 분석하여 주 타겟을 지역 기반이 탄탄한 **5070대 중장년층**으로 재설정함."
+      ],
+      "judgment_standards": [
+        "원자료와 처리 결과의 일치 여부",
+        "기한·정확성·보고 필요성을 함께 확인"
+      ],
+      "limitations": [
+        "최종 판단·승인 권한과 본인의 보조 행동을 구분해 설명"
+      ]
+    },
+    {
+      "experience_id": "exp_6841c9278134a4c9",
+      "depth": "D3",
+      "claim_ids": [
+        "clm_ee52e4b4eb158c123a20"
+      ],
+      "direct_actions": [
+        "업무를 수행하는 7일 동안 모집인원이 10명 미만인원이었고 저를 담당하던 공무원분이 좋은 제안을 제시 해달라고 하여 저는 의견을 제시했습니다."
+      ],
+      "judgment_standards": [
+        "원자료와 처리 결과의 일치 여부",
+        "기한·정확성·보고 필요성을 함께 확인"
+      ],
+      "limitations": [
+        "최종 판단·승인 권한과 본인의 보조 행동을 구분해 설명"
+      ]
+    },
+    {
+      "experience_id": "exp_953388b8c6e81104",
+      "depth": "D3",
+      "claim_ids": [
+        "clm_bdbd0d8bf79f5b7efce0"
+      ],
+      "direct_actions": [
+        "① 비효율적인 장르별 정렬을 이용자 친화적(키워드/인기순)으로 개선하여 민원 30% 감소"
+      ],
+      "judgment_standards": [
+        "원자료와 처리 결과의 일치 여부",
+        "기한·정확성·보고 필요성을 함께 확인"
+      ],
+      "limitations": [
+        "최종 판단·승인 권한과 본인의 보조 행동을 구분해 설명"
+      ]
+    },
+    {
+      "experience_id": "exp_97584147111c511b",
+      "depth": "D3",
+      "claim_ids": [
+        "clm_1733610563a37a4780e0"
+      ],
+      "direct_actions": [
+        "목표: 최종 20명달성 목표로 함, 예를 들어 5일이나 7일 100장 or 200장 전단지 돌리기"
+      ],
+      "judgment_standards": [
+        "원자료와 처리 결과의 일치 여부",
+        "기한·정확성·보고 필요성을 함께 확인"
+      ],
+      "limitations": [
+        "최종 판단·승인 권한과 본인의 보조 행동을 구분해 설명"
+      ]
+    },
+    {
+      "experience_id": "exp_9e97f274590a323b",
+      "depth": "D3",
+      "claim_ids": [
+        "clm_3e69991c9b56d728b429"
+      ],
+      "direct_actions": [
+        "기존 엑셀 수식과 외주 프로그램에 동일한 데이터를 넣고 돌린 '결과 비교 분석 보고서'를 작성하여 팀장에게 보고함."
+      ],
+      "judgment_standards": [
+        "원자료와 처리 결과의 일치 여부",
+        "기한·정확성·보고 필요성을 함께 확인"
+      ],
+      "limitations": [
+        "최종 판단·승인 권한과 본인의 보조 행동을 구분해 설명"
+      ]
+    },
+    {
+      "experience_id": "exp_a07fd710e2b7c0c2",
+      "depth": "D3",
+      "claim_ids": [
+        "clm_abaa19a532d1aabc9140"
+      ],
+      "direct_actions": [
+        "✅ 50명 상인 인터뷰 & 5개 타 시장 비교 분석 → 문제점 및 개선 방안 도출"
+      ],
+      "judgment_standards": [
+        "원자료와 처리 결과의 일치 여부",
+        "기한·정확성·보고 필요성을 함께 확인"
+      ],
+      "limitations": [
+        "최종 판단·승인 권한과 본인의 보조 행동을 구분해 설명"
+      ]
+    },
+    {
+      "experience_id": "exp_a521c3024abae521",
+      "depth": "D3",
+      "claim_ids": [
+        "clm_6602f28d7f4b4c31895a"
+      ],
+      "direct_actions": [
+        "시스템 도입 → 업무 속도 30% 향상 & 예산 절감 효과"
+      ],
+      "judgment_standards": [
+        "원자료와 처리 결과의 일치 여부",
+        "기한·정확성·보고 필요성을 함께 확인"
+      ],
+      "limitations": [
+        "최종 판단·승인 권한과 본인의 보조 행동을 구분해 설명"
+      ]
+    },
+    {
+      "experience_id": "exp_fb458d8d4b556666",
+      "depth": "D3",
+      "claim_ids": [
+        "clm_1a7d08d990eceb48dfe0"
+      ],
+      "direct_actions": [
+        "결과(Result): 2일 만에 3,000페이지 정리를 완수하고 불필요한 전화 업무를 대폭 축소함."
+      ],
+      "judgment_standards": [
+        "원자료와 처리 결과의 일치 여부",
+        "기한·정확성·보고 필요성을 함께 확인"
+      ],
+      "limitations": [
+        "최종 판단·승인 권한과 본인의 보조 행동을 구분해 설명"
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "question_id": "Q1",
+      "question": "1분 자기소개를 해 주십시오.",
+      "question_type": "RECRUITER",
+      "tier": 1,
+      "probability": "HIGH",
+      "competency_ids": [
+        "accuracy"
+      ],
+      "experience_ids": [
+        "exp_151ae891bd2719ad"
+      ],
+      "coverage_tags": [
+        "self_intro"
+      ]
+    },
+    {
+      "question_id": "Q2",
+      "question": "이 직무에 지원한 동기는 무엇입니까?",
+      "question_type": "RECRUITER",
+      "tier": 1,
+      "probability": "HIGH",
+      "competency_ids": [
+        "communication"
+      ],
+      "experience_ids": [
+        "exp_15de74c62f22355b"
+      ],
+      "coverage_tags": [
+        "motivation"
+      ]
+    },
+    {
+      "question_id": "Q3",
+      "question": "여러 기관 중 우리 기관을 선택한 이유는 무엇입니까?",
+      "question_type": "RECRUITER",
+      "tier": 1,
+      "probability": "HIGH",
+      "competency_ids": [
+        "boundary"
+      ],
+      "experience_ids": [
+        "exp_22d1df6407915aa2"
+      ],
+      "coverage_tags": [
+        "company_choice"
+      ]
+    },
+    {
+      "question_id": "Q4",
+      "question": "이 직무를 선택한 이유와 이해하고 있는 업무를 설명해 주십시오.",
+      "question_type": "RECRUITER",
+      "tier": 1,
+      "probability": "HIGH",
+      "competency_ids": [
+        "adaptation"
+      ],
+      "experience_ids": [
+        "exp_2df35f8fca5e30b8"
+      ],
+      "coverage_tags": [
+        "job_choice"
+      ]
+    },
+    {
+      "question_id": "Q5",
+      "question": "직무에 가장 도움이 될 경험과 본인의 직접 행동을 설명해 주십시오.",
+      "question_type": "HIRING_MANAGER",
+      "tier": 1,
+      "probability": "HIGH",
+      "competency_ids": [
+        "accuracy"
+      ],
+      "experience_ids": [
+        "exp_2e966c8ac3146a5b"
+      ],
+      "coverage_tags": [
+        "representative_experience"
+      ]
+    },
+    {
+      "question_id": "Q6",
+      "question": "기대와 다른 결과를 얻은 경험과 이후 바꾼 점은 무엇입니까?",
+      "question_type": "HIRING_MANAGER",
+      "tier": 1,
+      "probability": "HIGH",
+      "competency_ids": [
+        "communication"
+      ],
+      "experience_ids": [
+        "exp_2f3b01de2f27fa49"
+      ],
+      "coverage_tags": [
+        "failure"
+      ]
+    },
+    {
+      "question_id": "Q7",
+      "question": "의견 충돌을 조정한 경험과 판단 기준을 설명해 주십시오.",
+      "question_type": "HIRING_MANAGER",
+      "tier": 1,
+      "probability": "HIGH",
+      "competency_ids": [
+        "boundary"
+      ],
+      "experience_ids": [
+        "exp_2fe7474d7367a89c"
+      ],
+      "coverage_tags": [
+        "conflict"
+      ]
+    },
+    {
+      "question_id": "Q8",
+      "question": "협업에서 맡은 역할과 동료에게 공유한 내용을 설명해 주십시오.",
+      "question_type": "HIRING_MANAGER",
+      "tier": 1,
+      "probability": "HIGH",
+      "competency_ids": [
+        "adaptation"
+      ],
+      "experience_ids": [
+        "exp_3279ca654f7e0e37"
+      ],
+      "coverage_tags": [
+        "collaboration"
+      ]
+    },
+    {
+      "question_id": "Q9",
+      "question": "직무에서 발휘할 강점과 그 근거는 무엇입니까?",
+      "question_type": "HIRING_MANAGER",
+      "tier": 1,
+      "probability": "HIGH",
+      "competency_ids": [
+        "accuracy"
+      ],
+      "experience_ids": [
+        "exp_530ddb15c51ca202"
+      ],
+      "coverage_tags": [
+        "strength"
+      ]
+    },
+    {
+      "question_id": "Q10",
+      "question": "보완 중인 약점과 실제 관리 방법은 무엇입니까?",
+      "question_type": "HIRING_MANAGER",
+      "tier": 1,
+      "probability": "HIGH",
+      "competency_ids": [
+        "communication"
+      ],
+      "experience_ids": [
+        "exp_5381f510b1fba9e1"
+      ],
+      "coverage_tags": [
+        "weakness"
+      ]
+    },
+    {
+      "question_id": "Q11",
+      "question": "입사 후 90일 동안 무엇을 어떤 순서로 배우고 수행하겠습니까?",
+      "question_type": "HIRING_MANAGER",
+      "tier": 1,
+      "probability": "HIGH",
+      "competency_ids": [
+        "boundary"
+      ],
+      "experience_ids": [
+        "exp_5f5d07c267cd544e"
+      ],
+      "coverage_tags": [
+        "first_90_days"
+      ]
+    },
+    {
+      "question_id": "Q12",
+      "question": "제출서류의 핵심 수치 산출 방식과 본인 기여 범위를 설명해 주십시오.",
+      "question_type": "HIRING_MANAGER",
+      "tier": 1,
+      "probability": "HIGH",
+      "competency_ids": [
+        "adaptation"
+      ],
+      "experience_ids": [
+        "exp_62e53382afe2a2b7"
+      ],
+      "coverage_tags": [
+        "core_numbers"
+      ]
+    },
+    {
+      "question_id": "Q13",
+      "question": "제출서류에서 가장 면접관이 의심할 수 있는 표현과 그 근거를 설명해 주십시오.",
+      "question_type": "FACT_AUDITOR",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "competency_ids": [
+        "accuracy"
+      ],
+      "experience_ids": [
+        "exp_638228200e37de69"
+      ],
+      "coverage_tags": []
+    },
+    {
+      "question_id": "Q14",
+      "question": "자료가 불완전한 상태에서 업무 우선순위를 정하는 기준은 무엇입니까?",
+      "question_type": "SITUATIONAL_INTERVIEWER",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "competency_ids": [
+        "communication"
+      ],
+      "experience_ids": [
+        "exp_6841c9278134a4c9"
+      ],
+      "coverage_tags": []
+    },
+    {
+      "question_id": "Q15",
+      "question": "마감과 정확성이 충돌할 때 어떻게 보고하고 조정하겠습니까?",
+      "question_type": "SITUATIONAL_INTERVIEWER",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "competency_ids": [
+        "boundary"
+      ],
+      "experience_ids": [
+        "exp_953388b8c6e81104"
+      ],
+      "coverage_tags": []
+    },
+    {
+      "question_id": "Q16",
+      "question": "고객 설명과 전산 자료가 다를 때 첫 세 단계는 무엇입니까?",
+      "question_type": "SITUATIONAL_INTERVIEWER",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "competency_ids": [
+        "adaptation"
+      ],
+      "experience_ids": [
+        "exp_97584147111c511b"
+      ],
+      "coverage_tags": []
+    },
+    {
+      "question_id": "Q17",
+      "question": "반복 업무에서 오류를 줄이기 위해 어떤 기록을 남기겠습니까?",
+      "question_type": "SITUATIONAL_INTERVIEWER",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "competency_ids": [
+        "accuracy"
+      ],
+      "experience_ids": [
+        "exp_9e97f274590a323b"
+      ],
+      "coverage_tags": []
+    },
+    {
+      "question_id": "Q18",
+      "question": "동료의 피드백이 본인 판단과 다를 때 어떻게 확인하겠습니까?",
+      "question_type": "SITUATIONAL_INTERVIEWER",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "competency_ids": [
+        "communication"
+      ],
+      "experience_ids": [
+        "exp_a07fd710e2b7c0c2"
+      ],
+      "coverage_tags": []
+    },
+    {
+      "question_id": "Q19",
+      "question": "업무 지시가 모호할 때 질문을 어떻게 구성하겠습니까?",
+      "question_type": "SITUATIONAL_INTERVIEWER",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "competency_ids": [
+        "boundary"
+      ],
+      "experience_ids": [
+        "exp_a521c3024abae521"
+      ],
+      "coverage_tags": []
+    },
+    {
+      "question_id": "Q20",
+      "question": "본인이 직접 하지 않은 팀 성과를 어떻게 구분해 설명하겠습니까?",
+      "question_type": "FACT_AUDITOR",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "competency_ids": [
+        "adaptation"
+      ],
+      "experience_ids": [
+        "exp_fb458d8d4b556666"
+      ],
+      "coverage_tags": []
+    },
+    {
+      "question_id": "Q21",
+      "question": "확인하지 못한 회사 사실을 질문받으면 어떻게 답하겠습니까?",
+      "question_type": "FACT_AUDITOR",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "competency_ids": [
+        "accuracy"
+      ],
+      "experience_ids": [
+        "exp_151ae891bd2719ad"
+      ],
+      "coverage_tags": []
+    },
+    {
+      "question_id": "Q22",
+      "question": "정책금융 지원에서 지원 필요성과 위험을 함께 보아야 하는 이유는 무엇입니까?",
+      "question_type": "SITUATIONAL_INTERVIEWER",
+      "tier": 3,
+      "probability": "LOW",
+      "competency_ids": [
+        "communication"
+      ],
+      "experience_ids": [
+        "exp_15de74c62f22355b"
+      ],
+      "coverage_tags": []
+    },
+    {
+      "question_id": "Q23",
+      "question": "입사 후 예상과 다른 업무를 맡으면 어떻게 배우겠습니까?",
+      "question_type": "SITUATIONAL_INTERVIEWER",
+      "tier": 3,
+      "probability": "LOW",
+      "competency_ids": [
+        "boundary"
+      ],
+      "experience_ids": [
+        "exp_22d1df6407915aa2"
+      ],
+      "coverage_tags": []
+    },
+    {
+      "question_id": "Q24",
+      "question": "실수한 사실을 발견했을 때 누구에게 무엇을 먼저 알리겠습니까?",
+      "question_type": "SITUATIONAL_INTERVIEWER",
+      "tier": 3,
+      "probability": "LOW",
+      "competency_ids": [
+        "adaptation"
+      ],
+      "experience_ids": [
+        "exp_2df35f8fca5e30b8"
+      ],
+      "coverage_tags": []
+    },
+    {
+      "question_id": "Q25",
+      "question": "마지막으로 면접관이 기억해야 할 본인의 업무 방식은 무엇입니까?",
+      "question_type": "SITUATIONAL_INTERVIEWER",
+      "tier": 3,
+      "probability": "LOW",
+      "competency_ids": [
+        "accuracy"
+      ],
+      "experience_ids": [
+        "exp_2e966c8ac3146a5b"
+      ],
+      "coverage_tags": []
+    }
+  ],
+  "answer_cards": [
+    {
+      "question_id": "Q1",
+      "one_sentence_answer": "저는 기업의 신용을 살펴 자금조달의 연결고리를 만드는 보증 업무를 현장에서 배우고 싶어 지원했습니다.",
+      "judgment_standard": "정확성·기한·권한 경계를 함께 지키는가",
+      "direct_actions": [
+        "특히, 3000페이지 분량의 자료를 체계적으로 분류하여 2일 만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다."
+      ],
+      "job_connection": "신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다.",
+      "experience_claim_ids": [
+        "clm_88cfeab230789e5b0d5f"
+      ],
+      "research_claim_ids": [],
+      "spoken_versions": {
+        "brief": {
+          "target_seconds": 20,
+          "text": "저는 기업의 신용을 살펴 자금조달의 연결고리를 만드는 보증 업무를 현장에서 배우고 싶어 지원했습니다."
+        },
+        "standard": {
+          "target_seconds": 60,
+          "text": "저는 기업의 신용을 살펴 자금조달의 연결고리를 만드는 보증 업무를 현장에서 배우고 싶어 지원했습니다. 특히, 해당 수치 분량의 자료를 체계적으로 분류하여 해당 수치 만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다. 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다."
+        },
+        "detailed": {
+          "target_seconds": 120,
+          "text": "저는 기업의 신용을 살펴 자금조달의 연결고리를 만드는 보증 업무를 현장에서 배우고 싶어 지원했습니다. 특히, 해당 수치 분량의 자료를 체계적으로 분류하여 해당 수치 만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다. 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다. 다만 최종 판단 권한과 제 행동 범위를 구분하고, 확인하지 못한 내용은 즉시 질문하겠습니다."
+        }
+      }
+    },
+    {
+      "question_id": "Q2",
+      "one_sentence_answer": "새로운 조직에 적응할 때 가장 중요한 태도는 기존 방식의 이유를 먼저 이해하고, 모르는 점을 정확히 확인하는 자세라고 생각합니다.",
+      "judgment_standard": "정확성·기한·권한 경계를 함께 지키는가",
+      "direct_actions": [
+        "의료진에게 모든 상황을 설명하여 숙박비를 제공할 수 없다고 통보하여 최소 40% 예산 절감을 했습니다."
+      ],
+      "job_connection": "신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다.",
+      "experience_claim_ids": [
+        "clm_8857e4948ec099d1bbda"
+      ],
+      "research_claim_ids": [
+        "kodit-role-20260711",
+        "kodit-intern-duty-20260711"
+      ],
+      "spoken_versions": {
+        "brief": {
+          "target_seconds": 20,
+          "text": "새로운 조직에 적응할 때 가장 중요한 태도는 기존 방식의 이유를 먼저 이해하고, 모르는 점을 정확히 확인하는 자세라고 생각합니다."
+        },
+        "standard": {
+          "target_seconds": 60,
+          "text": "새로운 조직에 적응할 때 가장 중요한 태도는 기존 방식의 이유를 먼저 이해하고, 모르는 점을 정확히 확인하는 자세라고 생각합니다. 의료진에게 모든 상황을 설명하여 숙박비를 제공할 수 없다고 통보하여 최소 40% 예산 절감을 했습니다. 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다."
+        },
+        "detailed": {
+          "target_seconds": 120,
+          "text": "새로운 조직에 적응할 때 가장 중요한 태도는 기존 방식의 이유를 먼저 이해하고, 모르는 점을 정확히 확인하는 자세라고 생각합니다. 의료진에게 모든 상황을 설명하여 숙박비를 제공할 수 없다고 통보하여 최소 40% 예산 절감을 했습니다. 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다. 다만 최종 판단 권한과 제 행동 범위를 구분하고, 확인하지 못한 내용은 즉시 질문하겠습니다."
+        }
+      }
+    },
+    {
+      "question_id": "Q3",
+      "one_sentence_answer": "신용보증기금 청년인턴으로 근무한다면 초기에는 업무 기준을 정확히 익히고, 이후에는 확인과 기록을 반복해 담당자의 판단을 안정적으로 보조하겠습니다.",
+      "judgment_standard": "정확성·기한·권한 경계를 함께 지키는가",
+      "direct_actions": [
+        "예를 들어, 학업이나 업무가 주어졌을 때 마감 기한을 정해놓고 남은 날짜를 디데이 설정하거나 일일계획 목표를 설정하고 컴퓨터나 핸드폰 달력, 노트에 기재하여 최소한 목표달성도 70% 달성하기 위해 노력합니다."
+      ],
+      "job_connection": "신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다.",
+      "experience_claim_ids": [
+        "clm_1476776eb88306fe8fc1"
+      ],
+      "research_claim_ids": [
+        "kodit-role-20260711",
+        "kodit-intern-duty-20260711"
+      ],
+      "spoken_versions": {
+        "brief": {
+          "target_seconds": 20,
+          "text": "신용보증기금 청년인턴으로 근무한다면 초기에는 업무 기준을 정확히 익히고, 이후에는 확인과 기록을 반복해 담당자의 판단을 안정적으로 보조하겠습니다."
+        },
+        "standard": {
+          "target_seconds": 60,
+          "text": "신용보증기금 청년인턴으로 근무한다면 초기에는 업무 기준을 정확히 익히고, 이후에는 확인과 기록을 반복해 담당자의 판단을 안정적으로 보조하겠습니다. 예를 들어, 학업이나 업무가 주어졌을 때 마감 기한을 정해놓고 남은 날짜를 디데이 설정하거나 일일계획 목표를 설정하고 컴퓨터나 핸드폰 달력, 노트에 기재하여 최소한 목표달성도 70% 달성하기 위해 노력합니다. 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다."
+        },
+        "detailed": {
+          "target_seconds": 120,
+          "text": "신용보증기금 청년인턴으로 근무한다면 초기에는 업무 기준을 정확히 익히고, 이후에는 확인과 기록을 반복해 담당자의 판단을 안정적으로 보조하겠습니다. 예를 들어, 학업이나 업무가 주어졌을 때 마감 기한을 정해놓고 남은 날짜를 디데이 설정하거나 일일계획 목표를 설정하고 컴퓨터나 핸드폰 달력, 노트에 기재하여 최소한 목표달성도 70% 달성하기 위해 노력합니다. 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다. 다만 최종 판단 권한과 제 행동 범위를 구분하고, 확인하지 못한 내용은 즉시 질문하겠습니다."
+        }
+      }
+    },
+    {
+      "question_id": "Q4",
+      "one_sentence_answer": "최근 중소기업에 큰 영향을 미치는 이슈로 높은 환율 변동성을 선택하겠습니다.",
+      "judgment_standard": "정확성·기한·권한 경계를 함께 지키는가",
+      "direct_actions": [
+        "급여 지급 프로세스를 개선하여 업무 속도를 30% 향상시켰으며, 제기동 약령시장에서는 SNS 홍보 전략을 도입하여 젊은 층 방문객"
+      ],
+      "job_connection": "신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다.",
+      "experience_claim_ids": [
+        "clm_732a31834ac4cb075533"
+      ],
+      "research_claim_ids": [
+        "kodit-role-20260711",
+        "kodit-intern-duty-20260711"
+      ],
+      "spoken_versions": {
+        "brief": {
+          "target_seconds": 20,
+          "text": "최근 중소기업에 큰 영향을 미치는 이슈로 높은 환율 변동성을 선택하겠습니다."
+        },
+        "standard": {
+          "target_seconds": 60,
+          "text": "최근 중소기업에 큰 영향을 미치는 이슈로 높은 환율 변동성을 선택하겠습니다. 급여 지급 프로세스를 개선하여 업무 속도를 30% 향상시켰으며, 제기동 약령시장에서는 SNS 홍보 전략을 도입하여 젊은 층 방문객 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다."
+        },
+        "detailed": {
+          "target_seconds": 120,
+          "text": "최근 중소기업에 큰 영향을 미치는 이슈로 높은 환율 변동성을 선택하겠습니다. 급여 지급 프로세스를 개선하여 업무 속도를 30% 향상시켰으며, 제기동 약령시장에서는 SNS 홍보 전략을 도입하여 젊은 층 방문객 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다. 다만 최종 판단 권한과 제 행동 범위를 구분하고, 확인하지 못한 내용은 즉시 질문하겠습니다."
+        }
+      }
+    },
+    {
+      "question_id": "Q5",
+      "one_sentence_answer": "저는 기업의 신용을 살펴 자금조달의 연결고리를 만드는 보증 업무를 현장에서 배우고 싶어 지원했습니다.",
+      "judgment_standard": "정확성·기한·권한 경계를 함께 지키는가",
+      "direct_actions": [
+        "3000페이지에 달하는 방대한 서류 정리 업무를 2일 만에 완료하며 연금 지급 절차가 차질"
+      ],
+      "job_connection": "신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다.",
+      "experience_claim_ids": [
+        "clm_41fbcc79285f9a15295d"
+      ],
+      "research_claim_ids": [],
+      "spoken_versions": {
+        "brief": {
+          "target_seconds": 20,
+          "text": "저는 기업의 신용을 살펴 자금조달의 연결고리를 만드는 보증 업무를 현장에서 배우고 싶어 지원했습니다."
+        },
+        "standard": {
+          "target_seconds": 60,
+          "text": "저는 기업의 신용을 살펴 자금조달의 연결고리를 만드는 보증 업무를 현장에서 배우고 싶어 지원했습니다. 해당 수치에 달하는 방대한 서류 정리 업무를 해당 수치 만에 완료하며 연금 지급 절차가 차질 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다."
+        },
+        "detailed": {
+          "target_seconds": 120,
+          "text": "저는 기업의 신용을 살펴 자금조달의 연결고리를 만드는 보증 업무를 현장에서 배우고 싶어 지원했습니다. 해당 수치에 달하는 방대한 서류 정리 업무를 해당 수치 만에 완료하며 연금 지급 절차가 차질 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다. 다만 최종 판단 권한과 제 행동 범위를 구분하고, 확인하지 못한 내용은 즉시 질문하겠습니다."
+        }
+      }
+    },
+    {
+      "question_id": "Q6",
+      "one_sentence_answer": "새로운 조직에 적응할 때 가장 중요한 태도는 기존 방식의 이유를 먼저 이해하고, 모르는 점을 정확히 확인하는 자세라고 생각합니다.",
+      "judgment_standard": "정확성·기한·권한 경계를 함께 지키는가",
+      "direct_actions": [
+        "기존보다 50% 정도 시간과 인력을 절약할 수 있었으며, 오류율도 90% 정도 감소하였습니다."
+      ],
+      "job_connection": "신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다.",
+      "experience_claim_ids": [
+        "clm_54db4e5cfcd51ba5de60"
+      ],
+      "research_claim_ids": [],
+      "spoken_versions": {
+        "brief": {
+          "target_seconds": 20,
+          "text": "새로운 조직에 적응할 때 가장 중요한 태도는 기존 방식의 이유를 먼저 이해하고, 모르는 점을 정확히 확인하는 자세라고 생각합니다."
+        },
+        "standard": {
+          "target_seconds": 60,
+          "text": "새로운 조직에 적응할 때 가장 중요한 태도는 기존 방식의 이유를 먼저 이해하고, 모르는 점을 정확히 확인하는 자세라고 생각합니다. 기존보다 해당 수치 정도 시간과 인력을 절약할 수 있었으며, 오류율도 해당 수치 정도 감소하였습니다. 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다."
+        },
+        "detailed": {
+          "target_seconds": 120,
+          "text": "새로운 조직에 적응할 때 가장 중요한 태도는 기존 방식의 이유를 먼저 이해하고, 모르는 점을 정확히 확인하는 자세라고 생각합니다. 기존보다 해당 수치 정도 시간과 인력을 절약할 수 있었으며, 오류율도 해당 수치 정도 감소하였습니다. 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다. 다만 최종 판단 권한과 제 행동 범위를 구분하고, 확인하지 못한 내용은 즉시 질문하겠습니다."
+        }
+      }
+    },
+    {
+      "question_id": "Q7",
+      "one_sentence_answer": "신용보증기금 청년인턴으로 근무한다면 초기에는 업무 기준을 정확히 익히고, 이후에는 확인과 기록을 반복해 담당자의 판단을 안정적으로 보조하겠습니다.",
+      "judgment_standard": "정확성·기한·권한 경계를 함께 지키는가",
+      "direct_actions": [
+        "30% 증가했고, 조직 내 협업 문화가 개선되었습니다."
+      ],
+      "job_connection": "신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다.",
+      "experience_claim_ids": [
+        "clm_d96a20fc7a1e1a3caad6"
+      ],
+      "research_claim_ids": [],
+      "spoken_versions": {
+        "brief": {
+          "target_seconds": 20,
+          "text": "신용보증기금 청년인턴으로 근무한다면 초기에는 업무 기준을 정확히 익히고, 이후에는 확인과 기록을 반복해 담당자의 판단을 안정적으로 보조하겠습니다."
+        },
+        "standard": {
+          "target_seconds": 60,
+          "text": "신용보증기금 청년인턴으로 근무한다면 초기에는 업무 기준을 정확히 익히고, 이후에는 확인과 기록을 반복해 담당자의 판단을 안정적으로 보조하겠습니다. 해당 수치 증가했고, 조직 내 협업 문화가 개선되었습니다. 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다."
+        },
+        "detailed": {
+          "target_seconds": 120,
+          "text": "신용보증기금 청년인턴으로 근무한다면 초기에는 업무 기준을 정확히 익히고, 이후에는 확인과 기록을 반복해 담당자의 판단을 안정적으로 보조하겠습니다. 해당 수치 증가했고, 조직 내 협업 문화가 개선되었습니다. 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다. 다만 최종 판단 권한과 제 행동 범위를 구분하고, 확인하지 못한 내용은 즉시 질문하겠습니다."
+        }
+      }
+    },
+    {
+      "question_id": "Q8",
+      "one_sentence_answer": "최근 중소기업에 큰 영향을 미치는 이슈로 높은 환율 변동성을 선택하겠습니다.",
+      "judgment_standard": "정확성·기한·권한 경계를 함께 지키는가",
+      "direct_actions": [
+        "과제(Task): 3,000페이지 분량의 서류(지급 결정서, 추납, 분납 자료)를 2일 내에 정리하고 실질적 수급 대상자를 정확히 선별해야 함."
+      ],
+      "job_connection": "신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다.",
+      "experience_claim_ids": [
+        "clm_5e91929d8d87322e2c70"
+      ],
+      "research_claim_ids": [],
+      "spoken_versions": {
+        "brief": {
+          "target_seconds": 20,
+          "text": "최근 중소기업에 큰 영향을 미치는 이슈로 높은 환율 변동성을 선택하겠습니다."
+        },
+        "standard": {
+          "target_seconds": 60,
+          "text": "최근 중소기업에 큰 영향을 미치는 이슈로 높은 환율 변동성을 선택하겠습니다. 과제(Task): 해당 수치 분량의 서류(지급 결정서, 추납, 분납 자료)를 해당 수치 내에 정리하고 실질적 수급 대상자를 정확히 선별해야 함. 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다."
+        },
+        "detailed": {
+          "target_seconds": 120,
+          "text": "최근 중소기업에 큰 영향을 미치는 이슈로 높은 환율 변동성을 선택하겠습니다. 과제(Task): 해당 수치 분량의 서류(지급 결정서, 추납, 분납 자료)를 해당 수치 내에 정리하고 실질적 수급 대상자를 정확히 선별해야 함. 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다. 다만 최종 판단 권한과 제 행동 범위를 구분하고, 확인하지 못한 내용은 즉시 질문하겠습니다."
+        }
+      }
+    },
+    {
+      "question_id": "Q9",
+      "one_sentence_answer": "저는 기업의 신용을 살펴 자금조달의 연결고리를 만드는 보증 업무를 현장에서 배우고 싶어 지원했습니다.",
+      "judgment_standard": "정확성·기한·권한 경계를 함께 지키는가",
+      "direct_actions": [
+        "결과(Result): 상호 사과와 함께 새로운 수식이 도입되었고, 업무 효율성이 30% 증가함."
+      ],
+      "job_connection": "신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다.",
+      "experience_claim_ids": [
+        "clm_efe62832626946699c6f"
+      ],
+      "research_claim_ids": [],
+      "spoken_versions": {
+        "brief": {
+          "target_seconds": 20,
+          "text": "저는 기업의 신용을 살펴 자금조달의 연결고리를 만드는 보증 업무를 현장에서 배우고 싶어 지원했습니다."
+        },
+        "standard": {
+          "target_seconds": 60,
+          "text": "저는 기업의 신용을 살펴 자금조달의 연결고리를 만드는 보증 업무를 현장에서 배우고 싶어 지원했습니다. 결과(Result): 상호 사과와 함께 새로운 수식이 도입되었고, 업무 효율성이 해당 수치 증가함. 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다."
+        },
+        "detailed": {
+          "target_seconds": 120,
+          "text": "저는 기업의 신용을 살펴 자금조달의 연결고리를 만드는 보증 업무를 현장에서 배우고 싶어 지원했습니다. 결과(Result): 상호 사과와 함께 새로운 수식이 도입되었고, 업무 효율성이 해당 수치 증가함. 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다. 다만 최종 판단 권한과 제 행동 범위를 구분하고, 확인하지 못한 내용은 즉시 질문하겠습니다."
+        }
+      }
+    },
+    {
+      "question_id": "Q10",
+      "one_sentence_answer": "새로운 조직에 적응할 때 가장 중요한 태도는 기존 방식의 이유를 먼저 이해하고, 모르는 점을 정확히 확인하는 자세라고 생각합니다.",
+      "judgment_standard": "정확성·기한·권한 경계를 함께 지키는가",
+      "direct_actions": [
+        "엑셀 자동화 도입 → 급여 산정 속도 30% 향상"
+      ],
+      "job_connection": "신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다.",
+      "experience_claim_ids": [
+        "clm_353c575898c6254492e8"
+      ],
+      "research_claim_ids": [],
+      "spoken_versions": {
+        "brief": {
+          "target_seconds": 20,
+          "text": "새로운 조직에 적응할 때 가장 중요한 태도는 기존 방식의 이유를 먼저 이해하고, 모르는 점을 정확히 확인하는 자세라고 생각합니다."
+        },
+        "standard": {
+          "target_seconds": 60,
+          "text": "새로운 조직에 적응할 때 가장 중요한 태도는 기존 방식의 이유를 먼저 이해하고, 모르는 점을 정확히 확인하는 자세라고 생각합니다. 엑셀 자동화 도입 → 급여 산정 속도 해당 수치 향상 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다."
+        },
+        "detailed": {
+          "target_seconds": 120,
+          "text": "새로운 조직에 적응할 때 가장 중요한 태도는 기존 방식의 이유를 먼저 이해하고, 모르는 점을 정확히 확인하는 자세라고 생각합니다. 엑셀 자동화 도입 → 급여 산정 속도 해당 수치 향상 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다. 다만 최종 판단 권한과 제 행동 범위를 구분하고, 확인하지 못한 내용은 즉시 질문하겠습니다."
+        }
+      }
+    },
+    {
+      "question_id": "Q11",
+      "one_sentence_answer": "신용보증기금 청년인턴으로 근무한다면 초기에는 업무 기준을 정확히 익히고, 이후에는 확인과 기록을 반복해 담당자의 판단을 안정적으로 보조하겠습니다.",
+      "judgment_standard": "정확성·기한·권한 경계를 함께 지키는가",
+      "direct_actions": [
+        "-> 20명 목표 달성 경험"
+      ],
+      "job_connection": "신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다.",
+      "experience_claim_ids": [
+        "clm_659f6c459feaf6614272"
+      ],
+      "research_claim_ids": [
+        "kodit-role-20260711",
+        "kodit-intern-duty-20260711"
+      ],
+      "spoken_versions": {
+        "brief": {
+          "target_seconds": 20,
+          "text": "신용보증기금 청년인턴으로 근무한다면 초기에는 업무 기준을 정확히 익히고, 이후에는 확인과 기록을 반복해 담당자의 판단을 안정적으로 보조하겠습니다."
+        },
+        "standard": {
+          "target_seconds": 60,
+          "text": "신용보증기금 청년인턴으로 근무한다면 초기에는 업무 기준을 정확히 익히고, 이후에는 확인과 기록을 반복해 담당자의 판단을 안정적으로 보조하겠습니다. -> 20명 목표 달성 경험 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다."
+        },
+        "detailed": {
+          "target_seconds": 120,
+          "text": "신용보증기금 청년인턴으로 근무한다면 초기에는 업무 기준을 정확히 익히고, 이후에는 확인과 기록을 반복해 담당자의 판단을 안정적으로 보조하겠습니다. -> 20명 목표 달성 경험 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다. 다만 최종 판단 권한과 제 행동 범위를 구분하고, 확인하지 못한 내용은 즉시 질문하겠습니다."
+        }
+      }
+    },
+    {
+      "question_id": "Q12",
+      "one_sentence_answer": "최근 중소기업에 큰 영향을 미치는 이슈로 높은 환율 변동성을 선택하겠습니다.",
+      "judgment_standard": "정확성·기한·권한 경계를 함께 지키는가",
+      "direct_actions": [
+        "① 상인 50명 인터뷰, 타 시장 비교 분석, SNS 마케팅 및 '제기 야시장' 기획"
+      ],
+      "job_connection": "신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다.",
+      "experience_claim_ids": [
+        "clm_0ab71c1aab141b099564"
+      ],
+      "research_claim_ids": [],
+      "spoken_versions": {
+        "brief": {
+          "target_seconds": 20,
+          "text": "최근 중소기업에 큰 영향을 미치는 이슈로 높은 환율 변동성을 선택하겠습니다."
+        },
+        "standard": {
+          "target_seconds": 60,
+          "text": "최근 중소기업에 큰 영향을 미치는 이슈로 높은 환율 변동성을 선택하겠습니다. ① 상인 해당 수치 인터뷰, 타 시장 비교 분석, SNS 마케팅 및 '제기 야시장' 기획 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다."
+        },
+        "detailed": {
+          "target_seconds": 120,
+          "text": "최근 중소기업에 큰 영향을 미치는 이슈로 높은 환율 변동성을 선택하겠습니다. ① 상인 해당 수치 인터뷰, 타 시장 비교 분석, SNS 마케팅 및 '제기 야시장' 기획 신용보증기금 체험형 청년인턴1(보증)의 신용보증 기한연장, 기업신용 상시관리 등에서 확인·기록·보고 행동으로 연결됩니다. 다만 최종 판단 권한과 제 행동 범위를 구분하고, 확인하지 못한 내용은 즉시 질문하겠습니다."
+        }
+      }
+    }
+  ],
+  "probes": [
+    {
+      "probe_id": "P1",
+      "question_id": "Q1",
+      "category": "FACT",
+      "question": "그 답변을 뒷받침하는 원자료와 정확한 사실은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_88cfeab230789e5b0d5f"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P2",
+      "question_id": "Q1",
+      "category": "JUDGMENT",
+      "question": "당시 그 행동을 선택한 판단 기준은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_88cfeab230789e5b0d5f"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P3",
+      "question_id": "Q1",
+      "category": "CONTRIBUTION",
+      "question": "팀의 결과와 본인의 직접 기여를 구분해 주십시오.",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_88cfeab230789e5b0d5f"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P4",
+      "question_id": "Q1",
+      "category": "ALTERNATIVE",
+      "question": "같은 상황이 다시 온다면 무엇을 다르게 하겠습니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_88cfeab230789e5b0d5f"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P5",
+      "question_id": "Q1",
+      "category": "JOB_TRANSFER",
+      "question": "그 경험을 체험형 청년인턴1(보증)의 실제 업무에 어떻게 옮기겠습니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_88cfeab230789e5b0d5f"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P6",
+      "question_id": "Q2",
+      "category": "FACT",
+      "question": "그 답변을 뒷받침하는 원자료와 정확한 사실은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_8857e4948ec099d1bbda"
+      ],
+      "research_claim_ids": [
+        "kodit-role-20260711",
+        "kodit-intern-duty-20260711"
+      ]
+    },
+    {
+      "probe_id": "P7",
+      "question_id": "Q2",
+      "category": "JUDGMENT",
+      "question": "당시 그 행동을 선택한 판단 기준은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_8857e4948ec099d1bbda"
+      ],
+      "research_claim_ids": [
+        "kodit-role-20260711",
+        "kodit-intern-duty-20260711"
+      ]
+    },
+    {
+      "probe_id": "P8",
+      "question_id": "Q2",
+      "category": "CONTRIBUTION",
+      "question": "팀의 결과와 본인의 직접 기여를 구분해 주십시오.",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_8857e4948ec099d1bbda"
+      ],
+      "research_claim_ids": [
+        "kodit-role-20260711",
+        "kodit-intern-duty-20260711"
+      ]
+    },
+    {
+      "probe_id": "P9",
+      "question_id": "Q2",
+      "category": "ALTERNATIVE",
+      "question": "같은 상황이 다시 온다면 무엇을 다르게 하겠습니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_8857e4948ec099d1bbda"
+      ],
+      "research_claim_ids": [
+        "kodit-role-20260711",
+        "kodit-intern-duty-20260711"
+      ]
+    },
+    {
+      "probe_id": "P10",
+      "question_id": "Q2",
+      "category": "JOB_TRANSFER",
+      "question": "그 경험을 체험형 청년인턴1(보증)의 실제 업무에 어떻게 옮기겠습니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_8857e4948ec099d1bbda"
+      ],
+      "research_claim_ids": [
+        "kodit-role-20260711",
+        "kodit-intern-duty-20260711"
+      ]
+    },
+    {
+      "probe_id": "P11",
+      "question_id": "Q3",
+      "category": "FACT",
+      "question": "그 답변을 뒷받침하는 원자료와 정확한 사실은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_1476776eb88306fe8fc1"
+      ],
+      "research_claim_ids": [
+        "kodit-role-20260711",
+        "kodit-intern-duty-20260711"
+      ]
+    },
+    {
+      "probe_id": "P12",
+      "question_id": "Q3",
+      "category": "JUDGMENT",
+      "question": "당시 그 행동을 선택한 판단 기준은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_1476776eb88306fe8fc1"
+      ],
+      "research_claim_ids": [
+        "kodit-role-20260711",
+        "kodit-intern-duty-20260711"
+      ]
+    },
+    {
+      "probe_id": "P13",
+      "question_id": "Q3",
+      "category": "CONTRIBUTION",
+      "question": "팀의 결과와 본인의 직접 기여를 구분해 주십시오.",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_1476776eb88306fe8fc1"
+      ],
+      "research_claim_ids": [
+        "kodit-role-20260711",
+        "kodit-intern-duty-20260711"
+      ]
+    },
+    {
+      "probe_id": "P14",
+      "question_id": "Q3",
+      "category": "ALTERNATIVE",
+      "question": "같은 상황이 다시 온다면 무엇을 다르게 하겠습니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_1476776eb88306fe8fc1"
+      ],
+      "research_claim_ids": [
+        "kodit-role-20260711",
+        "kodit-intern-duty-20260711"
+      ]
+    },
+    {
+      "probe_id": "P15",
+      "question_id": "Q3",
+      "category": "JOB_TRANSFER",
+      "question": "그 경험을 체험형 청년인턴1(보증)의 실제 업무에 어떻게 옮기겠습니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_1476776eb88306fe8fc1"
+      ],
+      "research_claim_ids": [
+        "kodit-role-20260711",
+        "kodit-intern-duty-20260711"
+      ]
+    },
+    {
+      "probe_id": "P16",
+      "question_id": "Q4",
+      "category": "FACT",
+      "question": "그 답변을 뒷받침하는 원자료와 정확한 사실은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_732a31834ac4cb075533"
+      ],
+      "research_claim_ids": [
+        "kodit-role-20260711",
+        "kodit-intern-duty-20260711"
+      ]
+    },
+    {
+      "probe_id": "P17",
+      "question_id": "Q4",
+      "category": "JUDGMENT",
+      "question": "당시 그 행동을 선택한 판단 기준은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_732a31834ac4cb075533"
+      ],
+      "research_claim_ids": [
+        "kodit-role-20260711",
+        "kodit-intern-duty-20260711"
+      ]
+    },
+    {
+      "probe_id": "P18",
+      "question_id": "Q4",
+      "category": "CONTRIBUTION",
+      "question": "팀의 결과와 본인의 직접 기여를 구분해 주십시오.",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_732a31834ac4cb075533"
+      ],
+      "research_claim_ids": [
+        "kodit-role-20260711",
+        "kodit-intern-duty-20260711"
+      ]
+    },
+    {
+      "probe_id": "P19",
+      "question_id": "Q4",
+      "category": "ALTERNATIVE",
+      "question": "같은 상황이 다시 온다면 무엇을 다르게 하겠습니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_732a31834ac4cb075533"
+      ],
+      "research_claim_ids": [
+        "kodit-role-20260711",
+        "kodit-intern-duty-20260711"
+      ]
+    },
+    {
+      "probe_id": "P20",
+      "question_id": "Q4",
+      "category": "JOB_TRANSFER",
+      "question": "그 경험을 체험형 청년인턴1(보증)의 실제 업무에 어떻게 옮기겠습니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_732a31834ac4cb075533"
+      ],
+      "research_claim_ids": [
+        "kodit-role-20260711",
+        "kodit-intern-duty-20260711"
+      ]
+    },
+    {
+      "probe_id": "P21",
+      "question_id": "Q5",
+      "category": "FACT",
+      "question": "그 답변을 뒷받침하는 원자료와 정확한 사실은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_41fbcc79285f9a15295d"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P22",
+      "question_id": "Q5",
+      "category": "JUDGMENT",
+      "question": "당시 그 행동을 선택한 판단 기준은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_41fbcc79285f9a15295d"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P23",
+      "question_id": "Q5",
+      "category": "CONTRIBUTION",
+      "question": "팀의 결과와 본인의 직접 기여를 구분해 주십시오.",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_41fbcc79285f9a15295d"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P24",
+      "question_id": "Q5",
+      "category": "ALTERNATIVE",
+      "question": "같은 상황이 다시 온다면 무엇을 다르게 하겠습니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_41fbcc79285f9a15295d"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P25",
+      "question_id": "Q5",
+      "category": "JOB_TRANSFER",
+      "question": "그 경험을 체험형 청년인턴1(보증)의 실제 업무에 어떻게 옮기겠습니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_41fbcc79285f9a15295d"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P26",
+      "question_id": "Q6",
+      "category": "FACT",
+      "question": "그 답변을 뒷받침하는 원자료와 정확한 사실은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_54db4e5cfcd51ba5de60"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P27",
+      "question_id": "Q6",
+      "category": "JUDGMENT",
+      "question": "당시 그 행동을 선택한 판단 기준은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_54db4e5cfcd51ba5de60"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P28",
+      "question_id": "Q6",
+      "category": "CONTRIBUTION",
+      "question": "팀의 결과와 본인의 직접 기여를 구분해 주십시오.",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_54db4e5cfcd51ba5de60"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P29",
+      "question_id": "Q6",
+      "category": "ALTERNATIVE",
+      "question": "같은 상황이 다시 온다면 무엇을 다르게 하겠습니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_54db4e5cfcd51ba5de60"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P30",
+      "question_id": "Q6",
+      "category": "JOB_TRANSFER",
+      "question": "그 경험을 체험형 청년인턴1(보증)의 실제 업무에 어떻게 옮기겠습니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_54db4e5cfcd51ba5de60"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P31",
+      "question_id": "Q7",
+      "category": "FACT",
+      "question": "그 답변을 뒷받침하는 원자료와 정확한 사실은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_d96a20fc7a1e1a3caad6"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P32",
+      "question_id": "Q7",
+      "category": "JUDGMENT",
+      "question": "당시 그 행동을 선택한 판단 기준은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_d96a20fc7a1e1a3caad6"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P33",
+      "question_id": "Q7",
+      "category": "CONTRIBUTION",
+      "question": "팀의 결과와 본인의 직접 기여를 구분해 주십시오.",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_d96a20fc7a1e1a3caad6"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P34",
+      "question_id": "Q7",
+      "category": "ALTERNATIVE",
+      "question": "같은 상황이 다시 온다면 무엇을 다르게 하겠습니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_d96a20fc7a1e1a3caad6"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P35",
+      "question_id": "Q7",
+      "category": "JOB_TRANSFER",
+      "question": "그 경험을 체험형 청년인턴1(보증)의 실제 업무에 어떻게 옮기겠습니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_d96a20fc7a1e1a3caad6"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P36",
+      "question_id": "Q8",
+      "category": "FACT",
+      "question": "그 답변을 뒷받침하는 원자료와 정확한 사실은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_5e91929d8d87322e2c70"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P37",
+      "question_id": "Q8",
+      "category": "JUDGMENT",
+      "question": "당시 그 행동을 선택한 판단 기준은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_5e91929d8d87322e2c70"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P38",
+      "question_id": "Q8",
+      "category": "CONTRIBUTION",
+      "question": "팀의 결과와 본인의 직접 기여를 구분해 주십시오.",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_5e91929d8d87322e2c70"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P39",
+      "question_id": "Q8",
+      "category": "ALTERNATIVE",
+      "question": "같은 상황이 다시 온다면 무엇을 다르게 하겠습니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_5e91929d8d87322e2c70"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P40",
+      "question_id": "Q8",
+      "category": "JOB_TRANSFER",
+      "question": "그 경험을 체험형 청년인턴1(보증)의 실제 업무에 어떻게 옮기겠습니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_5e91929d8d87322e2c70"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P41",
+      "question_id": "Q9",
+      "category": "FACT",
+      "question": "그 답변을 뒷받침하는 원자료와 정확한 사실은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_efe62832626946699c6f"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P42",
+      "question_id": "Q9",
+      "category": "JUDGMENT",
+      "question": "당시 그 행동을 선택한 판단 기준은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_efe62832626946699c6f"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P43",
+      "question_id": "Q9",
+      "category": "CONTRIBUTION",
+      "question": "팀의 결과와 본인의 직접 기여를 구분해 주십시오.",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_efe62832626946699c6f"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P44",
+      "question_id": "Q9",
+      "category": "ALTERNATIVE",
+      "question": "같은 상황이 다시 온다면 무엇을 다르게 하겠습니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_efe62832626946699c6f"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P45",
+      "question_id": "Q9",
+      "category": "JOB_TRANSFER",
+      "question": "그 경험을 체험형 청년인턴1(보증)의 실제 업무에 어떻게 옮기겠습니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_efe62832626946699c6f"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P46",
+      "question_id": "Q10",
+      "category": "FACT",
+      "question": "그 답변을 뒷받침하는 원자료와 정확한 사실은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_353c575898c6254492e8"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P47",
+      "question_id": "Q10",
+      "category": "JUDGMENT",
+      "question": "당시 그 행동을 선택한 판단 기준은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_353c575898c6254492e8"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P48",
+      "question_id": "Q10",
+      "category": "CONTRIBUTION",
+      "question": "팀의 결과와 본인의 직접 기여를 구분해 주십시오.",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_353c575898c6254492e8"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P49",
+      "question_id": "Q10",
+      "category": "ALTERNATIVE",
+      "question": "같은 상황이 다시 온다면 무엇을 다르게 하겠습니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_353c575898c6254492e8"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P50",
+      "question_id": "Q10",
+      "category": "JOB_TRANSFER",
+      "question": "그 경험을 체험형 청년인턴1(보증)의 실제 업무에 어떻게 옮기겠습니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_353c575898c6254492e8"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P51",
+      "question_id": "Q11",
+      "category": "FACT",
+      "question": "그 답변을 뒷받침하는 원자료와 정확한 사실은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_659f6c459feaf6614272"
+      ],
+      "research_claim_ids": [
+        "kodit-role-20260711",
+        "kodit-intern-duty-20260711"
+      ]
+    },
+    {
+      "probe_id": "P52",
+      "question_id": "Q11",
+      "category": "JUDGMENT",
+      "question": "당시 그 행동을 선택한 판단 기준은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_659f6c459feaf6614272"
+      ],
+      "research_claim_ids": [
+        "kodit-role-20260711",
+        "kodit-intern-duty-20260711"
+      ]
+    },
+    {
+      "probe_id": "P53",
+      "question_id": "Q11",
+      "category": "CONTRIBUTION",
+      "question": "팀의 결과와 본인의 직접 기여를 구분해 주십시오.",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_659f6c459feaf6614272"
+      ],
+      "research_claim_ids": [
+        "kodit-role-20260711",
+        "kodit-intern-duty-20260711"
+      ]
+    },
+    {
+      "probe_id": "P54",
+      "question_id": "Q11",
+      "category": "ALTERNATIVE",
+      "question": "같은 상황이 다시 온다면 무엇을 다르게 하겠습니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_659f6c459feaf6614272"
+      ],
+      "research_claim_ids": [
+        "kodit-role-20260711",
+        "kodit-intern-duty-20260711"
+      ]
+    },
+    {
+      "probe_id": "P55",
+      "question_id": "Q11",
+      "category": "JOB_TRANSFER",
+      "question": "그 경험을 체험형 청년인턴1(보증)의 실제 업무에 어떻게 옮기겠습니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_659f6c459feaf6614272"
+      ],
+      "research_claim_ids": [
+        "kodit-role-20260711",
+        "kodit-intern-duty-20260711"
+      ]
+    },
+    {
+      "probe_id": "P56",
+      "question_id": "Q12",
+      "category": "FACT",
+      "question": "그 답변을 뒷받침하는 원자료와 정확한 사실은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_0ab71c1aab141b099564"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P57",
+      "question_id": "Q12",
+      "category": "JUDGMENT",
+      "question": "당시 그 행동을 선택한 판단 기준은 무엇입니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_0ab71c1aab141b099564"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P58",
+      "question_id": "Q12",
+      "category": "CONTRIBUTION",
+      "question": "팀의 결과와 본인의 직접 기여를 구분해 주십시오.",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_0ab71c1aab141b099564"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P59",
+      "question_id": "Q12",
+      "category": "ALTERNATIVE",
+      "question": "같은 상황이 다시 온다면 무엇을 다르게 하겠습니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_0ab71c1aab141b099564"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P60",
+      "question_id": "Q12",
+      "category": "JOB_TRANSFER",
+      "question": "그 경험을 체험형 청년인턴1(보증)의 실제 업무에 어떻게 옮기겠습니까?",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm_0ab71c1aab141b099564"
+      ],
+      "research_claim_ids": []
+    }
+  ],
+  "reverse_questions": [
+    "입사 초기 가장 먼저 익혀야 할 품질 기준은 무엇입니까?",
+    "반복적으로 발생하는 예외 업무와 보고 기준은 무엇입니까?",
+    "인턴이 피드백을 가장 빠르게 업무에 반영하는 방법은 무엇입니까?"
+  ],
+  "day_of_checklist": [
+    "회사명·직무명·공고 업무 재확인",
+    "핵심 경험의 직접 행동·판단 기준·한계 확인",
+    "수치가 있는 claim의 산출 근거와 기여 범위 확인",
+    "모르는 질문에서 사실 경계를 지키는 문장 연습"
+  ],
+  "delivery_evaluation": {
+    "content_criteria": [
+      "질문에 먼저 답함",
+      "claim ID 범위 안의 사실",
+      "개인 기여와 한계 구분",
+      "직무 행동 연결"
+    ],
+    "delivery_criteria": [
+      "첫 문장 20초 이내",
+      "문장 종결을 흐리지 않음",
+      "속도·호흡·시선",
+      "추가질문 뒤 핵심을 다시 정리"
+    ]
+  },
+  "unknown_answer_policy": {
+    "boundary_statement": "제가 확인한 공식 자료의 범위에서는 여기까지 말씀드릴 수 있습니다.",
+    "reasoning_bridge": "다만 공고의 업무와 확인된 원칙을 기준으로 보면 이렇게 접근하겠습니다.",
+    "verification_commitment": "입사 후에는 담당 기준과 최신 자료를 먼저 확인한 뒤 판단하겠습니다."
+  },
+  "simulation_policy": {
+    "mode": "RANDOM_MIXED",
+    "feedback_timing": "AFTER_FULL_INTERVIEW",
+    "difficulty": "REALISTIC",
+    "one_question_at_a_time": true,
+    "wait_for_user_answer": true
+  },
+  "final_audit": {
+    "status": "CONDITIONAL_PASS",
+    "strongest_point": "최종 자기소개서의 경험·research claim을 질문과 답변 카드까지 추적할 수 있습니다.",
+    "largest_risk": "실제 면접 형식과 배치 부서의 세부 업무는 공식 자료에서 확인되지 않았습니다.",
+    "priority_revisions": [
+      "실제 음성 모의면접으로 전달 방식 확인",
+      "공고 갱신 시 면접 구조 재확인"
+    ]
+  }
+}

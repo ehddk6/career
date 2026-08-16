@@ -1,0 +1,332 @@
+{
+  "data_package_id": "CAREER-DATA-B0F5D1A8FD48",
+  "data_package_version": "2.0",
+  "judge_mode": "RECRUITER",
+  "evaluations": [
+    {
+      "candidate_id": "C1EFC7E1F",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 17,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 10,
+        "experience_allocation": 6,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 4,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 2
+      },
+      "total": 97,
+      "weakness_codes": [
+        "generic_voice",
+        "spoken_answer_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience_action",
+          "exact_element": "기존 엑셀 수식과 외주 프로그램에 같은 데이터를 입력한 뒤 결과 비교 분석 보고서를 작성해 팀장에게 보고한 경험",
+          "reason": "대조와 보고라는 직접 행동이 보증 업무의 자료 확인 방식과 구체적으로 연결된다.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "issue_analysis",
+          "exact_element": "고환율의 영향을 모든 중소기업에 같은 방식으로 적용해서는 안 됩니다.",
+          "reason": "기업별 영향을 구분하는 논리가 공식 자료의 유의사항과 지원 근거에 부합한다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711",
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "C29D6F72B",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "REVIEW_REQUIRED",
+      "hard_fail_type": null,
+      "review_required": [
+        "문항 4의 보증 한도·보증료·만기를 기업별로 설계할 수 있다는 표현은 safe_claims에 명시된 지원 사실보다 구체적이므로 실제 제도 범위 확인이 필요하다."
+      ],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 15,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 5,
+        "interview_defensibility": 7,
+        "spoken_defensibility": 4,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 2
+      },
+      "total": 92,
+      "weakness_codes": [
+        "fact_risk",
+        "experience_overlap",
+        "spoken_answer_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "2",
+          "element_type": "adaptation_method",
+          "exact_element": "마감일을 기준으로 남은 기간을 나누고 일일 목표를 달력과 노트에 기록해 관리",
+          "reason": "새 조직에서 실행할 일정 관리 행동이 확인된 경험에 직접 근거한다.",
+          "fact_ids": [
+            "exp_22d1df6407915aa2",
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "experience_action",
+          "exact_element": "동일 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과를 비교하고 분석 보고서를 작성",
+          "reason": "원자료 대조와 기록 중심의 수행계획을 뒷받침하는 구체적 행동이다.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "C2B37DB36",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 17,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 6,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 4,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 2
+      },
+      "total": 96,
+      "weakness_codes": [
+        "generic_voice",
+        "spoken_answer_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience_action",
+          "exact_element": "원자료와 처리 결과가 맞는지 대조하고 차이가 생기면 근거와 함께 알리겠습니다.",
+          "reason": "확인·대조·보고의 행동 논리가 실제 비교 분석 보고 경험에 근거한다.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "execution_sequence",
+          "exact_element": "업무 기준을 정확히 익히고, 이후에는 원자료 대조와 예외 기록을 반복",
+          "reason": "초기 학습과 실행·점검 순서가 직무 수행계획으로 명확하다.",
+          "fact_ids": [
+            "kodit-intern-duty-20260711",
+            "exp_151ae891bd2719ad",
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "C55A264C7",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 17,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 10,
+        "experience_allocation": 6,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 5,
+        "korean_readability": 10,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 2
+      },
+      "total": 99,
+      "weakness_codes": [
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "applicant_bridge",
+          "exact_element": "결과를 임의로 해석하기보다 차이를 확인해 판단권자에게 전달하는 데 집중했습니다.",
+          "reason": "지원자의 업무 경계와 직접 행동이 비교 분석 보고 경험에 근거해 선명하게 드러난다.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "execution_sequence",
+          "exact_element": "초기 학습, 정확한 실행, 반복 점검의 순서",
+          "reason": "문항이 요구한 수행 순서를 짧고 기억하기 쉽게 제시하고 각 단계가 확인된 직무와 경험에 연결된다.",
+          "fact_ids": [
+            "kodit-intern-duty-20260711",
+            "exp_151ae891bd2719ad",
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "risk_balance",
+          "exact_element": "지원 필요성만 보고 위험을 누락하면 부실을 뒤로 미룰 수 있고, 위험만 강조하면 회복 가능한 기업의 자금 통로를 막을 수 있습니다.",
+          "reason": "정책금융 지원의 필요성과 위험을 동시에 판단해야 한다는 논리를 구체적으로 표현한다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711",
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "C6CF36413",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 17,
+        "job_relevance": 11,
+        "company_specificity": 8,
+        "action_specificity": 8,
+        "experience_allocation": 5,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 4,
+        "korean_readability": 8,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 2
+      },
+      "total": 92,
+      "weakness_codes": [
+        "action_gap",
+        "job_gap",
+        "korean_style",
+        "spoken_answer_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience_action",
+          "exact_element": "동일한 데이터를 입력한 뒤 결과 비교 분석 보고서를 작성해 팀장에게 보고",
+          "reason": "지원자의 정확성 강점을 직접 입증하는 확인된 행동이다.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "distinctive_experience",
+          "exact_element": "과거 데이터를 분석해 주된 대상을 지역 기반이 탄탄한 중장년층으로 재설정",
+          "reason": "다른 후보보다 기억에 남는 분석 경험이며 사실 ID로 방어할 수 있다.",
+          "fact_ids": [
+            "exp_638228200e37de69",
+            "clm_2bfba21afb61776d752b"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "selection_principle",
+          "exact_element": "유동성 부족과 구조적인 경쟁력 저하를 구분해야 합니다.",
+          "reason": "선별 지원의 판단 기준을 분명하게 제시하고 공식 지원 근거와 연결된다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711",
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "CB5DA9EDE",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 17,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 10,
+        "experience_allocation": 6,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 4,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 7,
+        "length_and_format": 2
+      },
+      "total": 98,
+      "weakness_codes": [
+        "spoken_answer_risk",
+        "korean_style"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "boundary_statement",
+          "exact_element": "심사나 승인 권한을 넘지 않고 판단이 필요한 사안은 담당자에게 즉시 보고",
+          "reason": "인턴의 역할 경계를 분명히 하면서 실제 보고 경험과 직무를 연결한다.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429",
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "error_response",
+          "exact_element": "실수를 발견하면 숨기지 않고 영향 범위와 진행 상태부터 알린 뒤 수정 방법을 확인하겠습니다.",
+          "reason": "새 조직 적응 태도를 실제로 관찰 가능한 행동으로 전환한 표현이다.",
+          "fact_ids": [
+            "exp_22d1df6407915aa2",
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "company_specific_support",
+          "exact_element": "새 제도를 과장하기보다 이런 확인된 수단을 환율 피해의 성격과 기업의 상환 가능성에 맞춰 선별적으로 연결해야 합니다.",
+          "reason": "확인된 협약보증만 사용하면서 지원 필요성과 위험을 함께 보는 논리가 강하다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711",
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ]
+    }
+  ]
+}

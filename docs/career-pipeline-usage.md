@@ -248,11 +248,18 @@ URL은 HTTPS만 허용한다. localhost·사설 IP·링크 로컬 주소는 차�
 
 ## 유튜브 프레임 작성전략 자동 연결
 
-`prepare`를 실행하면 `자료조사/자소서_유튜브_프레임분석_*` 중 최신 폴더를 자동으로 찾아 `05_작성가이드_유튜브프레임.md`를 만든다. 이 자료는 자기소개서 문항 해석, 소재 배치, 첫 문장 방향, 강조 순서, 금지 표현 점검에만 사용한다.
+`prepare`를 실행하면 `자료조사/자소서_유튜브_프레임분석_*` 중 최신 폴더를 자동으로 찾아 `05_작성가이드_유튜브프레임.md`와 다음 두 개의 전략 산출물을 만든다.
+
+- `06_유튜브_디자인패턴_패킷.json`: 여러 영상에서 반복된 구조·판단·검토 패턴을 버전 관리하는 전역 패킷
+- `07_유튜브_패턴적용로그.json`: prepare부터 최종 감사까지 허용 범위·차단 내용·검증 항목을 기록하는 적용 계획
+
+이 자료는 자기소개서 문항 해석, 소재 배치, 첫 문장 방향, 강조 순서, 금지 표현 점검, 후보 비교와 인간문체 감사에만 사용한다. 패턴의 활용 빈도는 늘리되, 유튜브 자료의 증거 지위는 높이지 않는다.
 
 대상 기관을 `prepare --target`으로 전달하면 `04_프레임_근거색인.csv`에서 기관명·기관군·별칭이 일치하는 영상과 대표 프레임을 별도로 추출해 `writing_guidance.target_specific`과 작성가이드의 `지원기관 맞춤 유튜브 전략`에 기록한다. 예를 들어 신용보증기금 대상이면 신용보증기금·KODIT·신보·보증/기금/HUG 관련 사례가 연결된다. 이 항목은 해당 기관 자기소개서 사례의 구조와 질문 대응 방식만 참고하며, 영상 속 기관 사실·수치·업무 설명을 `research_refs`로 승격하지 않는다.
 
-중요: 유튜브 프레임 캡처와 OCR 원문은 공식 근거 또는 본인 경험 사실 근거가 아니다. 지원기관의 사실과 수치는 공식 공고·공식 조사 자료에서만 가져오고, 본인 경험의 사실은 확정 경험원장과 사용자 원자료에서만 가져온다. `run.json`에는 이 구분을 `writing_guidance.use_policy = strategy_only_not_factual_evidence`로 남긴다. 원본 프로젝트와 가공본의 수정 시각을 비교한 결과는 `writing_guidance.freshness.status`에 `fresh`, `stale`, `external_source_unavailable` 중 하나로 기록한다. 원본 위치는 `CAREER_YOUTUBE_GUIDANCE_ROOT`로 바꿀 수 있다.
+중요: 유튜브 프레임 캡처와 OCR 원문은 공식 근거 또는 본인 경험 사실 근거가 아니다. 지원기관의 사실과 수치는 공식 공고·공식 조사 자료에서만 가져오고, 본인 경험의 사실은 확정 경험원장과 사용자 원자료에서만 가져온다. `run.json`에는 이 구분을 `writing_guidance.use_policy = strategy_only_not_factual_evidence`로 남긴다. 원본 프로젝트와 가공본의 수정 시각을 비교한 결과는 `writing_guidance.freshness.status`에 `fresh`, `stale`, `external_source_unavailable` 중 하나로 기록한다. `writing_guidance.pattern_packet.manual_review_required`가 참이면 저신뢰 OCR이 전역 규칙·문구 판정에 영향을 주기 전에 원본 프레임을 수동 확인한다. 원본 위치는 `CAREER_YOUTUBE_GUIDANCE_ROOT`로 바꿀 수 있다.
+
+단계별 적용은 다음과 같다. `prepare`에서는 넓게 탐색하되 추상 패턴·출처 품질·제외 패턴만 다음 단계에 전달한다. 문항 유형 판별과 후보 선택에서는 패턴을 높은 강도로 사용하되, 유튜브를 빼도 공식 자료와 confirmed 경험만으로 선택 결과를 설명할 수 있어야 한다. 초안 생성에서는 영상 문장·예시·회사명을 전달하지 않는다. 인간화 편집과 최종 감사에서는 문구 중복, 문항 간 반복, 확인되지 않은 수치, AI식 추상어를 경고하고 자동 통과시키지 않는다.
 
 ## 3. V2 준비와 최종화
 
@@ -350,7 +357,7 @@ URL은 HTTPS만 허용한다. localhost·사설 IP·링크 로컬 주소는 차�
 
 기존 단일 후보 흐름은 그대로 유지된다.
 
-최고 품질이 필요하면 모델명과 무관한 품질 프로필을 사용한다. `max_quality`는 사실·문항·경험 다양성·회사/직무 적합성·자연스러운 지원자 문체·면접 방어 후보를 독립 생성하고, 채용담당자·사실 감사자·한국어 편집자·면접 코치가 익명 심사한다. 최대 31회는 6개 후보 각각의 제한 복구 2회, 최종 품질 정제·문체 복구 7회와 X/Y 재비교를 포함한 최악 조건 상한이다. 이 모드에서는 짧은 문항은 상한의 85%, 긴 문항은 80%를 권장 최소 품질 범위로 적용한다.
+최고 품질이 필요하면 모델명과 무관한 품질 프로필을 사용한다. `max_quality`는 사실·문항·경험 다양성·회사/직무 적합성·자연스러운 지원자 문체·면접 방어 후보를 독립 생성하고, 채용담당자·사실 감사자·한국어 편집자·면접 코치가 익명 심사한다. 최대 40회는 6개 후보 각각의 제한 복구 2회, 최종 품질 정제·문체 복구 16회와 X/Y 재비교를 포함한 최악 조건 상한이다. 이 모드에서는 짧은 문항은 상한의 85%, 긴 문항은 80%를 권장 최소 품질 범위로 적용한다.
 
 ```powershell
 $env:CAREER_MODEL_GENERATION="<생성 모델 ID>"
@@ -361,10 +368,10 @@ $env:CAREER_MODEL_COMPARISON="<최종 비교 모델 ID>"
 python -m career_pipeline finalize `
   --run "career_runs/<run-dir>" `
   --quality-profile max_quality `
-  --max-model-calls 31
+  --max-model-calls 40
 ```
 
-역할별 환경변수가 없으면 기존 `CAREER_MODEL_SOL`을 호환 fallback으로 사용한다. 모델 ID 문자열에 `sol`이 포함될 필요는 없다. `fast`, `balanced`, `high_quality`, `max_quality`의 최대 선택 호출 수는 각각 0, 6, 9, 31이다. 어떤 프로필에서도 승인 사실·공식 근거·글자 수·금지 claim·최종 사실 감사는 생략하지 않는다.
+역할별 환경변수가 없으면 기존 `CAREER_MODEL_SOL`을 호환 fallback으로 사용한다. 모델 ID 문자열에 `sol`이 포함될 필요는 없다. `fast`, `balanced`, `high_quality`, `max_quality`의 최대 선택 호출 수는 각각 0, 6, 9, 40이다. 어떤 프로필에서도 승인 사실·공식 근거·글자 수·금지 claim·최종 사실 감사는 생략하지 않는다.
 
 V2 `prepare`는 실제 공고 문항마다 하위 요구, 회사·직무 고유성, 권장 글자 범위, 경험 재사용 정책을 구조화한 `05_문항전략.json`을 생성한다. rigorous 후보는 이 파일을 사용하므로 기관별 4문항이나 특정 글자 수에 고정되지 않는다.
 
@@ -457,6 +464,8 @@ Patina는 기본 실행에서 호출하지 않는다. 기존 흐름이 필요한
 - `03_경험직무매칭.json`, `03_경험직무매칭.md`: 문항별 후보·점수 구성·금지 주장
 - `04_기업직무조사.md`, `05_문항전략.md`
 - `05_작성가이드_유튜브프레임.md`: 유튜브 프레임 기반 작성전략 참고자료. 공식 근거로 사용하지 않는다.
+- `06_유튜브_디자인패턴_패킷.json`, `07_유튜브_패턴적용로그.json`: 전략 패턴의 버전·단계별 허용 범위·차단 규칙·수동 확인 게이트
+- `09_youtube_phrase_overlap_report.json`: 영상 색인과의 문구 중복 경고. 자동 탈락이나 사실 근거 승격에 사용하지 않는다.
 - `04_공식근거.json`: 공식 주장·URL·확인일·근거 문장과 `research_refs` 원장
 - `04_리서치실행.json`: evidence-first 실행 정책·질의·시간·출처 계층·검증 근거 ID
 - `06_자기소개서.md`, `06_자기소개서.docx`
@@ -511,3 +520,45 @@ The normal M5 offline result exits `3` with `external_only_blocked`: local
 synthetic acceptance is complete, but external inputs remain blocked, live
 execution is disabled, and submission was not attempted. `status` accepts only
 a strict local JSON readiness report or M5 offline-acceptance envelope.
+
+## 탈락 사례 피드백 루프
+
+제출 후 탈락한 자기소개서는 내부 점수만으로 성공 사례로 보존하지 않는다. 원문과 실제 결과를 별도 사례로 등록하고, 공식 피드백이 있으면 확인된 사실로, 없으면 문서 비교에서 도출한 가설로 구분한다. 내부 90점 이상은 제출 추천이나 합격 확률이 아니라 규칙 충족도일 뿐이다.
+
+결과 원장에는 지원서 원문이나 개인정보를 넣지 않고 기관·직무·전형 결과·출처·차원별 강점/약점만 기록한다. 자동 추출 값은 `proposed`, 사용자 또는 공식 자료로 확인한 값만 `confirmed`를 사용한다.
+
+```powershell
+python -m career_pipeline outcome record `
+  --root . `
+  --case-id "hf-2026-intern" `
+  --organization "한국주택금융공사" `
+  --target-role "체험형 인턴" `
+  --decision rejected `
+  --verification-status confirmed `
+  --feedback-source official `
+  --scope cross_target `
+  --recorded-at "2026-08-01T12:00:00+09:00" `
+  --evidence-ref "docs/hf-rejection-analysis-20260801.md" `
+  --signal "job_competency=weakness" `
+  --signal "motivation=weakness" `
+  --signal "organization_interest=strength"
+
+python -m career_pipeline outcome validate --root .
+python -m career_pipeline outcome summary --root . --target "지원 기관 직무"
+```
+
+기본 원장은 `.career_profile/application_outcomes.json`이다. `prepare`는 검증된 관련 사례를 `05_전형결과피드백.json`에 동결하고 `05_문항전략.json`의 문항별 요구에 연결한다. 동일 기관의 공식·확정 약점 또는 두 건 이상 반복된 공식 약점만 hard 요구가 되며, 한 건의 교차기관 신호와 추정 원인은 `review_required`로 남긴다. 결과 메타데이터는 작성 제약일 뿐 현재 기관의 사실 근거나 합격 확률이 아니다.
+
+다음 순서로 사후 검토한다.
+
+1. 문항별로 회사·상품 설명, 본인 행동, 관찰 가능한 결과, 직무 연결을 분리해 표시한다.
+2. 같은 경험·역량·결론이 여러 문항에서 반복되는지 확인하고, 문항별 중심을 하나씩 남긴다.
+3. `question_fit_score`만 있고 `duty_score`·`competency_score`가 0인 매칭은 통과시키지 않는다.
+4. 경험 답변에 완료·변화·처리 결과가 없으면 `weak_observable_result`로 차단한다. 업무수행계획 문항은 예외로 하되 첫 주 산출물과 보고 경계를 요구한다.
+5. 제출 파일에서 편집 메모와 Markdown 표식이 제거됐는지 확인한다.
+
+rigorous 선발은 상대적 1등만으로 통과하지 않는다. 내부 심사 중앙값 85, 최저점 70, 문항충실도·사실성·직무관련성 핵심 중앙값 28을 모두 넘고 미해결 의미 검토가 없어야 `passed`다. 이 수치는 내부 품질 하한이며 실제 합격 확률이나 기관 커트라인이 아니다.
+
+포트폴리오의 `ready`는 rigorous 절대 하한, 문항별 최소 85·평균 90, 권장 분량 PASS, `human_review_recommended=false`를 모두 요구한다. 하나라도 미완료이면 전체 내부 점수가 높아도 `review_required`다. `audit` 명령도 사람 검토가 남으면 종료코드 2를 반환한다.
+
+남동발전·신용보증기금 사례에서 확인된 공통 경고는 `docs/namdong-power-rejection-analysis-20260808.md`에 기록했다. 해당 문서는 특정 기관의 공식 탈락 사유가 아니라 원문과 비교본에서 확인한 개선 가설을 담는다.

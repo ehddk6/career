@@ -1,0 +1,405 @@
+{
+  "data_package_id": "CAREER-DATA-B0F5D1A8FD48",
+  "data_package_version": "2.0",
+  "judge_mode": "JOB_FACT_AUDITOR",
+  "evaluations": [
+    {
+      "candidate_id": "C062DAE59",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 17,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 10,
+        "experience_allocation": 6,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 5,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 5,
+        "length_and_format": 2
+      },
+      "total": 97,
+      "weakness_codes": [
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "문항 1",
+          "element_type": "company_role",
+          "exact_element": "신용보증기금은 기업이 부담하는 채무를 보증해 성장유망기업을 지원하고, 보증신청 뒤 신용조사와 보증심사를 수행하는 기관으로 이해하고 있습니다.",
+          "reason": "기관 역할에 관한 확인된 공식 claim을 정확히 사용했다.",
+          "fact_ids": [
+            "kodit-role-20260711"
+          ]
+        },
+        {
+          "question": "문항 3",
+          "element_type": "experience_action",
+          "exact_element": "기존 엑셀 수식과 외주 프로그램에 같은 데이터를 입력한 뒤 결과를 비교한 보고서를 작성해 팀장에게 보고한 경험처럼, 결과만 받아들이지 않고 원자료와 처리 결과가 맞는지 확인하겠습니다.",
+          "reason": "대조와 보고 행동이 확인된 경험 claim에 직접 연결된다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "문항 4",
+          "element_type": "policy_support",
+          "exact_element": "신용보증기금은 지역 수출기업 등의 유동성과 금융비용 부담을 완화하기 위해 협약보증을 공급하고 있습니다.",
+          "reason": "확인된 협약보증 claim을 지원방안 논리에 적절히 배치했다.",
+          "fact_ids": [
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "JOB_FACT_AUDITOR"
+    },
+    {
+      "candidate_id": "C08CB7011",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 17,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 10,
+        "experience_allocation": 6,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 5,
+        "korean_readability": 10,
+        "applicant_distinctiveness": 5,
+        "length_and_format": 2
+      },
+      "total": 98,
+      "weakness_codes": [
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "문항 1",
+          "element_type": "experience_action",
+          "exact_element": "자료를 체계적으로 분류해 기초연금 지급 절차를 지원한 경험",
+          "reason": "자료 분류와 절차 지원이 확인된 경험 claim 범위 안에 있다.",
+          "fact_ids": [
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        },
+        {
+          "question": "문항 3",
+          "element_type": "experience_action",
+          "exact_element": "저는 기존 엑셀 수식과 외주 프로그램에 같은 데이터를 입력한 결과를 비교해 분석 보고서를 작성하고 팀장에게 보고한 경험이 있습니다.",
+          "reason": "직접 수행한 대조·보고 행동을 원장과 일치하게 제시했다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "문항 4",
+          "element_type": "issue_evidence",
+          "exact_element": "한국은행은 높은 환율 변동성과 중동지역 리스크를 점검하면서 14조원 한도의 중소기업 한시 특별지원 운용기간을 재연장했습니다.",
+          "reason": "이슈 선정의 근거가 확인된 공식 claim과 일치한다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "JOB_FACT_AUDITOR"
+    },
+    {
+      "candidate_id": "C29D6F72B",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "REVIEW_REQUIRED",
+      "hard_fail_type": null,
+      "review_required": [
+        "문항 4의 ‘우대보증과 보증료 지원’은 동결된 원자료의 evidence_excerpt에는 있으나 prompt_contract의 safe_claim 문구보다 구체적이므로 최종 사용 전 claim 허용 범위 확인이 필요하다."
+      ],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 15,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 3,
+        "interview_defensibility": 7,
+        "spoken_defensibility": 4,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 5,
+        "length_and_format": 2
+      },
+      "total": 89,
+      "weakness_codes": [
+        "fact_risk",
+        "experience_overlap",
+        "interview_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "문항 1",
+          "element_type": "company_role",
+          "exact_element": "신용보증기금은 기업이 부담하는 채무를 보증해 성장유망기업의 자금 조달을 돕고, 보증신청 이후 신용조사와 보증심사를 수행하는 정책금융기관으로 이해하고 있습니다.",
+          "reason": "확인된 기관 역할을 지원 동기의 첫 문장에서 직접 제시했다.",
+          "fact_ids": [
+            "kodit-role-20260711"
+          ]
+        },
+        {
+          "question": "문항 2",
+          "element_type": "experience_action",
+          "exact_element": "저는 업무나 학업이 주어지면 마감일을 기준으로 남은 기간을 나누고 일일 목표를 달력과 노트에 기록해 관리합니다.",
+          "reason": "일정과 일일 목표를 기록하는 행동이 확인된 경험에 근거한다.",
+          "fact_ids": [
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "문항 3",
+          "element_type": "experience_action",
+          "exact_element": "저는 동일 데이터를 기존 엑셀 수식과 외주 프로그램에 넣어 결과를 비교하고 분석 보고서를 작성한 경험이 있습니다.",
+          "reason": "대조와 보고 행동이 확인된 경험 claim과 일치한다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        }
+      ],
+      "judge_mode": "JOB_FACT_AUDITOR"
+    },
+    {
+      "candidate_id": "C9A701820",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "REVIEW_REQUIRED",
+      "hard_fail_type": null,
+      "review_required": [
+        "문항 1의 ‘기업의 가능성이 담보 부족 때문에 멈추지 않도록 돕는’이라는 기관 역할 설명은 safe_claims에 없는 담보 부족 인과를 추가하므로 사실 범위 확인이 필요하다."
+      ],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 15,
+        "job_relevance": 12,
+        "company_specificity": 7,
+        "action_specificity": 9,
+        "experience_allocation": 6,
+        "interview_defensibility": 7,
+        "spoken_defensibility": 5,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 4,
+        "length_and_format": 2
+      },
+      "total": 91,
+      "weakness_codes": [
+        "fact_risk",
+        "interview_risk",
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "문항 1",
+          "element_type": "experience_action",
+          "exact_element": "이전 업무에서는 기존 엑셀 수식과 외주 프로그램에 같은 데이터를 입력한 결과를 비교해 분석 보고서를 작성하고 팀장에게 보고했습니다.",
+          "reason": "직접 행동과 보고 대상이 확인된 경험 claim에 근거한다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "문항 2",
+          "element_type": "experience_action",
+          "exact_element": "저는 업무나 과제가 주어지면 마감기한과 남은 날짜를 확인하고, 일일 목표를 컴퓨터와 휴대전화 달력, 노트에 기록해 관리해 왔습니다.",
+          "reason": "계획과 기록 습관이 확인된 경험 claim과 일치한다.",
+          "fact_ids": [
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "문항 4",
+          "element_type": "policy_support",
+          "exact_element": "신용보증기금은 지역 수출기업 등의 유동성과 금융비용 부담을 완화하기 위해 협약보증을 공급하고 있습니다.",
+          "reason": "확인된 공식 지원 claim을 기업별 선별 논리에 연결했다.",
+          "fact_ids": [
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "JOB_FACT_AUDITOR"
+    },
+    {
+      "candidate_id": "CAF93067D",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "REVIEW_REQUIRED",
+      "hard_fail_type": null,
+      "review_required": [
+        "문항 4의 ‘중소기업은 대기업보다 거래 조건을 즉시 바꾸거나 비용 상승분을 판매가격에 반영하기 어렵다’는 비교 주장은 safe_claims에 없으므로 근거 확인이 필요하다.",
+        "문항 4의 ‘중소기업의 자금 사정과 금융 안정에도 영향을 줄 수 있다’는 해석 중 금융 안정 부분은 확인된 claim보다 범위가 넓어 검토가 필요하다."
+      ],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 15,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 6,
+        "interview_defensibility": 7,
+        "spoken_defensibility": 4,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 5,
+        "length_and_format": 2
+      },
+      "total": 92,
+      "weakness_codes": [
+        "fact_risk",
+        "interview_risk",
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "문항 1",
+          "element_type": "experience_action",
+          "exact_element": "저는 기존 엑셀 수식과 외주 프로그램에 동일한 데이터를 입력한 결과를 비교해 분석 보고서를 작성하고 팀장에게 보고한 경험이 있습니다.",
+          "reason": "대조·분석·보고의 기여 범위가 확인된 경험 claim과 일치한다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "문항 2",
+          "element_type": "experience_action",
+          "exact_element": "저는 업무나 과제가 주어지면 마감 기한을 정하고 남은 일정을 달력과 노트에 기록하며 일일 계획을 관리해 왔습니다.",
+          "reason": "일정 기록 행동이 확인된 경험 claim에 근거한다.",
+          "fact_ids": [
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "문항 4",
+          "element_type": "issue_evidence",
+          "exact_element": "한국은행은 높은 환율 변동성과 중동지역 리스크를 점검하면서 14조원 한도의 중소기업 한시 특별지원 운용기간을 재연장했습니다.",
+          "reason": "수치와 정책 대응이 확인된 공식 claim과 일치한다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "JOB_FACT_AUDITOR"
+    },
+    {
+      "candidate_id": "CCE1CD29C",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 17,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 6,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 5,
+        "korean_readability": 10,
+        "applicant_distinctiveness": 5,
+        "length_and_format": 2
+      },
+      "total": 97,
+      "weakness_codes": [
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "문항 1",
+          "element_type": "experience_action",
+          "exact_element": "저는 기존 엑셀 수식과 외주 프로그램에 같은 데이터를 입력한 뒤 결과를 비교한 보고서를 작성해 팀장에게 보고한 경험이 있습니다.",
+          "reason": "동일 데이터 대조와 보고 행동이 확인된 경험 claim에 직접 근거한다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "문항 3",
+          "element_type": "experience_action",
+          "exact_element": "저는 자료를 체계적으로 분류해 기초연금 지급 절차가 원활히 진행되도록 보조한 경험이 있습니다.",
+          "reason": "자료 분류와 절차 기여가 확인된 경험 claim 범위에 있다.",
+          "fact_ids": [
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        },
+        {
+          "question": "문항 4",
+          "element_type": "policy_support",
+          "exact_element": "실제로 신용보증기금은 지역 수출기업 등의 유동성과 금융비용 부담을 완화하기 위해 협약보증을 공급하고 있습니다.",
+          "reason": "기관의 확인된 지원 수단을 지원방안에 정확히 사용했다.",
+          "fact_ids": [
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "JOB_FACT_AUDITOR"
+    },
+    {
+      "candidate_id": "CF76B2F9F",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 17,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 6,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 5,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 5,
+        "length_and_format": 2
+      },
+      "total": 96,
+      "weakness_codes": [
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "문항 1",
+          "element_type": "experience_action",
+          "exact_element": "저는 기존 엑셀 수식과 외주 프로그램에 같은 데이터를 입력해 결과를 비교하고, 분석 보고서를 작성해 팀장에게 보고한 경험이 있습니다.",
+          "reason": "비교 분석과 보고 행동이 확인된 경험 claim에 근거한다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "문항 3",
+          "element_type": "experience_action",
+          "exact_element": "저는 자료를 체계적으로 분류해 기초연금 지급 관련 업무를 처리한 경험이 있어, 업무를 받으면 자료의 종류와 처리 상태부터 구분하겠습니다.",
+          "reason": "자료 분류 경험이 확인된 claim에 근거하며 직무 전환 행동도 명확하다.",
+          "fact_ids": [
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        },
+        {
+          "question": "문항 4",
+          "element_type": "issue_evidence",
+          "exact_element": "한국은행은 높은 환율 변동성과 중동지역 리스크를 점검하면서 14조원 한도의 중소기업 한시 특별지원 운용기간을 재연장했습니다.",
+          "reason": "이슈의 중요성을 뒷받침하는 수치와 조치가 확인된 공식 claim과 일치한다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "JOB_FACT_AUDITOR"
+    }
+  ]
+}

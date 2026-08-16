@@ -1,0 +1,404 @@
+{
+  "schema_version": 1,
+  "data_package_id": "CAREER-DATA-8684DC8C55C7",
+  "systems": {
+    "A": "combined-draft",
+    "B": "experience-block-pipeline"
+  },
+  "blind_protocol": {
+    "system_labels_hidden": true,
+    "strategy_metadata_removed": true,
+    "file_order_randomized": true,
+    "assignment_sha256": "d8a1aec1a284d9ebc2807fb15411a76db32d9fb0ae70881e6949d107e574bc70"
+  },
+  "hard_fail": {
+    "A": [],
+    "B": []
+  },
+  "sections": {
+    "company_research": {
+      "business_model_depth": {
+        "choice": "B",
+        "reason": "X explains the issue through tariff exposure, liquidity capacity, and transition capacity, then links each diagnosis to different policy-finance responses. Y also has a three-axis checklist, but X integrates export regulation and certification support into the business-model diagnosis more explicitly.",
+        "decisive_difference": "X connects tariff/regulation shock to pricing, contracts, cash gaps, supply chains, and differentiated support in one coherent operating model, while Y is slightly more generic on execution pathways.",
+        "evidence_refs": [
+          "C1 question_index=4 answer",
+          "C1 question_index=4 research_refs",
+          "C4 claim_id=mss-export-support-2026",
+          "C4 claim_id=mss-export-regulation-20260130",
+          "B1 heading=문항 4"
+        ]
+      },
+      "strategy_execution_evidence": {
+        "choice": "B",
+        "reason": "X turns research into executable screening criteria and post-support review standards: contract/order/cost/cash-flow checks, duplication checks, target adjustment, staged termination. Y has useful early-checklist and follow-up ideas, but X is more concrete on decision gates.",
+        "decisive_difference": "X names both pre-execution verification and post-execution adjustment criteria; Y mostly describes support categories and broad monitoring.",
+        "evidence_refs": [
+          "C1 question_index=4 answer",
+          "C4 claim_id=mss-tariff-survey-20250514",
+          "C4 claim_id=mss-export-support-2026",
+          "B1 heading=문항 4"
+        ]
+      },
+      "recency": {
+        "choice": "TIE",
+        "reason": "Both sides rely on the same verified research package dated 2025-05-14, 2025-12-10, 2026-01-30, and checked 2026-07-17. Neither side has a recency advantage once formatting identity is ignored.",
+        "decisive_difference": "No defensible difference; B4 and C4 are identical research artifacts.",
+        "evidence_refs": [
+          "B4 claim_id=mss-tariff-survey-20250514",
+          "B4 claim_id=mss-export-support-2026",
+          "B4 claim_id=mss-export-regulation-20260130",
+          "C4 claim_id=mss-tariff-survey-20250514",
+          "C4 claim_id=mss-export-support-2026",
+          "C4 claim_id=mss-export-regulation-20260130"
+        ]
+      },
+      "source_traceability": {
+        "choice": "B",
+        "reason": "X submitted answers carry explicit research_refs and experience_refs per question, so the claims can be traced directly to C3/C4. Y has the same source artifacts, but B1 itself does not map each answer sentence to claim ids or research ids.",
+        "decisive_difference": "C1 embeds per-question evidence references; B1 is plain text without per-question source mapping.",
+        "evidence_refs": [
+          "C1 question_index=1 experience_refs",
+          "C1 question_index=1 research_refs",
+          "C1 question_index=4 research_refs",
+          "B1 heading=문항 1",
+          "B1 heading=문항 4"
+        ]
+      },
+      "role_connection": {
+        "choice": "B",
+        "reason": "X repeatedly ties applicant behavior to 기한연장, 기업신용 상시관리, 기준일, 보고 경로, 담당자 판단, and 인턴 권한. Y also mentions these duties, but X gives a clearer boundary between intern support work and 담당자 authority.",
+        "decisive_difference": "X explicitly limits itself from 보증 여부 판단 and 승인·신용판단, making the role connection more realistic for an intern.",
+        "evidence_refs": [
+          "C1 question_index=1 answer",
+          "C1 question_index=3 answer",
+          "C4 claim_id=kodit-intern-duty-20260717",
+          "B1 heading=문항 1",
+          "B1 heading=문항 3"
+        ]
+      },
+      "motivation_reusability": {
+        "choice": "A",
+        "reason": "Y's motivation answer has a reusable logic: public support gains trust when connected accurately to the right target, then links that to KODIT's guarantee role. X is solid but more technical and less broadly reusable as a motivation narrative.",
+        "decisive_difference": "Y provides a clearer transferable motivation frame from public support accuracy to KODIT's mission.",
+        "evidence_refs": [
+          "B1 heading=문항 1",
+          "B4 claim_id=kodit-role-current-20260717",
+          "C1 question_index=1 answer"
+        ]
+      },
+      "prohibited_claim_control": {
+        "choice": "B",
+        "reason": "Both avoid prohibited personal facts listed in the official constraints. X has a slight advantage because it more clearly controls prohibited authority claims by stating the intern will not decide guarantee approval or credit judgment.",
+        "decisive_difference": "X adds explicit authority-boundary language in submitted answers; Y is safe but less explicit on this risk.",
+        "evidence_refs": [
+          "C2 constraints",
+          "C1 question_index=1 answer",
+          "C1 question_index=3 answer",
+          "B2 constraints",
+          "B1 heading=문항 1",
+          "B1 heading=문항 3"
+        ]
+      },
+      "specificity_without_generalities": {
+        "choice": "B",
+        "reason": "X is more specific in process language: 기준 시점, 차이, 일치·누락·변동·판단 필요 항목, 계약서·수주·원가·현금흐름, 중복 점검. Y is concrete in places but includes more broad statements such as speed and soundness balance.",
+        "decisive_difference": "X supplies more operational nouns and decision categories without relying on unsupported metrics.",
+        "evidence_refs": [
+          "C1 question_index=1 answer",
+          "C1 question_index=3 answer",
+          "C1 question_index=4 answer",
+          "B1 heading=문항 3",
+          "B1 heading=문항 4"
+        ]
+      }
+    },
+    "self_intro": {
+      "question_fidelity": {
+        "choice": "B",
+        "reason": "Both answer all four required prompts. X more directly preserves required content in question 3 by presenting an actual work plan and in question 4 by covering issue, reason, support method, and cautions in a structured flow.",
+        "decisive_difference": "X's answers mirror the prompt elements more explicitly, especially the support-process caution and intern work-plan parts.",
+        "evidence_refs": [
+          "C2 questions[2].prompt",
+          "C1 question_index=3 answer",
+          "C2 questions[3].prompt",
+          "C1 question_index=4 answer",
+          "B2 questions[2].prompt",
+          "B1 heading=문항 3",
+          "B2 questions[3].prompt",
+          "B1 heading=문항 4"
+        ]
+      },
+      "fact_accuracy": {
+        "choice": "B",
+        "reason": "Both use confirmed personal experiences and verified research. X avoids stronger contested wording such as '피해 신고를 기다리기보다 선제적으로 찾아야 한다' and frames claims as criteria to check, while Y occasionally sounds more prescriptive than the cited evidence supports.",
+        "decisive_difference": "X keeps factual claims closer to source-supported screening and support logic; no unsupported personal metrics are used for advantage.",
+        "evidence_refs": [
+          "C1 question_index=4 answer",
+          "C4 claim_id=mss-tariff-survey-20250514",
+          "C4 claim_id=mss-export-support-2026",
+          "B1 heading=문항 4",
+          "B4 claim_id=mss-tariff-survey-20250514"
+        ]
+      },
+      "contribution_boundary": {
+        "choice": "B",
+        "reason": "X distinguishes observed facts, items needing judgment, and 담당자 authority. Y also mostly stays within support contribution, but phrases like '피해기업을 선제적으로 찾아야 합니다' and '보증지원이 자료 문제로 지연되지 않도록 기여' are broader.",
+        "decisive_difference": "X explicitly states it will not judge guarantee approval or credit decisions, which makes contribution boundaries more defensible.",
+        "evidence_refs": [
+          "C1 question_index=1 answer",
+          "C1 question_index=3 answer",
+          "C3 experiences[0].claims[0].verification.contribution",
+          "B1 heading=문항 1",
+          "B1 heading=문항 4"
+        ]
+      },
+      "action_and_judgment_specificity": {
+        "choice": "B",
+        "reason": "X describes applicant actions and judgment categories in precise terms: 기준 시점, 차이, 질문 목록, 점검표, 일치·누락·변동·판단 필요 항목, 근거 위치. Y has clear actions too, but X separates action from judgment more cleanly.",
+        "decisive_difference": "X gives repeatable judgment categories that can be defended in interview.",
+        "evidence_refs": [
+          "C1 question_index=1 answer",
+          "C1 question_index=2 answer",
+          "C1 question_index=3 answer",
+          "B1 heading=문항 2",
+          "B1 heading=문항 3"
+        ]
+      },
+      "experience_allocation": {
+        "choice": "TIE",
+        "reason": "Both allocate the same core experiences appropriately: Seoul City support for motivation, Banpo Hangang for adaptation, National Pension Service for work plan, and policy issue for question 4. Neither overuses an experience in a way that clearly weakens the set.",
+        "decisive_difference": "No material difference in experience-question matching.",
+        "evidence_refs": [
+          "C1 question_index=1 experience_refs",
+          "C1 question_index=2 experience_refs",
+          "C1 question_index=3 experience_refs",
+          "B1 heading=문항 1",
+          "B1 heading=문항 2",
+          "B1 heading=문항 3",
+          "B3 experiences[0].experience_id",
+          "B3 experiences[1].experience_id",
+          "B3 experiences[4].experience_id"
+        ]
+      },
+      "job_relevance": {
+        "choice": "B",
+        "reason": "X more consistently ties personal examples to KODIT 보증-field duties and intern limits. Y is relevant, but X's use of 기한연장, 상시관리, 자료 항목, 보고 경로, 고객 안내, and 담당자 판단 better fits the target role.",
+        "decisive_difference": "X converts experience into the actual duty workflow more directly.",
+        "evidence_refs": [
+          "C1 question_index=1 answer",
+          "C1 question_index=3 answer",
+          "C4 claim_id=kodit-intern-duty-20260717",
+          "B1 heading=문항 1",
+          "B1 heading=문항 3"
+        ]
+      },
+      "company_specificity": {
+        "choice": "B",
+        "reason": "Both know KODIT's role and duties. X has stronger company specificity because each answer links to verified role or duty refs and repeatedly uses KODIT-specific task terms rather than only public-service analogies.",
+        "decisive_difference": "X's submitted artifact includes per-question KODIT research_refs, while Y's text relies on unembedded source linkage.",
+        "evidence_refs": [
+          "C1 question_index=1 research_refs",
+          "C1 question_index=2 research_refs",
+          "C1 question_index=3 research_refs",
+          "C4 claim_id=kodit-role-current-20260717",
+          "C4 claim_id=kodit-intern-duty-20260717",
+          "B1 heading=문항 1",
+          "B1 heading=문항 3"
+        ]
+      },
+      "applicant_distinctiveness": {
+        "choice": "B",
+        "reason": "Ignoring unsupported or overbroad performance language, X is more distinctive through a defensible working style: separating confirmed facts from judgment, documenting basis points, and limiting authority. Y is polished but more standard public-service motivation language.",
+        "decisive_difference": "X's distinctiveness comes from traceable process discipline, not unsupported numbers or unverifiable outcomes.",
+        "evidence_refs": [
+          "C1 question_index=1 answer",
+          "C1 question_index=3 answer",
+          "C3 experiences[0].claims[0].verification",
+          "C3 experiences[1].claims[0].verification",
+          "B1 heading=문항 1",
+          "B1 heading=문항 3"
+        ]
+      },
+      "natural_korean": {
+        "choice": "A",
+        "reason": "Y reads more naturally as a Korean self-introduction with smoother transitions and less list-like operational phrasing. X is precise but sometimes dense and mechanical, especially in question 4.",
+        "decisive_difference": "Y has better sentence flow and applicant voice while remaining mostly safe.",
+        "evidence_refs": [
+          "B1 heading=문항 1",
+          "B1 heading=문항 2",
+          "B1 heading=문항 4",
+          "C1 question_index=4 answer"
+        ]
+      },
+      "length_and_format": {
+        "choice": "A",
+        "reason": "Y is formatted as the four final answers and is easier to paste/read. X is JSON with evidence metadata, useful for traceability but less directly formatted as a final submission; X's question 4 also feels denser. No hard fail is assigned because the comparison package may include structured outputs, but Y is better as submitted text format.",
+        "decisive_difference": "Y presents clean answer sections; X embeds answers in JSON records.",
+        "evidence_refs": [
+          "B1 heading=문항 1",
+          "B1 heading=문항 2",
+          "B1 heading=문항 3",
+          "B1 heading=문항 4",
+          "C1 question_index=1 answer",
+          "C1 question_index=4 answer"
+        ]
+      },
+      "interview_defensibility": {
+        "choice": "B",
+        "reason": "X is more interview-defensible because it records experience_refs and research_refs and contains boundary statements that can be repeated under questioning. Y has good content but fewer embedded defense hooks.",
+        "decisive_difference": "X combines submitted wording with claim ids and explicit authority limits.",
+        "evidence_refs": [
+          "C1 question_index=1 experience_refs",
+          "C1 question_index=1 research_refs",
+          "C1 question_index=3 answer",
+          "C1 question_index=4 research_refs",
+          "B1 heading=문항 1",
+          "B1 heading=문항 3"
+        ]
+      }
+    },
+    "interview": {
+      "question_relevance": {
+        "choice": "B",
+        "reason": "X's likely interview preparation would have more relevant probes because the submitted answers are tied to question indexes, experience ids, and research ids. Y can still generate relevant questions from B1, but the trace layer is weaker.",
+        "decisive_difference": "C1's structured mapping makes role, question, experience, and research relevance easier to probe.",
+        "evidence_refs": [
+          "C1 question_index=1 experience_refs",
+          "C1 question_index=3 research_refs",
+          "C1 question_index=4 research_refs",
+          "B1 heading=문항 1",
+          "B1 heading=문항 4"
+        ]
+      },
+      "probe_depth": {
+        "choice": "B",
+        "reason": "X invites deeper probes into 기준일, 보고 경로, 판단 필요 항목, cash-flow diagnosis, and post-support adjustment. Y's probes would be more narrative and less technically layered.",
+        "decisive_difference": "X gives more concrete process variables for follow-up questioning.",
+        "evidence_refs": [
+          "C1 question_index=3 answer",
+          "C1 question_index=4 answer",
+          "B1 heading=문항 3",
+          "B1 heading=문항 4"
+        ]
+      },
+      "submitted_claim_traceability": {
+        "choice": "B",
+        "reason": "X directly links submitted answers to claim ids and research ids. Y has the same underlying B3/B4 source packages, but B1 does not carry those references in the submitted answer artifact.",
+        "decisive_difference": "C1 has explicit experience_refs and research_refs fields; B1 lacks field-level traceability.",
+        "evidence_refs": [
+          "C1 question_index=1 experience_refs",
+          "C1 question_index=2 experience_refs",
+          "C1 question_index=3 experience_refs",
+          "C1 question_index=4 research_refs",
+          "B1 heading=문항 1",
+          "B3 experiences[0].claims[0].claim_id",
+          "B4 claim_id=kodit-role-current-20260717"
+        ]
+      },
+      "spoken_answer_quality": {
+        "choice": "B",
+        "reason": "X gives safer spoken-answer building blocks because it distinguishes observed facts, process checks, and authority boundaries. Y is more fluent in writing, but some broader statements would need narrowing in spoken defense.",
+        "decisive_difference": "X's answer phrases can be defended without relying on unsupported metrics or exaggerated contribution.",
+        "evidence_refs": [
+          "C1 question_index=1 answer",
+          "C1 question_index=3 answer",
+          "C1 question_index=4 answer",
+          "B1 heading=문항 1",
+          "B1 heading=문항 4"
+        ]
+      },
+      "unknown_question_response": {
+        "choice": "B",
+        "reason": "X's habit of separating confirmed procedure from judgment-needed items is more useful when handling unknown interview questions. Y says not to guess in organization adaptation, but X applies that boundary across work-plan and role answers.",
+        "decisive_difference": "X generalizes the fact-boundary method beyond one answer.",
+        "evidence_refs": [
+          "C1 question_index=1 answer",
+          "C1 question_index=3 answer",
+          "B1 heading=문항 2",
+          "B1 heading=문항 3"
+        ]
+      },
+      "fact_boundary_under_pressure": {
+        "choice": "B",
+        "reason": "X repeatedly states limits: do not decide guarantee approval, separate confirmed facts from judgment, report interpretation-needed cases to 담당자. Y is safe overall, but its boundary language is less prominent.",
+        "decisive_difference": "X has explicit pressure-safe boundary wording in multiple submitted answers.",
+        "evidence_refs": [
+          "C1 question_index=1 answer",
+          "C1 question_index=3 answer",
+          "B1 heading=문항 1",
+          "B1 heading=문항 3"
+        ]
+      },
+      "retry_goal_specificity": {
+        "choice": "B",
+        "reason": "If asked to improve after feedback, X provides clearer retry targets: tighten evidence mapping, adjust decision criteria, and refine authority boundaries. Y's improvement goals would be more stylistic because its evidence structure is not embedded in B1.",
+        "decisive_difference": "X's structured fields make concrete revision goals easier to state and execute.",
+        "evidence_refs": [
+          "C1 question_index=1 research_refs",
+          "C1 question_index=3 answer",
+          "C1 question_index=4 research_refs",
+          "B1 heading=문항 4"
+        ]
+      }
+    }
+  },
+  "judge_model_id": "gpt-5.5",
+  "artifact_manifest": {
+    "A": [
+      {
+        "artifact_id": "B1",
+        "content_sha256": "dd653d2adf67d80139fa1ea64fbba4bead1141a4d94046b536d03649d84e24b7",
+        "content_type": "text"
+      },
+      {
+        "artifact_id": "B2",
+        "content_sha256": "ce9fa03e4d06de234e42cbc86e094e8861ab199b3de8ae7711b74da868461051",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "B3",
+        "content_sha256": "c2596332916b0e3a5f0deba27fed0f28cb8891b88f422c0df997f3dfbdd56df4",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "B4",
+        "content_sha256": "b4db1166a8bfccbe235b9bb3b88be058b9c2fa3f1f8a8094450f749f206cc502",
+        "content_type": "json"
+      }
+    ],
+    "B": [
+      {
+        "artifact_id": "C1",
+        "content_sha256": "860b86a495d692bbbf14c552e0f95fca7605ed9c8b4cda4e68f236e9811122b6",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "C2",
+        "content_sha256": "ce9fa03e4d06de234e42cbc86e094e8861ab199b3de8ae7711b74da868461051",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "C3",
+        "content_sha256": "c2596332916b0e3a5f0deba27fed0f28cb8891b88f422c0df997f3dfbdd56df4",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "C4",
+        "content_sha256": "b4db1166a8bfccbe235b9bb3b88be058b9c2fa3f1f8a8094450f749f206cc502",
+        "content_type": "json"
+      }
+    ]
+  },
+  "result": {
+    "verdict": "IMPROVED",
+    "baseline_wins": 3,
+    "challenger_wins": 21,
+    "ties": 2,
+    "section_results": {
+      "company_research": "B",
+      "self_intro": "B",
+      "interview": "B"
+    }
+  }
+}

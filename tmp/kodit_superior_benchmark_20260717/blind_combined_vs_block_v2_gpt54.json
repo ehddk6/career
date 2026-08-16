@@ -1,0 +1,385 @@
+{
+  "schema_version": 1,
+  "data_package_id": "CAREER-DATA-8684DC8C55C7",
+  "systems": {
+    "A": "combined-draft",
+    "B": "experience-block-pipeline-v2"
+  },
+  "blind_protocol": {
+    "system_labels_hidden": true,
+    "strategy_metadata_removed": true,
+    "file_order_randomized": true,
+    "assignment_sha256": "4491f8210e1a5fbc50dcf891e40ecf2349a80a9e4054b8606d77d71a77a89518"
+  },
+  "hard_fail": {
+    "A": [],
+    "B": []
+  },
+  "sections": {
+    "company_research": {
+      "business_model_depth": {
+        "choice": "B",
+        "reason": "Y가 기관 역할을 자금공급-건전성 관리의 긴장으로 더 구조화해 설명한다. X도 역할 이해는 맞지만 보증 운용 구조의 층위가 더 단순하다.",
+        "decisive_difference": "Y는 '신용을 보완하되 신용조사와 심사로 기금의 건전성을 지키는 역할'로 사업모델의 양면을 압축해 제시했다.",
+        "evidence_refs": [
+          "C1:question 1",
+          "C4:claim_id=kodit-role-current-20260717",
+          "B1:문항 1"
+        ]
+      },
+      "strategy_execution_evidence": {
+        "choice": "B",
+        "reason": "Y는 관세 이슈 대응에서 선별 기준과 지원 연결을 실행근거 중심으로 제시한다. X도 점검표와 지원방안을 제시하지만 Y가 계약·원가·현금흐름·중복지원 점검까지 더 구체적이다.",
+        "decisive_difference": "Y의 문항 4는 세 축 선별 후 자금지원·바우처·인증지원·사후점검을 한 흐름으로 연결했다.",
+        "evidence_refs": [
+          "C1:question 4",
+          "C4:claim_id=mss-export-support-2026",
+          "C4:claim_id=mss-export-regulation-20260130",
+          "B1:문항 4"
+        ]
+      },
+      "recency": {
+        "choice": "TIE",
+        "reason": "양측 모두 동일한 공식 검증 묶음에 기대며 2026-07-17 확인일과 2026 공고·지원사업 근거를 사용한다.",
+        "decisive_difference": "차이가 없다.",
+        "evidence_refs": [
+          "B4:claim_id=kodit-intern-duty-20260717",
+          "B4:claim_id=mss-export-regulation-20260130",
+          "C4:claim_id=kodit-intern-duty-20260717",
+          "C4:claim_id=mss-export-regulation-20260130"
+        ]
+      },
+      "source_traceability": {
+        "choice": "B",
+        "reason": "Y는 제출문 안에서 공식 근거의 사용 지점이 더 식별 가능하다. 특히 문항 4에서 중기부 2026 지원 확대를 직접 언급해 지원방안과 출처 연결이 선명하다.",
+        "decisive_difference": "Y는 문항 4에서 '중소벤처기업부가 2026년 ... 지원을 확대한 점'을 직접 서술해 C4와의 추적성이 높다.",
+        "evidence_refs": [
+          "C1:question 4",
+          "C4:claim_id=mss-export-support-2026",
+          "C4:claim_id=mss-export-regulation-20260130",
+          "B1:문항 4"
+        ]
+      },
+      "role_connection": {
+        "choice": "B",
+        "reason": "Y가 인턴 역할 경계를 더 명시적으로 지키면서 기한연장·상시관리 실무와 연결한다. X도 직무 연결은 되지만 담당자 판단 보조 경계가 덜 또렷하다.",
+        "decisive_difference": "Y는 '보증 여부를 대신 판단하지 않고'와 '승인이나 신용판단은 담당자의 권한'을 적시해 인턴 역할 연결이 더 정확하다.",
+        "evidence_refs": [
+          "C1:question 1",
+          "C1:question 3",
+          "C2:questions[0]",
+          "C2:questions[2]",
+          "B1:문항 1",
+          "B1:문항 3"
+        ]
+      },
+      "motivation_reusability": {
+        "choice": "A",
+        "reason": "X의 지원동기 서사는 공공재원 정확 집행 경험에서 기관 역할 이해로 자연스럽게 이어져 다른 면접 답변으로 재사용하기 쉽다. Y는 경계 설정은 좋지만 동기 서사의 압축감이 조금 약하다.",
+        "decisive_difference": "X는 서울시청 경험-기금 역할-배우고 기여할 점을 한 문단 안에서 바로 연결한다.",
+        "evidence_refs": [
+          "B1:문항 1",
+          "B2:questions[0]",
+          "C1:question 1"
+        ]
+      },
+      "prohibited_claim_control": {
+        "choice": "B",
+        "reason": "Y가 권한 초과 판단을 피하고 확인 사실과 미확인 사항을 분리하겠다고 적어 금지·과장 위험 통제가 더 좋다.",
+        "decisive_difference": "Y는 '보증 여부를 대신 판단하지 않고'와 '확인한 사실과 남은 확인 사항을 분리해 보고'를 명시했다.",
+        "evidence_refs": [
+          "C1:question 1",
+          "C1:question 3",
+          "B1:문항 1",
+          "B1:문항 3"
+        ]
+      },
+      "specificity_without_generalities": {
+        "choice": "B",
+        "reason": "Y는 추상적 미사여구보다 기준일, 누락, 변동, 판단 필요 항목, 계약서·원가·현금흐름 같은 실무 단위 표현이 많다.",
+        "decisive_difference": "Y의 문항 3·4는 실무 점검 항목을 명사 수준이 아니라 실제 확인 단위로 적었다.",
+        "evidence_refs": [
+          "C1:question 3",
+          "C1:question 4",
+          "B1:문항 3",
+          "B1:문항 4"
+        ]
+      }
+    },
+    "self_intro": {
+      "question_fidelity": {
+        "choice": "B",
+        "reason": "Y는 각 문항의 요구요소를 더 빠짐없이 맞춘다. 특히 문항 2의 '태도'와 '실천 노력', 문항 3의 '업무수행계획'이 더 분명하게 분리된다.",
+        "decisive_difference": "Y는 문항 2에서 태도-실천-개선안 제시 순서를 명확히 구분한다.",
+        "evidence_refs": [
+          "C1:question 2",
+          "C1:question 3",
+          "C2:questions[1]",
+          "C2:questions[2]",
+          "B1:문항 2",
+          "B1:문항 3"
+        ]
+      },
+      "fact_accuracy": {
+        "choice": "B",
+        "reason": "양측 모두 큰 사실오류는 없지만 Y가 권한과 확인 범위를 더 엄격히 제한해 사실 서술의 안전성이 높다.",
+        "decisive_difference": "Y는 제출문 내에서 인턴이 할 수 없는 판단을 선제적으로 배제했다.",
+        "evidence_refs": [
+          "C1:question 1",
+          "C1:question 3",
+          "C4:claim_id=kodit-role-current-20260717",
+          "B1:문항 1",
+          "B1:문항 3"
+        ]
+      },
+      "contribution_boundary": {
+        "choice": "B",
+        "reason": "Y가 본인 기여를 담당자 보조, 자료 정리, 사실 분리 보고 수준으로 제한해 과장 경계가 가장 분명하다.",
+        "decisive_difference": "Y는 '담당자의 안내와 판단을 돕겠습니다'와 '승인이나 신용판단은 담당자의 권한'을 명시했다.",
+        "evidence_refs": [
+          "C1:question 1",
+          "C1:question 3",
+          "B1:문항 1",
+          "B1:문항 3"
+        ]
+      },
+      "action_and_judgment_specificity": {
+        "choice": "B",
+        "reason": "Y는 무엇을 확인하고 어디서 판단을 멈추는지가 더 선명하다. X는 실행 묘사는 좋지만 판단 경계 표현이 상대적으로 적다.",
+        "decisive_difference": "Y는 '일치, 누락, 변동, 판단 필요 항목' 구분과 '근거 위치와 확인 경과' 보고를 제시했다.",
+        "evidence_refs": [
+          "C1:question 3",
+          "B1:문항 3",
+          "C3:experiences[1].claims[0].field=experience_summary"
+        ]
+      },
+      "experience_allocation": {
+        "choice": "TIE",
+        "reason": "양측 모두 문항별 경험 배치가 적절하다. 서울시청-문항1, 반포한강공원-문항2, 국민연금공단-문항3으로 일관된다.",
+        "decisive_difference": "차이가 없다.",
+        "evidence_refs": [
+          "B1:문항 1",
+          "B1:문항 2",
+          "B1:문항 3",
+          "C1:question 1",
+          "C1:question 2",
+          "C1:question 3"
+        ]
+      },
+      "job_relevance": {
+        "choice": "B",
+        "reason": "Y는 각 문항에서 기한연장, 기업신용 상시관리, 자료 항목, 보고 경로 등 공고 직무와 직접 맞닿는 표현을 더 많이 쓴다.",
+        "decisive_difference": "Y는 문항 2에서도 적응 태도를 곧바로 '기한연장과 상시관리의 용어, 자료 항목, 보고 경로' 학습으로 연결했다.",
+        "evidence_refs": [
+          "C1:question 2",
+          "C1:question 3",
+          "C2:duties",
+          "B1:문항 2",
+          "B1:문항 3"
+        ]
+      },
+      "company_specificity": {
+        "choice": "B",
+        "reason": "Y가 신용보증기금의 건전성, 보증여부 판단 권한, 정책금융 선별 기능을 더 신보 맥락에 맞게 표현한다.",
+        "decisive_difference": "Y는 단순 공공기관 일반론보다 보증기관의 선별·건전성 책임을 반복적으로 맞춘다.",
+        "evidence_refs": [
+          "C1:question 1",
+          "C1:question 4",
+          "C4:claim_id=kodit-role-current-20260717",
+          "B1:문항 1",
+          "B1:문항 4"
+        ]
+      },
+      "applicant_distinctiveness": {
+        "choice": "TIE",
+        "reason": "양측 모두 같은 경험 원천을 사용하며, 방어 가능한 차별점도 유사하다. 금지된 미검증 수치나 과장으로 우위를 줄 요소는 없다.",
+        "decisive_difference": "차이가 없다.",
+        "evidence_refs": [
+          "B1:문항 1",
+          "B1:문항 2",
+          "B1:문항 3",
+          "C1:question 1",
+          "C1:question 2",
+          "C1:question 3",
+          "B3:experiences",
+          "C3:experiences"
+        ]
+      },
+      "natural_korean": {
+        "choice": "B",
+        "reason": "Y가 군더더기와 선언형 반복이 더 적고, 문장 호흡이 면접/서류용 한국어에 더 자연스럽다.",
+        "decisive_difference": "Y는 '답을 빨리 내기보다... 먼저 파악'처럼 추상과 행동을 매끄럽게 연결하고, X의 다소 교과서적 표현을 줄였다.",
+        "evidence_refs": [
+          "C1:question 2",
+          "C1:question 3",
+          "B1:문항 2",
+          "B1:문항 3"
+        ]
+      },
+      "length_and_format": {
+        "choice": "B",
+        "reason": "Y는 각 문항별 글자 수를 명시하고 모두 제한 안에서 안정적으로 관리한다. X도 형식 문제는 없지만 길이 관리 가시성은 Y가 낫다.",
+        "decisive_difference": "Y는 각 문항에 '제한/현재'를 함께 표기해 형식 적합성이 즉시 확인된다.",
+        "evidence_refs": [
+          "C1:heading=1",
+          "C1:heading=2",
+          "C1:heading=3",
+          "C1:heading=4",
+          "C2:questions"
+        ]
+      },
+      "interview_defensibility": {
+        "choice": "B",
+        "reason": "Y는 제출 서술 자체가 후속 면접에서 '어디까지 했는지, 어디서 멈췄는지' 방어하기 쉽다. X는 안전하지만 경계 표기가 덜 명시적이다.",
+        "decisive_difference": "Y는 사실 확인, 판단 보류, 담당자 권한 존중을 반복해 꼬리질문 대응력이 높다.",
+        "evidence_refs": [
+          "C1:question 1",
+          "C1:question 3",
+          "C3:experiences[0].claims[0].verification",
+          "C3:experiences[1].claims[0].verification",
+          "B1:문항 1",
+          "B1:문항 3"
+        ]
+      }
+    },
+    "interview": {
+      "question_relevance": {
+        "choice": "B",
+        "reason": "Y의 제출답변은 예상 면접 질문으로 바로 전환하기 쉬운 실무 논점들로 구성된다.",
+        "decisive_difference": "Y는 제출문 안에 권한 경계, 자료 분류, 세 축 선별 같은 후속 질문 포인트를 명확히 심어 두었다.",
+        "evidence_refs": [
+          "C1:question 1",
+          "C1:question 3",
+          "C1:question 4",
+          "B1:문항 1",
+          "B1:문항 3",
+          "B1:문항 4"
+        ]
+      },
+      "probe_depth": {
+        "choice": "B",
+        "reason": "Y는 후속 질문이 들어올 때 파고들 수 있는 판단 기준과 분기점이 더 많다.",
+        "decisive_difference": "문항 4의 관세 노출도-충격 대응 여력-사업 전환 역량 3축은 심층 면접 확장성이 높다.",
+        "evidence_refs": [
+          "C1:question 4",
+          "B1:문항 4"
+        ]
+      },
+      "submitted_claim_traceability": {
+        "choice": "B",
+        "reason": "Y는 각 핵심 주장마다 지원 근거가 제출문 안에서 더 선명하게 드러나고, 공고·공식 검증 자료와의 연결도 좋다.",
+        "decisive_difference": "Y는 문항 3의 업무계획을 C2 직무와 C3 경험에 거의 일대일로 대응시킨다.",
+        "evidence_refs": [
+          "C1:question 3",
+          "C2:duties",
+          "C3:experiences[1].claims[0].field=experience_summary",
+          "B1:문항 3"
+        ]
+      },
+      "spoken_answer_quality": {
+        "choice": "B",
+        "reason": "Y 문장은 구어 면접 답변으로 풀어 말하기 쉽고, 경계와 판단 기준이 분명해 답변이 흔들리지 않는다.",
+        "decisive_difference": "Y는 짧은 문장 단위로 핵심 판단을 분리해 말하기 좋다.",
+        "evidence_refs": [
+          "C1:question 1",
+          "C1:question 2",
+          "C1:question 3",
+          "B1:문항 1",
+          "B1:문항 2",
+          "B1:문항 3"
+        ]
+      },
+      "unknown_question_response": {
+        "choice": "B",
+        "reason": "Y는 모르는 사안을 확인 사실과 미확인 사항으로 분리하겠다는 태도를 제출문에서 이미 보여 준다.",
+        "decisive_difference": "Y의 '확인한 사실과 남은 확인 사항을 분리해 보고'는 미지 질문 대응 원칙으로 바로 쓸 수 있다.",
+        "evidence_refs": [
+          "C1:question 1",
+          "B1:문항 1"
+        ]
+      },
+      "fact_boundary_under_pressure": {
+        "choice": "B",
+        "reason": "압박 질문 상황에서 Y가 사실과 해석의 경계를 더 잘 지킨다. 이는 HARD FAIL 예방에도 유리하다.",
+        "decisive_difference": "Y는 '해석이나 판단이 필요한 사안은 ... 보고'와 '보증 여부를 대신 판단하지 않고'를 반복한다.",
+        "evidence_refs": [
+          "C1:question 1",
+          "C1:question 3",
+          "B1:문항 1",
+          "B1:문항 3"
+        ]
+      },
+      "retry_goal_specificity": {
+        "choice": "B",
+        "reason": "답변이 부족하다고 느껴져 다시 답할 때 무엇을 보완할지 기준이 더 구체적이다.",
+        "decisive_difference": "Y는 자료 항목, 기준일, 보고 경로, 계약서, 원가, 현금흐름 등 재답변 시 확장할 포인트가 명확하다.",
+        "evidence_refs": [
+          "C1:question 2",
+          "C1:question 3",
+          "C1:question 4",
+          "B1:문항 2",
+          "B1:문항 3",
+          "B1:문항 4"
+        ]
+      }
+    }
+  },
+  "judge_model_id": "gpt-5.4",
+  "artifact_manifest": {
+    "A": [
+      {
+        "artifact_id": "B1",
+        "content_sha256": "dd653d2adf67d80139fa1ea64fbba4bead1141a4d94046b536d03649d84e24b7",
+        "content_type": "text"
+      },
+      {
+        "artifact_id": "B2",
+        "content_sha256": "ce9fa03e4d06de234e42cbc86e094e8861ab199b3de8ae7711b74da868461051",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "B3",
+        "content_sha256": "c2596332916b0e3a5f0deba27fed0f28cb8891b88f422c0df997f3dfbdd56df4",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "B4",
+        "content_sha256": "b4db1166a8bfccbe235b9bb3b88be058b9c2fa3f1f8a8094450f749f206cc502",
+        "content_type": "json"
+      }
+    ],
+    "B": [
+      {
+        "artifact_id": "C1",
+        "content_sha256": "c1b17ab8b09c8fa1e3ac6d4fe40a2405526a540e76c1f8553d671f65a748262e",
+        "content_type": "text"
+      },
+      {
+        "artifact_id": "C2",
+        "content_sha256": "ce9fa03e4d06de234e42cbc86e094e8861ab199b3de8ae7711b74da868461051",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "C3",
+        "content_sha256": "c2596332916b0e3a5f0deba27fed0f28cb8891b88f422c0df997f3dfbdd56df4",
+        "content_type": "json"
+      },
+      {
+        "artifact_id": "C4",
+        "content_sha256": "b4db1166a8bfccbe235b9bb3b88be058b9c2fa3f1f8a8094450f749f206cc502",
+        "content_type": "json"
+      }
+    ]
+  },
+  "result": {
+    "verdict": "IMPROVED",
+    "baseline_wins": 1,
+    "challenger_wins": 22,
+    "ties": 3,
+    "section_results": {
+      "company_research": "B",
+      "self_intro": "B",
+      "interview": "B"
+    }
+  }
+}

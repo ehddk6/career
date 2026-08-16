@@ -1,0 +1,26 @@
+{
+  "preset": "narrative_proposal",
+  "header_pattern": "proposal_centerpiece",
+  "named_overrides": [
+    "한국 채용 문서 관례에 맞춘 A4 210x297mm",
+    "한글 가독성을 위한 맑은 고딕",
+    "분량이 정해진 지원서에 맞춘 10.3pt 본문",
+    "제출 편의를 위한 2x4 글자 수 요약표"
+  ],
+  "structural_checks": {
+    "zip_crc": "PASS",
+    "required_ooxml_parts": "PASS",
+    "xml_parse": "PASS",
+    "answer_text_match": "PASS",
+    "page_geometry": "PASS",
+    "table_geometry": "PASS",
+    "images_absent": "PASS",
+    "placeholders_absent": "PASS"
+  },
+  "render_gate": "NOT_COMPLETED",
+  "render_blockers": [
+    "LibreOffice conversion crash",
+    "Word COM non-responsive",
+    "packaged renderer sandbox temp-directory permission failure"
+  ]
+}

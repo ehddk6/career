@@ -1,0 +1,103 @@
+{
+    "schema_version":  1,
+    "step":  "STEP_3",
+    "run_id":  "CR-20260715-1539",
+    "company_data_package_id":  "CR-DATA-001",
+    "claim_count":  5,
+    "claims":  [
+                   {
+                       "claim_id":  "CLM-COMP-011",
+                       "rq_ids":  [
+                                      "RQ-02",
+                                      "RQ-06"
+                                  ],
+                       "domain":  "FUNDING_LOGIC",
+                       "claim":  "신용보증기금의 보증 운용은 기본재산을 재산적 기초로 삼고 승인 보증에 보증료를 부과하는 구조다.",
+                       "verification_status":  "CONFIRMED_PRIMARY",
+                       "confidence":  "HIGH",
+                       "source_ids":  [
+                                          "SRC-001",
+                                          "SRC-019"
+                                      ],
+                       "evidence_locator":  "신용보증기금법 기본재산 정의·조성 및 공식 보증서 발급 안내",
+                       "counterevidence_or_limit":  "재원별 금액·비중과 실제 보증료 수입은 아직 추출하지 않았다.",
+                       "application_use":  "기관의 정책금융 운영 원리 설명",
+                       "usage_restriction":  "보증료율을 평균 수익률로 사용 금지"
+                   },
+                   {
+                       "claim_id":  "CLM-COMP-012",
+                       "rq_ids":  [
+                                      "RQ-02",
+                                      "RQ-04"
+                                  ],
+                       "domain":  "RISK_SHARING",
+                       "claim":  "보증은 신청기업을 조사·심사한 뒤 채권자에게 보증서를 발급해 기업의 자금조달을 돕고 채권자의 신용위험 일부를 기금으로 이전하는 구조다.",
+                       "verification_status":  "CONFIRMED_PRIMARY",
+                       "confidence":  "HIGH",
+                       "source_ids":  [
+                                          "SRC-002",
+                                          "SRC-003",
+                                          "SRC-005"
+                                      ],
+                       "evidence_locator":  "신용보증 기본구조·업무흐름·심사",
+                       "counterevidence_or_limit":  "상품별 보증비율과 손실분담은 동일하지 않다.",
+                       "application_use":  "사업모델과 고객가치 설명",
+                       "usage_restriction":  "기금이 위험 전부를 부담한다고 표현 금지"
+                   },
+                   {
+                       "claim_id":  "CLM-COMP-013",
+                       "rq_ids":  [
+                                      "RQ-04",
+                                      "RQ-12"
+                                  ],
+                       "domain":  "ORGANIZATION",
+                       "claim":  "공식 조직안내는 4부문 16부 6실과 9영업본부·110영업점·15재기지원단·11채권관리단을 제시한다.",
+                       "verification_status":  "CONFIRMED_PRIMARY",
+                       "confidence":  "HIGH",
+                       "source_ids":  [
+                                          "SRC-018"
+                                      ],
+                       "evidence_locator":  "조직·직원안내",
+                       "counterevidence_or_limit":  "조직은 개편될 수 있으며 인턴 채용 배치 대상은 별도 공고상 100개 영업점이다.",
+                       "application_use":  "본부 정책과 영업점 실행 구조 이해",
+                       "usage_restriction":  "인턴의 실제 팀·보고선으로 치환 금지"
+                   },
+                   {
+                       "claim_id":  "CLM-COMP-014",
+                       "rq_ids":  [
+                                      "RQ-03",
+                                      "RQ-04"
+                                  ],
+                       "domain":  "CUSTOMER_VALUE",
+                       "claim":  "공식 안내는 보증 이용 가치로 담보문제 해소, 비용절감, 대외신용도 제고, 기업경영 부담 완화를 제시한다.",
+                       "verification_status":  "CONFIRMED_PRIMARY",
+                       "confidence":  "HIGH",
+                       "source_ids":  [
+                                          "SRC-002"
+                                      ],
+                       "evidence_locator":  "보증이용에 따른 장점",
+                       "counterevidence_or_limit":  "효과의 크기와 실현 여부는 기업·상품별로 다르다.",
+                       "application_use":  "고객 관점의 지원동기",
+                       "usage_restriction":  "모든 고객에게 동일 효과가 발생한다고 단정 금지"
+                   },
+                   {
+                       "claim_id":  "CLM-ROLE-002",
+                       "rq_ids":  [
+                                      "RQ-12"
+                                  ],
+                       "domain":  "JOB_HYPOTHESIS",
+                       "claim":  "기한연장·기업신용 상시관리 업무는 기존 보증관계의 자료 최신성, 변동 탐지, 처리상태 기록을 지원할 가능성이 높다.",
+                       "verification_status":  "INFERRED_NEEDS_VERIFICATION",
+                       "confidence":  "MEDIUM",
+                       "source_ids":  [
+                                          "SRC-003",
+                                          "SRC-004",
+                                          "SRC-011"
+                                      ],
+                       "evidence_locator":  "공개 보증 흐름과 채용공고 업무를 결합한 분석",
+                       "counterevidence_or_limit":  "공식 직무분장·FAQ·현장 근거가 없어 실제 활동과 권한을 확정할 수 없다.",
+                       "application_use":  "면접 질문·입사 후 확인 항목",
+                       "usage_restriction":  "확정 직무나 독립 판단 권한으로 표현 금지"
+                   }
+               ]
+}

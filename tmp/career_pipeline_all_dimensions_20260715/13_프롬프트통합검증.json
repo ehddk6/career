@@ -1,0 +1,48 @@
+{
+  "enabled": true,
+  "contract_version": "2026-07-15",
+  "data_package_id": "CAREER-DATA-585CEFB0E812",
+  "data_package_version": "2.0",
+  "company_path": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\career_pipeline_all_dimensions_20260715\\04_기업직무조사.json",
+  "interview_path": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\career_pipeline_all_dimensions_20260715\\08_면접대비팩.json",
+  "hard_fail": true,
+  "review_required": false,
+  "issues": [
+    {
+      "code": "submitted_claim_not_linked",
+      "severity": "HARD_FAIL",
+      "artifact": "08_면접대비팩.json",
+      "message": "문항 1의 경험 참조가 면접 패킷에 누락되었습니다: exp_151ae891bd2719ad, exp_9e97f274590a323b"
+    },
+    {
+      "code": "submitted_claim_not_linked",
+      "severity": "HARD_FAIL",
+      "artifact": "08_면접대비팩.json",
+      "message": "문항 1의 경험 claim 참조가 면접 패킷에 누락되었습니다: clm_3e69991c9b56d728b429, clm_88cfeab230789e5b0d5f"
+    },
+    {
+      "code": "submitted_claim_not_linked",
+      "severity": "HARD_FAIL",
+      "artifact": "08_면접대비팩.json",
+      "message": "문항 2의 경험 참조가 면접 패킷에 누락되었습니다: exp_22d1df6407915aa2"
+    },
+    {
+      "code": "submitted_claim_not_linked",
+      "severity": "HARD_FAIL",
+      "artifact": "08_면접대비팩.json",
+      "message": "문항 2의 경험 claim 참조가 면접 패킷에 누락되었습니다: clm_1476776eb88306fe8fc1"
+    },
+    {
+      "code": "submitted_claim_not_linked",
+      "severity": "HARD_FAIL",
+      "artifact": "08_면접대비팩.json",
+      "message": "문항 3의 경험 참조가 면접 패킷에 누락되었습니다: exp_22d1df6407915aa2, exp_9e97f274590a323b"
+    },
+    {
+      "code": "submitted_claim_not_linked",
+      "severity": "HARD_FAIL",
+      "artifact": "08_면접대비팩.json",
+      "message": "문항 3의 경험 claim 참조가 면접 패킷에 누락되었습니다: clm_1476776eb88306fe8fc1, clm_3e69991c9b56d728b429"
+    }
+  ]
+}

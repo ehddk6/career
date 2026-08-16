@@ -1,0 +1,18 @@
+{
+  "enabled": true,
+  "contract_version": "2026-07-15",
+  "data_package_id": "CAREER-DATA-ABCDEF123456",
+  "data_package_version": "1.0",
+  "company_path": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\smoke\\d3-numeric-fail\\04_기업직무조사.json",
+  "interview_path": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\smoke\\d3-numeric-fail\\08_면접대비팩.json",
+  "hard_fail": true,
+  "review_required": false,
+  "issues": [
+    {
+      "code": "insufficient_defense_depth",
+      "severity": "HARD_FAIL",
+      "artifact": "08_면접대비팩.json",
+      "message": "exp-1는 D4 이상이어야 합니다."
+    }
+  ]
+}

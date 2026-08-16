@@ -1,0 +1,71 @@
+run_id: IV-20260715-1544
+interview_package_id: IV-DATA-001
+interview_package_version: "1.0"
+frozen_at: "2026-07-15T15:44:10+09:00"
+research_cutoff_date: "2026-07-15"
+company_name: 신용보증기금
+legal_entity_name: 신용보증기금
+target_job: 체험형 청년인턴1(보증)
+target_team: UNVERIFIED
+employment_type: 체험형 청년인턴
+career_level: 인턴
+interview_stage: 면접전형
+interview_date: "UNVERIFIED (공식 실시 예정 범위: 2026-08-12~2026-08-14)"
+interview_format: UNVERIFIED
+interview_duration: UNVERIFIED
+interviewer_information: UNVERIFIED
+expected_panel_size: UNVERIFIED
+presentation_required: UNVERIFIED
+case_interview_required: UNVERIFIED
+group_discussion_required: UNVERIFIED
+foreign_language_required: UNVERIFIED
+portfolio_required: UNVERIFIED
+practice_mode: PACKAGE_BUILD
+output_language: Korean
+simulation_count: 0
+
+personal_data_package_id: PDP-485C2FAD
+personal_data_package_version: "1.0"
+company_research_package_id: CRP-KODIT-20260715
+company_research_package_version: "1.1"
+application_submission_version: APP-DE94AED7
+portal_submission_status: UNVERIFIED
+
+official_interview_facts:
+  schedule_window: "2026-08-12~2026-08-14"
+  venue: "지원 채용단위가 속한 영업본부; 상세 장소는 서류합격 발표 시 안내"
+  evaluation_axes:
+    - 기본인성
+    - 직무능력
+  selection_multiple: "채용단위별 1배수 선발"
+  source: "https://kodit2.saramin.co.kr/service/kodit2/3872/applicant/apply/recruit_default.asp"
+  status: CONFIRMED
+
+frozen_inputs:
+  - path: input/career_run/00_채용공고원문/source.docx
+    sha256: 5b6f69118ca1eece39f284fb26c18e42422ba01088f978b9829c0501bc456779
+    role: JOB_PACKET
+  - path: input/career_run/02_확정경험원장.json
+    sha256: 485c2fad17ec5cddf117b884e0baf61d4aa9bcfdc9c5b1cc96ab1435e2d3f2c4
+    role: PERSONAL_DATA_PACKAGE
+  - path: input/career_run/draft_final.json
+    sha256: de94aed7e0cdaaf22607bd4afbf649d63e91861f18d3dc94c899b655590da50b
+    role: APPLICATION_BASELINE
+  - path: input/career_run/04_공식근거.json
+    sha256: 4956a70618e06435f17e122eaa31fd1cb33abe00df425fd468302df46b88bcf0
+    role: COMPANY_RESEARCH_PACKAGE
+  - path: input/career_run/12_최종산출물.json
+    sha256: 32adf25c653e09d89ebf95fec255ce5f47922449d96c1659f277fe013cce9beb
+    role: APPLICATION_MANIFEST
+
+scope_decisions:
+  included:
+    - 신용보증기금 채용공고 원문
+    - 최종 선택 자기소개서 4문항
+    - 확정 경험 원장 20개 항목
+    - 2026-07-15에 재확인한 KODIT·한국은행 공식 페이지
+  excluded:
+    - input/직무기술서의 한국도로공사서비스 자료 6개
+    - 경험정리.docx 안의 예시 문구·AI 보완문·검증되지 않은 파생 수치
+    - 사진에서 추정할 수 있는 연령·성별·외모 등 블라인드 정보
+

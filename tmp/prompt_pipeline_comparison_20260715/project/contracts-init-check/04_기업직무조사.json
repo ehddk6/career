@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "contract_version": "2026-07-15",
+  "data_package_id": "CAREER-DATA-585CEFB0E812",
+  "data_package_version": "1.0",
+  "target": "신용보증기금 체험형 청년인턴1(보증)",
+  "research_cutoff_date": "",
+  "entity": {
+    "legal_entity_name": "",
+    "brand_name": "",
+    "target_business_unit": "",
+    "status": "UNVERIFIED"
+  },
+  "source_manifest": [],
+  "claim_ledger": [],
+  "business_model": {
+    "core_customers": [],
+    "customer_problem": "",
+    "value_proposition": "",
+    "revenue_logic": "",
+    "major_costs": [],
+    "critical_risks": []
+  },
+  "strategy_execution": [],
+  "financial_analysis": {
+    "status": "INSUFFICIENT_EVIDENCE",
+    "reason": "",
+    "metrics": []
+  },
+  "competitor_analysis": {
+    "status": "INSUFFICIENT_EVIDENCE",
+    "reason": "",
+    "selection": [],
+    "comparisons": []
+  },
+  "culture_analysis": {
+    "status": "INSUFFICIENT_EVIDENCE",
+    "reason": "",
+    "evidence": [],
+    "unknowns": []
+  },
+  "role_value_map": [],
+  "applicant_bridge": [
+    {
+      "requirement": "",
+      "experience_id": "exp_151ae891bd2719ad",
+      "experience_claim_ids": [],
+      "fit_state": "UNKNOWN"
+    },
+    {
+      "requirement": "",
+      "experience_id": "exp_15de74c62f22355b",
+      "experience_claim_ids": [],
+      "fit_state": "UNKNOWN"
+    },
+    {
+      "requirement": "",
+      "experience_id": "exp_22d1df6407915aa2",
+      "experience_claim_ids": [],
+      "fit_state": "UNKNOWN"
+    },
+    {
+      "requirement": "",
+      "experience_id": "exp_2df35f8fca5e30b8",
+      "experience_claim_ids": [],
+      "fit_state": "UNKNOWN"
+    },
+    {
+      "requirement": "",
+      "experience_id": "exp_2e966c8ac3146a5b",
+      "experience_claim_ids": [],
+      "fit_state": "UNKNOWN"
+    },
+    {
+      "requirement": "",
+      "experience_id": "exp_2f3b01de2f27fa49",
+      "experience_claim_ids": [],
+      "fit_state": "UNKNOWN"
+    },
+    {
+      "requirement": "",
+      "experience_id": "exp_2fe7474d7367a89c",
+      "experience_claim_ids": [],
+      "fit_state": "UNKNOWN"
+    },
+    {
+      "requirement": "",
+      "experience_id": "exp_3279ca654f7e0e37",
+      "experience_claim_ids": [],
+      "fit_state": "UNKNOWN"
+    },
+    {
+      "requirement": "",
+      "experience_id": "exp_530ddb15c51ca202",
+      "experience_claim_ids": [],
+      "fit_state": "UNKNOWN"
+    },
+    {
+      "requirement": "",
+      "experience_id": "exp_5381f510b1fba9e1",
+      "experience_claim_ids": [],
+      "fit_state": "UNKNOWN"
+    },
+    {
+      "requirement": "",
+      "experience_id": "exp_5f5d07c267cd544e",
+      "experience_claim_ids": [],
+      "fit_state": "UNKNOWN"
+    },
+    {
+      "requirement": "",
+      "experience_id": "exp_62e53382afe2a2b7",
+      "experience_claim_ids": [],
+      "fit_state": "UNKNOWN"
+    },
+    {
+      "requirement": "",
+      "experience_id": "exp_638228200e37de69",
+      "experience_claim_ids": [],
+      "fit_state": "UNKNOWN"
+    },
+    {
+      "requirement": "",
+      "experience_id": "exp_6841c9278134a4c9",
+      "experience_claim_ids": [],
+      "fit_state": "UNKNOWN"
+    },
+    {
+      "requirement": "",
+      "experience_id": "exp_953388b8c6e81104",
+      "experience_claim_ids": [],
+      "fit_state": "UNKNOWN"
+    },
+    {
+      "requirement": "",
+      "experience_id": "exp_97584147111c511b",
+      "experience_claim_ids": [],
+      "fit_state": "UNKNOWN"
+    },
+    {
+      "requirement": "",
+      "experience_id": "exp_9e97f274590a323b",
+      "experience_claim_ids": [],
+      "fit_state": "UNKNOWN"
+    },
+    {
+      "requirement": "",
+      "experience_id": "exp_a07fd710e2b7c0c2",
+      "experience_claim_ids": [],
+      "fit_state": "UNKNOWN"
+    },
+    {
+      "requirement": "",
+      "experience_id": "exp_a521c3024abae521",
+      "experience_claim_ids": [],
+      "fit_state": "UNKNOWN"
+    },
+    {
+      "requirement": "",
+      "experience_id": "exp_fb458d8d4b556666",
+      "experience_claim_ids": [],
+      "fit_state": "UNKNOWN"
+    }
+  ],
+  "red_team": {
+    "strongest_counterargument": "",
+    "critical_unknowns": []
+  },
+  "first_90_days": {
+    "days_0_30": [],
+    "days_31_60": [],
+    "days_61_90": []
+  },
+  "decision": {
+    "status": "INSUFFICIENT_EVIDENCE",
+    "main_reason": "",
+    "strongest_support": "",
+    "strongest_counterargument": "",
+    "conditions_that_would_change_decision": []
+  }
+}

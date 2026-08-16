@@ -1,0 +1,21 @@
+{
+  "candidate_id": "S1",
+  "hard_fail": false,
+  "hard_fail_reasons": [],
+  "judge_totals": {
+    "RECRUITER": 97,
+    "JOB_FACT_AUDITOR": 96,
+    "KOREAN_EDITOR": 96
+  },
+  "median_total": 96,
+  "minimum_total": 96,
+  "maximum_total": 97,
+  "judge_spread": 1,
+  "quality_threshold": 90,
+  "threshold_pass": true,
+  "remaining_risks": [
+    "Q4 첫 문장에서 높은 환율 변동성과 중동지역 리스크를 함께 언급해 이슈 초점이 다소 넓다.",
+    "Q3과 Q4의 절차 설명이 촘촘해 일부 문장이 매뉴얼처럼 읽힐 수 있다.",
+    "Q4의 정책 지원 방안은 지원자의 제안이며 신용보증기금 내부 확정 절차가 아니다."
+  ]
+}

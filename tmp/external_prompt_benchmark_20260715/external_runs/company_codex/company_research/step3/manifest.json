@@ -1,0 +1,54 @@
+{
+    "schema_version":  1,
+    "step":  "STEP_3",
+    "step_status":  "COMPLETED_WITH_GAPS",
+    "run_id":  "CR-20260715-1539",
+    "company_data_package_id":  "CR-DATA-001",
+    "analyzed_at":  "2026-07-15T17:30:00+09:00",
+    "source_addendum_count":  3,
+    "claim_update_count":  5,
+    "gates":  {
+                  "final_decision":  "NOT_READY",
+                  "hard_fail_status":  "NOT_EVALUATED_AT_STEP_3",
+                  "next_step":  "STEP_4_EVENT_AND_EXECUTION_ANALYSIS",
+                  "final_directory_written":  false
+              },
+    "artifacts":  [
+                      {
+                          "path":  "company_research/step3/analysis/business_model_map.md",
+                          "sha256":  "f8ac207baa552ec619a200ff1c1dd75510f7fddc47a85e78840761a0bba504f4"
+                      },
+                      {
+                          "path":  "company_research/step3/analysis/revenue_logic.md",
+                          "sha256":  "3062a2bf831ddc23670da215c4d3e2ed0fcbd84d78f5e4ba60869ec680d6ec47"
+                      },
+                      {
+                          "path":  "company_research/step3/analysis/value_chain_map.md",
+                          "sha256":  "d6f5d313de660684f53ba884d7b8741aa4fe7fe8463b652170a7056402874cd6"
+                      },
+                      {
+                          "path":  "company_research/step3/analysis/customer_map.md",
+                          "sha256":  "d5777fef52723c800c0110c616a2855420141d4d7f023ac20c49589d1700905c"
+                      },
+                      {
+                          "path":  "company_research/step3/analysis/organization_map.md",
+                          "sha256":  "329f8e455a146bdc2edc1d43da0e19dc32c8b307257ffb79198053f5fda3e57b"
+                      },
+                      {
+                          "path":  "company_research/step3/source_addendum.json",
+                          "sha256":  "ae7277a583a5f5a9e13b25dbd911793f59d3c5bd06e30a2849d7e82f867900f0"
+                      },
+                      {
+                          "path":  "company_research/step3/claim_updates.json",
+                          "sha256":  "fd6e77bd35b686cb438427b7a60ecb5b312c4ec4181b54b5c8e03aa4e8ae1898"
+                      },
+                      {
+                          "path":  "company_research/step3/claim_updates.md",
+                          "sha256":  "04bd6e462dfe88933d8c62614c1e23f463be739a814e3e0a1d9b8b33ece61225"
+                      },
+                      {
+                          "path":  "company_research/step3/step3_report.md",
+                          "sha256":  "b3a06de7a99132fd42671e37ecc21a63c5bb14d68f7726ba97f649998e4790e2"
+                      }
+                  ]
+}

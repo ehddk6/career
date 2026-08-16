@@ -1,0 +1,75 @@
+{
+  "run_id": "SOL-20260715-1537",
+  "data_package_id": "SOL-DATA-EXT-001",
+  "data_package_version": "1.0",
+  "stage": "final",
+  "count_mode": "UNVERIFIED",
+  "status": "PASS",
+  "errors": [],
+  "warnings": [],
+  "questions": {
+    "q1": {
+      "counts": {
+        "with_spaces_without_linebreaks": 528,
+        "without_spaces": 411,
+        "with_linebreaks": 530,
+        "utf8_bytes_without_linebreaks": 1327
+      },
+      "fact_ids": [
+        "F01"
+      ],
+      "research_ids": [
+        "R01",
+        "R02"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "q2": {
+      "counts": {
+        "with_spaces_without_linebreaks": 529,
+        "without_spaces": 401,
+        "with_linebreaks": 529,
+        "utf8_bytes_without_linebreaks": 1293
+      },
+      "fact_ids": [
+        "F08"
+      ],
+      "research_ids": [],
+      "errors": [],
+      "warnings": []
+    },
+    "q3": {
+      "counts": {
+        "with_spaces_without_linebreaks": 536,
+        "without_spaces": 413,
+        "with_linebreaks": 538,
+        "utf8_bytes_without_linebreaks": 1313
+      },
+      "fact_ids": [
+        "F03",
+        "F04"
+      ],
+      "research_ids": [
+        "R02"
+      ],
+      "errors": [],
+      "warnings": []
+    },
+    "q4": {
+      "counts": {
+        "with_spaces_without_linebreaks": 1030,
+        "without_spaces": 779,
+        "with_linebreaks": 1034,
+        "utf8_bytes_without_linebreaks": 2528
+      },
+      "fact_ids": [],
+      "research_ids": [
+        "R03",
+        "R04"
+      ],
+      "errors": [],
+      "warnings": []
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{
+  "selected_version": "X",
+  "questions": {
+    "q1": {
+      "fact_ids": [
+        "PF-01",
+        "RF-01",
+        "RF-02"
+      ],
+      "all_source_ids": [
+        "PF-01",
+        "RF-01",
+        "RF-02",
+        "exp_151ae891bd2719ad",
+        "clm_88cfeab230789e5b0d5f",
+        "kodit-role-20260711",
+        "kodit-intern-duty-20260711"
+      ],
+      "count": 506
+    },
+    "q2": {
+      "fact_ids": [
+        "PF-03"
+      ],
+      "all_source_ids": [
+        "PF-03",
+        "exp_953388b8c6e81104",
+        "clm_bdbd0d8bf79f5b7efce0"
+      ],
+      "count": 509
+    },
+    "q3": {
+      "fact_ids": [
+        "PF-02",
+        "RF-02"
+      ],
+      "all_source_ids": [
+        "PF-02",
+        "RF-02",
+        "exp_9e97f274590a323b",
+        "clm_3e69991c9b56d728b429",
+        "kodit-intern-duty-20260711"
+      ],
+      "count": 516
+    },
+    "q4": {
+      "fact_ids": [
+        "RF-03",
+        "RF-04"
+      ],
+      "all_source_ids": [
+        "RF-03",
+        "RF-04",
+        "bok-fx-risk-20260711",
+        "kodit-liquidity-support-20260711"
+      ],
+      "count": 1161
+    }
+  },
+  "catalog": {
+    "PF-01": {
+      "status": "CONFIRMED",
+      "source": "input/career_run/02_확정경험원장.json",
+      "claim_id": "clm_88cfeab230789e5b0d5f"
+    },
+    "PF-02": {
+      "status": "CONFIRMED",
+      "source": "input/career_run/02_확정경험원장.json",
+      "claim_id": "clm_3e69991c9b56d728b429"
+    },
+    "PF-03": {
+      "status": "CONFIRMED",
+      "source": "input/career_run/02_확정경험원장.json",
+      "claim_id": "clm_bdbd0d8bf79f5b7efce0"
+    },
+    "RF-01": {
+      "status": "VERIFIED",
+      "source": "input/career_run/04_공식근거.json",
+      "claim_id": "kodit-role-20260711"
+    },
+    "RF-02": {
+      "status": "VERIFIED",
+      "source": "input/career_run/04_공식근거.json",
+      "claim_id": "kodit-intern-duty-20260711"
+    },
+    "RF-03": {
+      "status": "VERIFIED",
+      "source": "input/career_run/04_공식근거.json",
+      "claim_id": "bok-fx-risk-20260711"
+    },
+    "RF-04": {
+      "status": "VERIFIED",
+      "source": "input/career_run/04_공식근거.json",
+      "claim_id": "kodit-liquidity-support-20260711"
+    }
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "data_package": {
+    "data_package_id": "SOL-DATA-ACB9EA4AEAAC",
+    "data_package_version": "1.1",
+    "frozen_data_sha256": "acb9ea4aeaac1bf0febc89ca5865317094711e85549394bbe072ef49c0c3fac3",
+    "count_mode": "spaces_included",
+    "candidate_count": 5,
+    "judge_count": 3
+  },
+  "candidate_mapping": {
+    "CEXT": "?? ???? ???",
+    "CPROJ": "?? ???? ?? ???"
+  },
+  "deterministic_validation": {
+    "CEXT": {
+      "status": "blocked",
+      "issues": [
+        "contribution_overstatement:q3"
+      ]
+    },
+    "CPROJ": {
+      "status": "passed",
+      "issues": []
+    }
+  },
+  "blind_judges": {
+    "CEXT": {
+      "scores_by_judge": {
+        "JOB_FACT_AUDITOR": 99,
+        "KOREAN_EDITOR": 98,
+        "RECRUITER": 95
+      },
+      "median": 98,
+      "minimum": 95,
+      "maximum": 99,
+      "spread": 4,
+      "hard_fail": false,
+      "weakness_codes": [
+        "generic_voice",
+        "korean_style"
+      ]
+    },
+    "CPROJ": {
+      "scores_by_judge": {
+        "JOB_FACT_AUDITOR": 92,
+        "KOREAN_EDITOR": 92,
+        "RECRUITER": 91
+      },
+      "median": 92,
+      "minimum": 91,
+      "maximum": 92,
+      "spread": 1,
+      "hard_fail": false,
+      "weakness_codes": [
+        "experience_overlap",
+        "generic_voice"
+      ]
+    }
+  },
+  "verdict": {
+    "raw_quality_winner": "CEXT",
+    "submission_safe_winner": "CPROJ",
+    "reason": "?? ?????? ???? ??? ?? ???? ????? Q3? observed ?? ?? ?? ???? ???? ????? ???. ?????? ?? ???? ???? ???."
+  }
+}

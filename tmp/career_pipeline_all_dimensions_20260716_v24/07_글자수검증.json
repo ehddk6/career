@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "count_function": "career_pipeline.character_count.count_characters",
+  "target_policy": "limit<=800: 5/6..11/12, limit>800: 0.75..0.90",
+  "rows": [
+    {
+      "question_index": 1,
+      "answer_sha256": "004318860dcdf9d1a06542f41bb7f25eb0f273b7e8f3e4b8d693be57f8bbcaf4",
+      "actual_count": 523,
+      "hard_limit": 600,
+      "target_min": 500,
+      "target_max": 550,
+      "count_mode": "spaces_included",
+      "newline_policy": "counted_as_stored",
+      "hard_limit_status": "PASS",
+      "target_status": "PASS",
+      "headroom": 77,
+      "metric_type": "FORMAT_CHECK",
+      "is_applicant_fact_or_claim": false
+    },
+    {
+      "question_index": 2,
+      "answer_sha256": "412a213b70de734331d11b9ddd5a857e4a8899e401aeae90cc0f50c58d243158",
+      "actual_count": 504,
+      "hard_limit": 600,
+      "target_min": 500,
+      "target_max": 550,
+      "count_mode": "spaces_included",
+      "newline_policy": "counted_as_stored",
+      "hard_limit_status": "PASS",
+      "target_status": "PASS",
+      "headroom": 96,
+      "metric_type": "FORMAT_CHECK",
+      "is_applicant_fact_or_claim": false
+    },
+    {
+      "question_index": 3,
+      "answer_sha256": "289f52cb57079abe5699e482b6968972f51135ca419b909c4aa98810d017470e",
+      "actual_count": 541,
+      "hard_limit": 600,
+      "target_min": 500,
+      "target_max": 550,
+      "count_mode": "spaces_included",
+      "newline_policy": "counted_as_stored",
+      "hard_limit_status": "PASS",
+      "target_status": "PASS",
+      "headroom": 59,
+      "metric_type": "FORMAT_CHECK",
+      "is_applicant_fact_or_claim": false
+    },
+    {
+      "question_index": 4,
+      "answer_sha256": "74dac381bb44916fdfa1bece083e891f34ade70398a82c2df43b056447fae835",
+      "actual_count": 1222,
+      "hard_limit": 1500,
+      "target_min": 1125,
+      "target_max": 1350,
+      "count_mode": "spaces_included",
+      "newline_policy": "counted_as_stored",
+      "hard_limit_status": "PASS",
+      "target_status": "PASS",
+      "headroom": 278,
+      "metric_type": "FORMAT_CHECK",
+      "is_applicant_fact_or_claim": false
+    }
+  ]
+}

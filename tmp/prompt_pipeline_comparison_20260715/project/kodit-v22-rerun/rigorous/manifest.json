@@ -1,0 +1,84 @@
+{
+  "status": "passed",
+  "selection_mode": "rigorous",
+  "model_id": "gpt-5.6-sol",
+  "call_count": 9,
+  "calls": [
+    {
+      "stage": "candidate_1",
+      "model_id": "gpt-5.6-sol"
+    },
+    {
+      "stage": "candidate_2",
+      "model_id": "gpt-5.6-sol"
+    },
+    {
+      "stage": "candidate_3",
+      "model_id": "gpt-5.6-sol"
+    },
+    {
+      "stage": "candidate_4",
+      "model_id": "gpt-5.6-sol"
+    },
+    {
+      "stage": "judge_recruiter",
+      "model_id": "gpt-5.6-sol"
+    },
+    {
+      "stage": "judge_job_fact_auditor",
+      "model_id": "gpt-5.6-sol"
+    },
+    {
+      "stage": "judge_korean_editor",
+      "model_id": "gpt-5.6-sol"
+    },
+    {
+      "stage": "synthesis",
+      "model_id": "gpt-5.6-sol"
+    },
+    {
+      "stage": "final_comparison",
+      "model_id": "gpt-5.6-sol"
+    }
+  ],
+  "winner_candidate_id": "C210847FD",
+  "final_choice": "X",
+  "final_reason": "Y는 네 문항 모두 질문 요소와 근거를 유지하면서 X보다 반복과 기계적 나열이 적고 문장이 간결하다. 새로운 사실이나 인과관계 약화, 질문 누락, 분량 위반은 확인되지 않았다. Deterministic safety guard retained X because the synthesis dropped explicit duty linkage.",
+  "hard_fail": false,
+  "data_package": {
+    "data_package_id": "SOL-DATA-608228643DF2",
+    "data_package_version": "1.1",
+    "frozen_data_sha256": "608228643df29ad9deab874e72e9842e247fa54c0c80d2316fd43674077b81c7",
+    "count_mode": "spaces_included",
+    "candidate_count": 5,
+    "judge_count": 3
+  },
+  "candidate_count": 5,
+  "judge_count": 3,
+  "review_required_candidates": [
+    "C98D4E6E5"
+  ],
+  "artifact_sha256": {
+    "rigorous\\aggregate.json": "a0d6f6fcc66e772644003e7deaac11285a2a217e38344df53896f7b992d0cb6e",
+    "rigorous\\blind_candidates.json": "df0ee4085c429926872b67feec9d0ecd0e83af9605750347f8834955bad09524",
+    "rigorous\\candidates\\generated_1.json": "91457deb88d5e275ce6aa7116573704864e1e25427f89c3951461e8b0cfdeae3",
+    "rigorous\\candidates\\generated_1_raw.json": "5a3305fb807074fa61a18f6f5de1e4a36b03ef473d0dd88bc9876cf0a80d7a77",
+    "rigorous\\candidates\\generated_2.json": "0cfbb1567196033217211e71e45ab2ce3bf4bbb2cde333971148e0130f4eba84",
+    "rigorous\\candidates\\generated_2_raw.json": "101ea579ec2bcd16a1736dfef5a0f462878bc59fedd3e0b1ccbf1d54179224a5",
+    "rigorous\\candidates\\generated_3.json": "70ee1bcb1128b5756f38c148acbbb5b4e66a60df1bcc6cb59783c541c3d5e3f0",
+    "rigorous\\candidates\\generated_3_raw.json": "af9a7be0936bfc2a41345dab04ecff31e6e69c554c45249c3f60e88a9a53c4eb",
+    "rigorous\\candidates\\generated_4.json": "519785e436d9d45a429020e3c35289d96eff738c400cacf4f3cdb1f057ef4589",
+    "rigorous\\candidates\\generated_4_raw.json": "a06e407173f4d0fdfbd857f0fafa9b274097be5d90a6d17953a92e8361d1354a",
+    "rigorous\\data_package.json": "e52854b5a6d9614c64c8ff6028f9a0c40a1b63901bde2d0ab9227cacf1a3a27e",
+    "rigorous\\final_comparison.json": "1322fcaddc6e8ac76492e93658b55435278678822af3a1527b5a5a2e032cb6ab",
+    "rigorous\\judges\\job_fact_auditor.json": "df7c94eb41bd4433b9abbcb6f8636c9b498d1faa8930ca76e38d2e267f35b796",
+    "rigorous\\judges\\job_fact_auditor_raw.json": "df7c94eb41bd4433b9abbcb6f8636c9b498d1faa8930ca76e38d2e267f35b796",
+    "rigorous\\judges\\korean_editor.json": "1c803aef2898adb99d6b376433ceb3e977edb643aae660e6e2fa6ac1552a7a3c",
+    "rigorous\\judges\\korean_editor_raw.json": "1c803aef2898adb99d6b376433ceb3e977edb643aae660e6e2fa6ac1552a7a3c",
+    "rigorous\\judges\\recruiter.json": "be02a1bcb10cfb387a4d7ce6cafb3f281fed430b54beded3267fcdc174846966",
+    "rigorous\\judges\\recruiter_raw.json": "be02a1bcb10cfb387a4d7ce6cafb3f281fed430b54beded3267fcdc174846966",
+    "rigorous\\manifest.json": "646a4156e2486cd0c6621f4b9f737abf0e1eeeddea33f91473f3b3a20ccc6311",
+    "rigorous\\selected.json": "de94aed7e0cdaaf22607bd4afbf649d63e91861f18d3dc94c899b655590da50b",
+    "rigorous\\synthesis.json": "3bd0343f0f1c1d9f66f62ef2ce4179e88e7ffd6475ec24de984eb90f37520f4d"
+  }
+}

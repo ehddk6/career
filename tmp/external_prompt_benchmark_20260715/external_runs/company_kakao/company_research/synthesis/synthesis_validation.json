@@ -1,0 +1,11 @@
+{
+  "company_data_package_id": "CR-DATA-001",
+  "company_data_package_version": "1.0",
+  "status": "PASS_WITH_BLOCKERS",
+  "claim_ledger_consistent": true,
+  "new_causal_claims": 0,
+  "scope_expansions": 0,
+  "period_entity_mismatches": 0,
+  "counterevidence_preserved": true,
+  "decision": "INSUFFICIENT_EVIDENCE"
+}

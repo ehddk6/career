@@ -1,0 +1,161 @@
+{
+  "generated_at": "2026-07-15T10:28:04.905386",
+  "workspace": "C:\\Users\\ehddk\\OneDrive\\문서\\취업",
+  "branch": "codex/phase6-5-site-intake-readonly",
+  "baseline_run": {
+    "path": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\career_runs\\kodit-2026-h2-rigorous-20260714-v22",
+    "run_status": "complete",
+    "data_package": {
+      "data_package_id": "SOL-DATA-608228643DF2",
+      "data_package_version": "1.1",
+      "frozen_data_sha256": "608228643df29ad9deab874e72e9842e247fa54c0c80d2316fd43674077b81c7",
+      "count_mode": "spaces_included",
+      "candidate_count": 5,
+      "judge_count": 3
+    },
+    "rigorous_manifest": {
+      "status": "passed",
+      "call_count": 9,
+      "winner_candidate_id": "C210847FD",
+      "final_choice": "X"
+    }
+  },
+  "prompt_files": [
+    {
+      "name": "Codex_면접_프롬프트.md",
+      "source_path": "C:\\Users\\ehddk\\Downloads\\회사조사_면접_프롬프트_묶음\\Codex_면접_프롬프트.md",
+      "isolated_copy": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\prompts\\Codex_면접_프롬프트.md",
+      "sha256": "dd705cfe29f16a4635492fdcc661444d23c32b707000b8729d1f70a872e1604c",
+      "copy_sha256": "dd705cfe29f16a4635492fdcc661444d23c32b707000b8729d1f70a872e1604c",
+      "copy_matches": true,
+      "line_count": 1440,
+      "char_count": 18637
+    },
+    {
+      "name": "Codex_회사조사_프롬프트.md",
+      "source_path": "C:\\Users\\ehddk\\Downloads\\회사조사_면접_프롬프트_묶음\\Codex_회사조사_프롬프트.md",
+      "isolated_copy": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\prompts\\Codex_회사조사_프롬프트.md",
+      "sha256": "9e0b35fc4c195f97b662666e6a7af8697ade5ed3ffc7fdf63ddc763c4d067747",
+      "copy_sha256": "9e0b35fc4c195f97b662666e6a7af8697ade5ed3ffc7fdf63ddc763c4d067747",
+      "copy_matches": true,
+      "line_count": 1177,
+      "char_count": 18221
+    },
+    {
+      "name": "GPT-5.6_Sol_자기소개서_Codex용_개선본.md",
+      "source_path": "C:\\Users\\ehddk\\Downloads\\회사조사_면접_프롬프트_묶음\\GPT-5.6_Sol_자기소개서_Codex용_개선본.md",
+      "isolated_copy": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\prompts\\GPT-5.6_Sol_자기소개서_Codex용_개선본.md",
+      "sha256": "49d470dbea33bc48f06d60fcd9c8931f38242715ef321fb379a9ba62bd42f97d",
+      "copy_sha256": "49d470dbea33bc48f06d60fcd9c8931f38242715ef321fb379a9ba62bd42f97d",
+      "copy_matches": true,
+      "line_count": 630,
+      "char_count": 11342
+    },
+    {
+      "name": "GPT-5.6_Sol_자기소개서_최종_통합_프롬프트.md",
+      "source_path": "C:\\Users\\ehddk\\Downloads\\회사조사_면접_프롬프트_묶음\\GPT-5.6_Sol_자기소개서_최종_통합_프롬프트.md",
+      "isolated_copy": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\prompts\\GPT-5.6_Sol_자기소개서_최종_통합_프롬프트.md",
+      "sha256": "3fa25d3e416f17acdb88ee5b78fb8d3f269478aa4220e0aa6e19ff783f95f77d",
+      "copy_sha256": "3fa25d3e416f17acdb88ee5b78fb8d3f269478aa4220e0aa6e19ff783f95f77d",
+      "copy_matches": true,
+      "line_count": 1185,
+      "char_count": 19215
+    }
+  ],
+  "staged_input_hashes": [
+    {
+      "path": "inputs/workspace/career_run/00_채용공고분석.json",
+      "sha256_expected": "ba3bcd6961bc22ff875d537399004b7d6f9e305dacffb533d0944617eac05d3b",
+      "sha256_actual": "ba3bcd6961bc22ff875d537399004b7d6f9e305dacffb533d0944617eac05d3b",
+      "matches": true
+    },
+    {
+      "path": "inputs/workspace/career_run/02_확정경험원장.json",
+      "sha256_expected": "485c2fad17ec5cddf117b884e0baf61d4aa9bcfdc9c5b1cc96ab1435e2d3f2c4",
+      "sha256_actual": "485c2fad17ec5cddf117b884e0baf61d4aa9bcfdc9c5b1cc96ab1435e2d3f2c4",
+      "matches": true
+    },
+    {
+      "path": "inputs/workspace/career_run/03_경험직무매칭.json",
+      "sha256_expected": "f3fa46c805196366e87b6af4315cd92997bd0e420d1e85e2ff0c8c8ef0246061",
+      "sha256_actual": "f3fa46c805196366e87b6af4315cd92997bd0e420d1e85e2ff0c8c8ef0246061",
+      "matches": true
+    },
+    {
+      "path": "inputs/workspace/career_run/04_공식근거.json",
+      "sha256_expected": "4956a70618e06435f17e122eaa31fd1cb33abe00df425fd468302df46b88bcf0",
+      "sha256_actual": "4956a70618e06435f17e122eaa31fd1cb33abe00df425fd468302df46b88bcf0",
+      "matches": true
+    },
+    {
+      "path": "inputs/workspace/career_run/04_기업직무조사.md",
+      "sha256_expected": "c7046db516f3cb2f2a659b79d3cdaee4ce843ebe2afdc33557207dc60aaafe54",
+      "sha256_actual": "c7046db516f3cb2f2a659b79d3cdaee4ce843ebe2afdc33557207dc60aaafe54",
+      "matches": true
+    },
+    {
+      "path": "inputs/workspace/직무기술서/직무기술서_상담직.pdf",
+      "sha256_expected": "c085653246cb209d0db93ae981babe6c92e88dbee01b4212db6a328fbc52e509",
+      "sha256_actual": "c085653246cb209d0db93ae981babe6c92e88dbee01b4212db6a328fbc52e509",
+      "matches": true
+    },
+    {
+      "path": "inputs/workspace/직무기술서/직무기술서_영업직(보훈).pdf",
+      "sha256_expected": "646cab9a010221089b8e0237c8407cc391754ef1926b78870826d02c80a71881",
+      "sha256_actual": "646cab9a010221089b8e0237c8407cc391754ef1926b78870826d02c80a71881",
+      "matches": true
+    },
+    {
+      "path": "inputs/workspace/직무기술서/직무기술서_영업직(사무영업).pdf",
+      "sha256_expected": "fb6f312f73fa836818743f1d3a0770508bb54f6a6989ae56ef67289e5ae3724f",
+      "sha256_actual": "fb6f312f73fa836818743f1d3a0770508bb54f6a6989ae56ef67289e5ae3724f",
+      "matches": true
+    },
+    {
+      "path": "inputs/workspace/직무기술서/직무기술서_영업직(사회형평).pdf",
+      "sha256_expected": "41bd180560657128783299056e52465d00a0f77d1594e125cc94543bfcd06c6e",
+      "sha256_actual": "41bd180560657128783299056e52465d00a0f77d1594e125cc94543bfcd06c6e",
+      "matches": true
+    },
+    {
+      "path": "inputs/workspace/직무기술서/직무기술서_영업직(안전).pdf",
+      "sha256_expected": "4b63a0416ce924da02f8002117bd9beb58500db361bf0468c10467db53bc3bbd",
+      "sha256_actual": "4b63a0416ce924da02f8002117bd9beb58500db361bf0468c10467db53bc3bbd",
+      "matches": true
+    },
+    {
+      "path": "inputs/workspace/직무기술서/직무기술서_영업직(정보통신).pdf",
+      "sha256_expected": "1b4318e4d1d29f1ca125a47d9ed71e040e9715190b556112498383fc88ac509e",
+      "sha256_actual": "1b4318e4d1d29f1ca125a47d9ed71e040e9715190b556112498383fc88ac509e",
+      "matches": true
+    }
+  ],
+  "staged_input_hash_all_match": true,
+  "packages": {
+    "career_pipeline_v22": {
+      "data_package_id": "SOL-DATA-608228643DF2",
+      "data_package_version": "1.1",
+      "frozen_data_sha256": "608228643df29ad9deab874e72e9842e247fa54c0c80d2316fd43674077b81c7",
+      "count_mode": "spaces_included",
+      "candidate_count": 5,
+      "judge_count": 3
+    },
+    "external_selfintro_prior_artifact": {
+      "data_package_id": "SOL-DATA-ACB9EA4AEAAC",
+      "data_package_version": "1.1",
+      "frozen_data_sha256": "acb9ea4aeaac1bf0febc89ca5865317094711e85549394bbe072ef49c0c3fac3",
+      "count_mode": "spaces_included",
+      "candidate_count": 5,
+      "judge_count": 3
+    },
+    "external_company_partial": {
+      "company_data_package_id": "CR-DATA-001",
+      "company_data_package_version": "1.0",
+      "research_cutoff_date": "2026-07-13",
+      "company_name": "신용보증기금",
+      "target_job": "체험형 청년인턴1(보증)"
+    }
+  },
+  "same_frozen_data_for_all_final_comparisons": false,
+  "same_frozen_data_reason": "external selfintro prior artifact uses SOL-DATA-ACB9EA4AEAAC, project v22 uses SOL-DATA-608228643DF2, and company research partial uses CR-DATA-001. Scores are provisional, not a same-package final comparison."
+}

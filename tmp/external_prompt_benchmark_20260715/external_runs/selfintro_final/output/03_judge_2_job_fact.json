@@ -1,0 +1,110 @@
+{
+  "judge_mode": "JOB_FACT_AUDITOR",
+  "evaluations": [
+    {
+      "candidate_id": "R8",
+      "hard_fail": true,
+      "hard_fail_reasons": [
+        "Q4에서 RF-03의 '14조원 한도의 중소기업 한시 특별지원'을 '한시 특별지원 대출'로 특정했다. 허용된 공식 근거에는 대출이라는 제도 명칭이 없다.",
+        "Q4에서 신용보증기금이 '특례보증도 제공'한다고 단정했다. RF-04가 확인하는 사실은 지역 수출기업 등에 대한 협약보증·우대보증·보증료 지원이며, 특례보증 제공 사실은 확인되지 않는다."
+      ],
+      "scores": {
+        "question_fidelity": 18,
+        "fact_accuracy": 12,
+        "job_relevance": 14,
+        "action_specificity": 14,
+        "experience_allocation": 8,
+        "interview_defensibility": 7,
+        "korean_readability": 5,
+        "applicant_distinctiveness": 2,
+        "length_and_format": 2
+      },
+      "total": 82,
+      "strongest_point": "Q1~Q3은 각각 PF-01·PF-03·PF-06을 써서 경험을 분리했고, 인턴의 역할을 확인·기록·보고 수준으로 제한했다.",
+      "largest_risk": "Q4의 '특례보증'을 실제 신용보증기금 제도로 단정해, 지원 방안 제안과 검증된 공식 사실의 경계를 넘었다.",
+      "question_notes": {
+        "q1": "RF-01·02와 PF-01이 정확히 맞고 지원 동기, 배울 점, 기여 계획을 모두 담았다. 자료 누락이 기업 금융 이용에 영향을 줄 수 있다는 부분은 가능성으로 표현한 해석이다.",
+        "q2": "PF-03의 정렬 개선과 민원 30% 감소를 정확히 사용했다. 관찰·확인 뒤 담당자에게 개선 의견을 제시한다는 계획도 인턴 권한을 넘지 않는다.",
+        "q3": "PF-06의 급여 프로세스 개선을 근거로 접수-대조-보고 계획을 제시했고, 최종 판단을 담당자 기준에 따른다고 밝혀 권한 과장이 없다.",
+        "q4": "기업별 환노출·현금흐름을 구분하는 지원 설계는 제안으로 구분되어 적절하다. 다만 '한시 특별지원 대출' 및 '특례보증 제공'은 검증 근거 밖의 제도 단정이다."
+      }
+    },
+    {
+      "candidate_id": "C3",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "scores": {
+        "question_fidelity": 19,
+        "fact_accuracy": 20,
+        "job_relevance": 14,
+        "action_specificity": 15,
+        "experience_allocation": 8,
+        "interview_defensibility": 10,
+        "korean_readability": 4,
+        "applicant_distinctiveness": 2,
+        "length_and_format": 2
+      },
+      "total": 94,
+      "strongest_point": "모든 공식·개인 사실이 원장 범위에 있고, Q4의 선별 지원·사후관리도 지원자의 제안으로 유지했다.",
+      "largest_risk": "Q3에 PF-06을, Q4에 PF-02를 배치해 데이터 패키지의 권장 경험 맵(PF-02는 Q3, Q4는 개인 경험 미사용)과는 다소 어긋난다.",
+      "question_notes": {
+        "q1": "RF-01·02와 PF-01이 정확하며, 지원 동기와 기여 계획이 자료 확인·기록이라는 인턴 보조 범위에 머문다.",
+        "q2": "PF-03의 키워드·인기순 개선 및 민원 30% 감소를 과장 없이 썼다. 관찰, 질문 정리, 피드백 반영의 실천 단계가 구체적이다.",
+        "q3": "기한연장·상시관리의 공식 업무를 접수-대조-보고-인계 계획으로 풀었고, 불일치는 담당자에게 보고한다고 해 독자 심사 권한을 주장하지 않는다.",
+        "q4": "RF-03·04를 정확히 인용하고, 우대보증·보증료 지원은 확인 사실, 추가 비금융 지원과 사후관리는 제안으로 구분했다. PF-02 사례는 방어 가능하나 정책 분석 문항의 집중도는 약간 낮춘다."
+      }
+    },
+    {
+      "candidate_id": "M7",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "scores": {
+        "question_fidelity": 19,
+        "fact_accuracy": 20,
+        "job_relevance": 14,
+        "action_specificity": 15,
+        "experience_allocation": 9,
+        "interview_defensibility": 10,
+        "korean_readability": 5,
+        "applicant_distinctiveness": 2,
+        "length_and_format": 2
+      },
+      "total": 96,
+      "strongest_point": "사실 주장과 계획을 가장 안정적으로 분리했다. Q1~Q3의 핵심 경험도 PF-01·PF-03·PF-06으로 중복되지 않으며 수치와 기관·직무 사실이 모두 근거와 일치한다.",
+      "largest_risk": "Q3의 급여 프로세스 경험은 사실이지만 데이터 패키지의 직접 권장 근거 PF-02보다 보증 자료 대조와의 연결력이 약하다.",
+      "question_notes": {
+        "q1": "PF-01의 3,000페이지·2일·체계적 분류와 RF-01·02를 정확히 연결했다. 인턴 기여는 확인·정리 보조로 제한했다.",
+        "q2": "PF-03의 정렬 개선과 민원 30% 감소를 정확히 사용했고, 새 조직에서 기준 학습-질문-기록-피드백 반영의 태도를 제시했다.",
+        "q3": "PF-06의 업무 속도 30% 향상 기록을 사실 범위 내에서 사용했다. 자료 대조, 담당자 보고, 기록·인계는 모두 수행 계획이며 판단 권한을 주장하지 않는다.",
+        "q4": "RF-03의 14조원 한도·재연장과 RF-04의 우대보증·보증료 지원을 정확히 썼다. 기업별 판별·상담·사후관리는 확정 제도가 아니라 정책 제안으로 서술했다."
+      }
+    },
+    {
+      "candidate_id": "P2",
+      "hard_fail": true,
+      "hard_fail_reasons": [
+        "Q1에서 '담보가 부족해 자금 조달에 어려움을 겪는 기업'을 신용보증기금의 지원 대상·상황으로 단정했다. 허용된 RF-01은 기업 채무 보증과 성장유망기업 지원만 확인하며, 담보 부족이라는 요건 또는 대상 사실은 제공하지 않는다."
+      ],
+      "scores": {
+        "question_fidelity": 20,
+        "fact_accuracy": 16,
+        "job_relevance": 15,
+        "action_specificity": 15,
+        "experience_allocation": 10,
+        "interview_defensibility": 8,
+        "korean_readability": 5,
+        "applicant_distinctiveness": 3,
+        "length_and_format": 2
+      },
+      "total": 94,
+      "strongest_point": "Q1~Q3의 경험 배치가 PF-01·PF-03·PF-02로 가장 직접적이며, Q3의 이중 결과 대조 경험을 보증 업무의 확인·보고 계획에 설득력 있게 연결했다.",
+      "largest_risk": "Q1 첫 문장이 공식 근거에 없는 담보 부족을 기관의 지원 전제로 단정해 엄격한 사실 경계를 위반한다.",
+      "question_notes": {
+        "q1": "RF-01·02 및 PF-01의 나머지 사용은 정확하고 계획도 인턴 보조 범위다. 다만 '담보가 부족해'라는 기관·대상 관련 사실은 허용 근거 밖이다.",
+        "q2": "PF-03의 개선과 민원 30% 감소를 정확히 사용했다. 업무노트, 지시 재확인, 피드백 기록은 새 조직 적응의 구체적 실천 계획이다.",
+        "q3": "PF-02의 동일 데이터 이중 입력·결과 비교 보고를 정확히 썼다. 대조·보고·인계 계획은 독자 판단이나 보증 승인 권한을 주장하지 않는다.",
+        "q4": "RF-03·04와 부합하고 수출입 구조별 상반된 영향을 구분했다. 보증부 운전자금, 만기 구조 조정, 비금융 지원은 '연계할 수 있다'는 정책 제안으로 표현되어 실제 제도 단정이 아니다."
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-16T21:13:34.516729",
+  "selected_source": "draft",
+  "answer_json_path": "draft_final.json",
+  "markdown_path": "06_자기소개서.md",
+  "docx_path": "06_자기소개서.docx",
+  "sha256": {
+    "answer_json": "60b175e03f2d19136fead08fb3b4767fa6f43e60bae61c6d2419299f254186a2",
+    "markdown": "78542e98a23fc731e17e7836e0dbd385d0e4348f85203401dd5c7fa9ac77f5d8",
+    "docx": "5ff6c1331a95e1c095ff98844f9e7898a0c8cd612cd7161c61c5935d7284c3de"
+  },
+  "postprocess_attempted": false,
+  "postprocess_applied": false,
+  "model_tier": "terra",
+  "model_id": null,
+  "validation": {
+    "status": "passed",
+    "issues": []
+  },
+  "selection": {
+    "status": "not_run",
+    "selection_mode": "single",
+    "hard_fail": false
+  }
+}

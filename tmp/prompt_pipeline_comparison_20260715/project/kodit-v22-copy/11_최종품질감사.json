@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-15T10:10:41.527230",
+  "run_dir": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\project\\kodit-v22-copy",
+  "score": 55,
+  "internal_validation_score": 55,
+  "quality_gate": "fail",
+  "human_review_recommended": true,
+  "recommendation": "내부검증 보완 필요",
+  "sections": {
+    "cover_letter": {
+      "score": 0,
+      "max": 40
+    },
+    "research": {
+      "score": 25,
+      "max": 25
+    },
+    "interview": {
+      "score": 20,
+      "max": 20
+    },
+    "style_safety": {
+      "score": 10,
+      "max": 15,
+      "voice_sample_status": "valid",
+      "style_warning_score": 7,
+      "actionable_style_items": 3
+    }
+  },
+  "question_scores": [],
+  "issues": [
+    {
+      "category": "final_artifact",
+      "code": "invalid_final_artifact",
+      "severity": "high",
+      "message": "최종 산출물 manifest가 아직 확정되지 않았습니다.",
+      "question_index": 0
+    },
+    {
+      "category": "cover_letter",
+      "code": "empty_answer",
+      "severity": "high",
+      "message": "답변이 비어 있습니다.",
+      "question_index": 1
+    },
+    {
+      "category": "cover_letter",
+      "code": "empty_answer",
+      "severity": "high",
+      "message": "답변이 비어 있습니다.",
+      "question_index": 2
+    },
+    {
+      "category": "cover_letter",
+      "code": "empty_answer",
+      "severity": "high",
+      "message": "답변이 비어 있습니다.",
+      "question_index": 3
+    },
+    {
+      "category": "cover_letter",
+      "code": "empty_answer",
+      "severity": "high",
+      "message": "답변이 비어 있습니다.",
+      "question_index": 4
+    },
+    {
+      "category": "cover_letter",
+      "code": "missing_draft",
+      "severity": "high",
+      "message": "감사할 답변이 없습니다.",
+      "question_index": 0
+    },
+    {
+      "category": "style",
+      "code": "style_risk_detected",
+      "severity": "medium",
+      "message": "교열 기준을 넘는 문체 위험이 3개 문항에서 발견되었습니다.",
+      "question_index": 0
+    }
+  ]
+}

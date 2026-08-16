@@ -4,14 +4,23 @@ from __future__ import annotations
 
 import csv
 from datetime import datetime
+import json
 import os
 from pathlib import Path
 import re
+
+from .youtube_patterns import (
+    PATTERN_PACKET_VERSION,
+    build_application_log,
+    build_pattern_packet,
+)
 
 
 GUIDANCE_KIND = "youtube_frame_strategy"
 GUIDANCE_POLICY = "strategy_only_not_factual_evidence"
 GUIDANCE_ARTIFACT = "05_작성가이드_유튜브프레임.md"
+PATTERN_PACKET_ARTIFACT = "06_유튜브_디자인패턴_패킷.json"
+PATTERN_LOG_ARTIFACT = "07_유튜브_패턴적용로그.json"
 FRAME_DIR_GLOB = "자소서_유튜브_프레임분석_*"
 
 SOURCE_FILE_ROLES = {
@@ -245,6 +254,7 @@ def _render_guidance(
     source_dir: Path,
     source_files: list[dict[str, str]],
     target_specific: dict[str, object] | None = None,
+    pattern_packet: dict[str, object] | None = None,
 ) -> str:
     summary_lines = _read_summary_lines(source_dir / "01_자소서_작성원칙_요약.md")
     source_lines = [
@@ -327,6 +337,22 @@ def _render_guidance(
     lines.extend(
         [
             "",
+            "## 유튜브 디자인 패턴 패킷 (전략 전용)",
+            "",
+            f"- 버전: `{(pattern_packet or {}).get('packet_version', PATTERN_PACKET_VERSION)}`",
+            "- 패턴은 문항 판별·후보 비교·문체/중복 감사에만 사용합니다. 회사 사실·개인 경험·문장을 추가하지 않습니다.",
+            "- `prepare`에서는 넓게 탐색하되 다음 단계에는 적용 후보·제외 후보·출처 품질·수동 확인 필요 여부만 전달합니다.",
+            "- 초안 후보는 유튜브 패턴을 제거해도 공식 자료와 확인된 경험만으로 성립해야 합니다.",
+            "- 저신뢰 OCR이 전역 규칙 승격이나 문구 유사도 판정에 영향을 주면 원본 프레임 확인 전까지 보류합니다.",
+            "",
+            "### 단계별 적용 강도",
+            "",
+            "- 자료조사/prepare: 넓게 탐색, 좁게 전달",
+            "- 문항 유형 판별·후보 선택: 높음",
+            "- 초안 생성: 추상 패턴만 중간 강도로 사용",
+            "- 인간화 편집: 새 사실을 만들지 않는 감사 전용",
+            "- 최종 감사: 사실 출처·경험 원장·문구 중복·AI 문체를 별도로 확인",
+            "",
             "## 다음 산출물에 반영",
             "",
             "- `05_문항전략.md`를 만들기 전에 이 가이드를 먼저 확인합니다.",
@@ -407,13 +433,20 @@ def workspace_guidance_status(root: Path, target: str | None = None) -> dict[str
             "use_policy": GUIDANCE_POLICY,
             "freshness": {"status": "imported_snapshot_unavailable"},
         }
+    freshness = guidance_freshness(source_dir)
+    packet = build_pattern_packet(source_dir, freshness=freshness, target=target)
     return {
         "status": "available",
         "kind": GUIDANCE_KIND,
         "use_policy": GUIDANCE_POLICY,
         "source_dir": source_dir.relative_to(root).as_posix(),
         "target_specific": _target_specific_youtube_strategy(source_dir, target),
-        "freshness": guidance_freshness(source_dir),
+        "freshness": freshness,
+        "pattern_packet_version": packet["packet_version"],
+        "pattern_count": len(packet["patterns"]),
+        "manual_review_required": packet["source_snapshot"].get(
+            "manual_review_required", True
+        ),
     }
 
 
@@ -437,16 +470,38 @@ def attach_writing_guidance(
 
     source_files = _existing_source_files(source_dir, root)
     target_specific = _target_specific_youtube_strategy(source_dir, target)
+    freshness = guidance_freshness(source_dir)
+    pattern_packet = build_pattern_packet(
+        source_dir,
+        freshness=freshness,
+        target=target,
+    )
+    pattern_log = build_application_log(pattern_packet)
     missing_files = [
         name for name in SOURCE_FILE_ROLES if not (source_dir / name).exists()
     ]
     artifact = run_dir / GUIDANCE_ARTIFACT
+    packet_artifact = run_dir / PATTERN_PACKET_ARTIFACT
+    log_artifact = run_dir / PATTERN_LOG_ARTIFACT
     artifact.parent.mkdir(parents=True, exist_ok=True)
     source_label = source_dir.relative_to(root).as_posix()
-    rendered = _render_guidance(source_dir, source_files, target_specific).replace(
+    rendered = _render_guidance(
+        source_dir,
+        source_files,
+        target_specific,
+        pattern_packet,
+    ).replace(
         str(source_dir), source_label
     )
     artifact.write_text(rendered, encoding="utf-8")
+    packet_artifact.write_text(
+        json.dumps(pattern_packet, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
+    log_artifact.write_text(
+        json.dumps(pattern_log, ensure_ascii=False, indent=2),
+        encoding="utf-8",
+    )
 
     metadata.update(
         {
@@ -458,7 +513,22 @@ def attach_writing_guidance(
             "target": target,
             "target_specific": target_specific,
             "generated_at": datetime.now().isoformat(),
-            "freshness": guidance_freshness(source_dir),
+            "freshness": freshness,
+            "pattern_packet": {
+                "status": "available",
+                "version": pattern_packet["packet_version"],
+                "artifact": packet_artifact.relative_to(root).as_posix(),
+                "use_policy": GUIDANCE_POLICY,
+                "pattern_count": len(pattern_packet.get("patterns", [])),
+                "manual_review_required": pattern_packet["source_snapshot"].get(
+                    "manual_review_required", True
+                ),
+            },
+            "pattern_application_log": {
+                "status": pattern_log["status"],
+                "artifact": log_artifact.relative_to(root).as_posix(),
+                "stage_count": len(pattern_log.get("entries", [])),
+            },
         }
     )
     state["writing_guidance"] = metadata

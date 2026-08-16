@@ -121,6 +121,70 @@ def test_matching_gate_rejects_confirmed_but_irrelevant_candidate():
     assert issues[0].code == "missing_relevant_match"
 
 
+def test_matching_gate_rejects_question_fit_without_duty_or_competency():
+    candidate = MatchCandidate(
+        "exp_question_only",
+        40,
+        40,
+        0,
+        0,
+        15,
+        0,
+        (),
+        (),
+        (),
+        (),
+    )
+    match = QuestionMatch(
+        Question(1, "지원동기", 600),
+        "motivation",
+        (candidate,),
+        candidate,
+    )
+
+    issues = validate_matching_gate((match,))
+
+    assert any(issue.code == "missing_duty_or_competency_match" for issue in issues)
+
+
+def test_strict_answer_quality_requires_observable_result_for_grounded_experience():
+    question = Question(1, "변화를 만든 경험", 600)
+    response = DraftResponse(
+        1,
+        "Company에서 자료를 살펴보고 문제를 생각했습니다. 그 과정에서 중요한 점을 배웠습니다.",
+        ("career.txt",),
+        (ExperienceClaimRef("exp_one"),),
+    )
+
+    issues = validate_answer_quality(
+        [question],
+        [response],
+        "Company",
+        minimum_score=STRICT_MIN_ANSWER_SCORE,
+    )
+
+    assert any(issue.code == "weak_observable_result" for issue in issues)
+
+
+def test_strict_answer_quality_accepts_completed_observable_result():
+    question = Question(1, "변화를 만든 경험", 600)
+    response = DraftResponse(
+        1,
+        "Company에서 자료를 확인해 누락 건을 정리해 전달했고 처리를 완료했습니다.",
+        ("career.txt",),
+        (ExperienceClaimRef("exp_one"),),
+    )
+
+    issues = validate_answer_quality(
+        [question],
+        [response],
+        "Company",
+        minimum_score=STRICT_MIN_ANSWER_SCORE,
+    )
+
+    assert not any(issue.code == "weak_observable_result" for issue in issues)
+
+
 def test_answer_quality_blocks_underfilled_600_character_answer():
     questions = [Question(1, "지원 동기", 600)]
     responses = [DraftResponse(1, "HUG에서 정확하게 일하겠습니다.", ("career.txt",))]
@@ -269,6 +333,25 @@ def test_generic_role_word_does_not_fake_target_specificity():
 
     assert score.target_specificity == 0
     assert "missing_target" in score.issues
+
+
+def test_value_role_prompt_uses_generic_future_role_not_nonghyup_name():
+    question = Question(
+        1,
+        "인턴기간 중 자신의 가치관과 조직 내 역할을 경험을 바탕으로 기술하십시오.",
+        700,
+        minimum_character_limit=500,
+    )
+    answer = (
+        "공공기관 지원 업무에서 겪은 경험을 통해 확인한 사실과 판단이 필요한 부분을 나누는 원칙을 배웠습니다. "
+        "입사 후에는 인턴으로서 자료를 정리하고 누락 사항을 기록하는 역할을 맡겠습니다. "
+    ) * 5
+
+    issues = validate_answer_quality(
+        [question], [DraftResponse(1, answer, ("career.txt",))], "한국남동발전"
+    )
+
+    assert "missing_value_evidence" not in {issue.code for issue in issues}
 
 
 def test_issue_question_scores_analysis_and_response_without_forced_org_name():

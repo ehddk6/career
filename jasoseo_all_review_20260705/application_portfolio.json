@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-13T13:32:15",
+  "generated_at": "2026-07-13T15:39:32",
   "confirmed_profile": true,
   "active_posting_count": 1,
   "applications": [
@@ -39,6 +39,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -109,6 +110,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -174,6 +176,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -239,6 +242,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -314,6 +318,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -379,6 +384,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -444,6 +450,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -509,6 +516,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -579,6 +587,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -669,6 +678,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -734,6 +744,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -799,6 +810,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -864,6 +876,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -939,6 +952,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -1004,6 +1018,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -1069,6 +1084,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -1139,6 +1155,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -1204,6 +1221,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -1289,6 +1307,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -1354,6 +1373,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -1424,6 +1444,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -1489,6 +1510,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -1554,6 +1576,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -1654,6 +1677,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": 100,
       "quality_readiness": {
         "status": "review_required",
         "dimensions": {
@@ -1682,14 +1706,14 @@
         },
         "selected_artifact_quality": {
           "metric": "internal_validation_not_hire_probability",
-          "internal_validation_score": 99,
+          "internal_validation_score": 100,
           "quality_gate": "pass",
           "human_review_recommended": false,
-          "question_score_min": 93,
+          "question_score_min": 100,
           "question_score_max": 100,
           "sections": {
             "cover_letter": {
-              "score": 39,
+              "score": 40,
               "max": 40
             },
             "research": {
@@ -1703,11 +1727,13 @@
             "style_safety": {
               "score": 15,
               "max": 15,
-              "voice_sample_status": "valid"
+              "voice_sample_status": "valid",
+              "style_warning_score": 1,
+              "actionable_style_items": 0
             }
           },
           "issue_codes": [],
-          "final_manifest_sha256": "137ab72da624eef650f3fda7204df38c410117d687fa66d9e56c897febaa3e25"
+          "final_manifest_sha256": "23a30807b7591a0cadb4344484250804a055e55e85930d994a60199ed9019604"
         }
       },
       "submission_status": "review_required"
@@ -1733,6 +1759,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -1798,6 +1825,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -1863,6 +1891,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -1948,6 +1977,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -2013,6 +2043,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -2078,6 +2109,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -2163,6 +2195,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -2258,6 +2291,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -2323,6 +2357,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -2393,6 +2428,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -2458,6 +2494,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -2538,6 +2575,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -2608,6 +2646,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -2673,6 +2712,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -2743,6 +2783,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -2808,6 +2849,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -2873,6 +2915,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -2938,6 +2981,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -3003,6 +3047,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -3068,6 +3113,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -3133,6 +3179,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -3198,6 +3245,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -3263,6 +3311,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -3328,6 +3377,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {
@@ -3393,6 +3443,7 @@
       "legacy_internal_score": 100.0,
       "legacy_recommendation": "제출권장",
       "legacy_score_source": "legacy internal evaluation",
+      "current_internal_validation_score": null,
       "quality_readiness": {
         "status": "not_ready",
         "dimensions": {

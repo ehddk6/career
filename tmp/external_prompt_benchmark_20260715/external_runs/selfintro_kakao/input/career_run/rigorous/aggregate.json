@@ -1,0 +1,53 @@
+{
+  "ranking": [
+    {
+      "candidate_id": "C210847FD",
+      "hard_fail": false,
+      "review_required": false,
+      "median_total": 97,
+      "minimum_total": 97,
+      "median_core": 55,
+      "judge_spread": 1
+    },
+    {
+      "candidate_id": "C231420E2",
+      "hard_fail": false,
+      "review_required": false,
+      "median_total": 97,
+      "minimum_total": 97,
+      "median_core": 55,
+      "judge_spread": 1
+    },
+    {
+      "candidate_id": "C9A06A9AD",
+      "hard_fail": false,
+      "review_required": false,
+      "median_total": 96,
+      "minimum_total": 96,
+      "median_core": 55,
+      "judge_spread": 2
+    },
+    {
+      "candidate_id": "C98D4E6E5",
+      "hard_fail": false,
+      "review_required": true,
+      "median_total": 95,
+      "minimum_total": 93,
+      "median_core": 54,
+      "judge_spread": 4
+    },
+    {
+      "candidate_id": "C29D6F72B",
+      "hard_fail": false,
+      "review_required": false,
+      "median_total": 88,
+      "minimum_total": 87,
+      "median_core": 54,
+      "judge_spread": 5
+    }
+  ],
+  "agreed_weaknesses": [
+    "generic_voice"
+  ],
+  "agreed_transferable_elements": []
+}

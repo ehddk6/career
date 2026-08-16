@@ -1,0 +1,97 @@
+{
+  "data_package_id": "SOL-DATA-ACB9EA4AEAAC",
+  "data_package_version": "1.1",
+  "judge_mode": "KOREAN_EDITOR",
+  "evaluations": [
+    {
+      "candidate_id": "CEXT",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 20,
+        "fact_accuracy": 20,
+        "job_relevance": 15,
+        "action_specificity": 15,
+        "experience_allocation": 10,
+        "interview_defensibility": 10,
+        "korean_readability": 4,
+        "applicant_distinctiveness": 2,
+        "length_and_format": 2
+      },
+      "total": 98,
+      "weakness_codes": [
+        "korean_style",
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "evidence_to_duty_bridge",
+          "exact_element": "이때 활용한 동일 조건 대조와 차이 기록 방식을 기업자료 확인과 업무 보조에 적용하겠습니다.",
+          "reason": "검증된 비교·보고 경험을 인턴 직무의 자료 확인 행동으로 구체적으로 전환한다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429",
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "risk_differentiation",
+          "exact_element": "반면 수출 비중, 결제통화, 환헤지 여부와 수입 원재료 의존도에 따라 영향의 방향과 크기가 달라질 수 있으므로 고환율 피해기업을 일률적으로 판단해서는 안 됩니다.",
+          "reason": "고환율의 영향이 기업별로 다르다는 검증된 유의점을 선별지원 논리로 연결한다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "CPROJ",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 20,
+        "fact_accuracy": 20,
+        "job_relevance": 15,
+        "action_specificity": 15,
+        "experience_allocation": 4,
+        "interview_defensibility": 9,
+        "korean_readability": 5,
+        "applicant_distinctiveness": 2,
+        "length_and_format": 2
+      },
+      "total": 92,
+      "weakness_codes": [
+        "experience_overlap",
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "2",
+          "element_type": "concrete_adaptation_routine",
+          "exact_element": "저는 업무나 학업이 주어지면 마감일을 기준으로 남은 기간을 나누고 일일 목표를 달력과 노트에 기록해 관리합니다.",
+          "reason": "추상적인 책임감을 실제 일정 관리 습관으로 입증한다.",
+          "fact_ids": [
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "support_safeguard",
+          "exact_element": "환율 충격 전에도 상환 가능성이 낮았던 기업과 일시적 유동성 부족 기업을 구분하고, 다른 정책자금과의 중복 여부도 확인해야 합니다.",
+          "reason": "한시적 유동성 지원의 필요성과 보증지원 과정의 건전성 통제를 함께 제시한다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711",
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ]
+    }
+  ]
+}

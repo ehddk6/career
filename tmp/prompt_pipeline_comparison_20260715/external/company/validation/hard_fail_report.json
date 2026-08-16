@@ -1,0 +1,35 @@
+{
+  "company_data_package_id": "CR-DATA-001",
+  "company_data_package_version": "1.0",
+  "status": "PASS",
+  "active_hard_fail_count": 0,
+  "deterministic_checks": {
+    "entity_name_error": false,
+    "period_currency_unit_error": false,
+    "consolidated_separate_mixing": false,
+    "nonexistent_source": false,
+    "source_number_mismatch": false,
+    "publication_basis_date_confusion": false,
+    "post_cutoff_mixing": false,
+    "quote_distortion": false,
+    "nonexistent_product_business_role": false
+  },
+  "semantic_checks": {
+    "company_claim_as_objective_fact": false,
+    "announcement_as_result": false,
+    "correlation_as_causation": false,
+    "industry_growth_as_company_growth": false,
+    "affiliate_result_as_target_result": false,
+    "review_overgeneralization": false,
+    "applicant_authority_exaggeration": false,
+    "unverified_culture_reputation": false,
+    "counterevidence_omitted": false
+  },
+  "prevented_risks": [
+    "한국도로공사서비스 직무기술서 6개를 KODIT 근거에서 제외",
+    "한국은행 14조원 지원 한도를 KODIT 재무 수치에서 제외",
+    "KODIT 협약보증 발표를 독립 검증된 성과로 전환하지 않음"
+  ],
+  "unresolved_verification_count": 24,
+  "final_effect": "지원 직무 논리는 생성하되 회사 품질 판정은 INSUFFICIENT_EVIDENCE로 제한"
+}

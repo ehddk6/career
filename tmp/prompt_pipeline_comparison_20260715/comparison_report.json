@@ -1,0 +1,469 @@
+{
+  "conclusion": {
+    "raw_quality_winner": "external prior selfintro candidate (provisional)",
+    "submission_safety_winner": "Career Pipeline v22",
+    "overall_recommendation": "Keep Career Pipeline v22 as the safe base. Borrow only manually reviewed Q1/Q2/Q4 prose improvements from the external candidate; do not reuse Q3 as-is because of contribution_overstatement.",
+    "confidence": "medium",
+    "qualification": "The user supplied final integration prompt has no traceable completed artifact in the isolated run; company and interview external prompts did not complete in the CLI runtime."
+  },
+  "quality_and_safety": {
+    "external_prior_blind_scores": {
+      "CEXT": {
+        "scores_by_judge": {
+          "JOB_FACT_AUDITOR": 99,
+          "KOREAN_EDITOR": 98,
+          "RECRUITER": 95
+        },
+        "median": 98,
+        "minimum": 95,
+        "maximum": 99,
+        "spread": 4,
+        "hard_fail": false,
+        "weakness_codes": [
+          "generic_voice",
+          "korean_style"
+        ]
+      },
+      "CPROJ": {
+        "scores_by_judge": {
+          "JOB_FACT_AUDITOR": 92,
+          "KOREAN_EDITOR": 92,
+          "RECRUITER": 91
+        },
+        "median": 92,
+        "minimum": 91,
+        "maximum": 92,
+        "spread": 1,
+        "hard_fail": false,
+        "weakness_codes": [
+          "experience_overlap",
+          "generic_voice"
+        ]
+      }
+    },
+    "external_candidate_validation": {
+      "label": "external prior selfintro candidate",
+      "path": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\codex_prompt_comparison_20260714\\external_candidate.json",
+      "counts": [
+        467,
+        438,
+        514,
+        988
+      ],
+      "experience_refs": {
+        "1": [
+          "exp_9e97f274590a323b"
+        ],
+        "2": [
+          "exp_22d1df6407915aa2"
+        ],
+        "3": [
+          "exp_151ae891bd2719ad"
+        ],
+        "4": []
+      },
+      "research_refs": {
+        "1": [
+          "kodit-role-20260711",
+          "kodit-intern-duty-20260711"
+        ],
+        "2": [
+          "kodit-intern-duty-20260711"
+        ],
+        "3": [
+          "kodit-intern-duty-20260711"
+        ],
+        "4": [
+          "bok-fx-risk-20260711",
+          "kodit-liquidity-support-20260711",
+          "kodit-intern-duty-20260711"
+        ]
+      },
+      "draft_validation": {
+        "status": "blocked",
+        "issues": [
+          {
+            "code": "contribution_overstatement",
+            "question_index": 3,
+            "message": "answer exceeds contribution scope: exp_151ae891bd2719ad.clm_88cfeab230789e5b0d5f"
+          }
+        ]
+      },
+      "research_validation": {
+        "status": "blocked",
+        "issues": [
+          {
+            "code": "research_application_use_not_linked",
+            "question_index": 4,
+            "message": "공식 근거의 활용 기록이 실제 사용 문항 4과 연결되지 않습니다: kodit-intern-duty-20260711"
+          }
+        ]
+      }
+    },
+    "project_candidate_validation": {
+      "label": "Career Pipeline v22",
+      "path": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\inputs\\workspace\\career_run\\draft_final.json",
+      "counts": [
+        504,
+        525,
+        535,
+        1285
+      ],
+      "experience_refs": {
+        "1": [
+          "exp_9e97f274590a323b"
+        ],
+        "2": [
+          "exp_6841c9278134a4c9"
+        ],
+        "3": [
+          "exp_a07fd710e2b7c0c2"
+        ],
+        "4": []
+      },
+      "research_refs": {
+        "1": [
+          "kodit-role-20260711",
+          "kodit-intern-duty-20260711"
+        ],
+        "2": [],
+        "3": [
+          "kodit-intern-duty-20260711"
+        ],
+        "4": [
+          "bok-fx-risk-20260711",
+          "kodit-liquidity-support-20260711"
+        ]
+      },
+      "draft_validation": {
+        "status": "passed",
+        "issues": []
+      },
+      "research_validation": {
+        "status": "passed",
+        "issues": []
+      }
+    },
+    "project_audit": {
+      "score": 93,
+      "quality_gate": "pass",
+      "human_review_recommended": true,
+      "sections": {
+        "cover_letter": {
+          "score": 36,
+          "max": 40
+        },
+        "research": {
+          "score": 25,
+          "max": 25
+        },
+        "interview": {
+          "score": 20,
+          "max": 20
+        },
+        "style_safety": {
+          "score": 12,
+          "max": 15,
+          "voice_sample_status": "valid",
+          "style_warning_score": 7,
+          "actionable_style_items": 3
+        }
+      },
+      "issues": [
+        {
+          "category": "cover_letter",
+          "code": "missing_job_connection",
+          "severity": "medium",
+          "message": "답변이 공고의 업무·역량과 연결되지 않습니다.",
+          "question_index": 2
+        },
+        {
+          "category": "cover_letter",
+          "code": "missing_target_specificity",
+          "severity": "medium",
+          "message": "지원 기관 또는 사업을 선택한 이유가 답변에 드러나지 않습니다.",
+          "question_index": 3
+        },
+        {
+          "category": "cover_letter",
+          "code": "low_quality_score",
+          "severity": "medium",
+          "message": "품질 점수 80/100점으로 기준 85점에 미달합니다.",
+          "question_index": 3
+        },
+        {
+          "category": "style",
+          "code": "style_risk_detected",
+          "severity": "medium",
+          "message": "교열 기준을 넘는 문체 위험이 3개 문항에서 발견되었습니다.",
+          "question_index": 0
+        }
+      ]
+    },
+    "character_counts": {
+      "external_prior_candidate": [
+        467,
+        438,
+        514,
+        988
+      ],
+      "career_pipeline_v22": [
+        504,
+        525,
+        535,
+        1285
+      ],
+      "limits": [
+        600,
+        600,
+        600,
+        1500
+      ]
+    },
+    "interview_baseline_inventory": {
+      "question_sections": 4,
+      "timed_answer_cards": 12,
+      "tail_question_count": 4,
+      "pressure_question_count": 4,
+      "contains_machine_d3": false,
+      "contains_machine_d4": false
+    },
+    "company_partial": {
+      "package": {
+        "company_data_package_id": "CR-DATA-001",
+        "company_data_package_version": "1.0",
+        "research_cutoff_date": "2026-07-13",
+        "company_name": "신용보증기금",
+        "target_job": "체험형 청년인턴1(보증)"
+      },
+      "hard_fail_report": {
+        "company_data_package_id": "CR-DATA-001",
+        "company_data_package_version": "1.0",
+        "status": "PASS",
+        "active_hard_fail_count": 0,
+        "deterministic_checks": {
+          "entity_name_error": false,
+          "period_currency_unit_error": false,
+          "consolidated_separate_mixing": false,
+          "nonexistent_source": false,
+          "source_number_mismatch": false,
+          "publication_basis_date_confusion": false,
+          "post_cutoff_mixing": false,
+          "quote_distortion": false,
+          "nonexistent_product_business_role": false
+        },
+        "semantic_checks": {
+          "company_claim_as_objective_fact": false,
+          "announcement_as_result": false,
+          "correlation_as_causation": false,
+          "industry_growth_as_company_growth": false,
+          "affiliate_result_as_target_result": false,
+          "review_overgeneralization": false,
+          "applicant_authority_exaggeration": false,
+          "unverified_culture_reputation": false,
+          "counterevidence_omitted": false
+        },
+        "prevented_risks": [
+          "한국도로공사서비스 직무기술서 6개를 KODIT 근거에서 제외",
+          "한국은행 14조원 지원 한도를 KODIT 재무 수치에서 제외",
+          "KODIT 협약보증 발표를 독립 검증된 성과로 전환하지 않음"
+        ],
+        "unresolved_verification_count": 24,
+        "final_effect": "지원 직무 논리는 생성하되 회사 품질 판정은 INSUFFICIENT_EVIDENCE로 제한"
+      },
+      "final_artifact_complete": false
+    },
+    "prior_comparison_project_scores_not_v22": {
+      "scores_by_judge": {
+        "JOB_FACT_AUDITOR": 92,
+        "KOREAN_EDITOR": 92,
+        "RECRUITER": 91
+      },
+      "median": 92,
+      "minimum": 91,
+      "maximum": 92,
+      "spread": 1,
+      "hard_fail": false,
+      "weakness_codes": [
+        "experience_overlap",
+        "generic_voice"
+      ]
+    }
+  },
+  "contract_checks": {
+    "baseline_absent_backward_compatible": {
+      "enabled": false,
+      "hard_fail": false,
+      "source": "contracts validate on isolated v22 copy (no sidecars)"
+    },
+    "one_side_present": {
+      "enabled": true,
+      "contract_version": "2026-07-15",
+      "data_package_id": null,
+      "data_package_version": null,
+      "company_path": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\project\\contracts-one-sided-check\\04_기업직무조사.json",
+      "interview_path": null,
+      "hard_fail": true,
+      "review_required": false,
+      "issues": [
+        {
+          "code": "incomplete_prompt_contract_pair",
+          "severity": "HARD_FAIL",
+          "artifact": "08_면접대비팩.json",
+          "message": "통합 계약은 두 JSON 사이드카가 모두 필요합니다: 08_면접대비팩.json"
+        }
+      ]
+    },
+    "both_sides_valid": {
+      "enabled": true,
+      "contract_version": "2026-07-15",
+      "data_package_id": "CAREER-DATA-ABCDEF123456",
+      "data_package_version": "1.0",
+      "company_path": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\project\\contracts-valid-check\\04_기업직무조사.json",
+      "interview_path": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\project\\contracts-valid-check\\08_면접대비팩.json",
+      "hard_fail": false,
+      "review_required": false,
+      "issues": []
+    },
+    "d4_and_xy_smoke": {
+      "d4_numeric_contract": {
+        "status": "passed",
+        "hard_fail": false,
+        "report": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\smoke\\d4-pass\\13_프롬프트통합검증.json"
+      },
+      "d3_numeric_contract": {
+        "status": "blocked_as_expected",
+        "hard_fail": true,
+        "issue_codes": [
+          "insufficient_defense_depth"
+        ]
+      },
+      "xy_actual_question_sets": [
+        {
+          "questions": 3,
+          "status": "passed"
+        },
+        {
+          "questions": 5,
+          "status": "passed"
+        }
+      ]
+    }
+  },
+  "execution_status": {
+    "external_company_prompt": {
+      "status": "partial_runtime_blocked",
+      "output_dir": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\external\\company",
+      "package": {
+        "company_data_package_id": "CR-DATA-001",
+        "company_data_package_version": "1.0",
+        "research_cutoff_date": "2026-07-13",
+        "company_name": "신용보증기금",
+        "target_job": "체험형 청년인턴1(보증)"
+      },
+      "files_written": 49,
+      "final_dir_has_files": false,
+      "judges_dir_has_files": false,
+      "manifest_exists": false,
+      "hard_fail_report": {
+        "company_data_package_id": "CR-DATA-001",
+        "company_data_package_version": "1.0",
+        "status": "PASS",
+        "active_hard_fail_count": 0,
+        "deterministic_checks": {
+          "entity_name_error": false,
+          "period_currency_unit_error": false,
+          "consolidated_separate_mixing": false,
+          "nonexistent_source": false,
+          "source_number_mismatch": false,
+          "publication_basis_date_confusion": false,
+          "post_cutoff_mixing": false,
+          "quote_distortion": false,
+          "nonexistent_product_business_role": false
+        },
+        "semantic_checks": {
+          "company_claim_as_objective_fact": false,
+          "announcement_as_result": false,
+          "correlation_as_causation": false,
+          "industry_growth_as_company_growth": false,
+          "affiliate_result_as_target_result": false,
+          "review_overgeneralization": false,
+          "applicant_authority_exaggeration": false,
+          "unverified_culture_reputation": false,
+          "counterevidence_omitted": false
+        },
+        "prevented_risks": [
+          "한국도로공사서비스 직무기술서 6개를 KODIT 근거에서 제외",
+          "한국은행 14조원 지원 한도를 KODIT 재무 수치에서 제외",
+          "KODIT 협약보증 발표를 독립 검증된 성과로 전환하지 않음"
+        ],
+        "unresolved_verification_count": 24,
+        "final_effect": "지원 직무 논리는 생성하되 회사 품질 판정은 INSUFFICIENT_EVIDENCE로 제한"
+      },
+      "retries": [
+        {
+          "dir": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\external\\company_retry",
+          "status": "failed_model_version",
+          "evidence": "codex_exec.log"
+        },
+        {
+          "dir": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\external\\company_retry2",
+          "status": "partial_runtime_hook_loop",
+          "evidence": "codex_exec.log"
+        }
+      ]
+    },
+    "external_selfintro_improved_artifact": {
+      "status": "completed_prior_artifact_but_not_same_package",
+      "artifact": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\codex_prompt_comparison_20260714\\external_candidate.json",
+      "source_prompt_recorded": "C:\\Users\\ehddk\\Downloads\\GPT-5.6_Sol_자기소개서_Codex용_개선본.md",
+      "source_prompt_is_one_of_current_four": false,
+      "package": {
+        "data_package_id": "SOL-DATA-ACB9EA4AEAAC",
+        "data_package_version": "1.1",
+        "frozen_data_sha256": "acb9ea4aeaac1bf0febc89ca5865317094711e85549394bbe072ef49c0c3fac3",
+        "count_mode": "spaces_included",
+        "candidate_count": 5,
+        "judge_count": 3
+      },
+      "deterministic_validation": "blocked;blocked"
+    },
+    "external_selfintro_final_integration_prompt": {
+      "status": "not_traceable_completed_artifact",
+      "prompt_path": "C:\\Users\\ehddk\\Downloads\\회사조사_면접_프롬프트_묶음\\GPT-5.6_Sol_자기소개서_최종_통합_프롬프트.md",
+      "reason": "isolated run has no independent candidate/judge/final packet bundle for this prompt"
+    },
+    "external_interview_prompt": {
+      "status": "not_executed_traceable_output",
+      "prompt_path": "C:\\Users\\ehddk\\Downloads\\회사조사_면접_프롬프트_묶음\\Codex_면접_프롬프트.md",
+      "reason": "no traceable final packet from external CLI execution"
+    },
+    "career_pipeline_v22": {
+      "status": "complete_existing_baseline",
+      "run": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\career_runs\\kodit-2026-h2-rigorous-20260714-v22",
+      "selection_mode": "rigorous",
+      "model_calls": 9,
+      "winner_candidate_id": "C210847FD",
+      "final_choice": "X",
+      "audit_score": 93,
+      "audit_quality_gate": "pass",
+      "contract_validation": {
+        "enabled": false,
+        "hard_fail": false,
+        "source": "contracts validate on isolated v22 copy (no sidecars)"
+      }
+    },
+    "career_pipeline_v22_isolated_rerun": {
+      "status": "partial_model_calls",
+      "run": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\project\\kodit-v22-rerun",
+      "observed_generated_candidates": [
+        "generated_1.json",
+        "generated_2.json",
+        "generated_3.json"
+      ],
+      "reason": "Sol calls took several minutes each; full 9-call finalize was stopped before completion and did not replace v22 baseline",
+      "note": "generated_4.json remained from the copied baseline and was not counted as a new model result"
+    }
+  },
+  "input_manifest_path": "C:\\Users\\ehddk\\OneDrive\\문서\\취업\\tmp\\prompt_pipeline_comparison_20260715\\input_manifest.json"
+}

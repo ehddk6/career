@@ -1,0 +1,370 @@
+{
+  "data_package_id": "CAREER-DATA-B0F5D1A8FD48",
+  "data_package_version": "2.0",
+  "judge_mode": "INTERVIEW_COACH",
+  "evaluations": [
+    {
+      "candidate_id": "C02ABDDFB",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "Q1-Q3 are defensible but verbose, making spoken follow-up harder than necessary.",
+        "Q4 is logically strong but long; if the actual character count exceeds the form limit, this becomes a deterministic format failure."
+      ],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 17,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 10,
+        "experience_allocation": 6,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 4,
+        "korean_readability": 8,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 1
+      },
+      "total": 94,
+      "weakness_codes": [
+        "spoken_answer_risk",
+        "format_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience",
+          "exact_element": "같은 데이터를 기존 엑셀 수식과 외주 프로그램에 각각 입력해 결과를 비교한 뒤, 결과 비교 분석 보고서를 작성해 팀장에게 보고한 경험",
+          "reason": "기한연장·상시관리의 자료 대조, 오류 확인, 보고 행동으로 방어 가능하다.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "experience",
+          "exact_element": "많은 자료를 체계적으로 분류해 정리하고 기초연금 지급 절차를 보조한 경험",
+          "reason": "자료 분류와 역할 한계 인정이 업무수행계획의 실행·점검 단계와 연결된다.",
+          "fact_ids": [
+            "exp_151ae891bd2719ad",
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "research_claim",
+          "exact_element": "높은 환율 변동성과 중동지역 리스크, 14조원 한도의 중소기업 한시 특별지원 운용기간 재연장",
+          "reason": "이슈 선정과 정책금융 대응 필요성의 근거로 안전하게 사용할 수 있다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "INTERVIEW_COACH"
+    },
+    {
+      "candidate_id": "C1B9AC0C4",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "Q2 uses the target-resetting experience, but the personal action is less directly tied to new-organization adaptation than the schedule/checklist experience would be.",
+        "Q4 is strong, but some support methods such as 만기 관련 지원 are plausible rather than directly named in safe_claims; keep interview defense bounded."
+      ],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 16,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 5,
+        "interview_defensibility": 7,
+        "spoken_defensibility": 5,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 2
+      },
+      "total": 93,
+      "weakness_codes": [
+        "experience_overlap",
+        "interview_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience",
+          "exact_element": "기존 엑셀 수식과 외주 프로그램에 동일한 데이터를 넣어 결과를 비교한 분석 보고서를 작성하고 팀장에게 보고한 경험",
+          "reason": "자료 대조와 보고 행동이 보증 업무 보조와 직접 연결된다.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "experience",
+          "exact_element": "과거 데이터를 분석해 지역 기반이 탄탄한 중장년층으로 주요 대상을 재설정한 경험",
+          "reason": "실제 자료를 보고 기존 가정을 수정한 태도는 조직 기준 이해와 질문 태도로 일부 전이된다.",
+          "fact_ids": [
+            "exp_638228200e37de69",
+            "clm_2bfba21afb61776d752b"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "research_claim",
+          "exact_element": "신용보증기금은 지역 수출기업 등의 유동성과 금융비용 부담을 완화하기 위해 협약보증을 공급",
+          "reason": "지원 방안의 기관-specific 근거로 방어 가능하다.",
+          "fact_ids": [
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "INTERVIEW_COACH"
+    },
+    {
+      "candidate_id": "C723BF51F",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "Q1-Q3 are clean and role-bounded, but the applicant voice is somewhat generic across answers.",
+        "Q4 is defensible and balanced, though less distinctive than candidates that explain support prioritization in more operational terms."
+      ],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 17,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 6,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 5,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 5,
+        "length_and_format": 2
+      },
+      "total": 95,
+      "weakness_codes": [
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "research_claim",
+          "exact_element": "기업이 부담하는 채무를 보증해 성장유망기업을 지원하며, 보증신청 뒤 신용조사와 보증심사를 수행",
+          "reason": "기관 역할 이해를 공식 claim 안에서 표현한다.",
+          "fact_ids": [
+            "kodit-role-20260711"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "experience",
+          "exact_element": "마감일을 정하고 남은 기간을 표시한 뒤, 일일 목표를 달력과 노트에 기록해 관리",
+          "reason": "새 조직 적응 태도인 확인, 기록, 반복 행동과 직접 연결된다.",
+          "fact_ids": [
+            "exp_22d1df6407915aa2",
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "research_claim",
+          "exact_element": "지역 수출기업 등의 유동성과 금융비용 부담을 완화하기 위해 협약보증을 공급",
+          "reason": "정책금융기관의 지원 방안으로 구체적이고 안전한 기관 claim이다.",
+          "fact_ids": [
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "INTERVIEW_COACH"
+    },
+    {
+      "candidate_id": "C82D3330D",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "Q3 says the applicant has a material-classification experience but omits the strongest numeric detail from the grounded fact, reducing interview distinctiveness.",
+        "Q4 contains a broad reference to 만기 구조 조정, which should be defended as a general policy-finance option unless separately verified."
+      ],
+      "scores": {
+        "question_fidelity": 14,
+        "fact_accuracy": 16,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 5,
+        "interview_defensibility": 7,
+        "spoken_defensibility": 5,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 5,
+        "length_and_format": 2
+      },
+      "total": 92,
+      "weakness_codes": [
+        "interview_risk",
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience",
+          "exact_element": "동일한 데이터를 넣어 결과를 비교한 뒤 분석 보고서를 작성해 팀장에게 보고한 경험",
+          "reason": "개인 기여와 역할 한계를 설명하기 쉬운 대조·보고 경험이다.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "experience",
+          "exact_element": "마감기한을 정하고 남은 일정을 표시하며, 일일계획을 컴퓨터나 휴대전화 달력과 노트에 기록해 관리",
+          "reason": "조직 적응에서 기한, 진행 상태, 피드백 기록을 설명할 수 있다.",
+          "fact_ids": [
+            "exp_22d1df6407915aa2",
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "research_claim",
+          "exact_element": "한국은행은 높은 환율 변동성과 중동지역 리스크를 점검하면서 14조원 한도의 중소기업 한시 특별지원 운용기간을 재연장",
+          "reason": "최근 이슈 선정과 중소기업 유동성 부담을 연결하는 검증된 근거다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "INTERVIEW_COACH"
+    },
+    {
+      "candidate_id": "C9236705E",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "Q1 has one colloquial intensifier, '더 꼼꼼히', that is harmless but less precise than the rest of the answer.",
+        "Q4 is strong, but 보증료 부담 완화 is only safely grounded through the 협약보증 claim; do not expand beyond that in interview."
+      ],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 16,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 6,
+        "interview_defensibility": 7,
+        "spoken_defensibility": 5,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 2
+      },
+      "total": 95,
+      "weakness_codes": [
+        "korean_style",
+        "interview_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience",
+          "exact_element": "같은 데이터를 입력한 뒤 결과 비교 분석 보고서를 작성해 팀장에게 보고한 경험",
+          "reason": "자료 불일치 시 근거를 대조하고 공유했다는 개인 행동이 명확하다.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "experience",
+          "exact_element": "많은 자료를 체계적으로 분류해 정리한 경험",
+          "reason": "완료·보완 필요·담당자 판단 필요 상태 분류라는 수행계획과 연결된다.",
+          "fact_ids": [
+            "exp_151ae891bd2719ad",
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "research_claim",
+          "exact_element": "높은 환율 변동성과 중동지역 리스크를 점검하면서 14조원 한도의 중소기업 한시 특별지원 운용기간을 재연장",
+          "reason": "환율 변동성을 중소기업 자금 부담 이슈로 제시하는 근거다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "INTERVIEW_COACH"
+    },
+    {
+      "candidate_id": "CC864EEB2",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [
+        "Q2 uses no research_refs even though it mentions 보증 기한연장과 기업신용 상시관리; the claim is safe in the package, but the answer metadata is less complete.",
+        "Q3 has the clearest operational sequence among the set, but Q1-Q2 applicant voice remains similar to other drafts."
+      ],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 16,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 10,
+        "experience_allocation": 6,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 5,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 6,
+        "length_and_format": 2
+      },
+      "total": 97,
+      "weakness_codes": [
+        "fact_risk",
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience",
+          "exact_element": "동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 각각 입력해 결과를 비교하고, 분석 보고서를 작성해 팀장에게 보고한 경험",
+          "reason": "확인, 기록, 보고의 개인 기여가 명확하고 역할 한계도 방어 가능하다.",
+          "fact_ids": [
+            "exp_9e97f274590a323b",
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "research_claim",
+          "exact_element": "보증 분야 체험형 청년인턴의 주요업무인 신용보증 기한연장과 기업신용 상시관리",
+          "reason": "업무수행계획의 대상 업무를 공식 공고 claim 안에서 특정한다.",
+          "fact_ids": [
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "research_claim",
+          "exact_element": "신용보증기금은 지역 수출기업 등의 유동성과 금융비용 부담을 완화하기 위해 협약보증을 공급",
+          "reason": "지원 수단을 기관의 확인된 활동과 연결한다.",
+          "fact_ids": [
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "INTERVIEW_COACH"
+    }
+  ]
+}

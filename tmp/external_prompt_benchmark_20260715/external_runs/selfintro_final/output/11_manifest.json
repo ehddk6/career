@@ -1,0 +1,119 @@
+{
+  "artifacts": [
+    {
+      "path": "output/00_data_package.md",
+      "bytes": 8583,
+      "sha256": "90223d423db61ac8ebab3915b3655c602dcefdc61f1edadceb1cca04d9029abe"
+    },
+    {
+      "path": "output/01_blind_candidates.json",
+      "bytes": 31054,
+      "sha256": "ac0ac643ead6d3d0aa995c28a796cf76a341b4829dca5a56a40919f6b7197fe8"
+    },
+    {
+      "path": "output/01_private_mapping.json",
+      "bytes": 855,
+      "sha256": "7a4b8ad711286aac13f8a605ceb83f2da78cc6a56036dd98d26b0d59ead736d0"
+    },
+    {
+      "path": "output/02_judge_1_recruiter.json",
+      "bytes": 6466,
+      "sha256": "1f3055b31890b3009a922a4b85bb914e31a78ed8059325009c8421e05d811d00"
+    },
+    {
+      "path": "output/03_judge_2_job_fact.json",
+      "bytes": 7531,
+      "sha256": "5c9a6ce9b4219d1f277201d4933bd47ec06a625b8d4ccfa814bd0dfc97658e2e"
+    },
+    {
+      "path": "output/04_judge_3_korean_editor.json",
+      "bytes": 7719,
+      "sha256": "39ef068931bc5dcaed61ee88b5be270a1c23d5cadb2880ddf49332a5af06252c"
+    },
+    {
+      "path": "output/05_aggregate.json",
+      "bytes": 965,
+      "sha256": "e3f1ab85166bddd60267f15924f55c3812859f14e17f24d2ddcc4a435cefd12c"
+    },
+    {
+      "path": "output/06_version_s.json",
+      "bytes": 8286,
+      "sha256": "e27beee8c93dd5542ffbc87b93f2e57d9f5dcf956b12b015fd6b82e1d800fb5b"
+    },
+    {
+      "path": "output/06_version_s_judge_recruiter.json",
+      "bytes": 2063,
+      "sha256": "cf4bac07afa19a4e53372495555a85247dd591267e8605e8b7f5b4e09f61bfd7"
+    },
+    {
+      "path": "output/06_version_s_judge_fact.json",
+      "bytes": 2073,
+      "sha256": "102ba1eb6e1691b694d729f4f1ff9cddf78bc48bea9faef500cc1febca80a0f5"
+    },
+    {
+      "path": "output/06_version_s_judge_editor.json",
+      "bytes": 2238,
+      "sha256": "06be620138dd89a12dd1d189b1fb34057c34d351c221d81187e4ab312bd02b27"
+    },
+    {
+      "path": "output/06_version_s_reassessment.json",
+      "bytes": 687,
+      "sha256": "0be808f9394091e59817609aa4f0eb67543ddbeabdded24b0de7d5e7fefeda61"
+    },
+    {
+      "path": "output/07_version_y.json",
+      "bytes": 7004,
+      "sha256": "1c8ec3d734b9914ddcd0dbbb8b1253e68ba6e6b10958bd21660b2a67ba385d31"
+    },
+    {
+      "path": "output/07_final_comparison_first.json",
+      "bytes": 3663,
+      "sha256": "f6b7b6a47b334b49b3f9d9e7327b499cccf2d9fc3751a76004797c5ddae64a22"
+    },
+    {
+      "path": "output/07_final_comparison_second.json",
+      "bytes": 2641,
+      "sha256": "b3bf23829c080bbfae7272f5f0f14fcc11f00e4d91e80254da3d3fa8363aa16b"
+    },
+    {
+      "path": "output/07_final_comparison.json",
+      "bytes": 5277,
+      "sha256": "8040b46d982b1461d3868aaf9d5dbba8f1cb84d928b650a534ddcd0cecbc5ba3"
+    },
+    {
+      "path": "output/08_final_selfintro.json",
+      "bytes": 9264,
+      "sha256": "8aa51154e54b08de0734e9b71f54aaa64eb6496a89f35ce476d057957f1fc028"
+    },
+    {
+      "path": "output/08_final_selfintro.md",
+      "bytes": 7982,
+      "sha256": "075c12e1befb5a0532989ef68ba03cac5ff6dba584c5ee26d3c367cf8f57e10e"
+    },
+    {
+      "path": "output/08_final_selfintro.docx",
+      "bytes": 41437,
+      "sha256": "ec5a278dcba10578e9f69632af7cb204353f627d658767e8c05e93a3bc05fd6d"
+    },
+    {
+      "path": "output/09_final_audit.md",
+      "bytes": 5208,
+      "sha256": "3d8d956d840d9d9cf77c12d246fce176a2fbc29b1942ecf15698a2cefab9e937"
+    },
+    {
+      "path": "output/09_interview_defense.md",
+      "bytes": 2127,
+      "sha256": "f9a8e7fc818b55389cae206229ba4cba0b82aa9d90df743f6a1b2f94d1d46290"
+    },
+    {
+      "path": "output/09_design_audit.json",
+      "bytes": 795,
+      "sha256": "5dad1c7c1736f78b79c073b96287e63f9e1c967eaa2f3b13d7413e64e62fec4d"
+    },
+    {
+      "path": "output/10_evidence_map.json",
+      "bytes": 2313,
+      "sha256": "f4f4c1bbff18e47766b14f90f3b896ea73f1766c07c9d0f9d8dbc04a6c18aab3"
+    }
+  ]
+}

@@ -1,0 +1,852 @@
+{
+  "schema_version": 2,
+  "generated_at": "2026-07-10T08:27:05+09:00",
+  "workspace_root": "C:/Users/ehddk/OneDrive/문서/취업",
+  "experiences": [
+    {
+      "experience_id": "exp_9e97f274590a323b",
+      "title": "경험요약정리 문단 37",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "기존 엑셀 수식과 외주 프로그램에 동일한 데이터를 넣고 돌린 '결과 비교 분석 보고서'를 작성하여 팀장에게 보고함.",
+      "actions": [
+        "기존 엑셀 수식과 외주 프로그램에 동일한 데이터를 넣고 돌린 '결과 비교 분석 보고서'를 작성하여 팀장에게 보고함."
+      ],
+      "outcomes": [
+        "기존 엑셀 수식과 외주 프로그램에 동일한 데이터를 넣고 돌린 '결과 비교 분석 보고서'를 작성하여 팀장에게 보고함."
+      ],
+      "competencies": [
+        "분석력"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "기존 엑셀 수식과 외주 프로그램에 동일한 데이터를 넣고 돌린 '결과 비교 분석 보고서'를 작성하여 팀장에게 보고함.",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험요약정리.docx",
+              "paragraph_index": 36,
+              "source_sha256": "5ca8c41d4da09551084685fa29aaab0ab75312e9909c8ad5a030f32edd2cff59",
+              "excerpt_sha256": "aa768ed0a000c476013c96bbeec60d258b5a1c213d71f5478b1fe018504951d5"
+            }
+          ],
+          "claim_id": "clm_3e69991c9b56d728b429",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-11T08:46:26+09:00"
+    },
+    {
+      "experience_id": "exp_530ddb15c51ca202",
+      "title": "경험요약정리 문단 48",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "결과(Result): 상호 사과와 함께 새로운 수식이 도입되었고, 업무 효율성이 30% 증가함.",
+      "actions": [
+        "결과(Result): 상호 사과와 함께 새로운 수식이 도입되었고, 업무 효율성이 30% 증가함."
+      ],
+      "outcomes": [
+        "결과(Result): 상호 사과와 함께 새로운 수식이 도입되었고, 업무 효율성이 30% 증가함."
+      ],
+      "competencies": [
+        "문제 해결"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "결과(Result): 상호 사과와 함께 새로운 수식이 도입되었고, 업무 효율성이  증가함. 결과(Result): 상호 사과와 함께 새로운 수식이 도입되었고, 업무 효율성이  증가함. 결과(Result): 상호 사과와 함께 새로운 수식이 도입되었고, 업무 효율성이  증가함.",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험요약정리.docx",
+              "paragraph_index": 47,
+              "source_sha256": "5ca8c41d4da09551084685fa29aaab0ab75312e9909c8ad5a030f32edd2cff59",
+              "excerpt_sha256": "c21adbd154f197e6b3359d131ef3c480132fd8ee5b9f26c175c455204135731a"
+            }
+          ],
+          "claim_id": "clm_efe62832626946699c6f",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-11T08:46:26+09:00"
+    },
+    {
+      "experience_id": "exp_3279ca654f7e0e37",
+      "title": "경험요약정리 문단 52",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "과제(Task): 3,000페이지 분량의 서류(지급 결정서, 추납, 분납 자료)를 2일 내에 정리하고 실질적 수급 대상자를 정확히 선별해야 함.",
+      "actions": [
+        "과제(Task): 3,000페이지 분량의 서류(지급 결정서, 추납, 분납 자료)를 2일 내에 정리하고 실질적 수급 대상자를 정확히 선별해야 함."
+      ],
+      "outcomes": [],
+      "competencies": [
+        "정확성",
+        "분석력"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "과제(Task):  분량의 서류(지급 결정서, 추납, 분납 자료)를  내에 정리하고 실질적 수급 대상자를 정확히 선별해야 함. 과제(Task):  분량의 서류(지급 결정서, 추납, 분납 자료)를  내에 정리하고 실질적 수급 대상자를 정확히 선별해야 함.",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험요약정리.docx",
+              "paragraph_index": 51,
+              "source_sha256": "5ca8c41d4da09551084685fa29aaab0ab75312e9909c8ad5a030f32edd2cff59",
+              "excerpt_sha256": "5a18d557849234cb11f4663f8cb8c83494f0d760bcb6edfcf5db343d77918bcd"
+            }
+          ],
+          "claim_id": "clm_5e91929d8d87322e2c70",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-11T08:46:26+09:00"
+    },
+    {
+      "experience_id": "exp_fb458d8d4b556666",
+      "title": "경험요약정리 문단 57",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "결과(Result): 2일 만에 3,000페이지 정리를 완수하고 불필요한 전화 업무를 대폭 축소함.",
+      "actions": [
+        "결과(Result): 2일 만에 3,000페이지 정리를 완수하고 불필요한 전화 업무를 대폭 축소함."
+      ],
+      "outcomes": [
+        "결과(Result): 2일 만에 3,000페이지 정리를 완수하고 불필요한 전화 업무를 대폭 축소함."
+      ],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "결과(Result):  만에  정리를 완수하고 불필요한 전화 업무를 대폭 축소함. 결과(Result):  만에  정리를 완수하고 불필요한 전화 업무를 대폭 축소함. 결과(Result):  만에  정리를 완수하고 불필요한 전화 업무를 대폭 축소함.",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험요약정리.docx",
+              "paragraph_index": 56,
+              "source_sha256": "5ca8c41d4da09551084685fa29aaab0ab75312e9909c8ad5a030f32edd2cff59",
+              "excerpt_sha256": "3271376cc65063497a5c3607a140bb65f08341a48b4d2d82b59bdb2aacd188ba"
+            }
+          ],
+          "claim_id": "clm_1a7d08d990eceb48dfe0",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-11T08:46:26+09:00"
+    },
+    {
+      "experience_id": "exp_638228200e37de69",
+      "title": "경험요약정리 문단 73",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "과거 데이터(2040대 신청자 0명)를 분석하여 주 타겟을 지역 기반이 탄탄한 **5070대 중장년층**으로 재설정함.",
+      "actions": [
+        "과거 데이터(2040대 신청자 0명)를 분석하여 주 타겟을 지역 기반이 탄탄한 **5070대 중장년층**으로 재설정함."
+      ],
+      "outcomes": [],
+      "competencies": [
+        "분석력"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "과거 데이터(2040대 신청자 )를 분석하여 주 타겟을 지역 기반이 탄탄한 **5070대 중장년층**으로 재설정함. 과거 데이터(2040대 신청자 )를 분석하여 주 타겟을 지역 기반이 탄탄한 **5070대 중장년층**으로 재설정함.",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험요약정리.docx",
+              "paragraph_index": 72,
+              "source_sha256": "5ca8c41d4da09551084685fa29aaab0ab75312e9909c8ad5a030f32edd2cff59",
+              "excerpt_sha256": "7784d343f664d1b72e93bcc15574493d8a3117b272b5a887915872264aad2072"
+            }
+          ],
+          "claim_id": "clm_2bfba21afb61776d752b",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-11T08:46:26+09:00"
+    },
+    {
+      "experience_id": "exp_62e53382afe2a2b7",
+      "title": "경험요약정리 문단 128",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "① 상인 50명 인터뷰, 타 시장 비교 분석, SNS 마케팅 및 '제기 야시장' 기획",
+      "actions": [
+        "① 상인 50명 인터뷰, 타 시장 비교 분석, SNS 마케팅 및 '제기 야시장' 기획"
+      ],
+      "outcomes": [],
+      "competencies": [
+        "분석력"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "① 상인  인터뷰, 타 시장 비교 분석, SNS 마케팅 및 '제기 야시장' 기획 ① 상인  인터뷰, 타 시장 비교 분석, SNS 마케팅 및 '제기 야시장' 기획",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험요약정리.docx",
+              "paragraph_index": 127,
+              "source_sha256": "5ca8c41d4da09551084685fa29aaab0ab75312e9909c8ad5a030f32edd2cff59",
+              "excerpt_sha256": "35b04e9aa3b50ab6015594d1a5c94ed8ed586b9f5906fc2bdffa23f937251ff9"
+            }
+          ],
+          "claim_id": "clm_0ab71c1aab141b099564",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-11T08:46:26+09:00"
+    },
+    {
+      "experience_id": "exp_953388b8c6e81104",
+      "title": "경험요약정리 문단 130",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "① 비효율적인 장르별 정렬을 이용자 친화적(키워드/인기순)으로 개선하여 민원 30% 감소",
+      "actions": [
+        "① 비효율적인 장르별 정렬을 이용자 친화적(키워드/인기순)으로 개선하여 민원 30% 감소"
+      ],
+      "outcomes": [
+        "① 비효율적인 장르별 정렬을 이용자 친화적(키워드/인기순)으로 개선하여 민원 30% 감소"
+      ],
+      "competencies": [
+        "문제 해결"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "① 비효율적인 장르별 정렬을 이용자 친화적(키워드/인기순)으로 개선하여 민원  감소 ① 비효율적인 장르별 정렬을 이용자 친화적(키워드/인기순)으로 개선하여 민원  감소 ① 비효율적인 장르별 정렬을 이용자 친화적(키워드/인기순)으로 개선하여 민원  감소",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험요약정리.docx",
+              "paragraph_index": 129,
+              "source_sha256": "5ca8c41d4da09551084685fa29aaab0ab75312e9909c8ad5a030f32edd2cff59",
+              "excerpt_sha256": "35688b3325cc7f06c2311294daa1acd7dfbe537e5da78ef6840510785aefa4fa"
+            }
+          ],
+          "claim_id": "clm_bdbd0d8bf79f5b7efce0",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-11T08:46:26+09:00"
+    },
+    {
+      "experience_id": "exp_a07fd710e2b7c0c2",
+      "title": "경험정리 문단 129",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "✅ 50명 상인 인터뷰 & 5개 타 시장 비교 분석 → 문제점 및 개선 방안 도출",
+      "actions": [
+        "✅ 50명 상인 인터뷰 & 5개 타 시장 비교 분석 → 문제점 및 개선 방안 도출"
+      ],
+      "outcomes": [],
+      "competencies": [
+        "분석력",
+        "문제 해결"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "✅  상인 인터뷰 & 5개 타 시장 비교 분석 → 문제점 및 개선 방안 도출 ✅  상인 인터뷰 & 5개 타 시장 비교 분석 → 문제점 및 개선 방안 도출",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 128,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "e7146b4701aca38067b93c674b0175dee27d29580d239002aa46fcbbc0411456"
+            }
+          ],
+          "claim_id": "clm_abaa19a532d1aabc9140",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-11T08:46:26+09:00"
+    },
+    {
+      "experience_id": "exp_a521c3024abae521",
+      "title": "경험정리 문단 197",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "시스템 도입 → 업무 속도 30% 향상 & 예산 절감 효과",
+      "actions": [
+        "시스템 도입 → 업무 속도 30% 향상 & 예산 절감 효과"
+      ],
+      "outcomes": [
+        "시스템 도입 → 업무 속도 30% 향상 & 예산 절감 효과"
+      ],
+      "competencies": [
+        "문제 해결"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "시스템 도입 → 업무 속도  향상 & 예산 절감 효과 시스템 도입 → 업무 속도  향상 & 예산 절감 효과 시스템 도입 → 업무 속도  향상 & 예산 절감 효과",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 196,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "5f221fe2889b7f37e64e4b25c301081c7f472c6a162847a37fa04062f4dde182"
+            }
+          ],
+          "claim_id": "clm_6602f28d7f4b4c31895a",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-11T08:46:26+09:00"
+    },
+    {
+      "experience_id": "exp_2fe7474d7367a89c",
+      "title": "경험정리 문단 234",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "30% 증가했고, 조직 내 협업 문화가 개선되었습니다.",
+      "actions": [
+        "30% 증가했고, 조직 내 협업 문화가 개선되었습니다."
+      ],
+      "outcomes": [
+        "30% 증가했고, 조직 내 협업 문화가 개선되었습니다."
+      ],
+      "competencies": [
+        "문제 해결",
+        "협업"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "증가했고, 조직 내 협업 문화가 개선되었습니다. 증가했고, 조직 내 협업 문화가 개선되었습니다. 증가했고, 조직 내 협업 문화가 개선되었습니다.",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 233,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "2309d36af392f9f613f9ce1596f30b79530a8098c2756e0b564002883023663a"
+            }
+          ],
+          "claim_id": "clm_d96a20fc7a1e1a3caad6",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-11T08:46:26+09:00"
+    },
+    {
+      "experience_id": "exp_2df35f8fca5e30b8",
+      "title": "경험정리 문단 290",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "급여 지급 프로세스를 개선하여 업무 속도를 30% 향상시켰으며, 제기동 약령시장에서는 SNS 홍보 전략을 도입하여 젊은 층 방문객",
+      "actions": [
+        "급여 지급 프로세스를 개선하여 업무 속도를 30% 향상시켰으며, 제기동 약령시장에서는 SNS 홍보 전략을 도입하여 젊은 층 방문객"
+      ],
+      "outcomes": [],
+      "competencies": [
+        "문제 해결"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "급여 지급 프로세스를 개선하여 업무 속도를  향상시켰으며, 제기동 약령시장에서는 SNS 홍보 전략을 도입하여 젊은 층 방문객 급여 지급 프로세스를 개선하여 업무 속도를  향상시켰으며, 제기동 약령시장에서는 SNS 홍보 전략을 도입하여 젊은 층 방문객",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 289,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "b32c1e0dfbef88e1cd5a88356a1efb4e29eb7faa54784472228d7c5616987665"
+            }
+          ],
+          "claim_id": "clm_732a31834ac4cb075533",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-11T08:46:26+09:00"
+    },
+    {
+      "experience_id": "exp_2e966c8ac3146a5b",
+      "title": "경험정리 문단 335",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "3000페이지에 달하는 방대한 서류 정리 업무를 2일 만에 완료하며 연금 지급 절차가 차질",
+      "actions": [
+        "3000페이지에 달하는 방대한 서류 정리 업무를 2일 만에 완료하며 연금 지급 절차가 차질"
+      ],
+      "outcomes": [
+        "3000페이지에 달하는 방대한 서류 정리 업무를 2일 만에 완료하며 연금 지급 절차가 차질"
+      ],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "에 달하는 방대한 서류 정리 업무를  만에 완료하며 연금 지급 절차가 차질 에 달하는 방대한 서류 정리 업무를  만에 완료하며 연금 지급 절차가 차질 에 달하는 방대한 서류 정리 업무를  만에 완료하며 연금 지급 절차가 차질",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 334,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "eda171525d36007692c7a24efdccc956780d732e10e0d6736794e8c591d96b70"
+            }
+          ],
+          "claim_id": "clm_41fbcc79285f9a15295d",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-11T08:46:26+09:00"
+    },
+    {
+      "experience_id": "exp_151ae891bd2719ad",
+      "title": "경험정리 문단 406",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "특히, 3000페이지 분량의 자료를 체계적으로 분류하여 2일 만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다.",
+      "actions": [
+        "특히, 3000페이지 분량의 자료를 체계적으로 분류하여 2일 만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다."
+      ],
+      "outcomes": [],
+      "competencies": [
+        "분석력"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "특히,  분량의 자료를 체계적으로 분류하여  만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다. 특히,  분량의 자료를 체계적으로 분류하여  만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다.",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 405,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "3dbb4141798e73cdf2e16111b6ae9e90bc11ccbca3244047835be6a8dbfbeace"
+            }
+          ],
+          "claim_id": "clm_88cfeab230789e5b0d5f",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-11T08:46:26+09:00"
+    },
+    {
+      "experience_id": "exp_5381f510b1fba9e1",
+      "title": "경험정리 문단 506",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "엑셀 자동화 도입 → 급여 산정 속도 30% 향상",
+      "actions": [
+        "엑셀 자동화 도입 → 급여 산정 속도 30% 향상"
+      ],
+      "outcomes": [],
+      "competencies": [
+        "문제 해결"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "엑셀 자동화 도입 → 급여 산정 속도  향상 엑셀 자동화 도입 → 급여 산정 속도  향상",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 505,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "8b5a061f3f4dc250fcbf1797e3fc639e992280c57e8c7a83e0662e7c50104e19"
+            }
+          ],
+          "claim_id": "clm_353c575898c6254492e8",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-11T08:46:26+09:00"
+    },
+    {
+      "experience_id": "exp_6841c9278134a4c9",
+      "title": "인생기술서 문단 174",
+      "organization_alias": "",
+      "period": null,
+      "role": "업무를 수행하는 7일 동안 모집인원이 10명 미만인원이었고 저를 담당하던 공무원분이 좋은 제안을 제시 해달라고 하여 저는 의견을 제시했습니다.",
+      "situation": "업무를 수행하는 7일 동안 모집인원이 10명 미만인원이었고 저를 담당하던 공무원분이 좋은 제안을 제시 해달라고 하여 저는 의견을 제시했습니다.",
+      "actions": [
+        "업무를 수행하는 7일 동안 모집인원이 10명 미만인원이었고 저를 담당하던 공무원분이 좋은 제안을 제시 해달라고 하여 저는 의견을 제시했습니다."
+      ],
+      "outcomes": [],
+      "competencies": [
+        "문제 해결"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "업무를 수행하는  동안 모집인원이  미만인원이었고 저를 담당하던 공무원분이 좋은 제안을 제시 해달라고 하여 저는 의견을 제시했습니다. 업무를 수행하는  동안 모집인원이  미만인원이었고 저를 담당하던 공무원분이 좋은 제안을 제시 해달라고 하여 저는 의견을 제시했습니다. 업무를 수행하는  동안 모집인원이  미만인원이었고 저를 담당하던 공무원분이 좋은 제안을 제시 해달라고 하여 저는 의견을 제시했습니다.",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "경험정리/인생기술서.docx",
+              "paragraph_index": 173,
+              "source_sha256": "58e1fcb26cd3777c03be687c58f92a4ca22c3c28a3e376e7d4788d50d1be4775",
+              "excerpt_sha256": "638dacdf44fa47fe48d280f8ce7c73a66662a14dfedd595800d58c0e4807eb76"
+            }
+          ],
+          "claim_id": "clm_ee52e4b4eb158c123a20",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-11T08:46:26+09:00"
+    },
+    {
+      "experience_id": "exp_5f5d07c267cd544e",
+      "title": "인생기술서 문단 187",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "-> 20명 목표 달성 경험",
+      "actions": [],
+      "outcomes": [
+        "-> 20명 목표 달성 경험"
+      ],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "->  목표 달성 경험 ->  목표 달성 경험",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "경험정리/인생기술서.docx",
+              "paragraph_index": 186,
+              "source_sha256": "58e1fcb26cd3777c03be687c58f92a4ca22c3c28a3e376e7d4788d50d1be4775",
+              "excerpt_sha256": "e4a0325ff6d33be45b288b110a4fdb6cec2d0d6ed3120dd816a44489f1381d66"
+            }
+          ],
+          "claim_id": "clm_659f6c459feaf6614272",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-11T08:46:26+09:00"
+    },
+    {
+      "experience_id": "exp_97584147111c511b",
+      "title": "인생기술서 문단 188",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "목표: 최종 20명달성 목표로 함, 예를 들어 5일이나 7일 100장 or 200장 전단지 돌리기",
+      "actions": [],
+      "outcomes": [
+        "목표: 최종 20명달성 목표로 함, 예를 들어 5일이나 7일 100장 or 200장 전단지 돌리기"
+      ],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "목표: 최종 달성 목표로 함, 예를 들어 이나  100장 or 200장 전단지 돌리기 목표: 최종 달성 목표로 함, 예를 들어 이나  100장 or 200장 전단지 돌리기",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "경험정리/인생기술서.docx",
+              "paragraph_index": 187,
+              "source_sha256": "58e1fcb26cd3777c03be687c58f92a4ca22c3c28a3e376e7d4788d50d1be4775",
+              "excerpt_sha256": "dd8452bc2fe009c1265c2991b25bec223645f251a64e4e7b0aed8b1113dbab70"
+            }
+          ],
+          "claim_id": "clm_1733610563a37a4780e0",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-11T08:46:26+09:00"
+    },
+    {
+      "experience_id": "exp_15de74c62f22355b",
+      "title": "인생기술서 문단 356",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "의료진에게 모든 상황을 설명하여 숙박비를 제공할 수 없다고 통보하여 최소 40% 예산 절감을 했습니다.",
+      "actions": [],
+      "outcomes": [
+        "의료진에게 모든 상황을 설명하여 숙박비를 제공할 수 없다고 통보하여 최소 40% 예산 절감을 했습니다."
+      ],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "의료진에게 모든 상황을 설명하여 숙박비를 제공할 수 없다고 통보하여 최소  예산 절감을 했습니다. 의료진에게 모든 상황을 설명하여 숙박비를 제공할 수 없다고 통보하여 최소  예산 절감을 했습니다.",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "경험정리/인생기술서.docx",
+              "paragraph_index": 355,
+              "source_sha256": "58e1fcb26cd3777c03be687c58f92a4ca22c3c28a3e376e7d4788d50d1be4775",
+              "excerpt_sha256": "10fafbc6bf1ead4e51387f43a5d38027837af79b2a2b3a05abb754964a3f9af0"
+            }
+          ],
+          "claim_id": "clm_8857e4948ec099d1bbda",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-11T08:46:26+09:00"
+    },
+    {
+      "experience_id": "exp_2f3b01de2f27fa49",
+      "title": "인생기술서 문단 535",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "기존보다 50% 정도 시간과 인력을 절약할 수 있었으며, 오류율도 90% 정도 감소하였습니다.",
+      "actions": [],
+      "outcomes": [
+        "기존보다 50% 정도 시간과 인력을 절약할 수 있었으며, 오류율도 90% 정도 감소하였습니다."
+      ],
+      "competencies": [
+        "문제 해결"
+      ],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "기존보다  정도 시간과 인력을 절약할 수 있었으며, 오류율도  정도 감소하였습니다. 기존보다  정도 시간과 인력을 절약할 수 있었으며, 오류율도  정도 감소하였습니다.",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "경험정리/인생기술서.docx",
+              "paragraph_index": 534,
+              "source_sha256": "58e1fcb26cd3777c03be687c58f92a4ca22c3c28a3e376e7d4788d50d1be4775",
+              "excerpt_sha256": "829f5bfbd13d3ace88368737a992a3951d51a627be86264f79e08afaa03bd567"
+            }
+          ],
+          "claim_id": "clm_54db4e5cfcd51ba5de60",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-11T08:46:26+09:00"
+    },
+    {
+      "experience_id": "exp_22d1df6407915aa2",
+      "title": "인생기술서 문단 587",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "예를 들어, 학업이나 업무가 주어졌을 때 마감 기한을 정해놓고 남은 날짜를 디데이 설정하거나 일일계획 목표를 설정하고 컴퓨터나 핸드폰 달력, 노트에 기재하여 최소한 목표달성도 70% 달성하기 위해 노력합니다.",
+      "actions": [],
+      "outcomes": [
+        "예를 들어, 학업이나 업무가 주어졌을 때 마감 기한을 정해놓고 남은 날짜를 디데이 설정하거나 일일계획 목표를 설정하고 컴퓨터나 핸드폰 달력, 노트에 기재하여 최소한 목표달성도 70% 달성하기 위해 노력합니다."
+      ],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "experience_summary",
+          "normalized_value": "예를 들어, 학업이나 업무가 주어졌을 때 마감 기한을 정해놓고 남은 날짜를 디데이 설정하거나 일일계획 목표를 설정하고 컴퓨터나 핸드폰 달력, 노트에 기재하여 최소한 목표달성도  달성하기 위해 노력합니다. 예를 들어, 학업이나 업무가 주어졌을 때 마감 기한을 정해놓고 남은 날짜를 디데이 설정하거나 일일계획 목표를 설정하고 컴퓨터나 핸드폰 달력, 노트에 기재하여 최소한 목표달성도  달성하기 위해 노력합니다.",
+          "status": "confirmed",
+          "evidence": [
+            {
+              "source_path": "경험정리/인생기술서.docx",
+              "paragraph_index": 586,
+              "source_sha256": "58e1fcb26cd3777c03be687c58f92a4ca22c3c28a3e376e7d4788d50d1be4775",
+              "excerpt_sha256": "3e5ef791b94e1fb80659bed7f9648224648bc7e1b9cb8469a7353e5b894c7da0"
+            }
+          ],
+          "claim_id": "clm_1476776eb88306fe8fc1",
+          "verification": {
+            "method": "direct_source",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": "source excerpt",
+            "contribution": "observed"
+          }
+        }
+      ],
+      "status": "confirmed",
+      "confirmed_at": "2026-07-11T08:46:26+09:00"
+    }
+  ]
+}

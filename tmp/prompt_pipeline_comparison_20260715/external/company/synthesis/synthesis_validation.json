@@ -1,0 +1,14 @@
+{
+  "company_data_package_id": "CR-DATA-001",
+  "company_data_package_version": "1.0",
+  "status": "PASS_WITH_EVIDENCE_LIMITS",
+  "claim_ledger_consistent": true,
+  "new_causality_added": false,
+  "source_scope_expanded": false,
+  "period_entity_scope_consistent": true,
+  "job_relevance_improved": true,
+  "interview_defensible": true,
+  "counterevidence_preserved": true,
+  "active_hard_fail_count": 0,
+  "decision": "INSUFFICIENT_EVIDENCE"
+}

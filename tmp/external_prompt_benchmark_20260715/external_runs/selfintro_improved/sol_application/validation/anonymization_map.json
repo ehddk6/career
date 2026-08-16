@@ -1,0 +1,29 @@
+{
+  "run_id": "SOL-20260715-1537",
+  "data_package_id": "SOL-DATA-EXT-001",
+  "data_package_version": "1.0",
+  "mapping": [
+    {
+      "candidate_file": "candidate_A.md",
+      "anonymous_id": "M7",
+      "strategy": "FACT_FIRST"
+    },
+    {
+      "candidate_file": "candidate_B.md",
+      "anonymous_id": "R8",
+      "strategy": "QUESTION_FIRST"
+    },
+    {
+      "candidate_file": "candidate_C.md",
+      "anonymous_id": "P2",
+      "strategy": "EXPERIENCE_DIVERSITY"
+    },
+    {
+      "candidate_file": "candidate_D.md",
+      "anonymous_id": "C3",
+      "strategy": "JOB_RELEVANCE"
+    }
+  ],
+  "disclosure_policy": "심사 완료 전 judges에는 strategy와 원본 파일명을 제공하지 않는다."
+}
+

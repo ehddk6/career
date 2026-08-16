@@ -1,0 +1,233 @@
+{
+  "data_package_id": "CAREER-DATA-3B03F55784A4",
+  "data_package_version": "2.0",
+  "judge_mode": "RECRUITER",
+  "evaluations": [
+    {
+      "candidate_id": "C29D6F72B",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 17,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 2,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 4,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 5,
+        "length_and_format": 1
+      },
+      "total": 90,
+      "weakness_codes": [
+        "experience_overlap",
+        "spoken_answer_risk",
+        "format_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "문항 1",
+          "element_type": "company_role_connection",
+          "exact_element": "신용보증기금은 기업이 부담하는 채무를 보증해 성장유망기업의 자금 조달을 돕고, 보증신청 이후 신용조사와 보증심사를 수행하는 정책금융기관으로 이해하고 있습니다.",
+          "reason": "기관 역할을 지원 동기와 직무 이해의 출발점으로 구체화했다.",
+          "fact_ids": [
+            "kodit-role-20260711"
+          ]
+        },
+        {
+          "question": "문항 1",
+          "element_type": "evidence_based_action",
+          "exact_element": "저는 같은 데이터를 기존 엑셀 수식과 외주 프로그램에 각각 입력해 결과를 비교한 뒤 분석 보고서를 작성한 경험이 있습니다.",
+          "reason": "자료 대조와 보고 역량을 검증 가능한 경험으로 제시했다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "문항 4",
+          "element_type": "balanced_issue_analysis",
+          "exact_element": "반면 수출기업은 가격경쟁력이나 원화 환산 수익 측면에서 유리할 수 있으므로 ‘고환율이면 모든 중소기업이 피해를 본다’고 단정해서는 안 됩니다.",
+          "reason": "고환율의 영향을 기업별로 구분해야 한다는 검증된 주의점을 명확히 드러냈다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "RECRUITER"
+    },
+    {
+      "candidate_id": "C3CCC735A",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 17,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 10,
+        "experience_allocation": 6,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 4,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 5,
+        "length_and_format": 2
+      },
+      "total": 96,
+      "weakness_codes": [
+        "spoken_answer_risk",
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "문항 1",
+          "element_type": "experience_job_connection",
+          "exact_element": "저는 동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 입력해 결과 비교 분석 보고서를 작성하고 팀장에게 보고한 경험이 있습니다.",
+          "reason": "검증과 보고 경험을 보증 업무의 정확성 요구와 직접 연결할 수 있다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "문항 2",
+          "element_type": "distinctive_experience",
+          "exact_element": "제기동 약령시장 관련 과제에서 상인 인터뷰와 타 시장 비교 분석을 거쳐 문제점과 개선방안을 도출한 경험이 있습니다.",
+          "reason": "현장 관찰과 비교 분석이라는 기억에 남는 적응 근거를 제공한다.",
+          "fact_ids": [
+            "clm_abaa19a532d1aabc9140"
+          ]
+        },
+        {
+          "question": "문항 4",
+          "element_type": "policy_support_logic",
+          "exact_element": "신용보증기금은 지역 수출기업 등의 유동성과 금융비용 부담을 완화하기 위해 협약보증을 공급하고 있습니다.",
+          "reason": "제안한 정책수단을 실제 기관 지원 사례에 근거해 방어할 수 있다.",
+          "fact_ids": [
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "RECRUITER"
+    },
+    {
+      "candidate_id": "CB8294BFB",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 17,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 6,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 4,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 5,
+        "length_and_format": 2
+      },
+      "total": 95,
+      "weakness_codes": [
+        "spoken_answer_risk",
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "문항 1",
+          "element_type": "direct_motivation",
+          "exact_element": "저는 정확한 확인과 기록이 기업의 신뢰를 지키는 보증 업무의 출발점이라고 생각해 지원했습니다.",
+          "reason": "지원 이유와 보증 직무에서 중시하는 행동 기준을 첫 문장에 함께 제시했다.",
+          "fact_ids": [
+            "kodit-intern-duty-20260711"
+          ]
+        },
+        {
+          "question": "문항 3",
+          "element_type": "distinctive_experience",
+          "exact_element": "지급 결정서·추납·분납 자료를 정리하고 실질적 수급 대상자를 정확히 선별해야 했던 경험처럼, 자료의 성격을 먼저 나눈 뒤 판단에 필요한 항목을 표시하겠습니다.",
+          "reason": "분류 경험을 실제 보증 자료 처리 방식으로 전환해 업무 활용성이 높다.",
+          "fact_ids": [
+            "clm_5e91929d8d87322e2c70"
+          ]
+        },
+        {
+          "question": "문항 4",
+          "element_type": "balanced_issue_analysis",
+          "exact_element": "반면 수출 비중이 높은 기업은 가격 경쟁력이나 원화 환산액에서 유리할 여지가 있으므로, 고환율을 모든 중소기업의 손실로 단정해서는 안 됩니다.",
+          "reason": "기업별 환노출을 구분해야 한다는 정책 판단을 명료하게 제시했다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "RECRUITER"
+    },
+    {
+      "candidate_id": "CE0E2F416",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 15,
+        "fact_accuracy": 17,
+        "job_relevance": 12,
+        "company_specificity": 8,
+        "action_specificity": 9,
+        "experience_allocation": 6,
+        "interview_defensibility": 8,
+        "spoken_defensibility": 4,
+        "korean_readability": 9,
+        "applicant_distinctiveness": 5,
+        "length_and_format": 1
+      },
+      "total": 94,
+      "weakness_codes": [
+        "spoken_answer_risk",
+        "generic_voice",
+        "format_risk"
+      ],
+      "transferable_elements": [
+        {
+          "question": "문항 1",
+          "element_type": "evidence_based_action",
+          "exact_element": "저는 기존 엑셀 수식과 외주 프로그램에 같은 데이터를 입력한 결과를 대조해 비교 분석 보고서를 작성하고 팀장에게 보고한 경험이 있습니다.",
+          "reason": "정확한 대조와 보고 능력을 직접 확인할 수 있는 경험이다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "문항 3",
+          "element_type": "work_management_method",
+          "exact_element": "저는 업무가 주어지면 마감 기한을 정하고 남은 날짜를 디데이로 설정하며 일일 목표를 달력과 노트에 기록해 왔습니다.",
+          "reason": "진행률과 마감 관리를 면접에서 구체적으로 설명할 수 있는 행동 근거다.",
+          "fact_ids": [
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "문항 4",
+          "element_type": "realistic_policy_connection",
+          "exact_element": "실제로 신용보증기금은 지역 수출기업 등의 유동성과 금융비용 부담을 완화하기 위해 협약보증을 공급하고 있습니다.",
+          "reason": "지원 방안을 기관이 실제 공급하는 정책수단과 연결했다.",
+          "fact_ids": [
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "RECRUITER"
+    }
+  ]
+}

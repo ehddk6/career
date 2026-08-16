@@ -1,0 +1,27 @@
+{
+  "judge_mode": "RECRUITER",
+  "candidate_id": "S1",
+  "hard_fail": false,
+  "hard_fail_reasons": [],
+  "scores": {
+    "question_fidelity": 19,
+    "fact_accuracy": 20,
+    "job_relevance": 15,
+    "action_specificity": 15,
+    "experience_allocation": 10,
+    "interview_defensibility": 9,
+    "korean_readability": 5,
+    "applicant_distinctiveness": 2,
+    "length_and_format": 2
+  },
+  "total": 97,
+  "strongest_point": "Q1~Q3이 각각 PF-01, PF-03, PF-02를 핵심 경험으로 분리하고, 모든 문항에서 인턴의 역할을 확인·기록·보고·지원 범위로 한정해 사실성과 직무 적합성을 함께 확보했다.",
+  "largest_risk": "Q4는 '높은 환율 변동성과 중동지역 리스크'를 함께 선택했지만 본문 분석과 지원 방안은 환율에 집중한다. 하나의 이슈로 더 명확히 한정하면 논지의 집중도가 높아진다.",
+  "question_notes": {
+    "q1": "지원 동기, 기관 역할 이해, 학습·기여 계획을 모두 직접 답했다. RF-01·02와 PF-01의 분량 및 기간이 정확하며, 제출자료 확인과 보고를 제안으로 서술해 인턴 권한을 넘지 않는다.",
+    "q2": "조직 기준 학습, 이용자 관점, 동료 공유라는 태도를 PF-03의 민원 30% 감소 경험과 연결했다. 질문·업무노트·되짚기·피드백 기록이 구체적이고, 원장 밖 성과를 덧붙이지 않았다.",
+    "q3": "공식 업무를 접수·대조·보고·인계의 실행계획으로 풀고 PF-02의 이중 결과 대조·팀장 보고 경험을 근거로 사용했다. 불일치 시 임의 판단하지 않고 담당자에게 보고한다고 밝혀 권한 경계가 적절하다.",
+    "q4": "RF-03·04의 검증 사실을 정확히 사용하고, 환노출·현금흐름·일시적 유동성 부족을 기준으로 한 선별 및 사후관리 제안이 직무와 잘 맞는다. 다만 첫 문장의 중동 리스크는 이후 별도로 분석되지 않아 환율 이슈 하나로 정리하는 편이 더 선명하다."
+  },
+  "required_repairs": []
+}

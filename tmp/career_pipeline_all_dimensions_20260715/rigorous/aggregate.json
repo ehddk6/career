@@ -1,0 +1,72 @@
+{
+  "ranking": [
+    {
+      "candidate_id": "C71941425",
+      "hard_fail": false,
+      "review_required": true,
+      "median_total": 95.0,
+      "minimum_total": 95,
+      "median_core": 44.0,
+      "judge_spread": 1
+    },
+    {
+      "candidate_id": "C8DBD9F67",
+      "hard_fail": false,
+      "review_required": true,
+      "median_total": 95.0,
+      "minimum_total": 91,
+      "median_core": 44.0,
+      "judge_spread": 5
+    }
+  ],
+  "agreed_weaknesses": [
+    "generic_voice",
+    "spoken_answer_risk"
+  ],
+  "agreed_transferable_elements": [
+    {
+      "question": "1",
+      "element_type": "grounded_verification_action",
+      "exact_element": "저는 기존 엑셀 수식과 외주 프로그램에 동일한 데이터를 입력한 뒤 결과를 비교해 보고서를 작성하고 팀장에게 보고한 경험이 있습니다.",
+      "reason": "데이터 비교, 보고서 작성 및 보고가 원장에 직접 확인되어 정확성 중심의 기여 계획을 방어할 수 있음.",
+      "fact_ids": [
+        "clm_3e69991c9b56d728b429",
+        "exp_9e97f274590a323b"
+      ],
+      "judge_count": 2
+    },
+    {
+      "question": "2",
+      "element_type": "grounded_verification_action",
+      "exact_element": "저는 기존 엑셀 수식과 외주 프로그램에 같은 데이터를 입력한 결과를 비교하고, 그 내용을 보고서로 작성해 팀장에게 보고한 경험이 있습니다.",
+      "reason": "비교 검증과 보고 행동이 원장에 직접 근거하며 확인 중심의 적응 태도를 뒷받침함.",
+      "fact_ids": [
+        "clm_3e69991c9b56d728b429",
+        "exp_9e97f274590a323b"
+      ],
+      "judge_count": 2
+    },
+    {
+      "question": "2",
+      "element_type": "grounded_work_habit",
+      "exact_element": "저는 업무가 주어지면 마감기한을 정하고 남은 날짜와 일일계획을 달력과 노트에 기록해 관리해 왔습니다.",
+      "reason": "기한과 일일계획을 기록하는 습관이 원장에 근거하며 적응 노력을 구체적으로 보여 줌.",
+      "fact_ids": [
+        "clm_1476776eb88306fe8fc1",
+        "exp_22d1df6407915aa2"
+      ],
+      "judge_count": 2
+    },
+    {
+      "question": "2",
+      "element_type": "grounded_work_habit",
+      "exact_element": "저는 업무나 학업이 주어지면 마감일을 기준으로 남은 기간을 나누고 일일 목표를 달력과 노트에 기록해 관리합니다.",
+      "reason": "일정과 일일 목표를 기록하는 습관이 원장에 근거하며 조직 적응 행동으로 구체화됨.",
+      "fact_ids": [
+        "clm_1476776eb88306fe8fc1",
+        "exp_22d1df6407915aa2"
+      ],
+      "judge_count": 2
+    }
+  ]
+}

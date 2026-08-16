@@ -1,0 +1,42 @@
+{
+    "schema_version":  1,
+    "step":  "STEP_2",
+    "step_status":  "COMPLETED_WITH_GAPS",
+    "run_id":  "CR-20260715-1539",
+    "company_data_package_id":  "CR-DATA-001",
+    "collected_at":  "2026-07-15T16:45:00+09:00",
+    "source_count":  17,
+    "claim_count":  25,
+    "status_counts":  {
+                          "BLOCKED_MISSING_SOURCE":  1,
+                          "BLOCKED_SOURCE_NOT_EXTRACTED":  1,
+                          "CONFIRMED_LOCAL":  2,
+                          "CONFIRMED_PRIMARY":  17,
+                          "NOT_READY":  1,
+                          "PARTIAL_LOCAL":  1,
+                          "UNVERIFIED":  2
+                      },
+    "gates":  {
+                  "final_decision":  "NOT_READY",
+                  "hard_fail_status":  "NOT_EVALUATED_AT_STEP_2",
+                  "next_step":  "STEP_3_BUSINESS_AND_FINANCIAL_ANALYSIS"
+              },
+    "artifacts":  [
+                      {
+                          "path":  "company_research/step2/source_ledger.json",
+                          "sha256":  "1427a4014d6ae343f999ecb80711ab98e35f329f619f6f1837cc8891a321ce6e"
+                      },
+                      {
+                          "path":  "company_research/step2/claim_ledger.json",
+                          "sha256":  "40cbb02e516cf3c31f219f78930050b59276450c8703663c52986d43b4cb55ec"
+                      },
+                      {
+                          "path":  "company_research/step2/claim_ledger.md",
+                          "sha256":  "7259bb7dbe64e135bfdc477761ed207936e2d43524c3cf5fab1141fbedc2f584"
+                      },
+                      {
+                          "path":  "company_research/step2/step2_report.md",
+                          "sha256":  "d9b2af6ffeaaa1b30fa47d4e45423d036ea198891e38b995aa7a019f40035b5d"
+                      }
+                  ]
+}

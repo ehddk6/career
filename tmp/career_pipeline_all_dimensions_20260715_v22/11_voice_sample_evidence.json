@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "purpose": "VOICE_SAMPLE_EXISTENCE_AND_FORMAT_PROOF",
+  "content_included": false,
+  "pii_redacted": true,
+  "present": true,
+  "sha256": "3fc42f36ed13607c16c9f1c20075e3bcbd850ad01fb1765f103d7cf625c3fd20",
+  "validation_status": "format_valid_private",
+  "allowed_use": "비공개 문체 참고자료의 존재·형식 확인",
+  "prohibited_use": "면접 말하기 품질·전달력·내용 정확성 통과 근거",
+  "note": "원문과 개인 식별 정보는 감사·벤치마크 산출물에 복사하지 않습니다."
+}

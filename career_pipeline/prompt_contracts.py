@@ -1333,7 +1333,20 @@ def prompt_contract_context(run_dir: Path) -> dict[str, Any] | None:
     interview = _load_object(interview_path)
     claim_rows = _rows(company.get("claim_ledger"))
     safe_company_claims = [
-        {**row, "use_decision": decision}
+        {
+            key: value
+            for key, value in {**row, "use_decision": decision}.items()
+            if key in {
+                "claim_id",
+                "claim",
+                "claim_type",
+                "use_decision",
+                "application_use",
+                "source_id",
+                "source_url",
+                "as_of",
+            }
+        }
         for row in claim_rows
         if (decision := company_claim_use_decision(row)) != "BLOCK"
     ]
@@ -1349,6 +1362,54 @@ def prompt_contract_context(run_dir: Path) -> dict[str, Any] | None:
         if str(row.get("depth", "")) in {"D3", "D4", "D5"}
         and str(row.get("experience_id", "")).strip()
     ]
+    submitted_claims = [
+        {
+            key: row.get(key)
+            for key in (
+                "question_index",
+                "claim_id",
+                "experience_id",
+                "research_claim_id",
+                "claim",
+                "contribution",
+                "interview_defense_status",
+            )
+            if row.get(key) is not None
+        }
+        for row in _rows(interview.get("submitted_claims"))
+    ]
+    experience_defense = [
+        {
+            key: row.get(key)
+            for key in (
+                "experience_id",
+                "depth",
+                "defensible_claim_ids",
+                "numeric_claim_ids",
+                "limits",
+                "risk_notes",
+            )
+            if row.get(key) is not None
+        }
+        for row in _rows(interview.get("experience_defense"))
+    ]
+    answer_cards = [
+        {
+            key: row.get(key)
+            for key in (
+                "question_id",
+                "source_question_indexes",
+                "one_sentence_answer",
+                "judgment_standard",
+                "direct_actions",
+                "job_connection",
+                "experience_claim_ids",
+                "research_claim_ids",
+            )
+            if row.get(key) is not None
+        }
+        for row in _rows(interview.get("answer_cards"))
+    ]
     return {
         "contract_version": CONTRACT_VERSION,
         "data_package_id": company.get("data_package_id"),
@@ -1357,13 +1418,6 @@ def prompt_contract_context(run_dir: Path) -> dict[str, Any] | None:
             "entity": company.get("entity"),
             "safe_claims": safe_company_claims,
             "prohibited_claim_ids": prohibited_company_claim_ids,
-            "business_model": company.get("business_model"),
-            "strategy_execution": company.get("strategy_execution"),
-            "financial_analysis": company.get("financial_analysis"),
-            "competitor_analysis": company.get("competitor_analysis"),
-            "culture_analysis": company.get("culture_analysis"),
-            "market_position": company.get("market_position"),
-            "recent_performance": company.get("recent_performance"),
             "research_completeness": company.get("research_completeness"),
             "interview_implications": company.get("interview_implications"),
             "role_value_map": company.get("role_value_map"),
@@ -1373,18 +1427,12 @@ def prompt_contract_context(run_dir: Path) -> dict[str, Any] | None:
             "decision": company.get("decision"),
         },
         "interview_defense": {
-            "submitted_claims": interview.get("submitted_claims"),
+            "submitted_claims": submitted_claims,
             "document_consistency": interview.get("document_consistency"),
-            "interview_architecture": interview.get("interview_architecture"),
-            "competencies": interview.get("competencies"),
-            "experience_defense": interview.get("experience_defense"),
+            "experience_defense": experience_defense,
             "defensible_experience_ids": defensible_experience_ids,
-            "questions": interview.get("questions"),
-            "answer_cards": interview.get("answer_cards"),
-            "probes": interview.get("probes"),
-            "delivery_evaluation": interview.get("delivery_evaluation"),
+            "answer_cards": answer_cards,
             "unknown_answer_policy": interview.get("unknown_answer_policy"),
-            "simulation_policy": interview.get("simulation_policy"),
         },
     }
 

@@ -1,0 +1,53 @@
+{
+    "schema_version":  1,
+    "step":  "STEP_4",
+    "step_status":  "COMPLETED_WITH_GAPS",
+    "run_id":  "CR-20260715-1539",
+    "company_data_package_id":  "CR-DATA-001",
+    "analyzed_at":  "2026-07-15T18:20:00+09:00",
+    "source_addendum_count":  6,
+    "claim_update_count":  7,
+    "event_status_counts":  {
+                                "ANNOUNCED":  2,
+                                "STARTED":  2,
+                                "OPERATING":  1,
+                                "RESULT_OBSERVED":  2
+                            },
+    "gates":  {
+                  "execution_assessment":  "PARTIALLY_EVIDENCED",
+                  "final_decision":  "NOT_READY",
+                  "hard_fail_status":  "NOT_EVALUATED_AT_STEP_4",
+                  "next_step":  "STEP_5_FINANCIAL_ANALYSIS",
+                  "final_directory_written":  false
+              },
+    "artifacts":  [
+                      {
+                          "path":  "company_research/step4/analysis/event_timeline.md",
+                          "sha256":  "e72e86001a8350d71f1c23b7947c94b95ab34d9ca988a473093662e7ba063264"
+                      },
+                      {
+                          "path":  "company_research/step4/analysis/strategy_resource_alignment.md",
+                          "sha256":  "efdc8085b57824eceb21a2350ea2a3e19613dd0131a53cf275fa962d5718a479"
+                      },
+                      {
+                          "path":  "company_research/step4/analysis/strategy_execution_status.md",
+                          "sha256":  "f10b5b812d0a904c6b8740a260b2020c2fe928ce7c5742a98750f93c036d564e"
+                      },
+                      {
+                          "path":  "company_research/step4/source_addendum.json",
+                          "sha256":  "5abfd7cee25b737117b0cb7f2d429cb093e7c0f7a9593ce343b1858a9f8b1790"
+                      },
+                      {
+                          "path":  "company_research/step4/claim_updates.json",
+                          "sha256":  "10935b1c35885888efd2677d296c8eaf870db8caa375f8b64f69d530650dfea2"
+                      },
+                      {
+                          "path":  "company_research/step4/claim_updates.md",
+                          "sha256":  "0051580cb2a02b894b46d0effd2a400492e8f350a8ee27e4826fa8559f2050d1"
+                      },
+                      {
+                          "path":  "company_research/step4/step4_report.md",
+                          "sha256":  "0ede10d140fd9cc62a40278613bdc3750d1f7bdb435cef777bd8735bd8801ba5"
+                      }
+                  ]
+}

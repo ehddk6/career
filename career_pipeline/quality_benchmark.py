@@ -12,6 +12,7 @@ import tempfile
 from typing import Any, Literal
 
 from .copyeditor_adapter import _resolved_codex_command
+from .editor_contract import load_editor_contract
 
 
 BENCHMARK_SECTIONS: dict[str, tuple[str, ...]] = {
@@ -35,6 +36,12 @@ BENCHMARK_SECTIONS: dict[str, tuple[str, ...]] = {
         "company_specificity",
         "applicant_distinctiveness",
         "natural_korean",
+        "naturalness",
+        "sentence_rhythm",
+        "ending_variety",
+        "sentence_length_balance",
+        "translationese_ai_safety",
+        "nominalization_control",
         "length_and_format",
         "interview_defensibility",
     ),
@@ -387,11 +394,15 @@ def run_blind_benchmark(
         "D4 defense; D3 or lower is a HARD FAIL even when the source text itself is confirmed. For every fixed dimension choose "
         "X, Y, or TIE and cite artifact_id plus a precise field, question or heading. A longer output is not inherently "
         "better. Prefer traceable evidence, concrete applicant action, natural Korean and interview usability. "
-        "Return JSON only.\n"
+        "For the self-introduction, apply the project editor contract and score naturalness, sentence rhythm, "
+        "ending variety, sentence-length balance, translationese/AI-formula safety and nominalization control "
+        "independently. A fact-safe but procedural, manual-like answer must not win those writing dimensions. "
+        "The editor_contract field is policy only and never factual evidence. Return JSON only.\n"
         + json.dumps(
             {
                 "data_package_id": data_package_id,
                 "dimensions": BENCHMARK_SECTIONS,
+                "editor_contract": load_editor_contract(),
                 "artifacts": anonymous,
             },
             ensure_ascii=False,

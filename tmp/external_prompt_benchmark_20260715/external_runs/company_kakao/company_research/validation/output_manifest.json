@@ -1,0 +1,328 @@
+{
+  "run_id": "CR-20260715-1601",
+  "company_data_package_id": "CR-DATA-001",
+  "company_data_package_version": "1.0",
+  "generated_at": "2026-07-15T16:01:22+09:00",
+  "files": [
+    {
+      "path": "company_research/analysis/applicant_company_bridge.md",
+      "sha256": "ee371c7cd8e0d9af944621849b47091c295452541f97e0e59ae3135ec68d2527",
+      "bytes": 1325
+    },
+    {
+      "path": "company_research/analysis/business_model_map.md",
+      "sha256": "0ffe55749b0749a2db7faac7f8014c0feb328f64a862e9c6f1a86620fa1ad4be",
+      "bytes": 1152
+    },
+    {
+      "path": "company_research/analysis/competitor_selection.md",
+      "sha256": "1a0212bd117051dac26056d779223f173fca3f9ae469697ec7f20b7fda8ab625",
+      "bytes": 561
+    },
+    {
+      "path": "company_research/analysis/culture_evidence.md",
+      "sha256": "70fdf092c67eea39da6afc16ea9888f959fc2f3cb932355e21b1e1a262594462",
+      "bytes": 518
+    },
+    {
+      "path": "company_research/analysis/culture_unknowns.md",
+      "sha256": "9235a6779817299891efd4579a410c9696254898d9de53e1dd8a4e82b9bcf3e0",
+      "bytes": 501
+    },
+    {
+      "path": "company_research/analysis/customer_map.md",
+      "sha256": "bee5f5098c8e5319e3371732c75a95c33e0d74eacda67a391feeaadfa382e282",
+      "bytes": 485
+    },
+    {
+      "path": "company_research/analysis/employment_signal_map.md",
+      "sha256": "57cf6f344b2e4920eb43c2dc4236dab49ea67cd091f9f5049a30d991d1b06eca",
+      "bytes": 495
+    },
+    {
+      "path": "company_research/analysis/event_timeline.md",
+      "sha256": "b99d89d3334353924e6bbc7c7e8abc8f3825086e10fdc6fa54500b689ded7dd8",
+      "bytes": 552
+    },
+    {
+      "path": "company_research/analysis/financial_evidence.md",
+      "sha256": "11069596efe4ab4d3182ba0330c2b698f4fd796b73602464b9eee44be659a721",
+      "bytes": 723
+    },
+    {
+      "path": "company_research/analysis/first_90_days.md",
+      "sha256": "20d6e30badc71318d864c8417c6b9a107a2baf8a2d11cdad974a2ce8d047243c",
+      "bytes": 789
+    },
+    {
+      "path": "company_research/analysis/fit_gap_table.md",
+      "sha256": "c61cefe65d85514cbf73531e0164a75e77bd8a00123741cef29fd7bccd7b4a3f",
+      "bytes": 895
+    },
+    {
+      "path": "company_research/analysis/job_reality_packet.md",
+      "sha256": "0caf380220430a10ccf621233a4f03fed0ecb08b25a5514c2b52a9c9bc49e296",
+      "bytes": 593
+    },
+    {
+      "path": "company_research/analysis/motivation_evidence.md",
+      "sha256": "21b0664fbb83fc95a2a4a006fd5a3de67895f5b051dc0caacc762b141cd5a6e5",
+      "bytes": 759
+    },
+    {
+      "path": "company_research/analysis/organization_map.md",
+      "sha256": "7d8e55b2da39d0fb3b074de696fd0bcf4bfd09a28755209b1956c7166c65e3f3",
+      "bytes": 502
+    },
+    {
+      "path": "company_research/analysis/peer_comparison.md",
+      "sha256": "1944b88e7869f2ead94a0eca05a1f19ebaf5b6a82e748e7feb0d2c23d9e5a134",
+      "bytes": 473
+    },
+    {
+      "path": "company_research/analysis/revenue_logic.md",
+      "sha256": "050f1023585b1be3f1f19c14c775536f185d4c081e664249f8d477ff10b670e4",
+      "bytes": 563
+    },
+    {
+      "path": "company_research/analysis/role_value_map.md",
+      "sha256": "ea1d41cd998f6fefd9d5dc61a9d159941beb0227457a52c7d28bd1bf5b28861a",
+      "bytes": 619
+    },
+    {
+      "path": "company_research/analysis/strategy_execution_status.md",
+      "sha256": "d1f383be93e40c65fe7c4ce2412efdacb1af1a16fb10bb935863709c101a5cf6",
+      "bytes": 500
+    },
+    {
+      "path": "company_research/analysis/strategy_resource_alignment.md",
+      "sha256": "f4cbed9b0e5f421d296b7981f675c6709d95f51998fb50089f444ef83cc51fc4",
+      "bytes": 487
+    },
+    {
+      "path": "company_research/analysis/substitute_map.md",
+      "sha256": "0f87eb94b310d7afc786bb3bd2c5b903e0430ec2aec6520ea653d2721fc8b7ed",
+      "bytes": 326
+    },
+    {
+      "path": "company_research/analysis/value_chain_map.md",
+      "sha256": "24c658afcfe9a0337e33d2510f4b65175dce8ee39a1a11ecaf8a97013bc426fc",
+      "bytes": 1005
+    },
+    {
+      "path": "company_research/evidence/claim_ledger.md",
+      "sha256": "3dea416a26c6fb1e91c077011762d66407d0d7c4dc2e49fd4f0e580a055dbbbf",
+      "bytes": 4196
+    },
+    {
+      "path": "company_research/evidence/contradiction_log.md",
+      "sha256": "d64c1e970c8d055cb6225083ad9305099546a8eec10f662988e1de047b7d8760",
+      "bytes": 1019
+    },
+    {
+      "path": "company_research/evidence/needs_verification.md",
+      "sha256": "7955c0b3266da799ff5eda47b965d8490157221403724770ee7a67bac452dbb4",
+      "bytes": 1323
+    },
+    {
+      "path": "company_research/evidence/prohibited_claims.md",
+      "sha256": "33f74090407b51110053ecf6e539fcfba36ef88d39254292a5cb893b381e81ed",
+      "bytes": 1833
+    },
+    {
+      "path": "company_research/evidence/source_register.md",
+      "sha256": "51a8a9edc966102a0d797a2f13b6749cb06f933a8c8bdeef65bb48bb3988c34e",
+      "bytes": 1233
+    },
+    {
+      "path": "company_research/final/application_bridge.md",
+      "sha256": "a300d13e5fff8c451561fa68468e12c128b9cb5363d55f474d303f07d0a027fb",
+      "bytes": 1240
+    },
+    {
+      "path": "company_research/final/claim_ledger.md",
+      "sha256": "3dea416a26c6fb1e91c077011762d66407d0d7c4dc2e49fd4f0e580a055dbbbf",
+      "bytes": 4196
+    },
+    {
+      "path": "company_research/final/final_audit.md",
+      "sha256": "ba849899b3bfe5b4ab03440d00454873f6efdc5f06aaa9ecb6d91a5a36ab2fec",
+      "bytes": 2003
+    },
+    {
+      "path": "company_research/final/full_company_report.md",
+      "sha256": "8710741bfceb1d4bea144007eca8435e264f4cbb56fa6a4e447ba7a38c604fc5",
+      "bytes": 2714
+    },
+    {
+      "path": "company_research/final/interview_packet.md",
+      "sha256": "93611af678b9e402e7fd490bc90548216830be008a99a0aa68d72de70258fa89",
+      "bytes": 1187
+    },
+    {
+      "path": "company_research/final/one_page_company_brief.md",
+      "sha256": "2b0e16eb685682b0a12223686d6c136ea0056c2fa19f170398eaf278b8f9448b",
+      "bytes": 1196
+    },
+    {
+      "path": "company_research/final/prohibited_claims.md",
+      "sha256": "33f74090407b51110053ecf6e539fcfba36ef88d39254292a5cb893b381e81ed",
+      "bytes": 1833
+    },
+    {
+      "path": "company_research/final/research_decision.json",
+      "sha256": "e587f7d8800281f0f609fd332c3e5b33f46b2f765d2dade70f90c4cdf69db985",
+      "bytes": 1511
+    },
+    {
+      "path": "company_research/final/reverse_questions.md",
+      "sha256": "85b00ab7d84cf93c6b5fd5465828a457ba87ec2666021bf8c9724a076d4d3489",
+      "bytes": 1094
+    },
+    {
+      "path": "company_research/final/source_appendix.md",
+      "sha256": "4689884c7472c43d20e189d984393b1f3df58fc31eb2ba602f47c28dffe97c97",
+      "bytes": 1645
+    },
+    {
+      "path": "company_research/final/validation_report.md",
+      "sha256": "625abdab4441f53176a63a64828712ca7556aa3a0751d432070c9ed1f6ad2e22",
+      "bytes": 934
+    },
+    {
+      "path": "company_research/frozen/company_data_package.yaml",
+      "sha256": "f17ceffbc9843f58f3bb97ee05bf33665ade169f794cb467a58765eeae44797f",
+      "bytes": 1117
+    },
+    {
+      "path": "company_research/frozen/entity_map.md",
+      "sha256": "d93dbf8ddbab334d8c7fdc1f1ed219c84a4ca9b4f4f895ed0a201c6ae622e20b",
+      "bytes": 1712
+    },
+    {
+      "path": "company_research/frozen/input_inventory.md",
+      "sha256": "728e8617e8fcc85fe37c938aefbe7aa8c5cc26a1e8c31f6098c1042d595de65a",
+      "bytes": 22973
+    },
+    {
+      "path": "company_research/frozen/manifest.json",
+      "sha256": "84fa256b3a9c4cffcbaf2e447b0e06a5de05b932330b91a694d77e22a301bb51",
+      "bytes": 38966
+    },
+    {
+      "path": "company_research/frozen/research_questions.md",
+      "sha256": "793187b88f75c86aa8bc12490b678acc5c32a2c2babdff0be2ec230707d0ad42",
+      "bytes": 7079
+    },
+    {
+      "path": "company_research/hypotheses/operating_reality.md",
+      "sha256": "c382e55070801783a22c42b8d667054924d73c55df1251a79f5b8be067a6b154",
+      "bytes": 1177
+    },
+    {
+      "path": "company_research/hypotheses/risk_and_governance.md",
+      "sha256": "5e28693bb5d4e25cccca6adeac6d39ad2a472b4aaa2b4624190e1e56f24a1ed4",
+      "bytes": 1172
+    },
+    {
+      "path": "company_research/hypotheses/strategy_and_market.md",
+      "sha256": "351651b84f22e576c1da7939d896e53003807ee51a8bc199231b2000814999f6",
+      "bytes": 1167
+    },
+    {
+      "path": "company_research/hypotheses/talent_and_job.md",
+      "sha256": "8e7633725a3d4beff5f4ef6138e01f07911696e128a1b9ec714dd8cabaae58d0",
+      "bytes": 1200
+    },
+    {
+      "path": "company_research/judges/business_analyst.md",
+      "sha256": "3eb64f768928ec3450438948857e15835c87064d3dee1fbd835fa44d86dc20d1",
+      "bytes": 451
+    },
+    {
+      "path": "company_research/judges/fact_and_source_auditor.md",
+      "sha256": "23a0a1f119cec4f2540639bec165f7b3f3daca104a34567ed370e414215cb933",
+      "bytes": 540
+    },
+    {
+      "path": "company_research/judges/recruiter_and_job_auditor.md",
+      "sha256": "1541c9916068c339bdac08c9138af3a30329c5359884aaf566dc78ce996d4f2f",
+      "bytes": 513
+    },
+    {
+      "path": "company_research/judges/scorecard.md",
+      "sha256": "04829569f7385b47b757c5693b714f132db6e1a86c010d9fe15cf107d731ee34",
+      "bytes": 971
+    },
+    {
+      "path": "company_research/scripts/build_offline_research.py",
+      "sha256": "794cbdd9f99140135d85fc3e238f6d5ffdadc259b40c9378cebf9dce48e056ef",
+      "bytes": 59138
+    },
+    {
+      "path": "company_research/scripts/financial_analysis.py",
+      "sha256": "989346bd7dceed1581e8c7ce34095ce7ee0767f44a03f77fb01e2fb3f51d9dfe",
+      "bytes": 5052
+    },
+    {
+      "path": "company_research/scripts/validate_packet.py",
+      "sha256": "08612135050228c19d10299f018bfe88403900d0c4443a3bceacf946c7dac45e",
+      "bytes": 7859
+    },
+    {
+      "path": "company_research/sources/README.md",
+      "sha256": "ada00eee1ea8759f60294ab7906a5b7735691e33ea08fab3d9f65f87b2919c29",
+      "bytes": 345
+    },
+    {
+      "path": "company_research/synthesis/change_log.md",
+      "sha256": "a1631c3dd0b6597a8812fedfc62eef5ac4a1241fd9724f2116ce8ef963469fd5",
+      "bytes": 511
+    },
+    {
+      "path": "company_research/synthesis/company_analysis_S.md",
+      "sha256": "0707fbddd607c5b401c210eb7d2f9d4bdb5c5fe37df2ba80111aad65ac7edf39",
+      "bytes": 1058
+    },
+    {
+      "path": "company_research/synthesis/synthesis_validation.json",
+      "sha256": "a55c17ddb744c467e3563e0c461800a1d6fef406634ada64dc213eba9438a5a6",
+      "bytes": 317
+    },
+    {
+      "path": "company_research/validation/calculation_audit.md",
+      "sha256": "0d19e0acb0d4ca16b33d8b4b0640f374dfdaec35a677a60d765017b5e167ebf3",
+      "bytes": 544
+    },
+    {
+      "path": "company_research/validation/contradiction_matrix.md",
+      "sha256": "fd637e716fef57e54778197bf710c38a68d1e76aea91a489216e286349f15e38",
+      "bytes": 1016
+    },
+    {
+      "path": "company_research/validation/financial_calculations.csv",
+      "sha256": "9d4b3456d304e644c90e8b20f611df6ce1242cb2152212c8fd62c4f1c87a24a6",
+      "bytes": 1611
+    },
+    {
+      "path": "company_research/validation/financial_calculations.json",
+      "sha256": "4d8cfb6f30509799f63406f75f4713a16a67f59fe2dcea0d936533af5d5b6abd",
+      "bytes": 1887
+    },
+    {
+      "path": "company_research/validation/hard_fail_report.json",
+      "sha256": "58dfebd952605a60358c52386c9e9860b135d6af6cb987511dd7c8df1b584d10",
+      "bytes": 1634
+    },
+    {
+      "path": "company_research/validation/red_team_report.md",
+      "sha256": "c54552b79e16d1313aed73633767d4ef349de7b2af0be05288817e9f6818a14c",
+      "bytes": 1230
+    },
+    {
+      "path": "company_research/validation/revision_required.md",
+      "sha256": "c85867000d158c969b759faa8b1f7b1cf94d66e1a154279319a0842311370f8f",
+      "bytes": 589
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "stage": "candidate_1",
+    "repair_attempted": true,
+    "repair_attempts": 2,
+    "codes": [
+      "unknown_research_reference",
+      "unknown_research_reference",
+      "unknown_research_reference",
+      "unknown_research_reference",
+      "unknown_research_reference",
+      "unknown_research_reference",
+      "unknown_research_reference"
+    ],
+    "question_indexes": [
+      1,
+      3,
+      4
+    ]
+  },
+  {
+    "stage": "incumbent",
+    "repair_attempted": false,
+    "repair_attempts": 0,
+    "codes": [
+      "under_preferred_minimum",
+      "under_preferred_minimum",
+      "missing_target_specificity",
+      "under_preferred_minimum"
+    ],
+    "question_indexes": [
+      1,
+      2,
+      3,
+      4
+    ]
+  }
+]

@@ -1,0 +1,94 @@
+[
+  {
+    "question_index": 1,
+    "style_risk_score": 0,
+    "style_reasons": [],
+    "should_rewrite": false,
+    "metrics": {
+      "sentence_count": 9,
+      "sentence_length_variance": 14.893,
+      "sentence_length_cv": 0.334,
+      "passive_ratio": 0.0,
+      "nominal_ratio": 0.111,
+      "repeated_connector_count": 0,
+      "ability_phrase_count": 0,
+      "conclusion_cliche_count": 0,
+      "abstract_noun_count": 0,
+      "pronoun_start_count": 1,
+      "nominal_ending_count": 0,
+      "long_relative_sentence_count": 0,
+      "semantic_repeat": 0,
+      "excessive_list": 0
+    }
+  },
+  {
+    "question_index": 2,
+    "style_risk_score": 1,
+    "style_reasons": [
+      "같은 종결 표현 3회 이상 반복"
+    ],
+    "should_rewrite": false,
+    "metrics": {
+      "sentence_count": 9,
+      "sentence_length_variance": 13.147,
+      "sentence_length_cv": 0.297,
+      "passive_ratio": 0.0,
+      "nominal_ratio": 0.222,
+      "repeated_connector_count": 0,
+      "ability_phrase_count": 0,
+      "conclusion_cliche_count": 0,
+      "abstract_noun_count": 0,
+      "pronoun_start_count": 1,
+      "nominal_ending_count": 0,
+      "long_relative_sentence_count": 0,
+      "semantic_repeat": 0,
+      "excessive_list": 0
+    }
+  },
+  {
+    "question_index": 3,
+    "style_risk_score": 1,
+    "style_reasons": [
+      "같은 종결 표현 3회 이상 반복"
+    ],
+    "should_rewrite": false,
+    "metrics": {
+      "sentence_count": 9,
+      "sentence_length_variance": 8.987,
+      "sentence_length_cv": 0.183,
+      "passive_ratio": 0.0,
+      "nominal_ratio": 0.111,
+      "repeated_connector_count": 0,
+      "ability_phrase_count": 0,
+      "conclusion_cliche_count": 0,
+      "abstract_noun_count": 0,
+      "pronoun_start_count": 1,
+      "nominal_ending_count": 0,
+      "long_relative_sentence_count": 0,
+      "semantic_repeat": 0,
+      "excessive_list": 0
+    }
+  },
+  {
+    "question_index": 4,
+    "style_risk_score": 0,
+    "style_reasons": [],
+    "should_rewrite": false,
+    "metrics": {
+      "sentence_count": 25,
+      "sentence_length_variance": 11.655,
+      "sentence_length_cv": 0.321,
+      "passive_ratio": 0.0,
+      "nominal_ratio": 0.08,
+      "repeated_connector_count": 0,
+      "ability_phrase_count": 0,
+      "conclusion_cliche_count": 1,
+      "abstract_noun_count": 0,
+      "pronoun_start_count": 0,
+      "nominal_ending_count": 0,
+      "long_relative_sentence_count": 0,
+      "semantic_repeat": 0,
+      "excessive_list": 0
+    }
+  }
+]

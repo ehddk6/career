@@ -1,0 +1,319 @@
+{
+  "data_package_id": "SOL-DATA-608228643DF2",
+  "data_package_version": "1.1",
+  "judge_mode": "KOREAN_EDITOR",
+  "evaluations": [
+    {
+      "candidate_id": "C210847FD",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 20,
+        "fact_accuracy": 20,
+        "job_relevance": 15,
+        "action_specificity": 15,
+        "experience_allocation": 10,
+        "interview_defensibility": 9,
+        "korean_readability": 5,
+        "applicant_distinctiveness": 2,
+        "length_and_format": 2
+      },
+      "total": 98,
+      "weakness_codes": [
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience_evidence",
+          "exact_element": "동일한 데이터를 기존 엑셀 수식과 외주 프로그램에 입력해 결과 비교 분석 보고서를 작성하고 팀장에게 보고한 경험",
+          "reason": "자료 대조와 보고 역량을 보증 업무의 정확한 자료 확인에 연결했다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "experience_evidence",
+          "exact_element": "상인 인터뷰와 타 시장 비교 분석으로 문제점과 개선 방안을 도출한 경험",
+          "reason": "비교 기준을 세워 이상 징후를 찾겠다는 수행계획의 근거로 사용했다.",
+          "fact_ids": [
+            "clm_abaa19a532d1aabc9140"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "research_evidence",
+          "exact_element": "한국은행은 높은 환율 변동성과 중동지역 리스크를 점검하면서 14조원 한도의 중소기업 한시 특별지원 운용기간을 재연장했습니다.",
+          "reason": "선택한 경제 이슈의 시의성과 중소기업 유동성 영향을 공식 근거로 뒷받침했다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "research_evidence",
+          "exact_element": "신용보증기금은 지역 수출기업 등의 유동성과 금융비용 부담을 완화하기 위해 협약보증을 공급하고 있습니다.",
+          "reason": "제안한 정책금융 지원 방안을 실제 기관 사업과 연결했다.",
+          "fact_ids": [
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "KOREAN_EDITOR"
+    },
+    {
+      "candidate_id": "C231420E2",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 20,
+        "fact_accuracy": 20,
+        "job_relevance": 15,
+        "action_specificity": 15,
+        "experience_allocation": 10,
+        "interview_defensibility": 9,
+        "korean_readability": 4,
+        "applicant_distinctiveness": 2,
+        "length_and_format": 2
+      },
+      "total": 97,
+      "weakness_codes": [
+        "korean_style",
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience_evidence",
+          "exact_element": "같은 데이터를 기존 엑셀 수식과 외주 프로그램에 입력해 결과를 비교한 보고서를 작성하고 팀장에게 보고한 경험",
+          "reason": "확인·기록·보고라는 직무 수행 방식의 근거로 기능한다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "experience_evidence",
+          "exact_element": "상인을 인터뷰하고 다른 시장을 비교해 문제점과 개선 방안을 도출한 경험",
+          "reason": "관찰과 확인을 우선하는 조직 적응 태도를 구체적 경험으로 뒷받침했다.",
+          "fact_ids": [
+            "clm_abaa19a532d1aabc9140"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "experience_evidence",
+          "exact_element": "자료를 체계적으로 분류해 정리한 경험",
+          "reason": "처리 상태와 기록을 기준별로 관리하겠다는 계획의 근거로 사용했다.",
+          "fact_ids": [
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "research_evidence",
+          "exact_element": "한국은행도 높은 환율 변동성과 중동지역 리스크를 점검하면서 14조원 한도의 중소기업 한시 특별지원 운용기간을 재연장했습니다.",
+          "reason": "환율 충격이 중소기업 유동성 문제로 확산될 수 있다는 논지를 공식 자료로 뒷받침했다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "KOREAN_EDITOR"
+    },
+    {
+      "candidate_id": "C29D6F72B",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 20,
+        "fact_accuracy": 20,
+        "job_relevance": 15,
+        "action_specificity": 14,
+        "experience_allocation": 6,
+        "interview_defensibility": 8,
+        "korean_readability": 5,
+        "applicant_distinctiveness": 2,
+        "length_and_format": 2
+      },
+      "total": 92,
+      "weakness_codes": [
+        "experience_overlap",
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience_evidence",
+          "exact_element": "같은 데이터를 기존 엑셀 수식과 외주 프로그램에 각각 입력해 결과를 비교한 뒤 분석 보고서를 작성한 경험",
+          "reason": "자료 불일치 확인과 근거 중심 보고 역량을 직접 뒷받침한다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "1",
+          "element_type": "experience_evidence",
+          "exact_element": "기초연금 관련 자료를 체계적으로 분류했습니다.",
+          "reason": "정확한 자료 분류와 업무 보조 역량의 근거로 사용했다.",
+          "fact_ids": [
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "experience_evidence",
+          "exact_element": "마감일을 기준으로 남은 기간을 나누고 일일 목표를 달력과 노트에 기록해 관리합니다.",
+          "reason": "조직 적응 과정에서의 일정·진행 관리 행동을 확인할 수 있다.",
+          "fact_ids": [
+            "clm_1476776eb88306fe8fc1"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "research_evidence",
+          "exact_element": "한국은행이 높은 환율 변동성과 중동지역 리스크를 점검하면서 중소기업 한시 특별지원의 운용기간을 재연장했다는 사실",
+          "reason": "선택한 이슈가 중소기업 자금 사정에 미치는 영향을 공식 근거로 제시했다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "KOREAN_EDITOR"
+    },
+    {
+      "candidate_id": "C98D4E6E5",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 20,
+        "fact_accuracy": 20,
+        "job_relevance": 15,
+        "action_specificity": 14,
+        "experience_allocation": 10,
+        "interview_defensibility": 9,
+        "korean_readability": 5,
+        "applicant_distinctiveness": 2,
+        "length_and_format": 2
+      },
+      "total": 97,
+      "weakness_codes": [
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience_evidence",
+          "exact_element": "상인 인터뷰와 타 시장 비교 분석을 바탕으로 문제점과 개선 방안을 도출한 경험",
+          "reason": "자료를 비교해 쟁점을 찾는 역량을 기업신용 상시관리와 연결했다.",
+          "fact_ids": [
+            "clm_abaa19a532d1aabc9140"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "experience_evidence",
+          "exact_element": "기존 엑셀 수식과 외주 프로그램에 동일한 데이터를 입력해 나온 결과를 비교하고, 결과 비교 분석 보고서를 작성해 팀장에게 보고한 경험",
+          "reason": "조직 기준을 확인하고 근거를 갖춰 질문·보고하겠다는 태도를 뒷받침한다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "experience_evidence",
+          "exact_element": "지급 결정서와 추납·분납 자료를 정리하고 실질적 수급 대상자를 정확히 선별해야 했던 과제",
+          "reason": "자료 분류 기준과 확인 순서를 강조한 수행계획의 근거다.",
+          "fact_ids": [
+            "clm_5e91929d8d87322e2c70"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "research_evidence",
+          "exact_element": "신용보증기금은 지역 수출기업 등의 유동성과 금융비용 부담을 완화하기 위해 협약보증을 공급하고 있으므로",
+          "reason": "환율 충격 기업에 대한 협약보증 제안을 실제 기관 지원 사례에 연결했다.",
+          "fact_ids": [
+            "kodit-liquidity-support-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "KOREAN_EDITOR"
+    },
+    {
+      "candidate_id": "C9A06A9AD",
+      "hard_fail": false,
+      "hard_fail_reasons": [],
+      "hard_fail_status": "NONE",
+      "hard_fail_type": null,
+      "review_required": [],
+      "scores": {
+        "question_fidelity": 20,
+        "fact_accuracy": 20,
+        "job_relevance": 15,
+        "action_specificity": 15,
+        "experience_allocation": 10,
+        "interview_defensibility": 9,
+        "korean_readability": 5,
+        "applicant_distinctiveness": 2,
+        "length_and_format": 2
+      },
+      "total": 98,
+      "weakness_codes": [
+        "generic_voice"
+      ],
+      "transferable_elements": [
+        {
+          "question": "1",
+          "element_type": "experience_evidence",
+          "exact_element": "기존 엑셀 수식과 외주 프로그램에 동일한 데이터를 입력한 뒤 결과 비교 분석 보고서를 작성해 팀장에게 보고한 경험",
+          "reason": "금융지원 업무에서 요구되는 자료 대조와 근거 중심 보고 역량을 뒷받침한다.",
+          "fact_ids": [
+            "clm_3e69991c9b56d728b429"
+          ]
+        },
+        {
+          "question": "2",
+          "element_type": "experience_evidence",
+          "exact_element": "상인 인터뷰와 5개 타 시장 비교 분석을 바탕으로 문제점과 개선 방안을 도출한 경험",
+          "reason": "다른 관점을 확인하고 비교 자료로 조직을 이해한다는 태도의 근거다.",
+          "fact_ids": [
+            "clm_abaa19a532d1aabc9140"
+          ]
+        },
+        {
+          "question": "3",
+          "element_type": "experience_evidence",
+          "exact_element": "자료를 체계적으로 분류하는 업무를 수행했고, 해당 기록에는 기초연금 지급 절차가 원활히 진행되었다고 남아 있습니다.",
+          "reason": "분류와 기록 원칙을 보증 업무에 적용하겠다는 계획을 확인 가능한 경험으로 뒷받침했다.",
+          "fact_ids": [
+            "clm_88cfeab230789e5b0d5f"
+          ]
+        },
+        {
+          "question": "4",
+          "element_type": "research_evidence",
+          "exact_element": "한국은행도 높은 환율 변동성과 중동지역 리스크를 점검하면서 14조원 한도의 중소기업 한시 특별지원 운용기간을 재연장했습니다.",
+          "reason": "환율 변동성이 중소기업의 자금조달과 영업 지속성에 미치는 영향을 공식 근거로 제시했다.",
+          "fact_ids": [
+            "bok-fx-risk-20260711"
+          ]
+        }
+      ],
+      "judge_mode": "KOREAN_EDITOR"
+    }
+  ]
+}

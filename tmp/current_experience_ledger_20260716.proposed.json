@@ -1,0 +1,1371 @@
+{
+  "schema_version": 2,
+  "generated_at": "2026-07-16T23:01:25+09:00",
+  "workspace_root": "C:/Users/ehddk/OneDrive/문서/취업",
+  "experiences": [
+    {
+      "experience_id": "exp_c2d754c1ee4083ab",
+      "title": "경험정리 문단 20",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "위치 관련 문의 30% 감소",
+      "actions": [],
+      "outcomes": [
+        "위치 관련 문의 30% 감소"
+      ],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "metric:percentage",
+          "normalized_value": "30%",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 19,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "62c2bd3a7d320b70542f23ab52e5be28d9e8dc4393624d5d37a720f2f1346738"
+            }
+          ],
+          "claim_id": "clm_9b57030857bb3ae35d18",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_3b93d54da4e06882",
+      "title": "경험정리 문단 22",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "건수 20% 증가",
+      "actions": [],
+      "outcomes": [
+        "건수 20% 증가"
+      ],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "metric:percentage",
+          "normalized_value": "20%",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 21,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "06756bd2fbf062e4b6d8e7a475949e6534bff621ed531fdff08f0b9a2226c828"
+            }
+          ],
+          "claim_id": "clm_43b192d543b5035dd3ec",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_ff4d5a230824c74c",
+      "title": "경험정리 문단 43",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "부정수급 20건 적발 → 공적 예산 낭비 방지",
+      "actions": [],
+      "outcomes": [
+        "부정수급 20건 적발 → 공적 예산 낭비 방지"
+      ],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "case_count",
+          "normalized_value": "20건",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 42,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "e4f63ef17182d5f81eda177107b26f9019901a0f7dd14e25611c263f59824c87"
+            }
+          ],
+          "claim_id": "clm_8308ac53bbcb794d9975",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_fada7a8a7823e0d7",
+      "title": "경험정리 문단 92",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "(3주 앞당겨 달성)",
+      "actions": [],
+      "outcomes": [
+        "(3주 앞당겨 달성)"
+      ],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "metric:주",
+          "normalized_value": "3주",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 91,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "228f0cf26c02fbeba9a963f3ef0e5ed432d504e41ca64f38527abe8395ce6503"
+            }
+          ],
+          "claim_id": "clm_e008d4348e00529feb26",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_627c104f4bd79810",
+      "title": "경험정리 문단 95",
+      "organization_alias": "",
+      "period": null,
+      "role": "✅ 팀원 3명과 역할 분담 → 효율적 홍보 진행",
+      "situation": "✅ 팀원 3명과 역할 분담 → 효율적 홍보 진행",
+      "actions": [],
+      "outcomes": [],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "metric:명",
+          "normalized_value": "3명",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 94,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "71f200ae4bdb16aafd568e9f9a3c988fbbc7519c8168a94c8a99433a5a1c0816"
+            }
+          ],
+          "claim_id": "clm_fd150ca147d2d9e8256b",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_a07fd710e2b7c0c2",
+      "title": "경험정리 문단 129",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "✅ 50명 상인 인터뷰 & 5개 타 시장 비교 분석 → 문제점 및 개선 방안 도출",
+      "actions": [
+        "✅ 50명 상인 인터뷰 & 5개 타 시장 비교 분석 → 문제점 및 개선 방안 도출"
+      ],
+      "outcomes": [],
+      "competencies": [
+        "분석력",
+        "문제 해결"
+      ],
+      "claims": [
+        {
+          "field": "metric:명",
+          "normalized_value": "50명",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 128,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "e7146b4701aca38067b93c674b0175dee27d29580d239002aa46fcbbc0411456"
+            }
+          ],
+          "claim_id": "clm_f9b294db62ce9db29821",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_e1198b195c6fc1ce",
+      "title": "경험정리 문단 173",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "\"333건의 기초연금 수급자 데이터를 분석하며, 엑셀 필터링 및 함수(TEXT, CONCATENATE) 활용하여",
+      "actions": [
+        "\"333건의 기초연금 수급자 데이터를 분석하며, 엑셀 필터링 및 함수(TEXT, CONCATENATE) 활용하여"
+      ],
+      "outcomes": [],
+      "competencies": [
+        "분석력"
+      ],
+      "claims": [
+        {
+          "field": "metric:건",
+          "normalized_value": "333건",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 172,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "228bab9be21a40332f711e26d92ca3cf5bd9ad7e70c2a0efec6f0ed330518be7"
+            }
+          ],
+          "claim_id": "clm_5a7e3b7ce9d3f4cac1dd",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_bdc306a602daf37c",
+      "title": "경험정리 문단 175",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "이 과정에서 엑셀을 활용한 데이터 정리 및 자동화 프로세스 구축 경험을 쌓았으며, 이를 통해 행정 업무의 효율성을 30% 이상 향상시켰습니다.",
+      "actions": [
+        "이 과정에서 엑셀을 활용한 데이터 정리 및 자동화 프로세스 구축 경험을 쌓았으며, 이를 통해 행정 업무의 효율성을 30% 이상 향상시켰습니다."
+      ],
+      "outcomes": [],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "metric:percentage",
+          "normalized_value": "30%",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 174,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "982ef6d097279625afb30901cae8c4fea80490888e1f23bd66b4853aa4ade78f"
+            }
+          ],
+          "claim_id": "clm_0808f7db643d36918961",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_a521c3024abae521",
+      "title": "경험정리 문단 197",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "시스템 도입 → 업무 속도 30% 향상 & 예산 절감 효과",
+      "actions": [
+        "시스템 도입 → 업무 속도 30% 향상 & 예산 절감 효과"
+      ],
+      "outcomes": [
+        "시스템 도입 → 업무 속도 30% 향상 & 예산 절감 효과"
+      ],
+      "competencies": [
+        "문제 해결"
+      ],
+      "claims": [
+        {
+          "field": "metric:percentage",
+          "normalized_value": "30%",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 196,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "5f221fe2889b7f37e64e4b25c301081c7f472c6a162847a37fa04062f4dde182"
+            }
+          ],
+          "claim_id": "clm_d3ed1c8b6cbb558f5465",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_8209ae601abe3cc7",
+      "title": "경험정리 문단 208",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "자동 필터링 시스템을 도입하여 업무 속도를 30% 향상시켰습니다.",
+      "actions": [
+        "자동 필터링 시스템을 도입하여 업무 속도를 30% 향상시켰습니다."
+      ],
+      "outcomes": [],
+      "competencies": [
+        "문제 해결"
+      ],
+      "claims": [
+        {
+          "field": "metric:percentage",
+          "normalized_value": "30%",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 207,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "10fb96d7e76d8f060ef60cd72b2f97c97fdb69038ed0f09be5e8336e9e774f40"
+            }
+          ],
+          "claim_id": "clm_f3e29b8f999c8934d4ac",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_83438e5acc693202",
+      "title": "경험정리 문단 211",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "대체 방안을 제안하여 1억 원의 예산을 절감하는 성과를 냈습니다.",
+      "actions": [
+        "대체 방안을 제안하여 1억 원의 예산을 절감하는 성과를 냈습니다."
+      ],
+      "outcomes": [
+        "대체 방안을 제안하여 1억 원의 예산을 절감하는 성과를 냈습니다."
+      ],
+      "competencies": [
+        "문제 해결"
+      ],
+      "claims": [
+        {
+          "field": "budget_savings",
+          "normalized_value": "100000000원",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 210,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "867ddc075bbdc92f4d6cb9c65366ab228d8b03c3cea46e7e318fc7a8612df250"
+            }
+          ],
+          "claim_id": "clm_efaf4bf9afc5e898d27e",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_5ae88300823a6659",
+      "title": "경험정리 문단 219",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "존중하면서 새로운 방식의 장점 설득 → 업무 효율성 30% 증가",
+      "actions": [],
+      "outcomes": [
+        "존중하면서 새로운 방식의 장점 설득 → 업무 효율성 30% 증가"
+      ],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "metric:percentage",
+          "normalized_value": "30%",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 218,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "5234abd2095f83c0012a96adeeafd3899d32d86b280da60bbf0eceb7a27dab8a"
+            }
+          ],
+          "claim_id": "clm_4e5335adde23e115a0a2",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_2fe7474d7367a89c",
+      "title": "경험정리 문단 234",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "30% 증가했고, 조직 내 협업 문화가 개선되었습니다.",
+      "actions": [
+        "30% 증가했고, 조직 내 협업 문화가 개선되었습니다."
+      ],
+      "outcomes": [
+        "30% 증가했고, 조직 내 협업 문화가 개선되었습니다."
+      ],
+      "competencies": [
+        "문제 해결",
+        "협업"
+      ],
+      "claims": [
+        {
+          "field": "metric:percentage",
+          "normalized_value": "30%",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 233,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "2309d36af392f9f613f9ce1596f30b79530a8098c2756e0b564002883023663a"
+            }
+          ],
+          "claim_id": "clm_ac878752b9e92ecfc80b",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_2df35f8fca5e30b8",
+      "title": "경험정리 문단 290",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "급여 지급 프로세스를 개선하여 업무 속도를 30% 향상시켰으며, 제기동 약령시장에서는 SNS 홍보 전략을 도입하여 젊은 층 방문객",
+      "actions": [
+        "급여 지급 프로세스를 개선하여 업무 속도를 30% 향상시켰으며, 제기동 약령시장에서는 SNS 홍보 전략을 도입하여 젊은 층 방문객"
+      ],
+      "outcomes": [],
+      "competencies": [
+        "문제 해결"
+      ],
+      "claims": [
+        {
+          "field": "metric:percentage",
+          "normalized_value": "30%",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 289,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "b32c1e0dfbef88e1cd5a88356a1efb4e29eb7faa54784472228d7c5616987665"
+            }
+          ],
+          "claim_id": "clm_399075fe0bc5c7487377",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_d0a27c3da8780804",
+      "title": "경험정리 문단 306",
+      "organization_alias": "",
+      "period": null,
+      "role": "분량의 서류를 2일 내에 정리해야 하는 업무를 맡았습니다.",
+      "situation": "분량의 서류를 2일 내에 정리해야 하는 업무를 맡았습니다.",
+      "actions": [
+        "분량의 서류를 2일 내에 정리해야 하는 업무를 맡았습니다."
+      ],
+      "outcomes": [],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "metric:일",
+          "normalized_value": "2일",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 305,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "5a84df105aa8244d76d0d2da6eb7055a72a21405f5c0c0d44e274214605d49dd"
+            }
+          ],
+          "claim_id": "clm_a97085d62c5af9a56d21",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_7c7f763f2ac61d28",
+      "title": "경험정리 문단 324",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "결과적으로 저는 2일 만에",
+      "actions": [],
+      "outcomes": [
+        "결과적으로 저는 2일 만에"
+      ],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "metric:일",
+          "normalized_value": "2일",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 323,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "ec1d78e6e5cdca9f778fb99217db378cdf90c80d7a564eeb56a6d5589b492941"
+            }
+          ],
+          "claim_id": "clm_6928bc464623dc6b8f83",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_1ed7b9b2bb66f6d1",
+      "title": "경험정리 문단 325",
+      "organization_alias": "",
+      "period": null,
+      "role": "3000페이지 분량의 서류를 정확히 처리하여 담당 직원에게 제출했습니다.",
+      "situation": "3000페이지 분량의 서류를 정확히 처리하여 담당 직원에게 제출했습니다.",
+      "actions": [],
+      "outcomes": [],
+      "competencies": [
+        "정확성"
+      ],
+      "claims": [
+        {
+          "field": "metric:페이지",
+          "normalized_value": "3000페이지",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 324,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "f68fcdf82ae526bff995b724c87c174bdc9d5a71ec49811b81536701e355ca9d"
+            }
+          ],
+          "claim_id": "clm_588484213568a9a8ec67",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_2e966c8ac3146a5b",
+      "title": "경험정리 문단 335",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "3000페이지에 달하는 방대한 서류 정리 업무를 2일 만에 완료하며 연금 지급 절차가 차질",
+      "actions": [
+        "3000페이지에 달하는 방대한 서류 정리 업무를 2일 만에 완료하며 연금 지급 절차가 차질"
+      ],
+      "outcomes": [
+        "3000페이지에 달하는 방대한 서류 정리 업무를 2일 만에 완료하며 연금 지급 절차가 차질"
+      ],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "metric:페이지",
+          "normalized_value": "3000페이지",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 334,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "eda171525d36007692c7a24efdccc956780d732e10e0d6736794e8c591d96b70"
+            }
+          ],
+          "claim_id": "clm_06621750f03b00d148ab",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "metric:일",
+          "normalized_value": "2일",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 334,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "eda171525d36007692c7a24efdccc956780d732e10e0d6736794e8c591d96b70"
+            }
+          ],
+          "claim_id": "clm_edb5f42bbdcf4ea55fda",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_f0872a6d517ca3ef",
+      "title": "경험정리 문단 347",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "활용 강화: \"3000페이지\"라는 숫자는",
+      "actions": [
+        "활용 강화: \"3000페이지\"라는 숫자는"
+      ],
+      "outcomes": [],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "metric:페이지",
+          "normalized_value": "3000페이지",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 346,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "7d3b66fb78dc984f369e674fb86e7a189bdf905c5e1e87a06b2efc90d05afd13"
+            }
+          ],
+          "claim_id": "clm_08891db42497173bae97",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_2df7279b0485f426",
+      "title": "경험정리 문단 366",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "분량의 서류를 2일 만에 정리 → 체계적인 분류 시스템 활용하여",
+      "actions": [
+        "분량의 서류를 2일 만에 정리 → 체계적인 분류 시스템 활용하여"
+      ],
+      "outcomes": [],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "metric:일",
+          "normalized_value": "2일",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 365,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "bc36cf78a42f11b67d3a7a90ff4158ad97a487f4e4bf3311eb0fbda74c50fa3e"
+            }
+          ],
+          "claim_id": "clm_9a5832d62fb6448fa4b5",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_d37a52b92358a495",
+      "title": "경험정리 문단 387",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "*\"국민연금공단 강남역삼지사 인턴으로 근무하며, 3000페이지 분량의 방대한 기초연금 서류를 2일 만에 정리해야",
+      "actions": [
+        "*\"국민연금공단 강남역삼지사 인턴으로 근무하며, 3000페이지 분량의 방대한 기초연금 서류를 2일 만에 정리해야"
+      ],
+      "outcomes": [],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "metric:페이지",
+          "normalized_value": "3000페이지",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 386,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "8fa577f9817344288bc95f90fd04e49003d3a448d9a17285f80e91eec5ad8927"
+            }
+          ],
+          "claim_id": "clm_98a8b0122643138b7921",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "employment_period",
+          "normalized_value": "2일",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 386,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "8fa577f9817344288bc95f90fd04e49003d3a448d9a17285f80e91eec5ad8927"
+            }
+          ],
+          "claim_id": "clm_f639fce9e5c246e27067",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_151ae891bd2719ad",
+      "title": "경험정리 문단 406",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "특히, 3000페이지 분량의 자료를 체계적으로 분류하여 2일 만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다.",
+      "actions": [
+        "특히, 3000페이지 분량의 자료를 체계적으로 분류하여 2일 만에 정리하며, 기초연금 지급 절차가 원활히 진행되도록 기여했습니다."
+      ],
+      "outcomes": [],
+      "competencies": [
+        "분석력"
+      ],
+      "claims": [
+        {
+          "field": "metric:페이지",
+          "normalized_value": "3000페이지",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 405,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "3dbb4141798e73cdf2e16111b6ae9e90bc11ccbca3244047835be6a8dbfbeace"
+            }
+          ],
+          "claim_id": "clm_8be27b6346284ef55cea",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "metric:일",
+          "normalized_value": "2일",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 405,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "3dbb4141798e73cdf2e16111b6ae9e90bc11ccbca3244047835be6a8dbfbeace"
+            }
+          ],
+          "claim_id": "clm_4ece94fab3d267ccd8ec",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_84a4d9821957b2f5",
+      "title": "경험정리 문단 438",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "*\"가장 기억에 남는 성과는 3000페이지 분량의 기초연금 지급 서류를 2일 만에 정리하여, 연금 지급 절차가 원활하게 진행될 수 있도록 기여한 경험입니다.",
+      "actions": [
+        "*\"가장 기억에 남는 성과는 3000페이지 분량의 기초연금 지급 서류를 2일 만에 정리하여, 연금 지급 절차가 원활하게 진행될 수 있도록 기여한 경험입니다."
+      ],
+      "outcomes": [],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "metric:페이지",
+          "normalized_value": "3000페이지",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 437,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "76434717c048ea88be25fb87989968b5f0726c09a85c50ce4574a41ca407bd77"
+            }
+          ],
+          "claim_id": "clm_100f99ff0269e34dd3bb",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "metric:일",
+          "normalized_value": "2일",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 437,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "76434717c048ea88be25fb87989968b5f0726c09a85c50ce4574a41ca407bd77"
+            }
+          ],
+          "claim_id": "clm_5ae96a6a912db68e01f1",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_8add34c40d35983a",
+      "title": "경험정리 문단 499",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "→ \"20명 목표를 3주 앞당겨 모집 완료\"",
+      "actions": [],
+      "outcomes": [
+        "→ \"20명 목표를 3주 앞당겨 모집 완료\""
+      ],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "metric:명",
+          "normalized_value": "20명",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 498,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "43080ea03bb9e9930500553b7dd37b0802ce81fef2b1ced8d80868ab78e6fcb7"
+            }
+          ],
+          "claim_id": "clm_8f7d99c12a7564949767",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "metric:주",
+          "normalized_value": "3주",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 498,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "43080ea03bb9e9930500553b7dd37b0802ce81fef2b1ced8d80868ab78e6fcb7"
+            }
+          ],
+          "claim_id": "clm_c06e79beb58b21ea579a",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_5381f510b1fba9e1",
+      "title": "경험정리 문단 506",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "엑셀 자동화 도입 → 급여 산정 속도 30% 향상",
+      "actions": [
+        "엑셀 자동화 도입 → 급여 산정 속도 30% 향상"
+      ],
+      "outcomes": [],
+      "competencies": [
+        "문제 해결"
+      ],
+      "claims": [
+        {
+          "field": "metric:percentage",
+          "normalized_value": "30%",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 505,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "8b5a061f3f4dc250fcbf1797e3fc639e992280c57e8c7a83e0662e7c50104e19"
+            }
+          ],
+          "claim_id": "clm_2a40c719a4357110c02f",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_64a53bdab74c3c77",
+      "title": "경험정리 문단 507",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "부정수급 적발 → 1억 원 예산 절감 효과",
+      "actions": [],
+      "outcomes": [
+        "부정수급 적발 → 1억 원 예산 절감 효과"
+      ],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "budget_savings",
+          "normalized_value": "100000000원",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 506,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "90d41336960a274ac143ea4594894a0e96ac7e06d7ef01ea17a71bc119412619"
+            }
+          ],
+          "claim_id": "clm_ec079e2f4c66aa303e52",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_4e93efc3e67b46d4",
+      "title": "경험정리 문단 508",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "주민 자치회 참여 홍보 → 목표 대비 150% 모집 달성",
+      "actions": [],
+      "outcomes": [
+        "주민 자치회 참여 홍보 → 목표 대비 150% 모집 달성"
+      ],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "metric:percentage",
+          "normalized_value": "150%",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 507,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "335b55701f54878052c05196650eefc711ec1b037f212af671961ad51402675a"
+            }
+          ],
+          "claim_id": "clm_06f9c1c6eb7db3f89136",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_3c25054df5f90d8d",
+      "title": "경험정리 문단 509",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "기초연금 수급 대상자 발굴 → 150건 목표 초과 달성",
+      "actions": [],
+      "outcomes": [
+        "기초연금 수급 대상자 발굴 → 150건 목표 초과 달성"
+      ],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "metric:건",
+          "normalized_value": "150건",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 508,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "b82feb225974e3835da4d38ce0e301164f862c4c418d58af1f839f991ea57eac"
+            }
+          ],
+          "claim_id": "clm_792d479375cc28debf4e",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_ad86c6bd2f7ac041",
+      "title": "경험정리 문단 546",
+      "organization_alias": "",
+      "period": null,
+      "role": "\"국민연금공단에서 기초연금 수급자 발굴을 담당했는데, 가장 기억에 남는 건 3000페이지 분량의 서류를 2일 만에 정리한 경험이에요.",
+      "situation": "\"국민연금공단에서 기초연금 수급자 발굴을 담당했는데, 가장 기억에 남는 건 3000페이지 분량의 서류를 2일 만에 정리한 경험이에요.",
+      "actions": [
+        "\"국민연금공단에서 기초연금 수급자 발굴을 담당했는데, 가장 기억에 남는 건 3000페이지 분량의 서류를 2일 만에 정리한 경험이에요."
+      ],
+      "outcomes": [],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "metric:페이지",
+          "normalized_value": "3000페이지",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 545,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "e4f2ac79aacf16defd436850c00a01ce17c4cc2f61ed59112c65d162138fb9d3"
+            }
+          ],
+          "claim_id": "clm_588bc92237a63e6f471e",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        },
+        {
+          "field": "metric:일",
+          "normalized_value": "2일",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 545,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "e4f2ac79aacf16defd436850c00a01ce17c4cc2f61ed59112c65d162138fb9d3"
+            }
+          ],
+          "claim_id": "clm_85826852d6dd39250228",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    },
+    {
+      "experience_id": "exp_5c38e909935cd54f",
+      "title": "경험정리 문단 549",
+      "organization_alias": "",
+      "period": null,
+      "role": "",
+      "situation": "그 결과, 150건 목표를 초과 달성했고, 연금 지급 절차가 원활하게 진행되도록 기여할 수 있었습니다.",
+      "actions": [],
+      "outcomes": [
+        "그 결과, 150건 목표를 초과 달성했고, 연금 지급 절차가 원활하게 진행되도록 기여할 수 있었습니다."
+      ],
+      "competencies": [],
+      "claims": [
+        {
+          "field": "metric:건",
+          "normalized_value": "150건",
+          "status": "proposed",
+          "evidence": [
+            {
+              "source_path": "경험정리/경험정리.docx",
+              "paragraph_index": 548,
+              "source_sha256": "dbbed908faa6876fd4cab9ffa7e4728d0f9d5453bd1d18b4a5e26164f88607d1",
+              "excerpt_sha256": "b70841e327f51a9441ed85d38ed1dbe9ab30be47d8204f52ad3e069743c9b83c"
+            }
+          ],
+          "claim_id": "clm_6cf2f5e614b1cc54026e",
+          "verification": {
+            "method": "none",
+            "baseline": null,
+            "result": null,
+            "formula": null,
+            "measurement_period": null,
+            "scope": null,
+            "contribution": "unknown"
+          }
+        }
+      ],
+      "status": "proposed",
+      "confirmed_at": null
+    }
+  ]
+}

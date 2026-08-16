@@ -1,0 +1,1375 @@
+{
+  "schema_version": 1,
+  "contract_version": "2026-07-15",
+  "data_package_id": "CAREER-DATA-ABCDEF123456",
+  "data_package_version": "1.0",
+  "submitted_claims": [
+    {
+      "question_index": 1,
+      "experience_ids": [
+        "exp-1"
+      ],
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": [
+        "research-1"
+      ],
+      "status": "CONFIRMED"
+    },
+    {
+      "question_index": 2,
+      "experience_ids": [
+        "exp-2"
+      ],
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": [],
+      "status": "CONFIRMED"
+    }
+  ],
+  "document_consistency": [
+    {
+      "item": "기간·역할·수치",
+      "status": "CONSISTENT",
+      "response_strategy": "동결 원장 기준으로 답변한다."
+    }
+  ],
+  "interview_architecture": {
+    "stage": {
+      "value": "미확인",
+      "status": "UNKNOWN",
+      "evidence": "공식 안내 없음"
+    },
+    "format": {
+      "value": "미확인",
+      "status": "UNKNOWN",
+      "evidence": "공식 안내 없음"
+    },
+    "duration": {
+      "value": "미확인",
+      "status": "UNKNOWN",
+      "evidence": "공식 안내 없음"
+    },
+    "panel": {
+      "value": "미확인",
+      "status": "UNKNOWN",
+      "evidence": "공식 안내 없음"
+    },
+    "presentation": {
+      "value": "미확인",
+      "status": "UNKNOWN",
+      "evidence": "공식 안내 없음"
+    },
+    "case": {
+      "value": "미확인",
+      "status": "UNKNOWN",
+      "evidence": "공식 안내 없음"
+    },
+    "group_discussion": {
+      "value": "미확인",
+      "status": "UNKNOWN",
+      "evidence": "공식 안내 없음"
+    }
+  },
+  "competencies": [
+    {
+      "competency_id": "competency-1",
+      "definition": "역량 정의 competency-1",
+      "observable_behaviors": [
+        "기준 확인",
+        "예외 보고"
+      ]
+    },
+    {
+      "competency_id": "competency-2",
+      "definition": "역량 정의 competency-2",
+      "observable_behaviors": [
+        "기준 확인",
+        "예외 보고"
+      ]
+    },
+    {
+      "competency_id": "competency-3",
+      "definition": "역량 정의 competency-3",
+      "observable_behaviors": [
+        "기준 확인",
+        "예외 보고"
+      ]
+    },
+    {
+      "competency_id": "competency-4",
+      "definition": "역량 정의 competency-4",
+      "observable_behaviors": [
+        "기준 확인",
+        "예외 보고"
+      ]
+    }
+  ],
+  "experience_defense": [
+    {
+      "experience_id": "exp-1",
+      "depth": "D3",
+      "claim_ids": [
+        "clm-1"
+      ],
+      "direct_actions": [
+        "자료를 대조했습니다."
+      ],
+      "judgment_standards": [
+        "수치와 원문 일치 여부"
+      ],
+      "limitations": [
+        "최종 결정권은 없었습니다."
+      ]
+    },
+    {
+      "experience_id": "exp-2",
+      "depth": "D3",
+      "claim_ids": [
+        "clm-2"
+      ],
+      "direct_actions": [
+        "대조 기준을 정리했습니다."
+      ],
+      "judgment_standards": [
+        "누락 여부"
+      ],
+      "limitations": [
+        "팀 검토를 거쳤습니다."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "question_id": "Q1",
+      "question": "면접 질문 1",
+      "question_type": "RECRUITER",
+      "tier": 1,
+      "probability": "HIGH",
+      "competency_ids": [
+        "competency-1"
+      ],
+      "experience_ids": [
+        "exp-1"
+      ],
+      "coverage_tags": [
+        "self_intro"
+      ]
+    },
+    {
+      "question_id": "Q2",
+      "question": "면접 질문 2",
+      "question_type": "RECRUITER",
+      "tier": 1,
+      "probability": "HIGH",
+      "competency_ids": [
+        "competency-2"
+      ],
+      "experience_ids": [
+        "exp-2"
+      ],
+      "coverage_tags": [
+        "motivation"
+      ]
+    },
+    {
+      "question_id": "Q3",
+      "question": "면접 질문 3",
+      "question_type": "RECRUITER",
+      "tier": 1,
+      "probability": "HIGH",
+      "competency_ids": [
+        "competency-3"
+      ],
+      "experience_ids": [
+        "exp-1"
+      ],
+      "coverage_tags": [
+        "company_choice"
+      ]
+    },
+    {
+      "question_id": "Q4",
+      "question": "면접 질문 4",
+      "question_type": "RECRUITER",
+      "tier": 1,
+      "probability": "HIGH",
+      "competency_ids": [
+        "competency-4"
+      ],
+      "experience_ids": [
+        "exp-2"
+      ],
+      "coverage_tags": [
+        "job_choice"
+      ]
+    },
+    {
+      "question_id": "Q5",
+      "question": "면접 질문 5",
+      "question_type": "RECRUITER",
+      "tier": 1,
+      "probability": "HIGH",
+      "competency_ids": [
+        "competency-1"
+      ],
+      "experience_ids": [
+        "exp-1"
+      ],
+      "coverage_tags": [
+        "representative_experience"
+      ]
+    },
+    {
+      "question_id": "Q6",
+      "question": "면접 질문 6",
+      "question_type": "RECRUITER",
+      "tier": 1,
+      "probability": "HIGH",
+      "competency_ids": [
+        "competency-2"
+      ],
+      "experience_ids": [
+        "exp-2"
+      ],
+      "coverage_tags": [
+        "failure"
+      ]
+    },
+    {
+      "question_id": "Q7",
+      "question": "면접 질문 7",
+      "question_type": "RECRUITER",
+      "tier": 1,
+      "probability": "HIGH",
+      "competency_ids": [
+        "competency-3"
+      ],
+      "experience_ids": [
+        "exp-1"
+      ],
+      "coverage_tags": [
+        "conflict"
+      ]
+    },
+    {
+      "question_id": "Q8",
+      "question": "면접 질문 8",
+      "question_type": "RECRUITER",
+      "tier": 1,
+      "probability": "HIGH",
+      "competency_ids": [
+        "competency-4"
+      ],
+      "experience_ids": [
+        "exp-2"
+      ],
+      "coverage_tags": [
+        "collaboration"
+      ]
+    },
+    {
+      "question_id": "Q9",
+      "question": "면접 질문 9",
+      "question_type": "RECRUITER",
+      "tier": 1,
+      "probability": "HIGH",
+      "competency_ids": [
+        "competency-1"
+      ],
+      "experience_ids": [
+        "exp-1"
+      ],
+      "coverage_tags": [
+        "strength"
+      ]
+    },
+    {
+      "question_id": "Q10",
+      "question": "면접 질문 10",
+      "question_type": "RECRUITER",
+      "tier": 1,
+      "probability": "HIGH",
+      "competency_ids": [
+        "competency-2"
+      ],
+      "experience_ids": [
+        "exp-2"
+      ],
+      "coverage_tags": [
+        "weakness"
+      ]
+    },
+    {
+      "question_id": "Q11",
+      "question": "면접 질문 11",
+      "question_type": "RECRUITER",
+      "tier": 1,
+      "probability": "HIGH",
+      "competency_ids": [
+        "competency-3"
+      ],
+      "experience_ids": [
+        "exp-1"
+      ],
+      "coverage_tags": [
+        "first_90_days"
+      ]
+    },
+    {
+      "question_id": "Q12",
+      "question": "면접 질문 12",
+      "question_type": "RECRUITER",
+      "tier": 1,
+      "probability": "HIGH",
+      "competency_ids": [
+        "competency-4"
+      ],
+      "experience_ids": [
+        "exp-2"
+      ],
+      "coverage_tags": [
+        "core_numbers"
+      ]
+    },
+    {
+      "question_id": "Q13",
+      "question": "면접 질문 13",
+      "question_type": "HIRING_MANAGER",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "competency_ids": [
+        "competency-1"
+      ],
+      "experience_ids": [
+        "exp-1"
+      ],
+      "coverage_tags": []
+    },
+    {
+      "question_id": "Q14",
+      "question": "면접 질문 14",
+      "question_type": "HIRING_MANAGER",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "competency_ids": [
+        "competency-2"
+      ],
+      "experience_ids": [
+        "exp-2"
+      ],
+      "coverage_tags": []
+    },
+    {
+      "question_id": "Q15",
+      "question": "면접 질문 15",
+      "question_type": "HIRING_MANAGER",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "competency_ids": [
+        "competency-3"
+      ],
+      "experience_ids": [
+        "exp-1"
+      ],
+      "coverage_tags": []
+    },
+    {
+      "question_id": "Q16",
+      "question": "면접 질문 16",
+      "question_type": "HIRING_MANAGER",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "competency_ids": [
+        "competency-4"
+      ],
+      "experience_ids": [
+        "exp-2"
+      ],
+      "coverage_tags": []
+    },
+    {
+      "question_id": "Q17",
+      "question": "면접 질문 17",
+      "question_type": "HIRING_MANAGER",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "competency_ids": [
+        "competency-1"
+      ],
+      "experience_ids": [
+        "exp-1"
+      ],
+      "coverage_tags": []
+    },
+    {
+      "question_id": "Q18",
+      "question": "면접 질문 18",
+      "question_type": "HIRING_MANAGER",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "competency_ids": [
+        "competency-2"
+      ],
+      "experience_ids": [
+        "exp-2"
+      ],
+      "coverage_tags": []
+    },
+    {
+      "question_id": "Q19",
+      "question": "면접 질문 19",
+      "question_type": "HIRING_MANAGER",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "competency_ids": [
+        "competency-3"
+      ],
+      "experience_ids": [
+        "exp-1"
+      ],
+      "coverage_tags": []
+    },
+    {
+      "question_id": "Q20",
+      "question": "면접 질문 20",
+      "question_type": "HIRING_MANAGER",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "competency_ids": [
+        "competency-4"
+      ],
+      "experience_ids": [
+        "exp-2"
+      ],
+      "coverage_tags": []
+    },
+    {
+      "question_id": "Q21",
+      "question": "면접 질문 21",
+      "question_type": "HIRING_MANAGER",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "competency_ids": [
+        "competency-1"
+      ],
+      "experience_ids": [
+        "exp-1"
+      ],
+      "coverage_tags": []
+    },
+    {
+      "question_id": "Q22",
+      "question": "면접 질문 22",
+      "question_type": "HIRING_MANAGER",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "competency_ids": [
+        "competency-2"
+      ],
+      "experience_ids": [
+        "exp-2"
+      ],
+      "coverage_tags": []
+    },
+    {
+      "question_id": "Q23",
+      "question": "면접 질문 23",
+      "question_type": "HIRING_MANAGER",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "competency_ids": [
+        "competency-3"
+      ],
+      "experience_ids": [
+        "exp-1"
+      ],
+      "coverage_tags": []
+    },
+    {
+      "question_id": "Q24",
+      "question": "면접 질문 24",
+      "question_type": "HIRING_MANAGER",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "competency_ids": [
+        "competency-4"
+      ],
+      "experience_ids": [
+        "exp-2"
+      ],
+      "coverage_tags": []
+    },
+    {
+      "question_id": "Q25",
+      "question": "면접 질문 25",
+      "question_type": "HIRING_MANAGER",
+      "tier": 2,
+      "probability": "MEDIUM",
+      "competency_ids": [
+        "competency-1"
+      ],
+      "experience_ids": [
+        "exp-1"
+      ],
+      "coverage_tags": []
+    }
+  ],
+  "answer_cards": [
+    {
+      "question_id": "Q1",
+      "one_sentence_answer": "기준을 확인하고 직접 대조했습니다.",
+      "judgment_standard": "정확성과 기한을 함께 지켰습니다.",
+      "direct_actions": [
+        "자료 대조",
+        "예외 보고"
+      ],
+      "job_connection": "사무 직무의 자료 심사와 연결됩니다.",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": [
+        "research-1"
+      ]
+    },
+    {
+      "question_id": "Q2",
+      "one_sentence_answer": "기준을 확인하고 직접 대조했습니다.",
+      "judgment_standard": "정확성과 기한을 함께 지켰습니다.",
+      "direct_actions": [
+        "자료 대조",
+        "예외 보고"
+      ],
+      "job_connection": "사무 직무의 자료 심사와 연결됩니다.",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "question_id": "Q3",
+      "one_sentence_answer": "기준을 확인하고 직접 대조했습니다.",
+      "judgment_standard": "정확성과 기한을 함께 지켰습니다.",
+      "direct_actions": [
+        "자료 대조",
+        "예외 보고"
+      ],
+      "job_connection": "사무 직무의 자료 심사와 연결됩니다.",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "question_id": "Q4",
+      "one_sentence_answer": "기준을 확인하고 직접 대조했습니다.",
+      "judgment_standard": "정확성과 기한을 함께 지켰습니다.",
+      "direct_actions": [
+        "자료 대조",
+        "예외 보고"
+      ],
+      "job_connection": "사무 직무의 자료 심사와 연결됩니다.",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "question_id": "Q5",
+      "one_sentence_answer": "기준을 확인하고 직접 대조했습니다.",
+      "judgment_standard": "정확성과 기한을 함께 지켰습니다.",
+      "direct_actions": [
+        "자료 대조",
+        "예외 보고"
+      ],
+      "job_connection": "사무 직무의 자료 심사와 연결됩니다.",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "question_id": "Q6",
+      "one_sentence_answer": "기준을 확인하고 직접 대조했습니다.",
+      "judgment_standard": "정확성과 기한을 함께 지켰습니다.",
+      "direct_actions": [
+        "자료 대조",
+        "예외 보고"
+      ],
+      "job_connection": "사무 직무의 자료 심사와 연결됩니다.",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "question_id": "Q7",
+      "one_sentence_answer": "기준을 확인하고 직접 대조했습니다.",
+      "judgment_standard": "정확성과 기한을 함께 지켰습니다.",
+      "direct_actions": [
+        "자료 대조",
+        "예외 보고"
+      ],
+      "job_connection": "사무 직무의 자료 심사와 연결됩니다.",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "question_id": "Q8",
+      "one_sentence_answer": "기준을 확인하고 직접 대조했습니다.",
+      "judgment_standard": "정확성과 기한을 함께 지켰습니다.",
+      "direct_actions": [
+        "자료 대조",
+        "예외 보고"
+      ],
+      "job_connection": "사무 직무의 자료 심사와 연결됩니다.",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "question_id": "Q9",
+      "one_sentence_answer": "기준을 확인하고 직접 대조했습니다.",
+      "judgment_standard": "정확성과 기한을 함께 지켰습니다.",
+      "direct_actions": [
+        "자료 대조",
+        "예외 보고"
+      ],
+      "job_connection": "사무 직무의 자료 심사와 연결됩니다.",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "question_id": "Q10",
+      "one_sentence_answer": "기준을 확인하고 직접 대조했습니다.",
+      "judgment_standard": "정확성과 기한을 함께 지켰습니다.",
+      "direct_actions": [
+        "자료 대조",
+        "예외 보고"
+      ],
+      "job_connection": "사무 직무의 자료 심사와 연결됩니다.",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "question_id": "Q11",
+      "one_sentence_answer": "기준을 확인하고 직접 대조했습니다.",
+      "judgment_standard": "정확성과 기한을 함께 지켰습니다.",
+      "direct_actions": [
+        "자료 대조",
+        "예외 보고"
+      ],
+      "job_connection": "사무 직무의 자료 심사와 연결됩니다.",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "question_id": "Q12",
+      "one_sentence_answer": "기준을 확인하고 직접 대조했습니다.",
+      "judgment_standard": "정확성과 기한을 함께 지켰습니다.",
+      "direct_actions": [
+        "자료 대조",
+        "예외 보고"
+      ],
+      "job_connection": "사무 직무의 자료 심사와 연결됩니다.",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    }
+  ],
+  "probes": [
+    {
+      "probe_id": "P1",
+      "question_id": "Q1",
+      "category": "FACT",
+      "question": "FACT 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P2",
+      "question_id": "Q1",
+      "category": "JUDGMENT",
+      "question": "JUDGMENT 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P3",
+      "question_id": "Q1",
+      "category": "CONTRIBUTION",
+      "question": "CONTRIBUTION 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P4",
+      "question_id": "Q1",
+      "category": "ALTERNATIVE",
+      "question": "ALTERNATIVE 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P5",
+      "question_id": "Q1",
+      "category": "JOB_TRANSFER",
+      "question": "JOB_TRANSFER 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P6",
+      "question_id": "Q2",
+      "category": "FACT",
+      "question": "FACT 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P7",
+      "question_id": "Q2",
+      "category": "JUDGMENT",
+      "question": "JUDGMENT 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P8",
+      "question_id": "Q2",
+      "category": "CONTRIBUTION",
+      "question": "CONTRIBUTION 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P9",
+      "question_id": "Q2",
+      "category": "ALTERNATIVE",
+      "question": "ALTERNATIVE 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P10",
+      "question_id": "Q2",
+      "category": "JOB_TRANSFER",
+      "question": "JOB_TRANSFER 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P11",
+      "question_id": "Q3",
+      "category": "FACT",
+      "question": "FACT 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P12",
+      "question_id": "Q3",
+      "category": "JUDGMENT",
+      "question": "JUDGMENT 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P13",
+      "question_id": "Q3",
+      "category": "CONTRIBUTION",
+      "question": "CONTRIBUTION 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P14",
+      "question_id": "Q3",
+      "category": "ALTERNATIVE",
+      "question": "ALTERNATIVE 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P15",
+      "question_id": "Q3",
+      "category": "JOB_TRANSFER",
+      "question": "JOB_TRANSFER 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P16",
+      "question_id": "Q4",
+      "category": "FACT",
+      "question": "FACT 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P17",
+      "question_id": "Q4",
+      "category": "JUDGMENT",
+      "question": "JUDGMENT 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P18",
+      "question_id": "Q4",
+      "category": "CONTRIBUTION",
+      "question": "CONTRIBUTION 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P19",
+      "question_id": "Q4",
+      "category": "ALTERNATIVE",
+      "question": "ALTERNATIVE 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P20",
+      "question_id": "Q4",
+      "category": "JOB_TRANSFER",
+      "question": "JOB_TRANSFER 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P21",
+      "question_id": "Q5",
+      "category": "FACT",
+      "question": "FACT 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P22",
+      "question_id": "Q5",
+      "category": "JUDGMENT",
+      "question": "JUDGMENT 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P23",
+      "question_id": "Q5",
+      "category": "CONTRIBUTION",
+      "question": "CONTRIBUTION 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P24",
+      "question_id": "Q5",
+      "category": "ALTERNATIVE",
+      "question": "ALTERNATIVE 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P25",
+      "question_id": "Q5",
+      "category": "JOB_TRANSFER",
+      "question": "JOB_TRANSFER 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P26",
+      "question_id": "Q6",
+      "category": "FACT",
+      "question": "FACT 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P27",
+      "question_id": "Q6",
+      "category": "JUDGMENT",
+      "question": "JUDGMENT 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P28",
+      "question_id": "Q6",
+      "category": "CONTRIBUTION",
+      "question": "CONTRIBUTION 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P29",
+      "question_id": "Q6",
+      "category": "ALTERNATIVE",
+      "question": "ALTERNATIVE 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P30",
+      "question_id": "Q6",
+      "category": "JOB_TRANSFER",
+      "question": "JOB_TRANSFER 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P31",
+      "question_id": "Q7",
+      "category": "FACT",
+      "question": "FACT 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P32",
+      "question_id": "Q7",
+      "category": "JUDGMENT",
+      "question": "JUDGMENT 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P33",
+      "question_id": "Q7",
+      "category": "CONTRIBUTION",
+      "question": "CONTRIBUTION 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P34",
+      "question_id": "Q7",
+      "category": "ALTERNATIVE",
+      "question": "ALTERNATIVE 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P35",
+      "question_id": "Q7",
+      "category": "JOB_TRANSFER",
+      "question": "JOB_TRANSFER 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P36",
+      "question_id": "Q8",
+      "category": "FACT",
+      "question": "FACT 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P37",
+      "question_id": "Q8",
+      "category": "JUDGMENT",
+      "question": "JUDGMENT 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P38",
+      "question_id": "Q8",
+      "category": "CONTRIBUTION",
+      "question": "CONTRIBUTION 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P39",
+      "question_id": "Q8",
+      "category": "ALTERNATIVE",
+      "question": "ALTERNATIVE 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P40",
+      "question_id": "Q8",
+      "category": "JOB_TRANSFER",
+      "question": "JOB_TRANSFER 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P41",
+      "question_id": "Q9",
+      "category": "FACT",
+      "question": "FACT 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P42",
+      "question_id": "Q9",
+      "category": "JUDGMENT",
+      "question": "JUDGMENT 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P43",
+      "question_id": "Q9",
+      "category": "CONTRIBUTION",
+      "question": "CONTRIBUTION 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P44",
+      "question_id": "Q9",
+      "category": "ALTERNATIVE",
+      "question": "ALTERNATIVE 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P45",
+      "question_id": "Q9",
+      "category": "JOB_TRANSFER",
+      "question": "JOB_TRANSFER 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P46",
+      "question_id": "Q10",
+      "category": "FACT",
+      "question": "FACT 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P47",
+      "question_id": "Q10",
+      "category": "JUDGMENT",
+      "question": "JUDGMENT 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P48",
+      "question_id": "Q10",
+      "category": "CONTRIBUTION",
+      "question": "CONTRIBUTION 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P49",
+      "question_id": "Q10",
+      "category": "ALTERNATIVE",
+      "question": "ALTERNATIVE 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P50",
+      "question_id": "Q10",
+      "category": "JOB_TRANSFER",
+      "question": "JOB_TRANSFER 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P51",
+      "question_id": "Q11",
+      "category": "FACT",
+      "question": "FACT 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P52",
+      "question_id": "Q11",
+      "category": "JUDGMENT",
+      "question": "JUDGMENT 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P53",
+      "question_id": "Q11",
+      "category": "CONTRIBUTION",
+      "question": "CONTRIBUTION 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P54",
+      "question_id": "Q11",
+      "category": "ALTERNATIVE",
+      "question": "ALTERNATIVE 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P55",
+      "question_id": "Q11",
+      "category": "JOB_TRANSFER",
+      "question": "JOB_TRANSFER 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-1"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P56",
+      "question_id": "Q12",
+      "category": "FACT",
+      "question": "FACT 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P57",
+      "question_id": "Q12",
+      "category": "JUDGMENT",
+      "question": "JUDGMENT 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P58",
+      "question_id": "Q12",
+      "category": "CONTRIBUTION",
+      "question": "CONTRIBUTION 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P59",
+      "question_id": "Q12",
+      "category": "ALTERNATIVE",
+      "question": "ALTERNATIVE 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    },
+    {
+      "probe_id": "P60",
+      "question_id": "Q12",
+      "category": "JOB_TRANSFER",
+      "question": "JOB_TRANSFER 추가질문",
+      "status": "DEFENSIBLE",
+      "experience_claim_ids": [
+        "clm-2"
+      ],
+      "research_claim_ids": []
+    }
+  ],
+  "reverse_questions": [
+    "입사 초기 품질 기준은 무엇입니까?",
+    "반복되는 예외 업무는 무엇입니까?"
+  ],
+  "day_of_checklist": [
+    "회사명과 직무명 확인",
+    "핵심 수치 산출 방식 확인"
+  ],
+  "simulation_policy": {
+    "mode": "RANDOM_MIXED",
+    "feedback_timing": "AFTER_FULL_INTERVIEW",
+    "difficulty": "REALISTIC",
+    "one_question_at_a_time": true,
+    "wait_for_user_answer": true
+  },
+  "final_audit": {
+    "status": "PASS",
+    "strongest_point": "직접 행동과 판단 기준이 구분된다.",
+    "largest_risk": "회사 고유 질문은 실제 면접 단계에 따라 달라질 수 있다.",
+    "priority_revisions": []
+  }
+}

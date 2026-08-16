@@ -1,0 +1,181 @@
+{
+  "schema_version": 1,
+  "data_package_id": "CAREER-DATA-3B03F55784A4",
+  "systems": {
+    "A": "A",
+    "B": "B"
+  },
+  "blind_protocol": {
+    "system_labels_hidden": true,
+    "strategy_metadata_removed": true,
+    "file_order_randomized": true
+  },
+  "hard_fail": {
+    "A": [],
+    "B": []
+  },
+  "sections": {
+    "company_research": {
+      "business_model_depth": {
+        "choice": "TIE",
+        "reason": "PENDING",
+        "decisive_difference": "PENDING",
+        "evidence_refs": []
+      },
+      "strategy_execution_evidence": {
+        "choice": "TIE",
+        "reason": "PENDING",
+        "decisive_difference": "PENDING",
+        "evidence_refs": []
+      },
+      "recency": {
+        "choice": "TIE",
+        "reason": "PENDING",
+        "decisive_difference": "PENDING",
+        "evidence_refs": []
+      },
+      "source_traceability": {
+        "choice": "TIE",
+        "reason": "PENDING",
+        "decisive_difference": "PENDING",
+        "evidence_refs": []
+      },
+      "role_connection": {
+        "choice": "TIE",
+        "reason": "PENDING",
+        "decisive_difference": "PENDING",
+        "evidence_refs": []
+      },
+      "motivation_reusability": {
+        "choice": "TIE",
+        "reason": "PENDING",
+        "decisive_difference": "PENDING",
+        "evidence_refs": []
+      },
+      "prohibited_claim_control": {
+        "choice": "TIE",
+        "reason": "PENDING",
+        "decisive_difference": "PENDING",
+        "evidence_refs": []
+      },
+      "specificity_without_generalities": {
+        "choice": "TIE",
+        "reason": "PENDING",
+        "decisive_difference": "PENDING",
+        "evidence_refs": []
+      }
+    },
+    "self_intro": {
+      "question_fidelity": {
+        "choice": "TIE",
+        "reason": "PENDING",
+        "decisive_difference": "PENDING",
+        "evidence_refs": []
+      },
+      "fact_accuracy": {
+        "choice": "TIE",
+        "reason": "PENDING",
+        "decisive_difference": "PENDING",
+        "evidence_refs": []
+      },
+      "contribution_boundary": {
+        "choice": "TIE",
+        "reason": "PENDING",
+        "decisive_difference": "PENDING",
+        "evidence_refs": []
+      },
+      "action_and_judgment_specificity": {
+        "choice": "TIE",
+        "reason": "PENDING",
+        "decisive_difference": "PENDING",
+        "evidence_refs": []
+      },
+      "experience_allocation": {
+        "choice": "TIE",
+        "reason": "PENDING",
+        "decisive_difference": "PENDING",
+        "evidence_refs": []
+      },
+      "job_relevance": {
+        "choice": "TIE",
+        "reason": "PENDING",
+        "decisive_difference": "PENDING",
+        "evidence_refs": []
+      },
+      "company_specificity": {
+        "choice": "TIE",
+        "reason": "PENDING",
+        "decisive_difference": "PENDING",
+        "evidence_refs": []
+      },
+      "applicant_distinctiveness": {
+        "choice": "TIE",
+        "reason": "PENDING",
+        "decisive_difference": "PENDING",
+        "evidence_refs": []
+      },
+      "natural_korean": {
+        "choice": "TIE",
+        "reason": "PENDING",
+        "decisive_difference": "PENDING",
+        "evidence_refs": []
+      },
+      "length_and_format": {
+        "choice": "TIE",
+        "reason": "PENDING",
+        "decisive_difference": "PENDING",
+        "evidence_refs": []
+      },
+      "interview_defensibility": {
+        "choice": "TIE",
+        "reason": "PENDING",
+        "decisive_difference": "PENDING",
+        "evidence_refs": []
+      }
+    },
+    "interview": {
+      "question_relevance": {
+        "choice": "TIE",
+        "reason": "PENDING",
+        "decisive_difference": "PENDING",
+        "evidence_refs": []
+      },
+      "probe_depth": {
+        "choice": "TIE",
+        "reason": "PENDING",
+        "decisive_difference": "PENDING",
+        "evidence_refs": []
+      },
+      "submitted_claim_traceability": {
+        "choice": "TIE",
+        "reason": "PENDING",
+        "decisive_difference": "PENDING",
+        "evidence_refs": []
+      },
+      "spoken_answer_quality": {
+        "choice": "TIE",
+        "reason": "PENDING",
+        "decisive_difference": "PENDING",
+        "evidence_refs": []
+      },
+      "unknown_question_response": {
+        "choice": "TIE",
+        "reason": "PENDING",
+        "decisive_difference": "PENDING",
+        "evidence_refs": []
+      },
+      "fact_boundary_under_pressure": {
+        "choice": "TIE",
+        "reason": "PENDING",
+        "decisive_difference": "PENDING",
+        "evidence_refs": []
+      },
+      "retry_goal_specificity": {
+        "choice": "TIE",
+        "reason": "PENDING",
+        "decisive_difference": "PENDING",
+        "evidence_refs": []
+      }
+    }
+  }
+}

@@ -5,11 +5,11 @@ from .models import Question
 
 
 LIMIT = re.compile(
-    r"(?:최대\s*)?(?:0\s*/\s*)?(\d{2,4})\s*"
+    r"(?:최대\s*)?(?:0\s*/\s*)?(\d{2,5})\s*"
     r"(?:자(?:\s*(?:이내|내외))?|bytes?|\(\s*글자[^)]*\))",
     re.IGNORECASE,
 )
-RANGE_LIMIT = re.compile(r"(\d{2,4})\s*자\s*이상\s*(\d{2,4})\s*자\s*이내")
+RANGE_LIMIT = re.compile(r"(\d{2,5})\s*자\s*이상\s*(\d{2,5})\s*자\s*이내")
 QUESTION_END = re.compile(r"(?:주십시오|주세요|하시오|입니까|인가요)\.?$")
 
 

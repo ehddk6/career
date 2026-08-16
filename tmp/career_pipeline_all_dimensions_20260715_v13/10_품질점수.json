@@ -1,0 +1,54 @@
+[
+  {
+    "question_index": 1,
+    "score": {
+      "total": 100,
+      "factuality": 25,
+      "target_specificity": 20,
+      "action_result": 20,
+      "job_fit": 15,
+      "distinctiveness": 10,
+      "naturalness": 10,
+      "issues": []
+    }
+  },
+  {
+    "question_index": 2,
+    "score": {
+      "total": 100,
+      "factuality": 25,
+      "target_specificity": 20,
+      "action_result": 20,
+      "job_fit": 15,
+      "distinctiveness": 10,
+      "naturalness": 10,
+      "issues": []
+    }
+  },
+  {
+    "question_index": 3,
+    "score": {
+      "total": 100,
+      "factuality": 25,
+      "target_specificity": 20,
+      "action_result": 20,
+      "job_fit": 15,
+      "distinctiveness": 10,
+      "naturalness": 10,
+      "issues": []
+    }
+  },
+  {
+    "question_index": 4,
+    "score": {
+      "total": 100,
+      "factuality": 25,
+      "target_specificity": 20,
+      "action_result": 20,
+      "job_fit": 15,
+      "distinctiveness": 10,
+      "naturalness": 10,
+      "issues": []
+    }
+  }
+]
