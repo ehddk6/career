@@ -332,6 +332,7 @@ class ApplicationAnswer:
     answer: str
     answer_sha256: str
     character_limit: int | None = None
+    count_mode: CharacterCountMode = "spaces_included"
 
 
 @dataclass(frozen=True)
