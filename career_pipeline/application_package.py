@@ -12,9 +12,12 @@ import re
 from typing import Any, Mapping
 
 from .artifacts import load_and_verify_final_artifact, sha256_file
+from .character_count import count_characters
 from .eligibility import canonicalize_url
 from .models import ApplicantProfile, ApplicationAnswer, ApplicationAttachment, ApplicationPackage, EligibilityDecision, PostingRecord
 from .path_policy import LockAcquisitionError, PathConfinementError, PathLinkError, confine_path, exclusive_lock
+from .profile_refresh import refresh_profile
+from .profile_schema import ProfileValidationError, ledger_to_dict, load_ledger
 from .state import write_json
 
 SCHEMA_VERSION = 1
@@ -36,6 +39,74 @@ def _canonical_json(value: Any) -> bytes:
 
 def _digest(value: Any) -> str:
     return sha256(_canonical_json(value)).hexdigest()
+
+
+def _confirmed_ledger_digest(ledger: Any) -> str:
+    payload = ledger_to_dict(ledger)
+    experiences: list[dict[str, Any]] = []
+    for raw_experience in payload.get("experiences", []):
+        if not isinstance(raw_experience, dict) or raw_experience.get("status") != "confirmed":
+            continue
+        experience = dict(raw_experience)
+        claims = [
+            dict(claim)
+            for claim in experience.get("claims", [])
+            if isinstance(claim, dict) and claim.get("status") == "confirmed"
+        ]
+        for claim in claims:
+            claim["evidence"] = sorted(
+                [dict(item) for item in claim.get("evidence", []) if isinstance(item, dict)],
+                key=lambda item: (
+                    str(item.get("source_path", "")),
+                    int(item.get("paragraph_index", -1)),
+                    str(item.get("source_sha256", "")),
+                    str(item.get("excerpt_sha256", "")),
+                ),
+            )
+        claims.sort(
+            key=lambda item: (
+                str(item.get("claim_id", "")),
+                str(item.get("field", "")),
+                str(item.get("normalized_value", "")),
+            )
+        )
+        experience["claims"] = claims
+        experiences.append(experience)
+    experiences.sort(key=lambda item: str(item.get("experience_id", "")))
+    return _digest({"schema_version": payload.get("schema_version"), "experiences": experiences})
+
+
+def _v2_profile_freshness_reasons(
+    root: Path,
+    run_dir: Path,
+    run_state: dict[str, Any],
+) -> tuple[str, ...]:
+    if run_state.get("quality_mode") != "v2":
+        return ()
+    profile_ref = run_state.get("profile")
+    if not isinstance(profile_ref, str) or not profile_ref:
+        return ("profile_source_binding_missing",)
+    try:
+        frozen_path = _safe_file(
+            run_dir,
+            run_dir / "02_확정경험원장.json",
+            label="frozen confirmed experience ledger",
+        )
+        current_path = _safe_file(
+            root,
+            Path(profile_ref),
+            label="current approved experience ledger",
+        )
+        frozen = load_ledger(frozen_path)
+        current = load_ledger(current_path)
+    except (ApplicationPackageError, OSError, ProfileValidationError):
+        return ("profile_source_validation_failed",)
+    if _confirmed_ledger_digest(frozen) != _confirmed_ledger_digest(current):
+        return ("profile_ledger_stale",)
+    review = refresh_profile(root, frozen)
+    if any(item.status != "unchanged" for item in review.items):
+        return ("profile_source_evidence_stale",)
+    return ()
 
 
 def _resource_ref(kind: str, digest: str) -> str:
@@ -138,9 +209,24 @@ def _load_final_answers(run_dir: Path, state: dict[str, Any]) -> tuple[tuple[App
             raise ApplicationPackageError("final answers require unique positive question indexes and non-empty text")
         question = questions.get(index, {})
         limit = question.get("character_limit")
-        if limit is not None and (not isinstance(limit, int) or limit < 1 or len(answer) > limit):
+        count_mode = question.get("count_mode", "spaces_included")
+        if count_mode not in {"spaces_included", "spaces_excluded"}:
+            raise ApplicationPackageError(f"invalid character count mode for question {index}")
+        if limit is not None and (
+            not isinstance(limit, int)
+            or limit < 1
+            or count_characters(answer, count_mode) > limit
+        ):
             raise ApplicationPackageError(f"invalid or exceeded character limit for question {index}")
-        answers.append(ApplicationAnswer(f"answer_{index}", index, str(question.get("prompt", f"Question {index}")), answer, sha256(answer.encode()).hexdigest(), limit))
+        answers.append(ApplicationAnswer(
+            f"answer_{index}",
+            index,
+            str(question.get("prompt", f"Question {index}")),
+            answer,
+            sha256(answer.encode()).hexdigest(),
+            limit,
+            count_mode,
+        ))
         seen.add(index)
     answer_sha = sha256_file(answer_path)
     if artifact.get("sha256", {}).get("answer_json") != answer_sha:
@@ -161,6 +247,7 @@ def build_application_package(*, root: Path, run_dir: Path, run_state: dict[str,
     private_fields, _private_path, private_sha = load_private_fields(root, private_data_path)
     answers, final_sha, manifest_sha, question_sha = _load_final_answers(run_dir, run_state)
     reasons: list[str] = []
+    reasons.extend(_v2_profile_freshness_reasons(root, run_dir, run_state))
     if run_state.get("status") != "complete": reasons.append("final_run_not_complete")
     if decision.posting_id != posting.posting_id: reasons.append("decision_posting_mismatch")
     if decision.profile_id != profile.profile_id: reasons.append("decision_profile_mismatch")
@@ -176,7 +263,7 @@ def build_application_package(*, root: Path, run_dir: Path, run_state: dict[str,
         attachment_items.append(ApplicationAttachment(key, _resource_ref("attachment", digest), digest, size, media_type, suffix))
     identity = sha256(f"{profile.profile_id}|{profile_sha256}|{private_sha}".encode()).hexdigest()
     seed = (OUTPUT_CONTRACT_VERSION, posting.posting_id, posting.body_sha256, profile_sha256, question_sha, manifest_sha, final_sha, identity)
-    blocked = any(r.startswith(("final_run", "decision_", "posting_status", "eligibility_status:manual", "eligibility_status:ineligible")) for r in reasons)
+    blocked = any(r.startswith(("profile_", "final_run", "decision_", "posting_status", "eligibility_status:manual", "eligibility_status:ineligible")) for r in reasons)
     status = "blocked" if blocked else "manual_review" if decision.status == "eligible_with_gaps" else "ready_for_review"
     package = ApplicationPackage(
         SCHEMA_VERSION, "application-" + sha256("|".join(seed).encode()).hexdigest()[:24], created_at, "review_required",
@@ -207,7 +294,9 @@ def validate_application_package(package: ApplicationPackage) -> ApplicationPack
     for answer in package.answers:
         if not _FIELD_KEY.fullmatch(answer.field_key) or sha256(answer.answer.encode()).hexdigest() != answer.answer_sha256:
             raise ApplicationPackageError("invalid application answer")
-        if answer.character_limit is not None and len(answer.answer) > answer.character_limit:
+        if answer.count_mode not in {"spaces_included", "spaces_excluded"}:
+            raise ApplicationPackageError("invalid application answer count mode")
+        if answer.character_limit is not None and count_characters(answer.answer, answer.count_mode) > answer.character_limit:
             raise ApplicationPackageError("application answer exceeds character limit")
         answer_keys.append(answer.field_key)
     for attachment in package.attachments:

@@ -12,7 +12,9 @@ from career_pipeline.application_package import (ApplicationPackageError, applic
 from career_pipeline.artifacts import sha256_file
 from career_pipeline.__main__ import main
 from career_pipeline.eligibility import applicant_profile_to_dict, decision_to_dict, posting_record_to_dict
+from career_pipeline.inventory import digest_path
 from career_pipeline.models import ApplicantProfile, EligibilityDecision, PostingRecord
+from career_pipeline.profile_builder import excerpt_sha256
 from career_pipeline.state import write_json
 
 
@@ -37,6 +39,112 @@ def build_package(tmp_path:Path,eligibility_status="eligible"):
     run,state,profile,posting,decision,private,resume=package_inputs(tmp_path,eligibility_status)
     return build_application_package(root=tmp_path,run_dir=run,run_state=state,profile=profile,posting=posting,decision=decision,
         private_data_path=private,profile_sha256="d"*64,attachments={"resume":resume},created_at="2026-07-12T09:00:00+09:00")
+
+
+def configure_v2_profile(tmp_path: Path, run_dir: Path, state: dict):
+    source = tmp_path / "career.txt"
+    text = "자료를 확인해 처리 건수를 20건으로 정리했습니다."
+    source.write_text(text, encoding="utf-8")
+    payload = {
+        "schema_version": 1,
+        "generated_at": "2026-07-12T09:00:00+09:00",
+        "workspace_root": tmp_path.as_posix(),
+        "experiences": [
+            {
+                "experience_id": "exp_1",
+                "title": "자료 검증 경험",
+                "organization_alias": "",
+                "period": None,
+                "role": "",
+                "situation": text,
+                "actions": ["자료를 확인했습니다."],
+                "outcomes": [],
+                "competencies": ["정확성"],
+                "claims": [
+                    {
+                        "field": "case_count",
+                        "normalized_value": "20건",
+                        "status": "confirmed",
+                        "evidence": [
+                            {
+                                "source_path": "career.txt",
+                                "paragraph_index": 0,
+                                "source_sha256": digest_path(source),
+                                "excerpt_sha256": excerpt_sha256(text),
+                            }
+                        ],
+                    }
+                ],
+                "status": "confirmed",
+                "confirmed_at": "2026-07-12T09:00:00+09:00",
+            }
+        ],
+    }
+    profile_path = tmp_path / ".career_profile" / "experience_ledger.json"
+    profile_path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+    write_json(run_dir / "02_확정경험원장.json", payload)
+    state["quality_mode"] = "v2"
+    state["profile"] = str(profile_path)
+    return source, profile_path, payload
+
+
+def _build_from_inputs(tmp_path: Path, inputs):
+    run, state, profile, posting, decision, private, resume = inputs
+    return build_application_package(
+        root=tmp_path,
+        run_dir=run,
+        run_state=state,
+        profile=profile,
+        posting=posting,
+        decision=decision,
+        private_data_path=private,
+        profile_sha256="d" * 64,
+        attachments={"resume": resume},
+        created_at="2026-07-12T09:00:00+09:00",
+    )
+
+
+def test_v2_package_blocks_when_evidence_source_changes_after_run(tmp_path):
+    inputs = package_inputs(tmp_path)
+    run, state, *_ = inputs
+    source, _profile_path, _payload = configure_v2_profile(tmp_path, run, state)
+    assert _build_from_inputs(tmp_path, inputs).validation_status == "ready_for_review"
+    source.write_text(
+        "자료를 확인해 처리 건수를 21건으로 정리했습니다.", encoding="utf-8"
+    )
+    package = _build_from_inputs(tmp_path, inputs)
+    assert package.validation_status == "blocked"
+    assert "profile_source_evidence_stale" in package.validation_reasons
+
+
+def test_v2_package_blocks_when_confirmed_ledger_changes_after_run(tmp_path):
+    inputs = package_inputs(tmp_path)
+    run, state, *_ = inputs
+    _source, profile_path, payload = configure_v2_profile(tmp_path, run, state)
+    payload["experiences"][0]["claims"][0]["normalized_value"] = "21건"
+    profile_path.write_text(json.dumps(payload, ensure_ascii=False), encoding="utf-8")
+    package = _build_from_inputs(tmp_path, inputs)
+    assert package.validation_status == "blocked"
+    assert "profile_ledger_stale" in package.validation_reasons
+
+
+def test_package_preserves_spaces_excluded_character_count_mode(tmp_path):
+    inputs = package_inputs(tmp_path)
+    run, state, *_ = inputs
+    answer_path = run / "draft_final.json"
+    answer = "가 나 다"
+    answer_path.write_text(
+        json.dumps([{"question_index": 1, "answer": answer}], ensure_ascii=False),
+        encoding="utf-8",
+    )
+    state["questions"][0]["character_limit"] = 3
+    state["questions"][0]["count_mode"] = "spaces_excluded"
+    state["final_artifact"]["sha256"]["answer_json"] = sha256_file(answer_path)
+    package = _build_from_inputs(tmp_path, inputs)
+    assert len(answer) == 5
+    assert package.validation_status == "ready_for_review"
+    assert package.answers[0].character_limit == 3
+    assert package.answers[0].count_mode == "spaces_excluded"
 
 
 def test_package_is_private_and_materializes_only_with_runtime_bindings(tmp_path):
