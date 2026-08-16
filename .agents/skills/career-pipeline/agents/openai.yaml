@@ -1,4 +1,4 @@
 interface:
   display_name: "Career Pipeline"
-  short_description: "자소서 분석·공식 조사·작성·면접팩을 한 번에 실행"
-  default_prompt: "Use $career-pipeline to analyze my career files, research the target, draft the application, and build an interview pack."
+  short_description: "자소서 분석·공식 조사·선호학습 작성·면접팩을 한 번에 실행"
+  default_prompt: "Use $career-pipeline to analyze my career files, research the target, and draft the application. For V2 self-introduction drafting, when Narrative Compiler prerequisites are available, use career_pipeline.preference_writer with three blind-ranked candidates per question before finalize instead of hand-authoring draft.json; use the saved writing preference profile when present, then build the interview pack."
