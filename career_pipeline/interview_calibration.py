@@ -247,7 +247,9 @@ def calibrate_plan(plan: Mapping[str, Any], root: Path | None) -> dict[str, Any]
             if expected
             else _shrunk_yield(family_record)
         )
-        prior = float(item.get("base_diagnostic_value", 1.0))
+        prior = float(
+            item.get("prior_base_diagnostic_value", item.get("base_diagnostic_value", 1.0))
+        )
         bonus = max(-0.6, min(0.6, (expected_yield - PRIOR_YIELD) * 1.2))
         calibrated = max(0.1, prior + bonus)
         item["prior_base_diagnostic_value"] = prior

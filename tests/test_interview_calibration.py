@@ -110,6 +110,12 @@ def test_calibrated_selector_refines_prior_without_overriding_core(tmp_path: Pat
         for row in calibrated["question_bank"]
     }
     assert values["probe:causal"] > values["probe:generic"]
+    calibrated_twice = calibrate_plan(calibrated, tmp_path)
+    values_twice = {
+        row["question_id"]: row["base_diagnostic_value"]
+        for row in calibrated_twice["question_bank"]
+    }
+    assert values_twice == values
     selected = calibrated_select_next_question(
         plan, {"turns": [], "weak_dimensions": []}, tmp_path
     )
