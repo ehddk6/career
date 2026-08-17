@@ -1,6 +1,6 @@
 """Materialize and refresh the Evidence-First Company Research workspace.
 
-The workspace is deliberately separate from browsing. Agents or humans may use
+The workspace is deliberately separate from browsing.  Agents or humans may use
 any retrieval tool, but only claims that satisfy this deterministic contract are
 allowed to feed the writing pipeline.
 """
@@ -68,8 +68,11 @@ def _infer_role(claim: Mapping[str, Any], plan: Mapping[str, Any]) -> str:
     if claim_type == "program_or_service":
         wanted = _question_role_map(plan)
         for role in (
-            "current_priority", "institution_response", "real_operating_role",
-            "organization_differentiator", "stakeholder_problem",
+            "current_priority",
+            "institution_response",
+            "real_operating_role",
+            "organization_differentiator",
+            "stakeholder_problem",
         ):
             if role in wanted:
                 return role
@@ -80,10 +83,13 @@ def _default_freshness(claim: Mapping[str, Any]) -> str:
     explicit = str(claim.get("freshness_class", "")).strip()
     if explicit:
         return explicit
-    if str(claim.get("published_at", "")).strip() or str(claim.get("basis_date", "")).strip():
-        return "current"
+    source_type = str(claim.get("source_type", "")).strip().lower()
+    if str(claim.get("claim_type", "")) == "job_duty" and source_type in {"posting", "job_description"}:
+        return "posting_bound"
     if str(claim.get("claim_type", "")) in {"organization_role", "eligibility", "selection_criteria"}:
         return "stable"
+    # A date being present does not prove that the fact is current. Volatile
+    # facts must declare freshness explicitly at ingestion/research time.
     return "unknown"
 
 
@@ -95,7 +101,8 @@ def enrich_claim_metadata(claims: list[dict[str, Any]], plan: Mapping[str, Any])
         role = _infer_role(item, plan)
         if role:
             item["argument_role"] = role
-        item.setdefault("source_tier", 1 if item.get("source_type") else 2)
+        if "source_tier" not in item:
+            item["source_tier"] = tier_for_source_type(str(item.get("source_type", "unknown")))
         item.setdefault(
             "support_strength",
             "direct" if str(item.get("evidence_excerpt", "")).strip() else "unknown",
