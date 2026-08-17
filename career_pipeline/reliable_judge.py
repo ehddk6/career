@@ -16,11 +16,14 @@ def _canon(pref,orientation):
     return pref if orientation=="AB" else ("B" if pref=="A" else "A")
 def _summary(rows):
     counts={k:0 for k in VALID}
-    for r in rows:counts[r["canonical_preference"]]+=1
+    for r in rows:counts[str(r.get("canonical_preference","ABSTAIN")) if str(r.get("canonical_preference","ABSTAIN")) in VALID else "ABSTAIN"]+=1
     decisive=counts["A"]+counts["B"];winner="A" if counts["A"]>counts["B"] else "B" if counts["B"]>counts["A"] else None;margin=abs(counts["A"]-counts["B"])/decisive if decisive else 0;pairs={}
-    for r in rows:pairs.setdefault((r["model_id"],r["rubric_variant"],r["role"]),{})[r["orientation"]]=r["canonical_preference"]
+    for r in rows:pairs.setdefault((r.get("model_id"),r.get("rubric_variant"),r.get("role")),{})[r.get("orientation")]=r.get("canonical_preference")
     flips=sum(1 for p in pairs.values() if p.get("AB") in {"A","B"} and p.get("BA") in {"A","B"} and p["AB"]!=p["BA"]);paired=sum(1 for p in pairs.values() if "AB" in p and "BA" in p);flip=flips/paired if paired else 0;ab=(counts["TIE"]+counts["ABSTAIN"])/max(1,len(rows));stable=bool(winner) and margin>=0.5 and flip<=0.15 and ab<=0.4
     return {"counts":counts,"winner":winner,"decisive_margin":round(margin,3),"position_flip_rate":round(flip,3),"abstain_or_tie_rate":round(ab,3),"stable":stable}
+def summarize_canonical_preferences(rows:Sequence[Mapping[str,Any]])->dict[str,Any]:
+    """Summarize already-canonical A/B preference rows from any judge schema."""
+    return _summary(rows)
 def compare_candidates(candidate_a:str,candidate_b:str,*,rubric:Mapping[str,Any],model_ids:Sequence[str],runner:ModelRunner,timeout_ms:int=180000)->dict[str,Any]:
     if not model_ids:raise ValueError("model_ids must not be empty")
     variants=[("evidence_first","structured_reviewer",rubric),("question_first","skeptical_reviewer",dict(reversed(list(rubric.items()))))];rows=[]
