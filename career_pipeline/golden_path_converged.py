@@ -20,6 +20,7 @@ from .evidence_portfolio import (
     write_evidence_portfolio,
 )
 from .research_contract import ensure_canonical_research_pack
+from .interview_calibration import CALIBRATION_PROFILE, write_calibration_artifact
 from .reliable_deep_writer import REPORT_JSON as RELIABLE_JUDGE_REPORT, reliable_generate_prose
 
 CONVERGENCE_VERSION = "evidence_to_signal_contract_v2"
@@ -36,6 +37,23 @@ def _authority_view(run: Path) -> dict[str, Any]:
     value = dict(_BASE_RUN_AUTHORITY_VIEW(run))
     value["contract_convergence_version"] = CONVERGENCE_VERSION
     return value
+
+
+def _interview_learning_sha(run: Path) -> str | None:
+    state_path = run / "run.json"
+    try:
+        state = json.loads(state_path.read_text(encoding="utf-8"))
+    except (OSError, UnicodeError, json.JSONDecodeError):
+        return None
+    root_value = state.get("root") if isinstance(state, Mapping) else None
+    if not isinstance(root_value, str) or not root_value:
+        return None
+    root = Path(root_value).resolve()
+    values = {
+        "weakness": gp._file_sha(root / ".career_profile" / "interview_weakness_profile.json"),
+        "calibration": gp._file_sha(root / CALIBRATION_PROFILE),
+    }
+    return _hash_json(values)
 
 
 def _raw_research(run: Path) -> dict[str, dict[str, Any]]:
@@ -300,17 +318,22 @@ def converged_services() -> gp.GoldenPathServices:
     def compile_interview(run):
         _, _, assertions = write_assertion_artifacts(run)
         plan = dict(base.compile_interview(run))
+        try:
+            state = json.loads((run / "run.json").read_text(encoding="utf-8"))
+        except (OSError, UnicodeError, json.JSONDecodeError):
+            state = {}
+        root_value = state.get("root") if isinstance(state, Mapping) else None
+        root = Path(root_value).resolve() if isinstance(root_value, str) and root_value else None
+        calibration_path, plan = write_calibration_artifact(run, plan, root)
         plan["assertion_compiler"] = {
             "artifact": ASSERTION_JSON,
             "summary": assertions.get("summary", {}),
             "policy": "diagnostic_and_audit_gate_never_factual_authority",
         }
+        plan["interview_calibration_artifact"] = str(calibration_path)
         path = run / "08_면접지능설계.json"
         if path.is_file():
-            path.write_text(
-                json.dumps(plan, ensure_ascii=False, indent=2) + "\n",
-                encoding="utf-8",
-            )
+            path.write_text(json.dumps(plan, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
         return plan
 
     def audit(run):
@@ -322,13 +345,9 @@ def converged_services() -> gp.GoldenPathServices:
         original_values = audit_module.referenced_claim_values
         original_research_score = audit_module._research_score
         audit_module.referenced_claim_values = (
-            lambda responses, ledger: canonical_metric_values_for_responses(
-                run, responses, ledger
-            )
+            lambda responses, ledger: canonical_metric_values_for_responses(run, responses, ledger)
         )
-        audit_module._research_score = _compat_research_score(
-            run, audit_module, original_research_score
-        )
+        audit_module._research_score = _compat_research_score(run, audit_module, original_research_score)
         try:
             payload = dict(base.audit(run))
         finally:
@@ -353,13 +372,16 @@ def converged_services() -> gp.GoldenPathServices:
 def main(argv: list[str] | None = None) -> int:
     original_services = gp.default_services
     original_authority_view = gp._run_authority_view
+    original_weakness_sha = gp._weakness_sha
     gp.default_services = converged_services
     gp._run_authority_view = _authority_view
+    gp._weakness_sha = _interview_learning_sha
     try:
         return gp.main(argv)
     finally:
         gp.default_services = original_services
         gp._run_authority_view = original_authority_view
+        gp._weakness_sha = original_weakness_sha
 
 
 if __name__ == "__main__":
