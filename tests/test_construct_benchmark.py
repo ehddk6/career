@@ -43,6 +43,14 @@ def test_frozen_corpus_has_required_categories_and_unique_ids():
         "direct_but_unselected",
         "taxonomy_prior_escalation",
         "safe_paraphrase",
+        "atomic_action_direct_v2",
+        "metric_only_no_behavior",
+        "context_action_unbound",
+        "source_bound_action_direct",
+        "korean_inflection_invariance",
+        "wrong_actor",
+        "prior_only_criterion",
+        "partial_criterion",
     }.issubset(categories)
     ids = [row["case_id"] for row in payload["cases"]]
     assert len(ids) == len(set(ids))
@@ -63,6 +71,8 @@ def test_all_frozen_expectations_pass():
     assert report["summary"]["disagreement_detection_rate"] == 1.0
     assert report["summary"]["taxonomy_boundary_rate"] == 1.0
     assert report["summary"]["benign_relation_invariance_rate"] == 1.0
+    assert report["summary"]["v2_direct_precision_rate"] == 1.0
+    assert report["summary"]["v2_direct_recall_rate"] == 1.0
 
 
 def test_true_but_irrelevant_is_selected_lexically_but_flagged_construct_weak():
@@ -132,3 +142,101 @@ def test_safe_paraphrase_preserves_direct_construct_relation():
         if row["check"] == "same_relation_group:1"
     )
     assert group["actual"] == ["direct", "direct"]
+
+
+def _v2_relation(result, evidence_id: str, construct_id: str):
+    key = f"v2:relation:{evidence_id}|{construct_id}"
+    check = next(row for row in result["checks"] if row["check"] == key)
+    return check["actual"]
+
+
+def test_metric_only_claim_produces_no_v2_direct():
+    result = run_frozen_case(_case("metric_only_no_behavior"))
+    assert result["passed"] is True
+    assert _v2_relation(
+        result,
+        "applicant:exp-1:clm-metric",
+        "construct_criterion_application",
+    ) in {"none", "inferred"}
+
+
+def test_context_action_without_claim_backing_is_not_v2_direct():
+    result = run_frozen_case(_case("context_action_unbound"))
+    assert result["passed"] is True
+    assert _v2_relation(
+        result,
+        "applicant:exp-1:clm-1",
+        "construct_criterion_application",
+    ) != "direct"
+
+
+def test_atomic_action_direct_v2_is_v2_direct():
+    result = run_frozen_case(_case("atomic_action_direct_v2"))
+    assert result["passed"] is True
+    assert _v2_relation(
+        result,
+        "applicant:exp-1:clm-1",
+        "construct_criterion_application",
+    ) == "direct"
+
+
+def test_source_bound_action_direct_is_v2_direct():
+    result = run_frozen_case(_case("source_bound_action_direct"))
+    assert result["passed"] is True
+    assert _v2_relation(
+        result,
+        "applicant:exp-1:clm-1",
+        "construct_criterion_application",
+    ) == "direct"
+
+
+def test_korean_inflection_invariance_gives_identical_v2_relation():
+    result = run_frozen_case(_case("korean_inflection_invariance"))
+    assert result["passed"] is True
+    left = _v2_relation(
+        result,
+        "applicant:exp-1:clm-1",
+        "construct_criterion_application",
+    )
+    right = _v2_relation(
+        result,
+        "applicant:exp-2:clm-1",
+        "construct_criterion_application",
+    )
+    assert left == right == "direct"
+
+
+def test_wrong_actor_never_v2_direct():
+    result = run_frozen_case(_case("wrong_actor"))
+    assert result["passed"] is True
+    assert _v2_relation(
+        result,
+        "applicant:exp-1:clm-1",
+        "construct_criterion_application",
+    ) != "direct"
+
+
+def test_prior_only_criterion_never_v2_direct():
+    result = run_frozen_case(_case("prior_only_criterion"))
+    assert result["passed"] is True
+    prior_construct = next(
+        row["check"].split("|")[1]
+        for row in result["checks"]
+        if row["check"].startswith("v2:relation:")
+        and "|prior_" in row["check"]
+    )
+    assert _v2_relation(
+        result,
+        "applicant:exp-1:clm-1",
+        prior_construct,
+    ) != "direct"
+
+
+def test_partial_criterion_never_v2_direct():
+    result = run_frozen_case(_case("partial_criterion"))
+    assert result["passed"] is True
+    assert _v2_relation(
+        result,
+        "applicant:exp-1:clm-1",
+        "construct_criterion_application",
+    ) != "direct"

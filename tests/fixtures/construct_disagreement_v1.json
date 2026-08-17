@@ -837,6 +837,762 @@
         ]
       },
       "fixture_sha256": "9c102d0f5c6b8c4e9f8df011be5ed2b1e91a413eeecdd41b5b4274b98925b173"
+    },
+    {
+      "case_id": "atomic-action-direct-v2-001",
+      "description": "확정·제출안전 claim의 행동 동사(대조+확인)가 required micro criterion을 모두 충족하면 v2 direct여야 한다.",
+      "category": "atomic_action_direct_v2",
+      "fixture": {
+        "posting": {
+          "target": "테스트공사 행정",
+          "source": {
+            "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "duties": [
+            "신청서류를 공식 기준과 원문과 대조해 누락과 오류를 확인한다"
+          ],
+          "competencies": [
+            "기준과 서류를 대조하여 오류와 누락을 정확히 구분할 수 있다"
+          ],
+          "requirements": [],
+          "preferred": [],
+          "constraints": []
+        },
+        "run_state": {
+          "target": "테스트공사 행정",
+          "questions": [
+            {
+              "index": 1,
+              "prompt": "신청 서류 검토 직무에서 본인의 강점을 설명해 주십시오."
+            }
+          ]
+        },
+        "ledger": {
+          "experiences": [
+            {
+              "experience_id": "exp-1",
+              "status": "confirmed",
+              "title": "행정지원",
+              "role": "담당",
+              "situation": "신청서류 처리",
+              "actions": [],
+              "outcomes": [],
+              "competencies": [],
+              "claims": [
+                {
+                  "claim_id": "clm-1",
+                  "field": "action",
+                  "normalized_value": "원문과 입력값을 대조해 누락을 확인했습니다.",
+                  "status": "confirmed",
+                  "verification": {
+                    "method": "direct_source",
+                    "contribution": "caused"
+                  },
+                  "evidence": [
+                    {
+                      "source_path": "exp1/evidence.txt",
+                      "paragraph_index": 0,
+                      "source_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+                      "excerpt_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "research": [],
+        "taxonomy": [],
+        "max_per_question": 1
+      },
+      "expected": {
+        "core_construct_ids_contains": [
+          "construct_criterion_application"
+        ],
+        "relation_v2_expectations": [
+          {
+            "evidence_id": "applicant:exp-1:clm-1",
+            "construct_id": "construct_criterion_application",
+            "allowed": [
+              "direct"
+            ]
+          }
+        ],
+        "behavior_ir_expectations": {
+          "atom_actions_contains": {
+            "applicant:exp-1:clm-1": [
+              "대조",
+              "확인"
+            ]
+          },
+          "rejected_codes_contains": []
+        },
+        "v2_safety_zero": true
+      },
+      "fixture_sha256": "f451dbfaf156a9260cb401a514abba664a896e52b0d5d9e5449acef115522c12"
+    },
+    {
+      "case_id": "metric-only-no-behavior-001",
+      "description": "% 결과 claim은 행동 원자를 만들 수 없고 metric_claim_no_behavior로 거부되어야 하며 v2 direct가 아니어야 한다.",
+      "category": "metric_only_no_behavior",
+      "fixture": {
+        "posting": {
+          "target": "테스트공사 행정",
+          "source": {
+            "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "duties": [
+            "신청서류를 공식 기준과 원문과 대조해 누락과 오류를 확인한다"
+          ],
+          "competencies": [
+            "기준과 서류를 대조하여 오류와 누락을 정확히 구분할 수 있다"
+          ],
+          "requirements": [],
+          "preferred": [],
+          "constraints": []
+        },
+        "run_state": {
+          "target": "테스트공사 행정",
+          "questions": [
+            {
+              "index": 1,
+              "prompt": "신청 서류 검토 직무에서 본인의 강점을 설명해 주십시오."
+            }
+          ]
+        },
+        "ledger": {
+          "experiences": [
+            {
+              "experience_id": "exp-1",
+              "status": "confirmed",
+              "title": "행정지원",
+              "role": "담당",
+              "situation": "신청서류 처리",
+              "actions": [],
+              "outcomes": [],
+              "competencies": [],
+              "claims": [
+                {
+                  "claim_id": "clm-metric",
+                  "field": "action",
+                  "normalized_value": "처리 시간이 20% 감소했습니다.",
+                  "status": "confirmed",
+                  "verification": {
+                    "method": "before_after",
+                    "contribution": "caused",
+                    "baseline": "10",
+                    "result": "8",
+                    "formula": "decrease_percent",
+                    "scope": "동일업무",
+                    "measurement_period": "3개월"
+                  },
+                  "evidence": [
+                    {
+                      "source_path": "exp1/evidence.txt",
+                      "paragraph_index": 0,
+                      "source_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+                      "excerpt_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "research": [],
+        "taxonomy": [],
+        "max_per_question": 1
+      },
+      "expected": {
+        "core_construct_ids_contains": [
+          "construct_criterion_application"
+        ],
+        "relation_v2_expectations": [
+          {
+            "evidence_id": "applicant:exp-1:clm-metric",
+            "construct_id": "construct_criterion_application",
+            "allowed": [
+              "none",
+              "inferred"
+            ]
+          }
+        ],
+        "behavior_ir_expectations": {
+          "atom_count": 0,
+          "rejected_codes_contains": [
+            "metric_claim_no_behavior"
+          ]
+        },
+        "v2_safety_zero": true
+      },
+      "fixture_sha256": "270b2467a4fc4daec5188a28a2e6e544f22527061e1f0428d35384c1d4cf7451"
+    },
+    {
+      "case_id": "context-action-unbound-001",
+      "description": "actions 문구에만 있는 행동은 claim으로 뒷받침되지 않으므로 context_only_action_no_claim로 거부되고 v2 direct가 아니어야 한다.",
+      "category": "context_action_unbound",
+      "fixture": {
+        "posting": {
+          "target": "테스트공사 행정",
+          "source": {
+            "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "duties": [
+            "신청서류를 공식 기준과 원문과 대조해 누락과 오류를 확인한다"
+          ],
+          "competencies": [
+            "기준과 서류를 대조하여 오류와 누락을 정확히 구분할 수 있다"
+          ],
+          "requirements": [],
+          "preferred": [],
+          "constraints": []
+        },
+        "run_state": {
+          "target": "테스트공사 행정",
+          "questions": [
+            {
+              "index": 1,
+              "prompt": "신청 서류 검토 직무에서 본인의 강점을 설명해 주십시오."
+            }
+          ]
+        },
+        "ledger": {
+          "experiences": [
+            {
+              "experience_id": "exp-1",
+              "status": "confirmed",
+              "title": "행정지원",
+              "role": "담당",
+              "situation": "신청서류 처리",
+              "actions": [
+                "원문과 입력값을 대조해 누락을 구분했습니다"
+              ],
+              "outcomes": [],
+              "competencies": [],
+              "claims": [
+                {
+                  "claim_id": "clm-1",
+                  "field": "experience_summary",
+                  "normalized_value": "자료를 정리했습니다.",
+                  "status": "confirmed",
+                  "verification": {
+                    "method": "direct_source",
+                    "contribution": "contributed"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "research": [],
+        "taxonomy": [],
+        "max_per_question": 1
+      },
+      "expected": {
+        "relation_v2_expectations": [
+          {
+            "evidence_id": "applicant:exp-1:clm-1",
+            "construct_id": "construct_criterion_application",
+            "allowed": [
+              "partial",
+              "inferred",
+              "none"
+            ]
+          }
+        ],
+        "behavior_ir_expectations": {
+          "atom_actions_contains": {
+            "applicant:exp-1:clm-1": [
+              "정리"
+            ]
+          },
+          "rejected_codes_contains": [
+            "context_only_action_no_claim"
+          ]
+        },
+        "v2_safety_zero": true
+      },
+      "fixture_sha256": "45ee15453b70ace871b82a8578e1fd8739d58dcb08eb363f46fef76abc5306de"
+    },
+    {
+      "case_id": "source-bound-action-direct-001",
+      "description": "확정 claim과 동일 행동이 actions에 대조되어 있을 때 source_bound_action 원자가 만들어지고 v2 direct여야 한다.",
+      "category": "source_bound_action_direct",
+      "fixture": {
+        "posting": {
+          "target": "테스트공사 행정",
+          "source": {
+            "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "duties": [
+            "신청서류를 공식 기준과 원문과 대조해 누락과 오류를 확인한다"
+          ],
+          "competencies": [
+            "기준과 서류를 대조하여 오류와 누락을 정확히 구분할 수 있다"
+          ],
+          "requirements": [],
+          "preferred": [],
+          "constraints": []
+        },
+        "run_state": {
+          "target": "테스트공사 행정",
+          "questions": [
+            {
+              "index": 1,
+              "prompt": "신청 서류 검토 직무에서 본인의 강점을 설명해 주십시오."
+            }
+          ]
+        },
+        "ledger": {
+          "experiences": [
+            {
+              "experience_id": "exp-1",
+              "status": "confirmed",
+              "title": "행정지원",
+              "role": "담당",
+              "situation": "신청서류 처리",
+              "actions": [
+                "원문과 입력값을 대조해 누락을 구분했습니다"
+              ],
+              "outcomes": [],
+              "competencies": [],
+              "claims": [
+                {
+                  "claim_id": "clm-1",
+                  "field": "action",
+                  "normalized_value": "원문과 입력값을 대조해 누락을 확인했습니다.",
+                  "status": "confirmed",
+                  "verification": {
+                    "method": "direct_source",
+                    "contribution": "caused"
+                  },
+                  "evidence": [
+                    {
+                      "source_path": "exp1/evidence.txt",
+                      "paragraph_index": 0,
+                      "source_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+                      "excerpt_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "research": [],
+        "taxonomy": [],
+        "max_per_question": 1
+      },
+      "expected": {
+        "relation_v2_expectations": [
+          {
+            "evidence_id": "applicant:exp-1:clm-1",
+            "construct_id": "construct_criterion_application",
+            "allowed": [
+              "direct"
+            ]
+          }
+        ],
+        "behavior_ir_expectations": {
+          "projection_kinds_contains": {
+            "applicant:exp-1:clm-1": [
+              "source_bound_action"
+            ]
+          }
+        },
+        "v2_safety_zero": true
+      },
+      "fixture_sha256": "b66c11732b405555f9e4e80880bdef1febaae13bded82271222f9bd73f7b28fc"
+    },
+    {
+      "case_id": "korean-inflection-invariance-001",
+      "description": "대조해 vs 대조하여 같은 어미 변이는 동일 행동 동사로 정규화되어 동일한 v2 direct 결과를 주어야 한다.",
+      "category": "korean_inflection_invariance",
+      "fixture": {
+        "posting": {
+          "target": "테스트공사 행정",
+          "source": {
+            "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "duties": [
+            "신청서류를 공식 기준과 원문과 대조해 누락과 오류를 확인한다"
+          ],
+          "competencies": [
+            "기준과 서류를 대조하여 오류와 누락을 정확히 구분할 수 있다"
+          ],
+          "requirements": [],
+          "preferred": [],
+          "constraints": []
+        },
+        "run_state": {
+          "target": "테스트공사 행정",
+          "questions": [
+            {
+              "index": 1,
+              "prompt": "신청 서류 검토 직무에서 본인의 강점을 설명해 주십시오."
+            }
+          ]
+        },
+        "ledger": {
+          "experiences": [
+            {
+              "experience_id": "exp-1",
+              "status": "confirmed",
+              "title": "행정지원",
+              "role": "담당",
+              "situation": "신청서류 처리",
+              "actions": [],
+              "outcomes": [],
+              "competencies": [],
+              "claims": [
+                {
+                  "claim_id": "clm-1",
+                  "field": "action",
+                  "normalized_value": "원문과 대조해 누락을 확인했습니다.",
+                  "status": "confirmed",
+                  "verification": {
+                    "method": "direct_source",
+                    "contribution": "caused"
+                  },
+                  "evidence": [
+                    {
+                      "source_path": "exp1/evidence.txt",
+                      "paragraph_index": 0,
+                      "source_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+                      "excerpt_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "experience_id": "exp-2",
+              "status": "confirmed",
+              "title": "행정지원",
+              "role": "담당",
+              "situation": "신청서류 처리",
+              "actions": [],
+              "outcomes": [],
+              "competencies": [],
+              "claims": [
+                {
+                  "claim_id": "clm-1",
+                  "field": "action",
+                  "normalized_value": "원문과 대조하여 누락을 확인했습니다.",
+                  "status": "confirmed",
+                  "verification": {
+                    "method": "direct_source",
+                    "contribution": "caused"
+                  },
+                  "evidence": [
+                    {
+                      "source_path": "exp2/evidence.txt",
+                      "paragraph_index": 0,
+                      "source_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+                      "excerpt_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "research": [],
+        "taxonomy": [],
+        "max_per_question": 1
+      },
+      "expected": {
+        "relation_v2_expectations": [
+          {
+            "evidence_id": "applicant:exp-1:clm-1",
+            "construct_id": "construct_criterion_application",
+            "allowed": [
+              "direct"
+            ]
+          },
+          {
+            "evidence_id": "applicant:exp-2:clm-1",
+            "construct_id": "construct_criterion_application",
+            "allowed": [
+              "direct"
+            ]
+          }
+        ],
+        "behavior_ir_expectations": {
+          "atom_actions_contains": {
+            "applicant:exp-1:clm-1": [
+              "대조",
+              "확인"
+            ],
+            "applicant:exp-2:clm-1": [
+              "대조",
+              "확인"
+            ]
+          }
+        },
+        "v2_safety_zero": true
+      },
+      "fixture_sha256": "62184fd44d9972daf090fa54d5f601287365a2e2d8f777a42314a5bfc151b490"
+    },
+    {
+      "case_id": "wrong-actor-001",
+      "description": "팀 주어 행동은 applicant direct로 승격될 수 없다 (direct_blocked_actor_scope, partial 이하).",
+      "category": "wrong_actor",
+      "fixture": {
+        "posting": {
+          "target": "테스트공사 행정",
+          "source": {
+            "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "duties": [
+            "신청서류를 공식 기준과 원문과 대조해 누락과 오류를 확인한다"
+          ],
+          "competencies": [
+            "기준과 서류를 대조하여 오류와 누락을 정확히 구분할 수 있다"
+          ],
+          "requirements": [],
+          "preferred": [],
+          "constraints": []
+        },
+        "run_state": {
+          "target": "테스트공사 행정",
+          "questions": [
+            {
+              "index": 1,
+              "prompt": "신청 서류 검토 직무에서 본인의 강점을 설명해 주십시오."
+            }
+          ]
+        },
+        "ledger": {
+          "experiences": [
+            {
+              "experience_id": "exp-1",
+              "status": "confirmed",
+              "title": "행정지원",
+              "role": "담당",
+              "situation": "신청서류 처리",
+              "actions": [],
+              "outcomes": [],
+              "competencies": [],
+              "claims": [
+                {
+                  "claim_id": "clm-1",
+                  "field": "action",
+                  "normalized_value": "팀이 원문과 입력값을 대조해 누락을 확인했습니다.",
+                  "status": "confirmed",
+                  "verification": {
+                    "method": "direct_source",
+                    "contribution": "caused"
+                  },
+                  "evidence": [
+                    {
+                      "source_path": "exp1/evidence.txt",
+                      "paragraph_index": 0,
+                      "source_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+                      "excerpt_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "research": [],
+        "taxonomy": [],
+        "max_per_question": 1
+      },
+      "expected": {
+        "relation_v2_expectations": [
+          {
+            "evidence_id": "applicant:exp-1:clm-1",
+            "construct_id": "construct_criterion_application",
+            "allowed": [
+              "partial",
+              "inferred",
+              "none"
+            ]
+          }
+        ],
+        "behavior_ir_expectations": {
+          "actors_for": {
+            "applicant:exp-1:clm-1": [
+              "team"
+            ]
+          }
+        },
+        "v2_safety_zero": true
+      },
+      "fixture_sha256": "cea9dffca06aa649a03b62d9fc84005f501184acd6ccd8db2d5d53c685b95927"
+    },
+    {
+      "case_id": "prior-only-criterion-001",
+      "description": "taxonomy prior construct는 행동 원자가 충족해도 direct가 될 수 없다 (prior_only_criterion_no_direct).",
+      "category": "prior_only_criterion",
+      "fixture": {
+        "posting": {
+          "target": "테스트공사 행정",
+          "source": {
+            "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "duties": [],
+          "competencies": [],
+          "requirements": [],
+          "preferred": [],
+          "constraints": []
+        },
+        "run_state": {
+          "target": "테스트공사 행정",
+          "questions": [
+            {
+              "index": 1,
+              "prompt": "신청 서류 검토 직무에서 본인의 강점을 설명해 주십시오."
+            }
+          ]
+        },
+        "ledger": {
+          "experiences": [
+            {
+              "experience_id": "exp-1",
+              "status": "confirmed",
+              "title": "행정지원",
+              "role": "담당",
+              "situation": "신청서류 처리",
+              "actions": [],
+              "outcomes": [],
+              "competencies": [],
+              "claims": [
+                {
+                  "claim_id": "clm-1",
+                  "field": "action",
+                  "normalized_value": "원문과 입력값을 대조해 누락을 확인했습니다.",
+                  "status": "confirmed",
+                  "verification": {
+                    "method": "direct_source",
+                    "contribution": "caused"
+                  },
+                  "evidence": [
+                    {
+                      "source_path": "exp1/evidence.txt",
+                      "paragraph_index": 0,
+                      "source_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+                      "excerpt_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "research": [],
+        "taxonomy": [
+          {
+            "label": "기준과 원문을 대조해 누락을 확인하고 분류한다",
+            "source_family": "ncs",
+            "source_id": "src-ncs-criterion",
+            "source_locator": "ncs[1]"
+          }
+        ],
+        "max_per_question": 1
+      },
+      "expected": {
+        "core_construct_ids_excludes_prefix": [
+          "prior_"
+        ],
+        "relation_v2_expectations": [
+          {
+            "evidence_id": "applicant:exp-1:clm-1",
+            "construct_id_prefix": "prior_criterion_application",
+            "allowed": [
+              "partial",
+              "inferred",
+              "none"
+            ]
+          }
+        ],
+        "v2_safety_zero": true
+      },
+      "fixture_sha256": "ed04ab03580c0ec0078e61e4019fdcd005d0f6653c8409de5dd7053eb00b5cd7"
+    },
+    {
+      "case_id": "partial-criterion-001",
+      "description": "required criterion 일부만 충족하면 v2 partial이어야 한다 (대조만 있고 확인 없음).",
+      "category": "partial_criterion",
+      "fixture": {
+        "posting": {
+          "target": "테스트공사 행정",
+          "source": {
+            "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+          },
+          "duties": [
+            "신청서류를 공식 기준과 원문과 대조해 누락과 오류를 확인한다"
+          ],
+          "competencies": [
+            "기준과 서류를 대조하여 오류와 누락을 정확히 구분할 수 있다"
+          ],
+          "requirements": [],
+          "preferred": [],
+          "constraints": []
+        },
+        "run_state": {
+          "target": "테스트공사 행정",
+          "questions": [
+            {
+              "index": 1,
+              "prompt": "신청 서류 검토 직무에서 본인의 강점을 설명해 주십시오."
+            }
+          ]
+        },
+        "ledger": {
+          "experiences": [
+            {
+              "experience_id": "exp-1",
+              "status": "confirmed",
+              "title": "행정지원",
+              "role": "담당",
+              "situation": "신청서류 처리",
+              "actions": [],
+              "outcomes": [],
+              "competencies": [],
+              "claims": [
+                {
+                  "claim_id": "clm-1",
+                  "field": "action",
+                  "normalized_value": "원문을 대조했습니다.",
+                  "status": "confirmed",
+                  "verification": {
+                    "method": "direct_source",
+                    "contribution": "caused"
+                  },
+                  "evidence": [
+                    {
+                      "source_path": "exp1/evidence.txt",
+                      "paragraph_index": 0,
+                      "source_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+                      "excerpt_sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "research": [],
+        "taxonomy": [],
+        "max_per_question": 1
+      },
+      "expected": {
+        "relation_v2_expectations": [
+          {
+            "evidence_id": "applicant:exp-1:clm-1",
+            "construct_id": "construct_criterion_application",
+            "allowed": [
+              "partial"
+            ]
+          }
+        ],
+        "v2_safety_zero": true
+      },
+      "fixture_sha256": "e50f0342cf249a026a9c1bb272c15f6dbf933a05d3b05a93d84165c20dc6cac4"
     }
   ]
 }

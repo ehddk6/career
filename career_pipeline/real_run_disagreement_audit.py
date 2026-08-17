@@ -49,6 +49,8 @@ import re
 from pathlib import Path
 from typing import Any, Mapping
 
+from .behavior_ir import build_behavior_atoms
+from .construct_relation_v2 import build_relation_v2
 from .evidence_portfolio import (
     _candidates,
     _rel,
@@ -236,10 +238,17 @@ def audit_run(run_dir: Path) -> dict[str, Any] | None:
         evidence_portfolio=ep,
         run_state=state,
     )
+    atoms_payload = build_behavior_atoms(ledger)
 
     core_ids = set(graph.core_construct_ids)
     bindings = _binding_families(graph)
     links = [row for row in cp.get("links", []) or [] if isinstance(row, Mapping)]
+    v1_relations: dict[str, dict[str, str]] = {}
+    for row in links:
+        v1_relations.setdefault(str(row.get("evidence_id")), {})[
+            str(row.get("construct_id"))
+        ] = str(row.get("relation"))
+    v2_payload = build_relation_v2(graph, atoms_payload, v1_relations)
 
     taxonomy_sourced_target = [
         construct.construct_id
@@ -314,12 +323,29 @@ def audit_run(run_dir: Path) -> dict[str, Any] | None:
                 cp.get("uncovered_core_construct_ids", []) or [],
                 signal_covered,
             )
+            sig_contrib = float(
+                (preferred or {}).get("signal_relevance_contribution", 0.0)
+                or 0.0
+            )
+            qo_contrib = float(
+                (preferred or {}).get("question_overlap_contribution", 0.0)
+                or 0.0
+            )
+            if sig_contrib > 0:
+                score_bucket = "positive_signal_relevance"
+            elif qo_contrib > 0:
+                score_bucket = "positive_question_overlap_only"
+            elif bool((preferred or {}).get("selected_due_to_defensibility_only", False)):
+                score_bucket = "defensibility_only"
+            else:
+                score_bucket = "reuse_or_other"
             disagreements.append(
                 {
                     "kind": kind,
                     "question_index": question_index,
                     "evidence_id": evidence_id,
                     "classification": classification,
+                    "score_bucket": score_bucket,
                     "signal_covered": signal_covered,
                     "link_count": len(evidence_links),
                     "atomic_core_link_count": sum(
@@ -367,6 +393,64 @@ def audit_run(run_dir: Path) -> dict[str, Any] | None:
                 str(claim.get("normalized_value", ""))
             )
 
+    v2_links = [
+        row for row in v2_payload.get("relations", []) or [] if isinstance(row, Mapping)
+    ]
+    v2_direct = [row for row in v2_links if row.get("relation") == "direct"]
+    v2_direct_violations = [
+        row
+        for row in v2_direct
+        if row.get("context_only") or not row.get("authority_ok")
+    ]
+    selected_evidence = {
+        str(row.get("evidence_id"))
+        for assignment in ep.get("assignments", []) or []
+        if isinstance(assignment, Mapping)
+        for row in assignment.get("preferred_evidence", []) or []
+        if isinstance(row, Mapping) and row.get("evidence_id")
+    }
+    real_b_v2 = [
+        row
+        for row in v2_direct
+        if row.get("construct_id") in core_ids
+        and str(row.get("evidence_id", "")) not in selected_evidence
+    ]
+    v1_to_v2 = {}
+    for row in v2_links:
+        v1_relation = v1_relations.get(str(row.get("evidence_id")), {}).get(
+            str(row.get("construct_id")), "none"
+        )
+        v1_to_v2[(str(row.get("evidence_id")), str(row.get("construct_id")))] = (
+            v1_relation,
+            str(row.get("relation")),
+        )
+    confirmed_claims = [
+        claim
+        for experience in ledger.get("experiences", []) or []
+        if isinstance(experience, Mapping) and experience.get("status") == "confirmed"
+        for claim in (experience.get("claims", []) or [])
+        if isinstance(claim, Mapping) and str(claim.get("status", "")) == "confirmed"
+    ]
+    atomized_claims = {
+        (str(atom.get("experience_id")), str(atom.get("claim_id")))
+        for atom in atoms_payload.get("atoms", []) or []
+        if isinstance(atom, Mapping)
+    }
+    zero_signal_rows = [
+        row
+        for assignment in ep.get("assignments", []) or []
+        if isinstance(assignment, Mapping)
+        for row in assignment.get("preferred_evidence", []) or []
+        if isinstance(row, Mapping) and row.get("zero_signal_selection")
+    ]
+    defensibility_only_rows = [
+        row
+        for assignment in ep.get("assignments", []) or []
+        if isinstance(assignment, Mapping)
+        for row in assignment.get("preferred_evidence", []) or []
+        if isinstance(row, Mapping) and row.get("selected_due_to_defensibility_only")
+    ]
+
     return {
         "run_name": run.name,
         "target": str(state.get("target", "")),
@@ -384,6 +468,53 @@ def audit_run(run_dir: Path) -> dict[str, Any] | None:
             "context_only_direct_violations": len(context_only_direct),
             "false_direct_violations": len(false_direct),
             "generic_direct_candidates": len(generic_direct),
+        },
+        "behavior_ir": {
+            "atom_count": int(atoms_payload.get("summary", {}).get("atom_count", 0)),
+            "rejected_projection_count": int(
+                atoms_payload.get("summary", {}).get("rejected_projection_count", 0)
+            ),
+            "source_bound_action_count": int(
+                atoms_payload.get("summary", {}).get("source_bound_action_count", 0)
+            ),
+            "confirmed_claim_count": len(confirmed_claims),
+            "atomizable_claim_count": len(atomized_claims),
+            "atomizable_claim_rate": round(
+                len(atomized_claims) / max(1, len(confirmed_claims)), 3
+            ),
+        },
+        "v2_link_summary": {
+            "direct": len(v2_direct),
+            "partial": sum(r.get("relation") == "partial" for r in v2_links),
+            "inferred": sum(r.get("relation") == "inferred" for r in v2_links),
+            "none": sum(r.get("relation") == "none" for r in v2_links),
+            "direct_run": bool(v2_direct),
+        },
+        "v2_safety": dict(v2_payload.get("safety", {})),
+        "v2_direct_violation_count": len(v2_direct_violations),
+        "v2_comparison": {
+            "v1_to_v2_direct_recovery_count": sum(
+                1
+                for v1_relation, v2_relation in v1_to_v2.values()
+                if v1_relation == "direct" and v2_relation == "direct"
+            ),
+            "v1_partial_to_v2_direct_count": sum(
+                1
+                for v1_relation, v2_relation in v1_to_v2.values()
+                if v1_relation == "partial" and v2_relation == "direct"
+            ),
+            "v1_inferred_to_v2_direct_count": sum(
+                1
+                for v1_relation, v2_relation in v1_to_v2.values()
+                if v1_relation == "inferred" and v2_relation == "direct"
+            ),
+        },
+        "real_b_v2_evidence_ids": sorted(
+            {str(row.get("evidence_id", "")) for row in real_b_v2}
+        ),
+        "portfolio_score_decomposition": {
+            "zero_signal_selected_count": len(zero_signal_rows),
+            "defensibility_only_selected_count": len(defensibility_only_rows),
         },
         "disagreements": disagreements,
         "claim_texts": claim_texts,
@@ -409,6 +540,21 @@ def _render_markdown(report: Mapping[str, Any]) -> str:
         f"- generic_direct_candidates: {report['generic_direct_candidate_count']}",
         f"- runs with uncovered core constructs: {report['uncovered_core_runs']} "
         f"(total {report['uncovered_core_construct_total']})",
+        "",
+        f"- behavior atoms: {report['behavior_ir']['atom_count']} "
+        f"(runs: {report['behavior_ir']['behavior_atom_run_count']}, "
+        f"rejected projections: {report['behavior_ir']['rejected_projection_count']}, "
+        f"atomizable claim rate: {report['behavior_ir']['atomizable_claim_rate']})",
+        f"- v2 direct: {report['v2']['direct_count']} (runs: {report['v2']['direct_run_count']}), "
+        f"partial: {report['v2']['partial_count']}, "
+        f"inferred: {report['v2']['inferred_count']}, "
+        f"none: {report['v2']['none_count']}",
+        f"- v2 comparison: {report['v2']['comparison']}",
+        f"- v2 safety: {report['v2_safety']}",
+        f"- real B under v2: {report['real_b_v2_count']}",
+        f"- zero-signal selected: {report['portfolio_score_decomposition']['zero_signal_selected_count']}, "
+        f"defensibility-only selected: {report['portfolio_score_decomposition']['defensibility_only_selected_count']}",
+        f"- A score buckets: {report['score_decomposition']}",
         "",
     ]
     for record in report.get("runs", []) or []:
@@ -488,6 +634,59 @@ def main() -> None:
         len(record["uncovered_core_construct_ids"]) for record in records
     )
 
+    ir = {
+        key: sum(int(record.get("behavior_ir", {}).get(key, 0)) for record in records)
+        for key in (
+            "atom_count",
+            "rejected_projection_count",
+            "source_bound_action_count",
+            "atomizable_claim_count",
+            "confirmed_claim_count",
+        )
+    }
+    v2_links = {
+        key: sum(
+            int(record.get("v2_link_summary", {}).get(key, 0)) for record in records
+        )
+        for key in ("direct", "partial", "inferred", "none")
+    }
+    v2_safety: dict[str, int] = {}
+    for record in records:
+        for key, value in record.get("v2_safety", {}).items():
+            v2_safety[key] = v2_safety.get(key, 0) + int(value or 0)
+    v2_comp = {
+        key: sum(
+            int(record.get("v2_comparison", {}).get(key, 0)) for record in records
+        )
+        for key in (
+            "v1_to_v2_direct_recovery_count",
+            "v1_partial_to_v2_direct_count",
+            "v1_inferred_to_v2_direct_count",
+        )
+    }
+    score_bucket_counts: dict[str, int] = {}
+    for record in records:
+        for row in record["disagreements"]:
+            bucket = row.get("score_bucket")
+            if bucket:
+                score_bucket_counts[bucket] = score_bucket_counts.get(bucket, 0) + 1
+    portfolio_decomp = {
+        key: sum(
+            int(record.get("portfolio_score_decomposition", {}).get(key, 0))
+            for record in records
+        )
+        for key in ("zero_signal_selected_count", "defensibility_only_selected_count")
+    }
+    real_b_v2_total = sum(
+        len(record.get("real_b_v2_evidence_ids", [])) for record in records
+    )
+    v2_direct_run_count = sum(
+        1 for record in records if record.get("v2_link_summary", {}).get("direct_run")
+    )
+    atom_run_count = sum(
+        1 for record in records if record.get("behavior_ir", {}).get("atom_count", 0) > 0
+    )
+
     report = {
         "generated_at": "2026-08-17T00:00:00+09:00",
         "audit_script": "career_pipeline/real_run_disagreement_audit.py",
@@ -520,6 +719,32 @@ def main() -> None:
         ),
         "uncovered_core_runs": uncovered_runs,
         "uncovered_core_construct_total": total_uncovered,
+        "behavior_ir": {
+            "atom_count": ir["atom_count"],
+            "behavior_atom_run_count": atom_run_count,
+            "rejected_projection_count": ir["rejected_projection_count"],
+            "atomizable_claim_count": ir["atomizable_claim_count"],
+            "confirmed_claim_count": ir["confirmed_claim_count"],
+            "atomizable_claim_rate": round(
+                ir["atomizable_claim_count"] / max(1, ir["confirmed_claim_count"]), 3
+            ),
+            "source_bound_action_atom_count": ir["source_bound_action_count"],
+        },
+        "v2": {
+            "direct_count": v2_links["direct"],
+            "direct_run_count": v2_direct_run_count,
+            "partial_count": v2_links["partial"],
+            "inferred_count": v2_links["inferred"],
+            "none_count": v2_links["none"],
+            "comparison": v2_comp,
+        },
+        "v2_safety": v2_safety,
+        "v2_direct_violation_count": sum(
+            int(record.get("v2_direct_violation_count", 0)) for record in records
+        ),
+        "real_b_v2_count": real_b_v2_total,
+        "score_decomposition": score_bucket_counts,
+        "portfolio_score_decomposition": portfolio_decomp,
         "runs": records,
     }
     detail_path = out_root / "2026-08-17-real-run-disagreement-audit.detailed.json"

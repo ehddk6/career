@@ -42,19 +42,23 @@ def _candidates(ledger:Mapping[str,Any],research:list[Any])->list[dict[str,Any]]
     return rows
 def _rel(c:Mapping[str,Any],s:Mapping[str,Any])->float:
     ct,st=set(c.get("tokens",[])),set(s.get("tokens",[]));return len(ct&st)/max(1,min(len(st),8)) if ct and st else 0.0
+def score_candidate(c:Mapping[str,Any],signals:list[Mapping[str,Any]],qt:set[str],usage_count:float|int)->dict[str,Any]:
+    ss={s["signal_id"]:round(_rel(c,s),3) for s in signals};weighted=sum(ss[s["signal_id"]]*float(s["weight"]) for s in signals);qo=len(qt&set(c.get("tokens",[])))/max(1,min(len(qt),8)) if qt else 0;defensibility=float(c.get("defensibility",1));risk=float(c.get("risk",0));reuse=float(usage_count or 0)
+    sig_contrib=round(weighted,3);qo_contrib=round(qo*1.1,3);zero_signal=bool(sig_contrib==0 and qo_contrib==0)
+    return {"ss":ss,"score":weighted+qo*1.1+defensibility*0.75-risk*0.8-reuse*0.35,"signal_relevance_contribution":sig_contrib,"question_overlap_contribution":qo_contrib,"defensibility_contribution":round(defensibility*0.75,3),"risk_penalty":round(risk*0.8,3),"reuse_penalty":round(reuse*0.35,3),"zero_signal_selection":zero_signal,"positive_relevance_contribution":bool(sig_contrib>0 or qo_contrib>0),"selected_due_to_defensibility_only":zero_signal}
 def build_evidence_portfolio(run_dir:Path,*,max_per_question:int=2)->dict[str,Any]:
     run_dir=run_dir.resolve();state=_read(run_dir/"run.json",{});posting=_read(run_dir/"00_채용공고분석.json",{});ledger=_read(run_dir/"02_확정경험원장.json",{});research=_read(run_dir/"04_공식근거.json",[]);state=state if isinstance(state,Mapping) else {};posting=posting if isinstance(posting,Mapping) else {};ledger=ledger if isinstance(ledger,Mapping) else {};research=research if isinstance(research,list) else [];signals=_signals(posting,state);candidates=_candidates(ledger,research);usage={};assignments=[];covered=set()
     for q in state.get("questions",[]) or []:
         if not isinstance(q,Mapping) or not isinstance(q.get("index"),int):continue
         qi=int(q["index"]);qt=_tokens(str(q.get("prompt","")));scored=[]
         for c in candidates:
-            ss={s["signal_id"]:round(_rel(c,s),3) for s in signals};weighted=sum(ss[s["signal_id"]]*float(s["weight"]) for s in signals);qo=len(qt&set(c.get("tokens",[])))/max(1,min(len(qt),8)) if qt else 0;score=weighted+qo*1.1+float(c.get("defensibility",1))*0.75-float(c.get("risk",0))*0.8-usage.get(str(c["evidence_id"]),0)*0.35;scored.append((score,c,ss))
+            part=score_candidate(c,signals,qt,usage.get(str(c["evidence_id"]),0));scored.append((part["score"],c,part))
         scored.sort(key=lambda x:(-x[0],str(x[1]["evidence_id"])));chosen=[];seen_exp=set()
-        for score,c,ss in scored:
+        for score,c,part in scored:
             if score<=0:continue
             exp=str(c.get("experience_id",""))
             if exp and exp in seen_exp and len(chosen)+1<max_per_question:continue
-            top=[sid for sid,val in sorted(ss.items(),key=lambda x:(-x[1],x[0])) if val>0][:4];chosen.append({"evidence_id":c["evidence_id"],"source_kind":c["source_kind"],"planning_score":round(score,3),"covered_signal_ids":top,"factual_authority_granted":False});usage[str(c["evidence_id"])]=usage.get(str(c["evidence_id"]),0)+1;covered.update(top);seen_exp.add(exp) if exp else None
+            top=[sid for sid,val in sorted(part["ss"].items(),key=lambda x:(-x[1],x[0])) if val>0][:4];chosen.append({"evidence_id":c["evidence_id"],"source_kind":c["source_kind"],"planning_score":round(score,3),"signal_relevance_contribution":part["signal_relevance_contribution"],"question_overlap_contribution":part["question_overlap_contribution"],"defensibility_contribution":part["defensibility_contribution"],"risk_penalty":part["risk_penalty"],"reuse_penalty":part["reuse_penalty"],"covered_signal_ids":top,"covered_signal_count":len(top),"zero_signal_selection":part["zero_signal_selection"],"positive_relevance_contribution":part["positive_relevance_contribution"],"selected_due_to_defensibility_only":part["selected_due_to_defensibility_only"],"factual_authority_granted":False});usage[str(c["evidence_id"])]=usage.get(str(c["evidence_id"]),0)+1;covered.update(top);seen_exp.add(exp) if exp else None
             if len(chosen)>=max_per_question:break
         assignments.append({"question_index":qi,"preferred_evidence":chosen})
     total=sum(float(s["weight"]) for s in signals) or 1;cov=sum(float(s["weight"]) for s in signals if s["signal_id"] in covered)

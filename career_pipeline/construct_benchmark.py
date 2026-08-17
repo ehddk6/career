@@ -12,7 +12,9 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 from typing import Any, Mapping, Sequence
 
+from .behavior_ir import build_behavior_atoms
 from .construct_portfolio import build_construct_portfolio
+from .construct_relation_v2 import build_relation_v2
 from .evidence_portfolio import build_evidence_portfolio
 from .job_analysis_compiler import build_job_analysis_graph
 
@@ -125,6 +127,8 @@ def _evaluate_expected(
     graph: Any,
     portfolio: Mapping[str, Any],
     matrix: Mapping[str, Any],
+    atoms_payload: Mapping[str, Any],
+    v2_payload: Mapping[str, Any],
 ) -> list[dict[str, Any]]:
     checks: list[dict[str, Any]] = []
 
@@ -355,7 +359,135 @@ def _evaluate_expected(
             },
         )
 
+    _evaluate_v2_expected(
+        expected,
+        add=add,
+        atoms_payload=atoms_payload,
+        v2_payload=v2_payload,
+    )
+
     return checks
+
+
+def _evaluate_v2_expected(
+    expected: Mapping[str, Any],
+    *,
+    add: Any,
+    atoms_payload: Mapping[str, Any],
+    v2_payload: Mapping[str, Any],
+) -> None:
+    atoms = atoms_payload.get("atoms", []) or []
+    atoms_by_evidence: dict[str, list[dict[str, Any]]] = {}
+    for atom in atoms:
+        if isinstance(atom, Mapping):
+            atoms_by_evidence.setdefault(
+                str(atom.get("applicant_evidence_id", "")), []
+            ).append(atom)
+    rejected_codes = {
+        str(row.get("code"))
+        for row in atoms_payload.get("rejected", []) or []
+        if isinstance(row, Mapping)
+    }
+    ir_expected = expected.get("behavior_ir_expectations", {})
+    if isinstance(ir_expected, Mapping):
+        if "atom_count" in ir_expected:
+            wanted = int(ir_expected["atom_count"])
+            add("v2:atom_count", len(atoms) == wanted, len(atoms), wanted)
+        required_rejected = {
+            str(value)
+            for value in ir_expected.get("rejected_codes_contains", []) or []
+        }
+        add(
+            "v2:rejected_codes_contains",
+            required_rejected.issubset(rejected_codes),
+            sorted(rejected_codes),
+            sorted(required_rejected),
+        )
+        for evidence_id, actions in (
+            ir_expected.get("atom_actions_contains", {}) or {}
+        ).items():
+            actual = sorted(
+                {
+                    str(atom.get("action"))
+                    for atom in atoms_by_evidence.get(str(evidence_id), [])
+                }
+            )
+            required = sorted(str(value) for value in actions or [])
+            add(
+                f"v2:atom_actions:{evidence_id}",
+                set(required).issubset(set(actual)),
+                actual,
+                required,
+            )
+        for evidence_id, kinds in (
+            ir_expected.get("projection_kinds_contains", {}) or {}
+        ).items():
+            actual = sorted(
+                {
+                    str(atom.get("projection_kind"))
+                    for atom in atoms_by_evidence.get(str(evidence_id), [])
+                }
+            )
+            required = sorted(str(value) for value in kinds or [])
+            add(
+                f"v2:projection_kinds:{evidence_id}",
+                set(required).issubset(set(actual)),
+                actual,
+                required,
+            )
+        for evidence_id, actors in (
+            ir_expected.get("actors_for", {}) or {}
+        ).items():
+            actual = sorted(
+                {
+                    str(atom.get("actor"))
+                    for atom in atoms_by_evidence.get(str(evidence_id), [])
+                }
+            )
+            required = sorted(str(value) for value in actors or [])
+            add(
+                f"v2:actors_for:{evidence_id}",
+                set(required).issubset(set(actual)),
+                actual,
+                required,
+            )
+
+    v2_relations = {
+        (str(row.get("evidence_id")), str(row.get("construct_id"))): str(
+            row.get("relation")
+        )
+        for row in v2_payload.get("relations", []) or []
+        if isinstance(row, Mapping)
+    }
+    for row in expected.get("relation_v2_expectations", []) or []:
+        if not isinstance(row, Mapping):
+            continue
+        evidence_id = str(row.get("evidence_id", ""))
+        prefix = str(row.get("construct_id_prefix", ""))
+        if prefix:
+            candidates = [
+                relation
+                for (eid, cid), relation in v2_relations.items()
+                if eid == evidence_id and cid.startswith(prefix)
+            ]
+            label = f"{evidence_id}|{prefix}*"
+        else:
+            candidates = [
+                v2_relations.get((evidence_id, str(row.get("construct_id", ""))), "none")
+            ]
+            label = f"{evidence_id}|{row.get('construct_id', '')}"
+        actual = candidates[0] if candidates else "none"
+        allowed = [str(value) for value in row.get("allowed", []) or []]
+        add(f"v2:relation:{label}", actual in allowed, actual, allowed)
+
+    if expected.get("v2_safety_zero", False):
+        safety = v2_payload.get("safety", {})
+        violations = {
+            key: int(value)
+            for key, value in safety.items()
+            if int(value or 0) != 0
+        }
+        add("v2:safety_zero", not violations, violations, {})
 
 
 def run_frozen_case(case: Mapping[str, Any]) -> dict[str, Any]:
@@ -402,11 +534,24 @@ def run_frozen_case(case: Mapping[str, Any]) -> dict[str, Any]:
             evidence_portfolio=lexical,
             run_state=state if isinstance(state, Mapping) else {},
         )
+        atoms_payload = build_behavior_atoms(
+            ledger if isinstance(ledger, Mapping) else {}
+        )
+        v1_relations = {
+            str(row.get("evidence_id")): {
+                str(row.get("construct_id")): str(row.get("relation"))
+            }
+            for row in matrix.get("links", []) or []
+            if isinstance(row, Mapping)
+        }
+        v2_payload = build_relation_v2(graph, atoms_payload, v1_relations)
     checks = _evaluate_expected(
         case["expected"],
         graph=graph,
         portfolio=lexical,
         matrix=matrix,
+        atoms_payload=atoms_payload,
+        v2_payload=v2_payload,
     )
     return {
         "case_id": case["case_id"],
@@ -472,6 +617,22 @@ def run_corpus(payload: Mapping[str, Any]) -> dict[str, Any]:
         ),
         "benign_relation_invariance_rate": category_rate(
             {"safe_paraphrase"}
+        ),
+        "v2_direct_precision_rate": category_rate(
+            {
+                "wrong_actor",
+                "prior_only_criterion",
+                "metric_only_no_behavior",
+                "context_action_unbound",
+            }
+        ),
+        "v2_direct_recall_rate": category_rate(
+            {
+                "atomic_action_direct_v2",
+                "source_bound_action_direct",
+                "korean_inflection_invariance",
+                "partial_criterion",
+            }
         ),
     }
     return {

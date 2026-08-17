@@ -77,6 +77,12 @@
             "factual_authority_granted": false,
             "construct_authority_added": false
           }
+        },
+        {
+          "check": "v2:rejected_codes_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
         }
       ],
       "observed": {
@@ -185,6 +191,14 @@
             "factual_authority_granted": false,
             "construct_authority_added": false
           }
+        },
+        {
+          "check": "v2:rejected_codes_contains",
+          "passed": true,
+          "actual": [
+            "context_only_action_no_claim"
+          ],
+          "expected": []
         }
       ],
       "observed": {
@@ -305,6 +319,12 @@
             "factual_authority_granted": false,
             "construct_authority_added": false
           }
+        },
+        {
+          "check": "v2:rejected_codes_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
         }
       ],
       "observed": {
@@ -406,6 +426,12 @@
             "factual_authority_granted": false,
             "construct_authority_added": false
           }
+        },
+        {
+          "check": "v2:rejected_codes_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
         }
       ],
       "observed": {
@@ -517,6 +543,14 @@
             "factual_authority_granted": false,
             "construct_authority_added": false
           }
+        },
+        {
+          "check": "v2:rejected_codes_contains",
+          "passed": true,
+          "actual": [
+            "metric_claim_no_behavior"
+          ],
+          "expected": []
         }
       ],
       "observed": {
@@ -621,6 +655,12 @@
             "factual_authority_granted": false,
             "construct_authority_added": false
           }
+        },
+        {
+          "check": "v2:rejected_codes_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
         }
       ],
       "observed": {
@@ -713,6 +753,12 @@
             "factual_authority_granted": false,
             "construct_authority_added": false
           }
+        },
+        {
+          "check": "v2:rejected_codes_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
         }
       ],
       "observed": {
@@ -813,6 +859,12 @@
             "factual_authority_granted": false,
             "construct_authority_added": false
           }
+        },
+        {
+          "check": "v2:rejected_codes_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
         }
       ],
       "observed": {
@@ -906,6 +958,14 @@
             "factual_authority_granted": false,
             "construct_authority_added": false
           }
+        },
+        {
+          "check": "v2:rejected_codes_contains",
+          "passed": true,
+          "actual": [
+            "unconfirmed_claim"
+          ],
+          "expected": []
         }
       ],
       "observed": {
@@ -1017,6 +1077,12 @@
             "factual_authority_granted": false,
             "construct_authority_added": false
           }
+        },
+        {
+          "check": "v2:rejected_codes_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
         }
       ],
       "observed": {
@@ -1033,16 +1099,934 @@
         ],
         "disagreement_kinds": []
       }
+    },
+    {
+      "case_id": "atomic-action-direct-v2-001",
+      "category": "atomic_action_direct_v2",
+      "description": "확정·제출안전 claim의 행동 동사(대조+확인)가 required micro criterion을 모두 충족하면 v2 direct여야 한다.",
+      "fixture_sha256": "f451dbfaf156a9260cb401a514abba664a896e52b0d5d9e5449acef115522c12",
+      "passed": true,
+      "checks": [
+        {
+          "check": "core_construct_ids_contains",
+          "passed": true,
+          "actual": [
+            "construct_criterion_application"
+          ],
+          "expected": [
+            "construct_criterion_application"
+          ]
+        },
+        {
+          "check": "core_construct_ids_excludes_prefix",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "disagreement_kinds_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "uncovered_core_construct_ids_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "no_evidence_prefixes",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_contains",
+          "passed": true,
+          "actual": [
+            "applicant:exp-1:clm-1"
+          ],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_excludes",
+          "passed": true,
+          "actual": [
+            "applicant:exp-1:clm-1"
+          ],
+          "expected": []
+        },
+        {
+          "check": "matrix_grants_no_authority",
+          "passed": true,
+          "actual": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          },
+          "expected": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          }
+        },
+        {
+          "check": "v2:rejected_codes_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "v2:atom_actions:applicant:exp-1:clm-1",
+          "passed": true,
+          "actual": [
+            "대조",
+            "확인"
+          ],
+          "expected": [
+            "대조",
+            "확인"
+          ]
+        },
+        {
+          "check": "v2:relation:applicant:exp-1:clm-1|construct_criterion_application",
+          "passed": true,
+          "actual": "direct",
+          "expected": [
+            "direct"
+          ]
+        },
+        {
+          "check": "v2:safety_zero",
+          "passed": true,
+          "actual": {},
+          "expected": {}
+        }
+      ],
+      "observed": {
+        "graph_id": "b9955ada024aeb3c6a5b",
+        "matrix_id": "bdc30cfb46812cc4bd50",
+        "core_construct_ids": [
+          "construct_criterion_application"
+        ],
+        "selected_evidence_ids": [
+          "applicant:exp-1:clm-1"
+        ],
+        "disagreement_kinds": []
+      }
+    },
+    {
+      "case_id": "metric-only-no-behavior-001",
+      "category": "metric_only_no_behavior",
+      "description": "% 결과 claim은 행동 원자를 만들 수 없고 metric_claim_no_behavior로 거부되어야 하며 v2 direct가 아니어야 한다.",
+      "fixture_sha256": "270b2467a4fc4daec5188a28a2e6e544f22527061e1f0428d35384c1d4cf7451",
+      "passed": true,
+      "checks": [
+        {
+          "check": "core_construct_ids_contains",
+          "passed": true,
+          "actual": [
+            "construct_criterion_application"
+          ],
+          "expected": [
+            "construct_criterion_application"
+          ]
+        },
+        {
+          "check": "core_construct_ids_excludes_prefix",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "disagreement_kinds_contains",
+          "passed": true,
+          "actual": [
+            "lexical_high_construct_weak"
+          ],
+          "expected": []
+        },
+        {
+          "check": "uncovered_core_construct_ids_contains",
+          "passed": true,
+          "actual": [
+            "construct_criterion_application"
+          ],
+          "expected": []
+        },
+        {
+          "check": "no_evidence_prefixes",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_contains",
+          "passed": true,
+          "actual": [
+            "applicant:exp-1:clm-metric"
+          ],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_excludes",
+          "passed": true,
+          "actual": [
+            "applicant:exp-1:clm-metric"
+          ],
+          "expected": []
+        },
+        {
+          "check": "matrix_grants_no_authority",
+          "passed": true,
+          "actual": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          },
+          "expected": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          }
+        },
+        {
+          "check": "v2:atom_count",
+          "passed": true,
+          "actual": 0,
+          "expected": 0
+        },
+        {
+          "check": "v2:rejected_codes_contains",
+          "passed": true,
+          "actual": [
+            "metric_claim_no_behavior"
+          ],
+          "expected": [
+            "metric_claim_no_behavior"
+          ]
+        },
+        {
+          "check": "v2:relation:applicant:exp-1:clm-metric|construct_criterion_application",
+          "passed": true,
+          "actual": "none",
+          "expected": [
+            "none",
+            "inferred"
+          ]
+        },
+        {
+          "check": "v2:safety_zero",
+          "passed": true,
+          "actual": {},
+          "expected": {}
+        }
+      ],
+      "observed": {
+        "graph_id": "b9955ada024aeb3c6a5b",
+        "matrix_id": "0ff9dbf4c695a6508b72",
+        "core_construct_ids": [
+          "construct_criterion_application"
+        ],
+        "selected_evidence_ids": [
+          "applicant:exp-1:clm-metric"
+        ],
+        "disagreement_kinds": [
+          "lexical_high_construct_weak"
+        ]
+      }
+    },
+    {
+      "case_id": "context-action-unbound-001",
+      "category": "context_action_unbound",
+      "description": "actions 문구에만 있는 행동은 claim으로 뒷받침되지 않으므로 context_only_action_no_claim로 거부되고 v2 direct가 아니어야 한다.",
+      "fixture_sha256": "45ee15453b70ace871b82a8578e1fd8739d58dcb08eb363f46fef76abc5306de",
+      "passed": true,
+      "checks": [
+        {
+          "check": "core_construct_ids_contains",
+          "passed": true,
+          "actual": [
+            "construct_criterion_application"
+          ],
+          "expected": []
+        },
+        {
+          "check": "core_construct_ids_excludes_prefix",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "disagreement_kinds_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "uncovered_core_construct_ids_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "no_evidence_prefixes",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_contains",
+          "passed": true,
+          "actual": [
+            "applicant:exp-1:clm-1"
+          ],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_excludes",
+          "passed": true,
+          "actual": [
+            "applicant:exp-1:clm-1"
+          ],
+          "expected": []
+        },
+        {
+          "check": "matrix_grants_no_authority",
+          "passed": true,
+          "actual": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          },
+          "expected": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          }
+        },
+        {
+          "check": "v2:rejected_codes_contains",
+          "passed": true,
+          "actual": [
+            "context_only_action_no_claim"
+          ],
+          "expected": [
+            "context_only_action_no_claim"
+          ]
+        },
+        {
+          "check": "v2:atom_actions:applicant:exp-1:clm-1",
+          "passed": true,
+          "actual": [
+            "정리"
+          ],
+          "expected": [
+            "정리"
+          ]
+        },
+        {
+          "check": "v2:relation:applicant:exp-1:clm-1|construct_criterion_application",
+          "passed": true,
+          "actual": "partial",
+          "expected": [
+            "partial",
+            "inferred",
+            "none"
+          ]
+        },
+        {
+          "check": "v2:safety_zero",
+          "passed": true,
+          "actual": {},
+          "expected": {}
+        }
+      ],
+      "observed": {
+        "graph_id": "b9955ada024aeb3c6a5b",
+        "matrix_id": "2641ca2c3710490c8121",
+        "core_construct_ids": [
+          "construct_criterion_application"
+        ],
+        "selected_evidence_ids": [
+          "applicant:exp-1:clm-1"
+        ],
+        "disagreement_kinds": []
+      }
+    },
+    {
+      "case_id": "source-bound-action-direct-001",
+      "category": "source_bound_action_direct",
+      "description": "확정 claim과 동일 행동이 actions에 대조되어 있을 때 source_bound_action 원자가 만들어지고 v2 direct여야 한다.",
+      "fixture_sha256": "b66c11732b405555f9e4e80880bdef1febaae13bded82271222f9bd73f7b28fc",
+      "passed": true,
+      "checks": [
+        {
+          "check": "core_construct_ids_contains",
+          "passed": true,
+          "actual": [
+            "construct_criterion_application"
+          ],
+          "expected": []
+        },
+        {
+          "check": "core_construct_ids_excludes_prefix",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "disagreement_kinds_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "uncovered_core_construct_ids_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "no_evidence_prefixes",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_contains",
+          "passed": true,
+          "actual": [
+            "applicant:exp-1:clm-1"
+          ],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_excludes",
+          "passed": true,
+          "actual": [
+            "applicant:exp-1:clm-1"
+          ],
+          "expected": []
+        },
+        {
+          "check": "matrix_grants_no_authority",
+          "passed": true,
+          "actual": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          },
+          "expected": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          }
+        },
+        {
+          "check": "v2:rejected_codes_contains",
+          "passed": true,
+          "actual": [
+            "context_only_action_no_claim"
+          ],
+          "expected": []
+        },
+        {
+          "check": "v2:projection_kinds:applicant:exp-1:clm-1",
+          "passed": true,
+          "actual": [
+            "lossless_claim_projection",
+            "source_bound_action"
+          ],
+          "expected": [
+            "source_bound_action"
+          ]
+        },
+        {
+          "check": "v2:relation:applicant:exp-1:clm-1|construct_criterion_application",
+          "passed": true,
+          "actual": "direct",
+          "expected": [
+            "direct"
+          ]
+        },
+        {
+          "check": "v2:safety_zero",
+          "passed": true,
+          "actual": {},
+          "expected": {}
+        }
+      ],
+      "observed": {
+        "graph_id": "b9955ada024aeb3c6a5b",
+        "matrix_id": "d05e5251c89db930fc3b",
+        "core_construct_ids": [
+          "construct_criterion_application"
+        ],
+        "selected_evidence_ids": [
+          "applicant:exp-1:clm-1"
+        ],
+        "disagreement_kinds": []
+      }
+    },
+    {
+      "case_id": "korean-inflection-invariance-001",
+      "category": "korean_inflection_invariance",
+      "description": "대조해 vs 대조하여 같은 어미 변이는 동일 행동 동사로 정규화되어 동일한 v2 direct 결과를 주어야 한다.",
+      "fixture_sha256": "62184fd44d9972daf090fa54d5f601287365a2e2d8f777a42314a5bfc151b490",
+      "passed": true,
+      "checks": [
+        {
+          "check": "core_construct_ids_contains",
+          "passed": true,
+          "actual": [
+            "construct_criterion_application"
+          ],
+          "expected": []
+        },
+        {
+          "check": "core_construct_ids_excludes_prefix",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "disagreement_kinds_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "uncovered_core_construct_ids_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "no_evidence_prefixes",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_contains",
+          "passed": true,
+          "actual": [
+            "applicant:exp-2:clm-1"
+          ],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_excludes",
+          "passed": true,
+          "actual": [
+            "applicant:exp-2:clm-1"
+          ],
+          "expected": []
+        },
+        {
+          "check": "matrix_grants_no_authority",
+          "passed": true,
+          "actual": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          },
+          "expected": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          }
+        },
+        {
+          "check": "v2:rejected_codes_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "v2:atom_actions:applicant:exp-1:clm-1",
+          "passed": true,
+          "actual": [
+            "대조",
+            "확인"
+          ],
+          "expected": [
+            "대조",
+            "확인"
+          ]
+        },
+        {
+          "check": "v2:atom_actions:applicant:exp-2:clm-1",
+          "passed": true,
+          "actual": [
+            "대조",
+            "확인"
+          ],
+          "expected": [
+            "대조",
+            "확인"
+          ]
+        },
+        {
+          "check": "v2:relation:applicant:exp-1:clm-1|construct_criterion_application",
+          "passed": true,
+          "actual": "direct",
+          "expected": [
+            "direct"
+          ]
+        },
+        {
+          "check": "v2:relation:applicant:exp-2:clm-1|construct_criterion_application",
+          "passed": true,
+          "actual": "direct",
+          "expected": [
+            "direct"
+          ]
+        },
+        {
+          "check": "v2:safety_zero",
+          "passed": true,
+          "actual": {},
+          "expected": {}
+        }
+      ],
+      "observed": {
+        "graph_id": "b9955ada024aeb3c6a5b",
+        "matrix_id": "f21dc0fcbbff7c9b5380",
+        "core_construct_ids": [
+          "construct_criterion_application"
+        ],
+        "selected_evidence_ids": [
+          "applicant:exp-2:clm-1"
+        ],
+        "disagreement_kinds": []
+      }
+    },
+    {
+      "case_id": "wrong-actor-001",
+      "category": "wrong_actor",
+      "description": "팀 주어 행동은 applicant direct로 승격될 수 없다 (direct_blocked_actor_scope, partial 이하).",
+      "fixture_sha256": "cea9dffca06aa649a03b62d9fc84005f501184acd6ccd8db2d5d53c685b95927",
+      "passed": true,
+      "checks": [
+        {
+          "check": "core_construct_ids_contains",
+          "passed": true,
+          "actual": [
+            "construct_criterion_application"
+          ],
+          "expected": []
+        },
+        {
+          "check": "core_construct_ids_excludes_prefix",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "disagreement_kinds_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "uncovered_core_construct_ids_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "no_evidence_prefixes",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_contains",
+          "passed": true,
+          "actual": [
+            "applicant:exp-1:clm-1"
+          ],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_excludes",
+          "passed": true,
+          "actual": [
+            "applicant:exp-1:clm-1"
+          ],
+          "expected": []
+        },
+        {
+          "check": "matrix_grants_no_authority",
+          "passed": true,
+          "actual": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          },
+          "expected": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          }
+        },
+        {
+          "check": "v2:rejected_codes_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "v2:actors_for:applicant:exp-1:clm-1",
+          "passed": true,
+          "actual": [
+            "team"
+          ],
+          "expected": [
+            "team"
+          ]
+        },
+        {
+          "check": "v2:relation:applicant:exp-1:clm-1|construct_criterion_application",
+          "passed": true,
+          "actual": "partial",
+          "expected": [
+            "partial",
+            "inferred",
+            "none"
+          ]
+        },
+        {
+          "check": "v2:safety_zero",
+          "passed": true,
+          "actual": {},
+          "expected": {}
+        }
+      ],
+      "observed": {
+        "graph_id": "b9955ada024aeb3c6a5b",
+        "matrix_id": "bdc30cfb46812cc4bd50",
+        "core_construct_ids": [
+          "construct_criterion_application"
+        ],
+        "selected_evidence_ids": [
+          "applicant:exp-1:clm-1"
+        ],
+        "disagreement_kinds": []
+      }
+    },
+    {
+      "case_id": "prior-only-criterion-001",
+      "category": "prior_only_criterion",
+      "description": "taxonomy prior construct는 행동 원자가 충족해도 direct가 될 수 없다 (prior_only_criterion_no_direct).",
+      "fixture_sha256": "ed04ab03580c0ec0078e61e4019fdcd005d0f6653c8409de5dd7053eb00b5cd7",
+      "passed": true,
+      "checks": [
+        {
+          "check": "core_construct_ids_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "core_construct_ids_excludes_prefix",
+          "passed": true,
+          "actual": [],
+          "expected": [
+            "prior_"
+          ]
+        },
+        {
+          "check": "disagreement_kinds_contains",
+          "passed": true,
+          "actual": [
+            "lexical_high_construct_weak"
+          ],
+          "expected": []
+        },
+        {
+          "check": "uncovered_core_construct_ids_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "no_evidence_prefixes",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_contains",
+          "passed": true,
+          "actual": [
+            "applicant:exp-1:clm-1"
+          ],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_excludes",
+          "passed": true,
+          "actual": [
+            "applicant:exp-1:clm-1"
+          ],
+          "expected": []
+        },
+        {
+          "check": "matrix_grants_no_authority",
+          "passed": true,
+          "actual": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          },
+          "expected": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          }
+        },
+        {
+          "check": "v2:rejected_codes_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "v2:relation:applicant:exp-1:clm-1|prior_criterion_application*",
+          "passed": true,
+          "actual": "partial",
+          "expected": [
+            "partial",
+            "inferred",
+            "none"
+          ]
+        },
+        {
+          "check": "v2:safety_zero",
+          "passed": true,
+          "actual": {},
+          "expected": {}
+        }
+      ],
+      "observed": {
+        "graph_id": "21db0290473c2c9d64e3",
+        "matrix_id": "5dc4bace178d36b8dc4d",
+        "core_construct_ids": [],
+        "selected_evidence_ids": [
+          "applicant:exp-1:clm-1"
+        ],
+        "disagreement_kinds": [
+          "lexical_high_construct_weak"
+        ]
+      }
+    },
+    {
+      "case_id": "partial-criterion-001",
+      "category": "partial_criterion",
+      "description": "required criterion 일부만 충족하면 v2 partial이어야 한다 (대조만 있고 확인 없음).",
+      "fixture_sha256": "e50f0342cf249a026a9c1bb272c15f6dbf933a05d3b05a93d84165c20dc6cac4",
+      "passed": true,
+      "checks": [
+        {
+          "check": "core_construct_ids_contains",
+          "passed": true,
+          "actual": [
+            "construct_criterion_application"
+          ],
+          "expected": []
+        },
+        {
+          "check": "core_construct_ids_excludes_prefix",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "disagreement_kinds_contains",
+          "passed": true,
+          "actual": [
+            "lexical_high_construct_weak"
+          ],
+          "expected": []
+        },
+        {
+          "check": "uncovered_core_construct_ids_contains",
+          "passed": true,
+          "actual": [
+            "construct_criterion_application"
+          ],
+          "expected": []
+        },
+        {
+          "check": "no_evidence_prefixes",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_contains",
+          "passed": true,
+          "actual": [
+            "applicant:exp-1:clm-1"
+          ],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_excludes",
+          "passed": true,
+          "actual": [
+            "applicant:exp-1:clm-1"
+          ],
+          "expected": []
+        },
+        {
+          "check": "matrix_grants_no_authority",
+          "passed": true,
+          "actual": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          },
+          "expected": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          }
+        },
+        {
+          "check": "v2:rejected_codes_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "v2:relation:applicant:exp-1:clm-1|construct_criterion_application",
+          "passed": true,
+          "actual": "partial",
+          "expected": [
+            "partial"
+          ]
+        },
+        {
+          "check": "v2:safety_zero",
+          "passed": true,
+          "actual": {},
+          "expected": {}
+        }
+      ],
+      "observed": {
+        "graph_id": "b9955ada024aeb3c6a5b",
+        "matrix_id": "018dcfe02d976fe12659",
+        "core_construct_ids": [
+          "construct_criterion_application"
+        ],
+        "selected_evidence_ids": [
+          "applicant:exp-1:clm-1"
+        ],
+        "disagreement_kinds": [
+          "lexical_high_construct_weak"
+        ]
+      }
     }
   ],
   "summary": {
-    "case_count": 10,
-    "passed_case_count": 10,
+    "case_count": 18,
+    "passed_case_count": 18,
     "failed_case_count": 0,
     "expectation_pass_rate": 1.0,
     "direct_precision_guard_rate": 1.0,
     "disagreement_detection_rate": 1.0,
     "taxonomy_boundary_rate": 1.0,
-    "benign_relation_invariance_rate": 1.0
+    "benign_relation_invariance_rate": 1.0,
+    "v2_direct_precision_rate": 1.0,
+    "v2_direct_recall_rate": 1.0
   }
 }

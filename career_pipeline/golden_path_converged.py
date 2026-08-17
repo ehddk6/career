@@ -20,6 +20,9 @@ from .evidence_portfolio import (
     write_evidence_portfolio,
 )
 from .construct_portfolio import write_construct_portfolio
+from .behavior_ir import write_behavior_atoms
+from .construct_criteria import write_construct_criteria
+from .construct_relation_v2 import write_relation_v2
 from .job_analysis_compiler import write_job_analysis_artifacts
 from .research_contract import ensure_canonical_research_pack
 from .interview_calibration import CALIBRATION_PROFILE, write_calibration_artifact
@@ -276,6 +279,21 @@ def converged_services(*, model_runner: Any | None = None) -> gp.GoldenPathServi
             job_graph=job_graph,
             evidence_portfolio=portfolio,
         )
+        _, _, behavior_atoms = write_behavior_atoms(run)
+        _, _, construct_criteria = write_construct_criteria(run, job_graph)
+        v1_relations = {
+            str(row.get("evidence_id")): {
+                str(row.get("construct_id")): str(row.get("relation"))
+            }
+            for row in construct_shadow.get("links", []) or []
+            if isinstance(row, Mapping)
+        }
+        _, _, relation_v2 = write_relation_v2(
+            run,
+            job_graph,
+            behavior_atoms,
+            v1_relations=v1_relations,
+        )
         import career_pipeline.deep_writer as deep_writer
         import career_pipeline.integrated_writer as integrated_writer
 
@@ -329,6 +347,29 @@ def converged_services(*, model_runner: Any | None = None) -> gp.GoldenPathServi
             "job_analysis_artifact": "04_직무구성개념.json",
             "matrix_id": construct_shadow.get("matrix_id"),
             "summary": construct_shadow.get("summary", {}),
+            "decision_effect": "none_shadow_mode",
+            "factual_authority_granted": False,
+            "construct_authority_added": False,
+        }
+        report["behavior_ir"] = {
+            "artifact": "05_행동원자.json",
+            "atom_count": behavior_atoms.get("summary", {}).get("atom_count"),
+            "rejected_projection_count": behavior_atoms.get("summary", {}).get(
+                "rejected_projection_count"
+            ),
+            "decision_effect": "none_shadow_mode",
+            "factual_authority_granted": False,
+        }
+        report["construct_criteria"] = {
+            "artifact": "06_구성개념기준.json",
+            "criterion_count": len(construct_criteria.get("criteria", []) or []),
+            "decision_effect": "none_shadow_mode",
+            "factual_authority_granted": False,
+        }
+        report["construct_relation_v2"] = {
+            "artifact": "06_구성개념관계v2.json",
+            "summary": relation_v2.get("summary", {}),
+            "safety": relation_v2.get("safety", {}),
             "decision_effect": "none_shadow_mode",
             "factual_authority_granted": False,
             "construct_authority_added": False,
