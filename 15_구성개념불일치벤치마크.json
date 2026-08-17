@@ -1,0 +1,756 @@
+{
+  "schema_version": 1,
+  "architecture": "construct_disagreement_frozen_benchmark_v1",
+  "corpus_id": "construct_disagreement_v1",
+  "cases": [
+    {
+      "case_id": "true-but-irrelevant-001",
+      "category": "true_but_irrelevant",
+      "description": "확인된 경험이 공고 단어와 겹쳐 lexical portfolio에는 선택되지만 기준 대조 행동은 증명하지 못한다.",
+      "fixture_sha256": "ffa633b00e804ea5a037705d669ff5f035d52d1e440bb7ff97d29b1a7c06f420",
+      "passed": true,
+      "checks": [
+        {
+          "check": "core_construct_ids_contains",
+          "passed": true,
+          "actual": [
+            "construct_boundary_escalation",
+            "construct_criterion_application"
+          ],
+          "expected": [
+            "construct_criterion_application"
+          ]
+        },
+        {
+          "check": "core_construct_ids_excludes_prefix",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "relation:applicant:exp-1:clm-1|construct_criterion_application",
+          "passed": true,
+          "actual": "none",
+          "expected": [
+            "none",
+            "inferred",
+            "partial"
+          ]
+        },
+        {
+          "check": "disagreement_kinds_contains",
+          "passed": true,
+          "actual": [
+            "lexical_high_construct_weak"
+          ],
+          "expected": [
+            "lexical_high_construct_weak"
+          ]
+        },
+        {
+          "check": "no_evidence_prefixes",
+          "passed": true,
+          "actual": [],
+          "expected": [
+            "research:"
+          ]
+        },
+        {
+          "check": "portfolio_selected_contains",
+          "passed": true,
+          "actual": [
+            "applicant:exp-1:clm-1"
+          ],
+          "expected": [
+            "applicant:exp-1:clm-1"
+          ]
+        },
+        {
+          "check": "portfolio_selected_excludes",
+          "passed": true,
+          "actual": [
+            "applicant:exp-1:clm-1"
+          ],
+          "expected": []
+        },
+        {
+          "check": "matrix_grants_no_authority",
+          "passed": true,
+          "actual": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          },
+          "expected": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          }
+        }
+      ],
+      "observed": {
+        "graph_id": "7a0ad6c78e9412fe7172",
+        "matrix_id": "fbd6ada93cc8e3e2b3dc",
+        "core_construct_ids": [
+          "construct_boundary_escalation",
+          "construct_criterion_application"
+        ],
+        "selected_evidence_ids": [
+          "applicant:exp-1:clm-1"
+        ],
+        "disagreement_kinds": [
+          "lexical_high_construct_weak"
+        ]
+      }
+    },
+    {
+      "case_id": "keyword-wrong-behavior-001",
+      "category": "keyword_preserving_wrong_behavior",
+      "description": "직무·역량 키워드를 보존해도 실제 관찰 가능한 대조·예외판별 행동이 없으면 direct가 되면 안 된다.",
+      "fixture_sha256": "a40dc909f1003d7bb9fb402e97cec60d66987b95a37a8f57915f4bcdd7ef8a7f",
+      "passed": true,
+      "checks": [
+        {
+          "check": "core_construct_ids_contains",
+          "passed": true,
+          "actual": [
+            "construct_boundary_escalation",
+            "construct_criterion_application"
+          ],
+          "expected": [
+            "construct_criterion_application"
+          ]
+        },
+        {
+          "check": "core_construct_ids_excludes_prefix",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "relation:applicant:exp-1:clm-1|construct_criterion_application",
+          "passed": true,
+          "actual": "partial",
+          "expected": [
+            "none",
+            "inferred",
+            "partial"
+          ]
+        },
+        {
+          "check": "disagreement_kinds_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "no_evidence_prefixes",
+          "passed": true,
+          "actual": [],
+          "expected": [
+            "research:"
+          ]
+        },
+        {
+          "check": "portfolio_selected_contains",
+          "passed": true,
+          "actual": [
+            "applicant:exp-1:clm-1"
+          ],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_excludes",
+          "passed": true,
+          "actual": [
+            "applicant:exp-1:clm-1"
+          ],
+          "expected": []
+        },
+        {
+          "check": "matrix_grants_no_authority",
+          "passed": true,
+          "actual": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          },
+          "expected": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          }
+        }
+      ],
+      "observed": {
+        "graph_id": "7a0ad6c78e9412fe7172",
+        "matrix_id": "b412de0dd33d2ec05a89",
+        "core_construct_ids": [
+          "construct_boundary_escalation",
+          "construct_criterion_application"
+        ],
+        "selected_evidence_ids": [
+          "applicant:exp-1:clm-1"
+        ],
+        "disagreement_kinds": []
+      }
+    },
+    {
+      "case_id": "context-only-behavior-001",
+      "category": "context_only_behavior",
+      "description": "행동이 experience context에만 있고 atomic confirmed claim에는 없으면 direct로 승격하지 않는다.",
+      "fixture_sha256": "b40510173c8c7f82f7f11300afdaeeec89cff2601b155a0eb6561b1e1c206cfd",
+      "passed": true,
+      "checks": [
+        {
+          "check": "core_construct_ids_contains",
+          "passed": true,
+          "actual": [
+            "construct_boundary_escalation",
+            "construct_criterion_application"
+          ],
+          "expected": [
+            "construct_criterion_application"
+          ]
+        },
+        {
+          "check": "core_construct_ids_excludes_prefix",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "relation:applicant:exp-1:clm-1|construct_criterion_application",
+          "passed": true,
+          "actual": "partial",
+          "expected": [
+            "partial",
+            "inferred"
+          ]
+        },
+        {
+          "check": "atomic_match:applicant:exp-1:clm-1|construct_criterion_application",
+          "passed": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "check": "context_match:applicant:exp-1:clm-1|construct_criterion_application",
+          "passed": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "check": "disagreement_kinds_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "no_evidence_prefixes",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_contains",
+          "passed": true,
+          "actual": [
+            "applicant:exp-1:clm-1"
+          ],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_excludes",
+          "passed": true,
+          "actual": [
+            "applicant:exp-1:clm-1"
+          ],
+          "expected": []
+        },
+        {
+          "check": "matrix_grants_no_authority",
+          "passed": true,
+          "actual": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          },
+          "expected": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          }
+        }
+      ],
+      "observed": {
+        "graph_id": "7a0ad6c78e9412fe7172",
+        "matrix_id": "e4ca989d2e33156f41a6",
+        "core_construct_ids": [
+          "construct_boundary_escalation",
+          "construct_criterion_application"
+        ],
+        "selected_evidence_ids": [
+          "applicant:exp-1:clm-1"
+        ],
+        "disagreement_kinds": []
+      }
+    },
+    {
+      "case_id": "direct-but-unselected-001",
+      "category": "direct_but_unselected",
+      "description": "현 lexical scorer는 broad keyword evidence를 선택하지만 construct mapper는 다른 atomic claim을 direct로 식별한다.",
+      "fixture_sha256": "90e4837aee22d41f4934cab4ad267d3eb5ec54cb126229e80871b0b47d8a3cdd",
+      "passed": true,
+      "checks": [
+        {
+          "check": "core_construct_ids_contains",
+          "passed": true,
+          "actual": [
+            "construct_boundary_escalation",
+            "construct_criterion_application"
+          ],
+          "expected": [
+            "construct_criterion_application"
+          ]
+        },
+        {
+          "check": "core_construct_ids_excludes_prefix",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "relation:applicant:exp-direct:clm-direct|construct_criterion_application",
+          "passed": true,
+          "actual": "direct",
+          "expected": [
+            "direct"
+          ]
+        },
+        {
+          "check": "atomic_match:applicant:exp-direct:clm-direct|construct_criterion_application",
+          "passed": true,
+          "actual": true,
+          "expected": true
+        },
+        {
+          "check": "relation:applicant:exp-weak:clm-weak|construct_criterion_application",
+          "passed": true,
+          "actual": "inferred",
+          "expected": [
+            "none",
+            "inferred",
+            "partial"
+          ]
+        },
+        {
+          "check": "disagreement_kinds_contains",
+          "passed": true,
+          "actual": [
+            "construct_direct_not_selected",
+            "lexical_high_construct_weak"
+          ],
+          "expected": [
+            "construct_direct_not_selected",
+            "lexical_high_construct_weak"
+          ]
+        },
+        {
+          "check": "no_evidence_prefixes",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_contains",
+          "passed": true,
+          "actual": [
+            "applicant:exp-weak:clm-weak"
+          ],
+          "expected": [
+            "applicant:exp-weak:clm-weak"
+          ]
+        },
+        {
+          "check": "portfolio_selected_excludes",
+          "passed": true,
+          "actual": [
+            "applicant:exp-weak:clm-weak"
+          ],
+          "expected": [
+            "applicant:exp-direct:clm-direct"
+          ]
+        },
+        {
+          "check": "matrix_grants_no_authority",
+          "passed": true,
+          "actual": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          },
+          "expected": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          }
+        }
+      ],
+      "observed": {
+        "graph_id": "cda61bb5e899f29cfc5a",
+        "matrix_id": "fa407893e2c3d7157df1",
+        "core_construct_ids": [
+          "construct_criterion_application",
+          "construct_boundary_escalation"
+        ],
+        "selected_evidence_ids": [
+          "applicant:exp-weak:clm-weak"
+        ],
+        "disagreement_kinds": [
+          "construct_direct_not_selected",
+          "lexical_high_construct_weak"
+        ]
+      }
+    },
+    {
+      "case_id": "taxonomy-prior-escalation-001",
+      "category": "taxonomy_prior_escalation",
+      "description": "일반 직무 taxonomy prior만으로 target factual authority 또는 core construct가 만들어지면 안 된다.",
+      "fixture_sha256": "f9cff1ba2fee7d725aa37a1affb3f70eb0b767174843917bda7edb26b8c7cc23",
+      "passed": true,
+      "checks": [
+        {
+          "check": "core_construct_ids_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "core_construct_ids_excludes_prefix",
+          "passed": true,
+          "actual": [],
+          "expected": [
+            "prior_"
+          ]
+        },
+        {
+          "check": "disagreement_kinds_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "source_authority:ncs:sample",
+          "passed": true,
+          "actual": {
+            "authority_class": "taxonomy_prior",
+            "company_factual_authority": false
+          },
+          "expected": {
+            "authority_class": "taxonomy_prior",
+            "company_factual_authority": false
+          }
+        },
+        {
+          "check": "no_evidence_prefixes",
+          "passed": true,
+          "actual": [],
+          "expected": [
+            "research:"
+          ]
+        },
+        {
+          "check": "portfolio_selected_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_excludes",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "matrix_grants_no_authority",
+          "passed": true,
+          "actual": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          },
+          "expected": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          }
+        }
+      ],
+      "observed": {
+        "graph_id": "bf9192c3f37ff4a7aef0",
+        "matrix_id": "8dc9038c36599e7e74b3",
+        "core_construct_ids": [],
+        "selected_evidence_ids": [],
+        "disagreement_kinds": []
+      }
+    },
+    {
+      "case_id": "safe-paraphrase-001",
+      "category": "safe_paraphrase",
+      "description": "같은 관찰 행동을 보존한 제한적 한국어 어순·표현 변화는 동일 direct construct relation을 유지한다.",
+      "fixture_sha256": "98b166f297b0b38c2ec8f219feb81bcbf908068115769df171a60bfe3fc9c918",
+      "passed": true,
+      "checks": [
+        {
+          "check": "core_construct_ids_contains",
+          "passed": true,
+          "actual": [
+            "construct_boundary_escalation",
+            "construct_criterion_application"
+          ],
+          "expected": [
+            "construct_criterion_application"
+          ]
+        },
+        {
+          "check": "core_construct_ids_excludes_prefix",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "disagreement_kinds_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "no_evidence_prefixes",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_contains",
+          "passed": true,
+          "actual": [
+            "applicant:exp-1:clm-1",
+            "applicant:exp-2:clm-2"
+          ],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_excludes",
+          "passed": true,
+          "actual": [
+            "applicant:exp-1:clm-1",
+            "applicant:exp-2:clm-2"
+          ],
+          "expected": []
+        },
+        {
+          "check": "same_relation_group:1",
+          "passed": true,
+          "actual": [
+            "direct",
+            "direct"
+          ],
+          "expected": {
+            "same": true,
+            "allowed": [
+              "direct"
+            ]
+          }
+        },
+        {
+          "check": "matrix_grants_no_authority",
+          "passed": true,
+          "actual": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          },
+          "expected": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          }
+        }
+      ],
+      "observed": {
+        "graph_id": "7a0ad6c78e9412fe7172",
+        "matrix_id": "6997c92c856522e27547",
+        "core_construct_ids": [
+          "construct_boundary_escalation",
+          "construct_criterion_application"
+        ],
+        "selected_evidence_ids": [
+          "applicant:exp-1:clm-1",
+          "applicant:exp-2:clm-2"
+        ],
+        "disagreement_kinds": []
+      }
+    },
+    {
+      "case_id": "company-research-contamination-001",
+      "category": "company_research_contamination",
+      "description": "공식 job-duty research가 construct를 정의할 수는 있지만 applicant evidence link로 나타나면 안 된다.",
+      "fixture_sha256": "476280601ca4ebaeecb7ffe7d8990597bdc2864b140e99a7dc6a13260fc1c085",
+      "passed": true,
+      "checks": [
+        {
+          "check": "core_construct_ids_contains",
+          "passed": true,
+          "actual": [
+            "construct_criterion_application"
+          ],
+          "expected": [
+            "construct_criterion_application"
+          ]
+        },
+        {
+          "check": "core_construct_ids_excludes_prefix",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "disagreement_kinds_contains",
+          "passed": true,
+          "actual": [
+            "lexical_high_construct_weak"
+          ],
+          "expected": []
+        },
+        {
+          "check": "no_evidence_prefixes",
+          "passed": true,
+          "actual": [],
+          "expected": [
+            "research:"
+          ]
+        },
+        {
+          "check": "portfolio_selected_contains",
+          "passed": true,
+          "actual": [
+            "applicant:exp-1:clm-1"
+          ],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_excludes",
+          "passed": true,
+          "actual": [
+            "applicant:exp-1:clm-1"
+          ],
+          "expected": []
+        },
+        {
+          "check": "matrix_grants_no_authority",
+          "passed": true,
+          "actual": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          },
+          "expected": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          }
+        }
+      ],
+      "observed": {
+        "graph_id": "3488c0000ed56aad1bbd",
+        "matrix_id": "643746d32137922cc289",
+        "core_construct_ids": [
+          "construct_criterion_application"
+        ],
+        "selected_evidence_ids": [
+          "applicant:exp-1:clm-1"
+        ],
+        "disagreement_kinds": [
+          "lexical_high_construct_weak"
+        ]
+      }
+    },
+    {
+      "case_id": "unconfirmed-claim-exclusion-001",
+      "category": "unconfirmed_claim_exclusion",
+      "description": "행동상 강해 보여도 confirmed가 아닌 applicant claim은 construct evidence에 들어가면 안 된다.",
+      "fixture_sha256": "551119477c70b609162f05c258e38d50789c97efb20a98911da0d6cdd2d5b52d",
+      "passed": true,
+      "checks": [
+        {
+          "check": "core_construct_ids_contains",
+          "passed": true,
+          "actual": [
+            "construct_boundary_escalation",
+            "construct_criterion_application"
+          ],
+          "expected": [
+            "construct_criterion_application"
+          ]
+        },
+        {
+          "check": "core_construct_ids_excludes_prefix",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "relation:applicant:exp-1:clm-1|construct_criterion_application",
+          "passed": true,
+          "actual": "none",
+          "expected": [
+            "none"
+          ]
+        },
+        {
+          "check": "disagreement_kinds_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "no_evidence_prefixes",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_excludes",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "matrix_grants_no_authority",
+          "passed": true,
+          "actual": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          },
+          "expected": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          }
+        }
+      ],
+      "observed": {
+        "graph_id": "7a0ad6c78e9412fe7172",
+        "matrix_id": "68425c286b2348826492",
+        "core_construct_ids": [
+          "construct_boundary_escalation",
+          "construct_criterion_application"
+        ],
+        "selected_evidence_ids": [],
+        "disagreement_kinds": []
+      }
+    }
+  ],
+  "summary": {
+    "case_count": 8,
+    "passed_case_count": 8,
+    "failed_case_count": 0,
+    "expectation_pass_rate": 1.0,
+    "direct_precision_guard_rate": 1.0,
+    "disagreement_detection_rate": 1.0,
+    "taxonomy_boundary_rate": 1.0,
+    "benign_relation_invariance_rate": 1.0
+  }
+}
