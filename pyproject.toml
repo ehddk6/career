@@ -14,7 +14,8 @@ dependencies = [
 ]
 
 [project.scripts]
-career-pipeline-golden = "career_pipeline.golden_path:main"
+career-pipeline-golden = "career_pipeline.golden_path_converged:main"
+career-pipeline-benchmark = "career_pipeline.system_benchmark:main"
 
 [project.optional-dependencies]
 dev = ["pytest>=8.0"]
