@@ -53,6 +53,10 @@ def _services(*, research_ready=True, pack_issues=None, finalize_changes=False, 
             value = '[{"question_index":1,"answer":"B"}]'
         (run / "draft_final.json").write_text(value, encoding="utf-8")
         (run / "12_최종산출물.json").write_text("{}", encoding="utf-8")
+        state = json.loads((run / "run.json").read_text(encoding="utf-8"))
+        state["status"] = "complete"
+        state["final_artifact"] = {"answer_json_path": "draft_final.json"}
+        (run / "run.json").write_text(json.dumps(state), encoding="utf-8")
         return {"status": "complete"}
 
     def resolve(run):
@@ -111,6 +115,8 @@ def test_final_draft_change_requires_explicit_pack_refresh(tmp_path):
     (run / "08_면접대비팩.md").write_text("refreshed pack", encoding="utf-8")
     result = advance_golden_path(run, services=services)
     assert result["status"] == "complete"
+    assert calls.count("write") == 1
+    assert calls.count("finalize") == 1
     assert "interview" in calls
     assert "audit" in calls
 
