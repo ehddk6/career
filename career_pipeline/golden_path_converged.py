@@ -19,6 +19,8 @@ from .evidence_portfolio import (
     portfolio_for_stage,
     write_evidence_portfolio,
 )
+from .construct_portfolio import write_construct_portfolio
+from .job_analysis_compiler import write_job_analysis_artifacts
 from .research_contract import ensure_canonical_research_pack
 from .interview_calibration import CALIBRATION_PROFILE, write_calibration_artifact
 from .reliable_deep_writer import REPORT_JSON as RELIABLE_JUDGE_REPORT, reliable_generate_prose
@@ -267,7 +269,13 @@ def converged_services(*, model_runner: Any | None = None) -> gp.GoldenPathServi
         )
 
     def write_draft(run, config):
+        _, _, job_graph = write_job_analysis_artifacts(run)
         _, _, portfolio = write_evidence_portfolio(run)
+        _, _, construct_shadow = write_construct_portfolio(
+            run,
+            job_graph=job_graph,
+            evidence_portfolio=portfolio,
+        )
         import career_pipeline.deep_writer as deep_writer
         import career_pipeline.integrated_writer as integrated_writer
 
@@ -315,6 +323,15 @@ def converged_services(*, model_runner: Any | None = None) -> gp.GoldenPathServi
                 "weighted_signal_coverage"
             ),
             "factual_authority_granted": False,
+        }
+        report["construct_shadow"] = {
+            "artifact": "05_구성개념근거매트릭스.json",
+            "job_analysis_artifact": "04_직무구성개념.json",
+            "matrix_id": construct_shadow.get("matrix_id"),
+            "summary": construct_shadow.get("summary", {}),
+            "decision_effect": "none_shadow_mode",
+            "factual_authority_granted": False,
+            "construct_authority_added": False,
         }
         report["reliable_judge"] = {
             "artifact": RELIABLE_JUDGE_REPORT,
