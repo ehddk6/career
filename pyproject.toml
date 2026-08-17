@@ -13,6 +13,9 @@ dependencies = [
   "PyYAML>=6.0",
 ]
 
+[project.scripts]
+career-pipeline-golden = "career_pipeline.golden_path:main"
+
 [project.optional-dependencies]
 dev = ["pytest>=8.0"]
 
