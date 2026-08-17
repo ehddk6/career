@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "corpus_id": "behavior_ir_correctness_v1",
+  "description": "Synthetic correctness regressions for BehaviorAtom source binding, contribution scope, criterion object matching, and counter semantics.",
+  "cases": [
+    {"case_id":"object-second-atom-full-match","category":"object_match_fixed","kind":"manual_atoms","orders":[["compare","wrong","right"]],"expected":{"relation":"direct","object_match_fixed":true,"legacy_relation":"partial"}},
+    {"case_id":"atom-order-invariance","category":"object_order_invariance","kind":"manual_atoms","orders":[["compare","wrong","right"],["compare","right","wrong"]],"expected":{"relations":["direct","direct"]}},
+    {"case_id":"observed-contribution-block","category":"contribution_safety","kind":"claim","text":"원문과 입력값을 대조해 누락을 확인했습니다.","contribution":"observed","evidence":"valid","expected":{"relation":"inferred","caused_comparison_relation":"direct","contribution_blocked":true}},
+    {"case_id":"unknown-contribution-block","category":"contribution_safety","kind":"claim","text":"원문과 입력값을 대조해 누락을 확인했습니다.","contribution":"unknown","evidence":"valid","expected":{"relation":"inferred","contribution_blocked":true}},
+    {"case_id":"contributed-no-solo-escalation","category":"contribution_safety","kind":"claim","text":"원문과 입력값을 대조해 누락을 확인했습니다.","contribution":"contributed","evidence":"valid","expected":{"relation":"direct","ownership_ceiling":"contribution_only_no_solo"}},
+    {"case_id":"confirmed-no-evidence-no-atom","category":"source_bound_atom_safety","kind":"claim","text":"원문과 입력값을 대조해 누락을 확인했습니다.","contribution":"caused","evidence":"none","expected":{"atom_count":0,"rejection_category":"rejected_no_evidence"}},
+    {"case_id":"valid-evidence-behavior-atom","category":"source_bound_atom_safety","kind":"claim","text":"원문과 입력값을 대조해 누락을 확인했습니다.","contribution":"caused","evidence":"valid","expected":{"atom_count":2,"source_binding_status":"valid","relation":"direct"}},
+    {"case_id":"safety-counter-status","category":"counter_semantics","kind":"claim","text":"원문과 입력값을 대조해 누락을 확인했습니다.","contribution":"caused","evidence":"valid","expected":{"direct_run_count":1,"direct_run_status":"actually_computed","false_direct_status":"actually_computed","contribution_violation_status":"impossible_by_construction"}}
+  ]
+}
