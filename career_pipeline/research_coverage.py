@@ -40,16 +40,17 @@ def _eligible_for_slot(
         reasons.append("unverified")
 
     role = str(claim.get("argument_role", "")).strip()
-    types = {str(item) for item in slot.get("claim_types", [])}
-    claim_type = str(claim.get("claim_type", "unspecified"))
-    if role != str(slot.get("argument_role", "")) and claim_type not in types:
-        reasons.append("role_or_type_mismatch")
+    slot_role = str(slot.get("argument_role", "")).strip()
+    if not role:
+        reasons.append("missing_argument_role")
+    elif role != slot_role:
+        reasons.append("argument_role_mismatch")
 
     support = str(claim.get("support_strength", "direct") or "direct").lower()
     if support not in _GOOD_SUPPORT:
         reasons.append("weak_support")
     try:
-        tier = int(claim.get("source_tier", 2))
+        tier = int(claim.get("source_tier", 5))
     except (TypeError, ValueError):
         tier = 5
     if tier > int(slot.get("maximum_source_tier", 2)):
@@ -104,7 +105,7 @@ def build_research_coverage(
                     matching.append(claim_id)
                 elif claim_id and (
                     str(claim.get("argument_role", "")) == str(slot.get("argument_role", ""))
-                    or str(claim.get("claim_type", "")) in {str(x) for x in slot.get("claim_types", [])}
+                    or not str(claim.get("argument_role", "")).strip()
                 ):
                     rejected[claim_id] = reasons
             passed = len(matching) >= minimum
