@@ -5,6 +5,8 @@ import json,re
 from pathlib import Path
 from typing import Any,Mapping,Sequence
 from .authority_contract import AuthorityContext,AuthorityRecord,authority_context_to_dict,build_authority_context,lexical_tokens,metric_values
+from .claim_graph import build_claim_graph
+from .proof_shadow import write_proof_shadow_artifacts
 SCHEMA_VERSION=1; ASSERTION_JSON="12_주장컴파일.json"; ASSERTION_MD="12_주장컴파일.md"
 _SENTENCE=re.compile(r"(?<=[.!?。！？])\s+|\n+"); _CLAUSE=re.compile(r"\s*(?:,|;| 그리고 | 또한 | 하지만 | 반면 | 따라서 | 그 결과 )\s*")
 _CAUSAL=("때문","덕분","통해","결과","따라","영향","기여","개선","증가","감소","절감","향상","달성","해결"); _OWN=("제가","저는","직접","단독","주도","제 역할"); _CAUSE_VERBS=("달성","개선","증가","감소","절감","향상","해결")
@@ -59,6 +61,6 @@ def write_assertion_artifacts(run_dir:Path,*,draft_path:Path|None=None):
     from .profile_schema import load_ledger
     from .research_evidence import load_research_claims
     from .authority_contract import _research_raw
-    run_dir=run_dir.resolve();draft=_resolve_draft_path(run_dir,draft_path);payload=json.loads(draft.read_text(encoding="utf-8"));responses=[dict(r) for r in payload if isinstance(r,Mapping)];ledger=load_ledger(run_dir/"02_확정경험원장.json");rp=run_dir/"04_공식근거.json";research=load_research_claims(rp);context=build_authority_context(responses,ledger,research,research_raw=_research_raw(rp));report=compile_assertion_report(responses,context);report["source_final_draft"]=str(draft);jp,mp=run_dir/ASSERTION_JSON,run_dir/ASSERTION_MD;jp.write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8");lines=["# 최종 주장 컴파일","",f"- 총 주장: {report['summary']['total']}",f"- unsupported: {report['summary']['unsupported']}",f"- needs_review: {report['summary']['needs_review']}",""]
+    run_dir=run_dir.resolve();draft=_resolve_draft_path(run_dir,draft_path);payload=json.loads(draft.read_text(encoding="utf-8"));responses=[dict(r) for r in payload if isinstance(r,Mapping)];ledger=load_ledger(run_dir/"02_확정경험원장.json");rp=run_dir/"04_공식근거.json";research=load_research_claims(rp);raw=_research_raw(rp);context=build_authority_context(responses,ledger,research,research_raw=raw);report=compile_assertion_report(responses,context);report["source_final_draft"]=str(draft);jp,mp=run_dir/ASSERTION_JSON,run_dir/ASSERTION_MD;jp.write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8");lines=["# 최종 주장 컴파일","",f"- 총 주장: {report['summary']['total']}",f"- unsupported: {report['summary']['unsupported']}",f"- needs_review: {report['summary']['needs_review']}",""]
     for r in report["assertions"]:lines += [f"## {r['assertion_id']} · 문항 {r['question_index']}",f"- 상태: `{r['authority_status']}` / 유형: `{r['assertion_type']}`",f"- 주장: {r['atomic_text']}",f"- 근거: {', '.join(r['supported_by']) or '-'}",f"- causal_scope: {r['causal_scope']}",f"- 이슈: {', '.join(r['contradicts']) or '-'}",""]
-    mp.write_text("\n".join(lines),encoding="utf-8");return jp,mp,report
+    mp.write_text("\n".join(lines),encoding="utf-8");graph=build_claim_graph(responses,ledger,research,research_raw=raw);write_proof_shadow_artifacts(run_dir,report,graph);return jp,mp,report
