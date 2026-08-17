@@ -42,7 +42,7 @@ def compile_response_assertions(question_index:int,answer:str,context:AuthorityC
                 support=merged;authorised={m for r in support for m in r.metric_values}
             causal=any(c in clause for c in _CAUSAL);app=[r for r in support if r.source_kind=="applicant"];caused=any(str(r.metadata.get("contribution"))=="caused" for r in app);contradictions=[];unsupported=sorted(metrics-authorised)
             if unsupported:contradictions.append("unsupported_metric:"+",".join(unsupported))
-            ownership_overclaim=causal and any(c in clause for c in _OWN) and any(str(r.metadata.get("contribution","unknown")) in {"observed","unknown"} for r in app) and any(v in clause for v in _CAUSE_VERBS)
+            solo_authorized=any("단독" in r.text for r in app);ownership_overclaim=causal and any(v in clause for v in _CAUSE_VERBS) and (("단독" in clause and not solo_authorized) or (any(c in clause for c in _OWN) and any(str(r.metadata.get("contribution","unknown")) in {"observed","unknown"} for r in app)))
             if ownership_overclaim:contradictions.append("ownership_overclaim_risk")
             status="unsupported" if (unsupported or ownership_overclaim) else "needs_review" if (not support or (causal and not caused)) else "bounded_interpretation" if len(support)>1 and _kind(clause,support)=="synthesis" else "supported"
             aid="ast_"+sha256(f"{question_index}\0{si}\0{ci}\0{clause}".encode()).hexdigest()[:18]
