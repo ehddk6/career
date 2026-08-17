@@ -43,6 +43,20 @@ UTF-8 JSON 배열로 작성한다.
 
 `1분 자기소개`, 각 문항의 30·60·90초 답변, `꼬리질문`과 `꼬리답변`, `압박질문`과 `압박답변`, 문항별 로컬·공식 `근거`를 포함한다. 30·60·90초 답변은 같은 문장을 복제하지 않고 단계적으로 논리와 근거가 구체화되어야 한다. 근거란에는 해당 자기소개서 문항의 `experience_id`와 공식 근거 ID를 그대로 적는다. 감사에서는 제목 존재뿐 아니라 실제 답변 본문, 연습 길이, 방어 논리, 자기소개서 근거 ID 연결을 문항별로 검사한다. 자기소개서와 승인 원장에 없는 새로운 수치를 추가하지 않는다.
 
+## `08_면접지능설계.json` / `08_면접질문은행.md`
+
+최종 자기소개서가 참조한 `confirmed` 지원자 claim과 `confirmed` 공식 research claim만으로 claim-defense graph를 만든다. 최종 자기소개서는 방어할 주장 범위를 정할 뿐 새로운 사실 권한이 아니다. 참조한 claim이 없거나 미확정이면 설계 단계에서 fail closed한다.
+
+면접 순서는 `core:intro:60`과 자기소개서 문항별 `core:qN`의 표준화 코어를 먼저 사용한다. 이후 질문은 미리 생성된 probe bank에서만 선택하며, 현재 세션 약점·cross-session aggregate weakness·claim risk·미커버 차원/노드·반복 비용을 이용한 `selection_utility`로 정렬한다. 이 utility는 합격 확률이나 검증된 psychometric information function이 아니다.
+
+probe family는 `ownership_probe`, `decision_probe`, `counterfactual_probe`, `metric_probe`, `causality_probe`, `organization_probe`, `situational_job_probe`, `fit_counterfactual_probe`를 사용한다. 지원자 수치는 해당 질문이 target하는 applicant claim에 있는 값만 허용하고, 회사 수치는 해당 질문이 target하는 confirmed research claim에 포함된 값만 허용한다.
+
+## `08_면접세션평가.json`
+
+모의면접 transcript의 turn별 deterministic gate와 선택적 semantic judge 결과를 기록한다. semantic judge는 behaviorally anchored 0~4 차원 점수만 제공하며 factual authority가 없고 합격/불합격 확률을 만들 수 없다. `unsupported_metric`과 ownership overclaim 같은 결정론적 오류는 semantic 점수를 hard-cap한다.
+
+cross-session `.career_profile/interview_weakness_profile.json`에는 dimension EMA, deterministic weak-signal EMA, observation count, flag count만 저장한다. 과거 원문 답변과 합격 확률은 저장하지 않는다.
+
 ## `04_공식근거.json`
 
 각 주장에는 `claim_type`(`organization_role`, `job_duty`, `industry_issue`, `program_or_service`, `risk_or_limit`, `eligibility`, `selection_criteria`)와 `application_use`를 기록한다. `application_use`는 해당 공식 사실을 자기소개서 문항 또는 면접 답변에서 어떻게 사용할지 설명하며, 지원자의 해석을 공식 사실처럼 섞지 않는다. 조사형 이슈 문항에는 `industry_issue`·`risk_or_limit`·`program_or_service`, 기관 역할·지원동기에는 `organization_role`·`program_or_service`, 업무계획에는 `job_duty`·`program_or_service` 근거를 사용한다. 공식 선발 기준은 `selection_criteria`로 기록하고 면접팩 평가 기준과 근거 ID를 연결한다.
