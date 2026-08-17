@@ -247,7 +247,7 @@ def _canonical_interview_gate(base_gate, run: Path, draft_path: Path):
     return issues
 
 
-def converged_services() -> gp.GoldenPathServices:
+def converged_services(*, model_runner: Any | None = None) -> gp.GoldenPathServices:
     base = _BASE_DEFAULT_SERVICES()
 
     def research_gate(run):
@@ -282,7 +282,30 @@ def converged_services() -> gp.GoldenPathServices:
         integrated_writer.strategy_prior_for_stage = with_portfolio
         deep_writer._generate_prose = reliable_generate_prose
         try:
-            report = dict(base.write_draft(run, config))
+            if model_runner is None:
+                report = dict(base.write_draft(run, config))
+            else:
+                _, injected_report = integrated_writer.write_integrated_draft(
+                    run,
+                    force=True,
+                    writer_model_id=config.writer_model_id,
+                    judge_model_ids=config.judge_model_ids,
+                    route_count=config.route_count,
+                    prose_realisations=config.prose_realisations,
+                    timeout_ms=config.writer_timeout_ms,
+                    surface_preference_profile_path=(
+                        Path(config.surface_preference_profile).resolve()
+                        if config.surface_preference_profile
+                        else None
+                    ),
+                    semantic_preference_profile_path=(
+                        Path(config.semantic_preference_profile).resolve()
+                        if config.semantic_preference_profile
+                        else None
+                    ),
+                    runner=model_runner,
+                )
+                report = dict(injected_report)
         finally:
             integrated_writer.strategy_prior_for_stage = original_prior
             deep_writer._generate_prose = original_generate

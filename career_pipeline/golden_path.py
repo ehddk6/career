@@ -8,6 +8,14 @@ import json
 from pathlib import Path
 from typing import Any, Callable, Mapping, Sequence
 
+from .workspace_policy import (
+    WorkspacePolicyError,
+    confine_posting_source,
+    confine_private_directory,
+    confine_private_file,
+    validate_private_workspace,
+)
+
 MANIFEST = "13_골든패스.json"
 SCHEMA_VERSION = 1
 
@@ -311,12 +319,23 @@ def _weakness_sha(run: Path) -> str | None:
 
 
 def advance_golden_path(run_dir: Path, *, config: GoldenPathConfig | None = None, services: GoldenPathServices | None = None) -> dict[str, Any]:
-    run = run_dir.resolve()
+    lexical_run = Path(run_dir).expanduser()
+    if not lexical_run.is_absolute():
+        lexical_run = Path.cwd() / lexical_run
+    run = lexical_run.resolve()
     config = config or GoldenPathConfig()
-    svc = services or default_services()
     state = _read_json(run / "run.json", {})
     if not isinstance(state, Mapping) or state.get("quality_mode") != "v2" or not state.get("strict_quality", False):
         raise GoldenPathError("golden path requires a V2 strict-quality run")
+    root_value = state.get("root")
+    if not isinstance(root_value, str) or not root_value:
+        raise GoldenPathError("golden path run is missing private workspace root")
+    try:
+        workspace = validate_private_workspace(Path(root_value))
+        confine_private_directory(workspace, lexical_run, label="golden path run")
+    except WorkspacePolicyError as error:
+        raise GoldenPathError(str(error)) from error
+    svc = services or default_services()
     m = _manifest(run)
     m["contract"] = {
         "architecture": "authority_preserving_content_addressed_golden_path_v1",
@@ -436,7 +455,14 @@ def start_golden_path(*, root: Path, target: str, draft: Path, posting: str, pro
                       config: GoldenPathConfig | None = None) -> dict[str, Any]:
     from .orchestrator import prepare_run
     from .research_workspace import initialize_research_workspace
-    state = prepare_run(root, target, draft, posting, run_name, profile=profile,
+    try:
+        workspace = validate_private_workspace(root, create=True)
+        draft_path = confine_private_file(workspace, draft, label="draft")
+        profile_path = confine_private_file(workspace, profile, label="profile")
+        posting_source = confine_posting_source(workspace, posting)
+    except WorkspacePolicyError as error:
+        raise GoldenPathError(str(error)) from error
+    state = prepare_run(workspace, target, draft_path, posting_source, run_name, profile=profile_path,
                         official_domains=tuple(official_domains), research_domains=tuple(research_domains), official_source=official_source)
     run = Path(str(state["run_dir"])).resolve()
     if str(state.get("status", "")).startswith("blocked_"):
@@ -481,7 +507,14 @@ def _parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(description="Career Pipeline content-addressed golden path")
     sub = p.add_subparsers(dest="command", required=True)
     start = sub.add_parser("start")
-    start.add_argument("--root", required=True, type=Path)
+    start.add_argument(
+        "--workspace",
+        "--root",
+        dest="workspace",
+        required=True,
+        type=Path,
+        help="private career workspace outside the code repository",
+    )
     start.add_argument("--target", required=True)
     start.add_argument("--draft", required=True, type=Path)
     start.add_argument("--posting", required=True)
@@ -507,10 +540,10 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 0 if value.get("status") == "complete" else 2
     config = _cfg(a)
     result = (
-        start_golden_path(root=a.root.resolve(), target=a.target, draft=a.draft.resolve(), posting=a.posting,
-                          profile=a.profile.resolve(), run_name=a.run_name, official_domains=a.official_domain,
+        start_golden_path(root=a.workspace, target=a.target, draft=a.draft, posting=a.posting,
+                          profile=a.profile, run_name=a.run_name, official_domains=a.official_domain,
                           research_domains=a.research_domain, official_source=a.official_source, config=config)
-        if a.command == "start" else advance_golden_path(a.run.resolve(), config=config)
+        if a.command == "start" else advance_golden_path(a.run, config=config)
     )
     print(json.dumps({"status": result.get("status"), "next_action": result.get("next_action"), "run_dir": result.get("run_dir")}, ensure_ascii=False, indent=2))
     status = str(result.get("status", ""))
