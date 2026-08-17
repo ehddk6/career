@@ -1,8 +1,4 @@
-"""Evidence-to-Signal convergence layer for the Career Pipeline Golden Path.
-
-Keeps proven legacy modules but makes them consume one canonical authority
-contract, injects evidence-portfolio planning, and verifies final assertions.
-"""
+"""Evidence-to-Signal convergence layer for the Career Pipeline Golden Path."""
 from __future__ import annotations
 from hashlib import sha256
 import json
@@ -10,7 +6,7 @@ from pathlib import Path
 from typing import Any,Mapping
 from . import golden_path as gp
 from .assertion_compiler import ASSERTION_JSON,write_assertion_artifacts
-from .authority_contract import canonical_metric_values_for_responses,research_is_submission_authority
+from .authority_contract import canonical_metric_values_by_question,canonical_metric_values_for_responses,metric_values,research_is_submission_authority
 from .evidence_portfolio import build_evidence_portfolio,portfolio_for_stage,write_evidence_portfolio
 from .research_contract import ensure_canonical_research_pack
 CONVERGENCE_VERSION="evidence_to_signal_contract_v1";_BASE_DEFAULT_SERVICES=gp.default_services;_BASE_RUN_AUTHORITY_VIEW=gp._run_authority_view
@@ -44,6 +40,22 @@ def _augment_audit(run:Path,audit_module:Any,payload:dict[str,Any])->dict[str,An
     if needs:issues.append({"category":"assertion","code":"causal_scope_review_required","severity":"medium","message":f"인과·기여 범위를 추가 확인해야 하는 주장이 {needs}개 있습니다.","question_index":0});penalty+=4
     if penalty and isinstance(cover,dict):cover["score"]=max(0,int(cover.get("score",0))-penalty)
     total=sum(int(s.get("score",0)) for s in sections.values() if isinstance(s,Mapping));payload.update(issues=issues,score=total,internal_validation_score=total,quality_gate="fail" if any(isinstance(r,Mapping) and r.get("severity")=="high" for r in issues) else "pass",human_review_recommended=bool(issues),recommendation="내부검증 우수" if total>=95 else "내부검증 통과" if total>=90 else "내부검증 보완 필요",assertion_compiler={"unsupported":unsupported,"needs_review":needs,"artifact":ASSERTION_JSON});(run/"11_최종품질감사.json").write_text(json.dumps(payload,ensure_ascii=False,indent=2)+"\n",encoding="utf-8");(run/"11_최종품질감사.md").write_text(audit_module.render_quality_audit(payload),encoding="utf-8");return payload
+def _canonical_interview_gate(base_gate,run:Path,draft_path:Path):
+    issues=list(base_gate(run,draft_path));pack=run/"08_면접대비팩.md"
+    if not pack.is_file():return issues
+    from .orchestrator import _load_draft_responses
+    from .profile_schema import load_ledger
+    from .quality import _find_interview_question_marker
+    responses,parse_issues=_load_draft_responses(draft_path)
+    if parse_issues:return issues+[{"code":getattr(x,"code","invalid_draft"),"question_index":getattr(x,"question_index",0),"message":getattr(x,"message",str(x))} for x in parse_issues]
+    ledger=load_ledger(run/"02_확정경험원장.json");allowed=canonical_metric_values_by_question(run,responses,ledger);text=pack.read_text(encoding="utf-8");visible=sorted(((r.question_index,_find_interview_question_marker(text,r.question_index)) for r in responses),key=lambda x:x[1]);visible=[x for x in visible if x[1]>=0];seen={(str(i.get("code")),int(i.get("question_index",0)),str(i.get("message"))) for i in issues if isinstance(i,Mapping)}
+    for offset,(q,start) in enumerate(visible):
+        end=visible[offset+1][1] if offset+1<len(visible) else len(text)
+        for metric in metric_values(text[start:end]):
+            if metric not in allowed.get(q,set()):
+                row={"code":"unapproved_interview_metric_scope","question_index":q,"message":f"문항 {q} 면접 블록에서 이 문항 근거가 승인하지 않은 수치를 사용했습니다: {metric}"};key=(row["code"],q,row["message"])
+                if key not in seen:seen.add(key);issues.append(row)
+    return issues
 def converged_services()->gp.GoldenPathServices:
     base=_BASE_DEFAULT_SERVICES()
     def research_gate(run):
@@ -51,8 +63,7 @@ def converged_services()->gp.GoldenPathServices:
     def strategy_fingerprint(run):return _hash_json({"base":base.strategy_fingerprint(run),"evidence_portfolio":build_evidence_portfolio(run),"contract":CONVERGENCE_VERSION})
     def write_draft(run,config):
         _,_,portfolio=write_evidence_portfolio(run);import career_pipeline.integrated_writer as iw;original=iw.strategy_prior_for_stage
-        def with_portfolio(packet,stage):
-            result=dict(original(packet,stage));result["evidence_portfolio"]=portfolio_for_stage(portfolio,stage);return result
+        def with_portfolio(packet,stage):result=dict(original(packet,stage));result["evidence_portfolio"]=portfolio_for_stage(portfolio,stage);return result
         iw.strategy_prior_for_stage=with_portfolio
         try:report=dict(base.write_draft(run,config))
         finally:iw.strategy_prior_for_stage=original
@@ -74,7 +85,7 @@ def converged_services()->gp.GoldenPathServices:
         try:payload=dict(base.audit(run))
         finally:audit_module.referenced_claim_values=ov;audit_module._research_score=ors
         return _augment_audit(run,audit_module,payload)
-    return gp.GoldenPathServices(research_gate=research_gate,strategy_fingerprint=strategy_fingerprint,write_draft=write_draft,interview_gate=base.interview_gate,finalize=finalize,resolve_final_draft=base.resolve_final_draft,compile_interview=compile_interview,audit=audit)
+    return gp.GoldenPathServices(research_gate=research_gate,strategy_fingerprint=strategy_fingerprint,write_draft=write_draft,interview_gate=lambda run,draft:_canonical_interview_gate(base.interview_gate,run,draft),finalize=finalize,resolve_final_draft=base.resolve_final_draft,compile_interview=compile_interview,audit=audit)
 def main(argv:list[str]|None=None)->int:
     os,ov=gp.default_services,gp._run_authority_view;gp.default_services=converged_services;gp._run_authority_view=_authority_view
     try:return gp.main(argv)
