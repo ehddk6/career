@@ -212,6 +212,34 @@ def _evaluate_expected(
         sorted(required_disagreements),
     )
 
+    required_uncovered = {
+        str(value)
+        for value in expected.get(
+            "uncovered_core_construct_ids_contains", []
+        )
+        or []
+    }
+    add(
+        "uncovered_core_construct_ids_contains",
+        required_uncovered.issubset(
+            set(
+                str(value)
+                for value in matrix.get(
+                    "uncovered_core_construct_ids", []
+                )
+                or []
+            )
+        ),
+        sorted(
+            str(value)
+            for value in matrix.get(
+                "uncovered_core_construct_ids", []
+            )
+            or []
+        ),
+        sorted(required_uncovered),
+    )
+
     binding_by_id = {
         binding.source_id: binding for binding in graph.source_bindings
     }

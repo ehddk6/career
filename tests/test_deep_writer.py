@@ -1,3 +1,4 @@
+import json
 import re
 from pathlib import Path
 
@@ -21,7 +22,14 @@ def _blueprint():
                 "원자료와 입력값을 비교해 오류 유형을 나누고 영향이 큰 항목부터 수정하기로 판단했습니다."
             ],
             "outcomes": ["누락 항목을 수정하고 제출 전 오류를 정리했습니다."],
-            "selected_claims": [],
+            "selected_claims": [
+                {
+                    "claim_id": "clm_e4e9b07a06043fba930b",
+                    "field": "summary",
+                    "normalized_value": "오류를 찾아 수정함",
+                    "evidence_paths": ["exp1/evidence.txt"],
+                }
+            ],
         },
         "research_claims": [],
         "beats": [],
@@ -101,6 +109,64 @@ def _judge_payload(route_ids):
     return {"routes": rows}
 
 
+def _ledger():
+    claim = {
+        "claim_id": "clm_e4e9b07a06043fba930b",
+        "field": "summary",
+        "normalized_value": "오류를 찾아 수정함",
+        "status": "confirmed",
+        "evidence": [
+            {
+                "source_path": "exp1/evidence.txt",
+                "paragraph_index": 0,
+                "source_sha256": "0" * 64,
+                "excerpt_sha256": "0" * 64,
+            }
+        ],
+        "verification": {
+            "method": "direct_source",
+            "scope": "source",
+            "contribution": "observed",
+        },
+    }
+    return {
+        "schema_version": 2,
+        "generated_at": "2026-08-16T00:00:00+09:00",
+        "workspace_root": ".",
+        "experiences": [
+            {
+                "experience_id": "exp1",
+                "title": "자료검증",
+                "organization_alias": "",
+                "period": None,
+                "role": "담당",
+                "situation": "입력 자료에 오류와 누락이 반복되어 마감이 지연될 위험이 있었습니다.",
+                "actions": ["원자료와 입력값을 비교해 오류 유형을 나누고 영향이 큰 항목부터 수정했습니다."],
+                "outcomes": ["누락 항목을 수정하고 제출 전 오류를 정리했습니다."],
+                "competencies": ["정확성"],
+                "claims": [claim],
+                "status": "confirmed",
+                "confirmed_at": "2026-08-16T00:00:00+09:00",
+            }
+        ],
+    }
+
+
+def _state():
+    return {
+        "target": "테스트기관",
+        "root": ".",
+        "questions": [
+            {
+                "index": 1,
+                "prompt": "문제를 해결한 경험과 그 과정에서의 판단을 작성해 주세요",
+                "character_limit": 500,
+                "count_mode": "spaces_included",
+            }
+        ],
+    }
+
+
 def _runner_factory(structural_issue=False):
     critic_calls = {"count": 0}
 
@@ -123,7 +189,7 @@ def _runner_factory(structural_issue=False):
                     "원자료와 입력값을 비교해 오류 유형을 나누고 영향이 큰 항목부터 수정했습니다."
                     + suffix
                 ),
-                "used_claim_ids": [],
+                "used_claim_ids": ["clm_e4e9b07a06043fba930b"],
                 "used_research_ids": [],
             }
         if stage.startswith("deep_prose_judge"):
@@ -152,7 +218,10 @@ def _runner_factory(structural_issue=False):
 def test_deep_writer_searches_argument_routes_before_prose(tmp_path, monkeypatch):
     run = tmp_path / "run"
     run.mkdir()
-    monkeypatch.setattr(dw, "_state", lambda _: {"target": "테스트기관", "root": str(tmp_path)})
+    (run / "02_확정경험원장.json").write_text(
+        json.dumps(_ledger(), ensure_ascii=False), encoding="utf-8"
+    )
+    monkeypatch.setattr(dw, "_state", lambda _: _state())
     responses, report = dw.generate_deep_draft(
         run,
         packet=_packet(),
@@ -177,7 +246,10 @@ def test_deep_writer_searches_argument_routes_before_prose(tmp_path, monkeypatch
 def test_structural_critic_triggers_route_substitution_not_surface_rewrite(tmp_path, monkeypatch):
     run = tmp_path / "run"
     run.mkdir()
-    monkeypatch.setattr(dw, "_state", lambda _: {"target": "테스트기관", "root": str(tmp_path)})
+    (run / "02_확정경험원장.json").write_text(
+        json.dumps(_ledger(), ensure_ascii=False), encoding="utf-8"
+    )
+    monkeypatch.setattr(dw, "_state", lambda _: _state())
     responses, report = dw.generate_deep_draft(
         run,
         packet=_packet(),

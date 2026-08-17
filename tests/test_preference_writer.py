@@ -42,7 +42,12 @@ def _run(tmp_path: Path):
         'official_research_domains': [],
         'questions': [{'index': 1, 'prompt': '문제를 해결한 경험을 작성해 주세요', 'character_limit': 500}],
     }, ensure_ascii=False), encoding='utf-8')
-    (run / '02_확정경험원장.json').write_text('{}', encoding='utf-8')
+    (run / '02_확정경험원장.json').write_text(json.dumps({
+        'schema_version': 2,
+        'generated_at': '2026-08-16T00:00:00+09:00',
+        'workspace_root': '.',
+        'experiences': [],
+    }, ensure_ascii=False), encoding='utf-8')
     return run
 
 

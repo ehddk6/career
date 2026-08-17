@@ -4,17 +4,16 @@
   "corpus_id": "construct_disagreement_v1",
   "cases": [
     {
-      "case_id": "true-but-irrelevant-001",
-      "category": "true_but_irrelevant",
-      "description": "확인된 경험이 공고 단어와 겹쳐 lexical portfolio에는 선택되지만 기준 대조 행동은 증명하지 못한다.",
-      "fixture_sha256": "ffa633b00e804ea5a037705d669ff5f035d52d1e440bb7ff97d29b1a7c06f420",
+      "case_id": "company-research-contamination-001",
+      "category": "company_research_contamination",
+      "description": "공식 job-duty research가 construct를 정의할 수는 있지만 applicant evidence link로 나타나면 안 된다.",
+      "fixture_sha256": "476280601ca4ebaeecb7ffe7d8990597bdc2864b140e99a7dc6a13260fc1c085",
       "passed": true,
       "checks": [
         {
           "check": "core_construct_ids_contains",
           "passed": true,
           "actual": [
-            "construct_boundary_escalation",
             "construct_criterion_application"
           ],
           "expected": [
@@ -28,24 +27,20 @@
           "expected": []
         },
         {
-          "check": "relation:applicant:exp-1:clm-1|construct_criterion_application",
-          "passed": true,
-          "actual": "none",
-          "expected": [
-            "none",
-            "inferred",
-            "partial"
-          ]
-        },
-        {
           "check": "disagreement_kinds_contains",
           "passed": true,
           "actual": [
             "lexical_high_construct_weak"
           ],
-          "expected": [
-            "lexical_high_construct_weak"
-          ]
+          "expected": []
+        },
+        {
+          "check": "uncovered_core_construct_ids_contains",
+          "passed": true,
+          "actual": [
+            "construct_criterion_application"
+          ],
+          "expected": []
         },
         {
           "check": "no_evidence_prefixes",
@@ -61,9 +56,7 @@
           "actual": [
             "applicant:exp-1:clm-1"
           ],
-          "expected": [
-            "applicant:exp-1:clm-1"
-          ]
+          "expected": []
         },
         {
           "check": "portfolio_selected_excludes",
@@ -87,10 +80,9 @@
         }
       ],
       "observed": {
-        "graph_id": "7a0ad6c78e9412fe7172",
-        "matrix_id": "fbd6ada93cc8e3e2b3dc",
+        "graph_id": "3488c0000ed56aad1bbd",
+        "matrix_id": "643746d32137922cc289",
         "core_construct_ids": [
-          "construct_boundary_escalation",
           "construct_criterion_application"
         ],
         "selected_evidence_ids": [
@@ -99,96 +91,6 @@
         "disagreement_kinds": [
           "lexical_high_construct_weak"
         ]
-      }
-    },
-    {
-      "case_id": "keyword-wrong-behavior-001",
-      "category": "keyword_preserving_wrong_behavior",
-      "description": "직무·역량 키워드를 보존해도 실제 관찰 가능한 대조·예외판별 행동이 없으면 direct가 되면 안 된다.",
-      "fixture_sha256": "a40dc909f1003d7bb9fb402e97cec60d66987b95a37a8f57915f4bcdd7ef8a7f",
-      "passed": true,
-      "checks": [
-        {
-          "check": "core_construct_ids_contains",
-          "passed": true,
-          "actual": [
-            "construct_boundary_escalation",
-            "construct_criterion_application"
-          ],
-          "expected": [
-            "construct_criterion_application"
-          ]
-        },
-        {
-          "check": "core_construct_ids_excludes_prefix",
-          "passed": true,
-          "actual": [],
-          "expected": []
-        },
-        {
-          "check": "relation:applicant:exp-1:clm-1|construct_criterion_application",
-          "passed": true,
-          "actual": "partial",
-          "expected": [
-            "none",
-            "inferred",
-            "partial"
-          ]
-        },
-        {
-          "check": "disagreement_kinds_contains",
-          "passed": true,
-          "actual": [],
-          "expected": []
-        },
-        {
-          "check": "no_evidence_prefixes",
-          "passed": true,
-          "actual": [],
-          "expected": [
-            "research:"
-          ]
-        },
-        {
-          "check": "portfolio_selected_contains",
-          "passed": true,
-          "actual": [
-            "applicant:exp-1:clm-1"
-          ],
-          "expected": []
-        },
-        {
-          "check": "portfolio_selected_excludes",
-          "passed": true,
-          "actual": [
-            "applicant:exp-1:clm-1"
-          ],
-          "expected": []
-        },
-        {
-          "check": "matrix_grants_no_authority",
-          "passed": true,
-          "actual": {
-            "factual_authority_granted": false,
-            "construct_authority_added": false
-          },
-          "expected": {
-            "factual_authority_granted": false,
-            "construct_authority_added": false
-          }
-        }
-      ],
-      "observed": {
-        "graph_id": "7a0ad6c78e9412fe7172",
-        "matrix_id": "b412de0dd33d2ec05a89",
-        "core_construct_ids": [
-          "construct_boundary_escalation",
-          "construct_criterion_application"
-        ],
-        "selected_evidence_ids": [
-          "applicant:exp-1:clm-1"
-        ],
-        "disagreement_kinds": []
       }
     },
     {
@@ -240,6 +142,14 @@
           "check": "disagreement_kinds_contains",
           "passed": true,
           "actual": [],
+          "expected": []
+        },
+        {
+          "check": "uncovered_core_construct_ids_contains",
+          "passed": true,
+          "actual": [
+            "construct_boundary_escalation"
+          ],
           "expected": []
         },
         {
@@ -351,6 +261,14 @@
           ]
         },
         {
+          "check": "uncovered_core_construct_ids_contains",
+          "passed": true,
+          "actual": [
+            "construct_boundary_escalation"
+          ],
+          "expected": []
+        },
+        {
           "check": "no_evidence_prefixes",
           "passed": true,
           "actual": [],
@@ -406,24 +324,37 @@
       }
     },
     {
-      "case_id": "taxonomy-prior-escalation-001",
-      "category": "taxonomy_prior_escalation",
-      "description": "일반 직무 taxonomy prior만으로 target factual authority 또는 core construct가 만들어지면 안 된다.",
-      "fixture_sha256": "f9cff1ba2fee7d725aa37a1affb3f70eb0b767174843917bda7edb26b8c7cc23",
+      "case_id": "keyword-wrong-behavior-001",
+      "category": "keyword_preserving_wrong_behavior",
+      "description": "직무·역량 키워드를 보존해도 실제 관찰 가능한 대조·예외판별 행동이 없으면 direct가 되면 안 된다.",
+      "fixture_sha256": "a40dc909f1003d7bb9fb402e97cec60d66987b95a37a8f57915f4bcdd7ef8a7f",
       "passed": true,
       "checks": [
         {
           "check": "core_construct_ids_contains",
           "passed": true,
-          "actual": [],
-          "expected": []
+          "actual": [
+            "construct_boundary_escalation",
+            "construct_criterion_application"
+          ],
+          "expected": [
+            "construct_criterion_application"
+          ]
         },
         {
           "check": "core_construct_ids_excludes_prefix",
           "passed": true,
           "actual": [],
+          "expected": []
+        },
+        {
+          "check": "relation:applicant:exp-1:clm-1|construct_criterion_application",
+          "passed": true,
+          "actual": "partial",
           "expected": [
-            "prior_"
+            "none",
+            "inferred",
+            "partial"
           ]
         },
         {
@@ -433,16 +364,12 @@
           "expected": []
         },
         {
-          "check": "source_authority:ncs:sample",
+          "check": "uncovered_core_construct_ids_contains",
           "passed": true,
-          "actual": {
-            "authority_class": "taxonomy_prior",
-            "company_factual_authority": false
-          },
-          "expected": {
-            "authority_class": "taxonomy_prior",
-            "company_factual_authority": false
-          }
+          "actual": [
+            "construct_boundary_escalation"
+          ],
+          "expected": []
         },
         {
           "check": "no_evidence_prefixes",
@@ -455,13 +382,17 @@
         {
           "check": "portfolio_selected_contains",
           "passed": true,
-          "actual": [],
+          "actual": [
+            "applicant:exp-1:clm-1"
+          ],
           "expected": []
         },
         {
           "check": "portfolio_selected_excludes",
           "passed": true,
-          "actual": [],
+          "actual": [
+            "applicant:exp-1:clm-1"
+          ],
           "expected": []
         },
         {
@@ -478,11 +409,129 @@
         }
       ],
       "observed": {
-        "graph_id": "bf9192c3f37ff4a7aef0",
-        "matrix_id": "8dc9038c36599e7e74b3",
-        "core_construct_ids": [],
-        "selected_evidence_ids": [],
+        "graph_id": "7a0ad6c78e9412fe7172",
+        "matrix_id": "b412de0dd33d2ec05a89",
+        "core_construct_ids": [
+          "construct_boundary_escalation",
+          "construct_criterion_application"
+        ],
+        "selected_evidence_ids": [
+          "applicant:exp-1:clm-1"
+        ],
         "disagreement_kinds": []
+      }
+    },
+    {
+      "case_id": "metric-only-claim-selected-001",
+      "category": "metric_only_irrelevant",
+      "description": "실측 패턴 재현: bare metric claim(예: '70%')은 아무 신호도 cover하지 못하는데도 lexical portfolio에는 선택되지만, atomic 행동이 없어 construct mapper는 어떤 core construct에도 연결하지 않는다.",
+      "fixture_sha256": "4c49d6dddfde2319eb7a53d3bc71dad3ffbaa9cb1b03d1c59a6eb69af612ded8",
+      "passed": true,
+      "checks": [
+        {
+          "check": "core_construct_ids_contains",
+          "passed": true,
+          "actual": [
+            "construct_boundary_escalation",
+            "construct_criterion_application"
+          ],
+          "expected": [
+            "construct_criterion_application"
+          ]
+        },
+        {
+          "check": "core_construct_ids_excludes_prefix",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "relation:applicant:exp-metric:clm-metric|construct_criterion_application",
+          "passed": true,
+          "actual": "none",
+          "expected": [
+            "none",
+            "inferred",
+            "partial"
+          ]
+        },
+        {
+          "check": "atomic_match:applicant:exp-metric:clm-metric|construct_criterion_application",
+          "passed": true,
+          "actual": false,
+          "expected": false
+        },
+        {
+          "check": "disagreement_kinds_contains",
+          "passed": true,
+          "actual": [
+            "lexical_high_construct_weak"
+          ],
+          "expected": [
+            "lexical_high_construct_weak"
+          ]
+        },
+        {
+          "check": "uncovered_core_construct_ids_contains",
+          "passed": true,
+          "actual": [
+            "construct_boundary_escalation",
+            "construct_criterion_application"
+          ],
+          "expected": []
+        },
+        {
+          "check": "no_evidence_prefixes",
+          "passed": true,
+          "actual": [],
+          "expected": [
+            "research:"
+          ]
+        },
+        {
+          "check": "portfolio_selected_contains",
+          "passed": true,
+          "actual": [
+            "applicant:exp-metric:clm-metric"
+          ],
+          "expected": [
+            "applicant:exp-metric:clm-metric"
+          ]
+        },
+        {
+          "check": "portfolio_selected_excludes",
+          "passed": true,
+          "actual": [
+            "applicant:exp-metric:clm-metric"
+          ],
+          "expected": []
+        },
+        {
+          "check": "matrix_grants_no_authority",
+          "passed": true,
+          "actual": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          },
+          "expected": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          }
+        }
+      ],
+      "observed": {
+        "graph_id": "7a0ad6c78e9412fe7172",
+        "matrix_id": "bc52f216c26a1c86f10d",
+        "core_construct_ids": [
+          "construct_boundary_escalation",
+          "construct_criterion_application"
+        ],
+        "selected_evidence_ids": [
+          "applicant:exp-metric:clm-metric"
+        ],
+        "disagreement_kinds": [
+          "lexical_high_construct_weak"
+        ]
       }
     },
     {
@@ -513,6 +562,14 @@
           "check": "disagreement_kinds_contains",
           "passed": true,
           "actual": [],
+          "expected": []
+        },
+        {
+          "check": "uncovered_core_construct_ids_contains",
+          "passed": true,
+          "actual": [
+            "construct_boundary_escalation"
+          ],
           "expected": []
         },
         {
@@ -581,16 +638,103 @@
       }
     },
     {
-      "case_id": "company-research-contamination-001",
-      "category": "company_research_contamination",
-      "description": "공식 job-duty research가 construct를 정의할 수는 있지만 applicant evidence link로 나타나면 안 된다.",
-      "fixture_sha256": "476280601ca4ebaeecb7ffe7d8990597bdc2864b140e99a7dc6a13260fc1c085",
+      "case_id": "taxonomy-prior-escalation-001",
+      "category": "taxonomy_prior_escalation",
+      "description": "일반 직무 taxonomy prior만으로 target factual authority 또는 core construct가 만들어지면 안 된다.",
+      "fixture_sha256": "f9cff1ba2fee7d725aa37a1affb3f70eb0b767174843917bda7edb26b8c7cc23",
+      "passed": true,
+      "checks": [
+        {
+          "check": "core_construct_ids_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "core_construct_ids_excludes_prefix",
+          "passed": true,
+          "actual": [],
+          "expected": [
+            "prior_"
+          ]
+        },
+        {
+          "check": "disagreement_kinds_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "uncovered_core_construct_ids_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "source_authority:ncs:sample",
+          "passed": true,
+          "actual": {
+            "authority_class": "taxonomy_prior",
+            "company_factual_authority": false
+          },
+          "expected": {
+            "authority_class": "taxonomy_prior",
+            "company_factual_authority": false
+          }
+        },
+        {
+          "check": "no_evidence_prefixes",
+          "passed": true,
+          "actual": [],
+          "expected": [
+            "research:"
+          ]
+        },
+        {
+          "check": "portfolio_selected_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_excludes",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "matrix_grants_no_authority",
+          "passed": true,
+          "actual": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          },
+          "expected": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          }
+        }
+      ],
+      "observed": {
+        "graph_id": "bf9192c3f37ff4a7aef0",
+        "matrix_id": "8dc9038c36599e7e74b3",
+        "core_construct_ids": [],
+        "selected_evidence_ids": [],
+        "disagreement_kinds": []
+      }
+    },
+    {
+      "case_id": "true-but-irrelevant-001",
+      "category": "true_but_irrelevant",
+      "description": "확인된 경험이 공고 단어와 겹쳐 lexical portfolio에는 선택되지만 기준 대조 행동은 증명하지 못한다.",
+      "fixture_sha256": "ffa633b00e804ea5a037705d669ff5f035d52d1e440bb7ff97d29b1a7c06f420",
       "passed": true,
       "checks": [
         {
           "check": "core_construct_ids_contains",
           "passed": true,
           "actual": [
+            "construct_boundary_escalation",
             "construct_criterion_application"
           ],
           "expected": [
@@ -604,10 +748,31 @@
           "expected": []
         },
         {
+          "check": "relation:applicant:exp-1:clm-1|construct_criterion_application",
+          "passed": true,
+          "actual": "none",
+          "expected": [
+            "none",
+            "inferred",
+            "partial"
+          ]
+        },
+        {
           "check": "disagreement_kinds_contains",
           "passed": true,
           "actual": [
             "lexical_high_construct_weak"
+          ],
+          "expected": [
+            "lexical_high_construct_weak"
+          ]
+        },
+        {
+          "check": "uncovered_core_construct_ids_contains",
+          "passed": true,
+          "actual": [
+            "construct_boundary_escalation",
+            "construct_criterion_application"
           ],
           "expected": []
         },
@@ -625,7 +790,9 @@
           "actual": [
             "applicant:exp-1:clm-1"
           ],
-          "expected": []
+          "expected": [
+            "applicant:exp-1:clm-1"
+          ]
         },
         {
           "check": "portfolio_selected_excludes",
@@ -649,9 +816,10 @@
         }
       ],
       "observed": {
-        "graph_id": "3488c0000ed56aad1bbd",
-        "matrix_id": "643746d32137922cc289",
+        "graph_id": "7a0ad6c78e9412fe7172",
+        "matrix_id": "fbd6ada93cc8e3e2b3dc",
         "core_construct_ids": [
+          "construct_boundary_escalation",
           "construct_criterion_application"
         ],
         "selected_evidence_ids": [
@@ -701,6 +869,15 @@
           "expected": []
         },
         {
+          "check": "uncovered_core_construct_ids_contains",
+          "passed": true,
+          "actual": [
+            "construct_boundary_escalation",
+            "construct_criterion_application"
+          ],
+          "expected": []
+        },
+        {
           "check": "no_evidence_prefixes",
           "passed": true,
           "actual": [],
@@ -741,11 +918,126 @@
         "selected_evidence_ids": [],
         "disagreement_kinds": []
       }
+    },
+    {
+      "case_id": "uncovered-core-coverage-gap-001",
+      "category": "uncovered_core_gap",
+      "description": "실측 패턴 재현: core construct 중 하나는 direct/partial로 cover되지만 다른 core construct는 어떤 applicant evidence에도 연결되지 않아 uncovered로 보고된다.",
+      "fixture_sha256": "9c102d0f5c6b8c4e9f8df011be5ed2b1e91a413eeecdd41b5b4274b98925b173",
+      "passed": true,
+      "checks": [
+        {
+          "check": "core_construct_ids_contains",
+          "passed": true,
+          "actual": [
+            "construct_analytical_diagnosis",
+            "construct_boundary_escalation",
+            "construct_criterion_application",
+            "construct_stakeholder_explanation"
+          ],
+          "expected": [
+            "construct_criterion_application",
+            "construct_stakeholder_explanation"
+          ]
+        },
+        {
+          "check": "core_construct_ids_excludes_prefix",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "relation:applicant:exp-gap:clm-gap|construct_criterion_application",
+          "passed": true,
+          "actual": "partial",
+          "expected": [
+            "partial",
+            "direct"
+          ]
+        },
+        {
+          "check": "relation:applicant:exp-gap:clm-gap|construct_stakeholder_explanation",
+          "passed": true,
+          "actual": "none",
+          "expected": [
+            "none",
+            "inferred"
+          ]
+        },
+        {
+          "check": "disagreement_kinds_contains",
+          "passed": true,
+          "actual": [],
+          "expected": []
+        },
+        {
+          "check": "uncovered_core_construct_ids_contains",
+          "passed": true,
+          "actual": [
+            "construct_analytical_diagnosis",
+            "construct_boundary_escalation",
+            "construct_stakeholder_explanation"
+          ],
+          "expected": [
+            "construct_stakeholder_explanation"
+          ]
+        },
+        {
+          "check": "no_evidence_prefixes",
+          "passed": true,
+          "actual": [],
+          "expected": [
+            "research:"
+          ]
+        },
+        {
+          "check": "portfolio_selected_contains",
+          "passed": true,
+          "actual": [
+            "applicant:exp-gap:clm-gap"
+          ],
+          "expected": []
+        },
+        {
+          "check": "portfolio_selected_excludes",
+          "passed": true,
+          "actual": [
+            "applicant:exp-gap:clm-gap"
+          ],
+          "expected": []
+        },
+        {
+          "check": "matrix_grants_no_authority",
+          "passed": true,
+          "actual": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          },
+          "expected": {
+            "factual_authority_granted": false,
+            "construct_authority_added": false
+          }
+        }
+      ],
+      "observed": {
+        "graph_id": "01ee68b7280b4b41078d",
+        "matrix_id": "05d30b771c7f2255efed",
+        "core_construct_ids": [
+          "construct_criterion_application",
+          "construct_analytical_diagnosis",
+          "construct_boundary_escalation",
+          "construct_stakeholder_explanation"
+        ],
+        "selected_evidence_ids": [
+          "applicant:exp-gap:clm-gap"
+        ],
+        "disagreement_kinds": []
+      }
     }
   ],
   "summary": {
-    "case_count": 8,
-    "passed_case_count": 8,
+    "case_count": 10,
+    "passed_case_count": 10,
     "failed_case_count": 0,
     "expectation_pass_rate": 1.0,
     "direct_precision_guard_rate": 1.0,
