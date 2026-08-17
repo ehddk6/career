@@ -1,8 +1,8 @@
-"""Integrate existing evidence/writing pipelines with Deep Writer.
+"""Integrate evidence, research intelligence, strategy priors, and Deep Writer.
 
-Confirmed experience and official research remain the only factual authority.
-Strategy priors are injected into Deep Writer without replacing its argument
-search, validators, or the downstream finalize boundary.
+Confirmed experience and coverage-approved official research remain the only
+factual authority. Strategy priors influence argument search but never authorize
+facts. Company research is compiled and gated before prose generation.
 """
 from __future__ import annotations
 
@@ -12,7 +12,11 @@ import json
 from pathlib import Path
 from typing import Any, Callable, Mapping, Sequence
 
+from .answer_blueprint import render_blueprint_markdown
 from .deep_writer import DeepWriterError, generate_deep_draft, subprocess_model_runner
+from .narrative_compiler import compile_run_blueprint
+from .research_router import route_research_into_blueprint
+from .research_workspace import assert_research_ready
 from .state import write_json
 from .strategy_prior import build_strategy_prior, render_strategy_prior_markdown, strategy_prior_for_stage
 
@@ -27,7 +31,7 @@ def _prefix(stage: str, prior: Mapping[str, Any]) -> str:
         "<strategy_prior_context>\n"
         "AUTHORITY RULE: this context is STRATEGY ONLY. It cannot authorize any applicant fact, "
         "number, date, motive, result, company fact, or causal claim. The blueprint's confirmed "
-        "experience claims and official research remain authoritative. If this context conflicts "
+        "experience claims and coverage-approved official research remain authoritative. If this context conflicts "
         "with blueprint evidence, ignore it. Never copy legacy or YouTube wording. Use it only for "
         "argument structure, emphasis, candidate comparison, anti-repetition, and review. Historical "
         "outcomes are diagnostics, never hiring probability.\n"
@@ -40,6 +44,22 @@ def strategy_aware_runner(prior: Mapping[str, Any], base_runner: ModelRunner) ->
     def run(stage: str, prompt: str, model_id: str, timeout_ms: int) -> dict[str, Any] | str:
         return base_runner(stage, _prefix(stage, prior) + prompt, model_id, timeout_ms)
     return run
+
+
+def _routed_packet(run_dir: Path, research_report: Mapping[str, Any]) -> dict[str, Any] | None:
+    state_path = run_dir / "run.json"
+    if not state_path.is_file():
+        return None
+    state = json.loads(state_path.read_text(encoding="utf-8"))
+    if not isinstance(state, Mapping) or not state.get("questions"):
+        return None
+    packet = compile_run_blueprint(run_dir)
+    routed = route_research_into_blueprint(packet, research_report)
+    write_json(run_dir / "05_답변설계도.json", routed)
+    (run_dir / "05_답변설계도.md").write_text(
+        render_blueprint_markdown(routed), encoding="utf-8"
+    )
+    return routed
 
 
 def generate_integrated_draft(
@@ -55,11 +75,18 @@ def generate_integrated_draft(
     runner: ModelRunner = subprocess_model_runner,
 ) -> tuple[list[Any], dict[str, Any]]:
     run_dir = run_dir.resolve()
+    try:
+        research_report = assert_research_ready(run_dir)
+    except ValueError as error:
+        raise DeepWriterError(str(error)) from error
+    packet = _routed_packet(run_dir, research_report)
+
     prior = build_strategy_prior(run_dir)
     write_json(run_dir / PRIOR_JSON, prior)
     (run_dir / PRIOR_MD).write_text(render_strategy_prior_markdown(prior), encoding="utf-8")
     responses, report = generate_deep_draft(
         run_dir,
+        packet=packet,
         writer_model_id=writer_model_id,
         judge_model_ids=judge_model_ids,
         route_count=route_count,
@@ -70,15 +97,32 @@ def generate_integrated_draft(
         runner=strategy_aware_runner(prior, runner),
     )
     integrated = dict(report)
-    integrated["schema_version"] = max(2, int(report.get("schema_version", 1)))
-    integrated["architecture"] = "integrated_evidence_to_argument_search_v2"
+    integrated["schema_version"] = max(3, int(report.get("schema_version", 1)))
+    integrated["architecture"] = "integrated_research_to_argument_search_v3"
     integrated["upstream_pipeline_contract"] = {
         "experience_pipeline": "preserved_and_authoritative",
         "matching_pipeline": "preserved",
-        "official_research_pipeline": "preserved_and_authoritative",
+        "official_research_pipeline": "coverage_gated_and_authoritative",
+        "research_requirement_compiler": "enabled",
+        "research_conflict_resolution": "enabled",
+        "research_argument_router": "enabled",
         "narrative_compiler": "preserved_as_blueprint_layer",
         "deep_writer": "preserved_as_argument_search_engine",
         "finalize": "preserved_as_validation_rendering_interview_boundary",
+    }
+    coverage = research_report.get("coverage", {}) if isinstance(research_report.get("coverage"), Mapping) else {}
+    conflicts = research_report.get("conflicts", {}) if isinstance(research_report.get("conflicts"), Mapping) else {}
+    registry = research_report.get("registry", {}) if isinstance(research_report.get("registry"), Mapping) else {}
+    integrated["research_intelligence"] = {
+        "plan_id": research_report.get("plan", {}).get("plan_id") if isinstance(research_report.get("plan"), Mapping) else None,
+        "coverage_status": coverage.get("status"),
+        "coverage_ratio": coverage.get("coverage_ratio"),
+        "stop_research": coverage.get("stop_research"),
+        "required_slots": coverage.get("required_slots"),
+        "covered_required_slots": coverage.get("covered_required_slots"),
+        "unresolved_conflicts": conflicts.get("unresolved_groups", []),
+        "official_domains": registry.get("official_domains", []),
+        "factual_authority": "coverage_approved_official_claims_only",
     }
     youtube = prior.get("youtube", {}) if isinstance(prior.get("youtube"), Mapping) else {}
     legacy = prior.get("legacy_writing_pipeline", {}) if isinstance(prior.get("legacy_writing_pipeline"), Mapping) else {}
@@ -115,7 +159,7 @@ def write_integrated_draft(run_dir: Path, *, output: Path | None = None, force: 
 
 
 def _parser() -> argparse.ArgumentParser:
-    p = argparse.ArgumentParser(description="Integrate existing career pipeline strategy with Deep Writer")
+    p = argparse.ArgumentParser(description="Integrate company research, career strategy, and Deep Writer")
     p.add_argument("--run", required=True, type=Path)
     p.add_argument("--writer-model-id")
     p.add_argument("--judge-model-id", action="append", default=[])
