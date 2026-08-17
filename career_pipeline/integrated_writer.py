@@ -102,7 +102,7 @@ def generate_integrated_draft(
     integrated["upstream_pipeline_contract"] = {
         "experience_pipeline": "preserved_and_authoritative",
         "matching_pipeline": "preserved",
-        "official_research_pipeline": "coverage_gated_and_authoritative",
+        "official_research_pipeline": "preserved_and_authoritative",
         "research_requirement_compiler": "enabled",
         "research_conflict_resolution": "enabled",
         "research_argument_router": "enabled",
