@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "corpus_id": "object_semantics_verb_aware_v1",
+  "description": "Frozen verb-aware documentation semantics regressions (shadow only). 정리 requires a materialized artifact marker; 작성/기록/메모 accept concrete content; weak generic terms (방식/역할/항목/문의/질문) never open DIRECT on their own.",
+  "cases": [
+    {
+      "case_id": "organize-method-role-no-artifact",
+      "category": "verb_aware_documentation",
+      "action": "정리",
+      "object": "출석 확인 방식과 담당 역할",
+      "expected": {"relation": "not_direct", "basis": "blocked_weak_generic"}
+    },
+    {
+      "case_id": "organize-schedule-artifact",
+      "category": "verb_aware_documentation",
+      "action": "정리",
+      "object": "일정표 또는 배치안",
+      "expected": {"relation": "direct", "basis": "artifact_supported"}
+    },
+    {
+      "case_id": "write-draft-artifact",
+      "category": "verb_aware_documentation",
+      "action": "작성",
+      "object": "병원용·군의관용 안내 초안",
+      "expected": {"relation": "direct", "basis": "artifact_supported"}
+    },
+    {
+      "case_id": "memo-inquiry-content",
+      "category": "verb_aware_documentation",
+      "action": "메모",
+      "object": "전화 문의",
+      "expected": {"relation": "direct", "basis": "bounded_alias"}
+    },
+    {
+      "case_id": "organize-generic-item-no-artifact",
+      "category": "verb_aware_documentation",
+      "action": "정리",
+      "object": "확인 항목",
+      "expected": {"relation": "not_direct", "basis": "blocked_weak_generic"}
+    },
+    {
+      "case_id": "organize-excel-check-items",
+      "category": "verb_aware_documentation",
+      "action": "정리",
+      "object": "확인 항목을 엑셀 표",
+      "expected": {"relation": "direct", "basis": "artifact_supported"}
+    }
+  ]
+}

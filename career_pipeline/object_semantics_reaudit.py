@@ -13,7 +13,7 @@ from pathlib import Path
 from typing import Any, Mapping, Sequence
 
 from .behavior_span_parser_v2 import BehaviorSpan, extract_behavior_spans
-from .object_semantics_shadow import semantic_object_match
+from .object_semantics_shadow import semantic_object_match_verb_aware
 
 ARCHITECTURE = "parser_first_object_semantics_3way_private_audit_v1"
 _REQUIRED = (
@@ -164,8 +164,11 @@ def _criterion_state(
         if not criterion.object_class:
             object_ok, basis, terms = True, "no_object_requirement", []
         elif semantic:
-            match = semantic_object_match(
-                criterion.criterion_id, object_text, criterion.object_class
+            match = semantic_object_match_verb_aware(
+                criterion.criterion_id,
+                str(atom.get("action", "")),
+                object_text,
+                criterion.object_class,
             )
             object_ok, basis, terms = match.matched, match.basis, list(match.matched_terms)
         else:
@@ -270,6 +273,7 @@ def build_parser_object_shadow_relations(
     exact_rows: list[dict[str, Any]] = []
     semantic_rows: list[dict[str, Any]] = []
     diagnostics = Counter()
+    precision = Counter()
     for evidence_id, authority in sorted(verified_authority.items()):
         old_atoms = current_atoms.get(evidence_id, [])
         spans = extract_behavior_spans(texts.get(evidence_id, ""))
@@ -310,14 +314,23 @@ def build_parser_object_shadow_relations(
                     ),
                 }
             )
-            semantic_rows.append(
-                {
-                    **base,
-                    **_shadow_relation(
-                        construct, criteria, parser_atoms, old_v1, semantic=True
-                    ),
-                }
+            semantic_row = _shadow_relation(
+                construct, criteria, parser_atoms, old_v1, semantic=True
             )
+            semantic_rows.append({**base, **semantic_row})
+            semantic_bases = [
+                str(ev.get("object_match_basis", ""))
+                for ev in semantic_row.get("criterion_evidence", {}).values()
+            ]
+            if any(
+                basis in {"blocked_weak_generic", "blocked_no_artifact"}
+                for basis in semantic_bases
+            ):
+                precision["weak_alias_blocked_count"] += 1
+            if semantic_row.get("relation") == "direct" and any(
+                basis == "artifact_supported" for basis in semantic_bases
+            ):
+                precision["artifact_supported_direct_count"] += 1
     exact_rows.sort(key=lambda row: (row["evidence_id"], row["construct_id"]))
     semantic_rows.sort(key=lambda row: (row["evidence_id"], row["construct_id"]))
     return {
@@ -332,6 +345,7 @@ def build_parser_object_shadow_relations(
             "parser_recall_does_not_depend_on_legacy_atom_existence": True,
         },
         "diagnostics": dict(diagnostics),
+        "precision_diagnostics": dict(precision),
         "exact": {"relations": exact_rows, "summary": _relation_summary(exact_rows)},
         "semantic": {
             "relations": semantic_rows,
@@ -500,6 +514,7 @@ def audit_parser_object_run(run_dir: Path) -> dict[str, Any] | None:
         "parser_v2_exact": dict(shadow["exact"]["summary"]),
         "parser_v2_semantic": dict(shadow["semantic"]["summary"]),
         "parser_diagnostics": dict(shadow["diagnostics"]),
+        "precision_diagnostics": dict(shadow["precision_diagnostics"]),
         "A": {
             "current_v2": current_a,
             "parser_v2_exact": _a_count(by_question, exact_index, core),
@@ -525,8 +540,8 @@ def run_audit(runs_root: Path) -> dict[str, Any]:
         for result in [audit_parser_object_run(directory)]
         if result is not None
     ]
-    current, exact, semantic, diagnostics, a_counts, b_counts = (
-        Counter() for _ in range(6)
+    current, exact, semantic, diagnostics, precision, a_counts, b_counts = (
+        Counter() for _ in range(7)
     )
     recovered_exact: list[dict[str, Any]] = []
     recovered_semantic: list[dict[str, Any]] = []
@@ -541,12 +556,14 @@ def run_audit(runs_root: Path) -> dict[str, Any]:
         recovered_exact += record["recovered_exact_direct"]
         recovered_semantic += record["recovered_semantic_direct"]
         authority_blocked += record["authority_blocked_semantic_direct_count"]
+        precision.update(record["precision_diagnostics"])
     summary = {
         "run_count": len(records),
         "current_v2": dict(current),
         "parser_v2_exact": dict(exact),
         "parser_v2_semantic": dict(semantic),
         "parser_diagnostics": dict(diagnostics),
+        "precision_diagnostics": dict(precision),
         "A": dict(a_counts),
         "B": dict(b_counts),
         "recovered_exact_direct_count": len(recovered_exact),
