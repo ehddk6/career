@@ -22,6 +22,10 @@ import re
 from typing import Iterable
 
 ARCHITECTURE = "object_semantics_shadow_v1"
+# Version of the verb-aware documentation semantics policy applied by
+# ``semantic_object_match_verb_aware``. Emitted as additive metadata in
+# relation-shadow and 3-way audit outputs for auditability.
+SEMANTIC_POLICY_VERSION = "documentation_verb_aware_v1"
 _TOKEN_RE = re.compile(r"[가-힣A-Za-z0-9]+")
 
 # Stable lexical equivalences only. A group is activated only when the criterion's
