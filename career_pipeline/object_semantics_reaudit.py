@@ -13,7 +13,10 @@ from pathlib import Path
 from typing import Any, Mapping, Sequence
 
 from .behavior_span_parser_v2 import BehaviorSpan, extract_behavior_spans
-from .object_semantics_shadow import semantic_object_match
+from .object_semantics_shadow import (
+    SEMANTIC_POLICY_VERSION,
+    semantic_object_match_verb_aware,
+)
 
 ARCHITECTURE = "parser_first_object_semantics_3way_private_audit_v1"
 _REQUIRED = (
@@ -164,8 +167,11 @@ def _criterion_state(
         if not criterion.object_class:
             object_ok, basis, terms = True, "no_object_requirement", []
         elif semantic:
-            match = semantic_object_match(
-                criterion.criterion_id, object_text, criterion.object_class
+            match = semantic_object_match_verb_aware(
+                criterion.criterion_id,
+                str(atom.get("action", "")),
+                object_text,
+                criterion.object_class,
             )
             object_ok, basis, terms = match.matched, match.basis, list(match.matched_terms)
         else:
@@ -270,6 +276,8 @@ def build_parser_object_shadow_relations(
     exact_rows: list[dict[str, Any]] = []
     semantic_rows: list[dict[str, Any]] = []
     diagnostics = Counter()
+    precision = Counter()
+    weak_alias_blocked_keys: list[tuple[str, str]] = []
     for evidence_id, authority in sorted(verified_authority.items()):
         old_atoms = current_atoms.get(evidence_id, [])
         spans = extract_behavior_spans(texts.get(evidence_id, ""))
@@ -310,14 +318,24 @@ def build_parser_object_shadow_relations(
                     ),
                 }
             )
-            semantic_rows.append(
-                {
-                    **base,
-                    **_shadow_relation(
-                        construct, criteria, parser_atoms, old_v1, semantic=True
-                    ),
-                }
+            semantic_row = _shadow_relation(
+                construct, criteria, parser_atoms, old_v1, semantic=True
             )
+            semantic_rows.append({**base, **semantic_row})
+            semantic_bases = [
+                str(ev.get("object_match_basis", ""))
+                for ev in semantic_row.get("criterion_evidence", {}).values()
+            ]
+            if any(
+                basis in {"blocked_weak_generic", "blocked_no_artifact"}
+                for basis in semantic_bases
+            ):
+                precision["weak_alias_blocked_count"] += 1
+                weak_alias_blocked_keys.append((evidence_id, construct.construct_id))
+            if semantic_row.get("relation") == "direct" and any(
+                basis == "artifact_supported" for basis in semantic_bases
+            ):
+                precision["artifact_supported_direct_count"] += 1
     exact_rows.sort(key=lambda row: (row["evidence_id"], row["construct_id"]))
     semantic_rows.sort(key=lambda row: (row["evidence_id"], row["construct_id"]))
     return {
@@ -331,7 +349,10 @@ def build_parser_object_shadow_relations(
             "authority_source": "canonical_confirmed_submission_safe_source_bound_claim_gate",
             "parser_recall_does_not_depend_on_legacy_atom_existence": True,
         },
+        "semantic_policy_version": SEMANTIC_POLICY_VERSION,
         "diagnostics": dict(diagnostics),
+        "precision_diagnostics": dict(precision),
+        "weak_alias_blocked_keys": [list(k) for k in weak_alias_blocked_keys],
         "exact": {"relations": exact_rows, "summary": _relation_summary(exact_rows)},
         "semantic": {
             "relations": semantic_rows,
@@ -500,6 +521,10 @@ def audit_parser_object_run(run_dir: Path) -> dict[str, Any] | None:
         "parser_v2_exact": dict(shadow["exact"]["summary"]),
         "parser_v2_semantic": dict(shadow["semantic"]["summary"]),
         "parser_diagnostics": dict(shadow["diagnostics"]),
+        "precision_diagnostics": dict(shadow["precision_diagnostics"]),
+        "weak_alias_blocked_keys": [
+            list(k) for k in shadow.get("weak_alias_blocked_keys", [])
+        ],
         "A": {
             "current_v2": current_a,
             "parser_v2_exact": _a_count(by_question, exact_index, core),
@@ -517,6 +542,50 @@ def audit_parser_object_run(run_dir: Path) -> dict[str, Any] | None:
     }
 
 
+def _unique_recovery_summary(
+    rows: Sequence[Mapping[str, Any]],
+) -> list[dict[str, Any]]:
+    """Aggregate recovered DIRECT rows by (evidence_id, construct_id, recovery_basis).
+
+    Row-level candidates are preserved as-is; this is additive audit metadata.
+    Labels stay null until human review.
+    """
+    groups: dict[tuple[str, str, str], dict[str, Any]] = {}
+    for row in rows:
+        if not isinstance(row, Mapping):
+            continue
+        key = (
+            str(row.get("evidence_id", "")),
+            str(row.get("construct_id", "")),
+            str(row.get("recovery_basis", "")),
+        )
+        group = groups.setdefault(
+            key,
+            {
+                "evidence_id": key[0],
+                "construct_id": key[1],
+                "recovery_basis": key[2],
+                "row_count": 0,
+                "unique_count": 1,
+                "occurrence_count": 0,
+                "run_identifiers": [],
+                "review_label": None,
+                "human_label": None,
+            },
+        )
+        group["row_count"] += 1
+        run_id = str(row.get("run_identifier", ""))
+        if run_id and run_id not in group["run_identifiers"]:
+            group["run_identifiers"].append(run_id)
+    result = []
+    for group in groups.values():
+        group["run_identifiers"] = sorted(group["run_identifiers"])
+        group["occurrence_count"] = len(group["run_identifiers"])
+        result.append(group)
+    result.sort(key=lambda g: (g["evidence_id"], g["construct_id"], g["recovery_basis"]))
+    return result
+
+
 def run_audit(runs_root: Path) -> dict[str, Any]:
     records = [
         result
@@ -525,12 +594,13 @@ def run_audit(runs_root: Path) -> dict[str, Any]:
         for result in [audit_parser_object_run(directory)]
         if result is not None
     ]
-    current, exact, semantic, diagnostics, a_counts, b_counts = (
-        Counter() for _ in range(6)
+    current, exact, semantic, diagnostics, precision, a_counts, b_counts = (
+        Counter() for _ in range(7)
     )
     recovered_exact: list[dict[str, Any]] = []
     recovered_semantic: list[dict[str, Any]] = []
     authority_blocked = 0
+    weak_blocked_keys: set[tuple[str, str]] = set()
     for record in records:
         current.update(record["current_v2"])
         exact.update(record["parser_v2_exact"])
@@ -541,30 +611,49 @@ def run_audit(runs_root: Path) -> dict[str, Any]:
         recovered_exact += record["recovered_exact_direct"]
         recovered_semantic += record["recovered_semantic_direct"]
         authority_blocked += record["authority_blocked_semantic_direct_count"]
+        precision.update(record["precision_diagnostics"])
+        weak_blocked_keys.update(
+            (str(k[0]), str(k[1]))
+            for k in record.get("weak_alias_blocked_keys", [])
+            if isinstance(k, (list, tuple)) and len(k) >= 2
+        )
+    unique_summary = _unique_recovery_summary(
+        [*recovered_exact, *recovered_semantic]
+    )
     summary = {
         "run_count": len(records),
         "current_v2": dict(current),
         "parser_v2_exact": dict(exact),
         "parser_v2_semantic": dict(semantic),
         "parser_diagnostics": dict(diagnostics),
+        "precision_diagnostics": dict(precision),
         "A": dict(a_counts),
         "B": dict(b_counts),
         "recovered_exact_direct_count": len(recovered_exact),
         "recovered_semantic_direct_count": len(recovered_semantic),
+        "recovered_semantic_direct_row_count": len(recovered_semantic),
+        "recovered_semantic_direct_unique_count": sum(
+            1 for row in unique_summary if row["recovery_basis"] != "parser_v2_exact"
+        ),
         "recovered_semantic_only_direct_count": sum(
             row.get("recovery_basis") == "bounded_semantic_only"
             for row in recovered_semantic
         ),
+        "weak_alias_blocked_row_count": precision["weak_alias_blocked_count"],
+        "weak_alias_blocked_unique_count": len(weak_blocked_keys),
         "authority_blocked_semantic_direct_count": authority_blocked,
+        "recovered_direct_unique_summary": unique_summary,
     }
     return {
         "schema_version": 1,
         "architecture": ARCHITECTURE,
+        "semantic_policy_version": SEMANTIC_POLICY_VERSION,
         "private": True,
         "human_labels_performed": False,
         "multi_claim_enabled": False,
         "summary": summary,
         "records": records,
+        "recovered_direct_unique_summary": unique_summary,
         "recovered_exact_direct_review_candidates": recovered_exact,
         "recovered_semantic_direct_review_candidates": recovered_semantic,
     }
@@ -615,7 +704,38 @@ def write_private_outputs(
         + "\n",
         encoding="utf-8",
     )
-    return detail, review
+    unique = out / "parser_object_semantics_recovered_direct.unique.json"
+    unique_summary = report.get("recovered_direct_unique_summary", []) or []
+    safe_unique = []
+    for row in unique_summary:
+        if not isinstance(row, Mapping):
+            continue
+        safe = dict(row)
+        safe["review_label"] = None
+        safe["human_label"] = None
+        safe["review_status"] = "candidate_only_not_human_labeled"
+        safe_unique.append(safe)
+    unique.write_text(
+        json.dumps(
+            {
+                "schema_version": 1,
+                "private": True,
+                "human_labels_performed": False,
+                "semantic_policy_version": report.get(
+                    "semantic_policy_version", ""
+                ),
+                "review_label_policy": "review_label_must_remain_null_until_human_review",
+                "unique_count": len(safe_unique),
+                "row_count": sum(int(row.get("row_count", 0)) for row in safe_unique),
+                "unique_summary": safe_unique,
+            },
+            ensure_ascii=False,
+            indent=2,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    return detail, review, unique
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -631,9 +751,13 @@ def main(argv: Sequence[str] | None = None) -> int:
         )
         return 4
     report = run_audit(args.runs)
-    detail, review = write_private_outputs(args.runs, report)
+    detail, review, unique = write_private_outputs(args.runs, report)
     print(json.dumps(report["summary"], ensure_ascii=False, indent=2))
-    print(f"PRIVATE detail: {detail}\nPRIVATE review candidates: {review}")
+    print(
+        f"PRIVATE detail: {detail}\n"
+        f"PRIVATE review candidates: {review}\n"
+        f"PRIVATE unique summary: {unique}"
+    )
     return 0 if report["summary"]["run_count"] else 4
 
 
