@@ -244,6 +244,10 @@ def _selected_quality_summary(run_dir: Path | None) -> dict[str, Any] | None:
     numeric_totals = [value for value in question_totals if isinstance(value, (int, float))]
     return {
         "metric": "internal_validation_not_hire_probability",
+        "score_scope": audit.get(
+            "score_scope",
+            "career_artifacts_only_not_application_completeness_or_hire_probability",
+        ),
         "internal_validation_score": audit.get("internal_validation_score", audit.get("score")),
         "quality_gate": audit.get("quality_gate"),
         "human_review_recommended": audit.get("human_review_recommended", True),
@@ -358,6 +362,8 @@ def assess_application_quality(
         status = "not_ready"
     blocker_codes = sorted(set(blockers))
     return {
+        "assessment_scope": "application_artifact_readiness_not_hire_probability",
+        "hire_probability": None,
         "status": status,
         "dimensions": dimensions,
         "passed_gate_count": passed,

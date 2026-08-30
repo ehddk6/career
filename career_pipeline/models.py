@@ -346,6 +346,15 @@ class ApplicationAttachment:
 
 
 @dataclass(frozen=True)
+class ApplicationCredentialBinding:
+    credential_name: str
+    attachment_field_key: str
+    comparison_date: str
+    profile_record_sha256: str
+    attachment_sha256: str
+
+
+@dataclass(frozen=True)
 class ApplicationPackage:
     schema_version: int
     package_id: str
@@ -373,6 +382,11 @@ class ApplicationPackage:
     attachments: tuple[ApplicationAttachment, ...]
     validation_status: Literal["ready_for_review", "manual_review", "blocked"]
     validation_reasons: tuple[str, ...] = ()
+    credential_bindings: tuple[ApplicationCredentialBinding, ...] = ()
+    submission_preflight_status: Literal["ready", "manual_review", "blocked", "not_assessed"] = "not_assessed"
+    submission_preflight_reason_codes: tuple[str, ...] = ()
+    submission_preflight_evaluated_on: str | None = None
+    submission_preflight_sha256: str | None = None
 
 
 @dataclass(frozen=True)

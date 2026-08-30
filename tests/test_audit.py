@@ -225,8 +225,91 @@ def test_quality_audit_scores_submission_ready_run(tmp_path: Path):
 
     assert audit["score"] >= 95
     assert audit["recommendation"] == "내부검증 우수"
+    assert audit["score_scope"] == "career_artifacts_only_not_application_completeness_or_hire_probability"
     assert (tmp_path / "11_최종품질감사.json").exists()
     assert (tmp_path / "11_최종품질감사.md").exists()
+
+
+def test_final_audit_blocks_institutional_report_diction_even_in_rigorous_mode(tmp_path: Path):
+    write_submission_ready_run(tmp_path)
+    state_path = tmp_path / "run.json"
+    state = json.loads(state_path.read_text(encoding="utf-8"))
+    state["rigorous_selection"] = {
+        "selection_mode": "rigorous", "status": "passed", "hard_fail": False
+    }
+    payload = json.loads((tmp_path / "draft_final.json").read_text(encoding="utf-8"))
+    payload[0]["answer"] = "문의 내용을 구조화해 효율적으로 관리했습니다. " * 14
+    (tmp_path / "draft_final.json").write_text(
+        json.dumps(payload, ensure_ascii=False), encoding="utf-8"
+    )
+    state["final_artifact"] = write_final_artifact_manifest(
+        tmp_path,
+        selected_source="draft",
+        postprocess_attempted=False,
+        postprocess_applied=False,
+        model_tier=None,
+        model_id=None,
+        validation={"status": "passed", "issues": []},
+    )
+    state_path.write_text(json.dumps(state, ensure_ascii=False), encoding="utf-8")
+
+    audit = run_quality_audit(tmp_path)
+
+    issue = next(
+        item for item in audit["issues"]
+        if item["code"] == "institutional_report_diction"
+    )
+    assert issue["severity"] == "high"
+    assert audit["quality_gate"] == "fail"
+
+
+def test_final_audit_rechecks_required_metric_bundle(tmp_path: Path):
+    write_submission_ready_run(tmp_path)
+    state_path = tmp_path / "run.json"
+    state = json.loads(state_path.read_text(encoding="utf-8"))
+    payload = json.loads((tmp_path / "draft_final.json").read_text(encoding="utf-8"))
+    payload[0]["answer"] = payload[0]["answer"].replace(" 20건", "")
+    (tmp_path / "draft_final.json").write_text(
+        json.dumps(payload, ensure_ascii=False), encoding="utf-8"
+    )
+    (tmp_path / "05_답변설계도.json").write_text(
+        json.dumps(
+            {
+                "questions": [
+                    {
+                        "question_index": 1,
+                        "experience": {
+                            "selected_claims": [
+                                {
+                                    "claim_id": "case_count",
+                                    "normalized_value": "20건",
+                                    "is_metric": True,
+                                }
+                            ],
+                            "required_metric_claim_ids": ["case_count"],
+                        },
+                    }
+                ]
+            },
+            ensure_ascii=False,
+        ),
+        encoding="utf-8",
+    )
+    state["final_artifact"] = write_final_artifact_manifest(
+        tmp_path,
+        selected_source="draft",
+        postprocess_attempted=False,
+        postprocess_applied=False,
+        model_tier=None,
+        model_id=None,
+        validation={"status": "passed", "issues": []},
+    )
+    state_path.write_text(json.dumps(state, ensure_ascii=False), encoding="utf-8")
+
+    audit = run_quality_audit(tmp_path)
+
+    assert "required_metric_missing" in {item["code"] for item in audit["issues"]}
+    assert audit["quality_gate"] == "fail"
 
 
 def test_audit_keeps_nonactionable_style_warning_without_score_penalty(tmp_path: Path):

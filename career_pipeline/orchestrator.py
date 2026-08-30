@@ -23,6 +23,7 @@ from .matching import match_questions, render_matches_markdown
 from .posting_loader import (
     PostingSourceError,
     load_posting_source,
+    write_question_source_snapshot,
     write_posting_snapshot,
 )
 from .copyeditor_adapter import copyedit_responses
@@ -33,7 +34,13 @@ from .rigorous_selection import (
     run_rigorous_selection,
     subprocess_model_runner,
 )
-from .posting_parser import parse_posting, reconcile_questions, render_posting_analysis
+from .posting_parser import (
+    attach_question_source,
+    extract_questions_from_source,
+    parse_posting,
+    reconcile_questions,
+    render_posting_analysis,
+)
 from .profile_refresh import refresh_profile
 from .profile_schema import (
     ExperienceLedger,
@@ -407,6 +414,7 @@ def _prepare_v2(
     target: str,
     draft: Path,
     posting: str | None,
+    question_source: str | None,
     run_dir: Path,
     profile: Path,
     official_domains: tuple[str, ...],
@@ -489,6 +497,14 @@ def _prepare_v2(
         )
         write_posting_snapshot(run_dir, loaded)
         analysis = parse_posting(loaded, target=target)
+        if question_source:
+            loaded_questions = load_posting_source(
+                question_source,
+                official_source=official_source,
+                official_domains=official_domains,
+            )
+            write_question_source_snapshot(run_dir, loaded_questions)
+            analysis = attach_question_source(analysis, loaded_questions)
     except (OSError, PostingSourceError) as error:
         return _blocked_v2_state(
             run_dir,
@@ -566,8 +582,14 @@ def _prepare_v2(
         "target": target,
         "draft": str(draft),
         "posting": posting,
+        "question_source": question_source,
         "profile": str(profile),
         "posting_snapshot_id": analysis.source.content_sha256,
+        "question_source_snapshot_id": (
+            analysis.question_source.content_sha256
+            if analysis.question_source is not None
+            else None
+        ),
         "official_research_domains": list(research_domains),
         "research_policy": REQUIRED_RESEARCH_POLICY,
         "research_method_default": DEFAULT_RESEARCH_METHOD,
@@ -594,6 +616,7 @@ def prepare_run(
     resume: Path | None = None,
     *,
     profile: Path | None = None,
+    question_source: str | None = None,
     official_domains: tuple[str, ...] = (),
     research_domains: tuple[str, ...] = (),
     official_source: bool = False,
@@ -639,6 +662,15 @@ def prepare_run(
         questions = extract_questions(tuple(question_blocks))
     else:
         questions = extract_questions(extract_path(draft_record).paragraphs)
+    if question_source:
+        try:
+            form_questions = extract_questions_from_source(
+                load_posting_source(draft, official_source=True)
+            )
+        except (OSError, PostingSourceError):
+            form_questions = ()
+        if form_questions:
+            questions = list(form_questions)
     (run_dir / "01_자료목록.md").write_text(
         _inventory_markdown(inventory), encoding="utf-8"
     )
@@ -648,6 +680,7 @@ def prepare_run(
             target=target,
             draft=draft,
             posting=posting,
+            question_source=question_source,
             run_dir=run_dir,
             profile=profile.resolve(),
             official_domains=official_domains,

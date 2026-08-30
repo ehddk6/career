@@ -85,6 +85,14 @@ def _json_tail(prompt: str, marker: str) -> dict:
     return json.loads(prompt[start:])
 
 
+def _tag_json(prompt: str, tag: str) -> dict:
+    start_marker = f"<{tag}>\n"
+    end_marker = f"\n</{tag}>"
+    start = prompt.index(start_marker) + len(start_marker)
+    end = prompt.index(end_marker, start)
+    return json.loads(prompt[start:end])
+
+
 def _answer_for(blueprint: dict, *, alternate: bool) -> tuple[str, list[str], list[str]]:
     experience = blueprint.get("experience") or {}
     claims = [
@@ -219,6 +227,41 @@ class DeterministicModelRunner:
                     for route_id in ids
                 ]
             }
+
+        if stage.startswith("nrs_production_generate"):
+            facts = _tag_json(prompt, "allowed_facts")
+            contract = _tag_json(prompt, "output_contract")
+            claim_ids = [str(row["claim_id"]) for row in facts["allowed_claims"]]
+            research_ids = [str(row["claim_id"]) for row in facts["allowed_research"]]
+            answer = (
+                "테스트공사는 지원 신청 자료를 검토해 적격 여부를 판단하고, 행정 담당자는 고객에게 보완 사항을 안내합니다. "
+                "이 업무는 작은 누락을 초기에 발견해 신청자가 다음 절차로 나아가도록 돕는 일이라고 생각해 지원했습니다. "
+                "이전 업무에서 저는 신청 서류를 검토하며 누락 원인을 분류하고, 보완 안내가 필요한 항목은 근거를 정리해 담당자에게 보고했습니다. "
+                "그 과정에서 빠른 처리만을 앞세우기보다 어떤 정보가 부족한지 분명히 구분해야 안내가 흔들리지 않는다는 점을 배웠습니다. "
+                "입사 후에는 공고와 업무 기준을 숙지한 뒤 신청 서류를 꼼꼼히 살피고, 예외 사항은 담당자와 협의해 정확한 보완 안내로 연결하겠습니다. "
+                "또한 검토 기록을 남겨 앞선 처리의 맥락을 살피고, 같은 문의가 이어져도 일관된 기준으로 응대하겠습니다. "
+                "반복되는 보완 사유는 항목별로 정리해 고객이 필요한 내용을 제때 알 수 있도록 돕겠습니다. "
+                "이를 통해 고객이 다음 행동을 스스로 준비할 수 있도록 돕겠습니다."
+            )
+            if stage.endswith("_2"):
+                answer = answer.replace("초기에 발견해", "미리 살펴")
+            elif stage.endswith("_3"):
+                answer = answer.replace("일관된 기준으로 응대하겠습니다.", "일관된 기준으로 안내하겠습니다.")
+            assert 480 <= len(answer) <= 600
+            return {
+                "blueprint_id": contract["blueprint_id"],
+                "question_index": contract["question_index"],
+                "answer": answer,
+                "used_claim_ids": claim_ids,
+                "used_research_ids": research_ids,
+            }
+
+        if stage.startswith("nrs_production_candidate_select"):
+            candidate_ids = list(dict.fromkeys(re.findall(r'"candidate_id"\s*:\s*"([^"]+)"', prompt)))
+            return {"ranking": [
+                {"candidate_id": candidate_id, "rank": index}
+                for index, candidate_id in enumerate(sorted(candidate_ids), start=1)
+            ]}
 
         if stage.startswith("deep_portfolio_critic"):
             return {"issues": []}
@@ -374,7 +417,7 @@ def test_converged_golden_path_reaches_complete_with_deterministic_model_boundar
     assert first["status"] == "waiting_for_interview_pack"
     assert model_runner.calls
     assert (run / "05_근거포트폴리오.json").is_file()
-    assert (run / "05_신뢰평가.json").is_file()
+    assert (run / "05_NRS_서사선택.json").is_file()
 
     draft_payload = json.loads((run / "draft.json").read_text(encoding="utf-8"))
     _write_interview_pack(run, draft_payload[0])
@@ -384,7 +427,7 @@ def test_converged_golden_path_reaches_complete_with_deterministic_model_boundar
 
     for name in (
         "05_근거포트폴리오.json",
-        "05_신뢰평가.json",
+        "05_NRS_서사선택.json",
         "12_주장컴파일.json",
         "08_면접지능설계.json",
         "11_최종품질감사.json",

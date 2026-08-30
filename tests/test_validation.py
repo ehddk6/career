@@ -45,6 +45,97 @@ def test_validation_requires_known_evidence_paths():
     assert "unknown_evidence" in {issue.code for issue in issues}
 
 
+def test_validation_allows_referenced_prior_organization_in_past_experience():
+    evidence = EvidenceRef("career.txt", 0, "a" * 64, "b" * 64)
+    experience = Experience(
+        "exp_nps", "대상자 발굴", "국민연금공단", None, "", "상황", (), (), (),
+        (ProfileClaim("task", "대상자 발굴", "confirmed", (evidence,)),),
+        "confirmed", "2026-06-21T12:00:00+09:00",
+    )
+    ledger = ExperienceLedger(1, "2026-06-21", "C:/career", (experience,))
+    response = DraftResponse(
+        1,
+        "국민연금공단에서 기초연금 수급 대상자를 발굴하며 분류 기준을 개선했습니다.",
+        ("career.txt",),
+        (ExperienceClaimRef("exp_nps", ("task",)),),
+    )
+
+    issues = validate_draft(
+        [Question(1, "직무 역량", 300)], [response], "서민금융진흥원", {"career.txt"},
+        profile_ledger=ledger, require_experience_refs=True,
+    )
+
+    assert "other_organization" not in {issue.code for issue in issues}
+
+
+def test_validation_allows_referenced_prior_organization_with_past_time_phrase():
+    evidence = EvidenceRef("career.txt", 0, "a" * 64, "b" * 64)
+    experience = Experience(
+        "exp_nps", "대상자 발굴", "국민연금공단", None, "", "상황", (), (), (),
+        (ProfileClaim("task", "대상자 발굴", "confirmed", (evidence,)),),
+        "confirmed", "2026-06-21T12:00:00+09:00",
+    )
+    ledger = ExperienceLedger(1, "2026-06-21", "C:/career", (experience,))
+    response = DraftResponse(
+        1,
+        "국민연금공단에서 기초연금 수급 대상자를 발굴할 때 분류 기준을 개선했습니다.",
+        ("career.txt",),
+        (ExperienceClaimRef("exp_nps", ("task",)),),
+    )
+
+    issues = validate_draft(
+        [Question(1, "직무 역량", 300)], [response], "서민금융진흥원", {"career.txt"},
+        profile_ledger=ledger, require_experience_refs=True,
+    )
+
+    assert "other_organization" not in {issue.code for issue in issues}
+
+
+def test_validation_uses_referenced_experience_text_when_organization_alias_is_empty():
+    evidence = EvidenceRef("career.txt", 0, "a" * 64, "b" * 64)
+    experience = Experience(
+        "exp_nps", "국민연금공단 대상자 발굴", "", None,
+        "국민연금공단에서 대상자 발굴을 담당했다.", "상황", (), (), (),
+        (ProfileClaim("task", "국민연금공단 대상자 발굴", "confirmed", (evidence,)),),
+        "confirmed", "2026-06-21T12:00:00+09:00",
+    )
+    ledger = ExperienceLedger(1, "2026-06-21", "C:/career", (experience,))
+    response = DraftResponse(
+        1,
+        "국민연금공단에서 기초연금 수급 대상자를 발굴할 때 분류 기준을 개선했습니다.",
+        ("career.txt",),
+        (ExperienceClaimRef("exp_nps", ("task",)),),
+    )
+
+    issues = validate_draft(
+        [Question(1, "직무 역량", 300)], [response], "서민금융진흥원", {"career.txt"},
+        profile_ledger=ledger, require_experience_refs=True,
+    )
+
+    assert "other_organization" not in {issue.code for issue in issues}
+
+
+def test_validation_blocks_prior_organization_when_used_as_application_target():
+    evidence = EvidenceRef("career.txt", 0, "a" * 64, "b" * 64)
+    experience = Experience(
+        "exp_nps", "대상자 발굴", "국민연금공단", None, "", "상황", (), (), (),
+        (ProfileClaim("task", "대상자 발굴", "confirmed", (evidence,)),),
+        "confirmed", "2026-06-21T12:00:00+09:00",
+    )
+    ledger = ExperienceLedger(1, "2026-06-21", "C:/career", (experience,))
+    response = DraftResponse(
+        1, "국민연금공단에서 일반행정 업무를 수행하겠습니다.", ("career.txt",),
+        (ExperienceClaimRef("exp_nps", ("task",)),),
+    )
+
+    issues = validate_draft(
+        [Question(1, "지원 동기", 300)], [response], "서민금융진흥원", {"career.txt"},
+        profile_ledger=ledger, require_experience_refs=True,
+    )
+
+    assert "other_organization" in {issue.code for issue in issues}
+
+
 def test_validation_uses_spaces_excluded_character_count():
     questions = [Question(1, "성장 경험", 5, "spaces_excluded")]
     responses = [DraftResponse(1, "가 나 다 라 마", ("근거.docx",))]

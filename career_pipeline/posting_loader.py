@@ -208,8 +208,13 @@ def load_posting_source(
     return LoadedPosting(metadata, extension, response.content)
 
 
-def write_posting_snapshot(run_dir: Path, loaded: LoadedPosting) -> Path:
-    snapshot_dir = run_dir / "00_채용공고원문"
+def _write_snapshot(
+    run_dir: Path,
+    loaded: LoadedPosting,
+    *,
+    directory_name: str,
+) -> Path:
+    snapshot_dir = run_dir / directory_name
     snapshot_dir.mkdir(parents=True, exist_ok=True)
     output = snapshot_dir / f"source{loaded.extension}"
     if output.exists():
@@ -224,3 +229,12 @@ def write_posting_snapshot(run_dir: Path, loaded: LoadedPosting) -> Path:
             return output
         raise PostingSourceError("posting snapshot already contains different content")
     return output
+
+
+def write_posting_snapshot(run_dir: Path, loaded: LoadedPosting) -> Path:
+    return _write_snapshot(run_dir, loaded, directory_name="00_채용공고원문")
+
+
+def write_question_source_snapshot(run_dir: Path, loaded: LoadedPosting) -> Path:
+    """Persist the separately supplied official self-introduction form immutably."""
+    return _write_snapshot(run_dir, loaded, directory_name="00_자소서문항원문")

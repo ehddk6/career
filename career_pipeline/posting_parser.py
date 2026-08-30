@@ -1,5 +1,5 @@
 """채용공고 파서. HTML/DOCX에서 기관명, 직무, 문항 등을 추출합니다. 레이블 없는 일반 텍스트도 처리합니다."""
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from html.parser import HTMLParser
 from io import BytesIO
 import re
@@ -18,13 +18,24 @@ SECTION_MARKERS = {
     "organization": ("기관명", "채용기관", "회사명"),
     "role": ("채용분야", "모집분야", "직무"),
     "locations": ("근무지", "근무지역"),
-    "duties": ("담당업무", "직무내용", "주요업무"),
-    "competencies": ("필요역량", "필요 역량", "직무역량"),
-    "requirements": ("지원자격", "응시자격"),
+    "duties": ("담당업무", "직무내용", "직무수행내용", "주요업무"),
+    "competencies": ("필요역량", "필요 역량", "직무역량", "필요지식", "필요기술", "직무수행태도", "직업기초능력"),
+    "requirements": ("지원자격", "응시자격", "필요자격"),
     "preferences": ("우대사항", "가점사항"),
     "questions": ("자기소개서", "지원서 문항"),
     "constraints": ("유의사항", "블라인드", "작성 시 유의"),
 }
+_SELF_INTRODUCTION_HEADING = re.compile(r"자\s*기\s*소\s*개\s*서")
+_NUMBERED_QUESTION = re.compile(
+    r"(?<!\d)(?P<index>[1-9]\d*)\s*[.)]\s*(?P<body>.+?)(?=(?:(?<!\d)[1-9]\d*\s*[.)]\s*)|$)",
+    re.DOTALL,
+)
+_QUESTION_RANGE_LIMIT = re.compile(
+    r"[([]?\s*(?P<minimum>\d{2,4})\s*(?:∼|~|-)\s*(?P<maximum>\d{2,4})\s*자(?:\s*이내)?\s*[)\]]?"
+)
+_QUESTION_SINGLE_LIMIT = re.compile(
+    r"[([]?\s*(?P<maximum>\d{2,4})\s*자\s*이내\s*[)\]]?"
+)
 _BLOCK_TAGS = {
     "address",
     "article",
@@ -160,6 +171,30 @@ def _target_defaults(target: str) -> tuple[str, str]:
     return "", target
 
 
+def _scope_bundled_role_blocks(blocks: tuple[str, ...], target: str) -> tuple[str, ...]:
+    """Select one role from an official PDF that bundles several NCS job sheets."""
+    role_codes = re.findall(r"(?<![A-Za-z0-9])([A-Z]\d+)(?![A-Za-z0-9])", target.upper())
+    if not role_codes:
+        return blocks
+    code_pattern = "|".join(re.escape(code) for code in role_codes)
+    title_pattern = re.compile(
+        rf"\(\s*(?:{code_pattern})(?:\s*[~∼-]\s*\d+)?\s*\).*직무기술서"
+    )
+    all_title_pattern = re.compile(r"\(\s*[A-Z]\d+(?:\s*[~∼-]\s*\d+)?\s*\).*직무기술서")
+    start = next((index for index, block in enumerate(blocks) if title_pattern.search(block)), None)
+    if start is None:
+        return blocks
+    end = next(
+        (
+            index
+            for index in range(start + 1, len(blocks))
+            if all_title_pattern.search(blocks[index])
+        ),
+        len(blocks),
+    )
+    return blocks[max(0, start - 1):end]
+
+
 @dataclass(frozen=True)
 class QuestionMismatch:
     index: int
@@ -235,6 +270,62 @@ def reconcile_questions(
     return QuestionReconciliation(posting_questions, tuple(mismatches))
 
 
+def extract_questions_from_source(loaded: LoadedPosting) -> tuple[Question, ...]:
+    """Extract numbered questions from an official application-form attachment.
+
+    Some official forms flatten an entire PDF page into one text block, so the
+    heading-based posting parser cannot safely recover its questions. This
+    parser starts only after the self-introduction heading and retains each
+    question's original number and character range.
+    """
+    text = "\n".join(_posting_blocks(loaded))
+    heading = _SELF_INTRODUCTION_HEADING.search(text)
+    if not heading:
+        return ()
+    body = text[heading.end():]
+    questions: list[Question] = []
+    expected_index = 1
+    for match in _NUMBERED_QUESTION.finditer(body):
+        index = int(match.group("index"))
+        if index != expected_index:
+            continue
+        raw_question = match.group("body")
+        range_limit = _QUESTION_RANGE_LIMIT.search(raw_question)
+        limit = range_limit or _QUESTION_SINGLE_LIMIT.search(raw_question)
+        prompt = raw_question[: limit.start()] if limit else raw_question
+        prompt = re.sub(
+            r"개인식별\s*정보\s*노출\s*금지.*$", "", prompt, flags=re.DOTALL
+        )
+        prompt = " ".join(prompt.split()).strip(" .:：")
+        if not prompt:
+            continue
+        questions.append(
+            Question(
+                index=index,
+                prompt=prompt,
+                character_limit=int(limit.group("maximum")) if limit else None,
+                minimum_character_limit=(
+                    int(range_limit.group("minimum")) if range_limit else None
+                ),
+            )
+        )
+        expected_index += 1
+    return tuple(questions)
+
+
+def attach_question_source(
+    analysis: PostingAnalysis,
+    question_source: LoadedPosting,
+) -> PostingAnalysis:
+    """Use a separately supplied official form only for application questions."""
+    return replace(
+        analysis,
+        schema_version=max(analysis.schema_version, 2),
+        questions=extract_questions_from_source(question_source),
+        question_source=question_source.metadata,
+    )
+
+
 
 
 def _fallback_section_assignment(blocks: tuple[str, ...], target: str) -> dict[str, list[str]]:
@@ -273,7 +364,7 @@ def _fallback_section_assignment(blocks: tuple[str, ...], target: str) -> dict[s
 
 
 def parse_posting(loaded: LoadedPosting, *, target: str) -> PostingAnalysis:
-    blocks = _posting_blocks(loaded)
+    blocks = _scope_bundled_role_blocks(_posting_blocks(loaded), target)
     sections: dict[str, list[str]] = {name: [] for name in SECTION_MARKERS}
     current: str | None = None
     unclassified: list[str] = []
@@ -303,13 +394,24 @@ def parse_posting(loaded: LoadedPosting, *, target: str) -> PostingAnalysis:
 
     organization = organization_values[0] if organization_values else ""
     role = role_values[0] if role_values else ""
-    organization_inferred = not organization
+    organization_inferred = not organization or "NCS 직무 설명자료" in organization
     role_inferred = not role or role in {"근무기간", "채용인원", "근무 본부점"}
     target_organization, target_role = _target_defaults(target)
+    scoped_role_blocks = len(blocks) != len(_posting_blocks(loaded))
     if not organization and target_organization:
         organization = target_organization
+        if scoped_role_blocks:
+            organization_inferred = False
+    elif organization_inferred and "NCS 직무 설명자료" in organization and target_organization:
+        organization = target_organization
+        organization_inferred = False
     if (not role or role in {"근무기간", "채용인원", "근무 본부점"}) and target_role:
         role = target_role
+        if scoped_role_blocks:
+            role_inferred = False
+    elif role_inferred and "직무기술서" in role and target_role:
+        role = target_role
+        role_inferred = False
     duties = tuple(sections["duties"])
     uncertainties = [f"unclassified: {value}" for value in unclassified]
     if not organization or organization_inferred:
@@ -350,12 +452,22 @@ def render_posting_analysis(analysis: PostingAnalysis) -> str:
         f"- 위치: {source_display}",
         f"- 공식성: `{analysis.source.official_status}`",
         f"- SHA-256: `{analysis.source.content_sha256}`",
-        "",
-        "## 지원 대상",
-        "",
-        f"- {analysis.target}",
-        "",
     ]
+    if analysis.question_source is not None:
+        question_location = analysis.question_source.location
+        question_display = (
+            f"[{question_location}]({question_location})"
+            if question_location.startswith(("https://", "http://"))
+            else f"`{question_location}`"
+        )
+        lines.extend(
+            [
+                f"- 자소서 문항 원문: {question_display}",
+                f"- 문항 원문 공식성: `{analysis.question_source.official_status}`",
+                f"- 문항 원문 SHA-256: `{analysis.question_source.content_sha256}`",
+            ]
+        )
+    lines.extend(["", "## 지원 대상", "", f"- {analysis.target}", ""])
     sections = (
         ("담당업무", analysis.duties),
         ("필요 역량", analysis.competencies),

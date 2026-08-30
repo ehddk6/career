@@ -24,6 +24,8 @@ import math
 import re
 from typing import Any, Iterable, Mapping, Sequence
 
+from .research_evidence import needs_research
+
 
 SCHEMA_VERSION = 1
 TOKEN = re.compile(r"[가-힣A-Za-z0-9]{2,}")
@@ -242,6 +244,11 @@ def _experience_mode(intent: str, prompt: str) -> str:
 
 
 def _research_mode(intent: str, prompt: str) -> str:
+    # This must share the validator's policy.  A prompt cannot be planned as
+    # research-free and then be rejected after prose generation for lacking an
+    # official reference.
+    if needs_research(prompt):
+        return "required"
     if intent == "issue_analysis":
         return "required"
     if intent in {"motivation", "job_plan"}:
@@ -398,6 +405,26 @@ def _match_rows(matches: Iterable[Any]) -> dict[int, dict[str, Any]]:
     return result
 
 
+def _persuasion_evidence_score(
+    question: Mapping[str, Any], experience: Mapping[str, Any]
+) -> int:
+    """Prefer an accepted proposal over one-way guidance for persuasion prompts."""
+    prompt = str(question.get("prompt", ""))
+    if not re.search(r"설득|생각이나 의견|의견으로", prompt):
+        return 0
+    actions = " ".join(str(item) for item in experience.get("actions", []) or [])
+    outcomes = " ".join(str(item) for item in experience.get("outcomes", []) or [])
+    role = str(experience.get("role", ""))
+    proposed = any(token in actions + " " + role for token in ("제안", "의견", "방안"))
+    accepted = any(token in outcomes + " " + role for token in ("채택", "반영", "수용"))
+    implemented = any(token in actions + " " + outcomes for token in ("실행", "부착", "재분류", "적용"))
+    if proposed and accepted:
+        return 90 + (10 if implemented else 0)
+    if proposed:
+        return 25
+    return 5 if "설명" in actions else 0
+
+
 def _candidate_options(
     question: Mapping[str, Any],
     intent: str,
@@ -433,7 +460,11 @@ def _candidate_options(
             ]
         )
         exp_tokens = _norm_tokens(text)
-        semantic_overlap = len(exp_tokens & prompt_tokens) * 3 + len(exp_tokens & job_tokens)
+        semantic_overlap = (
+            len(exp_tokens & prompt_tokens) * 3
+            + len(exp_tokens & job_tokens)
+            + _persuasion_evidence_score(question, experience)
+        )
         base = int(raw.get("total_score", 0))
         score = base + _story_completeness(experience) + semantic_overlap
         candidates.append(
@@ -466,7 +497,11 @@ def _candidate_options(
         candidates.append(
             {
                 "experience_id": experience_id,
-                "score": _story_completeness(experience) + overlap * 2,
+                "score": (
+                    _story_completeness(experience)
+                    + overlap * 2
+                    + _persuasion_evidence_score(question, experience)
+                ),
                 "base_match_score": 0,
                 "matched_duties": [],
                 "matched_competencies": [],
@@ -565,8 +600,37 @@ def _select_claims(
             -item[0], str(item[1].get("field", "")), str(item[1].get("claim_id", ""))
         )
     )
-    selected = [dict(item[1]) for item in ranked[:maximum]]
+    selected: list[dict[str, Any]] = []
+    selected_metric_values: set[str] = set()
+    for _score, claim in ranked:
+        if _is_metric_claim(claim):
+            metric_value = re.sub(
+                r"[\s,]", "", str(claim.get("normalized_value", "")).lower()
+            )
+            if metric_value in selected_metric_values:
+                continue
+            selected_metric_values.add(metric_value)
+        selected.append(dict(claim))
+        if len(selected) >= maximum:
+            break
     return selected
+
+
+def _required_metric_claim_ids(
+    question: Mapping[str, Any], selected_claims: Sequence[Mapping[str, Any]]
+) -> list[str]:
+    """Require every selected scale/duration metric for achievement prompts."""
+    prompt = re.sub(r"\s+", "", str(question.get("prompt", "")))
+    if not any(
+        cue in prompt
+        for cue in ("목표", "성과", "달성", "완료", "기한", "분량", "규모")
+    ):
+        return []
+    return [
+        str(claim.get("claim_id", ""))
+        for claim in selected_claims
+        if _is_metric_claim(claim) and str(claim.get("claim_id", "")).strip()
+    ]
 
 
 def _research_claim_type_preferences(intent: str) -> tuple[str, ...]:
@@ -650,6 +714,7 @@ def _experience_contract(
     experience: Mapping[str, Any],
     selected_claims: Sequence[Mapping[str, Any]],
     option: Mapping[str, Any] | None,
+    required_metric_claim_ids: Sequence[str] = (),
 ) -> dict[str, Any]:
     return {
         "experience_id": str(experience.get("experience_id", "")),
@@ -661,6 +726,7 @@ def _experience_contract(
         "competencies": [str(item) for item in experience.get("competencies", []) or []],
         "signature_action": _specific_action(experience),
         "selected_claims": [_claim_contract(claim) for claim in selected_claims],
+        "required_metric_claim_ids": list(required_metric_claim_ids),
         "matched_duties": list(option.get("matched_duties", []) if option else []),
         "matched_competencies": list(option.get("matched_competencies", []) if option else []),
         "numeric_context_rule": (
@@ -785,6 +851,7 @@ def build_answer_blueprint_packet(
             None,
         )
         selected_claims = _select_claims(experience, question, posting) if experience else []
+        required_metric_claim_ids = _required_metric_claim_ids(question, selected_claims)
         selected_research = _select_research_claims(
             question,
             intent,
@@ -817,7 +884,12 @@ def build_answer_blueprint_packet(
             "character_plan": character_plan,
             "beats": _allocate_beats(intent, character_plan),
             "experience": (
-                _experience_contract(experience, selected_claims, option)
+                _experience_contract(
+                    experience,
+                    selected_claims,
+                    option,
+                    required_metric_claim_ids,
+                )
                 if experience is not None
                 else None
             ),

@@ -97,6 +97,30 @@ def test_portfolio_optimizer_allows_reuse_when_only_one_experience_exists():
     assert packet['portfolio']['reuse_count'] == 1
 
 
+def test_persuasion_prompt_prefers_accepted_proposal_over_unrelated_guidance():
+    guidance = _experience(
+        'exp_guidance',
+        '고객 안내',
+        '고객에게 절차를 천천히 설명했다',
+        outcome='고객이 절차를 마쳤다',
+    )
+    proposal = _experience(
+        'exp_proposal',
+        '서가 개선',
+        '담당자에게 재분류와 안내 표시를 제안하고 채택 후 직접 부착했다',
+        outcome='제안이 채택되어 재분류를 실행했다',
+    )
+    packet = build_answer_blueprint_packet(
+        [_question(1, '자신의 생각이나 의견으로 상대방을 성공적으로 설득했던 경험을 기술해 주세요')],
+        target='테스트기관',
+        posting={},
+        ledger=_ledger(guidance, proposal),
+        matches=[_match(1, ('exp_guidance', 80))],
+    )
+
+    assert packet['portfolio']['experience_assignment']['1'] == 'exp_proposal'
+
+
 def test_motivation_blueprint_forbids_brochure_opening_and_budget_sums_to_target():
     exp = _experience('exp_a', '자료검증', '원자료와 입력값을 대조해 오류를 찾았다')
     packet = build_answer_blueprint_packet(
@@ -112,6 +136,30 @@ def test_motivation_blueprint_forbids_brochure_opening_and_budget_sums_to_target
     assert [beat['beat'] for beat in row['beats']][:2] == ['direct_answer', 'personal_criterion']
     assert any('brochure-style' in risk for risk in row['risk_controls'])
     assert sum(beat['character_budget'] for beat in row['beats']) == row['character_plan']['target']
+
+
+def test_research_policy_is_shared_for_support_motivation_prompt():
+    exp = _experience('exp_a', '자료검증', '원자료와 입력값을 대조해 오류를 찾았다')
+    packet = build_answer_blueprint_packet(
+        [_question(1, '한국주택금융공사에 지원한 동기와 인턴 기간의 목표를 작성해 주세요')],
+        target='한국주택금융공사',
+        posting={'duties': ['자료 검토']},
+        ledger=_ledger(exp),
+        matches=[_match(1, ('exp_a', 90))],
+        research_claims=[{
+            'claim_id': 'r1',
+            'claim': '한국주택금융공사는 주택금융의 안정적 공급을 지원한다.',
+            'claim_type': 'organization_role',
+            'verification_status': 'confirmed',
+            'evidence_excerpt': '주택금융의 안정적 공급',
+            'application_use': '문항 1',
+            'source_url': 'https://hf.go.kr',
+            'checked_at': '2026-08-16',
+        }],
+    )
+    row = packet['questions'][0]
+    assert row['logic_contract']['research_mode'] == 'required'
+    assert [claim['claim_id'] for claim in row['research_claims']] == ['r1']
 
 
 def test_job_plan_blueprint_has_priority_failure_control_and_escalation_not_checklist_only():
@@ -155,3 +203,29 @@ def test_unsafe_metric_is_excluded_and_observed_claim_cannot_be_upgraded_to_caus
     claims = packet['questions'][0]['experience']['selected_claims']
     assert [item['claim_id'] for item in claims] == ['clm_observed']
     assert claims[0]['causal_language'] == 'observation_only'
+
+
+def test_achievement_blueprint_deduplicates_metrics_and_requires_scale_and_duration():
+    claims = [
+        _claim('duration_done', 'completion_time', '2일', metric=True),
+        _claim('action', 'action', '문서를 항목별로 분류함'),
+        _claim('duration_deadline', 'deadline', '2일', metric=True),
+        _claim('scale', 'metric:page_count', '3,000페이지', metric=True),
+    ]
+    exp = _experience(
+        'exp_docs', '서류 정리', '문서를 항목별로 분류했다', claims=claims
+    )
+
+    packet = build_answer_blueprint_packet(
+        [_question(1, '정해진 기한 안에 목표를 달성한 경험과 성과를 작성해 주세요')],
+        target='테스트기관',
+        posting={},
+        ledger=_ledger(exp),
+        matches=[_match(1, ('exp_docs', 95))],
+    )
+
+    experience = packet['questions'][0]['experience']
+    values = [item['normalized_value'] for item in experience['selected_claims']]
+    assert values.count('2일') == 1
+    assert '3,000페이지' in values
+    assert set(experience['required_metric_claim_ids']) == {'duration_done', 'scale'}

@@ -186,7 +186,14 @@ def official_domains_for_target(
     return tuple(sorted(domains))
 
 
-def _needs_research(prompt: str) -> bool:
+def needs_research(prompt: str) -> bool:
+    """Return the single research-evidence requirement policy for a prompt.
+
+    Blueprint construction and final draft validation must ask this same
+    question.  Keeping a private copy in each layer previously allowed a
+    blueprint to authorize no official claim while the final validator later
+    required one.
+    """
     normalized = normalize_prompt(prompt)
     return (
         is_research_only_prompt(prompt)
@@ -285,7 +292,7 @@ def validate_research_evidence(
         required_claim_type_groups = _required_claim_type_groups(question.prompt)
         referenced_claim_types: set[str] = set()
         referenced_hosts: set[str] = set()
-        if _needs_research(question.prompt) and not response.research_refs:
+        if needs_research(question.prompt) and not response.research_refs:
             issues.append(
                 ValidationIssue(
                     "missing_research_reference",

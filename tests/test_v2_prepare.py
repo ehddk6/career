@@ -218,6 +218,51 @@ def test_v2_prepare_reports_profile_posting_conflict_and_question_blockers(tmp_p
     assert mismatch["status"] == "blocked_posting"
 
 
+def test_v2_prepare_accepts_separate_official_question_form(tmp_path: Path):
+    career = tmp_path / "career.txt"
+    career.write_text("자료를 교차 확인해 의심 사례 20건을 발견했습니다.", encoding="utf-8")
+    profile = write_profile(tmp_path, career, include_proposed=False)
+    posting = tmp_path / "posting.docx"
+    write_docx(
+        posting,
+        "기관명", "주택도시보증공사",
+        "채용분야", "금융·기금",
+        "담당업무", "신청 자료 확인",
+    )
+    application_form = tmp_path / "application-form.docx"
+    write_docx(
+        application_form,
+        "자기소개서",
+        "1. 지원동기를 작성해 주십시오.(100~500자)",
+    )
+
+    state = prepare_run(
+        tmp_path,
+        "HUG 금융·기금",
+        application_form,
+        str(posting),
+        "v2-separate-question-form",
+        profile=profile,
+        question_source=str(application_form),
+        official_source=True,
+    )
+    run_dir = Path(state["run_dir"])
+    analysis = json.loads((run_dir / "00_채용공고분석.json").read_text(encoding="utf-8"))
+
+    assert state["status"] == "ready_for_research"
+    assert state["question_source_snapshot_id"] == analysis["question_source"]["content_sha256"]
+    assert (run_dir / "00_자소서문항원문" / "source.docx").is_file()
+    assert analysis["questions"] == [
+        {
+            "index": 1,
+            "prompt": "지원동기를 작성해 주십시오",
+            "character_limit": 500,
+            "count_mode": "spaces_included",
+            "minimum_character_limit": 100,
+        }
+    ]
+
+
 def test_legacy_prepare_records_legacy_quality_mode(tmp_path: Path):
     _, _, draft = setup_sources(tmp_path)
 

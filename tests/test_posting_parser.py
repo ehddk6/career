@@ -5,7 +5,11 @@ from docx import Document
 
 from career_pipeline.models import Question
 from career_pipeline.posting_loader import load_posting_source
-from career_pipeline.posting_parser import parse_posting, reconcile_questions
+from career_pipeline.posting_parser import (
+    extract_questions_from_source,
+    parse_posting,
+    reconcile_questions,
+)
 from career_pipeline.posting_schema import LoadedPosting, PostingSourceMetadata
 from career_pipeline.questions import extract_questions
 
@@ -119,6 +123,62 @@ def test_extracts_upper_bound_and_joins_multi_sentence_prompt():
     assert not questions[0].prompt.startswith("4.")
     assert "()" not in questions[0].prompt
 
+
+def test_extract_questions_from_official_application_form_keeps_ranges_and_boundaries():
+    loaded = LoadedPosting(
+        PostingSourceMetadata(
+            kind="txt",
+            location="official-form.txt",
+            retrieved_at="2026-08-30T00:00:00+00:00",
+            content_sha256="a" * 64,
+            official_status="verified_domain",
+            content_type="text/plain",
+        ),
+        ".txt",
+        (
+            "자 기 소 개 서\n"
+            "1. 직무 윤리의 중요성을 기술하여 주십시오.(100∼500자). 개인식별 정보 노출 금지\n"
+            "2. 지원동기와 보유 역량을 기술하여 주십시오.(100∼500자). 개인식별 정보 노출 금지\n"
+            "위와 같이 응시원서를 제출합니다."
+        ).encode("utf-8"),
+    )
+
+    questions = extract_questions_from_source(loaded)
+
+    assert [(item.index, item.character_limit, item.minimum_character_limit) for item in questions] == [
+        (1, 500, 100),
+        (2, 500, 100),
+    ]
+    assert questions[0].prompt == "직무 윤리의 중요성을 기술하여 주십시오"
+    assert "개인식별" not in questions[0].prompt
+
+
+def test_extract_questions_from_official_application_form_keeps_single_upper_limit():
+    loaded = LoadedPosting(
+        PostingSourceMetadata(
+            kind="txt",
+            location="official-form.txt",
+            retrieved_at="2026-08-30T00:00:00+00:00",
+            content_sha256="b" * 64,
+            official_status="verified_domain",
+            content_type="text/plain",
+        ),
+        ".txt",
+        (
+            "자기소개서\n"
+            "1. 지원동기를 기술하여 주시기 바랍니다.(300자 이내)\n"
+            "2. 보유 역량을 기술하여 주시기 바랍니다. (300자 이내)"
+        ).encode("utf-8"),
+    )
+
+    questions = extract_questions_from_source(loaded)
+
+    assert [(item.index, item.character_limit, item.minimum_character_limit) for item in questions] == [
+        (1, 300, None),
+        (2, 300, None),
+    ]
+    assert questions[0].prompt == "지원동기를 기술하여 주시기 바랍니다"
+
 def test_parse_posting_falls_back_when_no_section_labels(tmp_path: Path):
     path = tmp_path / 'posting.docx'
     document = Document()
@@ -181,3 +241,34 @@ def test_parse_posting_uses_target_when_public_page_omits_organization_and_has_t
 
     assert analysis.organization == "신용보증기금"
     assert analysis.role == "체험형 청년인턴1(보증)"
+
+
+def test_parse_posting_scopes_bundled_ncs_descriptions_to_the_requested_role():
+    content = """
+    NCS 직무 설명자료
+    (A1) 지사 행정_직무기술서
+    채용분야 지역사무소 행정지원
+    직무수행내용
+    총무 문서관리와 회계 증빙서류 처리를 수행합니다.
+    필요지식
+    문서관리 규정
+    (B1~6) 환경개선(장애인)_직무기술서
+    채용분야 환경개선
+    직무수행내용
+    사무실 청소를 수행합니다.
+    """.encode("utf-8")
+    loaded = LoadedPosting(
+        PostingSourceMetadata(
+            "url", "https://official.example.go.kr/a1.pdf", "2026-08-30T00:00:00+00:00",
+            sha256(content).hexdigest(), "verified_domain", "text/plain",
+        ),
+        ".txt",
+        content,
+    )
+
+    analysis = parse_posting(loaded, target="한국승강기안전공단 A1 지사 행정")
+
+    assert analysis.organization == "한국승강기안전공단"
+    assert analysis.role == "A1 지사 행정"
+    assert analysis.duties == ("총무 문서관리와 회계 증빙서류 처리를 수행합니다.",)
+    assert all("청소" not in value for value in analysis.duties + analysis.competencies)

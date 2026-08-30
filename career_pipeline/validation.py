@@ -44,6 +44,47 @@ def _is_target_organization(organization: str, target_org: str) -> bool:
     )
 
 
+def _is_authorized_experience_organization(
+    organization: str,
+    answer: str,
+    response: DraftResponse,
+    ledger: ExperienceLedger | None,
+) -> bool:
+    """Allow a prior employer only when its cited experience uses it as history.
+
+    A referenced experience can legitimately name a different organization in
+    a past-tense experience sentence.  That is distinct from replacing the
+    application target with another organization, which remains a blocker.
+    """
+    if ledger is None:
+        return False
+    referenced_ids = {item.experience_id for item in response.experience_refs}
+    def names_organization(experience: object) -> bool:
+        values = [
+            str(getattr(experience, "organization_alias", "")),
+            str(getattr(experience, "title", "")),
+            str(getattr(experience, "role", "")),
+            str(getattr(experience, "situation", "")),
+            *(str(value) for value in getattr(experience, "actions", ())),
+            *(str(value) for value in getattr(experience, "outcomes", ())),
+            *(str(getattr(claim, "normalized_value", "")) for claim in getattr(experience, "claims", ())),
+        ]
+        return any(organization in value for value in values)
+
+    if not any(
+        experience.experience_id in referenced_ids
+        and experience.status == "confirmed"
+        and names_organization(experience)
+        for experience in ledger.experiences
+    ):
+        return False
+    escaped = re.escape(organization)
+    return bool(re.search(
+        rf"{escaped}에서.{{0,120}}(?:했(?:습니다|던|을 때|으며)?|하였|하며|하면서|하던|할 때|근무(?:했|하며|하면서)|담당(?:했|하며|하면서)|수행(?:했|하며|하면서)|경험(?:했|하며|하면서))",
+        answer,
+    ))
+
+
 def validate_draft(
     questions: list[Question],
     responses: list[DraftResponse],
@@ -144,6 +185,8 @@ def validate_draft(
         for organization in KNOWN_ORGANIZATIONS:
             if organization in answer and not _is_target_organization(
                 organization, target_org
+            ) and not _is_authorized_experience_organization(
+                organization, answer, response, profile_ledger
             ):
                 issues.append(
                     ValidationIssue(
@@ -374,6 +417,16 @@ def _claim_overstates_contribution(claim, answer: str) -> bool:
         for index in range(max(1, len(term) - 3))
     }
     sentences = re.split(r"(?<=[.!?])\s+|\n+", answer)
+    sentences = [
+        piece.strip()
+        for sentence in sentences
+        # A single Korean sentence can correctly separate an applicant action
+        # from a team decision.  Evaluate those clauses independently so
+        # "제가 이상 건을 선별했고, 팀 검토에서 20건이 확정됐습니다" is
+        # not treated as personal causation.
+        for piece in re.split(r"(?<=했고),\s*|(?<=했으며),\s*|(?<=한 뒤),\s*|(?<=한 후),\s*", sentence)
+        if piece.strip()
+    ]
     relevant = [
         sentence
         for sentence in sentences
@@ -382,10 +435,42 @@ def _claim_overstates_contribution(claim, answer: str) -> bool:
     claim_context = " ".join(relevant) if relevant else answer
     rank = {"unknown": -1, "observed": 0, "contributed": 1, "caused": 2}
     required = 0
-    if re.search(r"(?:향상|감소|해결|달성|개선|증가|절감|완수)(?:시켰|했|한|하였|되었습니다)", claim_context):
-        required = 2
-    elif re.search(r"(?:기여|완화)(?:했|한|하였|되었습니다)|도왔", claim_context):
-        required = 1
+    # A procedural action (for example, "일정 조정 프로세스를
+    # 개선했습니다") is not automatically a claim that the applicant caused
+    # a measured organisational result.  Require a result object for the
+    # directional verbs, while keeping unequivocal claims such as "문제를
+    # 해결했습니다" or "성과를 달성했습니다" strict.
+    causal_result = re.compile(
+        r"(?:처리\s*(?:시간|속도)|진행\s*속도|업무\s*효율|운영\s*효율|성과|문제|지연|혼선|인력\s*관리)"
+        r".{0,18}(?:향상|감소|개선|증가|절감|단축|축소|줄이|줄였|높이|높였)"
+        r"(?:시켰|했|한|하였|했습니다|하였다|습니다)"
+    )
+    unequivocal_causal = re.compile(
+        r"(?:문제|갈등|지연|혼선).{0,12}해결(?:했|한|하였|했습니다|하였다)|"
+        r"(?:성과|목표).{0,12}달성(?:했|한|하였|했습니다|하였다)|"
+        r"완수(?:했|한|하였|했습니다|하였다)"
+    )
+    contribution = re.compile(r"(?:기여|완화)(?:했|한|하였|했습니다|하였다)|도왔(?:습니다|다)?")
+    team_actor = re.compile(r"(?:팀|부서|담당(?:자|직원)|기관|조직|검토(?:회|팀)?)")
+    first_person = re.compile(r"(?:제가|저는|저의|직접|단독으로|주도하여|주도해)")
+    observed_result = re.compile(
+        r"(?:확인(?:했|한|됩니다|되었습니다)|관찰(?:했|한|됩니다|되었습니다)|"
+        r"(?:향상|감소|증가|절감|단축|축소|개선)되(?:었|는|ㄴ)|"
+        r"(?:높아|원활해|줄어)졌)"
+    )
+
+    for clause in relevant:
+        compact_clause = re.sub(r"\s+", "", clause)
+        # Passive or observational results ("처리 시간이 단축되었습니다",
+        # "줄어든 것을 확인했습니다") do not claim applicant causation.
+        if observed_result.search(compact_clause) and not first_person.search(clause):
+            continue
+        if team_actor.search(clause) and not first_person.search(clause):
+            continue
+        if causal_result.search(compact_clause) or unequivocal_causal.search(compact_clause):
+            required = max(required, 2)
+        elif contribution.search(compact_clause):
+            required = max(required, 1)
     return rank.get(verification.contribution, -1) < required
 
 

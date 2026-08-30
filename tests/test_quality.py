@@ -368,6 +368,53 @@ def test_prompt_coverage_detects_missing_motivation_learning_and_execution_seque
     assert "missing_execution_sequence" in codes
 
 
+def test_motivation_cannot_pass_with_organization_name_and_generic_public_value_only():
+    question = Question(1, "서울시설공단 사무직 지원동기를 기술하십시오.", 600)
+    answer = (
+        "서울시설공단은 시민의 일상을 안전하고 편리하게 만드는 기관이라 의미가 있어 지원했습니다. "
+        "공공의 가치를 실현하며 성실하게 기여하겠습니다. " * 6
+    )
+
+    issues = validate_answer_quality(
+        [question],
+        [DraftResponse(1, answer, ("career.txt",))],
+        "서울시설공단",
+        job_terms=("민원 자료 분류", "행정 문서 관리"),
+    )
+
+    assert "generic_target_motivation" in {issue.code for issue in issues}
+
+
+def test_motivation_passes_when_personal_reason_and_posting_duty_are_connected():
+    question = Question(1, "서울시설공단 사무직 지원동기를 기술하십시오.", 600)
+    answer = (
+        "민원 자료를 분류해 반복 문의의 원인을 찾은 경험을 행정 문서 관리에 활용하고자 서울시설공단에 지원했습니다. "
+        "공공시설을 이용하는 시민의 문의가 정확한 후속 처리로 이어진다는 점에 관심을 두었습니다. "
+        "입사 후에도 문의 유형과 처리 현황을 정리해 담당자가 필요한 내용을 빠르게 찾도록 돕겠습니다. " * 3
+    )
+
+    issues = validate_answer_quality(
+        [question],
+        [DraftResponse(1, answer, ("career.txt",))],
+        "서울시설공단",
+        job_terms=("민원 자료 분류", "행정 문서 관리"),
+    )
+
+    assert "generic_target_motivation" not in {issue.code for issue in issues}
+    assert "missing_motivation_reason" not in {issue.code for issue in issues}
+
+
+def test_final_quality_path_includes_self_introduction_genre_gate():
+    question = Question(1, "자료를 정리한 경험을 기술하십시오.", 300)
+    answer = "문의 내용을 구조화해 효율적으로 관리했습니다. " * 8
+
+    issues = validate_answer_quality(
+        [question], [DraftResponse(1, answer, ("career.txt",))], "서울시설공단"
+    )
+
+    assert "institutional_report_diction" in {issue.code for issue in issues}
+
+
 def test_issue_prompt_requires_reason_and_impact_path():
     question = Question(1, "최근 경제·사회 이슈를 선택하고 그 이유를 설명하십시오.", 600)
     response = DraftResponse(1, "고환율을 선택했습니다. 지원이 필요합니다. " * 12, (), research_refs=("issue",))

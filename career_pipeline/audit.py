@@ -26,6 +26,7 @@ from .research_evidence import (
 from .state import write_json
 from .validation import referenced_claim_values, validate_draft
 from .profile_schema import load_ledger
+from .nrs_shadow_benchmark import missing_selected_metric
 
 
 @dataclass(frozen=True)
@@ -190,6 +191,12 @@ def _issue_from_validation(category: str, issue: ValidationIssue) -> AuditIssue:
         "missing_attitude_practice",
         "missing_execution_sequence",
         "missing_issue_reasoning",
+        "audit_meta_leakage",
+        "self_explanation",
+        "defensive_disclaimer",
+        "control_lexicon_density",
+        "institutional_report_diction",
+        "generic_target_motivation",
     }
     severity = "high" if issue.code in critical else "medium"
     return AuditIssue(category, issue.code, severity, issue.message, issue.question_index)
@@ -210,6 +217,36 @@ def _job_terms(run_dir: Path) -> tuple[str, ...]:
         str(item)
         for item in posting.get("duties", []) + posting.get("competencies", [])
     )
+
+
+def _proof_bundle_issues(
+    run_dir: Path, responses: list[DraftResponse]
+) -> list[AuditIssue]:
+    """Recheck blueprint-required metrics at the final artifact boundary."""
+    packet = _read_json(run_dir / "05_답변설계도.json", {})
+    if not isinstance(packet, dict):
+        return []
+    by_index = {response.question_index: response for response in responses}
+    issues: list[AuditIssue] = []
+    for blueprint in packet.get("questions", []) or []:
+        if not isinstance(blueprint, dict):
+            continue
+        try:
+            question_index = int(blueprint.get("question_index", 0))
+        except (TypeError, ValueError):
+            continue
+        response = by_index.get(question_index)
+        if response and missing_selected_metric(blueprint, response.answer):
+            issues.append(
+                AuditIssue(
+                    "cover_letter",
+                    "required_metric_missing",
+                    "high",
+                    "답변 설계도에서 필수로 지정한 승인 수치가 최종 자기소개서에서 누락되었습니다.",
+                    question_index,
+                )
+            )
+    return issues
 
 
 def _cover_letter_score(
@@ -268,6 +305,7 @@ def _cover_letter_score(
     )
     issues.extend(_issue_from_validation("cover_letter", item) for item in draft_issues)
     issues.extend(_issue_from_validation("cover_letter", item) for item in quality_issues)
+    issues.extend(_proof_bundle_issues(run_dir, responses))
     for question in questions:
         response = next(
             (item for item in responses if item.question_index == question.index),
@@ -651,6 +689,7 @@ def run_quality_audit(run_dir: Path) -> dict[str, Any]:
         "run_dir": str(run_dir),
         "score": total,
         "internal_validation_score": total,
+        "score_scope": "career_artifacts_only_not_application_completeness_or_hire_probability",
         "quality_gate": quality_gate,
         "human_review_recommended": bool(issues),
         "recommendation": recommendation,
@@ -676,6 +715,7 @@ def render_quality_audit(payload: dict[str, Any]) -> str:
         "",
         f"- 총점: {payload['score']}/100",
         f"- 내부 검증 점수: {payload.get('internal_validation_score', payload['score'])}/100",
+        f"- 점수 범위: {payload.get('score_scope', 'career_artifacts_only')}",
         f"- quality_gate: {payload.get('quality_gate', 'unknown')}",
         f"- human_review_recommended: {payload.get('human_review_recommended', True)}",
         f"- 판정: {payload['recommendation']}",

@@ -1,6 +1,7 @@
 """Evidence-to-Signal convergence layer for the Career Pipeline Golden Path."""
 from __future__ import annotations
 
+from contextlib import contextmanager
 from hashlib import sha256
 import json
 from pathlib import Path
@@ -318,6 +319,7 @@ def converged_services(*, model_runner: Any | None = None) -> gp.GoldenPathServi
                     judge_model_ids=config.judge_model_ids,
                     route_count=config.route_count,
                     prose_realisations=config.prose_realisations,
+                    prose_strategy=config.writer_strategy,
                     timeout_ms=config.writer_timeout_ms,
                     surface_preference_profile_path=(
                         Path(config.surface_preference_profile).resolve()
@@ -450,7 +452,8 @@ def converged_services(*, model_runner: Any | None = None) -> gp.GoldenPathServi
     )
 
 
-def main(argv: list[str] | None = None) -> int:
+@contextmanager
+def _converged_runtime():
     original_services = gp.default_services
     original_authority_view = gp._run_authority_view
     original_weakness_sha = gp._weakness_sha
@@ -458,11 +461,34 @@ def main(argv: list[str] | None = None) -> int:
     gp._run_authority_view = _authority_view
     gp._weakness_sha = _interview_learning_sha
     try:
-        return gp.main(argv)
+        yield
     finally:
         gp.default_services = original_services
         gp._run_authority_view = original_authority_view
         gp._weakness_sha = original_weakness_sha
+
+
+def start_converged_golden_path(**kwargs: Any) -> dict[str, Any]:
+    """Run the standard golden-path start flow with convergence services."""
+
+    with _converged_runtime():
+        return gp.start_golden_path(**kwargs)
+
+
+def advance_converged_golden_path(
+    run: Path,
+    *,
+    config: gp.GoldenPathConfig | None = None,
+) -> dict[str, Any]:
+    """Resume the standard golden path with convergence services."""
+
+    with _converged_runtime():
+        return gp.advance_golden_path(run, config=config)
+
+
+def main(argv: list[str] | None = None) -> int:
+    with _converged_runtime():
+        return gp.main(argv)
 
 
 if __name__ == "__main__":

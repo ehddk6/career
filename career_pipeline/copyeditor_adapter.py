@@ -68,6 +68,13 @@ def _resolved_codex_command(
     ]
     if model_id:
         arguments[5:5] = ["--model", model_id]
+    # Explicit effort is opt-in.  Shadow benchmarks record the value in their
+    # shared writer contract so both arms use the same actual CLI setting.
+    effort = os.environ.get("CAREER_CODEX_REASONING_EFFORT", "").strip()
+    if effort:
+        if effort not in {"low", "medium", "high", "xhigh"}:
+            raise ValueError("CAREER_CODEX_REASONING_EFFORT must be low, medium, high, or xhigh")
+        arguments[1:1] = ["-c", f'model_reasoning_effort="{effort}"']
     if os.name != "nt" or not resolve:
         return ["codex", *arguments]
     executable = shutil.which("codex.cmd")

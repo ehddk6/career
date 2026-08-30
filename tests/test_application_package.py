@@ -13,7 +13,7 @@ from career_pipeline.artifacts import sha256_file
 from career_pipeline.__main__ import main
 from career_pipeline.eligibility import applicant_profile_to_dict, decision_to_dict, posting_record_to_dict
 from career_pipeline.inventory import digest_path
-from career_pipeline.models import ApplicantProfile, EligibilityDecision, PostingRecord
+from career_pipeline.models import ApplicantProfile, CertificationRecord, EligibilityDecision, PostingRecord
 from career_pipeline.profile_builder import excerpt_sha256
 from career_pipeline.state import write_json
 
@@ -169,6 +169,126 @@ def test_attachment_change_blocks_materialization(tmp_path):
 
 
 def test_eligible_with_gaps_requires_manual_review(tmp_path): assert build_package(tmp_path,"eligible_with_gaps").validation_status=="manual_review"
+
+
+def test_expired_profile_credential_prevents_ready_for_review_package(tmp_path):
+    run, state, profile, posting, decision, private, resume = package_inputs(tmp_path)
+    profile = replace(
+        profile,
+        certifications=(
+            CertificationRecord(
+                "TOEIC", expires_at="2026-07-30", status="valid", verified=True
+            ),
+        ),
+    )
+
+    package = build_application_package(
+        root=tmp_path,
+        run_dir=run,
+        run_state=state,
+        profile=profile,
+        posting=posting,
+        decision=decision,
+        private_data_path=private,
+        profile_sha256="d" * 64,
+        attachments={"resume": resume},
+        created_at="2026-07-12T09:00:00+09:00",
+    )
+
+    assert package.validation_status == "manual_review"
+    assert "credential_selection_unconfirmed" in package.validation_reasons
+
+
+def test_missing_required_attachment_blocks_application_package(tmp_path):
+    run, state, profile, posting, decision, private, resume = package_inputs(tmp_path)
+
+    package = build_application_package(
+        root=tmp_path,
+        run_dir=run,
+        run_state=state,
+        profile=profile,
+        posting=posting,
+        decision=decision,
+        private_data_path=private,
+        profile_sha256="d" * 64,
+        attachments={"resume": resume},
+        required_attachment_keys=("resume", "transcript"),
+        created_at="2026-07-12T09:00:00+09:00",
+    )
+
+    assert package.validation_status == "blocked"
+    assert "required_attachment_missing:transcript" in package.validation_reasons
+
+
+def test_expired_credential_can_be_explicitly_omitted_from_package(tmp_path):
+    run, state, profile, posting, decision, private, resume = package_inputs(tmp_path)
+    profile = replace(
+        profile,
+        certifications=(
+            CertificationRecord(
+                "TOEIC", expires_at="2026-07-30", status="valid", verified=True
+            ),
+        ),
+    )
+
+    package = build_application_package(
+        root=tmp_path,
+        run_dir=run,
+        run_state=state,
+        profile=profile,
+        posting=posting,
+        decision=decision,
+        private_data_path=private,
+        profile_sha256="d" * 64,
+        attachments={"resume": resume},
+        included_credential_names=(),
+        created_at="2026-07-12T09:00:00+09:00",
+    )
+
+    assert package.validation_status == "ready_for_review"
+    assert not package.validation_reasons
+
+
+def test_selected_credential_is_bound_to_exact_attachment_digest(tmp_path):
+    run, state, profile, posting, decision, private, resume = package_inputs(tmp_path)
+    profile = replace(
+        profile,
+        certifications=(
+            CertificationRecord("컴퓨터활용능력", status="valid", verified=True),
+        ),
+    )
+    certificate = tmp_path / ".career_profile" / "certificate.pdf"
+    certificate.write_bytes(b"%PDF-1.7\ncertificate")
+
+    package = build_application_package(
+        root=tmp_path,
+        run_dir=run,
+        run_state=state,
+        profile=profile,
+        posting=posting,
+        decision=decision,
+        private_data_path=private,
+        profile_sha256="d" * 64,
+        attachments={"resume": resume, "certificate": certificate},
+        credential_attachment_keys={"컴퓨터활용능력": "certificate"},
+        created_at="2026-07-12T09:00:00+09:00",
+    )
+
+    assert package.validation_status == "ready_for_review"
+    assert package.submission_preflight_status == "ready"
+    assert package.submission_preflight_sha256
+    assert package.credential_bindings[0].attachment_sha256 == next(
+        item.sha256 for item in package.attachments if item.field_key == "certificate"
+    )
+
+    tampered = replace(
+        package,
+        credential_bindings=(
+            replace(package.credential_bindings[0], attachment_sha256="f" * 64),
+        ),
+    )
+    with pytest.raises(ApplicationPackageError, match="credential attachment binding"):
+        application_package_to_dict(tampered)
 
 
 def test_registry_is_idempotent_and_changed_package_is_versionable(tmp_path):

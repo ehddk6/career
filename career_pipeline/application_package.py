@@ -9,16 +9,25 @@ from hashlib import sha256
 import json
 from pathlib import Path
 import re
-from typing import Any, Mapping
+from typing import Any, Mapping, Sequence
 
 from .artifacts import load_and_verify_final_artifact, sha256_file
 from .character_count import count_characters
 from .eligibility import canonicalize_url
-from .models import ApplicantProfile, ApplicationAnswer, ApplicationAttachment, ApplicationPackage, EligibilityDecision, PostingRecord
+from .models import (
+    ApplicantProfile,
+    ApplicationAnswer,
+    ApplicationAttachment,
+    ApplicationCredentialBinding,
+    ApplicationPackage,
+    EligibilityDecision,
+    PostingRecord,
+)
 from .path_policy import LockAcquisitionError, PathConfinementError, PathLinkError, confine_path, exclusive_lock
 from .profile_refresh import refresh_profile
 from .profile_schema import ProfileValidationError, ledger_to_dict, load_ledger
 from .state import write_json
+from .submission_preflight import assess_submission_preflight, submission_preflight_sha256
 
 SCHEMA_VERSION = 1
 OUTPUT_CONTRACT_VERSION = "phase4-review-required-v1"
@@ -237,6 +246,9 @@ def _load_final_answers(run_dir: Path, state: dict[str, Any]) -> tuple[tuple[App
 def build_application_package(*, root: Path, run_dir: Path, run_state: dict[str, Any], profile: ApplicantProfile,
                               posting: PostingRecord, decision: EligibilityDecision, private_data_path: Path,
                               profile_sha256: str, attachments: Mapping[str, Path] | None = None,
+                              required_attachment_keys: Sequence[str] = (),
+                              included_credential_names: Sequence[str] | None = None,
+                              credential_attachment_keys: Mapping[str, str] | None = None,
                               created_at: str | None = None) -> ApplicationPackage:
     root, run_dir = root.resolve(), run_dir.resolve()
     _inside(root, run_dir, label="run directory")
@@ -261,16 +273,44 @@ def build_application_package(*, root: Path, run_dir: Path, run_state: dict[str,
         if size > MAX_ATTACHMENT_BYTES: raise ApplicationPackageError(f"attachment exceeds 20MB: {key}")
         media_type, suffix = _attachment_type(path)
         attachment_items.append(ApplicationAttachment(key, _resource_ref("attachment", digest), digest, size, media_type, suffix))
+    preflight = assess_submission_preflight(
+        profile,
+        as_of=posting.deadline_at or created_at,
+        included_credential_names=included_credential_names,
+        selected_credential_attachments=credential_attachment_keys,
+        supplied_attachment_keys=(item.field_key for item in attachment_items),
+        required_attachment_keys=required_attachment_keys,
+    )
+    reasons.extend(preflight.reason_codes)
+    attachment_by_key = {item.field_key: item for item in attachment_items}
+    credential_bindings: list[ApplicationCredentialBinding] = []
+    for credential_name, attachment_key in sorted((credential_attachment_keys or {}).items()):
+        matching = [item for item in profile.certifications if item.name == credential_name]
+        attachment = attachment_by_key.get(attachment_key)
+        if len(matching) != 1 or attachment is None:
+            continue
+        credential_bindings.append(
+            ApplicationCredentialBinding(
+                credential_name=credential_name,
+                attachment_field_key=attachment_key,
+                comparison_date=preflight.evaluated_on,
+                profile_record_sha256=sha256(_canonical_json(asdict(matching[0]))).hexdigest(),
+                attachment_sha256=attachment.sha256,
+            )
+        )
+    preflight_sha = submission_preflight_sha256(preflight)
     identity = sha256(f"{profile.profile_id}|{profile_sha256}|{private_sha}".encode()).hexdigest()
-    seed = (OUTPUT_CONTRACT_VERSION, posting.posting_id, posting.body_sha256, profile_sha256, question_sha, manifest_sha, final_sha, identity)
-    blocked = any(r.startswith(("profile_", "final_run", "decision_", "posting_status", "eligibility_status:manual", "eligibility_status:ineligible")) for r in reasons)
-    status = "blocked" if blocked else "manual_review" if decision.status == "eligible_with_gaps" else "ready_for_review"
+    seed = (OUTPUT_CONTRACT_VERSION, posting.posting_id, posting.body_sha256, profile_sha256, question_sha, manifest_sha, final_sha, identity, preflight_sha, _digest([asdict(item) for item in credential_bindings]))
+    blocked = preflight.status == "blocked" or any(r.startswith(("profile_", "final_run", "decision_", "posting_status", "eligibility_status:manual", "eligibility_status:ineligible", "required_attachment_missing:")) for r in reasons)
+    status = "blocked" if blocked else "manual_review" if reasons or decision.status == "eligible_with_gaps" else "ready_for_review"
     package = ApplicationPackage(
         SCHEMA_VERSION, "application-" + sha256("|".join(seed).encode()).hexdigest()[:24], created_at, "review_required",
         posting.posting_id, posting.body_sha256, canonicalize_url(posting.canonical_url or posting.url), posting.organization,
         posting.role, posting.locations, profile.profile_id, decision.decision_id, decision.status, profile_sha256, question_sha,
         manifest_sha, final_sha, OUTPUT_CONTRACT_VERSION, _resource_ref("private", private_sha), private_sha,
         tuple(sorted(private_fields)), identity, answers, tuple(attachment_items), status, tuple(reasons),
+        tuple(credential_bindings), preflight.status, preflight.reason_codes,
+        preflight.evaluated_on, preflight_sha,
     )
     return validate_application_package(package)
 
@@ -283,6 +323,12 @@ def validate_application_package(package: ApplicationPackage) -> ApplicationPack
         raise ApplicationPackageError("invalid application package status")
     if package.validation_status == "ready_for_review" and package.eligibility_status != "eligible":
         raise ApplicationPackageError("only eligible packages can be ready_for_review")
+    if package.submission_preflight_status not in {"ready", "manual_review", "blocked", "not_assessed"}:
+        raise ApplicationPackageError("invalid submission preflight status")
+    if package.validation_status == "ready_for_review" and package.submission_preflight_status not in {"ready", "not_assessed"}:
+        raise ApplicationPackageError("ready package cannot have an unresolved submission preflight")
+    if package.submission_preflight_sha256 is not None and not _SHA256.fullmatch(package.submission_preflight_sha256):
+        raise ApplicationPackageError("submission_preflight_sha256 must be lowercase SHA-256")
     for name in ("posting_sha256", "profile_sha256", "question_schema_sha256", "final_manifest_sha256", "final_artifact_sha256", "private_data_sha256", "applicant_identity_fingerprint"):
         if not _SHA256.fullmatch(getattr(package, name)): raise ApplicationPackageError(f"{name} must be lowercase SHA-256")
     if not _RESOURCE_REF.fullmatch(package.private_data_ref) or package.private_data_ref != _resource_ref("private", package.private_data_sha256):
@@ -305,6 +351,17 @@ def validate_application_package(package: ApplicationPackage) -> ApplicationPack
                 or attachment.size < 0 or attachment.suffix not in {".pdf", ".docx", ".jpg", ".jpeg", ".png"}):
             raise ApplicationPackageError("invalid application attachment metadata")
         attachment_keys.append(attachment.field_key)
+    attachment_by_key = {item.field_key: item for item in package.attachments}
+    for binding in package.credential_bindings:
+        attachment = attachment_by_key.get(binding.attachment_field_key)
+        if (
+            not binding.credential_name
+            or attachment is None
+            or binding.attachment_sha256 != attachment.sha256
+            or not _SHA256.fullmatch(binding.profile_record_sha256)
+            or not _SHA256.fullmatch(binding.attachment_sha256)
+        ):
+            raise ApplicationPackageError("invalid credential attachment binding")
     if len([*keys, *answer_keys, *attachment_keys]) != len(set([*keys, *answer_keys, *attachment_keys])):
         raise ApplicationPackageError("application package field keys must be unique")
     if not package.package_id or not package.posting_id or not package.profile_id or not package.answers:
@@ -321,8 +378,12 @@ def application_package_from_dict(value: Any) -> ApplicationPackage:
         raise ApplicationPackageError("unsupported application package schema version")
     try:
         data = dict(value)
-        data["locations"] = tuple(data.get("locations", [])); data["private_field_keys"] = tuple(data.get("private_field_keys", [])); data["validation_reasons"] = tuple(data.get("validation_reasons", []))
+        data["locations"] = tuple(data.get("locations", [])); data["private_field_keys"] = tuple(data.get("private_field_keys", [])); data["validation_reasons"] = tuple(data.get("validation_reasons", [])); data["submission_preflight_reason_codes"] = tuple(data.get("submission_preflight_reason_codes", []))
         data["answers"] = tuple(ApplicationAnswer(**item) for item in data.get("answers", []))
+        data["credential_bindings"] = tuple(
+            ApplicationCredentialBinding(**item)
+            for item in data.get("credential_bindings", [])
+        )
         data["attachments"] = tuple(ApplicationAttachment(**item) for item in data.get("attachments", []))
         return validate_application_package(ApplicationPackage(**data))
     except (KeyError, TypeError, ValueError) as error:

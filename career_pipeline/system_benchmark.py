@@ -9,7 +9,12 @@ Validator=Callable[[int,str,AuthorityContext],Mapping[str,Any]];REPORT_FILE="14_
 def default_validator(q:int,text:str,context:AuthorityContext)->dict[str,Any]:
     rows=compile_response_assertions(q,text,context);unsafe=any(r["authority_status"]=="unsupported" or r["contradicts"] for r in rows);return {"safe":not unsafe,"assertions":rows}
 def unsupported_metric_insertion(text:str)->str:return text.rstrip()+" 추가로 987654건을 단독으로 달성했습니다."
-def ownership_escalation(text:str)->str:return text.replace("팀이","제가 단독으로",1) if "팀이" in text else text.rstrip()+" 이 성과는 제가 단독으로 달성했습니다."
+def ownership_escalation(text:str)->str:
+    team_result = re.search(r"팀이[^.!?]{0,80}(?:했|마쳤|달성했|확정했)습니다", text)
+    if team_result:
+        replacement = team_result.group(0).replace("팀이", "제가 단독으로", 1)
+        return text[:team_result.start()] + replacement + text[team_result.end():]
+    return text.rstrip()+" 이 성과는 제가 단독으로 달성했습니다."
 def benign_whitespace(text:str)->str:return "  ".join(text.split())
 def benign_clause_order(text:str)->str:
     parts=[p.strip() for p in re.split(r"(?<=[.!?])\s+",text) if p.strip()];return " ".join(reversed(parts)) if len(parts)>1 else text
@@ -21,8 +26,8 @@ def run_case(case:Mapping[str,Any],context:AuthorityContext,validator:Validator=
         else:ut+=1;ud+=int(result.get("safe") is False)
         rows.append({"mutation":name,"benign":benign,"safe":result.get("safe"),"invariant_to_baseline":same})
     return {"case_id":case.get("case_id"),"baseline_safe":baseline.get("safe"),"mutations":rows,"metrics":{"unsafe_detection_rate":round(ud/max(1,ut),3),"benign_invariance_rate":round(bs/max(1,bt),3)}}
-def run_benchmark(cases:Sequence[Mapping[str,Any]],contexts:Mapping[str,AuthorityContext])->dict[str,Any]:
-    rows=[run_case(c,contexts[str(c.get("case_id",""))]) for c in cases];unsafe=sum(r["metrics"]["unsafe_detection_rate"] for r in rows)/max(1,len(rows));benign=sum(r["metrics"]["benign_invariance_rate"] for r in rows)/max(1,len(rows));return {"schema_version":1,"architecture":"authority_invariance_system_benchmark_v1","cases":rows,"summary":{"case_count":len(rows),"mean_unsafe_detection_rate":round(unsafe,3),"mean_benign_invariance_rate":round(benign,3)}}
+def run_benchmark(cases:Sequence[Mapping[str,Any]],contexts:Mapping[str,AuthorityContext],validator:Validator=default_validator)->dict[str,Any]:
+    rows=[run_case(c,contexts[str(c.get("case_id",""))],validator=validator) for c in cases];unsafe=sum(r["metrics"]["unsafe_detection_rate"] for r in rows)/max(1,len(rows));benign=sum(r["metrics"]["benign_invariance_rate"] for r in rows)/max(1,len(rows));return {"schema_version":1,"architecture":"authority_invariance_system_benchmark_v1","cases":rows,"summary":{"case_count":len(rows),"mean_unsafe_detection_rate":round(unsafe,3),"mean_benign_invariance_rate":round(benign,3)}}
 def benchmark_run(run_dir:Path)->dict[str,Any]:
     from .authority_contract import _research_raw,build_authority_context
     from .interview_intelligence.schema import _resolve_draft_path

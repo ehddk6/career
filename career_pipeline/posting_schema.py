@@ -42,3 +42,4 @@ class PostingAnalysis:
     questions: tuple[Question, ...]
     constraints: tuple[str, ...]
     uncertainties: tuple[str, ...]
+    question_source: PostingSourceMetadata | None = None

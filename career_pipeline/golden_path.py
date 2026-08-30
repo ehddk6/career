@@ -30,6 +30,7 @@ class GoldenPathConfig:
     judge_model_ids: tuple[str, ...] = ()
     route_count: int = 3
     prose_realisations: int = 2
+    writer_strategy: str = "nrs_v2"
     writer_timeout_ms: int = 300_000
     surface_preference_profile: str | None = None
     semantic_preference_profile: str | None = None
@@ -130,6 +131,8 @@ def _save(run: Path, value: Mapping[str, Any]) -> None:
 def _status(run: Path, m: dict[str, Any], status: str, next_action: str, details: Mapping[str, Any] | None = None) -> dict[str, Any]:
     m["status"] = status
     m["next_action"] = next_action
+    if status == "complete":
+        m["completion_scope"] = "artifact_pipeline_only_not_application_submission"
     if details is None:
         m.pop("status_details", None)
     else:
@@ -206,6 +209,7 @@ def _default_write(run: Path, config: GoldenPathConfig) -> Mapping[str, Any]:
         judge_model_ids=config.judge_model_ids,
         route_count=config.route_count,
         prose_realisations=config.prose_realisations,
+        prose_strategy=config.writer_strategy,
         timeout_ms=config.writer_timeout_ms,
         surface_preference_profile_path=Path(config.surface_preference_profile).resolve() if config.surface_preference_profile else None,
         semantic_preference_profile_path=Path(config.semantic_preference_profile).resolve() if config.semantic_preference_profile else None,
@@ -358,7 +362,7 @@ def advance_golden_path(run_dir: Path, *, config: GoldenPathConfig | None = None
     writer_fp = _json_hash({
         "authority": _authority_snapshot(run),
         "strategy": svc.strategy_fingerprint(run),
-        "config": _config_hash(config, ("writer_model_id", "judge_model_ids", "route_count", "prose_realisations", "writer_timeout_ms", "surface_preference_profile", "semantic_preference_profile")),
+        "config": _config_hash(config, ("writer_model_id", "judge_model_ids", "route_count", "prose_realisations", "writer_strategy", "writer_timeout_ms", "surface_preference_profile", "semantic_preference_profile")),
     })
     if not (config.reuse_cache and _cache_ok(run, m, "writing", writer_fp)):
         report = dict(svc.write_draft(run, config))
@@ -369,7 +373,7 @@ def advance_golden_path(run_dir: Path, *, config: GoldenPathConfig | None = None
         if bad:
             _record(run, m, "writing", writer_fp, status="blocked", details=report)
             return _status(run, m, "blocked_writing", "resolve integrated-writer validation failures", report)
-        _record(run, m, "writing", writer_fp, outputs=_snapshot(run, ("draft.json", "05_통합전략선행정보.json", "05_통합논증검색_검증.json")))
+        _record(run, m, "writing", writer_fp, outputs=_snapshot(run, ("draft.json", "05_통합전략선행정보.json", "05_통합논증검색_검증.json", "05_NRS_서사선택.json")))
 
     draft = run / "draft.json"
     if not draft.is_file():
@@ -451,6 +455,7 @@ def advance_golden_path(run_dir: Path, *, config: GoldenPathConfig | None = None
 
 
 def start_golden_path(*, root: Path, target: str, draft: Path, posting: str, profile: Path, run_name: str | None = None,
+                      question_source: str | None = None,
                       official_domains: Sequence[str] = (), research_domains: Sequence[str] = (), official_source: bool = False,
                       config: GoldenPathConfig | None = None) -> dict[str, Any]:
     from .orchestrator import prepare_run
@@ -460,9 +465,15 @@ def start_golden_path(*, root: Path, target: str, draft: Path, posting: str, pro
         draft_path = confine_private_file(workspace, draft, label="draft")
         profile_path = confine_private_file(workspace, profile, label="profile")
         posting_source = confine_posting_source(workspace, posting)
+        question_source_value = (
+            confine_posting_source(workspace, question_source)
+            if question_source
+            else None
+        )
     except WorkspacePolicyError as error:
         raise GoldenPathError(str(error)) from error
     state = prepare_run(workspace, target, draft_path, posting_source, run_name, profile=profile_path,
+                        question_source=question_source_value,
                         official_domains=tuple(official_domains), research_domains=tuple(research_domains), official_source=official_source)
     run = Path(str(state["run_dir"])).resolve()
     if str(state.get("status", "")).startswith("blocked_"):
@@ -471,11 +482,12 @@ def start_golden_path(*, root: Path, target: str, draft: Path, posting: str, pro
     return advance_golden_path(run, config=config)
 
 
-def _add_args(p: argparse.ArgumentParser) -> None:
+def add_cli_arguments(p: argparse.ArgumentParser) -> None:
     p.add_argument("--writer-model-id")
     p.add_argument("--judge-model-id", action="append", default=[])
     p.add_argument("--routes", type=int, default=3)
     p.add_argument("--prose-realisations", type=int, default=2)
+    p.add_argument("--writer-strategy", choices=("nrs_v2", "deep_route"), default="nrs_v2")
     p.add_argument("--writer-timeout-ms", type=int, default=300_000)
     p.add_argument("--surface-preference-profile")
     p.add_argument("--semantic-preference-profile")
@@ -491,10 +503,11 @@ def _add_args(p: argparse.ArgumentParser) -> None:
     p.add_argument("--no-cache", action="store_true")
 
 
-def _cfg(a: argparse.Namespace) -> GoldenPathConfig:
+def config_from_namespace(a: argparse.Namespace) -> GoldenPathConfig:
     return GoldenPathConfig(
         writer_model_id=a.writer_model_id, judge_model_ids=tuple(a.judge_model_id), route_count=a.routes,
-        prose_realisations=a.prose_realisations, writer_timeout_ms=a.writer_timeout_ms,
+        prose_realisations=a.prose_realisations, writer_strategy=a.writer_strategy,
+        writer_timeout_ms=a.writer_timeout_ms,
         surface_preference_profile=a.surface_preference_profile, semantic_preference_profile=a.semantic_preference_profile,
         postprocess=a.postprocess, postprocess_tier=a.postprocess_tier, postprocess_timeout_ms=a.postprocess_timeout_ms,
         max_model_calls=a.max_model_calls, max_postprocess_calls=a.max_postprocess_calls, max_stage_seconds=a.max_stage_seconds,
@@ -518,15 +531,16 @@ def _parser() -> argparse.ArgumentParser:
     start.add_argument("--target", required=True)
     start.add_argument("--draft", required=True, type=Path)
     start.add_argument("--posting", required=True)
+    start.add_argument("--question-source")
     start.add_argument("--profile", required=True, type=Path)
     start.add_argument("--run-name")
     start.add_argument("--official-domain", action="append", default=[])
     start.add_argument("--research-domain", action="append", default=[])
     start.add_argument("--official-source", action="store_true")
-    _add_args(start)
+    add_cli_arguments(start)
     resume = sub.add_parser("resume")
     resume.add_argument("--run", required=True, type=Path)
-    _add_args(resume)
+    add_cli_arguments(resume)
     status = sub.add_parser("status")
     status.add_argument("--run", required=True, type=Path)
     return p
@@ -538,9 +552,10 @@ def main(argv: Sequence[str] | None = None) -> int:
         value = _manifest(a.run.resolve())
         print(json.dumps(value, ensure_ascii=False, indent=2))
         return 0 if value.get("status") == "complete" else 2
-    config = _cfg(a)
+    config = config_from_namespace(a)
     result = (
         start_golden_path(root=a.workspace, target=a.target, draft=a.draft, posting=a.posting,
+                          question_source=a.question_source,
                           profile=a.profile, run_name=a.run_name, official_domains=a.official_domain,
                           research_domains=a.research_domain, official_source=a.official_source, config=config)
         if a.command == "start" else advance_golden_path(a.run, config=config)

@@ -63,16 +63,62 @@ def test_problem_solving_latency_is_not_global_two_sentence_rule():
     assert contract["max_sentence"] == 3
     assert "friction" in contract["required_signal"]
 
-def test_prompt_contains_structural_plan_and_hard_authority_boundaries():
+def test_prompt_contains_lean_writer_contract_without_internal_audit_context():
     blueprint = _blueprint()
     route = _route()
     kernel = build_narrative_kernel(blueprint, route)
     plan = generate_realization_plans(kernel)[0]
     prompt = build_nrs_prompt(blueprint, {"target": "role"}, route, kernel, plan)
-    assert "move_sequence" in prompt
-    assert "새로운 사실 권한을 만들지 않는다" in prompt
-    assert "단독 인과" in prompt
+    assert "proof_order" in prompt
+    assert "본인 행동, 협업 결과, 관찰된 변화" in prompt
+    assert "공백 제외 약" not in prompt  # fixture has no character plan
+    assert "risk_controls" not in prompt
+    assert "interview_defense_questions" not in prompt
     assert "used_claim_ids" in prompt
+
+
+def test_prompt_exposes_character_plan_as_writer_facing_length_goal():
+    blueprint = _blueprint()
+    blueprint["character_plan"] = {
+        "count_mode": "spaces_excluded", "target": 540, "hard_maximum": 600,
+    }
+    route = _route()
+    kernel = build_narrative_kernel(blueprint, route)
+    prompt = build_nrs_prompt(blueprint, {}, route, kernel, generate_realization_plans(kernel)[0])
+    assert "공백 제외 약 540자, 최대 600자" in prompt
+    assert '"hard_maximum": 600' in prompt
+
+
+def test_prompt_turns_observed_result_into_natural_actor_result_guidance():
+    blueprint = _blueprint()
+    blueprint["experience"]["selected_claims"][0]["contribution"] = "observed"
+    route = _route()
+    kernel = build_narrative_kernel(blueprint, route)
+    prompt = build_nrs_prompt(blueprint, {}, route, kernel, generate_realization_plans(kernel)[0])
+    assert "본인이 한 행동을 먼저 쓰고" in prompt
+    assert "관찰된 결과로 제시" in prompt
+    assert "actor_and_result" in prompt
+
+
+def test_guardrail_is_validation_only_and_never_enters_a_prose_plan_or_prompt():
+    blueprint = _blueprint()
+    blueprint["risk_controls"] = ["검증 코드와 내부 절차"]
+    blueprint["interview_defense_questions"] = ["근거 부족을 어떻게 설명할 것인가"]
+    route = _route()
+    route["proof_chain"].append({
+        "kind": "guardrail",
+        "text": "결과 범위를 감사 보고서처럼 설명하지 않는다.",
+        "support_refs": ["claim:C2"],
+    })
+    kernel = build_narrative_kernel(blueprint, route)
+    plans = generate_realization_plans(kernel)
+    prompt = build_nrs_prompt(blueprint, {"target": "role"}, route, kernel, plans[0])
+
+    assert [item.kind for item in kernel.validation_constraints] == ["guardrail"]
+    assert all("GUARDRAIL" not in plan.move_sequence for plan in plans)
+    assert "감사 보고서처럼" not in prompt
+    assert "검증 코드와 내부 절차" not in prompt
+    assert "근거 부족을 어떻게 설명" not in prompt
 
 def test_unknown_proof_kind_fails_closed():
     route = _route()
@@ -98,7 +144,7 @@ def test_genericity_heuristic_improves_when_anchor_is_present():
     assert specific["genericity_risk"] < generic["genericity_risk"]
     assert specific["distinctive_anchor_coverage"] > generic["distinctive_anchor_coverage"]
 
-def test_no_supported_family_falls_back_to_route_order_control():
+def test_sparse_route_uses_supported_action_and_outcome_orders_without_guardrail():
     route = _route()
     route["proof_chain"] = [
         {"kind": "action", "text": "기록했다.", "support_refs": ["claim:C1"]},
@@ -107,4 +153,5 @@ def test_no_supported_family_falls_back_to_route_order_control():
     route["distinctive_anchor_refs"] = []
     kernel = build_narrative_kernel(_blueprint(), route)
     plans = generate_realization_plans(kernel)
-    assert [plan.family for plan in plans] == ["route_order_control"]
+    assert {plan.family for plan in plans} == {"action_first", "outcome_first"}
+    assert len({plan.ordered_proof_indexes for plan in plans}) == 2

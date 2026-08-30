@@ -27,6 +27,14 @@ from .narrative_compiler import (
     NarrativeCompilerError, _compact_blueprint, _to_response,
     _validate_generated_payload, compile_run_blueprint,
 )
+from .narrative_realization_shadow import (
+    NarrativeRealizationError, build_narrative_kernel, generate_realization_plans,
+)
+from .nrs_shadow_benchmark import (
+    generate_nrs_candidates,
+    missing_selected_metric,
+    select_blind_candidate,
+)
 from .preference_writer import (
     _candidate_issues, _portfolio_issues, _preference_profile, _state,
 )
@@ -37,9 +45,15 @@ from .semantic_preference import (
 )
 from .state import write_json
 from .style_diagnostics import diagnose_text
+from .self_introduction_genre import GENRE_CONTRACT_VERSION, blocking_genre_issues
 from .writing_preference import preference_directives, preference_distance
 
 ModelRunner = Callable[[str, str, str, int], dict[str, Any] | str]
+DEFAULT_BACKEND_SENTINEL = "__codex_default_backend__"
+
+
+def _reported_model_id(model_id: str) -> str | None:
+    return None if model_id == DEFAULT_BACKEND_SENTINEL else model_id
 
 ROUTE_JUDGE_ROLES = (
     ("hiring_manager", "직무 수행 가능성과 문항 적합성을 본다. 실제 판단·행동 증거를 우선한다."),
@@ -50,6 +64,10 @@ PROSE_MODES = (
     ("natural_precision", "정확하지만 보고서처럼 굳지 않은 자연스러운 한국어로 쓴다."),
     ("restrained_distinctive", "과장 없이 지원자만의 장면·판단·행동 디테일을 살린다."),
 )
+DEFAULT_PROSE_STRATEGY = "nrs_v2"
+PROSE_STRATEGIES = frozenset({DEFAULT_PROSE_STRATEGY, "deep_route"})
+NRS_CANDIDATE_BUDGET = 3
+NRS_RETRY_ATTEMPTS = 2
 ROUTE_RESELECT_CODES = {
     "question_gap", "weak_thesis", "generic_scene", "action_blur",
     "causal_gap", "forced_job_bridge", "company_brochure",
@@ -115,6 +133,19 @@ _CRITIC_SCHEMA = {
         }}}},
 }
 
+_NRS_CANDIDATE_SELECTION_SCHEMA = {
+    "type": "object", "additionalProperties": False,
+    "required": ["ranking"],
+    "properties": {"ranking": {"type": "array", "items": {
+        "type": "object", "additionalProperties": False,
+        "required": ["candidate_id", "rank"],
+        "properties": {
+            "candidate_id": {"type": "string"},
+            "rank": {"type": "integer", "minimum": 1},
+        },
+    }}},
+}
+
 class DeepWriterError(ValueError):
     pass
 
@@ -125,6 +156,8 @@ def _schema(stage: str) -> dict[str, Any]:
         return _JUDGE_SCHEMA
     if stage.startswith("deep_portfolio_critic"):
         return _CRITIC_SCHEMA
+    if stage.startswith(("nrs_shadow_candidate_select", "nrs_production_candidate_select")):
+        return _NRS_CANDIDATE_SELECTION_SCHEMA
     from .narrative_compiler import _GENERATION_SCHEMA
     return _GENERATION_SCHEMA
 
@@ -142,7 +175,9 @@ def subprocess_model_runner(stage: str, prompt: str, model_id: str, timeout_ms: 
         except subprocess.TimeoutExpired as error:
             raise DeepWriterError(f"model call timed out: {stage}") from error
     if completed.returncode:
-        raise DeepWriterError(f"model call failed: {stage}")
+        detail = completed.stderr.strip().replace("\n", " ")[-1200:]
+        suffix = f": {detail}" if detail else ""
+        raise DeepWriterError(f"model call failed: {stage}{suffix}")
     value = json.loads(completed.stdout)
     if not isinstance(value, dict):
         raise DeepWriterError(f"non-object model output: {stage}")
@@ -172,10 +207,20 @@ def _semantic_profile(run_dir: Path, state: Mapping[str, Any], explicit: Path | 
 
 def _route_prompt(blueprint: Mapping[str, Any], packet: Mapping[str, Any], kernel: Mapping[str, Any],
                   route_count: int, directives: Sequence[str]) -> str:
+    motivation_contract = (
+        " For a motivation question, the applicant may state a present-tense purpose for this "
+        "active application when it is derived only from the target role, approved organization/job "
+        "facts, and confirmed experience. Treat that present application intent as an answer to the "
+        "current prompt, not as an unsupported historical fact. Do not invent a past origin story, "
+        "long-held value, emotion, or triggering event."
+        if blueprint.get("intent") == "motivation"
+        else ""
+    )
     return (
         f"Create exactly {route_count} materially different argument plans, not prose. "
         "Every factual note must cite support refs from story_kernel.support. "
-        "Do not invent motives, trade-offs or reasons: if unsupported, list the gap. "
+        "Do not invent historical motives, trade-offs or reasons: if unsupported, list the gap. "
+        + motivation_contract + " "
         "Routes must differ in what they prove, not wording. Apply the applicant-swap test: "
         "another qualified applicant should not be able to use the same argument unchanged. JSON only.\n"
         + json.dumps({
@@ -193,10 +238,18 @@ def _judge_prompt(blueprint: Mapping[str, Any], routes: Sequence[Mapping[str, An
         "evidence_gaps": r.get("evidence_gaps"),
         "missing_required_kinds": r.get("missing_required_kinds"),
     } for r in routes]
+    motivation_contract = (
+        " For this motivation question, a present-tense application purpose grounded only in the "
+        "target role, approved organization/job facts, and confirmed experience is permitted and "
+        "is not an invented historical fact. A fabricated past origin, value, emotion, or event remains fatal."
+        if blueprint.get("intent") == "motivation"
+        else ""
+    )
     return (
         f"You are the {role} evaluator. {role_instruction} Score every route independently 0..4 "
         "on each fixed dimension. These are plans: do not reward polished wording. "
         "fatal_issue=true only when the route needs invented facts or misses a central requirement. "
+        + motivation_contract + " "
         "Candidate order is arbitrary. JSON only.\n"
         + json.dumps({"question": blueprint.get("prompt"), "rubric": DIMENSION_LABELS,
                       "preferences": list(directives), "routes": visible}, ensure_ascii=False)
@@ -222,7 +275,7 @@ def _judge_routes(blueprint: Mapping[str, Any], routes: Sequence[Mapping[str, An
                     blueprint, _ordered(routes, mi + ri + repeat, bool(repeat)),
                     role, instruction, directives), model, timeout_ms), stage)
                 result.append(validate_judgement(raw, ids))
-                calls.append({"stage": stage, "model_id": model, "role": role, "balanced_order": repeat})
+                calls.append({"stage": stage, "model_id": _reported_model_id(model), "role": role, "balanced_order": repeat})
     return result
 
 def _prose_prompt(blueprint: Mapping[str, Any], packet: Mapping[str, Any],
@@ -272,7 +325,7 @@ def _generate_prose(run_dir: Path, state: Mapping[str, Any], packet: Mapping[str
         raw = _coerce(runner(stage, _prose_prompt(
             blueprint, packet, route, mode, preference_directives(surface_profile),
             semantic_preference_directives(semantic_profile), prior), writer, timeout_ms), stage)
-        calls.append({"stage": stage, "model_id": writer, "role": "route_bound_prose_writer"})
+        calls.append({"stage": stage, "model_id": _reported_model_id(writer), "role": "route_bound_prose_writer"})
         try:
             payload = _validate_generated_payload(raw, blueprint, stage)
         except NarrativeCompilerError as error:
@@ -307,11 +360,176 @@ def _generate_prose(run_dir: Path, state: Mapping[str, Any], packet: Mapping[str
                 blueprint, route, order, semantic_preference_directives(semantic_profile)),
                 model, timeout_ms), stage)
             judgements.append(validate_judgement(raw, ids))
-            calls.append({"stage": stage, "model_id": model, "role": "blind_prose_judge", "balanced_order": repeat})
+            calls.append({"stage": stage, "model_id": _reported_model_id(model), "role": "blind_prose_judge", "balanced_order": repeat})
     scored = aggregate_judgements(pseudo, judgements,
         semantic_preference_weights=semantic_preference_weights(semantic_profile))
     selected = str(scored[0]["route_id"])
     return next(c["payload"] for c in valid if c["candidate_id"] == selected), failures
+
+
+def _generate_nrs_prose(
+    run_dir: Path,
+    state: Mapping[str, Any],
+    packet: Mapping[str, Any],
+    blueprint: Mapping[str, Any],
+    route: Mapping[str, Any],
+    writer: str,
+    judges: Sequence[str],
+    timeout_ms: int,
+    runner: ModelRunner,
+    calls: list[dict[str, Any]],
+    surface_profile: Mapping[str, Any] | None,
+    semantic_profile: Mapping[str, Any] | None,
+    prior: Sequence[Mapping[str, Any]],
+    schema_version: int,
+    count: int,
+    selections: list[dict[str, Any]],
+) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    """Render one route through Narrative Realization Search.
+
+    The NRS path is the production default.  It keeps the proof kernel and
+    writer prompt separate from validation-only constraints, then selects among
+    valid, differently ordered candidates through a counterbalanced blind
+    ranking.  If NRS cannot yield a valid candidate, the established route
+    writer remains a fail-closed fallback and must clear the same genre gate.
+    """
+    question_index = int(blueprint["question_index"])
+
+    def fallback(reason: str, failures: list[dict[str, Any]]) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+        calls.append({
+            "stage": f"nrs_production_fallback_q{question_index}",
+            "model_id": _reported_model_id(writer),
+            "role": "nrs_v2_control_fallback",
+            "reason": reason,
+        })
+        payload, fallback_failures = _generate_prose(
+            run_dir, state, packet, blueprint, route, writer, judges, timeout_ms,
+            runner, calls, surface_profile, semantic_profile, prior, schema_version, count,
+        )
+        genre = blocking_genre_issues(str(payload["answer"]))
+        if genre:
+            codes = ", ".join(issue.code for issue in genre)
+            raise DeepWriterError(
+                f"NRS fallback failed self-introduction genre gate for question {question_index}: {codes}"
+            )
+        if missing_selected_metric(blueprint, str(payload["answer"])):
+            raise DeepWriterError(
+                f"NRS fallback omitted a selected approved metric for question {question_index}"
+            )
+        selections.append({
+            "question_index": question_index,
+            "selection_source": "deep_route_fallback",
+            "reason": reason,
+            "selected_candidate_id": None,
+            "valid_candidate_count": 0,
+            "failures": failures,
+        })
+        return payload, failures + fallback_failures
+
+    try:
+        kernel = build_narrative_kernel(blueprint, route)
+        plans = generate_realization_plans(kernel, max_plans=NRS_CANDIDATE_BUDGET)
+    except NarrativeRealizationError as error:
+        return fallback("kernel_construction_failed", [{
+            "stage": f"nrs_production_generate_q{question_index}",
+            "codes": ["nrs_kernel"],
+            "message": str(error),
+        }])
+    if not plans:
+        return fallback("no_supported_realization_plan", [{
+            "stage": f"nrs_production_generate_q{question_index}",
+            "codes": ["nrs_plan"],
+            "message": "no supported realization plan",
+        }])
+
+    def tracked_runner(stage: str, prompt: str, model_id: str, timeout: int) -> dict[str, Any] | str:
+        role = (
+            "nrs_v2_candidate_selection"
+            if stage.startswith("nrs_production_candidate_select")
+            else "nrs_v2_realization"
+        )
+        calls.append({"stage": stage, "model_id": _reported_model_id(model_id), "role": role})
+        return runner(stage, prompt, model_id, timeout)
+
+    candidates, failures = generate_nrs_candidates(
+        blueprint=blueprint,
+        packet=packet,
+        route=route,
+        kernel=kernel,
+        plans=plans,
+        runner=tracked_runner,
+        model_id=writer,
+        timeout_ms=timeout_ms,
+        validate_payload=_validate_generated_payload,
+        make_response=lambda payload, bp: _to_response(
+            payload, bp, ledger_schema_version=schema_version,
+        ),
+        candidate_issues=lambda response: _candidate_issues(run_dir, state, response),
+        genre_issues=blocking_genre_issues,
+        prior_answers=prior,
+        surface_preferences=preference_directives(surface_profile),
+        semantic_preferences=semantic_preference_directives(semantic_profile),
+        anchor_texts=tuple(item.text for item in kernel.proof_items if item.distinctive_anchor),
+        stage_prefix="nrs_production_generate",
+    )
+    if not candidates:
+        return fallback("no_valid_nrs_candidate", failures)
+    try:
+        selected, selection = select_blind_candidate(
+            blueprint=blueprint,
+            candidates=candidates,
+            runner=tracked_runner,
+            model_id=judges[0],
+            timeout_ms=timeout_ms,
+            stage_prefix="nrs_production_candidate_select",
+        )
+    except Exception as error:
+        return fallback("candidate_selection_failed", failures + [{
+            "stage": f"nrs_production_candidate_select_q{question_index}",
+            "codes": ["nrs_candidate_selection"],
+            "message": str(error),
+        }])
+    selections.append({
+        "question_index": question_index,
+        "selection_source": "nrs_v2",
+        "candidate_budget": NRS_CANDIDATE_BUDGET,
+        "retry_attempts_per_candidate": NRS_RETRY_ATTEMPTS,
+        "valid_candidate_count": len(candidates),
+        "selected_candidate_id": selection.get("selected_candidate_id"),
+        "selection": selection,
+    })
+    return dict(selected["payload"]), failures
+
+
+def _generate_prose_with_strategy(
+    strategy: str,
+    run_dir: Path,
+    state: Mapping[str, Any],
+    packet: Mapping[str, Any],
+    blueprint: Mapping[str, Any],
+    route: Mapping[str, Any],
+    writer: str,
+    judges: Sequence[str],
+    timeout_ms: int,
+    runner: ModelRunner,
+    calls: list[dict[str, Any]],
+    surface_profile: Mapping[str, Any] | None,
+    semantic_profile: Mapping[str, Any] | None,
+    prior: Sequence[Mapping[str, Any]],
+    schema_version: int,
+    count: int,
+    selections: list[dict[str, Any]],
+) -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    if strategy == DEFAULT_PROSE_STRATEGY:
+        return _generate_nrs_prose(
+            run_dir, state, packet, blueprint, route, writer, judges, timeout_ms,
+            runner, calls, surface_profile, semantic_profile, prior, schema_version,
+            count, selections,
+        )
+    return _generate_prose(
+        run_dir, state, packet, blueprint, route, writer, judges, timeout_ms,
+        runner, calls, surface_profile, semantic_profile, prior, schema_version, count,
+    )
 
 def _critic_prompt(packet: Mapping[str, Any], routes: Mapping[int, Mapping[str, Any]],
                    payloads: Sequence[Mapping[str, Any]]) -> str:
@@ -359,6 +577,7 @@ def generate_deep_draft(
     run_dir: Path, *, packet: dict[str, Any] | None = None,
     writer_model_id: str | None = None, judge_model_ids: Sequence[str] = (),
     route_count: int = 3, prose_realisations: int = 2, timeout_ms: int = 300_000,
+    prose_strategy: str = DEFAULT_PROSE_STRATEGY,
     surface_preference_profile_path: Path | None = None,
     semantic_preference_profile_path: Path | None = None,
     runner: ModelRunner = subprocess_model_runner,
@@ -367,13 +586,49 @@ def generate_deep_draft(
     state = _state(run_dir)
     packet = packet or compile_run_blueprint(run_dir)
     writer = writer_model_id or resolve_model("sol").model_id
+    writer_backend = (
+        "codex_cli_default"
+        if writer == DEFAULT_BACKEND_SENTINEL
+        else "configured_model_id"
+    )
     if not writer:
-        raise DeepWriterError("writer model is required")
+        if judge_model_ids:
+            raise DeepWriterError(
+                "writer model is required when explicit judge model IDs are configured"
+            )
+        if runner is subprocess_model_runner:
+            # The local Codex CLI may have a valid default model even when its
+            # model identity is intentionally unavailable to this process.
+            # Use that configured backend without inventing or persisting a
+            # model ID.  The import is lazy because the paired-reconstruction
+            # module reuses this writer.
+            from .nrs_paired_reconstruction import (
+                default_backend_runner,
+                resolve_writer_backend,
+            )
+
+            backend = resolve_writer_backend()
+            if not backend.get("command_available"):
+                raise DeepWriterError("writer backend is unavailable")
+            runner = default_backend_runner
+            writer_backend = str(backend.get("writer_backend") or "codex_cli_default")
+        else:
+            writer_backend = "injected_runner"
+        writer = DEFAULT_BACKEND_SENTINEL
     judges = tuple(x for x in judge_model_ids if x) or (writer,)
+    reported_writer = _reported_model_id(writer)
+    reported_judges = [_reported_model_id(model) for model in judges]
     if not 2 <= route_count <= 5:
         raise ValueError("route_count must be 2..5")
-    if not 1 <= prose_realisations <= len(PROSE_MODES):
+    maximum_realisations = (
+        NRS_CANDIDATE_BUDGET
+        if prose_strategy == DEFAULT_PROSE_STRATEGY
+        else len(PROSE_MODES)
+    )
+    if not 1 <= prose_realisations <= maximum_realisations:
         raise ValueError("invalid prose_realisations")
+    if prose_strategy not in PROSE_STRATEGIES:
+        raise ValueError(f"unsupported prose_strategy: {prose_strategy}")
     surface_profile = _preference_profile(run_dir, state, surface_preference_profile_path)
     semantic_profile = _semantic_profile(run_dir, state, semantic_preference_profile_path)
     sdirect = semantic_preference_directives(semantic_profile)
@@ -390,7 +645,7 @@ def generate_deep_draft(
         stage = f"deep_route_plan_q{q}"
         raw = _coerce(runner(stage, _route_prompt(
             blueprint, packet, kernel, route_count, sdirect), writer, timeout_ms), stage)
-        calls.append({"stage": stage, "model_id": writer, "role": "argument_route_planner"})
+        calls.append({"stage": stage, "model_id": reported_writer, "role": "argument_route_planner"})
         try:
             route_packet = validate_route_packet(raw, blueprint,
                 minimum_routes=route_count, maximum_routes=route_count)
@@ -412,11 +667,12 @@ def generate_deep_draft(
     routes_by_q = {q: next(dict(r) for r in selectable[q] if r["route_id"] == rid)
                    for q, rid in portfolio["selected"].items()}
     payloads, prose_failures, prior = {}, {}, []
+    nrs_selections: list[dict[str, Any]] = []
     for q in sorted(routes_by_q):
-        payload, failures = _generate_prose(
-            run_dir, state, packet, bmap[q], routes_by_q[q], writer, judges,
+        payload, failures = _generate_prose_with_strategy(
+            prose_strategy, run_dir, state, packet, bmap[q], routes_by_q[q], writer, judges,
             timeout_ms, runner, calls, surface_profile, semantic_profile, prior,
-            ledger.schema_version, prose_realisations)
+            ledger.schema_version, prose_realisations, nrs_selections)
         payloads[q] = payload; prose_failures[q] = failures
         prior.append({"question_index": q, "answer": payload["answer"]})
 
@@ -427,7 +683,7 @@ def generate_deep_draft(
     critic = _validate_critic(_coerce(runner(
         stage, _critic_prompt(packet, routes_by_q, payload_list()),
         judges[0], timeout_ms), stage), set(routes_by_q))
-    calls.append({"stage": stage, "model_id": judges[0], "role": "portfolio_critic"})
+    calls.append({"stage": stage, "model_id": reported_judges[0], "role": "portfolio_critic"})
     history = [{"stage": stage, "issues": critic}]
     substitutions = []
 
@@ -439,11 +695,11 @@ def generate_deep_draft(
             continue
         alternate = alternatives[0]
         try:
-            new_payload, _ = _generate_prose(
-                run_dir, state, packet, bmap[q], alternate, writer, judges,
+            new_payload, _ = _generate_prose_with_strategy(
+                prose_strategy, run_dir, state, packet, bmap[q], alternate, writer, judges,
                 timeout_ms, runner, calls, surface_profile, semantic_profile,
                 [{"question_index": k, "answer": v["answer"]} for k,v in payloads.items() if k != q],
-                ledger.schema_version, prose_realisations)
+                ledger.schema_version, prose_realisations, nrs_selections)
         except DeepWriterError:
             continue
         old_payload = payloads[q]
@@ -452,7 +708,7 @@ def generate_deep_draft(
         new_critic = _validate_critic(_coerce(runner(
             s2, _critic_prompt(packet, routes_by_q, payload_list()),
             judges[0], timeout_ms), s2), set(routes_by_q))
-        calls.append({"stage": s2, "model_id": judges[0], "role": "portfolio_critic"})
+        calls.append({"stage": s2, "model_id": reported_judges[0], "role": "portfolio_critic"})
         before = sum(x["severity"] in {"MATERIAL","HARD"} for x in critic)
         after = sum(x["severity"] in {"MATERIAL","HARD"} for x in new_critic)
         if after <= before:
@@ -463,6 +719,8 @@ def generate_deep_draft(
             routes_by_q[q], payloads[q] = old, old_payload
 
     for q in sorted(routes_by_q):
+        if prose_strategy == DEFAULT_PROSE_STRATEGY:
+            continue
         issues = [x for x in critic if x["question_index"] == q and
                   x["severity"] in {"MATERIAL","HARD"} and x["code"] in SURFACE_REPAIR_CODES]
         if not issues:
@@ -475,7 +733,7 @@ def generate_deep_draft(
             bmap[q], packet, routes_by_q[q], ("minimal_surface_repair","문체만 최소 수정"),
             preference_directives(surface_profile), sdirect, [], repair, payloads[q]),
             writer, timeout_ms), sr)
-        calls.append({"stage": sr, "model_id": writer, "role": "minimal_surface_repair"})
+        calls.append({"stage": sr, "model_id": reported_writer, "role": "minimal_surface_repair"})
         try:
             fixed = _validate_generated_payload(raw, bmap[q], sr)
             response = _to_response(fixed, bmap[q], ledger_schema_version=ledger.schema_version)
@@ -497,16 +755,18 @@ def generate_deep_draft(
     final_critic = _validate_critic(_coerce(runner(
         fs, _critic_prompt(packet, routes_by_q, payload_list()),
         judges[0], timeout_ms), fs), set(routes_by_q))
-    calls.append({"stage": fs, "model_id": judges[0], "role": "portfolio_critic"})
+    calls.append({"stage": fs, "model_id": reported_judges[0], "role": "portfolio_critic"})
     history.append({"stage": fs, "issues": final_critic})
     material = [x for x in final_critic if x["severity"] in {"MATERIAL","HARD"}]
 
     return responses, {
-        "schema_version": 1,
-        "architecture": "evidence_to_argument_search_v1",
+        "schema_version": 2,
+        "architecture": "evidence_to_argument_search_with_nrs_v2",
         "packet_id": packet.get("packet_id"),
-        "writer_model_id": writer,
-        "judge_model_ids": list(judges),
+        "writer_model_id": reported_writer,
+        "judge_model_ids": reported_judges,
+        "writer_backend": writer_backend,
+        "model_identity_available": writer != DEFAULT_BACKEND_SENTINEL,
         "judge_independence": "heterogeneous_model_ids" if any(j != writer for j in judges) else "same_model_role_ensemble",
         "route_search": route_report,
         "portfolio_route_selection": portfolio,
@@ -514,6 +774,17 @@ def generate_deep_draft(
                                       "aggregate_score": r.get("aggregate_score")} for q,r in routes_by_q.items()},
         "route_substitutions": substitutions,
         "prose_failures": {str(k): v for k,v in prose_failures.items()},
+        "writer_strategy": {
+            "configured": prose_strategy,
+            "production_default": DEFAULT_PROSE_STRATEGY,
+            "active": prose_strategy,
+            "candidate_budget": NRS_CANDIDATE_BUDGET if prose_strategy == DEFAULT_PROSE_STRATEGY else prose_realisations,
+            "retry_attempts_per_candidate": NRS_RETRY_ATTEMPTS if prose_strategy == DEFAULT_PROSE_STRATEGY else None,
+            "candidate_selection": "counterbalanced_blind_rank_v1" if prose_strategy == DEFAULT_PROSE_STRATEGY else "deep_prose_judge",
+            "fallback": "deep_route_after_nrs_validity_failure" if prose_strategy == DEFAULT_PROSE_STRATEGY else None,
+            "genre_contract_version": GENRE_CONTRACT_VERSION if prose_strategy == DEFAULT_PROSE_STRATEGY else None,
+        },
+        "nrs_realization_selection": nrs_selections,
         "semantic_preference": {"loaded": semantic_profile is not None, "weights": sweights,
                                 "stores_source_text": False},
         "critic_history": history,
@@ -536,6 +807,11 @@ def write_deep_draft(run_dir: Path, *, output: Path | None = None, force: bool =
         raise DeepWriterError(f"output already exists: {output}; use --force")
     write_json(output, [asdict(x) for x in responses])
     write_json(run_dir / "05_논증검색_검증.json", report)
+    if report.get("writer_strategy", {}).get("active") == DEFAULT_PROSE_STRATEGY:
+        write_json(run_dir / "05_NRS_서사선택.json", {
+            "writer_strategy": report["writer_strategy"],
+            "selections": report.get("nrs_realization_selection", []),
+        })
     return output, report
 
 def _parser() -> argparse.ArgumentParser:
@@ -545,6 +821,7 @@ def _parser() -> argparse.ArgumentParser:
     p.add_argument("--judge-model-id", action="append", default=[])
     p.add_argument("--routes", type=int, default=3)
     p.add_argument("--prose-realisations", type=int, default=2)
+    p.add_argument("--prose-strategy", choices=tuple(sorted(PROSE_STRATEGIES)), default=DEFAULT_PROSE_STRATEGY)
     p.add_argument("--timeout-ms", type=int, default=300_000)
     p.add_argument("--surface-preference-profile", type=Path)
     p.add_argument("--semantic-preference-profile", type=Path)
@@ -558,6 +835,7 @@ def main(argv: list[str] | None = None) -> int:
         args.run, output=args.output, force=args.force,
         writer_model_id=args.writer_model_id, judge_model_ids=tuple(args.judge_model_id),
         route_count=args.routes, prose_realisations=args.prose_realisations,
+        prose_strategy=args.prose_strategy,
         timeout_ms=args.timeout_ms,
         surface_preference_profile_path=args.surface_preference_profile,
         semantic_preference_profile_path=args.semantic_preference_profile,

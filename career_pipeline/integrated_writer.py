@@ -13,7 +13,11 @@ from pathlib import Path
 from typing import Any, Callable, Mapping, Sequence
 
 from .answer_blueprint import render_blueprint_markdown
-from .deep_writer import DeepWriterError, generate_deep_draft, subprocess_model_runner
+from .deep_writer import (
+    DEFAULT_BACKEND_SENTINEL, DEFAULT_PROSE_STRATEGY, PROSE_STRATEGIES, DeepWriterError,
+    generate_deep_draft, subprocess_model_runner,
+)
+from .model_policy import resolve_model
 from .narrative_compiler import compile_run_blueprint
 from .research_router import route_research_into_blueprint
 from .research_workspace import assert_research_ready
@@ -42,6 +46,11 @@ def _prefix(stage: str, prior: Mapping[str, Any]) -> str:
 
 def strategy_aware_runner(prior: Mapping[str, Any], base_runner: ModelRunner) -> ModelRunner:
     def run(stage: str, prompt: str, model_id: str, timeout_ms: int) -> dict[str, Any] | str:
+        # NRS receives only its lean fact-and-outcome contract.  The strategy
+        # prior is useful for route planning, but forwarding it here would
+        # reintroduce internal context that the realization prompt excludes.
+        if stage.startswith(("nrs_production_generate", "nrs_production_candidate_select")):
+            return base_runner(stage, prompt, model_id, timeout_ms)
         return base_runner(stage, _prefix(stage, prior) + prompt, model_id, timeout_ms)
     return run
 
@@ -69,12 +78,28 @@ def generate_integrated_draft(
     judge_model_ids: Sequence[str] = (),
     route_count: int = 3,
     prose_realisations: int = 2,
+    prose_strategy: str = DEFAULT_PROSE_STRATEGY,
     timeout_ms: int = 300_000,
     surface_preference_profile_path: Path | None = None,
     semantic_preference_profile_path: Path | None = None,
     runner: ModelRunner = subprocess_model_runner,
 ) -> tuple[list[Any], dict[str, Any]]:
     run_dir = run_dir.resolve()
+    if (
+        writer_model_id is None
+        and resolve_model("sol").model_id is None
+        and runner is subprocess_model_runner
+    ):
+        from .nrs_paired_reconstruction import (
+            default_backend_runner,
+            resolve_writer_backend,
+        )
+
+        backend = resolve_writer_backend()
+        if not backend.get("command_available"):
+            raise DeepWriterError("writer backend is unavailable")
+        writer_model_id = DEFAULT_BACKEND_SENTINEL
+        runner = default_backend_runner
     try:
         research_report = assert_research_ready(run_dir)
     except ValueError as error:
@@ -91,6 +116,7 @@ def generate_integrated_draft(
         judge_model_ids=judge_model_ids,
         route_count=route_count,
         prose_realisations=prose_realisations,
+        prose_strategy=prose_strategy,
         timeout_ms=timeout_ms,
         surface_preference_profile_path=surface_preference_profile_path,
         semantic_preference_profile_path=semantic_preference_profile_path,
@@ -155,6 +181,11 @@ def write_integrated_draft(run_dir: Path, *, output: Path | None = None, force: 
     write_json(output, [asdict(item) for item in responses])
     write_json(run_dir / REPORT_JSON, report)
     write_json(run_dir / "05_논증검색_검증.json", report)
+    if report.get("writer_strategy", {}).get("active") == DEFAULT_PROSE_STRATEGY:
+        write_json(run_dir / "05_NRS_서사선택.json", {
+            "writer_strategy": report["writer_strategy"],
+            "selections": report.get("nrs_realization_selection", []),
+        })
     return output, report
 
 
@@ -165,6 +196,7 @@ def _parser() -> argparse.ArgumentParser:
     p.add_argument("--judge-model-id", action="append", default=[])
     p.add_argument("--routes", type=int, default=3)
     p.add_argument("--prose-realisations", type=int, default=2)
+    p.add_argument("--prose-strategy", choices=tuple(sorted(PROSE_STRATEGIES)), default=DEFAULT_PROSE_STRATEGY)
     p.add_argument("--timeout-ms", type=int, default=300_000)
     p.add_argument("--surface-preference-profile", type=Path)
     p.add_argument("--semantic-preference-profile", type=Path)
@@ -183,6 +215,7 @@ def main(argv: list[str] | None = None) -> int:
         judge_model_ids=tuple(args.judge_model_id),
         route_count=args.routes,
         prose_realisations=args.prose_realisations,
+        prose_strategy=args.prose_strategy,
         timeout_ms=args.timeout_ms,
         surface_preference_profile_path=args.surface_preference_profile,
         semantic_preference_profile_path=args.semantic_preference_profile,

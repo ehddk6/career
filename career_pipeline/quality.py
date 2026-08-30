@@ -16,6 +16,7 @@ from .prompt_policy import (
     normalize_prompt,
 )
 from .profile_schema import ExperienceLedger
+from .self_introduction_genre import validate_self_introduction_genre
 
 
 @dataclass(frozen=True)
@@ -151,6 +152,51 @@ def _word_tokens(text: str) -> set[str]:
     }
 
 
+def _motivation_specificity(
+    question: Question,
+    answer: str,
+    *,
+    job_terms: tuple[str, ...] = (),
+) -> tuple[bool, bool]:
+    """Return ``(reason_present, role_specific)`` for motivation prompts.
+
+    Merely writing "지원했습니다" is a conclusion, not a reason.  When the
+    posting supplied duties, the opening must also name at least one concrete
+    duty/role token so an organization name cannot masquerade as specificity.
+    """
+    prompt = normalize_prompt(question.prompt)
+    motivation_prompt = (
+        "지원동기" in prompt
+        or "지원하게된" in prompt
+        or ("지원" in prompt and "동기" in prompt)
+    )
+    if not motivation_prompt:
+        return True, True
+    sentences = [
+        sentence.strip()
+        for sentence in re.split(r"[.!?。]+", answer)
+        if sentence.strip()
+    ]
+    lead = " ".join(sentences[:2])
+    reason_present = _has_any(
+        lead,
+        (
+            "때문", "매력", "가치", "의미", "관심", "선택", "맞닿",
+            "배우고자", "기여하고자", "활용하고자", "이어가고자",
+        ),
+    ) or bool(
+        re.search(
+            r"(?:라고|이라고|다고)\s*(?:생각|판단)(?:해|하여)\s*지원",
+            lead,
+        )
+    )
+    if not job_terms:
+        return reason_present, True
+    lead_tokens = _word_tokens(lead)
+    job_tokens = set().union(*(_word_tokens(term) for term in job_terms))
+    return reason_present, bool(lead_tokens.intersection(job_tokens))
+
+
 def score_answer_quality(
     question: Question,
     answer: str,
@@ -174,11 +220,25 @@ def score_answer_quality(
         issues.append("evidence_link_missing")
 
     needs_target = needs_target_specificity(question.prompt)
-    target_specificity = 20 if not needs_target or any(
+    target_named = any(
         token.lower() in answer.lower() for token in _target_tokens(target_org)
-    ) else 0
+    )
+    motivation_reason, motivation_role_specific = _motivation_specificity(
+        question, answer, job_terms=job_terms
+    )
+    target_specificity = (
+        20
+        if not needs_target
+        else 20
+        if target_named and motivation_reason and motivation_role_specific
+        else 8
+        if target_named
+        else 0
+    )
     if not target_specificity:
         issues.append("missing_target")
+    elif target_specificity < 20:
+        issues.append("generic_target_motivation")
 
     if is_research_only_prompt(question.prompt):
         has_action = any(cue in answer for cue in ANALYSIS_CUES)
@@ -281,7 +341,23 @@ def validate_answer_quality(
                 )
             )
 
-        issues.extend(_validate_prompt_requirements(question, answer))
+        issues.extend(
+            _validate_prompt_requirements(
+                question,
+                answer,
+                target_org=target_org,
+                job_terms=job_terms,
+            )
+        )
+        for genre_issue in validate_self_introduction_genre(answer):
+            if genre_issue.severity in {"hard", "material"}:
+                issues.append(
+                    ValidationIssue(
+                        genre_issue.code,
+                        question.index,
+                        genre_issue.message,
+                    )
+                )
         issues.extend(validate_nonghyup_answer(question, answer, target_org))
         score = score_answer_quality(
             question,
@@ -663,7 +739,11 @@ def _has_any(text: str, cues: tuple[str, ...]) -> bool:
 
 
 def _validate_prompt_requirements(
-    question: Question, answer: str
+    question: Question,
+    answer: str,
+    *,
+    target_org: str = "",
+    job_terms: tuple[str, ...] = (),
 ) -> list[ValidationIssue]:
     prompt = normalize_prompt(question.prompt)
     issues: list[ValidationIssue] = []
@@ -674,21 +754,23 @@ def _validate_prompt_requirements(
         or ("지원" in prompt and "동기" in prompt)
     )
     if motivation_prompt:
-        sentences = [
-            sentence.strip()
-            for sentence in re.split(r"[.!?。]+", answer)
-            if sentence.strip()
-        ]
-        lead = " ".join(sentences[:2])
-        if not _has_any(
-            lead,
-            ("매력", "때문", "가치", "의미", "관심", "지원했", "선택", "신뢰"),
-        ):
+        reason_present, role_specific = _motivation_specificity(
+            question, answer, job_terms=job_terms
+        )
+        if not reason_present:
             issues.append(
                 ValidationIssue(
                     "missing_motivation_reason",
                     question.index,
                     "지원동기 문항의 앞부분에 이 기관·직무를 선택한 개인적 이유가 드러나지 않습니다.",
+                )
+            )
+        if job_terms and not role_specific:
+            issues.append(
+                ValidationIssue(
+                    "generic_target_motivation",
+                    question.index,
+                    "기관명이나 일반적 공익만 언급했습니다. 공고의 구체적인 업무와 자신의 선택 이유를 연결하십시오.",
                 )
             )
 

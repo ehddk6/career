@@ -120,6 +120,42 @@ def test_contribution_scope_only_applies_to_sentence_describing_claim():
     )
 
 
+def test_contribution_scope_is_actor_aware_for_observed_results_and_team_outcomes():
+    claim = ProfileClaim(
+        field="experience_summary",
+        normalized_value="온라인 제출 이후 처리 시간이 줄어든 것을 확인했습니다.",
+        status="confirmed",
+        evidence=(),
+        claim_id="clm_actor_test",
+        verification=ClaimVerification(
+            method="direct_source",
+            scope="source excerpt",
+            contribution="observed",
+        ),
+    )
+
+    assert not _claim_overstates_contribution(
+        claim,
+        "온라인 제출 이후 처리 시간이 줄어든 것을 확인했습니다.",
+    )
+    assert _claim_overstates_contribution(
+        claim,
+        "제가 온라인 제출 방식을 적용해 처리 시간을 줄였습니다.",
+    )
+    assert not _claim_overstates_contribution(
+        claim,
+        "제가 자원봉사자 일정 조정 프로세스를 개선했습니다. 이후 인력 관리가 원활해진 변화를 확인했습니다.",
+    )
+    assert not _claim_overstates_contribution(
+        claim,
+        "제가 이상 건을 선별했고, 팀 검토에서 20건이 확정되었습니다.",
+    )
+    assert not _claim_overstates_contribution(
+        claim,
+        "온라인 제출 이후 처리 시간이 줄어든 것을 확인했습니다. 입사 후 업무에 기여하겠습니다.",
+    )
+
+
 def test_rigorous_candidate_evidence_paths_are_hydrated_from_exact_claim_ids():
     ledger = _v2_proposal()
     claim = ledger.experiences[0].claims[0]

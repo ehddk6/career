@@ -129,6 +129,8 @@ python -m career_pipeline application package `
   --decision "career_runs/eligibility-decision.json" `
   --private-data ".career_profile/private.json" `
   --attachment "resume=.career_profile/resume.pdf" `
+  --attachment "computer_skill=.career_profile/computer-skill.pdf" `
+  --credential-attachment "컴퓨터활용능력=computer_skill" `
   --output ".career_profile/application_packages/package.json"
 
 python -m career_pipeline application validate `
@@ -146,6 +148,10 @@ python -m career_pipeline application dry-run `
   --output ".career_profile/form-result.json" `
   --evaluation-time "2026-07-12T09:00:00+09:00"
 ```
+
+자격·어학은 프로필에 있다는 이유만으로 자동 기재하지 않습니다. 이번 지원서에 넣는 항목은 `--credential-attachment "자격명=첨부필드키"`로 증빙과 명시적으로 연결합니다. 아무 자격·어학도 기재하지 않으면 `--no-credentials`를 사용합니다. 선택을 생략한 채 프로필에 자격 정보가 있으면 패키지는 `manual_review`로 남습니다. 선택한 항목이 만료됐거나 연결한 증빙이 없으면 패키지는 `blocked`가 되며, 미선택 만료 항목은 자동 제외 목록에만 남습니다. 공고가 별도로 요구하는 파일은 `--required-attachment 필드키`로 추가할 수 있습니다.
+
+자기소개서 내부 검증 점수는 글·조사·면접 산출물의 검사 결과일 뿐, 지원서 완성도나 합격 확률이 아닙니다. 실제 제출 준비 상태는 패키지의 `submission_preflight_status`와 사유 코드를 별도로 확인합니다.
 
 `dry-run`은 label/name/role 기반으로 필드를 읽기 전용 매핑하고 로컬 입력 자료와의 호환성만 검증합니다. DOM 입력·클릭·파일 업로드·제출은 수행하지 않습니다. CAPTCHA, MFA, 비밀번호, 새 문항, 알 수 없는 필드, 글자 수 제한, 첨부파일 형식 불일치가 발견되면 계획 생성을 중단합니다. `queue approved`나 `review_required`는 실제 제출 승인 또는 자동지원 허용을 뜻하지 않습니다.
 

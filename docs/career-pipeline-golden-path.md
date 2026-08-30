@@ -100,11 +100,14 @@ AND internal_validation_score >= 90
 
 ## 사용법
 
+기본 CLI에서는 `workflow` 명령군을 사용합니다. 기존 `career-pipeline-golden` 및
+`python -m career_pipeline.golden_path` 명령은 호환성을 위해 유지됩니다.
+
 새 run 시작:
 
 ```powershell
-python -m career_pipeline.golden_path start `
-  --root . `
+python -m career_pipeline workflow start `
+  --workspace . `
   --target "기관 직무" `
   --draft "지원서.docx" `
   --posting "공고.pdf" `
@@ -115,7 +118,7 @@ python -m career_pipeline.golden_path start `
 Research 단계에서 멈췄으면 공식자료를 조사·ingest한 뒤:
 
 ```powershell
-python -m career_pipeline.golden_path resume `
+python -m career_pipeline workflow resume `
   --run "career_runs/<run-folder>" `
   --writer-model-id "<writer>" `
   --judge-model-id "<judge-a>" `
@@ -125,8 +128,38 @@ python -m career_pipeline.golden_path resume `
 현재 상태:
 
 ```powershell
-python -m career_pipeline.golden_path status --run "career_runs/<run-folder>"
+python -m career_pipeline workflow status `
+  --run "career_runs/<run-folder>" `
+  --format human
 ```
+
+`workflow status`는 읽기 전용이며 현재 상태, 다음 작업, 마지막 단계, 차단 코드,
+해당 단계의 입력 fingerprint와 출력 SHA를 보여 줍니다. 기존 최상위
+`career-pipeline status --input ...`은 별도의 local readiness 계약이므로 그대로 사용합니다.
+
+과거 실행을 새 계약으로 바로 재개할 수 있는지 확인할 때는 다음 명령을 사용합니다.
+
+```powershell
+python -m career_pipeline workflow migrate-plan `
+  --runs-root "career_runs" `
+  --format human
+```
+
+이 명령은 `career_runs` 바로 아래의 `run.json` 보유 폴더만 읽고 어떤 파일도 바꾸지 않습니다.
+`quality_mode=v2`, `strict_quality=true`, private workspace 경계를 모두 만족한 실행만
+`resume_candidate`로 표시합니다. 실제 게이트 통과 여부는 `workflow resume`이 다시 판정합니다.
+
+최종본이 준비된 실행에서만 시스템 불변성 벤치마크를 추가로 확인할 수 있습니다.
+
+```powershell
+python -m career_pipeline workflow resume `
+  --run "career_runs/<run-folder>" `
+  --system-benchmark report
+```
+
+`report`는 진단 보고서를 남기지만 golden-path 상태를 바꾸지 않습니다. `required`는
+벤치마크를 실행하지 못했거나 기존 임계값을 통과하지 못하면 이 CLI 호출을
+`review_required`로 반환합니다. 기본값은 `off`입니다.
 
 `--no-cache`는 upstream이 같아도 derived 단계 재실행이 필요한 진단 상황에서만 사용한다.
 

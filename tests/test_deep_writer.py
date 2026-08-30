@@ -195,6 +195,29 @@ def _runner_factory(structural_issue=False):
         if stage.startswith("deep_prose_judge"):
             candidate_ids = [value for value in _ids(prompt) if value.startswith("P")]
             return _judge_payload(candidate_ids)
+        if stage.startswith("nrs_production_generate"):
+            suffix = {
+                "1": " 영향이 큰 항목부터 처리해 마감 위험을 낮췄습니다.",
+                "2": " 문제를 유형별로 나눈 뒤 처리 순서를 정했습니다.",
+                "3": " 같은 오류가 반복되지 않도록 입력값을 다시 대조했습니다.",
+            }.get(stage.rsplit("_", 1)[-1], "")
+            return {
+                "blueprint_id": "bp1",
+                "question_index": 1,
+                "answer": (
+                    "반복되는 오류는 영향이 큰 항목부터 처리해야 한다고 판단했습니다. "
+                    "원자료와 입력값을 비교해 오류 유형을 나누고 누락 항목을 수정했습니다."
+                    + suffix
+                ),
+                "used_claim_ids": ["clm_e4e9b07a06043fba930b"],
+                "used_research_ids": [],
+            }
+        if stage.startswith("nrs_production_candidate_select"):
+            candidate_ids = list(dict.fromkeys(re.findall(r'"candidate_id"\s*:\s*"([^"]+)"', prompt)))
+            return {"ranking": [
+                {"candidate_id": candidate_id, "rank": index}
+                for index, candidate_id in enumerate(sorted(candidate_ids), start=1)
+            ]}
         if stage.startswith("deep_portfolio_critic"):
             critic_calls["count"] += 1
             if structural_issue and critic_calls["count"] == 1:
@@ -229,10 +252,11 @@ def test_deep_writer_searches_argument_routes_before_prose(tmp_path, monkeypatch
         judge_model_ids=("judge-a", "judge-b"),
         route_count=3,
         prose_realisations=2,
+        prose_strategy="deep_route",
         runner=_runner_factory(),
     )
     assert len(responses) == 1
-    assert report["architecture"] == "evidence_to_argument_search_v1"
+    assert report["writer_strategy"]["active"] == "deep_route"
     assert report["judge_independence"] == "heterogeneous_model_ids"
     assert report["semantic_validation"]["status"] == "passed"
     assert report["deterministic_validation"]["status"] == "passed"
@@ -257,6 +281,7 @@ def test_structural_critic_triggers_route_substitution_not_surface_rewrite(tmp_p
         judge_model_ids=("judge",),
         route_count=3,
         prose_realisations=1,
+        prose_strategy="deep_route",
         runner=_runner_factory(structural_issue=True),
     )
     assert responses
@@ -264,3 +289,122 @@ def test_structural_critic_triggers_route_substitution_not_surface_rewrite(tmp_p
     assert report["route_substitutions"][0]["from_route_id"] != report["route_substitutions"][0]["to_route_id"]
     assert report["semantic_validation"]["status"] == "passed"
     assert not any(call["stage"].startswith("deep_surface_repair") for call in report["calls"])
+
+
+def test_nrs_v2_is_the_default_writer_and_uses_blind_selection(tmp_path, monkeypatch):
+    run = tmp_path / "run"
+    run.mkdir()
+    (run / "02_확정경험원장.json").write_text(
+        json.dumps(_ledger(), ensure_ascii=False), encoding="utf-8"
+    )
+    monkeypatch.setattr(dw, "_state", lambda _: _state())
+
+    responses, report = dw.generate_deep_draft(
+        run,
+        packet=_packet(),
+        writer_model_id="writer",
+        judge_model_ids=("judge",),
+        route_count=3,
+        prose_realisations=3,
+        runner=_runner_factory(),
+    )
+
+    assert responses
+    assert report["writer_strategy"]["active"] == "nrs_v2"
+    assert report["writer_strategy"]["production_default"] == "nrs_v2"
+    assert report["nrs_realization_selection"][0]["selection_source"] == "nrs_v2"
+    roles = {call["role"] for call in report["calls"]}
+    assert "nrs_v2_realization" in roles
+    assert "nrs_v2_candidate_selection" in roles
+    assert "blind_prose_judge" not in roles
+
+
+def test_default_backend_keeps_unknown_model_identity_null(tmp_path, monkeypatch):
+    run = tmp_path / "run"
+    run.mkdir()
+    (run / "02_확정경험원장.json").write_text(
+        json.dumps(_ledger(), ensure_ascii=False), encoding="utf-8"
+    )
+    monkeypatch.setattr(dw, "_state", lambda _: _state())
+    monkeypatch.setattr(
+        dw,
+        "resolve_model",
+        lambda _: type("Model", (), {"model_id": None})(),
+    )
+    base_runner = _runner_factory()
+    seen_model_ids = []
+
+    def runner(stage, prompt, model_id, timeout_ms):
+        seen_model_ids.append(model_id)
+        return base_runner(stage, prompt, model_id, timeout_ms)
+
+    responses, report = dw.generate_deep_draft(
+        run,
+        packet=_packet(),
+        route_count=3,
+        prose_realisations=1,
+        prose_strategy="deep_route",
+        runner=runner,
+    )
+
+    assert responses
+    assert set(seen_model_ids) == {dw.DEFAULT_BACKEND_SENTINEL}
+    assert report["writer_model_id"] is None
+    assert report["judge_model_ids"] == [None]
+    assert report["model_identity_available"] is False
+    assert report["writer_backend"] == "injected_runner"
+    assert all(call["model_id"] is None for call in report["calls"])
+
+
+def test_motivation_route_contract_allows_only_present_grounded_application_intent():
+    blueprint = _packet()["questions"][0]
+    blueprint["intent"] = "motivation"
+    route_prompt = dw._route_prompt(blueprint, _packet(), {"support": []}, 3, [])
+    judge_prompt = dw._judge_prompt(
+        blueprint,
+        [{
+            "route_id": "r1",
+            "argument_posture": "fit",
+            "thesis": "t",
+            "proof_chain": [],
+            "evidence_gaps": [],
+            "missing_required_kinds": [],
+        }],
+        "hiring_manager",
+        "evaluate",
+        [],
+    )
+
+    assert "present-tense purpose" in route_prompt
+    assert "Do not invent a past origin story" in route_prompt
+    assert "present-tense application purpose" in judge_prompt
+    assert "fabricated past origin" in judge_prompt
+
+
+def test_nrs_falls_back_only_to_a_genre_gated_control_candidate(tmp_path, monkeypatch):
+    run = tmp_path / "run"
+    run.mkdir()
+    (run / "02_확정경험원장.json").write_text(
+        json.dumps(_ledger(), ensure_ascii=False), encoding="utf-8"
+    )
+    monkeypatch.setattr(dw, "_state", lambda _: _state())
+    base_runner = _runner_factory()
+
+    def runner(stage, prompt, model_id, timeout_ms):
+        if stage.startswith("nrs_production_generate"):
+            return {"blueprint_id": "wrong", "question_index": 1}
+        return base_runner(stage, prompt, model_id, timeout_ms)
+
+    responses, report = dw.generate_deep_draft(
+        run,
+        packet=_packet(),
+        writer_model_id="writer",
+        judge_model_ids=("judge",),
+        route_count=3,
+        runner=runner,
+    )
+
+    assert responses
+    selection = report["nrs_realization_selection"][0]
+    assert selection["selection_source"] == "deep_route_fallback"
+    assert any(call["role"] == "nrs_v2_control_fallback" for call in report["calls"])

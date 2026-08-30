@@ -43,6 +43,7 @@ from .discovery import (
 )
 from .extractors import extract_path
 from .inventory import build_inventory
+from .golden_path import GoldenPathError
 from .orchestrator import finalize_run, prepare_run
 from .posting_loader import (
     PostingSourceError,
@@ -101,6 +102,7 @@ from .readiness import (
     readiness_report_sha256,
 )
 from .state import write_json
+from .workflow import WorkflowError, add_workflow_parser, run_workflow_command
 
 
 PATINA_BACKENDS = {
@@ -159,6 +161,7 @@ def build_parser() -> argparse.ArgumentParser:
     prepare.add_argument("--target", required=True)
     prepare.add_argument("--draft", required=True)
     prepare.add_argument("--posting")
+    prepare.add_argument("--question-source")
     prepare.add_argument("--run-name")
     prepare.add_argument("--resume")
     prepare.add_argument("--profile")
@@ -331,6 +334,10 @@ def build_parser() -> argparse.ArgumentParser:
     application_package.add_argument("--decision", required=True)
     application_package.add_argument("--private-data", required=True)
     application_package.add_argument("--attachment", action="append", default=[])
+    application_package.add_argument("--required-attachment", action="append", default=[])
+    credential_selection = application_package.add_mutually_exclusive_group()
+    credential_selection.add_argument("--credential-attachment", action="append")
+    credential_selection.add_argument("--no-credentials", action="store_true")
     application_package.add_argument("--output", required=True)
     application_package.add_argument("--created-at")
     application_validate = application_commands.add_parser("validate")
@@ -455,6 +462,7 @@ def build_parser() -> argparse.ArgumentParser:
 
     audit = subparsers.add_parser("audit")
     audit.add_argument("--run", required=True)
+    add_workflow_parser(subparsers)
     return parser
 
 
@@ -1190,6 +1198,24 @@ def _application_attachments(root: Path, values: list[str]) -> dict[str, Path]:
     return attachments
 
 
+def _credential_attachment_keys(values: list[str] | None) -> dict[str, str] | None:
+    if values is None:
+        return None
+    bindings: dict[str, str] = {}
+    for item in values:
+        if "=" not in item:
+            raise ApplicationPackageError(
+                "--credential-attachment must use credential_name=field_key"
+            )
+        name, field_key = (value.strip() for value in item.split("=", 1))
+        if not name or not field_key or name in bindings:
+            raise ApplicationPackageError(
+                "credential names and attachment field keys must be unique and non-empty"
+            )
+        bindings[name] = field_key
+    return bindings
+
+
 def run_application_command(args: argparse.Namespace) -> int:
     root = Path(getattr(args, "root", ".")).resolve()
     if args.application_command == "live-plan":
@@ -1295,6 +1321,13 @@ def run_application_command(args: argparse.Namespace) -> int:
             private_data_path=_phase4_path(root, args.private_data, must_exist=True),
             profile_sha256=sha256(profile_path.read_bytes()).hexdigest(),
             attachments=_application_attachments(root, args.attachment),
+            required_attachment_keys=tuple(args.required_attachment),
+            included_credential_names=(
+                () if args.no_credentials else None
+            ),
+            credential_attachment_keys=(
+                {} if args.no_credentials else _credential_attachment_keys(args.credential_attachment)
+            ),
             created_at=args.created_at,
         )
         persist_application_package(
@@ -1395,6 +1428,12 @@ def main(argv: Sequence[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     if args.command in {"offline-acceptance", "status"}:
         return run_m5_command(args)
+    if args.command == "workflow":
+        try:
+            return run_workflow_command(args)
+        except (GoldenPathError, WorkflowError, OSError, ValueError) as error:
+            print(error)
+            return 4
     if args.command == "application":
         try:
             return run_application_command(args)
@@ -1487,6 +1526,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             args.run_name,
             Path(args.resume) if args.resume else None,
             profile=Path(args.profile) if args.profile else None,
+            question_source=args.question_source,
             official_domains=tuple(args.official_domain),
             research_domains=tuple(args.research_domain),
             official_source=args.official_source,

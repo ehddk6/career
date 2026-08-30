@@ -12,8 +12,8 @@ import json
 import re
 from typing import Any, Iterable, Mapping, Sequence
 
-SCHEMA_VERSION = 1
-POLICY_VERSION = "narrative_realization_shadow_v1"
+SCHEMA_VERSION = 2
+POLICY_VERSION = "narrative_realization_shadow_v2"
 
 # These are rhetorical functions, not factual evidence classes.
 MOVE_BY_PROOF_KIND = {
@@ -70,11 +70,22 @@ class NarrativeKernel:
     route_id: str
     thesis: str
     thesis_support_refs: tuple[str, ...]
-    proof_items: tuple[KernelItem, ...]
+    renderable_proof_items: tuple[KernelItem, ...]
+    validation_constraints: tuple[KernelItem, ...]
     distinctive_anchor_refs: tuple[str, ...]
     evidence_gaps: tuple[str, ...]
     ownership_ceiling: str
-    prohibited_inferences: tuple[str, ...]
+
+    @property
+    def proof_items(self) -> tuple[KernelItem, ...]:
+        """Compatibility view containing only material that may be rendered.
+
+        Schema v1 mixed route guardrails with prose evidence.  Callers that
+        still use ``proof_items`` receive the safe, renderable subset, so a
+        validation-only item can never re-enter a realization order by
+        accident.
+        """
+        return self.renderable_proof_items
 
 
 @dataclass(frozen=True)
@@ -131,7 +142,8 @@ def build_narrative_kernel(
         raise NarrativeRealizationError("route proof_chain is required")
 
     distinctive = set(_strings(route.get("distinctive_anchor_refs")))
-    proof_items: list[KernelItem] = []
+    renderable_proof_items: list[KernelItem] = []
+    validation_constraints: list[KernelItem] = []
     for index, raw in enumerate(raw_proof):
         if not isinstance(raw, Mapping):
             raise NarrativeRealizationError("proof item must be object")
@@ -143,25 +155,25 @@ def build_narrative_kernel(
         refs = _strings(raw.get("support_refs"))
         if not text:
             raise NarrativeRealizationError("proof item text is required")
-        proof_items.append(
-            KernelItem(
-                proof_index=index,
-                kind=kind,
-                move=move,
-                text=text,
-                support_refs=refs,
-                distinctive_anchor=bool(distinctive.intersection(refs)),
-            )
+        item = KernelItem(
+            proof_index=index,
+            kind=kind,
+            move=move,
+            text=text,
+            support_refs=refs,
+            distinctive_anchor=bool(distinctive.intersection(refs)),
         )
+        # A guardrail describes what the validator must enforce.  It is not
+        # a sentence beat and must never be offered to the prose writer.
+        if kind == "guardrail":
+            validation_constraints.append(item)
+        else:
+            renderable_proof_items.append(item)
+
+    if not renderable_proof_items:
+        raise NarrativeRealizationError("route must contain renderable proof")
 
     gaps = _strings(route.get("evidence_gaps"))
-    prohibited = tuple(
-        [
-            "Do not add facts, numbers, motives, outcomes, causality, or ownership beyond the blueprint and selected route.",
-            "Do not strengthen observed/contributed work into sole personal causation.",
-        ]
-        + ([f"Unresolved route gap: {gap}" for gap in gaps] if gaps else [])
-    )
     return NarrativeKernel(
         schema_version=SCHEMA_VERSION,
         policy_version=POLICY_VERSION,
@@ -171,11 +183,11 @@ def build_narrative_kernel(
         route_id=route_id,
         thesis=thesis,
         thesis_support_refs=_strings(route.get("thesis_support_refs")),
-        proof_items=tuple(proof_items),
+        renderable_proof_items=tuple(renderable_proof_items),
+        validation_constraints=tuple(validation_constraints),
         distinctive_anchor_refs=tuple(sorted(distinctive)),
         evidence_gaps=gaps,
         ownership_ceiling=ownership_ceiling,
-        prohibited_inferences=prohibited,
     )
 
 
@@ -265,17 +277,6 @@ def generate_realization_plans(
             "Surfaces a route-approved distinctive anchor without inventing a new artifact.",
         ))
 
-    if kinds.intersection({"context", "guardrail"}):
-        order = _ranked_order(
-            kernel,
-            ("guardrail", "context", "criterion", "judgment", "action", "outcome", "fit_bridge"),
-        )
-        candidates.append(_plan(
-            kernel, "boundary_first", order,
-            "역할·권한·제약 또는 지켜야 할 기준을 먼저 밝히고, 그 경계 안에서 실제로 한 선택과 행동을 보여준다.",
-            "Makes ownership and operating boundaries explicit before claiming contribution.",
-        ))
-
     if "tradeoff" in kinds:
         order = _ranked_order(
             kernel,
@@ -287,10 +288,74 @@ def generate_realization_plans(
             "Uses an already-supported trade-off as the organizing contrast.",
         ))
 
-    # Preserve route order as a control only when evidence does not support enough
-    # orthogonal openings. This is not labelled as an experimental improvement.
+    # A route can be fully defensible yet lack a named decision, tension, or
+    # distinctive anchor.  Benchmark v2 still needs three genuinely different
+    # supported orders; these use existing evidence functions rather than a
+    # validation guardrail or an invented narrative premise.
+    if "action" in kinds:
+        order = _ranked_order(
+            kernel,
+            ("action", "judgment", "criterion", "friction", "context", "outcome", "reflection", "fit_bridge"),
+        )
+        candidates.append(_plan(
+            kernel, "action_first", order,
+            "가장 구체적인 본인 행동으로 시작한 뒤, 그 행동의 판단 배경과 결과를 자연스럽게 연결한다.",
+            "Opens with a route-approved applicant action when other narrative openings are scarce.",
+        ))
+
+    if "outcome" in kinds:
+        order = _ranked_order(
+            kernel,
+            ("outcome", "friction", "judgment", "criterion", "action", "reflection", "fit_bridge"),
+        )
+        candidates.append(_plan(
+            kernel, "outcome_first", order,
+            "확인된 변화나 산출물을 먼저 제시하고, 이를 만든 상황·판단·행동을 뒤에서 설명한다.",
+            "Uses a route-approved outcome as a concise answer-first opening.",
+        ))
+
+    if "context" in kinds:
+        order = _ranked_order(
+            kernel,
+            ("context", "friction", "judgment", "criterion", "action", "outcome", "reflection", "fit_bridge"),
+        )
+        candidates.append(_plan(
+            kernel, "context_first", order,
+            "업무 상황을 짧게 제시한 뒤, 곧바로 본인의 판단과 행동으로 이어 간다.",
+            "Uses an already-supported context without turning a validation boundary into prose.",
+        ))
+
+    if "reflection" in kinds:
+        order = _ranked_order(
+            kernel,
+            ("reflection", "friction", "judgment", "action", "outcome", "fit_bridge"),
+        )
+        candidates.append(_plan(
+            kernel, "reflection_first", order,
+            "경험에서 얻은 구체적 판단을 먼저 제시하고, 그 판단이 형성된 장면과 행동을 이어 보인다.",
+            "Uses an existing reflection rather than manufacturing a lesson.",
+        ))
+
+    # Last-resort structural expansion for a source-complete route: every
+    # renderable proof item may be a factual opening, followed by the original
+    # route order.  This is a change of emphasis only; it never creates a
+    # guardrail-first or an unsupported rhetorical claim.
+    route_order = tuple(item.proof_index for item in kernel.renderable_proof_items)
+    for item in kernel.renderable_proof_items:
+        order = (item.proof_index,) + tuple(index for index in route_order if index != item.proof_index)
+        candidates.append(_plan(
+            kernel,
+            f"evidence_first_{item.kind}_{item.proof_index}",
+            order,
+            "선택된 사실 하나를 첫 문장에 제시한 뒤, 같은 근거를 원래의 논리 순서로 연결한다.",
+            "Uses an existing proof item as the opening when a route needs another supported order.",
+        ))
+
+    # Preserve route order only when the route contains too little renderable
+    # material to support any alternate opening.  The paired v2 runner uses a
+    # separately constructed route-order control.
     if not candidates:
-        order = tuple(item.proof_index for item in kernel.proof_items)
+        order = route_order
         candidates.append(_plan(
             kernel, "route_order_control", order,
             "선택된 argument route의 기존 proof 순서를 보존해 자연스럽게 산문으로 실현한다.",
@@ -314,6 +379,23 @@ def generate_realization_plans(
     return result
 
 
+def build_route_order_control_plan(kernel: NarrativeKernel) -> RealizationPlan:
+    """Return the shared baseline realization order for benchmark v2.
+
+    The control arm has no rhetorical-treatment advantage: it keeps the
+    selected route order and varies only surface realization across its three
+    candidates.
+    """
+    order = tuple(item.proof_index for item in kernel.renderable_proof_items)
+    return _plan(
+        kernel,
+        "route_order_control",
+        order,
+        "선택된 근거의 순서를 유지해 질문에 바로 답하는 자연스러운 자기소개서로 쓴다.",
+        "Shared route-order control for paired benchmark v2.",
+    )
+
+
 def ordered_proof(kernel: NarrativeKernel, plan: RealizationPlan) -> list[dict[str, Any]]:
     by_index = {item.proof_index: item for item in kernel.proof_items}
     return [asdict(by_index[index]) for index in plan.ordered_proof_indexes]
@@ -331,56 +413,109 @@ def build_nrs_prompt(
     semantic_preferences: Sequence[str] = (),
 ) -> str:
     """Build a generation prompt compatible with Narrative Compiler payloads."""
-    compact = {
-        "target": packet.get("target"),
-        "portfolio_rules": (
-            packet.get("portfolio", {}).get("cross_answer_rules", [])
-            if isinstance(packet.get("portfolio"), Mapping)
-            else []
-        ),
+    experience = blueprint.get("experience")
+    if not isinstance(experience, Mapping):
+        experience = {}
+    character_plan = blueprint.get("character_plan")
+    if not isinstance(character_plan, Mapping):
+        character_plan = {}
+    hard_maximum = (
+        blueprint.get("character_limit")
+        or packet.get("character_limit")
+        or character_plan.get("hard_maximum")
+    )
+    character_target = character_plan.get("target")
+    selected_claims = experience.get("selected_claims", [])
+    if not isinstance(selected_claims, Sequence) or isinstance(selected_claims, (str, bytes)):
+        selected_claims = []
+    observed_result = any(
+        isinstance(claim, Mapping)
+        and str(claim.get("contribution") or (claim.get("verification") or {}).get("contribution") or "").strip()
+        in {"observed", "unknown"}
+        for claim in selected_claims
+    )
+    selected_metrics = [
+        str(claim.get("normalized_value", "")).strip()
+        for claim in selected_claims
+        if isinstance(claim, Mapping)
+        and claim.get("is_metric") is True
+        and str(claim.get("normalized_value", "")).strip()
+    ]
+    required_metric_ids = {
+        str(value)
+        for value in experience.get("required_metric_claim_ids", []) or []
+    }
+    actor_result_guidance = (
+        "과거 경험에서는 본인이 한 행동을 먼저 쓰고, 이후 나타난 변화는 별도 문장에서 관찰된 결과로 제시합니다."
+        if observed_result else
+        "과거 경험에서는 본인이 한 행동과 그 행동의 결과를 각각 분명한 주어로 씁니다."
+    )
+    facts = {
+        "target_role": packet.get("target"),
+        "question": blueprint.get("prompt"),
+        "question_index": blueprint.get("question_index"),
+        "character_limit": {
+            "count_mode": character_plan.get("count_mode"),
+            "target": character_target,
+            "hard_maximum": hard_maximum,
+        },
+        "job_connection": {
+            "target": packet.get("target"),
+            "matched_duties": experience.get("matched_duties", []),
+            "matched_competencies": experience.get("matched_competencies", []),
+        },
+        "applicant_role": experience.get("role") or experience.get("position"),
+        "allowed_claims": selected_claims,
+        "actor_and_result": {
+            "applicant": "지원자 본인",
+            "past_result_expression": actor_result_guidance,
+        },
+        "allowed_research": blueprint.get("research_claims", []),
+        "thesis": kernel.thesis,
+        "proof_order": ordered_proof(kernel, plan),
+    }
+    output_contract = {
         "blueprint_id": blueprint.get("blueprint_id"),
         "question_index": blueprint.get("question_index"),
-        "prompt": blueprint.get("prompt"),
-        "intent": blueprint.get("intent"),
-        "logic_contract": blueprint.get("logic_contract"),
-        "character_plan": blueprint.get("character_plan"),
-        "beats": blueprint.get("beats"),
-        "experience": blueprint.get("experience"),
-        "research_claims": blueprint.get("research_claims"),
-        "portfolio_constraints": blueprint.get("portfolio_constraints"),
-        "risk_controls": blueprint.get("risk_controls"),
-        "interview_defense_questions": blueprint.get("interview_defense_questions"),
-    }
-    context = {
-        "blueprint": compact,
-        "selected_route": route,
-        "narrative_kernel": asdict(kernel),
-        "realization_plan": asdict(plan),
-        "ordered_proof": ordered_proof(kernel, plan),
-        "surface_preferences": list(surface_preferences),
-        "semantic_preferences": list(semantic_preferences),
-        "prior_answers_for_portfolio_diversity": [dict(item) for item in prior_answers],
+        "required_keys": [
+            "blueprint_id", "question_index", "answer", "used_claim_ids", "used_research_ids"
+        ],
     }
     latency = plan.answer_latency
-    principles = [
-        "이 작업은 같은 근거를 다른 서사 구조로 실현하는 shadow 실험이다. 새로운 사실 권한을 만들지 않는다.",
-        "blueprint의 selected_claims/research_claims와 selected_route의 support_refs 밖의 사실·수치·동기·결과를 추가하지 않는다.",
-        "observed/contributed 기여를 단독 인과나 최종 권한으로 강화하지 않는다.",
-        "realization_plan.move_sequence는 소제목이 아니라 문장 기능의 우선순위다.",
-        f"문항 intent={kernel.question_intent}에서 핵심 신호({latency['required_signal']})를 {latency['max_sentence']}번째 문장 이내에 드러낸다.",
-        "지원자 고유의 anchor를 보존하되, 고유명사 자체를 개성으로 착각하지 않는다.",
-        "문항에 직접 답하고, 면접에서 그대로 설명할 수 있는 한국어로 쓴다.",
-        "실제로 사용한 claim/research ID만 반환한다.",
-    ]
+    length_goal = (
+        f"공백 제외 약 {character_target}자, 최대 {hard_maximum}자"
+        if character_target and hard_maximum
+        else (f"최대 {hard_maximum}자" if hard_maximum else "문항 분량")
+    )
+    metric_goal = (
+        "- required_metric_claim_ids의 승인 수치를 모두 표기 그대로 본문에 사용합니다.\n"
+        if required_metric_ids
+        else "- selected_claims의 승인 수치 중 최소 한 개를 표기 그대로 본문에 사용합니다.\n"
+        if selected_metrics else ""
+    )
     return (
-        "<context>\n"
-        + json.dumps(context, ensure_ascii=False)
-        + "\n</context>\n<writing_principles>\n- "
-        + "\n- ".join(principles)
-        + "\n</writing_principles>\n<task>\n"
-        + "선택된 argument route의 사실 의미는 바꾸지 말고 realization plan의 구조를 실제 산문에 반영해 "
-        + "자기소개서 답변 하나를 작성한다. JSON은 blueprint_id, question_index, answer, "
-        + "used_claim_ids, used_research_ids만 반환한다.\n</task>"
+        "Role:\n한국어 공공기관 자기소개서 편집자입니다.\n\n"
+        "# Goal\n제공된 사실만으로 질문에 직접 답하는 자연스러운 자기소개서 본문을 작성합니다.\n\n"
+        "# Success Criteria\n"
+        f"- 핵심 판단·행동을 {latency['max_sentence']}번째 문장 안에 보여 줍니다.\n"
+        "- 본인 행동, 협업 결과, 관찰된 변화의 주어와 동사를 정확히 씁니다.\n"
+        + metric_goal
+        +
+        f"- {actor_result_guidance}\n"
+        f"- 분량은 {length_goal}에 맞춥니다.\n"
+        "- 면접에서 그대로 말할 수 있는 자연스러운 한국어 문단을 만듭니다.\n\n"
+        "# Constraints\n"
+        "- 제공된 사실 밖의 수치·날짜·동기·결과를 보태지 않습니다.\n"
+        "- 수치와 기간은 allowed_facts에 있는 표기를 그대로 사용합니다.\n"
+        "- 작성 과정이나 사실 확인 과정을 독자에게 설명하지 않습니다.\n"
+        "- 서사 순서는 아래 proof_order를 따르되, 소제목처럼 나열하지 않습니다.\n\n"
+        "# Output\n본문과 사용한 근거 ID만 JSON으로 반환합니다.\n\n"
+        "# Stop Rules\n필요한 사실이 없으면 추정하지 말고 제공된 사실로 답변을 완성합니다.\n\n"
+        "<allowed_facts>\n"
+        + json.dumps(facts, ensure_ascii=False)
+        + "\n</allowed_facts>\n<output_contract>\n"
+        + json.dumps(output_contract, ensure_ascii=False)
+        + "\n</output_contract>"
     )
 
 
